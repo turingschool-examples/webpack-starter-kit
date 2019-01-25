@@ -4,7 +4,9 @@
   "description": "Gametime starter kit using webpack, mocha, and chai",
   "main": "src/index.js",
   "scripts": {
-    "test": "npm test"
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "test": "mochapack 'test/**/*.js'"
   },
   "repository": {
     "type": "git",
