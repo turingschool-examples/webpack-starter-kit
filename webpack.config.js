@@ -9,6 +9,15 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   mode: 'development',
+  // CSS loader
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
   // Below is needed for webpack-dev-server
   plugins: [
     new HtmlWebpackPlugin({
