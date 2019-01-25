@@ -20,6 +20,8 @@ npm install
 
 ## Where to Add Your Code
 
+### JavaScript
+
 You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
 
 **Create all of your feature code files in the `src` directory.**
@@ -27,6 +29,16 @@ You have to be very intentional with where you add your feature code. This repo 
 Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
 
 Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`.
+
+### HTML
+
+Add your HTML to the `index.html` file at the root of this directory. There is some boilerplate HTML that exists from the start that you can modify for your game.
+
+### CSS
+
+Add your CSS files in the `src/css` directory. There is a `base.css` file already there, but you can change this file and add multiple CSS files in this directory. Note that this project structure does not support SCSS.
+
+This might sound weird, but you need to `import` your CSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.css` file has already been imported in the JavaScript entry file.
 
 ## How to View Your Code in Action
 
