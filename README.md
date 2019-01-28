@@ -18,6 +18,8 @@ Once you have cloned the repo, install the library dependencies. Run:
 npm install
 ```
 
+To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text and a pink background. If that's the case, enter `control + c` in your terminal to stop the server.
+
 ## Where to Add Your Code
 
 ### JavaScript
