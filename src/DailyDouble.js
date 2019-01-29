@@ -3,4 +3,8 @@ class DailyDouble extends Clue {
     super(question, pointValue, answer, categoryId);
     this.wager = wager;
   }
+
+  wagerScore() {
+    
+  }
 }
