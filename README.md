@@ -1,5 +1,5 @@
 ## Project title
-Jeopardy: GameTime
+**Jeopardy: GameTime**
 
 Created by:
  - Raechel Odom (https://github.com/raechelo) 
