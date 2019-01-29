@@ -6,6 +6,4 @@ import './css/base.css';
 
 //  Tell webpack to use an image (link to it in index.html)
 
-
-
 console.log('This is the JavaScript entry file - your code begins here.');
