@@ -42,6 +42,10 @@ Add your CSS files in the `src/css` directory. There is a `base.css` file alread
 
 This might sound weird, but you need to `import` your CSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.css` file has already been imported in the JavaScript entry file.
 
+### Images
+
+Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` your image files in the JavaScript entry file (`index.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
+
 ## How to View Your Code in Action
 
 In the terminal, run:
