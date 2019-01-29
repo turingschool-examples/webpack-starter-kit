@@ -1,3 +1,69 @@
 body {
-  background-color: pink;
+  margin: 40px;
+  box-sizing: border-box;
+}
+
+h2{
+  padding-top: 10px;
+}
+
+h3{
+  margin: auto;
+  padding-top: 8px;
+  text-decoration: underline;
+}
+
+.game-board-area{
+  border: 5px solid black;
+  width: 650px;
+  border-radius: 5px;
+  padding: 5px;
+
+}
+
+.categories-container{
+ display: grid;
+  grid-gap: 10px;
+  margin-bottom: 10px;
+  grid-template-columns: repeat(6, 100px);
+  grid-template-rows: repeat(1, 70px);
+  grid-auto-flow: row; 
+
+}
+.categories-box{
+  background-color: black;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 15px;
+  text-align: center;
+
+}
+
+.categories-box:hover{
+  color: black;
+  background-color: gainsboro
+}
+
+.questions-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, 100px);
+  grid-template-rows: repeat(5, 100px);
+  grid-auto-flow: column;
+}
+
+.box {
+  background-color: navy;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  text-align: center;
+  ;
+}
+
+.box:hover{
+  background-color: gainsboro;
+  color: black;
+
 }
