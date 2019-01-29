@@ -1,0 +1,5 @@
+class Wheel {
+  constructor(value) {
+
+  }
+}
