@@ -1,0 +1,5 @@
+class Clue{
+  constructor(){
+    
+  }
+}
