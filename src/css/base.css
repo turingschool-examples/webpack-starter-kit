@@ -12,23 +12,51 @@ h3{
   padding-top: 8px;
   text-decoration: underline;
 }
+.player-name{
+  place-self: center;
+}
 
 .game-board-area{
+  display: grid;
+  grid-template-areas: "categories player" "question player";
+  grid-template-columns: 1fr 1fr;
   border: 5px solid black;
-  width: 650px;
   border-radius: 5px;
   padding: 5px;
 
 }
 
 .categories-container{
+  grid-area: categories;
  display: grid;
   grid-gap: 10px;
   margin-bottom: 10px;
-  grid-template-columns: repeat(6, 100px);
+  grid-template-columns: repeat(4, 150px);
   grid-template-rows: repeat(1, 70px);
   grid-auto-flow: row; 
+}
 
+.player-area{
+  padding-right: 5px;
+  padding-left: 10px;
+  grid-area: player;
+  display: grid;
+  grid-template-rows: repeat(3, 205px)
+}
+
+.player-square{
+  background-color: gainsboro;
+  margin: 5px;
+  padding-left: 20px;
+  border-radius: 5px;
+}
+
+.player-name{
+  margin-bottom: 5px;
+}
+
+input{
+  margin-top: -20px;
 }
 .categories-box{
   background-color: black;
@@ -46,9 +74,10 @@ h3{
 }
 
 .questions-container {
+  grid-area: question;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(6, 100px);
+  grid-template-columns: repeat(4, 150px);
   grid-template-rows: repeat(5, 100px);
   grid-auto-flow: column;
 }
@@ -65,5 +94,4 @@ h3{
 .box:hover{
   background-color: gainsboro;
   color: black;
-
 }
