@@ -11,12 +11,6 @@ class Clue {
   }
 
   removeClue() {
-    
+
   }
 }
-
-
-// question: "One of the most popular shows on the Food Network is \"The Essence of\" him",
-// pointValue: 200,
-// answer: "Emeril",
-// categoryId: 10
