@@ -1,0 +1,27 @@
+body {
+  font-family: 'Oswald', sans-serif;
+}
+
+table {
+  background-color: #ECFEAA;
+  color: #414770;
+  width: 75%;
+}
+
+table tr {
+  font-size: 44px;
+}
+
+.game-category {
+  font-size: 32px;
+}
+
+table td {
+  background-color: #bce784;
+  border: 1px solid #414770;
+  text-align: center;
+}
+
+table td:hover {
+  color: #fff;
+}
