@@ -1,6 +1,9 @@
 ## Project title
 Jeopardy: GameTime
-Created by Raechel Odom (https://github.com/raechelo) & Justin Pyktel (https://github.com/SiimonStark)
+
+Created by:
+ - Raechel Odom (https://github.com/raechelo) 
+ - Justin Pyktel (https://github.com/SiimonStark)
 
 ## Motivation
 
