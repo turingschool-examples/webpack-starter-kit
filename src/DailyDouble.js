@@ -1,7 +1,5 @@
 class DailyDouble{
   constructor(){
     super();
-
-    
   }
 }
