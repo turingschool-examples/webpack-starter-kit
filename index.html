@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Gametime Starter Kit</title>
+    <title>Wheel of Fortune</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="src/css/base.css">
+    <!-- Normalize file? -->
   </head>
   <body>
-    <h1>Gametime Starter Kit</h1>
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+    <section class="landing-page"></section>
+    <header>
+      <article>Round</article>
+      <article>
+        <h1>Wheel Of Fortune</h1>
+      </article>
+      <button>New Game</button>
+    </header>
+    <main>
+      <section class="play">
+        <button class="wheel"></button>
+        <form class="guess-letter">
+          <input type="text">
+          <button>Guess</button>
+        </form>
+        <form class="buy-vowel">
+          <input type="text">
+          <button>Buy</button>
+        </form>
+        <form class="solve-puzzel">
+          <input type="text">
+          <button>Solve</button>
+        </form>
+      </section>
+      <section class="puzzel"></section>
+      <section class="feedback">
+        <article class="message"></article>
+        <article class="guessed-letters"></article>
+      </section>
+      <section class="players">
+        <article class="player">
+          <h2>Player 1</h2>
+          <p>Round: Score</p>
+          <p>Game: Score</p>
+        </article>
+        <article class="player">
+          <h2>Player 2</h2>
+          <p>Round: Score</p>
+          <p>Game: Score</p>
+        </article>
+        <article class="player">
+          <h2>Player 2</h2>
+          <p>Round: Score</p>
+          <p>Game: Score</p>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
