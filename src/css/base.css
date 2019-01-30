@@ -15,9 +15,18 @@ h3{
 .player-name{
   place-self: center;
 }
+
+.start-game{
+  margin: auto;
+  border-radius: 5px;
+  background-color: navy;
+  color: white;
+  font-size: 20px;
+  width: 100px;
+  height: 30px;
+}
 .entry-page{
   display: none; 
-
 }
 .game-board-area{
   display: grid;
@@ -55,6 +64,7 @@ h3{
 }
 
 .player-square{
+  padding-top: 10px;
   text-align: center;
   height: 150px;
   background-color: gainsboro;

@@ -1,8 +1,8 @@
 class Player{
-  constructor(name){
+  constructor(name, score =0, wager =0){
     this.name = name;
     this.score = score;
-    this.
+    this.wager = wager;
     
   }
 }

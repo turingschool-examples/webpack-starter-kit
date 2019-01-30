@@ -1,5 +1,5 @@
 
-// import Game from './Game.js';
+import Game from './Game.js';
 const startButton = document.querySelector('.start-game');
 const player1 = document.querySelector('#player1');
 const player2 = document.querySelector('#player2');
@@ -11,21 +11,24 @@ var playerThreeName = '';
 
 
 
-window.addEventListener('load',createGame);
-startButton.addEventListener('click', startGame);
+// window.addEventListener('load',createGame);
+startButton.addEventListener('click', createGame);
 
 
 function createGame(e){
     e.preventDefault();
   var game = new Game(round = 1, undefined);
+  startGame(game);
 
 }
 
-function startGame(e){
-  e.preventDefault();
+function startGame(game){
+
   playerOneName = player1.value;
   playerTwoName = player2.value;
   playerThreeName = player3.value;
+  const players = [playerOneName, playerTwoName, playerThreeName];
+  game.startGame(players);
   createGameBoard();
 }
 

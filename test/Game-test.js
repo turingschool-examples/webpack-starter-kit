@@ -10,6 +10,13 @@ describe('Game', () => {
 
   })
 
+  it('Should have an array of players', () =>{
+    const game = new Game();
+    game.start(['players', 'players', 'players']);
+    expect(game.players.length).to.equal(3);
+
+  })
+
 
 
 
