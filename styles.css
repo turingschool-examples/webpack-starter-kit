@@ -1,5 +1,6 @@
 body {
   font-family: 'Oswald', sans-serif;
+  background-color: #ECFEAA;
 }
 
 .game-board {
@@ -8,21 +9,28 @@ body {
   display: grid;
   font-size: 44px;
   grid-template-areas:
-  "1 2 3 4 5 6"
-  "a1 a2 a3 a4 a5 a6"
-  "b1 b2 b3 b4 b5 b6"
-  "c1 c2 c3 c4 c5 c6"
-  "d1 d2 d3 d4 d5 d6"
-  "e1 e2 e3 e4 e5 e6";
-  width: 75%;
+  "title title title title title"
+  "cat cat cat cat cat"
+  "a1 a2 a3 a4 a5"
+  "b1 b2 b3 b4 b5"
+  "c1 c2 c3 c4 c5"
+  "d1 d2 d3 d4 d5";
+  grid-auto-columns: 1fr;
+  width: 100%;
 }
-/* 
-section article {
-  display: flex;
-} */
+
+.game-board h1 {
+  text-align: center;
+}
+
+.rules {
+  border: 1px solid #414770;
+}
 
 .cat {
   font-size: 32px;
+  grid-area: cat;
+  text-align: center;
 }
 
 section h3 {
