@@ -45,6 +45,8 @@ body {
 }
 
 .pokemon {
+  position: relative;
+  z-index: 2;
   height: 100px;
   margin-top: -20px;
   width: 100px;
@@ -56,6 +58,29 @@ body {
 
 h5 {
   margin: -20px 0 0 0;
+}
+
+.shadow1,
+.shadow2,
+.shadow3 {
+  position: absolute;
+  width: 80px;
+  height: 20px;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 100px / 50px;
+}
+
+.shadow1 {
+  top: 255px;
+}
+
+.shadow2 {
+  top: 460px;
+}
+
+.shadow3 {
+  top: 660px;
 }
 /* ============================= */
 /* ============================= */
