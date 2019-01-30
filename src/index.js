@@ -4,6 +4,9 @@ const startButton = document.querySelector('.start-game');
 const player1 = document.querySelector('#player1');
 const player2 = document.querySelector('#player2');
 const player3 = document.querySelector('#player3');
+var playerOneName = '';
+var playerTwoName = '';
+var playerThreeName = '';
 
 
 
@@ -20,10 +23,9 @@ function createGame(e){
 
 function startGame(e){
   e.preventDefault();
-  const playerOne = player1.value;
-  const playerTwo = player2.value;
-  const playerThree = player3.value;
-  console.log('stuff');
+  playerOneName = player1.value;
+  playerTwoName = player2.value;
+  playerThreeName = player3.value;
   createGameBoard();
 }
 
@@ -31,6 +33,10 @@ function startGame(e){
 function createGameBoard(){
 document.querySelector('.entry-page').className ='game-board-area';
 document.querySelector('.intro-page').className = "entry-page";
+document.querySelector('#player1-name-text').innerText = playerOneName;
+document.querySelector('#player2-name-text').innerText = playerTwoName;
+document.querySelector('#player3-name-text').innerText = playerThreeName;
+
 console.log();
 }
 

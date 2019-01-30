@@ -21,13 +21,17 @@ h3{
 }
 .game-board-area{
   display: grid;
-  grid-template-areas: "categories player" "question player";
+  grid-template-areas: "gameboard player";
   grid-template-columns: 1fr 1fr;
-  border: 5px solid black;
-  border-radius: 5px;
   padding: 5px;
   min-width: 1050px;
 
+}
+
+.game-board{
+  grid-area: gameboard;
+  grid-column: 1;
+  grid-row: 1
 }
 
 .categories-container{
@@ -35,7 +39,7 @@ h3{
  display: grid;
   grid-gap: 10px;
   margin-bottom: 10px;
-  grid-template-columns: repeat(4, 150px);
+  grid-template-columns: repeat(4, 200px);
   grid-template-rows: repeat(1, 70px);
   grid-auto-flow: row; 
 }
@@ -45,19 +49,22 @@ h3{
   padding-left: 10px;
   grid-area: player;
   display: grid;
-  grid-template-rows: repeat(3, 205px);
-  grid-template-columns: minmax(400px, 1fr);
+  grid-template-columns: repeat(3, 270px);
+  grid-row: 2;
+  grid-column: 1;
 }
 
 .player-square{
+  text-align: center;
+  height: 150px;
   background-color: gainsboro;
   margin: 5px;
-  padding-left: 20px;
   border-radius: 5px;
 }
 
 .player-name{
   margin-bottom: 5px;
+  font-size: 20px;
 }
 
 #player-1{
@@ -84,7 +91,7 @@ input{
   grid-area: question;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(4, 150px);
+  grid-template-columns: repeat(4, 200px);
   grid-template-rows: repeat(4, 100px);
   grid-auto-flow: column;
 }
