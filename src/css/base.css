@@ -77,11 +77,6 @@ input{
 
 }
 
-.categories-box:hover{
-  color: black;
-  background-color: gainsboro
-}
-
 .questions-container {
   grid-area: question;
   display: grid;
