@@ -6,6 +6,26 @@ body {
   background-color: pink;
 }
 
+/*login page*/
+.landing-page {
+  background-color: blue;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+
+.player-label {
+  color: pink;
+}
+
+.start-button {
+  background-color: red;
+}
+
 /* Header Section Begins Here*/
 
 header {
@@ -19,7 +39,7 @@ header {
 main {
   display: grid;
     grid-template-areas: 
-      "play puzzel"
+      "play puzzle"
       "play feedback"
       "players players";
     grid-template-columns: 1fr 2fr;
@@ -55,10 +75,10 @@ button.wheel {
   align-items: center;
 }
 
-/* Puzzel Section Begins Here */
+/* Puzzle Section Begins Here */
 
-.puzzel {
-  grid-area: puzzel;
+.puzzle {
+  grid-area: puzzle;
   border: solid black 2px;
 }
 
