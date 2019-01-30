@@ -1,6 +1,11 @@
 class Clues {
-  constructor(clue, ){
-    this.clue = clue;
+  constructor(question, answer){
+    this.question = question;
     this.answer = answer;
   }
+
+  removeClue(){
+    
+  }
+
 }
