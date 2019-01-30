@@ -8,16 +8,23 @@ import Game from'./Game.js';
 //  Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
 
-window.onload = config
+$('#submit-btn').on('click', function(e) {
+  e.preventDefault();
+  
+  let wheelOfFortune = new Game();
+  let playersArray = [];
 
-function config() {
-const wheelOfFortune = new Game(1, 'playerone');
+  let playerOne = $('#player-one').val();
+  let playerTwo = $('#player-two').val();
+  let playerThree = $('#player-three').val();
 
-wheelOfFortune.startGame();
-}
+  playersArray.push(playerOne, playerTwo, playerThree);
+
+  wheelOfFortune.startGame(playersArray);
+})
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
 
 
-export default index.js;
+// export default index.js;
