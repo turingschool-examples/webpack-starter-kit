@@ -1,5 +1,5 @@
 class Wheel {
   constructor(value) {
-
+    
   }
 }
