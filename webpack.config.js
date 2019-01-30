@@ -9,13 +9,26 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   mode: 'development',
-  // CSS loader
+  // CSS and file (image) loaders
   module: {
     rules: [
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: '[name].[ext]',
+                  outputPath: 'images/',
+                  publicPath: 'images/'
+                }
+              }
+            ]
+      }
     ],
   },
   // Below is needed for webpack-dev-server
