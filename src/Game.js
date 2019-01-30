@@ -1,25 +1,32 @@
 class Game {
   constructor() {
     this.players = [];
-    this.clues = gatherClues;
+    // this.clues = gatherClues;
     this.currentPlayer = null;
     this.winner = null;
   }
 
-  gatherClues() {
-
+  gatherPlayers(one, two, three) {
+    this.players.push(one, two, three);
+    this.currentPlayer = this.players[0]
   }
 
-  playersTurn() {
+  // gatherClues() {
 
-  }
+  // }
 
-  quitGame() {
+  // playersTurn() {
 
-  }
+  // }
 
-  determineWinner() {
+  // quitGame() {
 
-  }
+  // }
+
+  // determineWinner() {
+
+  // }
 
 }
+
+export default Game;

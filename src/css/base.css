@@ -18,6 +18,10 @@ body {
   top: 30%; 
 }
 
+.hide--container {
+  display: none;
+}
+
 .game--container {
   display: grid;
   grid-template-rows: .25fr 2.5fr .75fr;
