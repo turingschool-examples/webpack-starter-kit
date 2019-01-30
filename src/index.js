@@ -38,7 +38,7 @@ let weneir = 'hellow'
 
 // let clue = new Clue();
 
-const dataSet = Object.values(Data).splice(1);
+window.dataSet = Object.values(Data).splice(1);
 
 
 
