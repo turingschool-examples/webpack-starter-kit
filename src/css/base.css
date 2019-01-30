@@ -15,10 +15,12 @@ h3{
 .player-name{
   place-self: center;
 }
-
-.game-board-area{
-  /*display: grid;*/
+.entry-page{
   display: none; 
+
+}
+.game-board-area{
+  display: grid;
   grid-template-areas: "categories player" "question player";
   grid-template-columns: 1fr 1fr;
   border: 5px solid black;
