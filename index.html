@@ -9,7 +9,9 @@
   <body>
     <section class="landing-page"></section>
     <header>
-      <article>Round</article>
+      <article>
+        <h2>Round</h2>
+      </article>
       <article>
         <h1>Wheel Of Fortune</h1>
       </article>
@@ -17,19 +19,23 @@
     </header>
     <main>
       <section class="play">
-        <button class="wheel"></button>
-        <form class="guess-letter">
-          <input type="text">
-          <button>Guess</button>
-        </form>
-        <form class="buy-vowel">
-          <input type="text">
-          <button>Buy</button>
-        </form>
-        <form class="solve-puzzel">
-          <input type="text">
-          <button>Solve</button>
-        </form>
+        <article class="button-container">
+          <button class="wheel"></button>
+        </article>
+        <article class="form-container">
+          <form class="guess-letter">
+            <input type="text">
+            <button>Guess</button>
+          </form>
+          <form class="buy-vowel">
+            <input type="text">
+            <button>Buy</button>
+          </form>
+          <form class="solve-puzzel">
+            <input type="text">
+            <button>Solve</button>
+          </form>
+        </article>
       </section>
       <section class="puzzel"></section>
       <section class="feedback">
@@ -39,18 +45,24 @@
       <section class="players">
         <article class="player">
           <h2>Player 1</h2>
-          <p>Round: Score</p>
-          <p>Game: Score</p>
+          <div class="score-container">
+            <p>Round: Score</p>
+            <p>Game: Score</p>
+          </div>
         </article>
         <article class="player">
           <h2>Player 2</h2>
-          <p>Round: Score</p>
-          <p>Game: Score</p>
+          <div class="score-container">
+            <p>Round: Score</p>
+            <p>Game: Score</p>
+          </div>
         </article>
         <article class="player">
           <h2>Player 2</h2>
-          <p>Round: Score</p>
-          <p>Game: Score</p>
+          <div class="score-container">
+            <p>Round: Score</p>
+            <p>Game: Score</p>
+          </div>
         </article>
       </section>
     </main>

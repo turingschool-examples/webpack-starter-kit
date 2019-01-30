@@ -1,3 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: pink;
+}
+
+/* Header Section Begins Here*/
+
+header {
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Main Section Begins Here*/
+
+main {
+  display: grid;
+    grid-template-areas: 
+      "play puzzel"
+      "play feedback"
+      "players players";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2.5fr 2fr .5fr;
+}
+
+/* Play Section Begins Here */
+
+.play {
+  grid-area: play;
+  border: solid black 2px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr)
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.wheel {
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  background-color: blue;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Puzzel Section Begins Here */
+
+.puzzel {
+  grid-area: puzzel;
+  border: solid black 2px;
+}
+
+/* Feedback Section Begins Here */
+
+.feedback {
+  grid-area: feedback;
+  border: solid black 2px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr)
+}
+
+.message {
+  border: dotted black 2px;
+}
+
+.guessed-letters {
+  border: dotted black 2px;
+}
+/* Players Section Begins Here */
+
+.players {
+  grid-area: players;
+  border: solid black 2px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.player {
+  text-align: center;
+}
+
+.score-container {
+  display: flex;
+  justify-content: space-around;
 }
