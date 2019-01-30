@@ -1,3 +1,19 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: pink;
+  font-family: 'Open Sans', sans-serif;
+  background-color: lightBlue;
+}
+
+.main-title {
+  font-size: 6em;
+  margin: 0;
+}
+
+.game-board {
+  border: solid;
 }
