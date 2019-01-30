@@ -1,6 +1,10 @@
 class Round {
   constructor(currentRound) {
-    this.currentRound = currentRound;
+    this.currentRound = 1;
+  }
+
+  nextRound() {
+    
   }
 
   determinePointRange() {
