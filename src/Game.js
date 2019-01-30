@@ -1,4 +1,4 @@
-class Game {
+export default class Game {
   constructor(currentRound, activePlayer, roundWinner, gameWinner){
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
@@ -6,5 +6,12 @@ class Game {
     this.gameWinner = gameWinner
   }
 
+  startGame() {
+    console.log('game started!');
+  }
   
 }
+
+// if (typeof module !== 'undefined') {
+//   module.exports = Game;
+// }
