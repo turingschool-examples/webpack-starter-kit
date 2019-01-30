@@ -1,12 +1,30 @@
 body {
   background-color: #00615b;
-  display: grid;
-  grid-template-rows: .25fr 2.5fr .75fr;
   padding: 35px;
   color: #fff;
   font-family: Raleway, sans-serif;
   margin: 0;
   box-sizing: border-box;
+}
+
+.popup--container {
+  z-index: 2;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 60%;
+  top: 30%; 
+}
+
+.game--container {
+  display: grid;
+  grid-template-rows: .25fr 2.5fr .75fr;
+}
+
+.game--inactive {
+  opacity: .2;
 }
 
 header {
@@ -33,7 +51,7 @@ button {
   font-family: Raleway;
 }
 
-.tiles {
+.game--board {
   border-radius: 10px;
   background-color: #49a89d;
   display: grid;
@@ -45,8 +63,8 @@ button {
   text-align: center;
 }
 
-.tiles h3, 
-.tiles div {
+.game--board h3, 
+.game--board div {
   border-radius: 10px;
   background-color: #007f78;
   margin: 0;
@@ -54,13 +72,13 @@ button {
   justify-content: center;
 }
 
-.players {
+.player--container {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.players div {
+.player--container div {
   background-color: #49a89d;
   width: 30%;
   display: flex;
