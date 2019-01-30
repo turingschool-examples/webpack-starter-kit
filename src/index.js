@@ -1,24 +1,25 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file
-// Tell webpack to use a CSS file
-import './css/base.css';
-//  Tell webpack to use an image (link to it in index.html)
-import './images/turing-logo.png'
+
+// import Game from './Game.js';
+const startButton = document.querySelector('.start-game');
+const player1 = document.querySelector('#player1');
+const player2 = document.querySelector('#player2');
+const player3 = document.querySelector('#player3');
+window.addEventListener('load',startGame);
+
+startButton.addEventListener('click', startGame);
 
 
-.on('load', createGame());
-
-$fgdfg('click', startGame());
-
-console.log('This is the JavaScript entry file - your code begins here.');
-
-
-function createGame(){
+function createGame(e){
+    e.preventDefault();
   var game = new Game(round = 1, undefined);
 
 }
 
-function startGame(){
-  //grab inputs of names and populate player area
+function startGame(e){
+  e.preventDefault();
+  const playerOne = player1.value;
+  const playerTwo = player2.value;
+  const playerThree = player3.value;
+  console.log();
 }
 
