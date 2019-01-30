@@ -1,3 +1,71 @@
 body {
-  background-color: pink;
+  background-color: #00615b;
+  display: grid;
+  grid-template-rows: .25fr 2.5fr .75fr;
+  padding: 35px;
+  color: #fff;
+  font-family: Raleway, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1 {
+  color: #e7d058;
+  font-size: 80px;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #54a99c;
+  color: white;
+  border: 0;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Raleway;
+}
+
+.tiles {
+  border-radius: 10px;
+  background-color: #49a89d;
+  display: grid;
+  grid-gap: 20px;
+  padding: 20px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-flow: column;
+  text-align: center;
+}
+
+.tiles h3, 
+.tiles div {
+  border-radius: 10px;
+  background-color: #007f78;
+  margin: 0;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.players {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.players div {
+  background-color: #49a89d;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
 }
