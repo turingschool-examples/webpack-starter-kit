@@ -1,4 +1,57 @@
 body {
-  background: url('/images/background.jpg');
+  /*background: url('/images/background.jpg');*/
   background-size: cover;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 80px 60px 300px 1fr 80px;
+}
+
+header {
+  width: 100%;
+  border: solid black 2px;
+  display: flex;
+  justify-content: center;
+}
+
+header button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1rem;
+}
+
+.rounds {
+  width: 100%;
+  border: solid black 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+main {
+  width: 100%;
+  border: solid blue 2px;
+  display: flex;
+}
+
+.wheel-container {
+  border: solid black 2px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.puzzle {
+  width: 100%;
+  border: solid yellow 2px;
+}
+
+.puzzle-status {
+  display: flex;
+  justify-content: space-around;
+  border: solid black 2px;
+  width: 100%;
 }
