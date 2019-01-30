@@ -6,52 +6,67 @@
         <link rel="stylesheet" href="src/css/base.css">
     </head>
     <body>
-      <section class="game-board-area">
-        <section class="categories-container">
-          <div class="categories-box"><h3>Topic 1</h3></div>
-          <div class="categories-box"><h3>Topic 2</h3></div>
-          <div class="categories-box"><h3>Topic 3</h3></div>
-          <div class="categories-box"><h3>Topic 4</h3></div>
-        </section>
-        <section class="questions-container">
-          <div class="box"><h2>$100</h2></div>
-          <div class="box"><h2>$200</h2></div>
-          <div class="box"><h2>$300</h2></div>
-          <div class="box"><h2>$400</h2></div>
-          <div class="box"><h2>$500</h2></div>
-          <div class="box"><h2>$100</h2></div>
-          <div class="box"><h2>$200</h2></div>
-          <div class="box"><h2>$300</h2></div>
-          <div class="box"><h2>$400</h2></div>
-          <div class="box"><h2>$500</h2></div>
-          <div class="box"><h2>$100</h2></div>
-          <div class="box"><h2>$200</h2></div>
-          <div class="box"><h2>$300</h2></div>
-          <div class="box"><h2>$400</h2></div>
-          <div class="box"><h2>$500</h2></div>
-          <div class="box"><h2>$100</h2></div>
-          <div class="box"><h2>$200</h2></div>
-          <div class="box"><h2>$300</h2></div>
-          <div class="box"><h2>$400</h2></div>
-          <div class="box"><h2>$500</h2></div>
+      <section class="intro-page">
+        <form>
+          <label for ="player1">PLAYER ONE</label>
+          <input type="text" name="name1" id="player1" class="player">
+          <label for ="player2">PLAYER TWO</label>
+          <input type="text" name="name1" id="player2" class="player">
+          <label for ="player3">PLAYER THREE</label>
+          <input type="text" name="name1" id="player3" class="player">
+          <br>
+          <button class="start-game">SUBMIT</button>
+        </form>
+      </section>
+      <section class="entry-page">
+        <section class="game-board">
+          <section class="categories-container">
+            <div class="categories-box"><h3>Topic 1</h3></div>
+            <div class="categories-box"><h3>Topic 2</h3></div>
+            <div class="categories-box"><h3>Topic 3</h3></div>
+            <div class="categories-box"><h3>Topic 4</h3></div>
+          </section>
+          <section class="questions-container">
+            <div class="box"><h2>$100</h2></div>
+            <div class="box"><h2>$200</h2></div>
+            <div class="box"><h2>$300</h2></div>
+            <div class="box"><h2>$400</h2></div>
+            <div class="box"><h2>$100</h2></div>
+            <div class="box"><h2>$200</h2></div>
+            <div class="box"><h2>$300</h2></div>
+            <div class="box"><h2>$400</h2></div>
+            <div class="box"><h2>$100</h2></div>
+            <div class="box"><h2>$200</h2></div>
+            <div class="box"><h2>$300</h2></div>
+            <div class="box"><h2>$400</h2></div>
+            <div class="box"><h2>$100</h2></div>
+            <div class="box"><h2>$200</h2></div>
+            <div class="box"><h2>$300</h2></div>
+            <div class="box"><h2>$400</h2></div>
+          </section>
         </section>
         <section class="player-area">
           <article id="player1" class="player-square">
-            <h4 id="player3-name-text"  class="player-name">ENTER PLAYER 1 NAME</h4>
-            <input type="text" name="player1-name"><button>ENTER</button>
-            <h2 id="player-1-total">$X,XXX</h2>
+            <h4 id="player1-name-text"  class="player-name">PLAYER 1 NAME</h4>
+            <h2 id="player-1-total">Current Score: <span>$X,XXX</span></h2>
           </article>
           <article id="player2" class="player-square">
-            <h4 id="player2-name-text"  class="player-name">ENTER PLAYER 2 NAME</h4>
-            <input type="text" name="player2-name"><button>ENTER</button>
-            <h2 id="player-2-total">$X,XXX</h2>
+            <h4 id="player2-name-text"  class="player-name">PLAYER 2 NAME</h4>
+            <h2 id="player-2-total">Current Score: <span>$X,XXX</span></h2>
           </article>
           <article id="player3" class="player-square">
-            <h4 id="player3-name-text" class="player-name">ENTER PLAYER 3 NAME</h4>
-            <input type="text" name="player1-name"><button>ENTER</button>
-            <h2 id="player-3-total">$X,XXX</h2>
+            <h4 id="player3-name-text" class="player-name">PLAYER 3 NAME</h4>
+            <h2 id="player-3-total">Current Score: <span>$X,XXX</span></h2>
           </article>
         </section>
       </section>
+      <script type="text/javascript" src="./src/index.js"></script>
+      <script type="text/javascript" src="./src/Player.js"></script>
+      <script type="text/javascript" src="./src/Clue.js"></script>
+      <script type="text/javascript" src="./src/Round.js"></script>
+      <script type="text/javascript" src="./src/DailyDouble.js"></script>
+      <script type="text/javascript" src="./src/domUpdates.js"></script>
+      <script type="text/javascript" src="./src/Game.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     </body>
 </html>
