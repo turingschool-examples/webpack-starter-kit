@@ -1,6 +1,6 @@
-# Gametime Starter Kit
+# Wheel Of Fortune
 
-## Fork This Repo
+## By Isaac Sunoo and Tom Wilhoit
 
 Within your group, decide on one person to have the project repository (repo) on their GitHub account. Then, that person should "fork" this repo. On the top right corner of this page, click the **Fork** button.
 
