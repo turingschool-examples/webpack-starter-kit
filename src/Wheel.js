@@ -3,3 +3,5 @@ class Wheel {
     
   }
 }
+
+export default Wheel;

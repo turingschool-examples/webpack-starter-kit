@@ -3,3 +3,5 @@ class BonusWheel extends Wheel {
     super(value)
   }
 }
+
+export default BonusWheel;

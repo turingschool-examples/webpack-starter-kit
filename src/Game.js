@@ -1,4 +1,4 @@
-export default class Game {
+ class Game {
   constructor(currentRound, activePlayer, roundWinner, gameWinner){
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
@@ -15,3 +15,5 @@ export default class Game {
 // if (typeof module !== 'undefined') {
 //   module.exports = Game;
 // }
+
+export default Game;
