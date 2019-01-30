@@ -17,7 +17,8 @@ h3{
 }
 
 .game-board-area{
-  display: grid;
+  /*display: grid;*/
+  display: none; 
   grid-template-areas: "categories player" "question player";
   grid-template-columns: 1fr 1fr;
   border: 5px solid black;
@@ -82,7 +83,7 @@ input{
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(4, 150px);
-  grid-template-rows: repeat(5, 100px);
+  grid-template-rows: repeat(4, 100px);
   grid-auto-flow: column;
 }
 
