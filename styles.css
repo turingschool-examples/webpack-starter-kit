@@ -1,31 +1,64 @@
 body {
   font-family: 'Oswald', sans-serif;
-  background-color: #ECFEAA;
+  background-image: url("src/images/bg-image.jpg");
 }
 
 .game-board {
-  background-color: #ECFEAA;
+  background-color:rgba(236, 254, 170, 0.6);
+  border-radius: 40px;
   color: #414770;
   display: grid;
   font-size: 44px;
-  grid-template-areas:
-  "title title title title title"
-  "cat cat cat cat cat"
-  "a1 a2 a3 a4 a5"
-  "b1 b2 b3 b4 b5"
-  "c1 c2 c3 c4 c5"
-  "d1 d2 d3 d4 d5";
   grid-auto-columns: 1fr;
-  width: 100%;
+  grid-gap: 15px;
+  grid-template-areas:
+  "cat cat cat cat player"
+  "a1 a2 a3 a4 player"
+  "b1 b2 b3 b4 player"
+  "c1 c2 c3 c4 player"
+  "d1 d2 d3 d4 player"
+  "e1 e2 e3 e4 player";
+  margin: 40px auto;
+  padding: 20px 0 0 20px;
+  width: 95%;
 }
 
 .game-board h1 {
   text-align: center;
 }
-
+/* ============================= */
+/* ==========Rules============== */
 .rules {
-  border: 1px solid #414770;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  /* grid-area: player; */
+  margin-top: -45px;
 }
+
+.player {
+  background-color: #bce784;
+  border: 3px double #414770;
+  border-radius: 40px;
+  margin: 20px 20px;
+  padding: 15px;
+}
+
+.pokemon {
+  height: 100px;
+  margin-top: -20px;
+  width: 100px;
+}
+
+#charmander {
+  margin-left: 15px;
+}
+
+h5 {
+  margin: -20px 0 0 0;
+}
+/* ============================= */
+/* ============================= */
 
 .cat {
   font-size: 32px;
@@ -37,6 +70,7 @@ section h3 {
   background-color: #bce784;
   border: 1px solid #414770;
   text-align: center;
+  border-radius: 25px;
 }
 
 .game-board h3:hover {
