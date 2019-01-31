@@ -20,6 +20,9 @@ let $startBtn = $('#playBtn');
 $startBtn.on('click', function(e) {
   e.preventDefault();
   console.log('You started!!!');
+  let game = new Game();
+  game.startGame();
+  
 })
 
 
