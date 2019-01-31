@@ -11,3 +11,5 @@ import './images/background2.png'
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+
