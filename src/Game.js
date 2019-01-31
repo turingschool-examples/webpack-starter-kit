@@ -32,10 +32,16 @@
     let puzzleArrayThree = data.puzzles.three_word_answers.puzzle_bank
     let puzzleArrayFour = data.puzzles.four_word_answers.puzzle_bank
     let puzzleBank = puzzleArrayOne.concat(puzzleArrayTwo, puzzleArrayThree, puzzleArrayFour)
-    console.log(puzzleBank)
+    this.randomizeBank(puzzleBank);
   }
 
-  
+  randomizeBank(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+      const randomIndex = Math.floor((Math.random() * (arr.length - i))) + i;
+      [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
+    }
+    return arr;
+  }
 
 
 }
