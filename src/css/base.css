@@ -12,16 +12,35 @@ body {
 
 header {
   width: 100%;
-  /*border: solid black 2px;*/
+  background: hsla( 0, 0%, 0%, 0.3);
   display: flex;
   justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0.8;
+  font-size: 30px;
+}
+
+header span {
+  color: #b68d74;
 }
 
 header button {
   position: absolute;
   right: 0;
   top: 0;
-  margin: 1rem;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #b68d74;
+  border: none;
+  background: hsla( 0, 0%, 0%, 0);
+
+}
+
+header button:hover {
+  background: hsla( 0, 0%, 0%, 0.4);
 }
 
 .rounds {
@@ -105,4 +124,3 @@ footer h3,
 footer h4 {
   margin: 0;
 }
-
