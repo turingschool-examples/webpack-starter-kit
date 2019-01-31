@@ -47,7 +47,7 @@
   setGamePuzzles(puzzleBank) {
     let fourPuzzles = puzzleBank.slice(0, 4);
     this.gamePuzzles = fourPuzzles.map(puzzle => {
-      return new Puzzle(puzzle.category)
+      return new Puzzle(puzzle.category, )
     })
     return fourPuzzles;
   }
