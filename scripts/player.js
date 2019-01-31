@@ -5,3 +5,4 @@ class Player {
         this.cumulativeCoins = 0;
     }
 }
+export default Player;

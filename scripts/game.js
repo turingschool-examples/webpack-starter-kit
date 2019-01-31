@@ -6,3 +6,4 @@ class Game {
         this.puzzleBank = [];
     }
 }
+export default Game;
