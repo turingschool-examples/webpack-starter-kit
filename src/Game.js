@@ -1,4 +1,4 @@
-
+import Player from './Player.js'
 
 class Game{
   constructor(round =1, players =[]){
@@ -8,15 +8,15 @@ class Game{
 
   start(array){
     // array.forEach(person => this.players.push(person);
-    this.players = array;
-    createPlayers(this.players);
+  
+    this.createPlayers(array);
   }
 
   createPlayers(array){
-      array.forEach((person,ind) => {
-        const `player${ind + 1}` = new Player()
-      })
-
+      this.players = array.map(person => {
+       return person = new Player(person);
+      });
+      console.log(this.players)
   }
 }
 
