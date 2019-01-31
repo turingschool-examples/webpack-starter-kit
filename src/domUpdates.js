@@ -16,22 +16,21 @@
 
 // $('.start-button').on('click', playGame);
 const domUpdates = {
-
   getNames: function() {
-   let $player1 = $('#player1').val();
-   $('#player1-name').text($player1);
-   let $player2 = $('#player2').val();
-   $('#player2-name').text($player2);
-   let $player3 = $('#player3').val();
-   $('#player3-name').text($player3);
-
-   // add each player to an array[]
-   // players from innerText updated Dom to current player
-   // 
+    let $players = [$('#player1').val(), $('#player2').val(), $('#player3').val()];
+    $('#player1-name').text($players[0]);
+    $('#player2-name').text($players[1]);
+    $('#player3-name').text($players[2]);
   }
 
+   // let $player1 = $('#player1').val();
+   // $('#player1-name').text($player1);
+   // let $player2 = $('#player2').val();
+   // $('#player2-name').text($player2);
+   // let $player3 = $('#player3').val();
+   // $('#player3-name').text($player3);
   
-
+ 
   // playGame: function() {
   //   console.log($player1);
 
