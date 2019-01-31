@@ -2,68 +2,79 @@
 <html lang="en-US">
 <head>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="src/css/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <title>Gametime Starter Kit</title>
 </head>
 <body>
-  <h4 class="round-num">Round: <span id="round"></span>1</span></h4>
-  <img class="logo" src="src/images/International_Pokémon_logo.png">
-  <img class="logo2" src= "https://fontmeme.com/permalink/190130/002d60004702e6e93e82fa3bee891003.png"
+  <div class="game-overlay">
+    <h4 class="round-num">Round: <span id="round"></span>1</span></h4>
+    <img class="logo" src="src/images/International_Pokémon_logo.png">
+    <img class="logo2" src= "https://fontmeme.com/permalink/190130/002d60004702e6e93e82fa3bee891003.png"
       alt="pokemon-font" border="0">
-  <section class="game-board">
-    <article>
-      <h2 class="cat 1">category</h2>
-      <h3 class="col a1">100</h3>
-      <h3 class="col b1">200</h3>
-      <h3 class="col c1">300</h3>
-      <h3 class="col d1">400</h3>
-      <h3 class="col e1">500</h3>
-    </article>
-    <article>
-      <h2 class="cat 2">category</h2>
-      <h3 class="col a2">100</h3>
-      <h3 class="col b2">200</h3>
-      <h3 class="col c2">300</h3>
-      <h3 class="col d2">400</h3>
-      <h3 class="col e2">500</h3>
-    </article>
-    <article>
-      <h2 class="cat 3">category</h2>
-      <h3 class="col a3">100</h3>
-      <h3 class="col b3">200</h3>
-      <h3 class="col c3">300</h3>
-      <h3 class="col d3">400</h3>
-      <h3 class="col e3">500</h3>
-    </article>
-    <article>
-      <h2 class="cat 4">category</h2>
-      <h3 class="col a4">100</h3>
-      <h3 class="col b4">200</h3>
-      <h3 class="col c4">300</h3>
-      <h3 class="col d4">400</h3>
-      <h3 class="col e4">500</h3>
-    </article>
-    <article class="rules">
-      <h4><u>Players:</u></h4>
-      <section class="player p1">
-        <img id="squirtle" class="pokemon" src="src/images/Squirtle.png">
-        <p class="shadow1"></p>
-        <h5>Player 1</h5>
-        <h6>HP: <span id="hp">000</span></h6>
-      </section>
-      <section class="player p2">
-        <img id="bulbasaur" class="pokemon" src="src/images/bulbasaur.png">
-        <p class="shadow2"></p>
-        <h5>Player 2</h5>
-        <h6>HP: <span id="hp">000</span></h6>
-      </section>
-      <section class="player p3">
-        <img id="charmander" class="pokemon" src="src/images/charmander.png">
-        <p class="shadow3"></p>
-        <h5>Player 3</h5>
-        <h6>HP: <span id="hp">000</span></h6>
-      </section>
-    </article>
+    <section class="game-board">
+      <article>
+        <h2 class="cat 1">category</h2>
+        <h3 class="col a1">100</h3>
+        <h3 class="col b1">200</h3>
+        <h3 class="col c1">300</h3>
+        <h3 class="col d1">400</h3>
+        <h3 class="col e1">500</h3>
+      </article>
+      <article>
+        <h2 class="cat 2">category</h2>
+        <h3 class="col a2">100</h3>
+        <h3 class="col b2">200</h3>
+        <h3 class="col c2">300</h3>
+        <h3 class="col d2">400</h3>
+        <h3 class="col e2">500</h3>
+      </article>
+      <article>
+        <h2 class="cat 3">category</h2>
+        <h3 class="col a3">100</h3>
+        <h3 class="col b3">200</h3>
+        <h3 class="col c3">300</h3>
+        <h3 class="col d3">400</h3>
+        <h3 class="col e3">500</h3>
+      </article>
+      <article>
+        <h2 class="cat 4">category</h2>
+        <h3 class="col a4">100</h3>
+        <h3 class="col b4">200</h3>
+        <h3 class="col c4">300</h3>
+        <h3 class="col d4">400</h3>
+        <h3 class="col e4">500</h3>
+      </article>
+      <article class="rules">
+        <h4><u>Players:</u></h4>
+        <section class="player p1">
+          <img id="squirtle" class="pokemon" src="src/images/Squirtle.png">
+          <p class="shadow1"></p>
+          <h5>Player 1</h5>
+          <h6>HP: <span id="hp">000</span></h6>
+        </section>
+        <section class="player p2">
+          <img id="bulbasaur" class="pokemon" src="src/images/bulbasaur.png">
+          <p class="shadow2"></p>
+          <h5>Player 2</h5>
+          <h6>HP: <span id="hp">000</span></h6>
+        </section>
+        <section class="player p3">
+          <img id="charmander" class="pokemon" src="src/images/charmander.png">
+          <p class="shadow3"></p>
+          <h5>Player 3</h5>
+          <h6>HP: <span id="hp">000</span></h6>
+        </section>
+      </article>
+    </section>
+  </div>
+  <section class="popup">
+    <div>
+      <h4 class="popup-question">QUESTION</h4>
+      <input type="text" class="popup-input" id="popup-input-js">
+      <button class="popup-btn">submit answer</button>
+    </div>
+    <img src="src/images/Oak2.png" alt="Professor Oak">
   </section>
 </body>
 </html>
