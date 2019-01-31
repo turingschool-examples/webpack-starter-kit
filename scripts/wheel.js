@@ -4,3 +4,4 @@ class Wheel {
         this.currentSpace = currentSpace;
     }
 }
+export default Wheel;

@@ -1,9 +1,13 @@
+import Player from './Player.js'
+
 let domUpdates = {
+
   getPlayerInput() {
-    new Player(document.querySelector('.js-player-one-input').value);
-    new Player(document.querySelector('.js-player-two-input').value);
-    new Player(document.querySelector('.js-player-three-input').value);
+    console.log('got to get player')
+   let player1 = new Player($('.js-player-one-input').val());
+    new Player($('.js-player-two-input').val());
+    new Player($('.js-player-three-input').val());
   }
 }
 
-module.exports = domUpdates;
+export default domUpdates;

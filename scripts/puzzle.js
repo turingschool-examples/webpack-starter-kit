@@ -3,3 +3,5 @@ class Puzzle {
         this.currentPuzzle = currentPuzzle;
     }
 }
+
+export default Puzzle;
