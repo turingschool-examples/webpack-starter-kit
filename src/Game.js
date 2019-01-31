@@ -1,4 +1,5 @@
  import Player from './Player.js';
+ import data from './Data.js'
 
  class Game {
   constructor(currentRound = 1, activePlayer, roundWinner, gameWinner){
@@ -11,6 +12,7 @@
   startGame(players) {
     console.log('game started!');
     this.createPlayers(players);
+    this.grabPuzzleBank()
   }
 
   createPlayers(players) {
@@ -19,7 +21,23 @@
     const playerThree = new Player(players[2]);
     console.log(playerOne);
   }
+
+  randomizeNumberForArray() {
+    let randomNumber = Math.floor(Math.random() * 96)
+  }
+
+  grabPuzzleBank() {
+    let puzzleArrayOne = data.puzzles.one_word_answers.puzzle_bank
+    let puzzleArrayTwo = data.puzzles.two_word_answers.puzzle_bank
+    let puzzleArrayThree = data.puzzles.three_word_answers.puzzle_bank
+    let puzzleArrayFour = data.puzzles.four_word_answers.puzzle_bank
+    let puzzleBank = puzzleArrayOne.concat(puzzleArrayTwo, puzzleArrayThree, puzzleArrayFour)
+    console.log(puzzleBank)
+  }
+
   
+
+
 }
 
 // if (typeof module !== 'undefined') {
