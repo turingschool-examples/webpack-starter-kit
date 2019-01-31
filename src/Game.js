@@ -1,5 +1,6 @@
 import Player from './Player.js'
 import domUpdates from './domUpdates.js';
+import Round from './Round.js';
 
 class Game{
   constructor(round =1, players =[]){
@@ -8,15 +9,17 @@ class Game{
   }
 
   start(){
-    // array.forEach(person => this.players.push(person);
-    playerArray = domUpdates.grabNames();
-    this.createPlayers(playerArray);
+    const round = new Round();
+    this.round = round;
+    this.createPlayers(domUpdates.grabNames());
   }
 
   createPlayers(array){
+    if (typeof array === 'object') {
       this.players = array.map(person => {
        return person = new Player(person);
       });
+    }
   }
 }
 
