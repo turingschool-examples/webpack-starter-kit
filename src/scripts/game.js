@@ -9,8 +9,7 @@ class Game {
     }
 
     startGame(){
-      console.log('start game')
-      domUpdates.displayPlayerNames()
+      domUpdates.displayPlayerNames();
     }
 }
 export default Game;

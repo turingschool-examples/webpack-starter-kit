@@ -20,7 +20,7 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 $('.js-start-button').on('click', (e) => {
   e.preventDefault();
-  let game = new Game()
+  let game = new Game();
   game.startGame();
 
 });
