@@ -9,7 +9,7 @@ class Question {
     //when a player has clicked on a box on the board, we will find that box by event targeting
     // we will acquire the id of the chosen question
     // we will then make a popup appear with the question
-    //
+    displayQuestion();
   }
 
   submitQuestion() {
