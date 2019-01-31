@@ -5,7 +5,7 @@ import spies from 'chai-spies';
 chai.use(spies);
 const expect = chai.expect;
 
-
+chai.spy.on(domUpdates, 'grabNames', () => true);
 describe('Game', () => {
   it('Game can be an object', () =>{
     const game = new Game();
@@ -15,7 +15,7 @@ describe('Game', () => {
 
   it('Should have an array of players', () =>{
     const game = new Game();
-    game.start();
+    game.start(['mike', 'jill', 'megan']);
     expect(game.players.length).to.equal(3);
 
   })
@@ -25,6 +25,12 @@ describe('Game', () => {
     game.start(['mike', 'jill', 'megan']);
     expect(...game.players).to.be.an('object');
   }) 
+
+  it ('Should start intial game state', () => {
+    const game = new Game();
+    game.start(['mike', 'jill', 'megan']);
+    expect(game.round).to.be.an('object');
+  })
 
 
 
