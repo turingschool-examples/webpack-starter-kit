@@ -19,3 +19,6 @@ class Player {
     document.querySelector
   };
 }
+
+
+export default Player;
