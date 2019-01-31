@@ -5,29 +5,13 @@
 // import Player from './Player.js';
 // import Wheel from './Wheel.js';
 // import Puzzle from './Puzzle.js';
-
+import domUpdates from './domUpdates.js';
 // Tell webpack to use a CSS file
-// import './css/base.css';
-
-$('.start-button').click(playGame);
-
-const player1 = $('#player1').val();
-const player2 = $('#player2').val();
-const player3 = $('#player3').val();
-const players = [];
-
-function collectPlayers(player) {
-  players.push(player);
-}
-
-collectPlayers(player1);
-collectPlayers(player2);
-collectPlayers(player3);
-
-function playGame(event) {
-  event.preventDefault();
-  alert('hi');
-}
+import './css/base.css';
 
 
+$('.start-button').on('click', function(e) {
+  e.preventDefault();
+  domUpdates.getNames();
+})
 
