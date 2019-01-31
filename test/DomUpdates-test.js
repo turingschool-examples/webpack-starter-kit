@@ -1,9 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
 import spies from 'chai-spies';
+import Game from '../src/Game.js';
 chai.use(spies);
-import domUpdates from "../src/domUpdates";
+import domUpdates from '../src/domUpdates';
 chai.spy.on(domUpdates, ['toggleSplash', 'displayPlayers'], () => true);
+chai.spy.on(Game, ['quitGame', 'gatherPlayers'], () => true);
 
 describe('domUpdates', function() {
   it('should hide splash screen', function() {

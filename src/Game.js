@@ -22,9 +22,9 @@ class Game {
 
   // }
 
-  // quitGame() {
-
-  // }
+    quitGame() {
+      domUpdates.toggleSplash();
+    }
 
   // determineWinner() {
 
