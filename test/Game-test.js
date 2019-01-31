@@ -5,10 +5,6 @@ import Game from '../src/Game.js'
 import domUpdates from  '../src/domUpdates';
 
 describe('Game', function() {
-  it('should return true', function() {
-    expect(true).to.equal(true);
-  });
-
   it('should instantiate a new game', function() {
     let game = new Game()
     expect(game).to.be.an('object');

@@ -17,14 +17,14 @@ const domUpdates = {
     $('.player--three').text(game.players[2]);
   },
 
-  enableButtons: () => {
+  enableReset: () => {
     $('.game--exit').prop( "disabled", false);
   },
 
-  disableButtons: () => {
+  disableReset: () => {
     $('.game--exit').prop( "disabled", true);
   }
-  
+
 }
 
 export default domUpdates;
