@@ -2,10 +2,12 @@
 <html lang="en-US">
 <head>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="src/css/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <title>Gametime Starter Kit</title>
 </head>
 <body>
+  <div class="game-overlay">
   <section class="game-board">
     <article>
       <h2 class="cat 1">category</h2>
@@ -54,6 +56,15 @@
         <h5>Player 3</h5>
       </section>
     </article>
+  </section>
+  </div>
+  <section class="popup">
+    <div>
+      <h4 class="popup-question">QUESTION</h4>
+      <input type="text" class="popup-input" id="popup-input-js">
+      <button class="popup-btn">submit answer</button>
+    </div>
+    <img src="src/images/Oak2.png" alt="Professor Oak">
   </section>
   <img src="src/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
 </body>

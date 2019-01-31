@@ -57,13 +57,14 @@ body {
 h5 {
   margin: -20px 0 0 0;
 }
-/* ============================= */
+
 /* ============================= */
 
 .cat {
   font-size: 32px;
   grid-area: cat;
   text-align: center;
+  text-transform: uppercase;
 }
 
 section h3 {
@@ -75,4 +76,39 @@ section h3 {
 
 .game-board h3:hover {
   color: #fff;
+}
+
+/* ============POPUP============= */
+.popup {
+  background-color: #ECFEAA;
+  border-radius: 50px;
+  color: #414770;
+  font-size: 44px;
+  height: 400px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.popup button {
+  background-color: #414770;
+  border-radius: 25px;
+  color: #ECFEAA;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 200px;
+}
+
+.popup img {
+  height: 300px;
+  left: 50px;
+  position: absolute;
+  top: 50px;
+}
+
+.popup input {
+  height: 45px;
+  width: 300px;
 }
