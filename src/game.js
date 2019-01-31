@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.
+
   }
 
   startGame(){
@@ -16,3 +16,5 @@ class Game {
   };
 
 }
+
+export default Game;
