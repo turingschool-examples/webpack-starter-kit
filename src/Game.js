@@ -1,3 +1,5 @@
+import domUpdates from "./domUpdates";
+
 class Game {
   constructor() {
     this.players = [];
@@ -8,7 +10,8 @@ class Game {
 
   gatherPlayers(one, two, three) {
     this.players.push(one, two, three);
-    this.currentPlayer = this.players[0]
+    this.currentPlayer = this.players[0];
+    domUpdates.displayPlayers(this.players);
   }
 
   // gatherClues() {
