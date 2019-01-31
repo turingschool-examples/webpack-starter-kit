@@ -8,10 +8,9 @@ class Game {
     this.winner = null;
   }
 
-  gatherPlayers(one, two, three) {
-    this.players.push(one, two, three);
+  gatherPlayers(a, b, c) {
+    this.players.push(a, b, c);
     this.currentPlayer = this.players[0];
-    domUpdates.displayPlayers(this.players);
   }
 
   // gatherClues() {
@@ -22,9 +21,9 @@ class Game {
 
   // }
 
-    quitGame() {
-      domUpdates.toggleSplash();
-    }
+  quitGame() {
+    domUpdates.toggleSplash();
+  }
 
   // determineWinner() {
 

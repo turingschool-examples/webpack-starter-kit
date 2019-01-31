@@ -11,7 +11,7 @@ let game;
 
 $('.start--btn').on('click', () => {
   game = new Game();
-  game.gatherPlayers();
+  domUpdates.displayPlayers(game);
   domUpdates.toggleSplash();
 });
 
