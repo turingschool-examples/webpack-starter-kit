@@ -4,17 +4,18 @@
     <title>Wheel of Fortune</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="src/css/base.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Normalize file? -->
   </head>
   <body>
     <section class="landing-page">
       <form class="player-info">
         <label class="player-label">Player 1</label>
-        <input type="text" name="player1">
+        <input type="text" id="player1">
         <label class="player-label">Player 2</label>
-        <input type="text" name="player2">
+        <input type="text" id="player2">
         <label class="player-label">Player 3</label>
-        <input type="text" name="player3">
+        <input type="text" id="player3">
         <button class="start-button">Start Game!</button>
       </form>
     </section>
@@ -76,5 +77,6 @@
         </article>
       </section>
     </main>
+  <script type="text/javascript" src="./src/index.js"></script>
   </body>
 </html>
