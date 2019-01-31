@@ -1,3 +1,21 @@
 body {
   background-color: pink;
+  background-image: url(../images/start-screen-background.jpg)
+}
+
+#game-header-title {
+  text-align: center;
+  font-size: 100px;
+  opacity: .9;
+  margin-top: 90px;
+}
+
+.name-input {
+  height: 40px;
+  width: 150px;
+  font-size: 32px;
+}
+
+#name-input-container {
+  margin:0 auto;
 }
