@@ -9,6 +9,8 @@ import './images/turing-logo.png'
 import './images/background.jpg'
 import './images/background2.png'
 
+// Tell webpack to use a JS file
+// import './data.js'
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
