@@ -1,9 +1,15 @@
 class Question {
-  constructor(question, answer, category, value) {
-    this.question = question;
+  constructor(currIndex) {
     this.answer = answer;
-    this.category = category;
-    this.value = value;
+    this.currIndex = {};
+  }
+  validAns(answer, index, round) {
+    // whether they get the question right or wrong decrease qCount //once qCount = 0 round is over
+    //return Ans.toUppercase
+  }
+  displayCurrQuestion(currRound, index, qPopup, ddPopup, questionMessage, overlay) {
+    //set currQuestion to roundQuestion[i]
+    //update the DOM with the qPopup
   }
 }
 
