@@ -1,6 +1,6 @@
 class DailyDouble extends Question {
-  constructor(question, answer, category, points, round) {
-    super(question, answer, category, points)
+  constructor(question, answer, category, point, round) {
+    super(question, answer, category, point)
       this.round = round;
   }
 }
