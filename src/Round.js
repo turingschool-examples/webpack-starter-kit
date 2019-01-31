@@ -1,7 +1,12 @@
+import Game from './Game.js'
+
 class Round{
-  constructor(){
+  constructor(currentRound = 1){
     this.turnNum = 1;
+    this.currentRound = currentRound;
+    // this.roundClues = [[{}], [{}], [{}], [{}]]
   }
+
 }
 
 export default Round;

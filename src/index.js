@@ -7,15 +7,16 @@ import Clue from './Clue.js';
 import DailyDouble from './DailyDouble.js';
 import './css/base.css';
 
-const player1 = $('#player1');
-const player2 = $('#player2');
-const player3 = $('#player3');
+// const player1 = $('#player1');
+// const player2 = $('#player2');
+// const player3 = $('#player3');
 
 $('.start-game').on('click', (e) => {
   e.preventDefault();
   var game = new Game(1, undefined);
-  game.start();
-  startGame(game);
+  const players = domUpdate.grabNames();
+  game.start(players);
+  // startGame(game);
 });
 
 
