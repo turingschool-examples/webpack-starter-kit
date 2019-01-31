@@ -1,5 +1,5 @@
 // import?
-
+// all in separate files
 class Game {
   constructor(difficulty, round, players) {
     this.difficulty = difficulty;
@@ -14,7 +14,7 @@ class Game {
       // display 'back to home screen' button
   }
 };
-
+// new instances test
 class Player {
   constructor(name) {
     this.name = name;

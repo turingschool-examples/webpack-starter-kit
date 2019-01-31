@@ -1,4 +1,2 @@
-
-
-
-export default domUpdates
+const domUpdates = {};
+export default domUpdates;
