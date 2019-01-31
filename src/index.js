@@ -1,45 +1,36 @@
 
 import Game from './Game.js';
-const startButton = document.querySelector('.start-game');
-const player1 = document.querySelector('#player1');
-const player2 = document.querySelector('#player2');
-const player3 = document.querySelector('#player3');
-var playerOneName = '';
-var playerTwoName = '';
-var playerThreeName = '';
+import Player from './Player.js';
+import Round from './Round.js';
+import domUpdate from './domUpdates.js';
+import Clue from './Clue.js';
+import DailyDouble from './DailyDouble.js';
+import './css/base.css';
 
+const player1 = $('#player1');
+const player2 = $('#player2');
+const player3 = $('#player3');
 
-
-
-// window.addEventListener('load',createGame);
-startButton.addEventListener('click', createGame);
-
-
-function createGame(e){
-    e.preventDefault();
-  var game = new Game(round = 1, undefined);
+$('.start-game').on('click', (e) => {
+  e.preventDefault();
+  var game = new Game(1, undefined);
   startGame(game);
+});
 
-}
+
 
 function startGame(game){
-
-  playerOneName = player1.value;
-  playerTwoName = player2.value;
-  playerThreeName = player3.value;
-  const players = [playerOneName, playerTwoName, playerThreeName];
-  game.startGame(players);
-  createGameBoard();
+  const players = [player1.val(), player2.val(), player3.val()];
+  game.start(players);
+  createGameBoard(players);
 }
 
 
-function createGameBoard(){
+function createGameBoard(arr){
 document.querySelector('.entry-page').className ='game-board-area';
 document.querySelector('.intro-page').className = "entry-page";
-document.querySelector('#player1-name-text').innerText = playerOneName;
-document.querySelector('#player2-name-text').innerText = playerTwoName;
-document.querySelector('#player3-name-text').innerText = playerThreeName;
 
-console.log();
+arr.forEach((player,ind) => {
+  $('#player' + ([ind + 1]) + '-name-text').text(player);
+})
 }
-
