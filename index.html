@@ -3,6 +3,7 @@
   <head>
     <title>Wheel of Misfortune</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     <header>
@@ -32,7 +33,7 @@
     </section>
     <main>
       <article class="wheel-container">
-        <div></div>
+        <section></section>
         <button>
           SPIN WHEEL
         </button>
@@ -140,37 +141,57 @@
     <footer>
       <article>
         IMG
-        <div>
-          <h4>
+        <section>
+          <h4 id="player1-output">
           'Player 1'
           </h4>
           <h3>
             SCORE
           </h3>
-        </div>
+        </section>
       </article>
       <article>
         IMG
-        <div>
-          <h4>
+        <section>
+          <h4 id="player2-output">
             'Player 2'
           </h4>
           <h3>
             SCORE
           </h3>
-        </div>
+        </section>
       </article>
       <article>
         IMG
-        <div>
-          <h4>
+        <section>
+          <h4 class="player3-output">
             'Player 3'
           </h4>
           <h3>
             SCORE
           </h3>
-        </div>
+        </section>
       </article>
     </footer>
+    <section>
+      <form>
+        <section>
+          <label for="player1">Player 1:</label>
+          <input type="text" id="player1">
+        </section>
+        <section>
+          <label for="player2">Player 2:</label>
+          <input type="text" id="player2">
+        </section>
+        <section>
+          <label for="player3">Player 3:</label>
+          <input type="text" id="player3">
+        </section>
+        <button class="submit-names" type="submit">
+          Submit Player Names
+        </button>
+      </form>
+    </section>
+    <script type="text/javascript" src="./src/data.js"></script>
   </body>
 </html>
