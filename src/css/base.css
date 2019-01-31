@@ -65,7 +65,8 @@ button.wheel {
   border-radius: 50%;
   height: 250px;
   width: 250px;
-  background-color: blue;
+  background-image: linear-gradient(red, orange, yellow, orange, red);
+  border: dotted yellow 3px;
 }
 
 .form-container {
