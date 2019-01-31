@@ -1,6 +1,9 @@
 body {
   margin: 40px;
   box-sizing: border-box;
+  background: url("../images/water.jpg");
+  background-repeat: no-repeat;
+  background-size: 900px 1000px
 }
 
 h2{
