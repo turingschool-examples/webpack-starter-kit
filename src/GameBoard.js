@@ -1,7 +1,7 @@
 class Gameboard {
-  constructor(points, value, players) {
-    this.points = points;
-    this.value = value;
+  constructor(round, point, players) {
+    this.round = round;
+    this.point = point;
     this.players = [];
   }
 }
