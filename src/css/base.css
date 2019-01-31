@@ -1,3 +1,70 @@
 body {
   background-color: pink;
 }
+
+/** Global **/
+
+
+/** Gameboard **/
+article{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+
+h4 {
+  font-size: 24px;
+  text-align: center;
+}
+
+table {
+  background-color: lightblue;
+  border-collapse: collapse;
+
+}
+
+table th {
+  border: 1px solid red;
+  height: 80px;
+  width: 160px;
+  margin: 10px;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+
+
+.clue-box {
+  border: 1px solid red;
+  height: 80px;
+  text-align: center;
+  width: 160px;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+
+/** Podium **/
+.podium-area {
+  display: flex;
+  justify-content: space-around;
+}
+
+.podium{
+  background-color: lightgreen;
+  width: 160px; 
+}
+
+.avatar {
+  height: 20px;
+}
+
+.score-box {
+  border: 3px solid grey;
+  text-align: center;
+}
+
+.podium-base {
+  height: 100px;
+  text-align: center;
+  padding-top: 30px;
+}
