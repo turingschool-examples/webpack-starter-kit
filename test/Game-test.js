@@ -5,7 +5,7 @@ import spies from 'chai-spies';
 chai.use(spies);
 const expect = chai.expect;
 
-chai.spy.on(domUpdates, 'grabNames', () => true);
+chai.spy.on(domUpdates, 'grabNames', () => [1, 2, 3]);
 describe('Game', () => {
   it('Game can be an object', () =>{
     const game = new Game();

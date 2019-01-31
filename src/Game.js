@@ -15,11 +15,9 @@ class Game{
   }
 
   createPlayers(array){
-    if (typeof array === 'object') {
       this.players = array.map(person => {
        return person = new Player(person);
       });
-    }
   }
 }
 
