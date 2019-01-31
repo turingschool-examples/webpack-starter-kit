@@ -15,20 +15,21 @@ describe('Game', () => {
 
   it('Should have an array of players', () =>{
     const game = new Game();
-    game.start(['mike', 'jill', 'megan']);
+    game.createPlayers(['mike', 'jill', 'megan']);
     expect(game.players.length).to.equal(3);
 
   })
 
   it ('Should create new player objects', () => {
     const game = new Game();
-    game.start(['mike', 'jill', 'megan']);
+    game.createPlayers(['mike', 'jill', 'megan']);
     expect(...game.players).to.be.an('object');
   }) 
 
   it ('Should start intial game state', () => {
     const game = new Game();
-    game.start(['mike', 'jill', 'megan']);
+    game.start();
+    // game.createPlayers(['mike', 'jill', 'megan']);
     expect(game.round).to.be.an('object');
   })
 
