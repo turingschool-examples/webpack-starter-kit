@@ -2,17 +2,18 @@
  import data from './Data.js'
 
  class Game {
-  constructor(currentRound = 1, activePlayer, roundWinner, gameWinner){
+  constructor(currentRound = 1, activePlayer, roundWinner, gameWinner, gamePuzzles) {
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
     this.roundWinner = roundWinner,
-    this.gameWinner = gameWinner
+    this.gameWinner = gameWinner,
+    this.gamePuzzles = []
   }
 
   startGame(players) {
     console.log('game started!');
     this.createPlayers(players);
-    this.grabPuzzleBank()
+    this.grabPuzzleBanks()
   }
 
   createPlayers(players) {
@@ -22,17 +23,17 @@
     console.log(playerOne);
   }
 
-  randomizeNumberForArray() {
-    let randomNumber = Math.floor(Math.random() * 96)
-  }
-
-  grabPuzzleBank() {
+  grabPuzzleBanks() {
     let puzzleArrayOne = data.puzzles.one_word_answers.puzzle_bank
     let puzzleArrayTwo = data.puzzles.two_word_answers.puzzle_bank
     let puzzleArrayThree = data.puzzles.three_word_answers.puzzle_bank
     let puzzleArrayFour = data.puzzles.four_word_answers.puzzle_bank
     let puzzleBank = puzzleArrayOne.concat(puzzleArrayTwo, puzzleArrayThree, puzzleArrayFour)
     this.randomizeBank(puzzleBank);
+     let fourPuzzles = this.setGamePuzzles(puzzleBank);
+    // this.setRoundPuzzle(puzzleBank)
+    console.log(fourPuzzles);
+      return puzzleBank;
   }
 
   randomizeBank(arr) {
@@ -43,6 +44,17 @@
     return arr;
   }
 
+  setGamePuzzles(puzzleBank) {
+    let fourPuzzles = puzzleBank.slice(0, 4);
+    this.gamePuzzles = fourPuzzles.map(puzzle => {
+      return new Puzzle(puzzle.category)
+    })
+    return fourPuzzles;
+  }
+
+  // setRoundPuzzle() {
+
+  // }
 
 }
 
