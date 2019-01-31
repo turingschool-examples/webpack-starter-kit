@@ -4,7 +4,7 @@ import spies from 'chai-spies';
 import Game from '../src/Game.js';
 chai.use(spies);
 import domUpdates from '../src/domUpdates';
-chai.spy.on(domUpdates, ['toggleSplash', 'displayPlayers'], () => true);
+chai.spy.on(domUpdates, ['toggleSplash', 'displayPlayers', 'disableReset', 'enableReset'], () => true);
 chai.spy.on(Game, ['quitGame', 'gatherPlayers'], () => true);
 
 describe('domUpdates', function() {
@@ -20,4 +20,15 @@ describe('domUpdates', function() {
     expect(domUpdates.displayPlayers).to.be.called(1);
   })
   
+  it('should disable the reset game button', function() {
+    domUpdates.disableReset();
+
+    expect(domUpdates.disableReset).to.be.called(1);
+  });
+
+  it('should enable the reset game button', function() {
+    domUpdates.enableReset();
+
+    expect(domUpdates.enableReset).to.be.called(1);
+  });
 });

@@ -13,9 +13,11 @@ $('.start--btn').on('click', () => {
   game = new Game();
   domUpdates.displayPlayers(game);
   domUpdates.toggleSplash();
+  domUpdates.enableReset();
 });
 
 
 $('.game--exit').on('click', () => {
   game.quitGame();
+  domUpdates.disableReset();
 });

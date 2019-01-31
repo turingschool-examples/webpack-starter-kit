@@ -15,7 +15,16 @@ const domUpdates = {
     $('.player--one').text(game.players[0]);
     $('.player--two').text(game.players[1]);
     $('.player--three').text(game.players[2]);
+  },
+
+  enableReset: () => {
+    $('.game--exit').prop( "disabled", false);
+  },
+
+  disableReset: () => {
+    $('.game--exit').prop( "disabled", true);
   }
+
 }
 
 export default domUpdates;
