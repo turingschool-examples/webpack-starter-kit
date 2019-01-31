@@ -1,17 +1,18 @@
 body {
-  /*background: url('/images/background.jpg');*/
+  background: url('/images/background.jpg');
   background-size: cover;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
   margin: 0;
   display: grid;
-  grid-template-rows: 80px 60px 300px 1fr 80px;
+  grid-template-rows: 80px 40px 300px 190px 80px;
 }
 
 header {
   width: 100%;
-  border: solid black 2px;
+  /*border: solid black 2px;*/
   display: flex;
   justify-content: center;
 }
@@ -25,20 +26,24 @@ header button {
 
 .rounds {
   width: 100%;
-  border: solid black 2px;
+  /*border: solid black 2px;*/
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
+.rounds h2 {
+  align-self: center;
+}
+
 main {
   width: 100%;
-  border: solid blue 2px;
+  /*border: solid blue 2px;*/
   display: flex;
 }
 
 .wheel-container {
-  border: solid black 2px;
+  /*border: solid black 2px;*/
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -46,12 +51,58 @@ main {
 
 .puzzle {
   width: 100%;
-  border: solid yellow 2px;
+  /*border: solid yellow 2px;*/
 }
 
 .puzzle-status {
   display: flex;
   justify-content: space-around;
-  border: solid black 2px;
+  /*border: solid black 2px;*/
   width: 100%;
+  height: 15%;
+  align-items: center;
 }
+
+.keyboard {
+  width: 100%;
+  /*border: solid black 2px;*/
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 130px;
+}
+
+.keyboard button {
+  height: 75px;
+  width: 75px;
+  margin: 0 5px;
+}
+
+footer {
+  width: 100%;
+  /*border: solid black 2px;*/
+  display: flex;
+  justify-content: space-around;
+}
+
+footer article {
+  display: flex;
+  align-items: center;
+}
+
+footer article div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+
+}
+
+footer h3,
+footer h4 {
+  margin: 0;
+}
+
