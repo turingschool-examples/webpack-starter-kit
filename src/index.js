@@ -1,31 +1,36 @@
 
 import Game from './Game.js';
-import './css/base.css'
+import Player from './Player.js';
+import Round from './Round.js';
+import domUpdate from './domUpdates.js';
+import Clue from './Clue.js';
+import DailyDouble from './DailyDouble.js';
+import './css/base.css';
 
 const player1 = $('#player1');
 const player2 = $('#player2');
 const player3 = $('#player3');
 
-$('.start-btn').on('click', createGame);
-
-function createGame(e){
+$('.start-game').on('click', (e) => {
   e.preventDefault();
-  var game = new Game(round = 1, undefined);
+  var game = new Game(1, undefined);
   startGame(game);
-}
+});
+
+
 
 function startGame(game){
-  const players = [player1.value, player2.value, player3.value];
-  game.startGame(players);
-  createGameBoard();
+  const players = [player1.val(), player2.val(), player3.val()];
+  game.start(players);
+  createGameBoard(players);
 }
 
 
-function createGameBoard(){
+function createGameBoard(arr){
 document.querySelector('.entry-page').className ='game-board-area';
 document.querySelector('.intro-page').className = "entry-page";
-document.querySelector('#player1-name-text').innerText = playerOneName;
-document.querySelector('#player2-name-text').innerText = playerTwoName;
-document.querySelector('#player3-name-text').innerText = playerThreeName;
-}
 
+arr.forEach((player,ind) => {
+  $('#player' + ([ind + 1]) + '-name-text').text(player);
+})
+}

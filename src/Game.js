@@ -16,7 +16,6 @@ class Game{
       this.players = array.map(person => {
        return person = new Player(person);
       });
-      console.log(this.players)
   }
 }
 
