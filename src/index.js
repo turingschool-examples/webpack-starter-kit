@@ -3,8 +3,8 @@
 
 // Tell webpack to use a CSS file
 import './css/base.css';
-import Game from './Game.js'
-import domUpdates from './domUpdates.js'
+import Game from './Game.js';
+import domUpdates from './domUpdates.js';
 
 //  Tell webpack to use an image (link to it in index.html)
 let game;
