@@ -2,7 +2,43 @@ body {
   font-family: 'Oswald', sans-serif;
   background-image: url("src/images/bg-image.jpg");
 }
+/* ============================= */
+/* ==========Titles============= */
+.round-num {
+  background-color: #bce784;
+  border-radius: 30px;
+  border: 3px double #414770;
+  color: hsl(232, 27%, 35%);
+  display: inline-block;
+  font-size: 30px;
+  left: 40px;
+  margin: 0;
+  padding: 2px 20px 2px 10px;
+  position: relative;
+  top: 60px;
+}
 
+.logo, .logo2 {
+  /* background-color: #bce784;
+  border-radius: 30px;
+  border: 3px double #414770; */
+  display: inline-block;
+  height: 100px;
+  position: absolute;
+  width: 300px;
+}  
+.logo {
+  left: 30%;
+  top: 35px;
+  display: none;
+}
+.logo2 {
+  left: 40%;
+  top: 25px;
+
+}
+/* ============================= */
+/* ===========Board============= */
 .game-board {
   background-color:rgba(236, 254, 170, 0.6);
   border-radius: 40px;
@@ -18,13 +54,17 @@ body {
   "c1 c2 c3 c4 player"
   "d1 d2 d3 d4 player"
   "e1 e2 e3 e4 player";
-  margin: 40px auto;
-  padding: 20px 0 0 20px;
+  margin: 0px auto;
+  padding: 60px 0 0 20px;
   width: 95%;
 }
 
 .game-board h1 {
   text-align: center;
+}
+
+h2 {
+  margin: 0 0 -35px 0;
 }
 /* ============================= */
 /* ==========Rules============== */
@@ -45,6 +85,8 @@ body {
 }
 
 .pokemon {
+  position: relative;
+  z-index: 2;
   height: 100px;
   margin-top: -20px;
   width: 100px;
@@ -54,8 +96,35 @@ body {
   margin-left: 15px;
 }
 
-h5 {
-  margin: -20px 0 0 0;
+h5,h6 {
+  margin: -20px 0 10px 0;
+}
+
+h4 {
+  margin: 30px 0 5px 0;
+}
+
+.shadow1,
+.shadow2,
+.shadow3 {
+  position: absolute;
+  width: 80px;
+  height: 20px;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 100px / 50px;
+}
+
+.shadow1 {
+  top: 255px;
+}
+
+.shadow2 {
+  top: 460px;
+}
+
+.shadow3 {
+  top: 660px;
 }
 
 /* ============================= */
