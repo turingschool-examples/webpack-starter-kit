@@ -7,22 +7,22 @@ import Clue from './Clue.js';
 import DailyDouble from './DailyDouble.js';
 import './css/base.css';
 
-// const player1 = $('#player1');
-// const player2 = $('#player2');
-// const player3 = $('#player3');
+const player1 = $('#player1');
+const player2 = $('#player2');
+const player3 = $('#player3');
 
 $('.start-game').on('click', (e) => {
   e.preventDefault();
   var game = new Game(1, undefined);
-  // startGame(game);
   game.start();
+  startGame(game);
 });
 
 
 
 function startGame(game){
-  // const players = [player1.val(), player2.val(), player3.val()];
-  // game.start(players);
+  const players = [player1.val(), player2.val(), player3.val()];
+  game.start(players);
   createGameBoard(players);
 }
 

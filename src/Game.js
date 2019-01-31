@@ -5,12 +5,13 @@ class Game{
   constructor(round =1, players =[]){
     this.round = round;
     this.players = players;
+
   }
 
   start(){
     // array.forEach(person => this.players.push(person);
-    playerArray = domUpdates.grabNames();
-    this.createPlayers(playerArray);
+    // playerArray = domUpdates.grabNames();
+    this.createPlayers(domUpdates.grabNames());
   }
 
   createPlayers(array){

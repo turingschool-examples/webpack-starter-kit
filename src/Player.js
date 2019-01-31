@@ -5,7 +5,10 @@ class Player{
     this.name = name;
     this.score = score;
     this.wager = wager;
-    
+    this.turn = false;
+    // if index + 1 is = to round.turnNum
+    // this.turn = true
+    // else turn = false
   }
 }
 
