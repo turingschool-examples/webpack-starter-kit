@@ -22,6 +22,7 @@ $startBtn.on('click', function(e) {
   console.log('You started!!!');
   let game = new Game();
   game.startGame();
+  
 })
 
 
