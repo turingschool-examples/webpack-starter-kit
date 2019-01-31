@@ -11,6 +11,7 @@ body {
   color: hsl(232, 27%, 35%);
   display: inline-block;
   font-size: 30px;
+  height: 50px;
   left: 40px;
   margin: 0;
   padding: 2px 20px 2px 10px;
@@ -18,25 +19,16 @@ body {
   top: 60px;
 }
 
-.logo, .logo2 {
-  /* background-color: #bce784;
-  border-radius: 30px;
-  border: 3px double #414770; */
+.logo {
   display: inline-block;
+  grid-area: title;
   height: 100px;
+  left: 40%;
   position: absolute;
+  top: 25px;
   width: 300px;
 }  
-.logo {
-  left: 30%;
-  top: 35px;
-  display: none;
-}
-.logo2 {
-  left: 40%;
-  top: 25px;
 
-}
 /* ============================= */
 /* ===========Board============= */
 .game-board {
@@ -47,13 +39,10 @@ body {
   font-size: 44px;
   grid-auto-columns: 1fr;
   grid-gap: 15px;
+  grid-template-rows: 1fr;
   grid-template-areas:
-  "cat cat cat cat player"
-  "a1 a2 a3 a4 player"
-  "b1 b2 b3 b4 player"
-  "c1 c2 c3 c4 player"
-  "d1 d2 d3 d4 player"
-  "e1 e2 e3 e4 player";
+  "title title title title player"
+  "cat cat cat cat player";
   margin: 0px auto;
   padding: 60px 0 0 20px;
   width: 95%;
@@ -168,6 +157,10 @@ section h3 {
   font-weight: bold;
   text-transform: uppercase;
   width: 200px;
+}
+
+.popup button:focus {
+  background-color: #5d66a0;
 }
 
 .popup img {
