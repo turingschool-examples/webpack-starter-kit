@@ -1,3 +1,5 @@
+// export?
+
 const data = {
   response_code: {
     version: '1.2',
@@ -31,6 +33,14 @@ const data = {
     500,
     900
   ],
+  // puzzles = key
+  // {} = value
+    // one_word_answers = key
+    // {} = value
+      // puzzle_bank = key
+      // [{}, {}, {}] = value
+        // correct_answer = key
+        // 'String answer I'm looking to grab and then randomize (ie select a random index and choose that one to display probably put it into its own array.)
   puzzles: {
     one_word_answers: {
       date: 'Oct 07 2018',

@@ -5,13 +5,16 @@
 import './css/base.css';
 
 //  Tell webpack to use an image (link to it in index.html)
-import './images/turing-logo.png'
-import './images/background.jpg'
-import './images/background2.png'
+import './images/turing-logo.png';
+import './images/background.jpg';
+import './images/background2.png';
+import domUpdates from './domUpdates.js';
 
 // Tell webpack to use a JS file
 // import './data.js'
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+
 
 
