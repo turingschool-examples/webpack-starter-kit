@@ -1,5 +1,5 @@
 class Puzzle {
-    constructor () {
+    constructor (currentPuzzle) {
         this.currentPuzzle = currentPuzzle;
     }
 }
