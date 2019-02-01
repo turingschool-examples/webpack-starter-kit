@@ -10,16 +10,16 @@ import './Question';
 import './GameBoard';
 import './Players';
 import './Round';
-import './DailyDouble'
+import './DailyDouble';
 
 
 //  Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
 import './images/bg-image.jpg';
 import './images/bg2.png';
-import './images/Squirtle.png';
 import './images/bulbasaur.png';
 import './images/charmander.png';
+import './images/Squirtle.png';
 import './images/Oak2.png';
 
 
