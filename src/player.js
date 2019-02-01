@@ -16,7 +16,7 @@ class Player {
 
   appendName() {
     //on play Jeopardy button click, take input names and print them on podium
-    document.querySelector
+    
   };
 }
 

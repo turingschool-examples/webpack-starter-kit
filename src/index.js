@@ -15,15 +15,29 @@ import Dailydouble from './dailyDouble.js';
 // import Data from './data.js';
 
 
-
 let $startBtn = $('#playBtn');
 $startBtn.on('click', function(e) {
   e.preventDefault();
   console.log('You started!!!');
   let game = new Game();
   game.startGame();
-  
+  pullNames();
 })
+
+
+
+function pullNames() {
+  let $playerName1 = $('#playerNameInput1').val();
+  let $playerName2 = $('#playerNameInput2').val();
+  let $playerName3 = $('#playerNameInput3').val();
+  $('#playerName1').text($playerName1);
+  $('#playerName2').text($playerName2);
+  $('#playerName3').text($playerName3);
+  let player1 = new Player($playerName1, 0, 0, 1);
+  let player2 = new Player($playerName2, 0, 0, 2);
+  let player3 = new Player($playerName3, 0, 0, 3);
+  console.log(player1)
+}
 
 
 
