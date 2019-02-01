@@ -1,21 +1,37 @@
 body {
+  background-color: #8eab73;
+  background-image: url("src/images/bg-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: 'Oswald', sans-serif;
 }
 /* ============================= */
 /* ==========Titles============= */
-.round-num {
+.round-num,
+#reset-game {
   background-color: #bce784;
   border-radius: 30px;
   border: 3px double #414770;
   color: hsl(232, 27%, 35%);
   display: inline-block;
   font-size: 30px;
-  height: 50px;
-  left: 40px;
   margin: 0;
-  padding: 2px 20px 2px 10px;
   position: relative;
-  top: 60px;
+}
+
+.round-num {
+  height: 40px;
+  left: 70px;
+  padding: 5px 20px 2px 15px;
+  top: 90px;
+}
+
+#reset-game {
+  height: 50px;
+  left: 100px;
+  padding: 2px 10px 5px 10px;
+  top: 90px;
 }
 
 .logo {
@@ -33,6 +49,7 @@ body {
 .game-board {
   background-color:rgba(236, 254, 170, 0.6);
   border-radius: 40px;
+  box-shadow: 3px 4px 7px gray, 2px 2px 5px black;
   color: #414770;
   display: grid;
   font-size: 44px;
@@ -51,6 +68,10 @@ body {
   text-align: center;
 }
 
+.cat--container {
+  padding-top: 70px;
+}
+
 h2 {
   margin: 0 0 -35px 0;
 }
@@ -60,7 +81,6 @@ h2 {
   align-items: center;
   display: flex;
   flex-direction: column;
-  /* grid-area: player; */
   margin-top: -45px;
 }
 
@@ -68,51 +88,55 @@ h2 {
   background-color: #bce784;
   border: 3px double #414770;
   border-radius: 40px;
-  margin: 20px 20px;
+  box-shadow: 3px 4px 7px gray, 2px 2px 5px black;
+  margin: 10px 20px;
   padding: 15px;
+  position: relative;
 }
 
 .pokemon {
-  position: relative;
-  z-index: 2;
-  height: 100px;
+  height: 80px;
   margin-top: -20px;
-  width: 100px;
+  position: relative;
+  width: 80px;
+  z-index: 2;
+}
+
+#squirtle,
+#bulbasaur {
+  margin-left: 10px;
 }
 
 #charmander {
   margin-left: 15px;
 }
 
-h5,h6 {
-  margin: -20px 0 10px 0;
+.player h5,h6 {
+  font-size: 30px;
+  margin: 5px;
 }
 
 h4 {
   margin: 30px 0 5px 0;
 }
 
-.shadow1,
-.shadow2,
-.shadow3 {
-  position: absolute;
-  width: 80px;
-  height: 20px;
-  z-index: 1;
+.shadow {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 100px / 50px;
+  height: 20px;
+  position: absolute;
+  width: 80px;
+  z-index: 1;
+  left: 25px;
+  top: 20px;
 }
 
-.shadow1 {
-  top: 255px;
+.active {
+  box-shadow: 3px 4px 7px #bce784, 5px 6px 12px black;  
 }
 
-.shadow2 {
-  top: 460px;
-}
-
-.shadow3 {
-  top: 660px;
+.shadow--active {
+  background: white;
 }
 
 /* ============================= */
@@ -126,9 +150,9 @@ h4 {
 
 section h3 {
   background-color: #bce784;
+  border-radius: 25px;
   border: 1px solid #414770;
   text-align: center;
-  border-radius: 25px;
 }
 
 .game-board h3:hover {
@@ -138,51 +162,130 @@ section h3 {
 /* ============Overlay============= */
 
 .overlay {
-  position: absolute;
-  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.8);
   height: 100%;
-  top: 0;
   left: 0;
+  position: absolute;
+  top: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 6;
 }
+
+/* ============POPUP============= */
+
+.start-container {
+  display: grid;
+  grid-auto-columns: 1fr 2fr ;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas: 
+  "oak words"
+  "oak input";
+  padding: 50px;
+}
+
+.start-img {
+  grid-area: oak;
+}
+
+.start-text {
+  grid-area: words;
+  text-align: center;
+}
+
+.start-text h4 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.start-input {
+  grid-area: input;
+}
+
+fieldset {
+  border: none;
+  width: 90%;
+}
+
+.starter-pokemon {
+  height: 50px;
+  margin-right: 10px;
+  width: 50px;
+}
+
+.starter-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.start-squirtle {
+  grid-area: squirt;
+}
+
+.start-bulbasaur {
+  grid-area: bulb;
+}
+
+.start-charmander {
+  grid-area: char;
+}
+
+.start-input input {
+  background-color: rgba(65, 71, 112, 0.77);
+  border: none;
+  border-radius: 30px;
+  color: #ECFEAA;
+  text-align: center;
+}
+
+.start--btn__field {
+  grid-area: start;
+}
+
+.start--btn__container {
+  display: flex;
+  justify-content: center;
+}
+
 
 /* ============POPUP============= */
 .popup {
   background-color: #ECFEAA;
   border-radius: 50px;
+  box-shadow: 3px 4px 7px black, 5px 6px 12px white;
   color: #414770;
-  /* font-size: 44px; */
   height: 500px;
   width: 50%;
   padding: 20px;
   position: absolute;
-  /* text-align: center; */
   top: 20%;
   left: 22%;
   z-index: 11;
 }
 
 .question-container {
-  height: 100%;
-  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 2fr 1fr;
   grid-template-areas: 
   "img question"
   "img answer";
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 2fr 1fr;
+  height: 100%;
+  visibility: hidden;
+  width: 100%;
 }
 
 .question-text {
-  display: flex;
-  justify-content: center;
   align-content: center;
+  display: flex;
   flex-direction: column;
-  grid-area: question;
-  text-align: center;
   font-size: 24px;
+  grid-area: question;
+  justify-content: center;
   margin: 5px;
+  text-align: center;
 }
 
 .question-result {
@@ -190,23 +293,23 @@ section h3 {
 }
 
 .question-answer {
-  display: flex;
-  justify-content: center;
   align-items: flex-start;
+  display: flex;
   flex-direction: row;
   grid-area: answer;
+  justify-content: center;
 }
 
 .popup button {
   background-color: #414770;
   border-radius: 25px;
   color: #ECFEAA;
-  height: 50px;
   font-size: 20px;
   font-weight: bold;
+  height: 50px;
+  margin: 5px;
   text-transform: uppercase;
   width: 200px;
-  margin: 5px;
 }
 
 .popup button:focus {
@@ -214,19 +317,16 @@ section h3 {
 }
 
 .question-img {
-  grid-area: img;
-  display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.popup img {
+  display: flex;
+  grid-area: img;
   height: 300px;
+  justify-content: center;
 }
 
 .popup input {
   height: 25px;
-  width: 50%;
   margin: 5px;
   padding: 10px;
+  width: 50%;
 }
