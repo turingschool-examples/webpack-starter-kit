@@ -136,16 +136,66 @@ section h3 {
   color: #fff;
 }
 
+/* ============Overlay============= */
+
+.overlay {
+  position: absolute;
+  z-index: 6;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 /* ============POPUP============= */
 .popup {
   background-color: #ECFEAA;
   border-radius: 50px;
   color: #414770;
-  font-size: 44px;
-  height: 400px;
+  /* font-size: 44px; */
+  height: 500px;
+  width: 50%;
   padding: 20px;
-  position: relative;
+  position: absolute;
+  /* text-align: center; */
+  top: 20%;
+  left: 22%;
+  z-index: 11;
+}
+
+.question-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: 
+  "img question"
+  "img answer";
+}
+
+.question-text {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  grid-area: question;
   text-align: center;
+  font-size: 24px;
+  margin: 5px;
+}
+
+.question-result {
+  font-size: 60px;
+}
+
+.question-answer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  grid-area: answer;
 }
 
 .popup button {
@@ -157,20 +207,27 @@ section h3 {
   font-weight: bold;
   text-transform: uppercase;
   width: 200px;
+  margin: 5px;
 }
 
 .popup button:focus {
   background-color: #5d66a0;
 }
 
+.question-img {
+  grid-area: img;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .popup img {
   height: 300px;
-  left: 50px;
-  position: absolute;
-  top: 50px;
 }
 
 .popup input {
-  height: 45px;
-  width: 300px;
+  height: 25px;
+  width: 50%;
+  margin: 5px;
+  padding: 10px;
 }

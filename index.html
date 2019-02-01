@@ -9,10 +9,10 @@
 <body>
   <div class="game-overlay">
     <h4 class="round-num">Round: <span id="round"></span>1</span></h4>
-
+    
     <img class="logo" src= "https://fontmeme.com/permalink/190130/002d60004702e6e93e82fa3bee891003.png"
     alt="pokemon-font" border="0">
-      <section class="game-board">
+    <section class="game-board">
       <article>
         <h2 class="cat 1">category</h2>
         <h3 class="col a1">100</h3>
@@ -64,14 +64,24 @@
       </article>
     </section>
   </div>
+  <div class="overlay"></div>
   <section class="popup">
-    <div>
-      <h4 class="popup-question">QUESTION</h4>
-      <input type="text" class="popup-input" id="popup-input-js">
-      <button class="popup-btn">submit answer</button>
-    </div>
-    <img src="/images/Oak2.png" alt="Professor Oak">
+    <section class="question-container">
+      <article class="question-text">
+        <h4 class="question-result">result</h4>
+        <p class="question-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto iste delectus perspiciatis. Veritatis veniam voluptas voluptates neque excepturi quibusdam repudiandae adipisci enim, quod libero minima fuga itaque dicta quae porro!
+        </p>
+      </article>
+      <form class="question-answer">
+        <input type="text" class="popup-input" id="popup-input-js" placeholder="What is...">
+        <button class="popup-btn">submit answer</button>
+      </form>
+      <div class="question-img">
+        <img src="src/images/Oak2.png" alt="Professor Oak">
+      </div>
+    </section>
   </section>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 </html>
