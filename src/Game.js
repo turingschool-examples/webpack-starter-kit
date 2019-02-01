@@ -1,5 +1,6 @@
 import domUpdates from './domUpdates.js';
 import Player from './Player.js';
+import $ from 'jquery';
 
 class Game {
   constructor() {
@@ -10,11 +11,10 @@ class Game {
   }
 
   startGame() {
-    console.log(this)
     let $names = domUpdates.getNames()
     domUpdates.displayNames($names)
     this.createPlayers($names)
-
+    console.log(this)
   }
 
   createPlayers(names) {
@@ -44,5 +44,4 @@ class Game {
 
   // 
 }
-
 export default Game; 

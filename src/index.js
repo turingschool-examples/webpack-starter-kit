@@ -8,11 +8,14 @@ import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 // Tell webpack to use a CSS file
 import './css/base.css';
+import $ from 'jquery'; 
 
+  var a = 'a';
   let game = new Game();
-  console.log(game);
+
 $('.start-button').on('click', function(e) {
   e.preventDefault();
   game.startGame();
+  console.log(game);
 })
 
