@@ -1,11 +1,11 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file
 
-// import Game from './Game.js';
+import Game from './Game.js';
 import Player from './Player.js';
 // import Wheel from './Wheel.js';
 // import Puzzle from './Puzzle.js';
-
+import $ from 'jquery';
 
 
 // $('.start-button').on('click', playGame);
