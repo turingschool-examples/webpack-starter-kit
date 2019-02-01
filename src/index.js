@@ -7,11 +7,14 @@ import Game from './Game.js';
 import domUpdates from './domUpdates.js';
 
 //  Tell webpack to use an image (link to it in index.html)
-let game;
+let game = new Game();
 
 $('.start--btn').on('click', () => {
-  game = new Game();
-  domUpdates.displayPlayers(game);
+  let one = $('.player--input1').val();
+  let two = $('.player--input2').val();
+  let three = $('.player--input3').val();
+  game.gatherPlayers(one, two, three);
+  domUpdates.displayPlayers(one, two, three);
   domUpdates.toggleSplash();
   domUpdates.enableReset();
 });

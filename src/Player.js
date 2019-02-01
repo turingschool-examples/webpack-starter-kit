@@ -1,12 +1,15 @@
 class Player {
-  constructor(score, name, turn) {
+  constructor(score, name) {
     this.score = score;
     this.name = name;
-    this.turn = turn;
+    // this.turn = turn;
   }
 
   changeScore() {
-  
+
   }
 
+
 }
+
+export default Player;
