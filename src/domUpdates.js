@@ -1,3 +1,10 @@
 export default {
-  //methods go here
+ 
+  removeStartPage() {
+    $('.hidden').removeClass('hidden');
+    $('.start-page').remove()
+  }
+
+
+
 };

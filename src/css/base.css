@@ -19,3 +19,7 @@ body {
 #name-input-container {
   margin:0 auto;
 }
+
+.hidden {
+  display: none;
+}
