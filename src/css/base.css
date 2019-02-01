@@ -3,7 +3,18 @@
 }
 
 body {
-  background-color: pink;
+  background-color: #0b1842;
+  color: #35eff4;
+  font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  background: #35eff4;
+  color: #0b1842;
+}
+
+h2 {
+  margin: 0;
 }
 
 /*login page*/
@@ -29,7 +40,7 @@ body {
 /* Header Section Begins Here*/
 
 header {
-  background-color: yellow;
+  background-color: #004bc4;
   display: flex;
   justify-content: space-between;
 }
@@ -50,7 +61,6 @@ main {
 
 .play {
   grid-area: play;
-  border: solid black 2px;
   display: grid;
   grid-template-rows: repeat(2, 1fr)
 }
@@ -65,8 +75,8 @@ button.wheel {
   border-radius: 50%;
   height: 250px;
   width: 250px;
-  background-image: linear-gradient(red, orange, yellow, orange, red);
-  border: dotted yellow 3px;
+  background-image: radial-gradient(#b651ff, #35eff4, #004bc4);
+  border: dotted #b651ff 3px;
 }
 
 .form-container {
@@ -76,40 +86,76 @@ button.wheel {
   align-items: center;
 }
 
+
+.player-input, 
+.play-button {
+  height: 30px;
+  border: none;
+}
+.player-input {
+  width: 150px;
+  border-radius: 10px 0 0 10px;
+  padding-left: 10px;
+}
+
+.play-button {
+  width: 60px;
+  border-radius: 0 10px 10px 0;
+}
+
 /* Puzzle Section Begins Here */
 
 .puzzle {
   grid-area: puzzle;
-  border: solid black 2px;
 }
 
 /* Feedback Section Begins Here */
 
 .feedback {
   grid-area: feedback;
-  border: solid black 2px;
   display: grid;
   grid-template-columns: repeat(2, 1fr)
 }
 
-.message {
-  border: dotted black 2px;
+.message,
+.guessed-letters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.guessed-letters {
-  border: dotted black 2px;
+.pop-up-message,
+.pop-up-letters {
+  height: 80%;
+  width: 80%;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.pop-up-message {
+  background-color: #b651ff;
+  color: #004bc4;
+}
+
+.pop-up-letters {
+  background-color: #fff;
+  color: #004bc4;
 }
 /* Players Section Begins Here */
 
 .players {
   grid-area: players;
-  border: solid black 2px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 30%);
+  justify-content: space-around;
 }
 
 .player {
+  background-color: #004bc4;
+  border-radius: 20px;
+  margin: 10px 0 10px 0;
   text-align: center;
+  padding: 10px;
 }
 
 .score-container {
