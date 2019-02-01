@@ -13,6 +13,10 @@ const domUpdates = {
 
   displayCategory(roundPuzzle) {
     $('.category-window').text(roundPuzzle.category)
+  },
+
+  showHiddenPuzzle() {
+    //we're gonna grab the puzzle.correct_answer
   }
 }
 
