@@ -6,6 +6,10 @@ body {
 }
 
 h2{
+  text-align: center;
+}
+
+.player-score{
   margin-top: 5px;
 }
 
