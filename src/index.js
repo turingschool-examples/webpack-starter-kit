@@ -12,6 +12,7 @@ import Clue from './clue.js';
 import Gameboard from './gameboard.js';
 import Finalround from './finalRound.js';
 import Dailydouble from './dailyDouble.js';
+import $ from 'jquery';
 // import Data from './data.js';
 
 
