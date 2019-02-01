@@ -1,3 +1,5 @@
+import data from './data.js';
+
 class Wheel {
   constructor() {
       this.wheelElements = [];
