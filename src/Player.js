@@ -6,6 +6,12 @@ class Player {
     this.round = round;
     this.total = total;
   }
+
+  
+  // scoreTracker() {
+
+  // }
 }
 
 export default Player;
+
