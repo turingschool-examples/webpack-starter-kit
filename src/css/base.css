@@ -16,7 +16,6 @@ h2{
 h3{
   margin: auto;
   padding-top: 8px;
-  text-decoration: underline;
 }
 
 h4{
@@ -154,6 +153,7 @@ input{
 .categories-box{
   background-color: black;
   color: #fff;
+  border: 2px solid gainsboro;
   border-radius: 5px;
   padding: 20px;
   font-size: 15px;
