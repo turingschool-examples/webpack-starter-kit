@@ -31,4 +31,10 @@ describe('domUpdates', function() {
 
     expect(domUpdates.enableReset).to.be.called(1);
   });
+
+  // it('should display player\'s score upon start of game', function() {
+  //   domUpdates.displayPlayerScore('a', 'b', 'c');
+
+  //   expect(domUpdates.displayPlayerScore).to.be.called(1);
+  // });
 });
