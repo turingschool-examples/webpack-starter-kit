@@ -3,6 +3,7 @@
   <head>
     <title>Wheel of Fortune</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Normalize file? -->
   </head>
@@ -30,27 +31,28 @@
     <main>
       <section class="play">
         <article class="button-container">
-          <button class="wheel">Spin the Wheel</button>
+          <button class="wheel">SPIN THE WHEEL</button>
         </article>
         <article class="form-container">
           <form class="guess-letter">
-            <input type="text">
-            <button>Guess</button>
+            <input type="text" class="player-input" placeholder="Guess a letter"><button class="play-button">GUESS</button>
           </form>
           <form class="buy-vowel">
-            <input type="text">
-            <button>Buy</button>
+            <input type="text" class="player-input" placeholder="Buy a vowel"><button class="play-button">BUY</button>
           </form>
           <form class="solve-puzzle">
-            <input type="text">
-            <button>Solve</button>
+            <input type="text" class="player-input" placeholder="Solve the puzzle"><button class="play-button">SOLVE</button>
           </form>
         </article>
       </section>
       <section class="puzzle"></section>
       <section class="feedback">
-        <article class="message"></article>
-        <article class="guessed-letters"></article>
+        <article class="message">
+          <p class="pop-up-message">Sample Message</p>
+        </article>
+        <article class="guessed-letters">
+          <p class="pop-up-letters">ABC</p>
+        </article>
       </section>
       <section class="players">
         <article class="player">
