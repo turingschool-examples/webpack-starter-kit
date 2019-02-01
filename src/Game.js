@@ -12,6 +12,37 @@ class Game{
     //round3 clue
   }
 
+
+    // var categoryNum = 10;
+    // var arrayOfCatergories = [[],[],[],[],[],[],[],[],[],[]];
+
+    // arrayOfCatergories.forEach((cat,ind) => {
+    //   data.clues.forEach(clue => { 
+    //     if (clue.categoryId === (ind + 1)){
+    //       cat.push(clue);
+    //     }
+    //   })
+
+    // });
+
+
+    // shuffle(arrayOfCatergories);
+    // arrayOfCatergories.forEach(cat => {
+    //   shuffle(cat);
+    // });
+
+    // function shuffle(a) {
+    //     for (let i = a.length - 1; i > 0; i--) {
+    //         const j = Math.floor(Math.random() * (i + 1));
+    //         [a[i], a[j]] = [a[j], a[i]];
+    //     }
+    //     return a;
+    // }
+    // console.log(arrayOfCatergories[0]);
+
+
+
+
   start(){
     const round = new Round();
     this.round = round;
@@ -24,6 +55,9 @@ class Game{
        return person = new Player(person);
       });
   }
+
+
+
 }
 
 export default Game;
