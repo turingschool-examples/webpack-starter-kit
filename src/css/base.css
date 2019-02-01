@@ -1,7 +1,6 @@
 body {
   margin: 40px;
   box-sizing: border-box;
-  background: url("../images/water.jpg");
   background-repeat: no-repeat;
   background-size: 900px 1000px
 }
@@ -19,10 +18,15 @@ h3{
   place-self: center;
 }
 
+.intro-img{
+  height: 40px;
+}
+
 .start-game{
   margin: auto;
   border-radius: 5px;
-  background-color: navy;
+  color: white;
+  background-color: black;
   color: white;
   font-size: 20px;
   width: 100px;
@@ -32,12 +36,32 @@ h3{
   display: none; 
 }
 .game-board-area{
+  background-color: grey;
+  background-size: cover;
   display: grid;
   grid-template-areas: "gameboard player";
   grid-template-columns: 1fr 1fr;
   padding: 5px;
   min-width: 1050px;
+}
 
+.welcome-page{
+  color: black;
+  background-color: gainsboro;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 600px;
+  height: 300px;
+  border: 5px solid black;
+  border-radius: 5px
+}
+
+
+.welcome-page input{
+  margin-bottom: 10px;
 }
 
 .game-board{
@@ -48,10 +72,10 @@ h3{
 
 .categories-container{
   grid-area: categories;
- display: grid;
-  grid-gap: 10px;
+  display: grid;
+  grid-gap: 20px;
   margin-bottom: 10px;
-  grid-template-columns: repeat(4, 200px);
+  grid-template-columns: repeat(4, 180px);
   grid-template-rows: repeat(1, 70px);
   grid-auto-flow: row; 
 }
@@ -69,10 +93,16 @@ h3{
 .player-square{
   padding-top: 10px;
   text-align: center;
-  height: 150px;
+  width: 180px;
+  height: 130px;
   background-color: gainsboro;
   margin: 5px;
   border-radius: 5px;
+}
+
+.player-img{
+  height: 70px;
+  margin-bottom: -10px;
 }
 
 .player-name{
@@ -103,15 +133,16 @@ input{
 .questions-container {
   grid-area: question;
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 200px);
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 180px);
   grid-template-rows: repeat(4, 100px);
   grid-auto-flow: column;
 }
 
 .box {
-  background-color: navy;
-  color: #fff;
+  background-color: gainsboro;
+  border: 2px solid black;
+  color: black;
   border-radius: 5px;
   font-size: 20px;
   text-align: center;
@@ -119,6 +150,6 @@ input{
 }
 
 .box:hover{
-  background-color: gainsboro;
+  background-color: white;
   color: black;
 }
