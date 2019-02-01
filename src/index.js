@@ -11,7 +11,6 @@ import './images/turing-logo.png';
 $('#submit-btn').on('click', function(e) {
   e.preventDefault();
   
-  let wheelOfFortune = new Game();
   let playersArray = [];
 
   let playerOne = $('#player-one').val();
@@ -19,8 +18,9 @@ $('#submit-btn').on('click', function(e) {
   let playerThree = $('#player-three').val();
 
   playersArray.push(playerOne, playerTwo, playerThree);
+  const wheelOfFortune = new Game(playersArray);
 
-  wheelOfFortune.startGame(playersArray);
+  wheelOfFortune.startGame();
 })
 
 console.log('This is the JavaScript entry file - your code begins here.');
