@@ -1,8 +1,8 @@
 // This is the JavaScript entry file - your code begins here
-import BonusWheel from'./scripts/bonusWheel.js';
-import Wheel from'./scripts/wheel.js';
-import Player from'./scripts/player.js';
-import Puzzle from'./scripts/puzzle.js';
+import BonusWheel from './scripts/bonusWheel.js';
+import Wheel from './scripts/wheel.js';
+import Player from './scripts/player.js';
+import Puzzle from './scripts/puzzle.js';
 import Game from './scripts/game.js';
 import domUpdates from './scripts/domUpdates.js';
 // Do not delete or rename this file
@@ -15,7 +15,7 @@ import './images/shroom-guy.png'
 // Whatever filepath you use here, copy that into the HTML
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+//This is the JavaScript entry file - your code begins here.');
  
 
 $('.js-start-button').on('click', (e) => {
