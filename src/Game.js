@@ -18,6 +18,7 @@
     this.createPlayers(this.players);
     this.grabPuzzleBanks();
     domUpdates.removeStartPage();
+
   }
 
   createPlayers(players) {
@@ -38,6 +39,7 @@
     let fourPuzzles = this.setGamePuzzles(puzzleBank);
     let roundPuzzle = this.setRoundPuzzle(fourPuzzles);
     console.log(roundPuzzle)
+    domUpdates.displayCategory(roundPuzzle);
     return puzzleBank;
   }
 
@@ -61,6 +63,7 @@
     let roundPuzzle = fourPuzzles.pop();
     console.log(fourPuzzles.length)
     return roundPuzzle;
+    domUpdates.displayPuzzle();
   }
 
 }
