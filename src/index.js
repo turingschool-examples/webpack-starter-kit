@@ -14,6 +14,7 @@ $('.start--btn').on('click', () => {
   domUpdates.displayPlayers(game);
   domUpdates.toggleSplash();
   domUpdates.enableReset();
+  game.getRandomCat();
 });
 
 
