@@ -6,11 +6,16 @@ class Game{
   constructor(round =1, players =[]){
     this.round = round;
     this.players = players;
+    // clues for entire game
+    // round1 clues
+    // round2 clues
+    //round3 clue
   }
 
   start(){
     const round = new Round();
     this.round = round;
+    this.round.getClues()
     this.createPlayers(domUpdates.grabNames());
   }
 

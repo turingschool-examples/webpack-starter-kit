@@ -6,7 +6,9 @@ class Round{
     this.currentRound = currentRound;
     // this.roundClues = [[{}], [{}], [{}], [{}]]
   }
-
+  getClues () {
+    
+  }
 }
 
 export default Round;
