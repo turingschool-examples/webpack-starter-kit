@@ -1,8 +1,8 @@
 class Player {
-    constructor() {
+    constructor(name) {
         this.name = name;
-        this.currentCoins = 0;
-        this.cumulativeCoins = 0;
+        this.roundCoins = 0;
+        this.totalCoins = 0;
     }
 }
 export default Player;
