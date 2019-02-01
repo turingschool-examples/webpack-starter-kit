@@ -1,5 +1,5 @@
 class Wheel {
-    constructor() {
+    constructor(currentSpace) {
         this.spaces = [];
         this.currentSpace = currentSpace;
     }
