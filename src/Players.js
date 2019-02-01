@@ -13,6 +13,11 @@ class Player extends Gameboard {
     // when the player clicked the submit answer button, the popup will disappear (animate?)
     // and the box will hide from the gameboard (animate?)
   }
+  addPoints() {
+    // keep track of player current points
+    // add points
+    // this.currentPoints + data.clue.pointValue
+  }
 }
 
 export default Player;

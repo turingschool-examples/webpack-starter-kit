@@ -7,6 +7,16 @@ class Gameboard {
     this.cluesRemaining = 16;
     this.clues = [];
   }
+
+  startGame() {
+    // shuffle indexes of category array 
+    // shuffle the questions within each category
+    // splice the array
+    // populate the categories on page
+    // populate the questions on page
+    
+  }
+
   changeRound() {
     if (this.cluesRemaining === 0) {
       this.activeRound++;
@@ -22,6 +32,10 @@ class Gameboard {
     // increment turn
     // reset index of player, if on p3, reset to p1
     // on round end, reset active player. if p3, reset to p1
+  }
+
+  shuffle(array) {
+    array.clues.sort(() => 0.5 - Math.random());
   }
 }
 
