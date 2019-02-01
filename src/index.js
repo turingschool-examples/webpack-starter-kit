@@ -12,6 +12,7 @@ import './images/background2.png';
 // Tell webpack to use a JS file
 // import data from './data.js';
 import domUpdates from './domUpdates.js';
+// import $ from 'jquery';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
