@@ -65,36 +65,9 @@ class Puzzle {
   }
 };
 
-class Wheel {
-  constructor() {
-      this.wheelElements = []
-  }
-  randomizeWheel() {
-    // randomize wheel array DONE
-    // choose 6 elements for wheel from array (indexes 0-5) DONE
-    // Need to figure out how to access wheel array in data.js INCOMPLETE
-    let newWheel = [];
-    
-    for(let i = 0; i < 6; i++) {
-      let randomIndex = Math.floor(Math.random() * wheel.length);
-      newWheel.push(wheel[randomIndex]);
-    } 
+console.log(data.wheel);
 
-    console.log(newWheel);
-  }
-  spinWheel() {
-    // choose one of the six wheel elements
-    // if land on bankrupt invoke bankrupt method
-    // if land on lose a turn invoke loseTurn method
-  }
-  bankrupt() {
-    // reset player roundScore to 0
-  }
-  loseTurn() {
-    // end player turn
-    // switch to next player
-  }
-};
+
 
 class BonusWheel extends Wheel {
   constructor() {
