@@ -4,26 +4,28 @@
  import domUpdates from './domUpdates.js';
 
  class Game {
-  constructor(currentRound = 1, activePlayer, roundWinner, gameWinner, gamePuzzles) {
+  constructor(players, currentRound = 1, activePlayer, roundWinner, gameWinner, gamePuzzles) {
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
     this.roundWinner = roundWinner,
     this.gameWinner = gameWinner,
-    this.gamePuzzles = []
+    this.gamePuzzles = [],
+    this.players = players
   }
 
   startGame(players) {
     console.log('game started!');
-    this.createPlayers(players);
+    this.createPlayers(this.players);
     this.grabPuzzleBanks();
     domUpdates.removeStartPage();
   }
 
   createPlayers(players) {
-    const playerOne = new Player(players[0], true);
-    const playerTwo = new Player(players[1]);
-    const playerThree = new Player(players[2]);
-    console.log(playerOne);
+    const playerOne = new Player(this.players[0], true);
+    const playerTwo = new Player(this.players[1]);
+    const playerThree = new Player(this.players[2]);
+    domUpdates.displayPlayers(playerOne, playerTwo, playerThree);
+    console.log(playerOne)
   }
 
   grabPuzzleBanks() {
