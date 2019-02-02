@@ -2,6 +2,7 @@ import domUpdates from './domUpdates.js';
 import data from './data.js';
 import Player from './Player.js';
 import Puzzle from './Puzzle.js';
+import Wheel from './Wheel.js';
 import $ from 'jquery';
 
 class Game {
@@ -14,9 +15,12 @@ class Game {
   startGame() {
     let $names = domUpdates.getNames();
     let $puzzles = this.findPuzzles();
+    let $wheels = this.collectWheels();
     domUpdates.displayNames($names);
     this.createPlayers($names);
     this.createPuzzles($puzzles);
+    this.createWheels($wheels);
+
   }
 
   createPlayers($names) {
@@ -32,8 +36,17 @@ class Game {
     let puzzle3 = new Puzzle($puzzles[2]);
     let puzzle4 = new Puzzle($puzzles[3]);
     this.puzzles = [puzzle1, puzzle2, puzzle3, puzzle4];
-    console.log(this.puzzles);
   };
+
+  createWheels($wheels) {
+    console.log($wheels);
+    let wheel1 = new Wheel($wheels[0]);
+    let wheel2 = new Wheel($wheels[1]);
+    let wheel3 = new Wheel($wheels[2]);
+    let wheel4 = new Wheel($wheels[3]);
+    this.wheels = [wheel1, wheel2, wheel3, wheel4];
+    console.log(this.wheels);
+  }
 
   findPuzzles() {
     const puzzleKeys = Object.keys(data.puzzles);
@@ -46,6 +59,33 @@ class Game {
     });
     return foundPuzzles;
   };
+
+  collectWheels() {
+    const allWheels = [];
+    for (var i = 0; i < 4; i++) {
+    allWheels.push(this.findWheels());
+    }
+    return allWheels;
+  }
+
+  findWheels() {
+    const wheelLength = data.wheel.length;
+    const randomIndices = [];
+    for (var i = 0; i < 7; i++) {
+      const randomIndex = Math.floor(Math.random() * Math.floor(wheelLength));
+      randomIndices.push(randomIndex);
+    }
+    const randomWheel = [];
+    randomIndices.forEach(index => {
+      const randomWheelResult = data.wheel[index];
+      randomWheel.push(randomWheelResult);
+    })
+    // console.log(randomWheel);
+    return randomWheel;
+
+  }
+
+
 
   spin() {
 

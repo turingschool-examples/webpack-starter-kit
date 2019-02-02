@@ -1,8 +1,8 @@
 import domUpdates from './domUpdates.js';
 
 class Wheel {
-  constructor() {
-    this.wheelResults = [];
+  constructor(wheelObj) {
+    this.wheel = wheelObj;
   }
 }
 
