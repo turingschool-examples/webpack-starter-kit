@@ -27,7 +27,20 @@ const domUpdates = {
     letters.forEach((letter, i) => {
       $(`#box-${i + 1}`).text(letter)
     })
-  }
+  },
+
+  displayLetters(consonants, vowels) {
+    // $('#consonants-bank').text(consonants);
+    consonants.forEach((cons,i) => {
+      $(`#c${i}`).text(cons)
+      console.log(cons)
+    })
+
+    vowels.forEach((vowel,i) => {
+      $(`#v${i}`).text(vowel)
+      console.log(vowel)
+    })
+  }  
 }
 
 export default domUpdates;
