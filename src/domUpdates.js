@@ -20,8 +20,14 @@ const domUpdates = {
 
   disableReset: () => {
     $('.game--exit').prop( "disabled", true);
-  }
+  },
 
+  displayCategories: (columnOne,columnTwo, columnThree, columnFour) => {
+    $('.category--one').text(columnOne);
+    $('.category--two').text(columnTwo);
+    $('.category--three').text(columnThree);
+    $('.category--four').text(columnFour);
+  }
 }
 
 export default domUpdates;

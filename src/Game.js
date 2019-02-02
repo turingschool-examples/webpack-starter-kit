@@ -27,7 +27,7 @@ class Game {
        }
      }while(fourCats.length < 4)
      let clues = this.gatherClues(fourCats);
-     this.createColumns(clues, fourCats)
+     this.createColumns(clues, fourCats);
    };
 
   gatherClues(array) {
@@ -44,7 +44,7 @@ class Game {
            cluesThisRound.push(specificPoints[0]);
          }
        });
-     return cluesThisRound
+     return cluesThisRound;
    };
 
   createColumns(gameClues, catergories) {
@@ -56,6 +56,7 @@ class Game {
     columnTwo.unshift(catergories[1]);
     columnThree.unshift(catergories[2]);
     columnFour.unshift(catergories[3]);
+    domUpdates.displayCategories(columnOne[0], columnTwo[0], columnThree[0], columnFour[0]);
   };
   
   quitGame() {

@@ -4,7 +4,7 @@ import spies from 'chai-spies';
 import Game from '../src/Game.js';
 chai.use(spies);
 import domUpdates from '../src/domUpdates';
-chai.spy.on(domUpdates, ['toggleSplash', 'displayPlayers', 'disableReset', 'enableReset'], () => true);
+chai.spy.on(domUpdates, ['toggleSplash', 'displayPlayers', 'disableReset', 'enableReset', 'displayCategories'], () => true);
 chai.spy.on(Game, ['quitGame', 'gatherPlayers'], () => true);
 
 describe('domUpdates', function() {
@@ -30,5 +30,11 @@ describe('domUpdates', function() {
     domUpdates.enableReset();
 
     expect(domUpdates.enableReset).to.be.called(1);
+  });
+
+  it('should display categories on the Dom', function() {
+    domUpdates.displayCategories();
+
+    expect(domUpdates.displayCategories).to.be.called(1);
   });
 });
