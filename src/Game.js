@@ -56,17 +56,6 @@ class Game {
     let clue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId)
   }
 
-  // createColumns(gameClues, catergories) {
-  //   let columnOne = gameClues.slice(0, 4);
-  //   let columnTwo = gameClues.slice(4, 8);
-  //   let columnThree = gameClues.slice(8, 12);
-  //   let columnFour = gameClues.slice(12, 16);
-  //   columnOne.unshift(catergories[0]);
-  //   columnTwo.unshift(catergories[1]);
-  //   columnThree.unshift(catergories[2]);
-  //   columnFour.unshift(catergories[3]);
-  // }
-  
   quitGame() {
     domUpdates.toggleSplash();
   }
