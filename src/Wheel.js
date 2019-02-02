@@ -1,4 +1,5 @@
 import data from './data.js';
+import Player from './Player.js';
 
 class Wheel {
   constructor() {
@@ -11,7 +12,6 @@ class Wheel {
       let randomIndex = Math.floor(Math.random() * data.wheel.length);
       this.wheelElements.push(data.wheel[randomIndex]);
     } 
-      console.log(this.wheelElements);
   }
   spinWheel() {
     this.currentSpinIndex = Math.floor(Math.random() * 5);
@@ -27,3 +27,5 @@ class Wheel {
     // switch to next player
   }
 };
+
+export default Wheel;
