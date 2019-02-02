@@ -47,9 +47,10 @@ class Gameboard {
 
   appendClue() {
     //Once categories are assigned, should associate our different boxes with particular clues.
+    // function findClue() {}
   };
 
-  
+
 
   appendWager() {
     //

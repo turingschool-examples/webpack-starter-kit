@@ -19,66 +19,121 @@
       </form>
       <button class="play-btn" id="playBtn">Let's play Jeopardy!</button>
     </section>
-    <article class="game-board">
     <header>
       <h4>Jeopardy</h4>
     </header>
     <!-- Maybe explore lists next to each other or grid out boxes?  -->
-    <table>    
-      <tr>
-        <th class="category-box" id="category1">Cat 1</th>
-        <th class="category-box" id="category2">Cat 2</th>
-        <th class="category-box" id="category3">Cat 3</th>
-        <th class="category-box" id="category4">Cat 4</th>
-      </tr>
-      <tr>
-        <td class="clue-box" id="">$100</td>
-        <td class="clue-box" id="">$100</td>
-        <td class="clue-box" id="">$100</td>
-        <td class="clue-box" id="">$100</td>
-      </tr>
-      <tr>
-        <td class="clue-box" id="">$200</td>
-        <td class="clue-box" id="">$200</td>
-        <td class="clue-box" id="">$200</td>
-        <td class="clue-box" id="">$200</td>
-      </tr>
-      <tr>
-        <td class="clue-box" id="">$300</td>
-        <td class="clue-box" id="">$300</td>
-        <td class="clue-box" id="">$300</td>
-        <td class="clue-box" id="">$300</td>
-      </tr>
-      <tr>
-        <td class="clue-box" id="">$400</td>
-        <td class="clue-box" id="">$400</td>
-        <td class="clue-box" id="">$400</td>
-        <td class="clue-box" id="">$400</td>
-      </tr>
-    </table>
-  </article>
-  <main class="podium-area">
-    <section class="podium" id="podium1">
-      <div class="avatar" id="avatar1"></div>
-      <div class="score-box" id="scoreBox1">$0</div>
-      <div class="podium-base">
-        <span class="player-name" id="playerName1">Name 1</span>
-      </div>
-    </section>
-    <section class="podium" id="podium2">
-      <div class="avatar" id="avatar2"></div>
-      <div class="score-box" id="scoreBox2">$0</div>
-      <div class="podium-base">
-        <span class="player-name" id="playerName2">Name 2</span>
-      </div>
-    </section>
-    <section class="podium" id="podium3">
-      <div class="avatar" id="avatar3"></div>
-      <div class="score-box" id="scoreBox3">$0</div>
-      <div class="podium-base">
-        <span class="player-name" id="playerName3">Name 3</span>
-      </div>
-    </section>
-  </main>
+    <article class="game-board">
+      <table>    
+        <tr>
+          <th class="category-box" id="category1">Cat 1</th>
+          <th class="category-box" id="category2">Cat 2</th>
+          <th class="category-box" id="category3">Cat 3</th>
+          <th class="category-box" id="category4">Cat 4</th>
+        </tr>
+        <tr>
+          <td class="clue-box" id="1-1">$100</td>
+          <td class="clue-box" id="1-2">$100</td>
+          <td class="clue-box" id="1-3">$100</td>
+          <td class="clue-box" id="1-4">$100</td>
+        </tr>
+        <tr>
+          <td class="clue-box" id="2-1">$200</td>
+          <td class="clue-box" id="2-2">$200</td>
+          <td class="clue-box" id="2-3">$200</td>
+          <td class="clue-box" id="2-4">$200</td>
+        </tr>
+        <tr>
+          <td class="clue-box" id="3-1">$300</td>
+          <td class="clue-box" id="3-2">$300</td>
+          <td class="clue-box" id="3-3">$300</td>
+          <td class="clue-box" id="3-4">$300</td>
+        </tr>
+        <tr>
+          <td class="clue-box" id="4-1">$400</td>
+          <td class="clue-box" id="4-2">$400</td>
+          <td class="clue-box" id="4-3">$400</td>
+          <td class="clue-box" id="4-4">$400</td>
+        </tr>
+      </table>
+    </article>
+    <main class="podium-area">
+      <section class="podium" id="podium1">
+        <div class="avatar" id="avatar1"></div>
+        <div class="score-box" id="scoreBox1">$0</div>
+        <div class="podium-base">
+          <span class="player-name" id="playerName1">Name 1</span>
+        </div>
+      </section>
+      <section class="podium" id="podium2">
+        <div class="avatar" id="avatar2"></div>
+        <div class="score-box" id="scoreBox2">$0</div>
+        <div class="podium-base">
+          <span class="player-name" id="playerName2">Name 2</span>
+        </div>
+      </section>
+      <section class="podium" id="podium3">
+        <div class="avatar" id="avatar3"></div>
+        <div class="score-box" id="scoreBox3">$0</div>
+        <div class="podium-base">
+          <span class="player-name" id="playerName3">Name 3</span>
+        </div>
+      </section>
+    </main>
+
+
+<!-- html for pop ups  -- >
+
+<!-- question card  --> 
+
+<br>
+<br>
+<br>
+
+
+  <section id="questionCard">
+    <header>
+      <span class="category-reminder">Category</span> for <span id="displayPointVal">pointval</span>
+    </header>
+    <p id="displayQuestion">Question here</p>
+    <form>
+      <label for="playerAnswer">Type answer here:</label>
+      <input type="text" name="playerAnswer" id="playerAnswer">
+    </form>
+  </section>
+
+<br>
+<br>
+<br>
+  <!-- Daily Double Wager -->
+
+  <section id="dailyDoubleCard">
+    <header>
+      You've selected a Daily Double!
+    </header>
+    <span class="category-reminder">Category reminder</span>
+    <p>Enter a wager up to your total point value or double the question's value</p>
+    <label for="wagerInput">Wager:</label>
+    <input type="text" name="wagerInput" id="wagerInput">
+  </section>
+
+
+  <br>
+  <br>
+  <br>
+
+
+  <!-- Final wager -->
+
+  <section id="finalJeopardyWager">
+    <header>
+      Final Jeopardy!
+    </header>
+    <span class="category-reminder">Category</span>
+    <p>How much are you willing to put on the line?</p>
+    <label for="finalWagerInput">Wager:</label>
+    <input type="text" name="wagerInput" id="finalWagerInput">
+  </section>
+
   </body>
 </html>
