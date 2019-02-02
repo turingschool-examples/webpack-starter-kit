@@ -12,6 +12,9 @@ import './images/background2.png';
 // Tell webpack to use a JS file
 // import data from './data.js';
 import domUpdates from './domUpdates.js';
+import Puzzle from './Puzzle.js';
+import data from './data.js'
+
 // import $ from 'jquery';
 
 console.log('This is the JavaScript entry file - your code begins here.');
@@ -26,6 +29,17 @@ let $playerThreeInput = $('player3');
 let $playerOneOutput = $('player1-output');
 let $playerTwoOutput = $('player2-output');
 let $playerThreeOutput = $('player3-output');
+
+
+
+// JS variables
+let difficulty1 = data.puzzles.one_word_answers;
+let difficulty2 = data.puzzles.two_word_answers;
+let difficulty3 = data.puzzles.three_word_answers;
+let difficulty4 = data.puzzles.four_word_answers;
+
+
+
 
 // jQuery Event Listeners
 $namesButton.on('click', addNames);
