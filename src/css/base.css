@@ -24,11 +24,15 @@ body {
 #game-header-title {
   font-size: 85px;
   text-align: center;
-  background-color: orange;
+  margin-top: 2px;
+  color: orchid;
+  font-family: sans-serif;
+  
 }
 
 #game-board {
-
+  display: grid;
+  justify-content: center;
 }
 
 .game-board-row {
@@ -36,11 +40,16 @@ body {
 }
 
 .letter-box {
-  height: 63px;
-  margin-right: 10px;
-  margin-top: 10px;
-  width: 50px;
+  height: 73px;
+  margin-right: 9px;
+  margin-top: 4px;
+  width: 60px;
   background-color: lightskyblue;
+  border: solid black 8px;
+}
+
+#row-one, #row-four {
+  margin-left: 70px;
 }
 
 .name-input {
