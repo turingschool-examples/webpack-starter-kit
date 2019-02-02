@@ -72,10 +72,6 @@ class Game{
   //   return array.splice(0, 4)
   // }
   // console.log(roundClues);
-
-
-
-
 }
 
 export default Game;
