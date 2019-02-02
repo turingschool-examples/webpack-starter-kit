@@ -14,7 +14,7 @@ describe('Puzzle', function() {
     expect(puzzle).to.be.an('object');
   });
   
-  it('assigns a puzzle object to property puzzleDescription', function() {
+  it('selects a random puzzle based off of the players\' selected difficulty', function() {
     let difficulty1 = data.puzzles.one_word_answers;
     expect(puzzle.description).to.equal(null);
     puzzle.randomPuzzle(difficulty1);

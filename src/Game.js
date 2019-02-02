@@ -6,6 +6,9 @@ class Game {
   }
   changeRound() {
     this.round++
+    if (this.round === 5) {
+      // start bonus round;
+    }
   }
   endGame() {
       // show 'game over' screen
