@@ -3,23 +3,22 @@ import Game from './Game.js'
 
 
 class Wheel {
-  constructor() {
-    this.values = []
-
+  constructor(values, roundValue) {
+    this.values = [],
+    this.roundValue = []
   }
 
   populateWheel(wheelValues) {
-   this.values.push(wheelValues)
+    this.values.push(wheelValues)
+    this.singleWheelValue(wheelValues)
+    console.log(this.roundValue);
   }
 
-
-
-  grabSixWheelValues() {
-    // this.populateWheel();
-    let wheelValues = this.values.splice(0, 6)
-    console.log(wheelValues);
+  //a player selected value
+  singleWheelValue(wheelValues) {
+    let sixVals = wheelValues.slice(0, 6)
+    this.roundValue = sixVals;
   }
-
 }
 
 export default Wheel;

@@ -21,8 +21,8 @@
     domUpdates.removeStartPage();
     const wheel  = new Wheel();
     wheel.populateWheel(this.randomizeBank(data.wheel));
-    console.log(wheel.values);
-    wheel.grabSixWheelValues();
+    // this.randomizeBank(wheel.values);
+    // wheel.singleWheelValue(wheel.values);
   }
 
   createPlayers(players) {
