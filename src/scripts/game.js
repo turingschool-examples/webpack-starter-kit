@@ -3,7 +3,7 @@ class Game {
     constructor() {
         this.round = 1;
         this.players = {};
-        this.wheel = [];
+        this.wheel = new Wheel();
         this.puzzleBank = [];
     }
 
@@ -14,7 +14,16 @@ class Game {
       playerNames.forEach((name) => {
        this.players[name] = new Player(name)    
       })
-      console.log(this.players)
-    }
+     }
+
+     // resetWheel() {
+     //  // wheel.reset()
+     // }
+
+    // createWheel(){
+    //   //create a new instance of wheel
+    //   //set that wheel to equal this.wheel
+    // }
+   
 }
 export default Game;
