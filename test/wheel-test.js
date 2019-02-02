@@ -32,7 +32,7 @@ describe('Wheel', function() {
     expect(wheel.currentSpin).to.not.be.an('undefined');
   })
 
-  it('should reset player score to zero when the wheel lands on bankrupt', function() {
+  it.skip('should reset player score to zero when the wheel lands on bankrupt', function() {
     let player = new Player();
     player.roundScore = 10;
 
@@ -42,6 +42,11 @@ describe('Wheel', function() {
   })
 
   it.skip('should end player turn when the wheel lands on lose-a-turn', function() {
+    let player = new Player();
+    player.currentTurn = true;
+
+    wheel.loseTurn();
+    expect(player.currentTurn).to.equal(false);
     
   })
 
