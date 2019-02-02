@@ -1,6 +1,6 @@
 class Clue {
-  constructor() {
-
+  constructor(cluesRemaining) {
+    this.cluesRemaining = cluesRemaining;
   }
 }
 
