@@ -18,7 +18,6 @@ import './images/shroom-guy.png'
 
 //This is the JavaScript entry file - your code begins here.');
  
-
 $('.js-start-button').on('click', (e) => {
   e.preventDefault();
   let newPlayers = domUpdates.displayPlayerNames();

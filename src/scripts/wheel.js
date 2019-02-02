@@ -1,4 +1,6 @@
 import data from '../data.js'
+import Game from './game.js'
+import helper from './helper.js'
 
 class Wheel {
   constructor() {
@@ -6,16 +8,18 @@ class Wheel {
     this.currentSpace = null;
   }
 
-  //wheel should be responsible for creating spaces
-
-  getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min; 
-  }
 
   createSpaces() {
-    let randomMin = this.getRandomInt(1, 17);
+    let randomMin = helper.getRandomInt(1, 17);
     let randomMax = randomMin + 6;
     this.spaces = data.wheel.slice(randomMin, randomMax);
+    this.spin()
+  }
+
+  spin() {
+   let randomSpace = helper.getRandomInt(0,6)
+   this.currentSpace = this.spaces[randomSpace]
+   console.log(this.currentSpace)
   }
 
   //reset() {
