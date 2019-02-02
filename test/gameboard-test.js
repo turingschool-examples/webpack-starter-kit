@@ -1,8 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
+import Gameboard from '../src/gameboard.js';
 
-describe('See if the tests are running', function() {
-  it('should return true', function() {
+describe('Gameboard', function() {
+  it('should instantiate a new gameboard', function() {
+    var gameboard = new Gameboard();
+    gameboard.appendGameboard();
     expect(true).to.equal(true);
   });
 });

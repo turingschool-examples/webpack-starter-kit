@@ -13,11 +13,6 @@ class Player {
   wagerRange(){
     //Minimum is 5, Max is the highest of either players current score or highest available clue value
   };
-
-  appendName() {
-    //on play Jeopardy button click, take input names and print them on podium
-    
-  };
 }
 
 
