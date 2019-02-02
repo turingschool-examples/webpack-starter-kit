@@ -5,9 +5,9 @@ class Player {
     // this.turn = turn;
   }
 
-  changeScore() {
+  // changeScore() {
 
-  }
+  // }
 
 
 }

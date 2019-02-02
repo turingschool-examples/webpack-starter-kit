@@ -6,11 +6,13 @@ class Clue {
     this.categoryId = categoryId;
   }
 
-  correctAnswer() {
+  // correctAnswer() {
     
-  }
+  // }
 
-  removeClue() {
+  // removeClue() {
 
-  }
+  // }
 }
+
+export default Clue;

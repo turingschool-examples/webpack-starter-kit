@@ -18,7 +18,7 @@ describe('domUpdates', function() {
     domUpdates.displayPlayers(['a', 'b', 'b']);
 
     expect(domUpdates.displayPlayers).to.be.called(1);
-  })
+  });
   
   it('should disable the reset game button', function() {
     domUpdates.disableReset();
@@ -31,7 +31,6 @@ describe('domUpdates', function() {
 
     expect(domUpdates.enableReset).to.be.called(1);
   });
-
   it('should display player\'s score upon start of game', function() {
     domUpdates.displayPlayerScore('a', 'b', 'c');
 

@@ -2,6 +2,9 @@
 // Do not delete or rename this file
 
 // Tell webpack to use a CSS file
+import $ from 'jquery';
+import jQuery from 'jquery';
+window.$ = jQuery;
 import './css/base.css';
 import Game from './Game.js';
 import domUpdates from './domUpdates.js';
@@ -17,6 +20,7 @@ $('.start--btn').on('click', () => {
   domUpdates.displayPlayers(one, two, three);
   domUpdates.toggleSplash();
   domUpdates.enableReset();
+  game.getRandomCat();
 });
 
 
@@ -24,3 +28,10 @@ $('.game--exit').on('click', () => {
   game.quitGame();
   domUpdates.disableReset();
 });
+
+$('.game--board').on('click', (event) => {
+  let dataset = event.target.dataset;
+  if ($(event.target).is('h4')) {
+    game.instantiateClue(dataset);
+  }
+})
