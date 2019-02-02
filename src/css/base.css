@@ -6,14 +6,27 @@ body {
 #game-header-title {
   text-align: center;
   font-size: 100px;
-  opacity: .9;
-  margin-top: 90px;
+  opacity: .8;
+  margin-top: 200px;
+  font-family: fantasy;
+  color: rebeccapurple;
+}
+
+#submit-btn {
+  width: 100px;
+  height: 40px;
+  background-color: rebeccapurple;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
 }
 
 .name-input {
-  height: 40px;
+  height: 30px;
   width: 150px;
-  font-size: 32px;
+  font-size: 20px;
+  margin:20px;
+  padding: 3px;
 }
 
 #name-input-container {
@@ -22,4 +35,8 @@ body {
 
 .hidden {
   display: none;
+}
+
+.player-inputs {
+  text-align: center;
 }
