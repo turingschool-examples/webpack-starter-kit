@@ -24,6 +24,6 @@ $('.box').on('click', (event) => {
 
 $('.start-game').on('click', (e) => {
   e.preventDefault();
-  var game = new Game(1, undefined);
+  var game = new Game();
   game.start();
 });
