@@ -5,17 +5,18 @@ class Round{
     this.turnNum = 1;
     this.currentRound = 0;
     this.baseData = baseData;
-    this.roundClues = [];
+    this.roundClues = [[],[],[],[]];
     this.pointValues = [100, 200, 300, 400];
 
   }
   sortClues () {
-    this.baseData.forEach(cat => {
-       this.pointValuesArr.forEach(value => {
-        this.roundClues.push(cat.find(clue => clue.pointValue === value))
+    this.roundClues.forEach((rndCat, ind) => {
+      this.pointValues.forEach(value => {
+        rndCat.push(this.baseData[ind].find(clue => clue.pointValue === value))
+      })
     })
-  })
   }
+
 }
 
 export default Round;

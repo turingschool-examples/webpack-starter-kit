@@ -12,6 +12,8 @@ class Game{
   }
   start(){
     this.createPlayers(domUpdates.grabNames());
+    this.getRandomData();
+    this.createRounds();
   }
 
   createPlayers(array){
@@ -22,14 +24,14 @@ class Game{
       domUpdates.loadGameBoard(this.players);
   }
   getRandomData () {
-    allData.forEach((cat,ind) => {
+    this.allData.forEach((cat,ind) => {
       data.clues.forEach(clue => { 
         if (clue.categoryId === (ind + 1)){
           cat.push(clue);
         }
       })
     });
-    this.shuffle(allData).forEach(cat => this.shuffle(cat));
+    this.shuffle(this.allData).forEach(cat => this.shuffle(cat));
   }
   shuffle (a) {
     return a.sort(() => 0.5 - Math.random())
@@ -40,7 +42,7 @@ class Game{
     this.rounds.push(round)
   }
   clueSet () {
-  return allData.splice(0, 4);
+  return this.allData.splice(0, 4);
   }
   
   // var catArr = [[],[],[],[],[],[],[],[],[],[]];
