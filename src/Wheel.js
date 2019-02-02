@@ -1,5 +1,5 @@
 import data from './Data.js';
-import Game from './Game.js'
+import Game from './Game.js';
 
 
 class Wheel {

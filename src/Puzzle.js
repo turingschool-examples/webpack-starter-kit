@@ -1,4 +1,5 @@
 import data from './Data.js';
+import domUpdates from './domUpdates.js';
 
 class Puzzle {
   constructor(category, numberOfLetters, correctAnswer, description, guessedLetters = 0) {
@@ -16,8 +17,9 @@ class Puzzle {
   }
 
   populateConsonantsBank() {
-    this.consonantsBank = this.consonantsBank.concat(['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'])
-    this.vowelsBank = this.vowelsBank.concat(['a', 'e', 'i', 'o', 'u'])
+    let consonants = this.consonantsBank = this.consonantsBank.concat(['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'])
+    let vowels = this.vowelsBank = this.vowelsBank.concat(['a', 'e', 'i', 'o', 'u'])
+    domUpdates.displayLetters(consonants, vowels);
   }
  }
 

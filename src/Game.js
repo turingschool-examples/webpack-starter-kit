@@ -21,6 +21,7 @@
     domUpdates.removeStartPage();
     const wheel  = new Wheel();
     wheel.populateWheel(this.randomizeBank(data.wheel));
+    this.gamePuzzles[0].populateConsonantsBank();
     // this.randomizeBank(wheel.values);
     // wheel.singleWheelValue(wheel.values);
   }
