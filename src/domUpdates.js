@@ -17,7 +17,7 @@ const domUpdates = {
   },
 
   displayPlayerScore: (player1, player2, player3) => {
-    $('.player--one--score').text(player1.player1);
+    $('.player--one--score').text(player1.score);
     $('.player--two--score').text(player2.score);
     $('.player--three--score').text(player3.score);
   },
@@ -47,6 +47,13 @@ const domUpdates = {
     $('.category--two').text(array[1]);
     $('.category--three').text(array[2]);
     $('.category--four').text(array[3]);
+  },
+
+  displayClue: (question) => {
+    $('.game--container').toggleClass('game--inactive');
+    $('body').append(`
+      <h2 class="popup--container clue--container">${question}</h2>
+    `)
   }
 
 }

@@ -47,14 +47,15 @@ class Game {
       }
     });
     domUpdates.setClues(this.cluesThisRound);
-    return this.cluesThisRound
+    return this.cluesThisRound;
   }
 
   instantiateClue(dataset) {
     let specificClue = this.cluesThisRound.find(clue => {
       return clue.categoryId == dataset.categoryid && clue.pointValue == dataset.pointvalue;
     })
-    let clue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId)
+    let clue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
+    domUpdates.displayClue(specificClue.question);
   }
 
   quitGame() {
