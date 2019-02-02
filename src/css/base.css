@@ -68,11 +68,12 @@ button {
 }
 
 .game--board h3, 
-.game--board div {
+.game--board h4 {
   border-radius: 10px;
   background-color: #007f78;
   margin: 0;
   font-size: 20px;
+  padding: 35px;
   justify-content: center;
 }
 

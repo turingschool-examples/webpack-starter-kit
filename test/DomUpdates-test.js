@@ -18,7 +18,7 @@ describe('domUpdates', function() {
     domUpdates.displayPlayers(['a', 'b', 'b']);
 
     expect(domUpdates.displayPlayers).to.be.called(1);
-  })
+  });
   
   it('should disable the reset game button', function() {
     domUpdates.disableReset();

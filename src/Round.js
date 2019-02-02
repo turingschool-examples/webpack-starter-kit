@@ -3,15 +3,15 @@ class Round {
     this.currentRound = 1;
   }
 
-  nextRound() {
+  // nextRound() {
     
-  }
+  // }
 
-  determinePointRange() {
+  // determinePointRange() {
 
-  }
+  // }
 
-  beginDailyDouble() {
+  // beginDailyDouble() {
     
-  }
+  // }
 }

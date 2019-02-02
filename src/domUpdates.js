@@ -1,4 +1,5 @@
-import Game from "./Game";
+// import Game from "./Game";
+import $ from 'jquery';
 import './index.js'
 
 const domUpdates = {
