@@ -1,10 +1,10 @@
 class Player {
-  constructor(name, score = 0, active = false, wager, playerNum){
+  constructor(name, score = 0, wager, playerNum, active){
     this.name = name;
     this.score = score;
-    this.active = active;
     this.wager = wager;
     this.playerNum = playerNum;
+    this.active = active;
   };
 
   updateScore(resultScore) {

@@ -1,8 +1,10 @@
 import data from './data.js';
+// import Game from './game.js';
 import $ from 'jquery';
 
 class Gameboard {
-  constructor(highestPointValue, categoryList, firstRoundCategories, secondRoundCategories) {
+  constructor(round = 1, highestPointValue, categoryList, firstRoundCategories, secondRoundCategories) {
+    this.round = round;
     this.highestPointValue = highestPointValue;
     this.categoryList = Object.keys(data.categories);
     this.firstRoundCategories = [];
@@ -10,13 +12,22 @@ class Gameboard {
     this.finalRoundCategory = [];
   };
 
+  startGame() {
+    console.log("You've started the game!");
+    this.appendGameboard();
+    return true;
+  };
+
   appendGameboard() {
     console.log("append gameboard");
     this.assignCategories();
 
+    console.log(this.round);
+
     //move below to domupdates.js
     //in domupdates, make them real english words
     //add forEach here to iterate through category list to append names
+    // if (game.round === 1) 
       let $category1 = this.firstRoundCategories[0];
       $('#category1').text($category1);
       let $category2 = this.firstRoundCategories[1];
