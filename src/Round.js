@@ -1,13 +1,20 @@
 import Game from './Game.js'
 
 class Round{
-  constructor(currentRound = 1){
+  constructor(baseData){
     this.turnNum = 1;
     this.currentRound = currentRound;
-    // this.roundClues = [[{}], [{}], [{}], [{}]]
+    this.baseData = baseData;
+    this.roundClues = [];
+    this.pointValues = [100, 200, 300, 400];
+
   }
-  getClues () {
-    
+  sortClues () {
+    this.baseData.forEach(cat => {
+       this.pointValuesArr.forEach(value => {
+        this.roundClues.push(cat.find(clue => clue.pointValue === value))
+    })
+  })
   }
 }
 
