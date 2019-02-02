@@ -1,29 +1,39 @@
+*{
+  font-family: 'VT323', monospace;
+}
+
 body {
-  margin: 40px;
   box-sizing: border-box;
   background-repeat: no-repeat;
-  background-size: 900px 1000px
+  background-size: 900px 1000px;
 }
 
 h2{
   text-align: center;
-}
-
-.player-score{
-  margin-top: 5px;
+  font-size: 35px;
 }
 
 h3{
   margin: auto;
-  padding-top: 8px;
+  font-size: 20px;
 }
 
 h4{
-  margin-top: 5px;
+  margin-top: -5px;
+  font-size: 30px;
+}
+label{
+  font-size: 30px;
+  padding-bottom: 15px;
 }
 
 input{
+  width: 120px;
+  height: 20px;
+  font-size: 20px;
   text-align: center;
+  border: 3px solid black;
+  border-radius: 2px;
 }
 
 .player-name{
@@ -31,7 +41,7 @@ input{
 }
 
 .intro-img{
-  height: 90px;
+  height: 120px;
 }
 
 .start-game{
@@ -39,11 +49,10 @@ input{
   margin-bottom: 20px;
   border-radius: 5px;
   color: white;
+  font-size: 40px;
   background-color: black;
-  color: white;
-  font-size: 20px;
-  width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 50px;
   grid-column: 2;
 
 }
@@ -52,21 +61,19 @@ input{
 }
 .game-board-area{
   background-color: grey;
-  background-size: cover;
   display: grid;
   grid-template-areas: "gameboard player";
   grid-template-columns: 1fr 1fr;
   padding: 5px;
-  width: 780px;
 }
 
 .welcome-page{
-  color: black;
+  font-size: 20px;
   background-color: gainsboro;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 1fr 40px;  
+  grid-template-rows: 1fr 60px;  
   padding: 10px;
   width: 600px;
   height: 300px;
@@ -79,65 +86,42 @@ input{
   margin-bottom: 10px;
 }
 
-.player-one-intro{
+.player-intro{
   padding-top: 20px;
-
 }
 
-.player-two-intro{
-  padding-top: 20px;
-  grid-column: 3;
-}
-
-.player-three-intro{
-  margin-top: -60px;
-
-}
-
-.game-board{
-  grid-area: gameboard;
-  grid-column: 1;
-  grid-row: 1
-}
-
-.categories-container{
-  grid-area: categories;
-  display: grid;
-  grid-gap: 20px;
-  margin-bottom: 10px;
-  grid-template-columns: repeat(4, 180px);
-  grid-template-rows: repeat(1, 70px);
-  grid-auto-flow: row; 
-}
 
 .player-area{
   padding-right: 5px;
   padding-left: 10px;
-  grid-area: player;
   display: grid;
-  grid-template-columns: repeat(3, 270px);
+  grid-template-columns: repeat(3, 1fr);
   grid-row: 2;
   grid-column: 1;
 }
 
 .player-square{
+  margin: 10px;
   padding-top: 10px;
   text-align: center;
   width: 180px;
-  height: 130px;
-  background-color: gainsboro;
-  margin: 5px;
+  height: 150px;
+  background-color: white;
+  border: 2px solid black;
   border-radius: 5px;
 }
 
 .player-img{
-  height: 70px;
-  margin-bottom: -10px;
+  height: 85px;
 }
 
 .player-name{
   margin-bottom: 5px;
   font-size: 20px;
+}
+
+.player-score{
+  margin-top: 5px;
 }
 
 #player-1{
@@ -147,9 +131,16 @@ input{
 #player-3{
   margin-bottom: 0px;
 }
-input{
-  margin-top: -20px;
+
+.categories-container{
+  display: grid;
+  grid-gap: 10px;
+  margin-bottom: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 70px);
+  grid-auto-flow: row; 
 }
+
 .categories-box{
   background-color: black;
   color: #fff;
@@ -164,9 +155,9 @@ input{
 .questions-container {
   grid-area: question;
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(4, 180px);
-  grid-template-rows: repeat(4, 100px);
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 90px);
   grid-auto-flow: column;
 }
 
