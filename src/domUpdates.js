@@ -25,7 +25,7 @@ const domUpdates = {
     let letters = roundPuzzle.correct_answer.split('')
 
     letters.forEach((letter, i) => {
-      $(`#box-${i + 1}`).text(letter)
+      $(`#box-${i + 13}`).text(letter)
     })
   },
 
