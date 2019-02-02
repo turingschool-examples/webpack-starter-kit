@@ -1,13 +1,18 @@
+import Wheel from './wheel.js'
 import Player from './player.js'
+
 class Game {
     constructor() {
         this.round = 1;
         this.players = {};
-        this.wheel = new Wheel();
+        this.wheel = [];
         this.puzzleBank = [];
     }
 
-    startGame(){
+    startGame() {
+        this.wheel = new Wheel();
+        console.log('log 1', this.wheel);
+        this.wheel.createSpaces();
     }
 
     createPlayers(playerNames){

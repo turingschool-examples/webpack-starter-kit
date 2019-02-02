@@ -23,7 +23,8 @@ $('.js-start-button').on('click', (e) => {
   e.preventDefault();
   let newPlayers = domUpdates.displayPlayerNames();
   let game = new Game();
-  game.startGame()
+  game.startGame();
+  console.log(game);
   game.createPlayers(newPlayers);
   
 });

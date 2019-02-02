@@ -1,3 +1,5 @@
+import data from '../data.js'
+
 class Wheel {
     constructor() {
         this.spaces = [];
@@ -7,9 +9,10 @@ class Wheel {
     //wheel should be responsible for creating spaces
 
 
-    //createSpaces() {
-      //creates your random spaces
-    // }
+    createSpaces() {
+      console.log('log 2', data.wheel);
+      
+    }
 
     //reset() {
       //resets your random spaces
