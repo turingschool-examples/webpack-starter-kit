@@ -1,4 +1,5 @@
-// import Game from "./Game";
+import Game from "./Game.js";
+import Player from "./Player.js"
 import $ from 'jquery';
 import './index.js'
 
@@ -13,6 +14,12 @@ const domUpdates = {
     $('.player--one').text(a);
     $('.player--two').text(b);
     $('.player--three').text(c);
+  },
+
+  displayPlayerScore: (player1, player2, player3) => {
+    $('.player--one--score').text(player1.player1);
+    $('.player--two--score').text(player2.score);
+    $('.player--three--score').text(player3.score);
   },
 
   enableReset: () => {
