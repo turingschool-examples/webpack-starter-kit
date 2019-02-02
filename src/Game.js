@@ -38,8 +38,9 @@
     this.randomizeBank(puzzleBank);
     let fourPuzzles = this.setGamePuzzles(puzzleBank);
     let roundPuzzle = this.setRoundPuzzle(fourPuzzles);
-    console.log(roundPuzzle)
+    console.log(roundPuzzle);
     domUpdates.displayCategory(roundPuzzle);
+    domUpdates.populateRoundPuzzle(roundPuzzle);
     return puzzleBank;
   }
 
@@ -62,8 +63,9 @@
   setRoundPuzzle(fourPuzzles) {
     let roundPuzzle = fourPuzzles.pop();
     console.log(fourPuzzles.length)
+    console.log(roundPuzzle);
     return roundPuzzle;
-    domUpdates.displayPuzzle();
+    // domUpdates.displayPuzzle();
   }
 
 }
