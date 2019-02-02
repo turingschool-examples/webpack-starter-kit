@@ -1,7 +1,7 @@
 import Player from './Player.js'
 import domUpdates from './domUpdates.js';
 import Round from './Round.js';
-import data from './'
+import data from './data.js'
 
 class Game{
   constructor(players = []){
@@ -69,7 +69,7 @@ class Game{
   start(){
     const round = new Round();
     this.round = round;
-    this.round.getClues()
+    // this.round.getClues()
     this.createPlayers(domUpdates.grabNames());
   }
 
