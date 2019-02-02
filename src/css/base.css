@@ -43,6 +43,11 @@ table th {
   border-spacing: 30px;
 }
 
+.clue-box:hover {
+  color: white;
+  background-color: darkblue;
+}
+
 /** Podium **/
 .podium-area {
   display: flex;
