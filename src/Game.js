@@ -5,13 +5,13 @@
  import Wheel from './Wheel.js'
 
  class Game {
-  constructor(players, currentRound = 1, activePlayer, roundWinner, gameWinner, gamePuzzles) {
+  constructor(players, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles) {
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
     this.roundWinner = roundWinner,
     this.gameWinner = gameWinner,
     this.gamePuzzles = [],
-    this.players = players
+    this.players =  []
   }
 
   startGame(players) {
