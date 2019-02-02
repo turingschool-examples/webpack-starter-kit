@@ -30,7 +30,7 @@ class Game {
       }
     } while (fourCats.length < 4)
     this.gatherClues(fourCats);
-    // this.createColumns(clues, fourCats)
+    domUpdates.displayCategories(fourCats);
   }
 
   gatherClues(array) {
@@ -59,6 +59,7 @@ class Game {
 
   quitGame() {
     domUpdates.toggleSplash();
+    this.cluesThisRound = [];
   }
 
   // determineWinner() {

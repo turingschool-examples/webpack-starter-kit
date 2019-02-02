@@ -40,8 +40,14 @@ const domUpdates = {
         ${clue.pointValue}
         </h4>`)
     });
-  }
+  },
 
+  displayCategories: (array) => {
+    $('.category--one').text(array[0]);
+    $('.category--two').text(array[1]);
+    $('.category--three').text(array[2]);
+    $('.category--four').text(array[3]);
+  }
 
 }
 
