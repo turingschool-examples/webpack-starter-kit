@@ -44,7 +44,8 @@ class Game {
         let specificPoints = allClues.filter(clue => {
           return clue.pointValue === 100 * i;
         });
-        this.cluesThisRound.push(specificPoints[0]);
+        let randomIndex = Math.floor(Math.random() *  specificPoints.length);
+        this.cluesThisRound.push(specificPoints[randomIndex]);
       }
     });
     domUpdates.setClues(this.cluesThisRound);
