@@ -46,9 +46,12 @@ body {
 }
 
 .letter-box {
+  font-size: 32px;
   height: 73px;
   margin-right: 9px;
+  text-align: center;
   margin-top: 4px;
+  padding-top: 10px;
   width: 60px;
   background-color: lightskyblue;
   border: solid black 8px;
