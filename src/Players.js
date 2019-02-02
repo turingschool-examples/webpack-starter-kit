@@ -1,3 +1,5 @@
+import Gameboard from './GameBoard.js'
+
 class Player extends Gameboard {
   constructor(round, point, avatar) {
     super(round, point)
