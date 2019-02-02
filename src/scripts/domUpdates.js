@@ -6,6 +6,8 @@ let domUpdates = {
   let $playerTwoInput = $('.js-player-two-input').val();
   let $playerThreeInput = $('.js-player-three-input').val();
 
+  //refactor players so that it one line
+
   const playerNames = [$playerOneInput, $playerTwoInput, $playerThreeInput];
 
 

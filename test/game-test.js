@@ -27,8 +27,8 @@ describe('Testing Game methods and properties', function() {
     expect(game.puzzleBank).to.deep.equal([]); 
   });
 
-  it('should invoke displayPlayerNames', function() {
-    game.startGame();
-    expect(domUpdates.displayPlayerNames).to.have.been.called(1);
-  });
+    // it('should invoke displayPlayerNames', function() {
+    //   game.startGame();
+    //   expect(domUpdates.displayPlayerNames).to.have.been.called(1);
+    // });
 });

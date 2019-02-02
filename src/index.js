@@ -22,6 +22,8 @@ import './images/shroom-guy.png'
 $('.js-start-button').on('click', (e) => {
   e.preventDefault();
   let newPlayers = domUpdates.displayPlayerNames();
-  let game = new Game(newPlayers);
+  let game = new Game();
+  game.startGame()
+  game.createPlayers(newPlayers);
   
 });
