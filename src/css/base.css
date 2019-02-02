@@ -3,17 +3,84 @@ body {
   background-image: url(../images/start-screen-background.jpg)
 }
 
-#game-header-title {
+#game-header-title-splash {
   text-align: center;
   font-size: 100px;
-  opacity: .9;
-  margin-top: 90px;
+  opacity: .8;
+  margin-top: 200px;
+  font-family: fantasy;
+  color: rebeccapurple;
+}
+
+#submit-btn {
+  width: 100px;
+  height: 40px;
+  background-color: rebeccapurple;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+}
+
+#game-header-title {
+  font-size: 85px;
+  text-align: center;
+  margin-top: 2px;
+  color: orchid;
+  font-family: sans-serif;
+  
+}
+
+.category-window {
+  text-align: center;
+  font-size: 40px;
+  background-color: white;
+}
+
+#game-board {
+  display: grid;
+  justify-content: center;
+}
+
+.game-board-row {
+  display: flex;
+}
+
+.letter-box {
+  height: 73px;
+  margin-right: 9px;
+  margin-top: 4px;
+  width: 60px;
+  background-color: lightskyblue;
+  border: solid black 8px;
+}
+
+#row-one, #row-four {
+  margin-left: 70px;
+}
+
+#player-names-container {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  margin-left: 8px;
+  justify-content: space-around;
+  margin-top: 10px;
+  background-color: orchid;
+}
+
+.player-names {
+  font-size: 30px;
+  color: white;
+  background-color: grey;
+  padding:10px;
 }
 
 .name-input {
-  height: 40px;
+  height: 30px;
   width: 150px;
-  font-size: 32px;
+  font-size: 20px;
+  margin:20px;
+  padding: 3px;
 }
 
 #name-input-container {
@@ -22,4 +89,8 @@ body {
 
 .hidden {
   display: none;
+}
+
+.player-inputs {
+  text-align: center;
 }
