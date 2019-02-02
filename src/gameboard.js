@@ -23,16 +23,22 @@ class Gameboard {
   
 
   appendClue() {
-
+    //Once categories are assigned, should associate our different boxes with particular clues.
   };
 
-  appendWager() {
+  
 
+  appendWager() {
+    //
   };
 
   clearGameboard() {
     //Removes gameboard from window to add Q&A, wager, or start screens
   };
+
+  doublePoints() {
+    //when we enter round 2, each box should display and be worth double points
+  }
 
 }
 

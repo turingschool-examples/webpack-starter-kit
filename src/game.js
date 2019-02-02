@@ -6,20 +6,24 @@ class Game {
     this.round = round;
   };
 
-  startGame(){
+  startGame() {
     console.log("You've started the game!");
     var newGameboard = new Gameboard();
     newGameboard.appendGameboard();
     return true;
   };
 
-  finishGame(){
+  finishGame() {
 
   };
 
-  exitGame(){
+  exitGame() {
 
   };
+
+  changePlayer() {
+    //Will need method to change player active status
+  }
 
 }
 
