@@ -48,18 +48,23 @@ const domUpdates = {
     $('.category--three').text(array[2]);
     $('.category--four').text(array[3]);
   },
-
+  
   displayClue: (question) => {
     $('.game--container').toggleClass('game--inactive');
     $('body').append(`
-      <div class="popup--container clue--container">
-        <h2>${question}</h2>
-        <input type="text" placeholder="Place Answer Here"/>
-        <button>Submit Guess</button>
-      </div>
-    `)
+    <div class="popup--container clue--container">
+      <h2>${question}</h2>
+      <input type="text" placeholder="Place Answer Here"/>
+      <button class="submit--guess">Submit Guess</button>
+    </div>
+    `);
+  },
+  
+  hidePopUp: () => {
+    $('.game--container').toggleClass('game--inactive');
+    $('.clue--container').remove();
   }
-
+  
 }
 
 export default domUpdates;
