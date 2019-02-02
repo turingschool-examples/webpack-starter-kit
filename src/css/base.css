@@ -30,6 +30,12 @@ body {
   
 }
 
+.category-window {
+  text-align: center;
+  font-size: 40px;
+  background-color: white;
+}
+
 #game-board {
   display: grid;
   justify-content: center;
@@ -55,14 +61,18 @@ body {
 #player-names-container {
   display: flex;
   align-items: center;
+  margin-right: 8px;
+  margin-left: 8px;
   justify-content: space-around;
-  background-color: white;
   margin-top: 10px;
+  background-color: orchid;
 }
 
 .player-names {
-  font-size: 20px;
-  background-color: white;
+  font-size: 30px;
+  color: white;
+  background-color: grey;
+  padding:10px;
 }
 
 .name-input {
