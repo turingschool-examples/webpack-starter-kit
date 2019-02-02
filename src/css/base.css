@@ -52,6 +52,19 @@ body {
   margin-left: 70px;
 }
 
+#player-names-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.player-names {
+  font-size: 20px;
+  background-color: white;
+}
+
 .name-input {
   height: 30px;
   width: 150px;
