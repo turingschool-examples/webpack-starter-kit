@@ -8,7 +8,7 @@ class Gameboard {
     this.clues = [];
   }
 
-  startGame() {
+  start() {
     // shuffle indexes of category array 
     // shuffle the questions within each category
     // splice the array
