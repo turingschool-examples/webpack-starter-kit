@@ -1,3 +1,5 @@
+import data from './data.js';
+
 class Gameboard {
   constructor(categoryPosition, cluePosition, highestPointValue) {
     this.categoryPosition = categoryPosition;
@@ -7,8 +9,18 @@ class Gameboard {
 
   appendGameboard() {
     console.log("append gameboard");
-    return true;
+    this.assignCategories();
+    // return true;
   };
+
+  assignCategories() {
+    console.log(data.categories);
+  //pull category names from data.js and make them real english words
+  //append english words to dom with properties (category id)
+  };
+  
+
+  
 
   appendClue() {
 

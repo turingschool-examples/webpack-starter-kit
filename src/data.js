@@ -707,4 +707,4 @@ const data = {
   ]
 };
 
-// export default Data;
+export default data;
