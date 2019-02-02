@@ -52,7 +52,11 @@ const domUpdates = {
   displayClue: (question) => {
     $('.game--container').toggleClass('game--inactive');
     $('body').append(`
-      <h2 class="popup--container clue--container">${question}</h2>
+      <div class="popup--container clue--container">
+        <h2>${question}</h2>
+        <input type="text" placeholder="Place Answer Here"/>
+        <button>Submit Guess</button>
+      </div>
     `)
   }
 
