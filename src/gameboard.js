@@ -5,12 +5,9 @@ class Gameboard {
     this.highestPointValue = highestPointValue;
   };
 
-  clearGameboard() {
-    //Removes gameboard from window to add Q&A, wager, or start screens
-  };
-
   appendGameboard() {
-
+    console.log("append gameboard");
+    return true;
   };
 
   appendClue() {
@@ -19,6 +16,10 @@ class Gameboard {
 
   appendWager() {
 
+  };
+
+  clearGameboard() {
+    //Removes gameboard from window to add Q&A, wager, or start screens
   };
 
 }

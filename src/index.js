@@ -19,9 +19,9 @@ import $ from 'jquery';
 let $startBtn = $('#playBtn');
 $startBtn.on('click', function(e) {
   e.preventDefault();
-  console.log('You started!!!');
   let game = new Game();
   game.startGame();
+  console.log(game);
   pullNames();
 })
 
@@ -37,7 +37,9 @@ function pullNames() {
   let player1 = new Player($playerName1, 0, 0, 1);
   let player2 = new Player($playerName2, 0, 0, 2);
   let player3 = new Player($playerName3, 0, 0, 3);
-  console.log(player1)
+  console.log(player1);
+  console.log(player2);
+  console.log(player3);
 }
 
 
