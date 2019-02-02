@@ -1,13 +1,14 @@
 import domUpdates from "./domUpdates";
 import Player from './Player.js';
 import data from './data.js'
+import Clue from "./Clue";
 
 class Game {
   constructor() {
     this.players = [];
-    // this.clues = gatherClues;
     this.currentPlayer = null;
     this.winner = null;
+    this.cluesThisRound = [];
   }
 
   gatherPlayers(a, b, c) {
@@ -27,12 +28,11 @@ class Game {
         fourCats.push(singleCat)
       }
     } while (fourCats.length < 4)
-    let clues = this.gatherClues(fourCats);
-    this.createColumns(clues, fourCats)
+    this.gatherClues(fourCats);
+    // this.createColumns(clues, fourCats)
   }
 
   gatherClues(array) {
-    let cluesThisRound = [];
     let allClues;
     array.forEach(category => {
       allClues = data.clues.filter(clue => {
@@ -42,22 +42,30 @@ class Game {
         let specificPoints = allClues.filter(clue => {
           return clue.pointValue === 100 * i;
         });
-        cluesThisRound.push(specificPoints[0]);
+        this.cluesThisRound.push(specificPoints[0]);
       }
     });
-    return cluesThisRound
+    domUpdates.setClues(this.cluesThisRound);
+    return this.cluesThisRound
   }
 
-  createColumns(gameClues, catergories) {
-    let columnOne = gameClues.slice(0, 4);
-    let columnTwo = gameClues.slice(4, 8);
-    let columnThree = gameClues.slice(8, 12);
-    let columnFour = gameClues.slice(12, 16);
-    columnOne.unshift(catergories[0]);
-    columnTwo.unshift(catergories[1]);
-    columnThree.unshift(catergories[2]);
-    columnFour.unshift(catergories[3]);
+  instantiateClue(dataset) {
+    let specificClue = this.cluesThisRound.find(clue => {
+      return clue.categoryId == dataset.categoryid && clue.pointValue == dataset.pointvalue;
+    })
+    let clue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId)
   }
+
+  // createColumns(gameClues, catergories) {
+  //   let columnOne = gameClues.slice(0, 4);
+  //   let columnTwo = gameClues.slice(4, 8);
+  //   let columnThree = gameClues.slice(8, 12);
+  //   let columnFour = gameClues.slice(12, 16);
+  //   columnOne.unshift(catergories[0]);
+  //   columnTwo.unshift(catergories[1]);
+  //   columnThree.unshift(catergories[2]);
+  //   columnFour.unshift(catergories[3]);
+  // }
   
   quitGame() {
     domUpdates.toggleSplash();

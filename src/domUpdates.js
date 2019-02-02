@@ -21,7 +21,20 @@ const domUpdates = {
 
   disableReset: () => {
     $('.game--exit').prop( "disabled", true);
+  },
+
+  setClues: (clues) => {
+    $('.game--board').empty();
+    clues.forEach(clue => {
+      $('.game--board').append(`
+        <h4
+        data-categoryid="${clue.categoryId}" 
+        data-pointvalue="${clue.pointValue}">
+        ${clue.pointValue}
+        </h4>`)
+    });
   }
+
 
 }
 

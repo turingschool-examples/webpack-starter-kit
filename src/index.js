@@ -28,3 +28,10 @@ $('.game--exit').on('click', () => {
   game.quitGame();
   domUpdates.disableReset();
 });
+
+$('.game--board').on('click', (event) => {
+  let dataset = event.target.dataset;
+  if ($(event.target).is('h4')) {
+    game.instantiateClue(dataset);
+  }
+})
