@@ -22,19 +22,11 @@ const domUpdates = {
   populateRoundPuzzle(roundPuzzle) {
     // console.log(lettersArray);
     // if roundPuzzle.number_of_words === 1
-    let splitWords = roundPuzzle.correct_answer.split(' ');
+    let letters = roundPuzzle.correct_answer.split('')
 
-    splitWords.forEach((word, i) => {
-      console.log(splitWords.length);
-      if(splitWords.length)
-      let lettersArray = word.split('')
-      console.log(lettersArray);
+    letters.forEach((letter, i) => {
+      $(`#box-${i + 1}`).text(letter)
     })
-      // if(splitWords[1] && splitWords[0] + splitWords[1] > 12) {
-      //   $(`#box-${i + 13}`).text(splitWords[1].split(''))
-      // } else {
-      //   $(`#box-${i + 1}`).text(word.split(''));
-      // }
   }
 }
 

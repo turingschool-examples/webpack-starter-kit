@@ -2,6 +2,7 @@
  import data from './Data.js';
  import Puzzle from './Puzzle.js';
  import domUpdates from './domUpdates.js';
+ import Wheel from './Wheel.js'
 
  class Game {
   constructor(players, currentRound = 1, activePlayer, roundWinner, gameWinner, gamePuzzles) {
@@ -18,7 +19,10 @@
     this.createPlayers(this.players);
     this.grabPuzzleBanks();
     domUpdates.removeStartPage();
-
+    const wheel  = new Wheel();
+    wheel.populateWheel(this.randomizeBank(data.wheel));
+    console.log(wheel.values);
+    wheel.grabSixWheelValues();
   }
 
   createPlayers(players) {
