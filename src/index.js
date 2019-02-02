@@ -25,7 +25,19 @@ $startBtn.on('click', function(e) {
   pullNames();
 })
 
+let $gameboard = $('.game-board');
 
+$gameboard.on('click', function(e) {
+  if (e.target.className === 'clue-box') {
+    console.log(e.target);
+  }
+})
+
+let $clueBoxes = $('.clue-box');
+
+// $clueBoxes.forEach(clueBox => {
+//   clueBox.on('click', assignClue)
+// })
 
 function pullNames() {
   let $playerName1 = $('#playerNameInput1').val();
