@@ -1,29 +1,33 @@
 import data from '../data.js'
 
 class Wheel {
-    constructor() {
-        this.spaces = [];
-        this.currentSpace = null;
-    }
+  constructor() {
+    this.spaces = [];
+    this.currentSpace = null;
+  }
 
-    //wheel should be responsible for creating spaces
+  //wheel should be responsible for creating spaces
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min; 
+  }
+
+  createSpaces() {
+    let randomMin = this.getRandomInt(1, 17);
+    let randomMax = randomMin + 6;
+    this.spaces = data.wheel.slice(randomMin, randomMax);
+  }
+
+  //reset() {
+  //resets your random spaces
+  // }
 
 
-    createSpaces() {
-      console.log('log 2', data.wheel);
-      
-    }
-
-    //reset() {
-      //resets your random spaces
-    // }
 
 
 
-
-
-    //reset wheel method here
-    // changes the spaces
+  //reset wheel method here
+  //changes the spaces
 
 
 

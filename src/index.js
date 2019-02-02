@@ -24,7 +24,6 @@ $('.js-start-button').on('click', (e) => {
   let newPlayers = domUpdates.displayPlayerNames();
   let game = new Game();
   game.startGame();
-  console.log(game);
   game.createPlayers(newPlayers);
   
 });
