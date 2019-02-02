@@ -1,5 +1,6 @@
 import chai from 'chai';
 import Wheel from '../src/Wheel.js'
+import Player from '../src/Player.js'
 const expect = chai.expect;
 
 
@@ -31,8 +32,13 @@ describe('Wheel', function() {
     expect(wheel.currentSpin).to.not.be.an('undefined');
   })
 
-  it.skip('should reset player score to zero when the wheel lands on bankrupt', function() {
-    
+  it('should reset player score to zero when the wheel lands on bankrupt', function() {
+    let player = new Player();
+    player.roundScore = 10;
+
+    expect(player.roundScore).to.equal(10);
+    wheel.bankrupt(player);
+    expect(player.roundScore).to.equal(0);
   })
 
   it.skip('should end player turn when the wheel lands on lose-a-turn', function() {
