@@ -3,7 +3,7 @@ body {
   background-image: url(../images/start-screen-background.jpg)
 }
 
-#game-header-title {
+#game-header-title-splash {
   text-align: center;
   font-size: 100px;
   opacity: .8;
@@ -19,6 +19,28 @@ body {
   border-radius: 25px;
   color: white;
   font-weight: 600;
+}
+
+#game-header-title {
+  font-size: 85px;
+  text-align: center;
+  background-color: orange;
+}
+
+#game-board {
+
+}
+
+.game-board-row {
+  display: flex;
+}
+
+.letter-box {
+  height: 63px;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 50px;
+  background-color: lightskyblue;
 }
 
 .name-input {
