@@ -6,8 +6,10 @@ const expect = chai.expect;
 
 describe('Wheel', function() {
   let wheel;
+  let player;
   beforeEach(function() {
     wheel = new Wheel();
+    player = new Player();
   });
 
   it('instantiates our good friend, Wheel', function() {
@@ -33,24 +35,19 @@ describe('Wheel', function() {
   })
 
   it.skip('should reset player score to zero when the wheel lands on bankrupt', function() {
-    let player = new Player();
     player.roundScore = 10;
-
-    expect(player.roundScore).to.equal(10);
-    wheel.bankrupt(player);
+    // not sure how to intentionally make the wheel land on bankrupt to test this
     expect(player.roundScore).to.equal(0);
   })
 
   it.skip('should end player turn when the wheel lands on lose-a-turn', function() {
-    let player = new Player();
     player.currentTurn = true;
-
-    wheel.loseTurn();
+    // not sure how to intentionally make the wheel land on lose-a-turn to test this
     expect(player.currentTurn).to.equal(false);
     
   })
 
   it.skip('should prompt player to choose a consonant if the wheel lands on a dollar amount', function() {
-    
+
   })
 });

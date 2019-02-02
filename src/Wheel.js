@@ -13,17 +13,17 @@ class Wheel {
       this.wheelElements.push(data.wheel[randomIndex]);
     } 
   }
-  spinWheel() {
+  spinWheel(player) {
     this.currentSpinIndex = Math.floor(Math.random() * 5);
     this.currentSpin = this.wheelElements[this.currentSpinIndex];
     return this.currentSpin;
     // if land on bankrupt invoke bankrupt method
     // if land on lose a turn invoke loseTurn method
   }
-  bankrupt() {
+  bankrupt(player) {
     // reset player roundScore to 0
   }
-  loseTurn() {
+  loseTurn(player) {
     // end player turn
     // switch to next player
   }
