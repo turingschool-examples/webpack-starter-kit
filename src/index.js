@@ -1,10 +1,11 @@
 // This is the JavaScript entry file - your code begins here
-import BonusWheel from './scripts/bonusWheel.js';
-import Wheel from './scripts/wheel.js';
-import Player from './scripts/player.js';
-import Puzzle from './scripts/puzzle.js';
 import Game from './scripts/game.js';
 import domUpdates from './scripts/domUpdates.js';
+import $ from 'jquery';
+import jQuery from 'jquery';
+window.$ = jQuery;
+
+
 // Do not delete or rename this file
 
 // Tell webpack to use a CSS file
@@ -20,7 +21,7 @@ import './images/shroom-guy.png'
 
 $('.js-start-button').on('click', (e) => {
   e.preventDefault();
-  let game = new Game();
-  game.startGame();
-
+  let newPlayers = domUpdates.displayPlayerNames();
+  let game = new Game(newPlayers);
+  
 });

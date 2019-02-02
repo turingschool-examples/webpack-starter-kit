@@ -1,15 +1,14 @@
-import domUpdates from './domUpdates.js'
 
 class Game {
-    constructor() {
+    constructor(players = []) {
         this.round = 1;
-        this.players = [];
+        this.players = players;
         this.wheel = [];
         this.puzzleBank = [];
     }
 
     startGame(){
-      domUpdates.displayPlayerNames();
+
     }
 }
 export default Game;
