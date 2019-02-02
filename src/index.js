@@ -6,7 +6,7 @@ import './css/base.css';
 //  Tell webpack to use an image (link to it in index.html)
 // import './images/turing-logo.png'
 
-import Game from './game.js';
+// import Game from './game.js';
 import Player from './player.js';
 import Clue from './clue.js';
 import Gameboard from './gameboard.js';
@@ -19,7 +19,7 @@ import $ from 'jquery';
 let $startBtn = $('#playBtn');
 $startBtn.on('click', function(e) {
   e.preventDefault();
-  let game = new Game();
+  let game = new Gameboard();
   game.startGame();
   console.log(game);
   pullNames();
@@ -46,9 +46,9 @@ function pullNames() {
   $('#playerName1').text($playerName1);
   $('#playerName2').text($playerName2);
   $('#playerName3').text($playerName3);
-  let player1 = new Player($playerName1, 0, 0, 1);
-  let player2 = new Player($playerName2, 0, 0, 2);
-  let player3 = new Player($playerName3, 0, 0, 3);
+  let player1 = new Player($playerName1, 0, 0, 1, false);
+  let player2 = new Player($playerName2, 0, 0, 2, false);
+  let player3 = new Player($playerName3, 0, 0, 3, false);
   console.log(player1);
   console.log(player2);
   console.log(player3);
