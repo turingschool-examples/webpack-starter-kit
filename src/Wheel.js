@@ -4,7 +4,7 @@ import Player from './Player.js';
 class Wheel {
   constructor() {
       this.wheelElements = [];
-      this.currentSpin = '' //could also turn this to null;
+      this.currentSpin = null //could also turn this to null;
       this.currentSpinIndex = null; //should be number
   }
   randomizeWheel() {
@@ -16,6 +16,7 @@ class Wheel {
   spinWheel() {
     this.currentSpinIndex = Math.floor(Math.random() * 5);
     this.currentSpin = this.wheelElements[this.currentSpinIndex];
+    return this.currentSpin;
     // if land on bankrupt invoke bankrupt method
     // if land on lose a turn invoke loseTurn method
   }

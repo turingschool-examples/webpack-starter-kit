@@ -24,4 +24,22 @@ describe('Wheel', function() {
 
     expect(wheel1).to.not.equal(wheel2);
   })
+
+  it('should land on a random element when spun', function() {
+    wheel.randomizeWheel();
+    wheel.spinWheel();
+    expect(wheel.currentSpin).to.not.be.an('undefined');
+  })
+
+  it.skip('should reset player score to zero when the wheel lands on bankrupt', function() {
+    
+  })
+
+  it.skip('should end player turn when the wheel lands on lose-a-turn', function() {
+    
+  })
+
+  it.skip('should prompt player to choose a consonant if the wheel lands on a dollar amount', function() {
+    
+  })
 });
