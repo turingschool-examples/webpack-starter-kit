@@ -31,6 +31,8 @@ describe('Testing Game methods and properties', () => {
     let playerNames = ['Kim']
     expect(game.players).to.deep.equal({});
     game.createPlayers(playerNames);
-    expect(game.players).to.deep.equal({ 'Kim': {name: "Kim", roundCoins: 0, totalCoins: 0}});
+    expect(game.players).to.deep.equal(
+      { 'Kim': {name: "Kim", roundCoins: 0, totalCoins: 0}
+      });
   })
 });

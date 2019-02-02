@@ -1,5 +1,4 @@
 import data from '../data.js'
-import Game from './game.js'
 import helper from './helper.js'
 
 class Wheel {
@@ -19,7 +18,7 @@ class Wheel {
   spin() {
    let randomSpace = helper.getRandomInt(0,6)
    this.currentSpace = this.spaces[randomSpace]
-   console.log(this.currentSpace)
+   // console.log(this.currentSpace)
   }
 
   //reset() {
