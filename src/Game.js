@@ -4,15 +4,22 @@ import Round from './Round.js';
 import data from './data.js'
 
 class Game{
-  constructor(players = []){
+  constructor(){
     this.round = 0;
     this.rounds = [];
-    this.players = players;
+    this.players = [];
     this.allData = [[],[],[],[],[],[],[],[],[],[]];
-    // clues for entire game
-    // round1 clues
-    // round2 clues
-    //round3 clue
+  }
+  start(){
+    this.createPlayers(domUpdates.grabNames());
+  }
+
+  createPlayers(array){
+      this.players = array.map(person => {
+       return person = new Player(person);
+      });
+      this.shuffle(this.players);
+      domUpdates.loadGameBoard(this.players);
   }
   getRandomData () {
     allData.forEach((cat,ind) => {
@@ -66,18 +73,6 @@ class Game{
   // }
   // console.log(roundClues);
 
-  start(){
-    const round = new Round();
-    this.round = round;
-    this.createPlayers(domUpdates.grabNames());
-  }
-
-  createPlayers(array){
-      this.players = array.map(person => {
-       return person = new Player(person);
-      });
-      this.players = this.shuffle(this.players);
-  }
 
 
 
