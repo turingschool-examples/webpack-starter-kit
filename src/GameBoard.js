@@ -9,12 +9,21 @@ class Gameboard {
   }
 
   startGame() {
+    const gameArr = shuffle(Object.keys(data.categories));
+    let round1 = gameArr.splice(0, 4);
+    let round2 = gameArr.splice(0, 4);
+    let round3 = gameArr.splice(0, 1);
+
+    // for (let i = 0; i > gameArr.length; i++) {
+    //   if (data.clues.categoryId[i] === )
+    // }
+
     // shuffle indexes of category array 
     // shuffle the questions within each category
     // splice the array
     // populate the categories on page
     // populate the questions on page
-    
+
   }
 
   changeRound() {
@@ -35,7 +44,7 @@ class Gameboard {
   }
 
   shuffle(array) {
-    array.clues.sort(() => 0.5 - Math.random());
+    return array.sort(() => 0.5 - Math.random());
   }
 }
 
