@@ -6,24 +6,37 @@ body {
 }
 
 h2{
-  padding-top: 10px;
+  text-align: center;
+}
+
+.player-score{
+  margin-top: 5px;
 }
 
 h3{
   margin: auto;
   padding-top: 8px;
-  text-decoration: underline;
 }
+
+h4{
+  margin-top: 5px;
+}
+
+input{
+  text-align: center;
+}
+
 .player-name{
   place-self: center;
 }
 
 .intro-img{
-  height: 40px;
+  height: 90px;
 }
 
 .start-game{
   margin: auto;
+  margin-bottom: 20px;
   border-radius: 5px;
   color: white;
   background-color: black;
@@ -31,6 +44,8 @@ h3{
   font-size: 20px;
   width: 100px;
   height: 30px;
+  grid-column: 2;
+
 }
 .entry-page{
   display: none; 
@@ -42,16 +57,16 @@ h3{
   grid-template-areas: "gameboard player";
   grid-template-columns: 1fr 1fr;
   padding: 5px;
-  min-width: 1050px;
+  width: 780px;
 }
 
 .welcome-page{
   color: black;
   background-color: gainsboro;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr 40px;  
   padding: 10px;
   width: 600px;
   height: 300px;
@@ -62,6 +77,21 @@ h3{
 
 .welcome-page input{
   margin-bottom: 10px;
+}
+
+.player-one-intro{
+  padding-top: 20px;
+
+}
+
+.player-two-intro{
+  padding-top: 20px;
+  grid-column: 3;
+}
+
+.player-three-intro{
+  margin-top: -60px;
+
 }
 
 .game-board{
@@ -123,6 +153,7 @@ input{
 .categories-box{
   background-color: black;
   color: #fff;
+  border: 2px solid gainsboro;
   border-radius: 5px;
   padding: 20px;
   font-size: 15px;
