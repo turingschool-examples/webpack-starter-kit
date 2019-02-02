@@ -8,4 +8,13 @@ describe('Gameboard', function() {
     gameboard.appendGameboard();
     expect(true).to.equal(true);
   });
+
+  it('should create an array of the categories', function () {
+    var gameboard = new Gameboard();
+    gameboard.assignCategories();
+    console.log(gameboard.categoryList);
+    expect(gameboard.categoryList).to.have.length(10);
+  });
+
+  
 });
