@@ -13,6 +13,16 @@ import './Players';
 import './Round';
 import './DailyDouble';
 
+import './css/styles.css';
+import domUpdates from './domUpdates';
+import Question from './Question';
+import GameBoard from './GameBoard';
+import Players from './Players';
+import Round from './Round';
+import DailyDouble from './DailyDouble';
+
+import $ from 'jquery';
+
 //  Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
 import './images/bg-image.jpg';
