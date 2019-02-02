@@ -37,6 +37,9 @@ $('.game--board').on('click', (event) => {
 });
 
 $('body').on('click', '.submit--guess', () => {
-  console.log('hello')
+  let playInput = $('.submit--guess').prev().val();
+  game.submitGuess(playInput);
   domUpdates.hidePopUp();
 });
+
+export default game;

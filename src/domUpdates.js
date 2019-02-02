@@ -1,6 +1,8 @@
 import Game from "./Game.js";
 import Player from "./Player.js"
 import $ from 'jquery';
+import jQuery from 'jquery';
+window.$ = jQuery;
 import './index.js'
 
 const domUpdates = {

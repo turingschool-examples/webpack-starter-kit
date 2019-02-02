@@ -1,3 +1,5 @@
+import Clue from './Clue.js';
+
 class Player {
   constructor(score, name) {
     this.score = score;
@@ -5,9 +7,10 @@ class Player {
     // this.turn = turn;
   }
 
-  // changeScore() {
-
-  // }
+  changeScore(points) {
+    this.score += points;
+    console.log(this.score)
+  }
 
 
 }

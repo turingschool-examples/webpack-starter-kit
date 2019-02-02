@@ -1,3 +1,5 @@
+import game from './index.js';
+
 class Clue {
   constructor(question, pointValue, answer, categoryId) {
     this.question = question;
@@ -6,9 +8,12 @@ class Clue {
     this.categoryId = categoryId;
   }
 
-  // correctAnswer() {
-    
-  // }
+  correctAnswer(input) {
+    if (input === this.answer) {
+      game.currentPlayer.changeScore(this.pointValue)
+    }
+
+  }
 
   // removeClue() {
 

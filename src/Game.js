@@ -9,6 +9,7 @@ class Game {
     this.currentPlayer = null;
     this.winner = null;
     this.cluesThisRound = [];
+    this.currentClue = null;
   }
 
   gatherPlayers(a, b, c) {
@@ -54,7 +55,7 @@ class Game {
     let specificClue = this.cluesThisRound.find(clue => {
       return clue.categoryId == dataset.categoryid && clue.pointValue == dataset.pointvalue;
     })
-    let clue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
+    this.currentClue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
     domUpdates.displayClue(specificClue.question);
   }
 
@@ -62,6 +63,11 @@ class Game {
     domUpdates.toggleSplash();
     this.cluesThisRound = [];
   }
+
+  submitGuess(input) {
+    this.currentClue.correctAnswer(input);
+  }
+
 
   // determineWinner() {
 
