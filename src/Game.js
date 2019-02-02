@@ -11,10 +11,10 @@ class Game {
   }
 
   startGame() {
-    let $names = domUpdates.getNames()
-    domUpdates.displayNames($names)
-    this.createPlayers($names)
-    console.log(this)
+    let $names = domUpdates.getNames();
+    domUpdates.displayNames($names);
+    this.createPlayers($names);
+    console.log(this);
   }
 
   createPlayers(names) {
