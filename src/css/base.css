@@ -5,7 +5,6 @@
 }
 
 body {
-  background-color: pink;
   background-image: url(../images/start-screen-background.jpg)
 }
 
@@ -28,18 +27,25 @@ body {
 }
 
 #game-header-title {
-  font-size: 85px;
+  font-size: 75px;
   text-align: center;
   margin-top: 2px;
-  color: orchid;
-  font-family: sans-serif;
+  margin-right: 250px;
+  margin-left: 250px;
+  border-radius: 25px;
+  padding:10px;
+  color: mediumslateblue;
+  background-color: aliceblue;
+  opacity: .8;
+  font-family: fantasy;
   
 }
 
 .category-window {
   text-align: center;
   font-size: 40px;
-  background-color: white;
+  margin-bottom: 12px;
+  opacity: .8;
 }
 
 #game-board {
@@ -53,6 +59,8 @@ body {
 
 .letter-box {
   font-size: 32px;
+  font-weight: bolder;
+  font-family: sans-serif;
   height: 73px;
   margin-right: 9px;
   text-align: center;
@@ -74,14 +82,10 @@ body {
   margin-left: 8px;
   justify-content: space-around;
   margin-top: 10px;
-  background-color: orchid;
 }
 
 .player-names {
   font-size: 30px;
-  color: white;
-  background-color: grey;
-  padding:10px;
 }
 
 .name-input {
@@ -92,8 +96,14 @@ body {
   padding: 3px;
 }
 
+.name-and-scores {
+  background-color: pink;
+  padding: 10px;
+  width: 250px;
+}
+
 #name-input-container {
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .hidden {
@@ -107,30 +117,38 @@ body {
 #letters-banks {
   width: 100%;
   height: 150px;
-  background-color: orange;
   display: flex;
 }
 
 #consonants-bank {
   height: 100%;
-  width: 75%;
-  border: 10px solid black;
+  width: 65%;
+  border: 10px solid white;
+  margin: 20px;
 }
 
 #vowels-bank {
   height: 100%;
   width: 25%;
-  border: 10px solid gray;
+  border: 10px solid white;
+  margin: 20px;
 }
 
 .letter-button {
+  font-size: 20px;
+  font-weight: 800;
   width: 63px;
-  height: 40px; 
+  height: 40px;
   border-radius: 25px;
+  display: inline-grid;
+  margin: 8px;
+  padding: 10px;
 }
 
 .letter-button:hover{
-  background-color: red;
+  color: white;
+  background-color: orchid;
+  opacity: .7;
 }
 
 
