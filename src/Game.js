@@ -5,13 +5,14 @@
  import Wheel from './Wheel.js'
 
  class Game {
-  constructor(players = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = []) {
+  constructor(playersArray = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = [], roundPuzzle = null) {
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
     this.roundWinner = roundWinner,
     this.gameWinner = gameWinner,
     this.gamePuzzles = gamePuzzles,
-    this.players =  players
+    this.players =  playersArray,
+    this.roundPuzzle = roundPuzzle
   }
 
   startGame() {
@@ -19,7 +20,7 @@
     this.createPlayers(this.players);
     this.grabPuzzleBanks();
     domUpdates.removeStartPage();
-    const wheel  = new Wheel(this.randomizeBank(data.wheel));
+    // const wheel  = new Wheel(this.randomizeBank(data.wheel));
     // wheel.populateWheel(this.randomizeBank(data.wheel));
     this.gamePuzzles[0].populateConsonantsBank();
     // this.randomizeBank(wheel.values);
@@ -31,6 +32,8 @@
     const playerTwo = new Player(this.players[1]);
     const playerThree = new Player(this.players[2]);
     domUpdates.displayPlayers(playerOne, playerTwo, playerThree);
+    this.activePlayer = playerOne;
+    this.players = [playerOne, playerTwo, playerThree]
     console.log(playerOne)
   }
 
@@ -45,6 +48,8 @@
     let fourPuzzles = this.setGamePuzzles(puzzleBank);
     let roundPuzzle = this.setRoundPuzzle(fourPuzzles);
     // console.log(roundPuzzle);
+    this.roundPuzzle = roundPuzzle.correct_answer;
+    console.log(this.roundPuzzle)
     domUpdates.displayCategory(roundPuzzle);
     domUpdates.populateRoundPuzzle(roundPuzzle);
     return puzzleBank;
@@ -70,6 +75,42 @@
     let roundPuzzle = fourPuzzles.pop();
     return roundPuzzle;
     // domUpdates.displayPuzzle();
+  }
+
+  compareClickedButton(clickedLetter, wheel) {
+    console.log(clickedLetter);
+    let splitPuzzle = this.roundPuzzle.toUpperCase().split('')
+    let letterCount = 0;
+
+    if(splitPuzzle.includes(clickedLetter)) {
+        splitPuzzle.forEach(letter => {
+        if(letter === clickedLetter) { 
+          letterCount++;
+          console.log(letterCount);
+          console.log('this letter is here')
+        } 
+      });
+          let guessValue = wheel.multiplyRoundValue(letterCount);
+          console.log(guessValue)
+          let roundScore = this.activePlayer.incrementRoundScore(guessValue);
+          console.log(roundScore);
+          domUpdates.updateRoundScore(roundScore);
+     }
+     else {
+        console.log('this letter is not here');
+        this.changeTurn();
+      }
+  }
+
+  changeTurn() {
+    // console.log(this.activePlayer)
+      if(this.activePlayer === this.players[0]) {
+        this.players[0].active = false;
+        this.players[1].active = true;
+        this.activePlayer = this.players[1]
+        console.log(this.activePlayer)
+      }
+    console.log(this.players)
   }
 
 }

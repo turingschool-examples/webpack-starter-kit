@@ -33,14 +33,25 @@ const domUpdates = {
     // $('#consonants-bank').text(consonants);
     consonants.forEach((cons,i) => {
       $(`#c${i}`).text(cons)
-      console.log(cons)
+      // console.log(cons)
     })
 
     vowels.forEach((vowel,i) => {
       $(`#v${i}`).text(vowel)
-      console.log(vowel)
+      // console.log(vowel)
     })
-  }  
+  },
+
+  displayTurnValue(value) {
+    // let turnValue = wheel.turnValue
+    $('#spin-value').text(`You've landed on: ${value}!`)
+  },
+
+  updateRoundScore(value) {
+    $('#player-one-round-score').text(value)
+  } 
+
+
 }
 
 export default domUpdates;
