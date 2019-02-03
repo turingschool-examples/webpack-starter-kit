@@ -16,9 +16,9 @@ class Wheel {
   }
 
   spin() {
-   let randomSpace = helper.getRandomInt(0,6)
-   this.currentSpace = this.spaces[randomSpace]
-   // console.log(this.currentSpace)
+    let randomSpace = helper.getRandomInt(0, 6)
+    this.currentSpace = this.spaces[randomSpace]
+    // console.log(this.currentSpace)
   }
 
   //reset() {

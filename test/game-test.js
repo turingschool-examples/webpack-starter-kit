@@ -35,4 +35,10 @@ describe('Testing Game methods and properties', () => {
       { 'Kim': {name: "Kim", roundCoins: 0, totalCoins: 0}
       });
   })
+
+  it('should generate a puzzle bank with 5 puzzles', () => {
+    expect(game.puzzleBank).to.deep.equal([]);
+    game.createPuzzleBank();
+    expect(game.puzzleBank.length).to.equal(5);
+  })
 });

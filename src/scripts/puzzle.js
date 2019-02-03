@@ -1,7 +1,7 @@
 class Puzzle {
-    constructor (currentPuzzle) {
-        this.currentPuzzle = currentPuzzle;
-    }
+  constructor (currentPuzzle) {
+    this.currentPuzzle = currentPuzzle;
+  }
 }
 
 export default Puzzle;
