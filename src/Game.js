@@ -19,8 +19,8 @@
     this.createPlayers(this.players);
     this.grabPuzzleBanks();
     domUpdates.removeStartPage();
-    const wheel  = new Wheel();
-    wheel.populateWheel(this.randomizeBank(data.wheel));
+    const wheel  = new Wheel(this.randomizeBank(data.wheel));
+    // wheel.populateWheel(this.randomizeBank(data.wheel));
     this.gamePuzzles[0].populateConsonantsBank();
     // this.randomizeBank(wheel.values);
     // wheel.singleWheelValue(wheel.values);
@@ -41,9 +41,10 @@
     let puzzleArrayFour = data.puzzles.four_word_answers.puzzle_bank
     let puzzleBank = puzzleArrayOne.concat(puzzleArrayTwo, puzzleArrayThree, puzzleArrayFour)
     this.randomizeBank(puzzleBank);
+    // console.log('youink')
     let fourPuzzles = this.setGamePuzzles(puzzleBank);
     let roundPuzzle = this.setRoundPuzzle(fourPuzzles);
-    console.log(roundPuzzle);
+    // console.log(roundPuzzle);
     domUpdates.displayCategory(roundPuzzle);
     domUpdates.populateRoundPuzzle(roundPuzzle);
     return puzzleBank;
@@ -67,8 +68,6 @@
 
   setRoundPuzzle(fourPuzzles) {
     let roundPuzzle = fourPuzzles.pop();
-    console.log(fourPuzzles.length)
-    console.log(roundPuzzle);
     return roundPuzzle;
     // domUpdates.displayPuzzle();
   }
