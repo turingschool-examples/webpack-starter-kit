@@ -28,7 +28,7 @@ class Gameboard {
     let round3 = gameArr.splice(0, 1);
 
     // for (let i = 0; i > gameArr.length; i++) {
-    //   if (data.clues.categoryId[i] === )
+    //   if (data.clues.categoryId[i] === data.categories);
     // }
 
     // shuffle indexes of category array 
