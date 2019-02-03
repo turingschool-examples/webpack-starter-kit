@@ -100,3 +100,9 @@ button {
   justify-content: center;
   border-radius: 20px;
 }
+
+.game--board .used--tile {
+  background-color:  #49a89d;
+  color: #49a89d;
+  pointer-events: none;
+}

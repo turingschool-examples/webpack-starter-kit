@@ -34,6 +34,7 @@ $('.game--board').on('click', (event) => {
   if ($(event.target).is('h4')) {
     game.instantiateClue(dataset);
   }
+  domUpdates.removeTile(event.target);
 });
 
 $('body').on('click', '.submit--guess', () => {

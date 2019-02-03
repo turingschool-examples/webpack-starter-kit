@@ -42,7 +42,8 @@ const domUpdates = {
       $('.game--board').append(`
         <h4
         data-categoryid="${clue.categoryId}" 
-        data-pointvalue="${clue.pointValue}">
+        data-pointvalue="${clue.pointValue}"
+        disabled="false">
         ${clue.pointValue}
         </h4>`)
     });
@@ -69,6 +70,11 @@ const domUpdates = {
   hidePopUp: () => {
     $('.game--container').toggleClass('game--inactive');
     $('.clue--container').remove();
+  },
+
+  removeTile: (tile) => {
+   $(tile).addClass('used--tile');
+   $(tile).text('');
   }
   
 }
