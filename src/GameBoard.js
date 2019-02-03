@@ -10,7 +10,7 @@ class Gameboard {
 
   hidePopup() {
     $(".start--button").click(function(e) {
-      $(".overlay").remove();
+      $(".overlay").toggle();
       $('.start-up').remove();
     });
   }
@@ -23,6 +23,14 @@ class Gameboard {
 
   startGame() {
     const gameArr = shuffle(Object.keys(data.categories));
+    /////////////////////////////////////////////////
+//     let round1 = gameArr.splice(0, 4);
+//     let round2 = gameArr.splice(0, 4);
+//     let round3 = gameArr.splice(0, 1);
+    // for (let i = 0; i > gameArr.length; i++) {
+    //   if (data.clues.categoryId[i] === data.categories);
+    // }
+    ////////////////////////////////////////////////
     if (this.roundId === 1) {
       this.catIds = gameArr.splice(0, 4);
     } else if (this.roundId === 2) {

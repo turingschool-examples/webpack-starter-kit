@@ -240,12 +240,9 @@ fieldset {
   text-align: center;
 }
 
-.start--btn__field {
-  grid-area: start;
-}
-
 .start--btn__container {
   display: flex;
+  grid-area: start;
   justify-content: center;
 }
 
