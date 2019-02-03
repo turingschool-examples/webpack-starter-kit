@@ -1,4 +1,4 @@
-import domUpdates from './domUpdates.js';
+// import domUpdates from './domUpdates.js';
 
 class Puzzle {
   constructor(puzzleObj) {
@@ -12,10 +12,3 @@ class Puzzle {
 }
 
 export default Puzzle;
-
-// category:'Around The House',
-//           number_of_words: 4,
-//           total_number_of_letters: 12,
-//           first_word: 1,
-//           description: 'Location or object(s) found within a typical house.',
-//           correct_answer: 'A Pile Of Coats',

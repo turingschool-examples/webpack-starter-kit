@@ -6,23 +6,23 @@ chai.use(spies);
 import domUpdates from '../src/domUpdates.js';
 import data from '../src/data.js';
 import Game from '../src/Game.js';
-import Puzzle from '../src/Puzzle.js';
-import Player from '../src/Player.js';
+// import Puzzle from '../src/Puzzle.js';
+// import Player from '../src/Player.js';
 
 
 describe('Game', function() {
 
-beforeEach(function() {
-  chai.spy.on(domUpdates, ['getNames', 'displayNames'], () => true);
-})
+  beforeEach(function() {
+    chai.spy.on(domUpdates, ['getNames', 'displayNames'], () => true);
+  })
 
-afterEach(function() {
-  chai.spy.restore(domUpdates);
-})
+  afterEach(function() {
+    chai.spy.restore(domUpdates);
+  })
 
   it('Make Sure Testing is working', function() {
     expect(true).to.equal(true);
-      });
+  });
 
   // Players //
 
@@ -83,8 +83,6 @@ afterEach(function() {
 
   it('should iterate through the wheel object and assign six random elements to a new wheel', function () {
     let game = new Game;
-    let wheelLength = data.wheel.length;
-    let randomIndices = [];
     game.findWheels();
     expect(game.findWheels()).to.have.length(6);
   })
