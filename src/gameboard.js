@@ -10,6 +10,7 @@ class Gameboard {
     this.firstRoundCategories = [];
     this.secondRoundCategories = [];
     this.finalRoundCategory = [];
+    this.allClues = [];
   };
 
   startGame() {
@@ -29,13 +30,13 @@ class Gameboard {
     //add forEach here to iterate through category list to append names
     // if (game.round === 1) 
       let $category1 = this.firstRoundCategories[0];
-      $('#category1').text($category1);
+      $('#category-0').text($category1);
       let $category2 = this.firstRoundCategories[1];
-      $('#category2').text($category2);
+      $('#category-1').text($category2);
       let $category3 = this.firstRoundCategories[2];
-      $('#category3').text($category3);
+      $('#category-2').text($category3);
       let $category4 = this.firstRoundCategories[3];
-      $('#category4').text($category4);
+      $('#category-3').text($category4);
   };
 
   assignCategories() {
@@ -56,9 +57,26 @@ class Gameboard {
     this.finalRoundCategory = this.categoryList.splice(0, 1);
   };
 
-  appendClue() {
+
+  // ???? Pull all data into an array that lives in gameboard
+  // help us do comparison of indecies between cluebox and category
+  // pull clue of desired category index and $$$
+  // 
+
+  collectClues() {
+    // data.clues.forEach(clue => {
+    //   allClues.push(clue);
+    // })
+  };
+
+  selectClue(selectedClue) {
     //Once categories are assigned, should associate our different boxes with particular clues.
     // function findClue() {}
+    // let boxId = this.id;
+    console.log(selectedClue.id);
+    if (this.round === 1) {
+
+    }
   };
 
 
