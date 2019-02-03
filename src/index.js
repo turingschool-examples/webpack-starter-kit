@@ -13,11 +13,17 @@ import './images/background2.png';
 // import data from './data.js';
 import domUpdates from './domUpdates.js';
 import Puzzle from './Puzzle.js';
-import data from './data.js'
+import Game from './Game.js';
+import data from './data.js';
+import Wheel from './Wheel.js';
 
 // import $ from 'jquery';
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+let game = new Game();
+let wheel = new Wheel();
+console.log(game.changeRound())
 
 // jQuery Variables
 let $namesButton = $('submit-names');
