@@ -32,7 +32,8 @@
     const playerTwo = new Player(this.players[1]);
     const playerThree = new Player(this.players[2]);
     domUpdates.displayPlayers(playerOne, playerTwo, playerThree);
-    this.activePlayer = this.players[0];
+    this.activePlayer = playerOne;
+    this.players = [playerOne, playerTwo, playerThree]
     console.log(playerOne)
   }
 
@@ -80,39 +81,36 @@
     console.log(clickedLetter);
     let splitPuzzle = this.roundPuzzle.toUpperCase().split('')
     let letterCount = 0;
-    let count = splitPuzzle.forEach(letter =>{
-      if(letter === clickedLetter){
-        letterCount++;
-      }
-    })
 
-    console.log(wheel);
-
-    wheel.multiplyRoundValue(letterCount);
-
-    console.log(letterCount);
     if(splitPuzzle.includes(clickedLetter)) {
-      console.log('this letter is here')
-      //and push wheel value into player's round score
-      //according to how many times letters appear
-      //and a domUpdates for player's round score
-    } else {
-      console.log('this letter is not here')
-      //and end turn
-      //change turn method
-      this.changeTurn()
-    }
+        splitPuzzle.forEach(letter => {
+        if(letter === clickedLetter) { 
+          letterCount++;
+          console.log(letterCount);
+          console.log('this letter is here')
+        } 
+      });
+          let guessValue = wheel.multiplyRoundValue(letterCount);
+          console.log(guessValue)
+          let roundScore = this.activePlayer.incrementRoundScore(guessValue);
+          console.log(roundScore);
+          domUpdates.updateRoundScore(roundScore);
+     }
+     else {
+        console.log('this letter is not here');
+        this.changeTurn();
+      }
   }
 
   changeTurn() {
-    console.log(this.players)
-    console.log(this.activePlayer)
-    this.players.forEach((player,i) => {
+    // console.log(this.activePlayer)
       if(this.activePlayer === this.players[0]) {
+        this.players[0].active = false;
+        this.players[1].active = true;
         this.activePlayer = this.players[1]
         console.log(this.activePlayer)
       }
-    })
+    console.log(this.players)
   }
 
 }

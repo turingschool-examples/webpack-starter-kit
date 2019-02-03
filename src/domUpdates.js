@@ -45,7 +45,13 @@ const domUpdates = {
   displayTurnValue(value) {
     // let turnValue = wheel.turnValue
     $('#spin-value').text(`You've landed on: ${value}!`)
-  }  
+  },
+
+  updateRoundScore(value) {
+    $('#player-one-round-score').text(value)
+  } 
+
+
 }
 
 export default domUpdates;

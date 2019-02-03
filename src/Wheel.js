@@ -41,8 +41,9 @@ class Wheel {
   }
 
   multiplyRoundValue(value) {
-    let roundValue = this.turnValue * value;
-    console.log(roundValue);
+    let turnValue = this.turnValue * value;
+    console.log(turnValue);
+    return turnValue;
   }
 }
 
