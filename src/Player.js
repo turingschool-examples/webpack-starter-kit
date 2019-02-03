@@ -1,5 +1,4 @@
 import Clue from './Clue.js';
-import game from './index.js';
 import domUpdates from './domUpdates.js';
 
 class Player {
@@ -8,9 +7,9 @@ class Player {
     this.name = name;
   }
 
-  changeScore(points) {
+  changeScore(points, game) {
     this.score += points;
-    domUpdates.displayPlayerScore(game.currentPlayer)
+    domUpdates.displayPlayerScore(game.currentPlayer, game)
   }
 
 

@@ -2,7 +2,6 @@ import domUpdates from "./domUpdates";
 import Player from './Player.js';
 import data from './data.js'
 import Clue from "./Clue";
-import game from ".";
 
 class Game {
   constructor() {
@@ -13,13 +12,23 @@ class Game {
     this.currentClue = null;
   }
 
+  switchPlayer(player) {
+    if (player === this.players[0]) {
+      this.currentPlayer = this.players[1]
+    } else if (player === this.players[1]) {
+      this.currentPlayer = this.players[2]
+    } else if (player === this.players[2]) {
+      this.currentPlayer = this.players[0]
+    }
+  }
+
   gatherPlayers(a, b, c) {
     let player1 = new Player(0, a);
     let player2 = new Player(0, b);
     let player3 = new Player(0, c);
     this.players.push(player1, player2, player3);
-    domUpdates.displayPlayerScore(player1, player2, player3);
     this.currentPlayer = this.players[0];
+    domUpdates.displayPlayerScore(this.currentPlayer, this);
   }
 
   getRandomCat() {
@@ -67,19 +76,11 @@ class Game {
   }
 
   submitGuess(input) {
-    this.currentClue.correctAnswer(input);
+    this.currentClue.correctAnswer(this, input);
     this.switchPlayer(this.currentPlayer);
   }
 
-  switchPlayer(player) {
-    if (player === this.players[0]) {
-      this.currentPlayer = this.players[1]
-    } else if (player === this.players[1]) {
-      this.currentPlayer = this.players[2]
-    } else if (player === this.players[2]) {
-      this.currentPlayer = this.players[0]
-    }
-  }
+  
 
 
   // determineWinner() {

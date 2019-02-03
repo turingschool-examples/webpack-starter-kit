@@ -3,8 +3,7 @@
 
 // Tell webpack to use a CSS file
 import $ from 'jquery';
-import jQuery from 'jquery';
-window.$ = jQuery;
+
 import './css/base.css';
 import Game from './Game.js';
 import domUpdates from './domUpdates.js';
@@ -42,5 +41,3 @@ $('body').on('click', '.submit--guess', () => {
   game.submitGuess(playInput);
   domUpdates.hidePopUp();
 });
-
-export default game;

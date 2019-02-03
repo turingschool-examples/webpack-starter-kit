@@ -1,9 +1,5 @@
-import game from "./index.js";
 import Player from "./Player.js"
 import $ from 'jquery';
-import jQuery from 'jquery';
-window.$ = jQuery;
-import './index.js'
 
 const domUpdates = {
 
@@ -18,7 +14,7 @@ const domUpdates = {
     $('.player--three').text(c);
   },
 
-  displayPlayerScore: (currentplayer) => {
+  displayPlayerScore: (currentplayer, game) => {
     if (currentplayer === game.players[0]) {
       $('.player--one--score').text(currentplayer.score);
     } else if (currentplayer === game.players[1]) {
