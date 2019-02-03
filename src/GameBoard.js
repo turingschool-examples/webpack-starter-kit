@@ -3,7 +3,7 @@ class Gameboard {
     this.rounds = [];
     this.players = [];
     this.activeRound = 1;
-    this.activePlayer = false;
+    this.activePlayer = 1;
     this.cluesRemaining = 16;
     this.clues = [];
   }
@@ -23,26 +23,28 @@ class Gameboard {
 
   startGame() {
     const gameArr = shuffle(Object.keys(data.categories));
-    let round1 = gameArr.splice(0, 4);
-    let round2 = gameArr.splice(0, 4);
-    let round3 = gameArr.splice(0, 1);
-
-    // for (let i = 0; i > gameArr.length; i++) {
-    //   if (data.clues.categoryId[i] === )
-    // }
-
-    // shuffle indexes of category array 
-    // shuffle the questions within each category
-    // splice the array
-    // populate the categories on page
-    // populate the questions on page
-
+    if (this.roundId === 1) {
+      this.catIds = gameArr.splice(0, 4);
+    } else if (this.roundId === 2) {
+      this.catIds = gameArr.splice(0, 4);
+    } else {
+      this.catIds = gameArr.splice(0, 1);
+    }  
+    this.catIds.forEach(catId => {
+      const catClues = data.clues.filter(clue => {
+        return clue.categoryId === catId;
+      })
+      shuffle(catClues);
+      for (let i = 1; i <= 4; i++) {
+        this.questions.push(catClues.find(clue => {
+          return clue.pointValue === 100 * i;
+        }));
+      }
+    });
   }
 
   changeRound() {
-    if (this.cluesRemaining === 0) {
-      this.activeRound++;
-    }
+    this.activeRound++;
   }
   
   startGame() {
@@ -51,6 +53,11 @@ class Gameboard {
   }
 
   changeTurn(players) {
+    this.activePlayer++;
+    if (this.activePlayer === players.length) {
+      this.activePlayer = 0;
+    }
+    return players(this.activePlayer)
     // increment turn
     // reset index of player, if on p3, reset to p1
     // on round end, reset active player. if p3, reset to p1
