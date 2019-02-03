@@ -1,3 +1,40 @@
 body {
-  background-color: pink;
+  background-color: #91a6e6;
+}
+
+.login-form {
+  height: 800px;
+  background-image: url('../images/shroom-guy-bubble.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+
+}
+
+input,
+.start-btn {
+  width: 400px;
+  height: 100px;
+  margin: 0 auto 0 600px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.start-btn {
+  width: 405px;
+  background-color: #91a6e6;
+  color: white;
+}
+
+.top-input {
+  margin-top: 150px;
+}
+
+.logo {
+  height: 200px;
+}
+
+.bubble {
+  height: 400px;
 }
