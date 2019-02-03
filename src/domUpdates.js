@@ -73,8 +73,10 @@ const domUpdates = {
   },
 
   removeTile: (tile) => {
-   $(tile).addClass('used--tile');
-   $(tile).text('');
+    if($(tile).is('h4')) {
+      $(tile).text('');
+      $(tile).addClass('used--tile');
+   }
   }
   
 }
