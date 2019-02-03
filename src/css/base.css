@@ -201,7 +201,7 @@ section h3 {
   grid-area: input;
 }
 
-fieldset {
+fieldset, .start--button {
   border: none;
   width: 90%;
 }
@@ -240,13 +240,10 @@ fieldset {
   text-align: center;
 }
 
-.start--btn__field {
-  grid-area: start;
-}
-
 .start--btn__container {
   display: flex;
   justify-content: center;
+  grid-area: start;
 }
 
 
@@ -275,6 +272,7 @@ fieldset {
   height: 100%;
   visibility: hidden;
   width: 100%;
+  z-index: 5;
 }
 
 .question-text {

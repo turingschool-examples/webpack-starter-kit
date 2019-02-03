@@ -4,16 +4,10 @@
 // Tell webpack to use a CSS file
 import './css/normalize.css';
 import './css/base.css';
+// import './css/styles.css';
 
 // Tell webpack to use a JS file
-import './domUpdates';
-import './Question';
-import './GameBoard';
-import './Players';
-import './Round';
-import './DailyDouble';
 
-import './css/base.css';
 import domUpdates from './domUpdates';
 import Question from './Question';
 import GameBoard from './GameBoard';
@@ -22,6 +16,8 @@ import Round from './Round';
 import DailyDouble from './DailyDouble';
 
 import $ from 'jquery';
+import jQuery from 'jquery'
+window.$ = jQuery;
 
 //  Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
