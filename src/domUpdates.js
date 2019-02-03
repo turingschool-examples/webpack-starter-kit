@@ -22,7 +22,7 @@ const domUpdates = {
   populateRoundPuzzle(roundPuzzle) {
     // console.log(lettersArray);
     // if roundPuzzle.number_of_words === 1
-    let letters = roundPuzzle.correct_answer.split('')
+    let letters = roundPuzzle.correct_answer.toUpperCase().split('')
 
     letters.forEach((letter, i) => {
       $(`#box-${i + 13}`).text(letter)
