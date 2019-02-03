@@ -40,6 +40,10 @@ export default {
     $('.puzzle-letter:contains("'+letter+'")').css('color', 'red');
     console.log(letter);
   },
+
+  wrongLetter: function(letter) {
+    $('.pop-up-letters').append(`<p class="wrong-letter">${letter.toUpperCase()}</p>`);
+  }
 }
 
 

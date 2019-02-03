@@ -16,8 +16,9 @@ class Puzzle {
   const letter = $('#guess-input').val().toUpperCase();
   if (array.includes(letter)) {
     domUpdates.changeLetter(letter);
-  }
-  return false;
+    } else {
+      domUpdates.wrongLetter(letter);
+    };
   }
 }
 
