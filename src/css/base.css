@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url(../images/start-screen-background.jpg)
+  background-image: url(../images/fortune.jpg)
 }
 
 #game-header-title-splash {
@@ -51,7 +51,6 @@ body {
 .category-window {
   text-align: center;
   font-size: 40px;
-  margin-bottom: 12px;
   opacity: .8;
 }
 
@@ -105,8 +104,9 @@ body {
 
 .name-and-scores {
   background-color: pink;
-  padding: 10px;
+  padding: 6px;
   width: 250px;
+  padding-top: 0px;
 }
 
 #name-input-container {
@@ -131,14 +131,14 @@ body {
   height: 100%;
   width: 65%;
   border: 10px solid white;
-  margin: 20px;
+  margin: 12px;
 }
 
 #vowels-bank {
   height: 100%;
   width: 25%;
   border: 10px solid white;
-  margin: 20px;
+  margin: 12px;
 }
 
 .letter-button {
@@ -158,7 +158,20 @@ body {
   opacity: .7;
 }
 
+#user-buttons{
+  display: flex;
+  width: 300px;
+  margin: auto;
+  margin-top: 20px;
 
+}
+
+.user-button {
+  height: 50px;
+  width: 120px;
+  background-color: orchid;
+  border-radius: 25px;
+}
 
 
 
