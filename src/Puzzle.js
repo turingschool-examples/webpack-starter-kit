@@ -20,6 +20,7 @@ class Puzzle {
     let consonants = this.consonantsBank = this.consonantsBank.concat(['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'])
     let vowels = this.vowelsBank = this.vowelsBank.concat(['A', 'E', 'I', 'O', 'U'])
     domUpdates.displayLetters(consonants, vowels);
+    return [consonants, vowels];
   }
  }
 
