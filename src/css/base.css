@@ -110,6 +110,10 @@ button.wheel {
   grid-area: puzzle;
 }
 
+.puzzle-letter {
+  display: inline-block;
+}
+
 .category {
   grid-area: category;
 }
