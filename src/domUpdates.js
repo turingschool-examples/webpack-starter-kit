@@ -23,20 +23,22 @@ export default {
   },
 
   changePuzzle: function() {
-    let answer = game.puzzles[2].answer.split(''); 
+    let answer = game.puzzles[0].answer.split(''); 
     console.log(answer);
     answer.forEach(letter => {
       if (letter === " ") {
         letter = ("&nbsp;");
       };
-      $('.puzzle').append(`<p class="puzzle-letter">${letter}</p>`);
+      $('.puzzle').append(`<p class="puzzle-letter">${letter.toUpperCase()}</p>`);
     })
 
-    let category = game.puzzles[2].category;
-    // $('.puzzle').text(answer);
-    $('.category').text(category);
+    let category = game.puzzles[0].category;
+    $('.category').text(category); 
+  },
 
-    //grab puzzle section and for each letter in the answer, append the letter with p tag. 
+  changeLetter: function(letter) {
+    $('.puzzle-letter:contains("'+letter+'")').css('color', 'red');
+    console.log(letter);
   },
 }
 
