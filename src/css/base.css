@@ -20,10 +20,17 @@ body {
 #submit-btn {
   width: 100px;
   height: 40px;
+  font-size: 18px;
   background-color: rebeccapurple;
   border-radius: 25px;
   color: white;
   font-weight: 600;
+}
+
+#submit-btn:hover {
+  background-color: white;
+  color: rebeccapurple;
+  font-weight: 800;
 }
 
 #game-header-title {
@@ -33,7 +40,7 @@ body {
   margin-right: 250px;
   margin-left: 250px;
   border-radius: 25px;
-  padding:10px;
+  padding-top: 20px;
   color: mediumslateblue;
   background-color: aliceblue;
   opacity: .8;
