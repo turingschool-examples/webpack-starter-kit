@@ -11,6 +11,7 @@ class Round {
     this.catIds = [];
     this.clues = [];
     this.pointValues = [];
+    this.questions = [];
     this.dailyDouble = 1;
   }
 
@@ -18,8 +19,10 @@ class Round {
     const gameArr = shuffle(Object.values(data.categories));
     if (this.roundId === 1) {
       this.catIds = gameArr.splice(0, 4);
+      // this.catNames = this.getCatNames();
     } else if (this.roundId === 2) {
       this.catIds = gameArr.splice(0, 4);
+      // this.catNames = this.getCatNames();
     } else {
       this.catIds = gameArr.splice(0, 1);
     }
@@ -39,12 +42,19 @@ class Round {
     //Depending on round // set category
     // Get category names (call function)
   }
-  getCatNames(data) {
+  getCatNames() {
+    gameArr = Object.keys(data.categories)
+    console.log(gameArr)
+    // this.catIds.forEach(catId => {
+    //   const catNameArr = data.categories.filter(data => {
+    //     return data.categories === catId;
+    //   })
+    //   this.catNames = catNameArr;
+    // }
     //map the cat names into an array
     //get the key from the dataset using catID
-    //display the catName on the DOM
+    //display the catName on the DOM  }
   }
-
   getClues(data) {
     //we will need to search our dataset to get the clues from our dataset
     //using the catIDs

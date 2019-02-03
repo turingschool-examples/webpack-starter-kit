@@ -32,15 +32,6 @@ import './images/Oak2.png';
 
 console.log("start")
 
-// $('.col').click(function (e) {
-//   $(e.target).css('visibility', 'hidden');
-// });
-
-// $('.start--button').click(function (e) {
-//   e.preventDefault();
-//   $(".overlay").children().fadeToggle(600, "swing");
-// });
-
 // $(".start--button").click(function (e) {
 //   $(".overlay").remove();
 //   $('.start-up').remove();
@@ -49,9 +40,11 @@ console.log("start")
 //   $('.question-container').css('visibility', 'visible')
 // })
 // * ======= Global Variables ======= *
-// let player1Name = ;
-// let player2Name = ;
-// let player3Name = ;
+let $player1Name = $('#p1-name-js');
+let $player2Name = $('#p2-name-js');
+let $player3Name = $('#p3-name-js');
+
+
 
 
 // * ======= Functions ======= *
@@ -62,9 +55,26 @@ function shuffle(array) {
 
 $(".start--button").click(function (e) {
   e.preventDefault();
-  $(".overlay").toggle();
-  $('.start__game').remove();
   let round1 = new Round();
   round1.startRound()
   console.log(round1)
+
+  let $p1Name = $("#p1-name-change-js")
+  $p1Name.text($('#p1-name-js').val())
+
+  let $p2Name = $("#p2-name-change-js")
+  $p2Name.text($('#p2-name-js').val())
+  
+  let $p3Name = $("#p3-name-change-js")
+  $p3Name.text($('#p3-name-js').val())
+
+  $('.overlay').toggle();
+  $('.start-up').toggle();
+  $('.q-pop').toggle();
 });
+
+$('.col').click(function (e) {
+  $(e.target).css('visibility', 'hidden');
+  $('.overlay').toggle();
+  $('.q-pop').toggle();
+})
