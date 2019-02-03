@@ -14,6 +14,6 @@ window.game = new Game();
 
 $('.start-button').on('click', function(e) {
   e.preventDefault();
-  window.game.startGame();
+  game.startGame();
 })
 

@@ -10,18 +10,27 @@ import $ from 'jquery';
 
 // $('.start-button').on('click', playGame);
 
-const domUpdates = {
-  getNames() {
+export default {
+  getNames: function() {
     let $players = [$('#player1').val(), $('#player2').val(), $('#player3').val()];
     return $players;
   },
 
-  displayNames(players) {
+  displayNames: function(players) {
     $('#player1-name').text(players[0]);
     $('#player2-name').text(players[1]);
     $('#player3-name').text(players[2]);
-  }
+  },
+
+  changePuzzle: function() {
+    let answer = game.puzzles[0].answer; 
+    let category = game.puzzles[0].category;
+    $('.puzzle').text(answer);
+    $('.category').text(category);
+  },
 }
 
-export default domUpdates;
+
+
+
 

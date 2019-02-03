@@ -51,10 +51,11 @@ main {
   display: grid;
     grid-template-areas: 
       "play puzzle"
+      "play category"
       "play feedback"
       "players players";
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2.5fr 2fr .5fr;
+    grid-template-rows: 2.5fr .5fr 2fr .5fr;
 }
 
 /* Play Section Begins Here */
@@ -107,6 +108,10 @@ button.wheel {
 
 .puzzle {
   grid-area: puzzle;
+}
+
+.category {
+  grid-area: category;
 }
 
 /* Feedback Section Begins Here */
