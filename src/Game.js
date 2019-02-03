@@ -39,13 +39,11 @@ class Game {
   };
 
   createWheels($wheels) {
-    console.log($wheels);
     let wheel1 = new Wheel($wheels[0]);
     let wheel2 = new Wheel($wheels[1]);
     let wheel3 = new Wheel($wheels[2]);
     let wheel4 = new Wheel($wheels[3]);
     this.wheels = [wheel1, wheel2, wheel3, wheel4];
-    console.log(this.wheels);
   }
 
   findPuzzles() {
@@ -71,7 +69,7 @@ class Game {
   findWheels() {
     const wheelLength = data.wheel.length;
     const randomIndices = [];
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < 6; i++) {
       const randomIndex = Math.floor(Math.random() * Math.floor(wheelLength));
       randomIndices.push(randomIndex);
     }
@@ -80,7 +78,6 @@ class Game {
       const randomWheelResult = data.wheel[index];
       randomWheel.push(randomWheelResult);
     })
-    // console.log(randomWheel);
     return randomWheel;
 
   }
