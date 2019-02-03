@@ -1,3 +1,9 @@
+import data from './data';
+
+function shuffle(array) {
+  return array.sort(() => 0.5 - Math.random());
+}
+
 class Round {
   constructor(catNames, roundId, questions, indexCalled, dailyDouble) {
     this.catNames = [];
@@ -8,6 +14,31 @@ class Round {
     this.dailyDouble = 1;
   }
 
+  startRound() {
+    const gameArr = shuffle(Object.values(data.categories));
+    if (this.roundId === 1) {
+      this.catIds = gameArr.splice(0, 4);
+    } else if (this.roundId === 2) {
+      this.catIds = gameArr.splice(0, 4);
+    } else {
+      this.catIds = gameArr.splice(0, 1);
+    }
+    this.catIds.forEach(catId => {
+      const catClues = data.clues.filter(clue => {
+        return clue.categoryId === catId;
+      });
+      shuffle(catClues);
+      for (let i = 1; i <= 4; i++) {
+        this.questions.push(catClues.find(clue => {
+          return clue.pointValue === 100 * i;
+        }));
+      }
+    });
+  }
+  setCatID(gameCat, data) {
+    //Depending on round // set category
+    // Get category names (call function)
+  }
   getCatNames(data) {
     //map the cat names into an array
     //get the key from the dataset using catID
@@ -28,3 +59,5 @@ class Round {
     }
   }
 }
+
+export default  Round;
