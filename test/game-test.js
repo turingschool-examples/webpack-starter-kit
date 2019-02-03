@@ -1,5 +1,7 @@
 import chai from 'chai';
-import Game from '../src/Game.js'
+import Game from '../src/Game.js';
+import Player from '../src/Player.js';
+import spies from 'chai-spies';
 const expect = chai.expect;
 
 
@@ -19,7 +21,21 @@ describe('Game', function() {
     game.changeRound();
     game.changeRound();
     expect(game.round).to.equal(4);
-
   });
+
+  it('should create players', function() {
+    game.createPlayer();
+    game.createPlayer();
+    game.createPlayer();
+    expect(game.players).to.have.lengthOf(3);
+  });
+
+// I dont think the method being invoked needs to be tested
+  // it('should reset player\'s round score when round changes', function() {
+  //   let player = new Player();
+  //   game.changeRound();
+  //   expect(player.resetScore).to.be.called(1);
+  //   // expect(domUpdates.resetScore).to.be.called(1);
+  // });
 
 });
