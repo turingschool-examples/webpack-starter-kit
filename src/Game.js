@@ -20,7 +20,7 @@ class Game {
     this.createPlayers(names);
     this.createPuzzles(puzzles);
     this.createWheels(wheels);
-
+    domUpdates.changePuzzle();
   }
 
   createPlayers(names) {
