@@ -28,6 +28,7 @@ class Round {
     }
     this.catIds.forEach(catId => {
       const catClues = data.clues.filter(clue => {
+        this.catNames = Object.keys(data.categories)
         return clue.categoryId === catId;
       });
       shuffle(catClues);
@@ -43,18 +44,40 @@ class Round {
     // Get category names (call function)
   }
   getCatNames() {
-    gameArr = Object.keys(data.categories)
+    const gameArr = data.categories
     console.log(gameArr)
+    const catString = [
+      'United States History', 'Life Sciences', 'Public Health', 'Education Jargon',
+      'Name That Board Game', 'American Literature', 'Biographies', 'American Cities',
+      'Food', 'Cable TV'
+    ];
+    //for each catId index, 
+    //I want to push catString index that matches each index of our catId
+    this.catNames = this.catIds.map(id => {
+      // return catString[] === id - 1;
+      return catString.findIndex((e) => {
+        return e === catId;
+      })
+    })
+    // if (catIds[i] === Object.values(data.categories)[i]) {
+    //   return Object.keys(data.categories)
+    // }
     // this.catIds.forEach(catId => {
-    //   const catNameArr = data.categories.filter(data => {
-    //     return data.categories === catId;
+    //   for (let i = 1; i <=10; i++) {
+
+    //   }
+    //   const catNameArr = data.categories.filter(keys => {
+    //     for
+    //     return Object.keys(data.categories) === catId;
     //   })
     //   this.catNames = catNameArr;
-    // }
+    // });
+    // compare the index vs the catId
     //map the cat names into an array
     //get the key from the dataset using catID
     //display the catName on the DOM  }
   }
+
   getClues(data) {
     //we will need to search our dataset to get the clues from our dataset
     //using the catIDs

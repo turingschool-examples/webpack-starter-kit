@@ -73,8 +73,8 @@ $(".start--button").click(function (e) {
   $('.q-pop').toggle();
 });
 
-$('.col').click(function (e) {
-  $(e.target).css('visibility', 'hidden');
+$('.col').click(function () {
+  $(this).css('visibility', 'hidden');
   $('.overlay').toggle();
   $('.q-pop').toggle();
 })
