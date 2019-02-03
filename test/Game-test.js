@@ -4,6 +4,11 @@ const expect = chai.expect;
 import Game from '../src/Game.js'
 import domUpdates from  '../src/domUpdates';
 
+import spies from 'chai-spies';
+chai.use(spies);
+
+chai.spy.on(domUpdates, ['displayPlayerScore', 'toggleSplash'], () => true)
+
 describe('Game', function() {
   it('should instantiate a new game', function() {
     let game = new Game()
