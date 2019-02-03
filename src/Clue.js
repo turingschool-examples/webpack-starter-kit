@@ -9,6 +9,8 @@ class Clue {
   correctAnswer(game, input) {
     if (input === this.answer) {
       game.currentPlayer.changeScore(this.pointValue, game);
+    } else {
+      game.currentPlayer.changeScore(-Math.abs(this.pointValue), game);
     }
 
   }
