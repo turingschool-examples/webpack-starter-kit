@@ -1,4 +1,4 @@
-import domUpdates from './domUpdates.js';
+// import domUpdates from './domUpdates.js';
 
 class Player {
   constructor(name, round = 0, total = 0) {

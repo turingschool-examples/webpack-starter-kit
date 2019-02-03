@@ -3,7 +3,7 @@ import data from './data.js';
 import Player from './Player.js';
 import Puzzle from './Puzzle.js';
 import Wheel from './Wheel.js';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 class Game {
   constructor() {
@@ -13,36 +13,36 @@ class Game {
   }
 
   startGame() {
-    let $names = domUpdates.getNames();
-    let $puzzles = this.findPuzzles();
-    let $wheels = this.collectWheels();
-    domUpdates.displayNames($names);
-    this.createPlayers($names);
-    this.createPuzzles($puzzles);
-    this.createWheels($wheels);
+    let names = domUpdates.getNames();
+    let puzzles = this.findPuzzles();
+    let wheels = this.collectWheels();
+    domUpdates.displayNames(names);
+    this.createPlayers(names);
+    this.createPuzzles(puzzles);
+    this.createWheels(wheels);
 
   }
 
-  createPlayers($names) {
-    let player1 = new Player($names[0]);
-    let player2 = new Player($names[1]);
-    let player3 = new Player($names[2]);
+  createPlayers(names) {
+    let player1 = new Player(names[0]);
+    let player2 = new Player(names[1]);
+    let player3 = new Player(names[2]);
     this.players = [player1, player2, player3];
-  };
+  }
 
-  createPuzzles($puzzles) {
-    let puzzle1 = new Puzzle($puzzles[0]);
-    let puzzle2 = new Puzzle($puzzles[1]);
-    let puzzle3 = new Puzzle($puzzles[2]);
-    let puzzle4 = new Puzzle($puzzles[3]);
+  createPuzzles(puzzles) {
+    let puzzle1 = new Puzzle(puzzles[0]);
+    let puzzle2 = new Puzzle(puzzles[1]);
+    let puzzle3 = new Puzzle(puzzles[2]);
+    let puzzle4 = new Puzzle(puzzles[3]);
     this.puzzles = [puzzle1, puzzle2, puzzle3, puzzle4];
-  };
+  }
 
-  createWheels($wheels) {
-    let wheel1 = new Wheel($wheels[0]);
-    let wheel2 = new Wheel($wheels[1]);
-    let wheel3 = new Wheel($wheels[2]);
-    let wheel4 = new Wheel($wheels[3]);
+  createWheels(wheels) {
+    let wheel1 = new Wheel(wheels[0]);
+    let wheel2 = new Wheel(wheels[1]);
+    let wheel3 = new Wheel(wheels[2]);
+    let wheel4 = new Wheel(wheels[3]);
     this.wheels = [wheel1, wheel2, wheel3, wheel4];
   }
 
@@ -56,12 +56,12 @@ class Game {
       foundPuzzles.push(randomPuzzle);
     });
     return foundPuzzles;
-  };
+  }
 
   collectWheels() {
     const allWheels = [];
     for (var i = 0; i < 4; i++) {
-    allWheels.push(this.findWheels());
+      allWheels.push(this.findWheels());
     }
     return allWheels;
   }

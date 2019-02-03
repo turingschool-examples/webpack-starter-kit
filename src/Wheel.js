@@ -1,4 +1,4 @@
-import domUpdates from './domUpdates.js';
+// import domUpdates from './domUpdates.js';
 
 class Wheel {
   constructor(wheelObj) {
