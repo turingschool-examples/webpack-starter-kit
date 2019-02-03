@@ -1,7 +1,7 @@
 import data from './Data.js';
 import Game from './Game.js';
 import Player from './Player.js';
-
+import domUpdates from './domUpdates.js'
 
 class Wheel {
   constructor(values = [], turnValue = 0, players) {
@@ -33,10 +33,16 @@ class Wheel {
   }
 
   getRandomValue() {
-    const randomIndex = Math.floor((Math.random() * 22) + 1);
+    const randomIndex = Math.floor((Math.random() * 22));
     this.turnValue = this.values[randomIndex];
     console.log(this.turnValue);
     //disable buttons
+    domUpdates.displayTurnValue(this.turnValue)
+  }
+
+  multiplyRoundValue(value) {
+    let roundValue = this.turnValue * value;
+    console.log(roundValue);
   }
 }
 

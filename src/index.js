@@ -28,12 +28,28 @@ $('#submit-btn').on('click', function(e) {
   console.log(wheel)
 
   wheelOfFortune.startGame();
+
+$('.letter-button').on('click', function(e) {
+  let clickedLetter = e.target.innerHTML;
+  console.log(clickedLetter)
+  wheelOfFortune.compareClickedButton(clickedLetter, wheel)
+  //we're gonna add class 'disabled' after a consonants button is clicked + styling (ex:permanently purple)
+  //also write a game method that
+})
+
+$('#buy-a-vowel-button').on('click', function () {
+  //remove class 'disabled' vowels box
 })
 
 $('#spin-button').on('click', function(e) {
   e.preventDefault(e);
   wheel.getWheelValue(e);
 })
+
+})
+
+
+
 
 
 

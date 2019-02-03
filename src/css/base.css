@@ -160,7 +160,7 @@ body {
 
 #user-buttons{
   display: flex;
-  width: 300px;
+  justify-content: space-between;
   margin: auto;
   margin-top: 20px;
 
@@ -171,6 +171,11 @@ body {
   width: 120px;
   background-color: orchid;
   border-radius: 25px;
+}
+
+#spin-feedback {
+  display: flex;
+  margin-right: 20px;
 }
 
 

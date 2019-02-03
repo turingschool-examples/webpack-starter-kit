@@ -40,6 +40,11 @@ const domUpdates = {
       $(`#v${i}`).text(vowel)
       // console.log(vowel)
     })
+  },
+
+  displayTurnValue(value) {
+    // let turnValue = wheel.turnValue
+    $('#spin-value').text(`You've landed on: ${value}!`)
   }  
 }
 

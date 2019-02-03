@@ -5,13 +5,14 @@
  import Wheel from './Wheel.js'
 
  class Game {
-  constructor(playersArray = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = []) {
+  constructor(playersArray = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = [], roundPuzzle = null) {
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
     this.roundWinner = roundWinner,
     this.gameWinner = gameWinner,
     this.gamePuzzles = gamePuzzles,
-    this.players =  playersArray
+    this.players =  playersArray,
+    this.roundPuzzle = roundPuzzle
   }
 
   startGame() {
@@ -31,6 +32,7 @@
     const playerTwo = new Player(this.players[1]);
     const playerThree = new Player(this.players[2]);
     domUpdates.displayPlayers(playerOne, playerTwo, playerThree);
+    this.activePlayer = this.players[0];
     console.log(playerOne)
   }
 
@@ -45,6 +47,8 @@
     let fourPuzzles = this.setGamePuzzles(puzzleBank);
     let roundPuzzle = this.setRoundPuzzle(fourPuzzles);
     // console.log(roundPuzzle);
+    this.roundPuzzle = roundPuzzle.correct_answer;
+    console.log(this.roundPuzzle)
     domUpdates.displayCategory(roundPuzzle);
     domUpdates.populateRoundPuzzle(roundPuzzle);
     return puzzleBank;
@@ -70,6 +74,45 @@
     let roundPuzzle = fourPuzzles.pop();
     return roundPuzzle;
     // domUpdates.displayPuzzle();
+  }
+
+  compareClickedButton(clickedLetter, wheel) {
+    console.log(clickedLetter);
+    let splitPuzzle = this.roundPuzzle.toUpperCase().split('')
+    let letterCount = 0;
+    let count = splitPuzzle.forEach(letter =>{
+      if(letter === clickedLetter){
+        letterCount++;
+      }
+    })
+
+    console.log(wheel);
+
+    wheel.multiplyRoundValue(letterCount);
+
+    console.log(letterCount);
+    if(splitPuzzle.includes(clickedLetter)) {
+      console.log('this letter is here')
+      //and push wheel value into player's round score
+      //according to how many times letters appear
+      //and a domUpdates for player's round score
+    } else {
+      console.log('this letter is not here')
+      //and end turn
+      //change turn method
+      this.changeTurn()
+    }
+  }
+
+  changeTurn() {
+    console.log(this.players)
+    console.log(this.activePlayer)
+    this.players.forEach((player,i) => {
+      if(this.activePlayer === this.players[0]) {
+        this.activePlayer = this.players[1]
+        console.log(this.activePlayer)
+      }
+    })
   }
 
 }
