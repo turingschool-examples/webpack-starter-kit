@@ -54,7 +54,6 @@
           <h5>Player 1</h5>
           <h6>HP: <span id="hp">000</span></h6>
         </section>
-
         <section class="player !active">
           <img id="bulbasaur" class="pokemon" src="images/bulbasaur.png">
           <p class="shadow !shadow--active"></p>
@@ -71,7 +70,7 @@
     </section>
   </div>
   <div class="overlay"></div>
-  <section class="popup">
+  <section class="popup start__game">
     <section class="start-container">
       <div class="start-img">
         <img src="images/Oak2.png" alt="Professor Oak">
@@ -81,29 +80,21 @@
         <p>Please enter your starter's name</p>
       </article>
       <form class="start-input">
-        <fieldset class="start-squirtle starter-container">
-          <div class="starter-container">
-            <img class="starter-pokemon" src="images/Squirtle.png" alt="water-type: Squirtle">
-            <input type="text" value="Squirtle">
-          </div>
-        </fieldset>
-        <fieldset class="start-bulbasaur starter-container">
-          <div class="starter-container">
-            <img class="starter-pokemon" src="images/bulbasaur.png" alt="grass-type: Bulbasaur">
-            <input type="text" value="Bulbasaur">
-          </div>
-        </fieldset>
-        <fieldset class="start-charmander starter-container">
-          <div class="starter-container">
-            <img class="starter-pokemon" src="images/charmander.png" alt="fire-type: Charmander">
-            <input type="text" value="Charmander">
-          </div>
-        </fieldset>
-        <fieldset class="start--btn__field">
-          <div class="start--btn__container">
-            <button class="start--button">Start Game</button>
-          </div>
-        </fieldset>
+        <div class="start-squirtle starter-container">
+          <img class="starter-pokemon" src="images/Squirtle.png" alt="water-type: Squirtle">
+          <input type="text" value="Squirtle">
+        </div>
+        <div class="start-bulbasaur starter-container">
+          <img class="starter-pokemon" src="images/bulbasaur.png" alt="grass-type: Bulbasaur">
+          <input type="text" value="Bulbasaur">
+        </div>
+        <div class="start-charmander starter-container">
+          <img class="starter-pokemon" src="images/charmander.png" alt="fire-type: Charmander">
+          <input type="text" value="Charmander">
+        </div>
+        <div class="start--btn__container">
+          <button class="start--button">Start Game</button>
+        </div>
       </form>
     </section>
     <section class="question-container">

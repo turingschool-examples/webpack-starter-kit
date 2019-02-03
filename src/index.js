@@ -13,7 +13,7 @@ import './Players';
 import './Round';
 import './DailyDouble';
 
-import './css/styles.css';
+import './css/base.css';
 import domUpdates from './domUpdates';
 import Question from './Question';
 import GameBoard from './GameBoard';
@@ -34,3 +34,21 @@ import './images/Oak2.png';
 
 // * This is the JavaScript entry file - your code begins here. *
 
+console.log("start")
+
+$('.col').click(function (e) {
+  $(e.target).css('visibility', 'hidden');
+});
+
+$('.start--button').click(function (e) {
+  e.preventDefault();
+  $(".overlay").children().fadeToggle(600, "swing");
+});
+
+$(".start--button").click(function (e) {
+  $(".overlay").remove();
+  $('.start-up').remove();
+});
+$('.col').click(function (e) {
+  $('.question-container').css('visibility', 'visible')
+})
