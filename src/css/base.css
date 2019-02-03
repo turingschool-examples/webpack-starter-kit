@@ -122,3 +122,24 @@ body {
   width: 25%;
   border: 10px solid gray;
 }
+
+.letter-button {
+  width: 63px;
+  height: 40px; 
+  border-radius: 25px;
+}
+
+.letter-button:hover{
+  background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
