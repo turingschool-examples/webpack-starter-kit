@@ -8,13 +8,13 @@ class Round {
     this.dailyDouble = 1;
   }
 
-  getCatNames(dataset) {
+  getCatNames(data) {
     //map the cat names into an array
     //get the key from the dataset using catID
     //display the catName on the DOM
   }
 
-  getClues(dataset) {
+  getClues(data) {
     //we will need to search our dataset to get the clues from our dataset
     //using the catIDs
   }
