@@ -2,6 +2,7 @@ import domUpdates from "./domUpdates";
 import Player from './Player.js';
 import data from './data.js'
 import Clue from "./Clue";
+import game from ".";
 
 class Game {
   constructor() {
@@ -67,6 +68,17 @@ class Game {
 
   submitGuess(input) {
     this.currentClue.correctAnswer(input);
+    this.switchPlayer(this.currentPlayer);
+  }
+
+  switchPlayer(player) {
+    if (player === this.players[0]) {
+      this.currentPlayer = this.players[1]
+    } else if (player === this.players[1]) {
+      this.currentPlayer = this.players[2]
+    } else if (player === this.players[2]) {
+      this.currentPlayer = this.players[0]
+    }
   }
 
 
