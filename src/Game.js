@@ -5,16 +5,16 @@
  import Wheel from './Wheel.js'
 
  class Game {
-  constructor(players, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles) {
+  constructor(players = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = []) {
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
     this.roundWinner = roundWinner,
     this.gameWinner = gameWinner,
-    this.gamePuzzles = [],
-    this.players =  []
+    this.gamePuzzles = gamePuzzles,
+    this.players =  players
   }
 
-  startGame(players) {
+  startGame() {
     console.log('game started!');
     this.createPlayers(this.players);
     this.grabPuzzleBanks();
@@ -26,7 +26,7 @@
     // wheel.singleWheelValue(wheel.values);
   }
 
-  createPlayers(players) {
+  createPlayers() {
     const playerOne = new Player(this.players[0], true);
     const playerTwo = new Player(this.players[1]);
     const playerThree = new Player(this.players[2]);

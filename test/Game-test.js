@@ -16,10 +16,10 @@ beforeEach(function() {
     expect(game.roundWinner).to.equal(null);
     expect(game.gameWinner).to.equal(null);
     expect(game.gamePuzzles.length).to.equal(0);
-    expect(game.players.length).to.equal(0)
-    });
+    expect(game.players).to.equal(null)
+  });
 
-  it('should start the game', function() {
-    
+  it('', function() {
+
   })
 })  
