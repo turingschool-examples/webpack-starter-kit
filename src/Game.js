@@ -5,13 +5,13 @@
  import Wheel from './Wheel.js'
 
  class Game {
-  constructor(players = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = []) {
+  constructor(playersArray = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = []) {
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
     this.roundWinner = roundWinner,
     this.gameWinner = gameWinner,
     this.gamePuzzles = gamePuzzles,
-    this.players =  players
+    this.players =  playersArray
   }
 
   startGame() {
@@ -19,7 +19,7 @@
     this.createPlayers(this.players);
     this.grabPuzzleBanks();
     domUpdates.removeStartPage();
-    const wheel  = new Wheel(this.randomizeBank(data.wheel));
+    // const wheel  = new Wheel(this.randomizeBank(data.wheel));
     // wheel.populateWheel(this.randomizeBank(data.wheel));
     this.gamePuzzles[0].populateConsonantsBank();
     // this.randomizeBank(wheel.values);

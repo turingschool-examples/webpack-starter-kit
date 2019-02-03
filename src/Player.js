@@ -5,6 +5,8 @@ class Player {
     this.roundScore = roundScore;
     this.totalScore = totalScore;
   }
+
+  
 }
 
 export default Player;

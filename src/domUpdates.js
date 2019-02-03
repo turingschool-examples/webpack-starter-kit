@@ -33,12 +33,12 @@ const domUpdates = {
     // $('#consonants-bank').text(consonants);
     consonants.forEach((cons,i) => {
       $(`#c${i}`).text(cons)
-      console.log(cons)
+      // console.log(cons)
     })
 
     vowels.forEach((vowel,i) => {
       $(`#v${i}`).text(vowel)
-      console.log(vowel)
+      // console.log(vowel)
     })
   }  
 }
