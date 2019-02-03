@@ -8,6 +8,19 @@ class Gameboard {
     this.clues = [];
   }
 
+  hidePopup() {
+    $(".start--button").click(function(e) {
+      $(".overlay").remove();
+      $('.start-up').remove();
+    });
+  }
+
+  showQuestionPopup() {
+    $('.col').click(function(e) {
+      $('.question-container').css('visibility', 'visible')
+    });
+  }
+
   startGame() {
     const gameArr = shuffle(Object.keys(data.categories));
     let round1 = gameArr.splice(0, 4);

@@ -20,6 +20,10 @@ class Player extends Gameboard {
     // add points
     // this.currentPoints + data.clue.pointValue
   }
+
+  getNames() {
+    $('#p1-name-change-js').text($('#p1-name-js'))
+  }
 }
 
 export default Player;

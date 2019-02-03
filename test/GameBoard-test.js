@@ -31,7 +31,6 @@ describe('Gameboard', function() {
   // })
 
   it('should have an array of categories', function() {
-    expect(gameboard.)
-  })
+  });
 
 });

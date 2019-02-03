@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <!-- <link rel="stylesheet" href="styles.css"> -->
-  <!-- <link rel="stylesheet" href="src/css/normalize.css"> -->
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <title>Gametime Starter Kit</title>
 </head>
@@ -51,27 +49,26 @@
         <section class="player !active">
           <img id="squirtle" class="pokemon" src="images/Squirtle.png">
           <p class="shadow !shadow--active"></p>
-          <h5>Player 1</h5>
+          <h5 id="p1-name-change-js">Player 1</h5>
           <h6>HP: <span id="hp">000</span></h6>
         </section>
-
         <section class="player !active">
           <img id="bulbasaur" class="pokemon" src="images/bulbasaur.png">
           <p class="shadow !shadow--active"></p>
-          <h5>Player 2</h5>
+          <h5 id="p2-name-change-js">Player 2</h5>
           <h6>HP: <span id="hp">000</span></h6>
         </section>
         <section class="player !active">
           <img id="charmander" class="pokemon" src="images/charmander.png">
           <p class="shadow !shadow--active"></p>
-          <h5>Player 3</h5>
+          <h5 id="p3-name-change-js">Player 3</h5>
           <h6>HP: <span id="hp">000</span></h6>
         </section>
       </article>
     </section>
   </div>
   <div class="overlay"></div>
-  <section class="popup">
+  <section class="popup start-up">
     <section class="start-container">
       <div class="start-img">
         <img src="images/Oak2.png" alt="Professor Oak">
@@ -84,26 +81,24 @@
         <fieldset class="start-squirtle starter-container">
           <div class="starter-container">
             <img class="starter-pokemon" src="images/Squirtle.png" alt="water-type: Squirtle">
-            <input type="text" value="Squirtle">
+            <input id="p1-name-js" type="text" value="Squirtle">
           </div>
         </fieldset>
         <fieldset class="start-bulbasaur starter-container">
           <div class="starter-container">
             <img class="starter-pokemon" src="images/bulbasaur.png" alt="grass-type: Bulbasaur">
-            <input type="text" value="Bulbasaur">
+            <input id="p2-name-js" type="text" value="Bulbasaur">
           </div>
         </fieldset>
         <fieldset class="start-charmander starter-container">
           <div class="starter-container">
             <img class="starter-pokemon" src="images/charmander.png" alt="fire-type: Charmander">
-            <input type="text" value="Charmander">
+            <input id="p3-name-js" type="text" value="Charmander">
           </div>
         </fieldset>
-        <fieldset class="start--btn__field">
           <div class="start--btn__container">
             <button class="start--button">Start Game</button>
           </div>
-        </fieldset>
       </form>
     </section>
     <section class="question-container">
@@ -122,6 +117,6 @@
       </div>
     </section>
   </section>
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 </html>
