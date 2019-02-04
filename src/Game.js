@@ -81,23 +81,5 @@ class Game {
     return randomWheel;
 
   }
-
-
-
-
-
-  solve() {
-
-  }
-
-  buyVowel() {
-
-  }
-
-  guessLetter() {
-
-  }
-
-  // 
 }
 export default Game; 

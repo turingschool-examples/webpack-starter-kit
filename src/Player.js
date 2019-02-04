@@ -1,10 +1,10 @@
 // import domUpdates from './domUpdates.js';
 
 class Player {
-  constructor(name, round = 0, total = 0) {
+  constructor(name, roundScore = 0, totalScore = 0) {
     this.name = name;
-    this.round = round;
-    this.total = total;
+    this.roundScore = roundScore;
+    this.totalScore = totalScore;
   }
 
   
