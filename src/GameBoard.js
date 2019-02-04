@@ -4,6 +4,7 @@ import jQuery from 'jquery'
 window.$ = jQuery;
 
 import domUpdates from "./domUpdates";
+import Round from './Round'
 // import Player from './Players.js'
 
 class Gameboard {
@@ -38,7 +39,7 @@ class Gameboard {
   }
 
   startGame() {
-    const gameArr = this.shuffle(Object.keys(data.categories));
+    const gameArr = this.shuffle(Object.values(data.categories));
     // domUpdates.displayNames();
     // createPlayers();
     /////////////////////////////////////////////////
@@ -49,30 +50,14 @@ class Gameboard {
     //   if (data.clues.categoryId[i] === data.categories);
     // }
     ////////////////////////////////////////////////
-    if (this.roundId === 1) {
-      this.catIds = gameArr.splice(0, 4);
-    } else if (this.roundId === 2) {
-      this.catIds = gameArr.splice(0, 4);
-    } else {
-      this.catIds = gameArr.splice(0, 1);
-    }  
-    this.catIds.forEach(catId => {
-      const catClues = data.clues.filter(clue => {
-        return clue.categoryId === catId;
-      })
-      this.shuffle(catClues);
-      for (let i = 1; i <= 4; i++) {
-        this.clues.push(catClues.find(clue => {
-          return clue.pointValue === 100 * i;
-        }));
-      }
-    });
-  }
-
-  getCatNames() {
-    this.catNames = this.catIds.map(catId => {
-    return this.catNames.find((name, index) => index === catId - 1);
-    })
+      const round1 = new Round();
+      round1.catIds = gameArr.splice(0, 4);
+      const round2 = new Round;
+      round2.catIds = gameArr.splice(0, 4);
+      const round3 = new Round();
+      round3.catIds = gameArr.splice(0, 1);
+      round1.startRound(this);
+      round1.getCatNames();
   }
 
   changeRound() {

@@ -29,6 +29,13 @@ import './images/Squirtle.png';
 import './images/Oak2.png';
 
 // * This is the JavaScript entry file - your code begins here. *
+// $(".start--button").click(function (e) {
+//   $(".overlay").remove();
+//   $('.start-up').remove();
+// });
+// $('.col').click(function (e) {
+//   $('.question-container').css('visibility', 'visible')
+// })
 // * ======= Global Variables ======= *
 let $player1Name = $('#p1-name-js').val();
 let $player2Name = $('#p2-name-js').val();
@@ -49,13 +56,9 @@ $(".start--button").click(function (e) {
   e.preventDefault();
   let game = new GameBoard()
   game.startGame();
-  game.players.push()
-  console.log(game)
-  let round1 = new Round();
-  // round1.startRound()
-  console.log(round1)
   game.players.push($player1Name, $player2Name, $player3Name)
   let player.name = $("#p1-name-change-js")
+//   let $p1Name = $("#p1-name-change-js")
   $p1Name.text($('#p1-name-js').val())
 
   let $p2Name = $("#p2-name-change-js")
