@@ -10,25 +10,43 @@ chai.use(spies);
 chai.spy.on(domUpdates, ['displayPlayerScore', 'toggleSplash'], () => true)
 
 describe('Game', function() {
+  let game;
+
+  beforeEach(function() {
+    game = new Game();
+  });
+
   it('should instantiate a new game', function() {
-    let game = new Game()
     expect(game).to.be.an.instanceof(Game);
   });
 
-  it('should gather players into players array and set current player', function() {
-    let game = new Game();
+  it('should gather players into players array and set current player', function() {;
     game.gatherPlayers('a', 'b', 'c');
     
-    expect(game.players).to.deep.equal(['a', 'b', 'c']);
-    expect(game.currentPlayer).to.equal(game.players[0])
+    expect(game.players).to.deep.equal([{name:'a', score: 0}, {name:'b', score: 0}, {name:'c', score: 0}]);
+    expect(game.currentPlayer).to.equal(game.players[0]);
+    expect(domUpdates.displayPlayerScore).to.be.called(1);
   });
 
-  it('should call upon domUpdates.toggleSplash when game.quitGame is called', function() {
-    let game = new Game();
+  it('should call upon toggleSplash when quitGame is called & set clues to an empty array', function() {;
 
     game.quitGame();
 
     expect(domUpdates.toggleSplash).to.be.called();
+    expect(game.allClues).to.deep.equal([]);
+  });
+
+  it('should switch between players', function() {;
+    game.gatherPlayers('bob', 'jim', 'tom');
+  
+    game.switchPlayer(game.currentPlayer);
+    expect(game.currentPlayer).to.deep.equal(game.players[1]);
+
+    game.switchPlayer(game.currentPlayer);
+    expect(game.currentPlayer).to.deep.equal(game.players[2]);
+
+    game.switchPlayer(game.currentPlayer);
+    expect(game.currentPlayer).to.deep.equal(game.players[0]);
   });
 });
 
