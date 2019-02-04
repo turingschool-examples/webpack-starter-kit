@@ -6,6 +6,7 @@ class Gameboard {
     this.activePlayer = 1;
     this.cluesRemaining = 16;
     this.clues = [];
+    this.catNames = [];
   }
 
   hidePopup() {
@@ -51,21 +52,29 @@ class Gameboard {
     });
   }
 
+  getCatNames() {
+    this.catNames = this.catIds.map(catId => {
+    return this.catNames.find((name, index) => index === catId -1);
+  })
+  }
+
+  //for each category value we can use object.keys at the index lower to grab the key that is associated with it
+
   changeRound() {
     this.activeRound++;
   }
   
-  startGame() {
+  namePlayers() {
     // push player names into players array
-    this.players.length === 3;
+    this.players.push($("$p1-name-js"), $("p2-name-js"), $("p3-name-js"))
   }
 
   changeTurn(players) {
     this.activePlayer++;
-    if (this.activePlayer === players.length) {
+    if (this.activePlayer === this.players.length) {
       this.activePlayer = 0;
     }
-    return players(this.activePlayer)
+    return players[this.activePlayer]
     // increment turn
     // reset index of player, if on p3, reset to p1
     // on round end, reset active player. if p3, reset to p1

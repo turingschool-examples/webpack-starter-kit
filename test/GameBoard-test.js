@@ -26,9 +26,10 @@ describe('Gameboard', function() {
     expect(gameboard.cluesRemaining).to.equal(16)
   });
 
-  // it('should change players when their turn is over', function() {
-  //   expect()
-  // })
+  it('should change players when their turn is over', function() {
+    const gameboard = new Gameboard();
+    expect(gameboard.changeTurn()).to.equal(2)
+  })
 
   it('should have an array of categories', function() {
   });
