@@ -20,9 +20,10 @@ class Gameboard {
   }
 
   hidePopup() {
-    $(".start--button").click(function() {
-      $(".overlay").remove();
-      $('.start-up').remove();
+
+    $(".start--button").click(function(e) {
+      $(".overlay").toggle();
+      $('.start-up').toggle();
     });
   }
 
@@ -36,6 +37,14 @@ class Gameboard {
     domUpdates.displayNames();
     createPlayers();
     const gameArr = shuffle(Object.keys(data.categories));
+    /////////////////////////////////////////////////
+//     let round1 = gameArr.splice(0, 4);
+//     let round2 = gameArr.splice(0, 4);
+//     let round3 = gameArr.splice(0, 1);
+    // for (let i = 0; i > gameArr.length; i++) {
+    //   if (data.clues.categoryId[i] === data.categories);
+    // }
+    ////////////////////////////////////////////////
     if (this.roundId === 1) {
       this.catIds = gameArr.splice(0, 4);
     } else if (this.roundId === 2) {
