@@ -11,10 +11,13 @@ class Game {
     this.winner = null;
     this.allCluesInPlay = [];
     this.currentClue = null;
+    this.counter = 0;
     this.cluesRoundOne = null;
     this.cluesRoundTwo = null;
     this.cluesRoundThree = null;
-    this.counter = 0;
+    this.roundOne = null;
+    this.roundTwo = null;
+    this.roundThree = null;
   }
 
   switchPlayer(player) {
@@ -46,7 +49,10 @@ class Game {
       }
     } while (allCategories.length < 9)
     this.gatherClues(allCategories);
-    domUpdates.displayCategories(allCategories);
+    this.roundOne = allCategories.slice(0,4);
+    this.roundTwo = allCategories.slice(4,8);
+    this.roundThree = allCategories.slice(8,9);
+    domUpdates.displayCategories(this.roundOne);
   }
 
   gatherClues(array) {
@@ -91,13 +97,13 @@ class Game {
     if (this.counter === 16) {
       let round = new Round(2);
       domUpdates.setClues(this.cluesRoundTwo);
+      domUpdates.displayCategories(this.roundTwo);
     } else if (this.counter === 32) {
       let round = new Round(3);
       domUpdates.setClues(this.cluesRoundThree);
+      domUpdates.displayCategories(this.roundThree);
     }
   }
-
-  
 
 
   // determineWinner() {
