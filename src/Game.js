@@ -8,8 +8,11 @@ class Game {
     this.players = [];
     this.currentPlayer = null;
     this.winner = null;
-    this.cluesThisRound = [];
+    this.allCluesInPlay = [];
     this.currentClue = null;
+    this.cluesRoundOne = null;
+    this.cluesRoundTwo = null;
+    this.cluesRoundThree = null;
   }
 
   switchPlayer(player) {
@@ -32,16 +35,16 @@ class Game {
   }
 
   getRandomCat() {
-    let fourCats = []
+    let allCategories = []
     let keys = Object.keys(data.categories);
     do {
       let singleCat = keys[Math.floor(Math.random() * keys.length)];
-      if (!fourCats.includes(singleCat)) {
-        fourCats.push(singleCat)
+      if (!allCategories.includes(singleCat)) {
+        allCategories.push(singleCat)
       }
-    } while (fourCats.length < 4)
-    this.gatherClues(fourCats);
-    domUpdates.displayCategories(fourCats);
+    } while (allCategories.length < 9)
+    this.gatherClues(allCategories);
+    domUpdates.displayCategories(allCategories);
   }
 
   gatherClues(array) {
@@ -55,15 +58,17 @@ class Game {
           return clue.pointValue === 100 * i;
         });
         let randomIndex = Math.floor(Math.random() *  specificPoints.length);
-        this.cluesThisRound.push(specificPoints[randomIndex]);
+        this.allCluesInPlay.push(specificPoints[randomIndex]);
       }
     });
-    domUpdates.setClues(this.cluesThisRound);
-    return this.cluesThisRound;
+    this.cluesRoundOne = this.allCluesInPlay.slice(0, 16);
+    this.cluesRoundTwo = this.allCluesInPlay.slice(16, 32);
+    this.cluesRoundThree = this.allCluesInPlay.slice(35);
+    domUpdates.setClues(this.cluesRoundOne);
   }
 
   instantiateClue(dataset) {
-    let specificClue = this.cluesThisRound.find(clue => {
+    let specificClue = this.cluesRoundOne.find(clue => {
       return clue.categoryId == dataset.categoryid && clue.pointValue == dataset.pointvalue;
     })
     this.currentClue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
@@ -72,7 +77,7 @@ class Game {
 
   quitGame() {
     domUpdates.toggleSplash();
-    this.cluesThisRound = [];
+    this.allClues = [];
   }
 
   submitGuess(input) {
