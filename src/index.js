@@ -27,22 +27,12 @@ import './images/bulbasaur.png';
 import './images/charmander.png';
 import './images/Squirtle.png';
 import './images/Oak2.png';
-import Player from './Players';
 
 // * This is the JavaScript entry file - your code begins here. *
-console.log("start")
-
-// $(".start--button").click(function (e) {
-//   $(".overlay").remove();
-//   $('.start-up').remove();
-// });
-// $('.col').click(function (e) {
-//   $('.question-container').css('visibility', 'visible')
-// })
 // * ======= Global Variables ======= *
-let $player1Name = $('#p1-name-js');
-let $player2Name = $('#p2-name-js');
-let $player3Name = $('#p3-name-js');
+let $player1Name = $('#p1-name-js').val();
+let $player2Name = $('#p2-name-js').val();
+let $player3Name = $('#p3-name-js').val();
 
 
 
@@ -59,17 +49,13 @@ $(".start--button").click(function (e) {
   e.preventDefault();
   let game = new GameBoard()
   game.startGame();
-  game.getCatNames();
+  game.players.push()
   console.log(game)
   let round1 = new Round();
-  round1.startRound()
+  // round1.startRound()
   console.log(round1)
-  // let round2 = new Round();
-  // console.log(round2)
-  // let round3 = new Round();
-  // console.log(round3)
-
-  let $p1Name = $("#p1-name-change-js")
+  game.players.push($player1Name, $player2Name, $player3Name)
+  let player.name = $("#p1-name-change-js")
   $p1Name.text($('#p1-name-js').val())
 
   let $p2Name = $("#p2-name-change-js")

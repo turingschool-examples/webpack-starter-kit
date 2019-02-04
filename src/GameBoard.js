@@ -39,8 +39,8 @@ class Gameboard {
 
   startGame() {
     const gameArr = this.shuffle(Object.keys(data.categories));
-    domUpdates.displayNames();
-    createPlayers();
+    // domUpdates.displayNames();
+    // createPlayers();
     /////////////////////////////////////////////////
 //     let round1 = gameArr.splice(0, 4);
 //     let round2 = gameArr.splice(0, 4);
@@ -71,7 +71,7 @@ class Gameboard {
 
   getCatNames() {
     this.catNames = this.catIds.map(catId => {
-    return this.catNames.find((name, index) => index === catId -1);
+    return this.catNames.find((name, index) => index === catId - 1);
     })
   }
 
@@ -81,7 +81,7 @@ class Gameboard {
   
   namePlayers() {
     // push player names into players array
-    this.players.push($("$p1-name-js"), $("p2-name-js"), $("p3-name-js"))
+    this.players.push($("$p1-name-js"), $("p2-name-js"), $("p3-name-js"));
   }
 
   changeTurn(players) {
