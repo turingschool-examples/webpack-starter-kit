@@ -58,4 +58,107 @@ function addNames(e) {
 };
 
 
+// PSUEDOCODING
+// ------------
+
+// $playGameButton.on( 'click', playGame() );
+
+// playgame() {
+  // if ( all prompts are filled ) {
+    // const game = new Game();
+    // newPlayers();
+    // newWheel();
+    // newPuzzle();
+    // display: none --> player name prompt;
+  // } else {
+    // alert to fill out all prompts;
+  // }
+// }
+
+// newPlayers() {
+  // const player1 = new Player(name);
+  // const player2 = new Player(name);
+  // const player3 = new Player(name);
+// }
+
+// newWheel() {
+  // const wheel = new Wheel();
+  // wheel.randomizeWheel();
+  // display wheel on DOM;
+// }
+
+// newPuzzle() {
+  // const puzzle = new Puzzle(difficulty);
+  // puzzle.randomPuzzle();
+  // display puzzle, category, and hint on DOM;
+// }
+
+
+// Player ‘x’ turn
+// ---------------
+
+// $spinWheelButton.on( 'click', spinWheel() );
+
+// wheel.spinWheel() {
+//   spin wheel;
+//   let currentSpin = spin value;
+//   player.wheelResults(currentSpin);
+// }
+
+// player.wheelResults(spin) {
+//   if ( spin === 'bankrupt' ) {
+//     player.totalScore = 0;
+//   } else if ( spin.type === number ) {
+//     player.roundScore += spin;
+//     player.chooseConsonant();
+//   }
+//   player.endTurn();
+// }
+
+
+// $solvePuzzleButton.on( 'click', solvePuzzle() );
+
+// puzzle.solvePuzzle() {
+  // prompt player to attempt to solve;
+  // $submitGuessButton.on( 'click', submitGuess() );
+// }
+
+// puzzle.submitGuess() {
+  // if ( guess !== this.answer ) {
+    // console.log('incorrect answer');
+    // player.endTurn();
+  // } else if ( guess === this.answer ) {
+    // totalScore += roundScore;
+    // game.roundOver();
+  // }
+// }
+
+
+// game.roundOver() {
+  // if ( round === 4 )
+    // bonusRound();
+  // else if ( round === bonus )
+    // endGame();
+  // else
+    // round++;
+    // startRound();
+// }
+
+
+// game.bonusRound() {
+  // new BonusWheel object;
+  // disable non-1st-place players
+// }
+
+
+// game.startRound() {
+// }
+
+
+// player.endTurn() {
+// }
+
+
+// game.endGame() {
+// }
 
