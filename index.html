@@ -5,15 +5,16 @@
   </head>
   <body>
     <section class="input-fields">
-      <form>
+      <h1>Jeopardy!</h1>
+      <form class="player-input">
         <label for="playerName1">Player 1 Name</label>
         <input type="text" class="name-input" name="playerName1" id="playerNameInput1">
       </form>
-      <form>
+      <form class="player-input">
         <label for="playerName2">Player 2 Name</label>
         <input type="text" class="name-input" name="playerName2" id="playerNameInput2">
       </form>
-      <form>
+      <form class="player-input">
         <label for="playerName3">Player 3 Name</label>
         <input type="text" class="name-input" name="playerName3" id="playerNameInput3">
       </form>
@@ -91,9 +92,9 @@
 <br>
 
 
-  <section id="questionCard">
-    <header>
-      <span class="category-reminder">Category</span> for <span id="displayPointVal">pointval</span>
+  <section class="question-card" id="questionCard">
+    <header class="card-head">
+      <span class="category-reminder">Category</span><span id="displayPointVal"> for: pointval</span>
     </header>
     <p id="displayQuestion">Question here</p>
     <form>
@@ -107,14 +108,16 @@
 <br>
   <!-- Daily Double Wager -->
 
-  <section id="dailyDoubleCard">
-    <header>
+  <section class="daily-double-card" id="dailyDoubleCard">
+    <header class="card-head">
       You've selected a Daily Double!
     </header>
     <span class="category-reminder">Category reminder</span>
     <p>Enter a wager up to your total point value or double the question's value</p>
-    <label for="wagerInput">Wager:</label>
-    <input type="text" name="wagerInput" id="wagerInput">
+    <form>
+      <label for="wagerInput">Wager:</label>
+      <input type="text" name="wagerInput" id="wagerInput">
+    </form>
   </section>
 
 
@@ -125,14 +128,16 @@
 
   <!-- Final wager -->
 
-  <section id="finalJeopardyWager">
-    <header>
+  <section class="final-jeopardy-wager" id="finalJeopardyWager">
+    <header class="card-head">
       Final Jeopardy!
     </header>
     <span class="category-reminder">Category</span>
     <p>How much are you willing to put on the line?</p>
-    <label for="finalWagerInput">Wager:</label>
-    <input type="text" name="wagerInput" id="finalWagerInput">
+    <form>
+      <label for="finalWagerInput">Wager:</label>
+      <input type="text" name="finalWagerInput" id="finalWagerInput">
+    </form>  
   </section>
 
   </body>

@@ -10,17 +10,20 @@ class Gameboard {
     this.firstRoundCategories = [];
     this.secondRoundCategories = [];
     this.finalRoundCategory = [];
-    this.allClues = [];
+    this.cluesWithCategories = [];
   };
 
   startGame() {
     console.log("You've started the game!");
     this.appendGameboard();
+    //domUpdate - remove start screen
     return true;
   };
 
   appendGameboard() {
     console.log("append gameboard");
+    this.collectClues();
+
     this.assignCategories();
 
     console.log(this.round);
@@ -55,6 +58,7 @@ class Gameboard {
     this.firstRoundCategories = this.categoryList.splice(0, 4);
     this.secondRoundCategories = this.categoryList.splice(0, 4);
     this.finalRoundCategory = this.categoryList.splice(0, 1);
+
   };
 
 
@@ -64,19 +68,21 @@ class Gameboard {
   // 
 
   collectClues() {
-    // data.clues.forEach(clue => {
-    //   allClues.push(clue);
-    // })
+    let allClues = data.clues;
+    this.cluesWithCategories = allClues.map( clue => {
+      clue.categoryName = this.categoryList[clue.categoryId - 1];
+      return clue;
+      });
+    console.log(this.cluesWithCategories);
   };
 
-  selectClue(selectedClue) {
-    //Once categories are assigned, should associate our different boxes with particular clues.
-    // function findClue() {}
-    // let boxId = this.id;
-    console.log(selectedClue.id);
-    if (this.round === 1) {
 
-    }
+  selectClue(selectedClue) {
+    //grab catregory name of box and point value
+    //iterate through game.cluesWithCategories
+    //find clue object that has matching categoryname and point value
+    //instantiate a clue with that data
+    
   };
 
 
@@ -94,5 +100,7 @@ class Gameboard {
   }
 
 }
+
+
 
 export default Gameboard;

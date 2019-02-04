@@ -4,9 +4,41 @@ body {
 
 /** Global **/
 
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+/** Name input **/
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+/*  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: red;*/
+}
+
+h1 {
+  font-size: 200%;
+}
+
+.player-input {
+  margin: 20px 0;
+}
+
+.play-btn {
+  border-radius: 25px;
+  height: 40px;
+  width: 25%;
+  margin-top: 20px;
+}
+
 
 /** Gameboard **/
-article{
+article {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -72,4 +104,59 @@ table th {
   height: 100px;
   text-align: center;
   padding-top: 30px;
+}
+
+/** Global pop-up **/
+
+.card-head {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 300%;
+  margin: 40px 0;
+}
+
+/** Question pop up **/
+.question-card {
+  align-items: center;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin: auto;
+  width: 90%;
+
+}
+
+/** Wager pop up **/
+.daily-double-card {
+  align-items: center;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin: auto;
+  width: 90%;
+
+}
+
+/** Final Jeopardy! pop up **/
+.final-jeopardy-wager {
+  align-items: center;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin: auto;
+  width: 90%;
+
+}
+
+#displayPointVal {
+  font-size: 65%;
+}
+
+/** Dom classed **/
+.remove-display {
+  display: none;
 }
