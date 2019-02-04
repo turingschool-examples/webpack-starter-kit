@@ -7,7 +7,7 @@ import './css/base.css';
 // import './css/styles.css';
 
 // Tell webpack to use a JS file
-
+import data from './data';
 import domUpdates from './domUpdates';
 import Question from './Question';
 import GameBoard from './GameBoard';
@@ -32,19 +32,49 @@ import './images/Oak2.png';
 
 console.log("start")
 
-$('.col').click(function (e) {
-  $(e.target).css('visibility', 'hidden');
-});
+// $(".start--button").click(function (e) {
+//   $(".overlay").remove();
+//   $('.start-up').remove();
+// });
+// $('.col').click(function (e) {
+//   $('.question-container').css('visibility', 'visible')
+// })
+// * ======= Global Variables ======= *
+let $player1Name = $('#p1-name-js');
+let $player2Name = $('#p2-name-js');
+let $player3Name = $('#p3-name-js');
 
-$('.start--button').click(function (e) {
-  e.preventDefault();
-  $(".overlay").children().fadeToggle(600, "swing");
-});
+
+
+
+// * ======= Functions ======= *
+function shuffle(array) {
+  return array.sort(() => 0.5 - Math.random());
+}
+
 
 $(".start--button").click(function (e) {
-  $(".overlay").remove();
-  $('.start-up').remove();
+  e.preventDefault();
+  let round1 = new Round();
+  round1.startRound()
+  console.log(round1)
+
+  let $p1Name = $("#p1-name-change-js")
+  $p1Name.text($('#p1-name-js').val())
+
+  let $p2Name = $("#p2-name-change-js")
+  $p2Name.text($('#p2-name-js').val())
+  
+  let $p3Name = $("#p3-name-change-js")
+  $p3Name.text($('#p3-name-js').val())
+
+  $('.overlay').toggle();
+  $('.start-up').toggle();
+  $('.q-pop').toggle();
 });
-$('.col').click(function (e) {
-  $('.question-container').css('visibility', 'visible')
+
+$('.col').click(function () {
+  $(this).css('visibility', 'hidden');
+  $('.overlay').toggle();
+  $('.q-pop').toggle();
 })
