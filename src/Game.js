@@ -7,9 +7,11 @@ class Game {
     this.round = 1;
     this.players = [];
   }
-  createPlayer(name) {
-    let player = new Player(name);
-    this.players.push(player);
+  createPlayers(names) {
+    names.forEach(function(name) {
+      const player new Player(name);
+      this.players.push(player);
+    })
   }
   changeRound() {
     this.round++
