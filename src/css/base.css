@@ -163,7 +163,6 @@ body {
   justify-content: space-between;
   margin: auto;
   margin-top: 20px;
-
 }
 
 .user-button {
@@ -178,6 +177,15 @@ body {
   margin-right: 20px;
 }
 
+.disabled-bank-letter { 
+  background-color: red;
+ }
+
+ .disabled-bank-letter:hover {
+  color: grey;
+  background-color: red;
+  opacity: 1;
+ }
 
 
 

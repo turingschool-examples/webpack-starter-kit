@@ -47,9 +47,15 @@ const domUpdates = {
     $('#spin-value').text(`You've landed on: ${value}!`)
   },
 
-  updateRoundScore(value) {
-    $('#player-one-round-score').text(value)
-  } 
+  updateRoundScore(value, num) {
+    $(`#player-${num}-round-score`).text(value)
+  },
+
+  disableButton(clickedButton) {
+    clickedButton.disabled = true;
+    $(clickedButton).addClass('disabled-bank-letter')
+    console.log(clickedButton)
+  }
 
 
 }

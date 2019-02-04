@@ -28,9 +28,9 @@
   }
 
   createPlayers() {
-    const playerOne = new Player(this.players[0], true);
-    const playerTwo = new Player(this.players[1]);
-    const playerThree = new Player(this.players[2]);
+    const playerOne = new Player(this.players[0], true, 0);
+    const playerTwo = new Player(this.players[1], false, 1);
+    const playerThree = new Player(this.players[2], false, 2);
     domUpdates.displayPlayers(playerOne, playerTwo, playerThree);
     this.activePlayer = playerOne;
     this.players = [playerOne, playerTwo, playerThree]
@@ -77,7 +77,7 @@
     // domUpdates.displayPuzzle();
   }
 
-  compareClickedButton(clickedLetter, wheel) {
+  compareClickedButton(clickedLetter, wheel, button) {
     console.log(clickedLetter);
     let splitPuzzle = this.roundPuzzle.toUpperCase().split('')
     let letterCount = 0;
@@ -94,12 +94,13 @@
           console.log(guessValue)
           let roundScore = this.activePlayer.incrementRoundScore(guessValue);
           console.log(roundScore);
-          domUpdates.updateRoundScore(roundScore);
+          domUpdates.updateRoundScore(roundScore, this.activePlayer.playerNumber);
      }
      else {
         console.log('this letter is not here');
         this.changeTurn();
       }
+      domUpdates.disableButton(button);
   }
 
   changeTurn() {
@@ -109,6 +110,14 @@
         this.players[1].active = true;
         this.activePlayer = this.players[1]
         console.log(this.activePlayer)
+      } else if(this.activePlayer === this.players[1]) {
+        this.players[1].active = false;
+        this.players[2].active = true;
+        this.activePlayer = this.players[2]
+      } else {
+        this.players[0].active = true;
+        this.players[2].active = false;
+        this.activePlayer = this.players[0]
       }
     console.log(this.players)
   }
