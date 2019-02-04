@@ -12,7 +12,7 @@ chai.spy.on(domUpdates, ['displayPlayerScore', 'toggleSplash'], () => true)
 describe('Game', function() {
   it('should instantiate a new game', function() {
     let game = new Game()
-    expect(game).to.be.an('object');
+    expect(game).to.be.an.instanceof(Game);
   });
 
   it('should gather players into players array and set current player', function() {
