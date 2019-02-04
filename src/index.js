@@ -27,6 +27,7 @@ import './images/bulbasaur.png';
 import './images/charmander.png';
 import './images/Squirtle.png';
 import './images/Oak2.png';
+import Player from './Players';
 
 // * This is the JavaScript entry file - your code begins here. *
 console.log("start")
@@ -46,6 +47,8 @@ let $player3Name = $('#p3-name-js');
 
 
 
+
+
 // * ======= Functions ======= *
 function shuffle(array) {
   return array.sort(() => 0.5 - Math.random());
@@ -54,9 +57,17 @@ function shuffle(array) {
 
 $(".start--button").click(function (e) {
   e.preventDefault();
+  let game = new GameBoard()
+  game.startGame();
+  game.getCatNames();
+  console.log(game)
   let round1 = new Round();
   round1.startRound()
   console.log(round1)
+  // let round2 = new Round();
+  // console.log(round2)
+  // let round3 = new Round();
+  // console.log(round3)
 
   let $p1Name = $("#p1-name-change-js")
   $p1Name.text($('#p1-name-js').val())
@@ -70,6 +81,7 @@ $(".start--button").click(function (e) {
   $('.overlay').toggle();
   $('.start-up').toggle();
   $('.q-pop').toggle();
+  
 });
 
 $('.col').click(function () {

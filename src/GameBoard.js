@@ -1,6 +1,9 @@
+import data from "./data"
+import $ from 'jquery';
+import jQuery from 'jquery'
+window.$ = jQuery;
 class Gameboard {
-  constructor(round, players, activeRound, activePlayer, cluesRemaining, clues) {
-    this.rounds = [];
+  constructor(players, activeRound, activePlayer, cluesRemaining, clues, catNames) {
     this.players = [];
     this.activeRound = 1;
     this.activePlayer = 1;
@@ -10,20 +13,20 @@ class Gameboard {
   }
 
   hidePopup() {
-    $(".start--button").click(function(e) {
+    $(".start--button").click(function() {
       $(".overlay").toggle();
       $('.start-up').remove();
     });
   }
 
   showQuestionPopup() {
-    $('.col').click(function(e) {
+    $('.col').click(function() {
       $('.question-container').css('visibility', 'visible')
     });
   }
 
   startGame() {
-    const gameArr = shuffle(Object.keys(data.categories));
+    const gameArr = this.shuffle(Object.keys(data.categories));
     /////////////////////////////////////////////////
 //     let round1 = gameArr.splice(0, 4);
 //     let round2 = gameArr.splice(0, 4);
@@ -43,9 +46,9 @@ class Gameboard {
       const catClues = data.clues.filter(clue => {
         return clue.categoryId === catId;
       })
-      shuffle(catClues);
+      this.shuffle(catClues);
       for (let i = 1; i <= 4; i++) {
-        this.questions.push(catClues.find(clue => {
+        this.clues.push(catClues.find(clue => {
           return clue.pointValue === 100 * i;
         }));
       }
@@ -54,7 +57,7 @@ class Gameboard {
 
   getCatNames() {
     this.catNames = this.catIds.map(catId => {
-    return this.catNames.find((name, index) => index === catId -1);
+    return this.catNames.find((name, index) => index === catId - 1);
   })
   }
 
