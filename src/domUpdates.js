@@ -47,8 +47,8 @@ const domUpdates = {
     $('#spin-value').text(`You've landed on: ${value}!`)
   },
 
-  updateRoundScore(value) {
-    $('#player-one-round-score').text(value)
+  updateRoundScore(value, num) {
+    $(`#player-${num}-round-score`).text(value)
   } 
 
 

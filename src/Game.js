@@ -28,9 +28,9 @@
   }
 
   createPlayers() {
-    const playerOne = new Player(this.players[0], true);
-    const playerTwo = new Player(this.players[1]);
-    const playerThree = new Player(this.players[2]);
+    const playerOne = new Player(this.players[0], true, 0);
+    const playerTwo = new Player(this.players[1], false, 1);
+    const playerThree = new Player(this.players[2], false, 2);
     domUpdates.displayPlayers(playerOne, playerTwo, playerThree);
     this.activePlayer = playerOne;
     this.players = [playerOne, playerTwo, playerThree]
@@ -94,7 +94,7 @@
           console.log(guessValue)
           let roundScore = this.activePlayer.incrementRoundScore(guessValue);
           console.log(roundScore);
-          domUpdates.updateRoundScore(roundScore);
+          domUpdates.updateRoundScore(roundScore, this.activePlayer.playerNumber);
      }
      else {
         console.log('this letter is not here');
