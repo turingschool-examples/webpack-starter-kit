@@ -1,6 +1,7 @@
 import domUpdates from "./domUpdates";
 import Player from './Player.js';
-import data from './data.js'
+import Round from './Round.js';
+import data from './data.js';
 import Clue from "./Clue";
 
 class Game {
@@ -13,6 +14,7 @@ class Game {
     this.cluesRoundOne = null;
     this.cluesRoundTwo = null;
     this.cluesRoundThree = null;
+    this.counter = 0;
   }
 
   switchPlayer(player) {
@@ -68,7 +70,7 @@ class Game {
   }
 
   instantiateClue(dataset) {
-    let specificClue = this.cluesRoundOne.find(clue => {
+    let specificClue = this.allCluesInPlay.find(clue => {
       return clue.categoryId == dataset.categoryid && clue.pointValue == dataset.pointvalue;
     })
     this.currentClue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
@@ -83,6 +85,16 @@ class Game {
   submitGuess(input) {
     this.currentClue.correctAnswer(this, input);
     this.switchPlayer(this.currentPlayer);
+  }
+
+  changeRound() {
+    if (this.counter === 16) {
+      let round = new Round(2);
+      domUpdates.setClues(this.cluesRoundTwo);
+    } else if (this.counter === 32) {
+      let round = new Round(3);
+      domUpdates.setClues(this.cluesRoundThree);
+    }
   }
 
   
