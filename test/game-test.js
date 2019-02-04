@@ -12,7 +12,16 @@ describe('Game', function() {
   });
 
   it('instantiates our good friend, Game', function() {
-    expect(game).to.be.an('object');
+    expect(game).to.be.an.instanceof(Game);
+  })
+
+  it('should take a difficulty parameter', () => {
+    const game1 = new Game(1);
+    expect(game1.difficulty).to.equal(1);
+  })
+
+  it('should start on round 1', () => {
+    expect(game.round).to.equal(1);
   })
 
   it('should increase round number', function() {

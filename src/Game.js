@@ -2,7 +2,7 @@ import Wheel from './Wheel.js';
 import Player from './Player.js';
 
 class Game {
-  constructor(difficulty, round, players) {
+  constructor(difficulty) {
     this.difficulty = difficulty;
     this.round = 1;
     this.players = [];

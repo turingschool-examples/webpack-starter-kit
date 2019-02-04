@@ -65,11 +65,11 @@ function addNames(e) {
 
 // playgame() {
 //   if ( all prompts are filled ) {
-//     const game = new Game();
-//     newPlayers();
-//     newWheel();
-//     newPuzzle();
-//     display: none --> player name prompt;
+//     const game = new Game(difficulty);
+//     game.newPlayers();
+//     game.newWheel();
+//     game.newPuzzle();
+//     toggle player name prompt visibility;
 //   } else {
 //     alert to fill out all prompts;
 //   }
