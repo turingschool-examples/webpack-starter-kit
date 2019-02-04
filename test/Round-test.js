@@ -5,9 +5,17 @@ import Round from '../src/Round'
 
 describe('Round', function() {
 
+  it('should have default properties', () => {
+    const round = new Round();
+    expect(round.catNames).to.deep.equal([]);
+    expect(round.catIds).to.deep.equal([]);
+    expect(round.clues).to.deep.equal([]);
+    expect(round.pointValues).to.deep.equal([])
+  });
+
   it('should have one Daily Double for Round 1', function() {
-    const round = new Round;
+    const round = new Round();
     expect(round.dailyDouble).to.equal(1)
-  })
+  });
 
 })
