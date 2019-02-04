@@ -1,13 +1,14 @@
 import data from './data';
+import Gameboard from './GameBoard';
 
 function shuffle(array) {
   return array.sort(() => 0.5 - Math.random());
 }
 
-class Round {
-  constructor(catNames, roundId, questions, indexCalled, dailyDouble) {
+class Round extends Gameboard {
+  constructor(players, activeRound, activePlayer, cluesRemaining, clues, catNames) {
+    super(players, activeRound, activePlayer, cluesRemaining, clues, catNames)
     this.catNames = [];
-    this.roundId = 1;
     this.catIds = [];
     this.clues = [];
     this.pointValues = [];
@@ -15,30 +16,30 @@ class Round {
     this.dailyDouble = 1;
   }
 
-  startRound() {
-    const gameArr = shuffle(Object.values(data.categories));
-    if (this.roundId === 1) {
-      this.catIds = gameArr.splice(0, 4);
-      // this.catNames = this.getCatNames();
-    } else if (this.roundId === 2) {
-      this.catIds = gameArr.splice(0, 4);
-      // this.catNames = this.getCatNames();
-    } else {
-      this.catIds = gameArr.splice(0, 1);
-    }
-    this.catIds.forEach(catId => {
-      const catClues = data.clues.filter(clue => {
-        this.catNames = Object.keys(data.categories)
-        return clue.categoryId === catId;
-      });
-      shuffle(catClues);
-      for (let i = 1; i <= 4; i++) {
-        this.questions.push(catClues.find(clue => {
-          return clue.pointValue === 100 * i;
-        }));
-      }
-    });
-  }
+  // startRound() {
+  //   const gameArr = shuffle(Object.values(data.categories));
+  //   if (this.roundId === 1) {
+  //     this.catIds = gameArr.splice(0, 4);
+  //     // this.catNames = this.getCatNames();
+  //   } else if (this.roundId === 2) {
+  //     this.catIds = gameArr.splice(0, 4);
+  //     // this.catNames = this.getCatNames();
+  //   } else {
+  //     this.catIds = gameArr.splice(0, 1);
+  //   }
+  //   this.catIds.forEach(catId => {
+  //     const catClues = data.clues.filter(clue => {
+  //       this.catNames = Object.keys(data.categories)
+  //       return clue.categoryId === catId;
+  //     });
+  //     shuffle(catClues);
+  //     for (let i = 1; i <= 4; i++) {
+  //       this.questions.push(catClues.find(clue => {
+  //         return clue.pointValue === 100 * i;
+  //       }));
+  //     }
+  //   });
+  // }
   setCatID(gameCat, data) {
     //Depending on round // set category
     // Get category names (call function)

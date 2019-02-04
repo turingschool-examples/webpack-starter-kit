@@ -1,3 +1,8 @@
+import data from "./data"
+import $ from 'jquery';
+import jQuery from 'jquery'
+window.$ = jQuery;
+
 import domUpdates from "./domUpdates";
 // import Player from './Players.js'
 
@@ -20,8 +25,7 @@ class Gameboard {
   }
 
   hidePopup() {
-
-    $(".start--button").click(function(e) {
+    $(".start--button").click(function() {
       $(".overlay").toggle();
       $('.start-up').toggle();
     });
@@ -34,9 +38,9 @@ class Gameboard {
   }
 
   startGame() {
+    const gameArr = this.shuffle(Object.keys(data.categories));
     domUpdates.displayNames();
     createPlayers();
-    const gameArr = shuffle(Object.keys(data.categories));
     /////////////////////////////////////////////////
 //     let round1 = gameArr.splice(0, 4);
 //     let round2 = gameArr.splice(0, 4);
@@ -56,7 +60,7 @@ class Gameboard {
       const catClues = data.clues.filter(clue => {
         return clue.categoryId === catId;
       })
-      shuffle(catClues);
+      this.shuffle(catClues);
       for (let i = 1; i <= 4; i++) {
         this.clues.push(catClues.find(clue => {
           return clue.pointValue === 100 * i;
