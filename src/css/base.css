@@ -74,7 +74,7 @@ body {
   padding-top: 10px;
   width: 60px;
   background-color: lightskyblue;
-  border: solid black 8px;
+  border: solid black 5px;
 }
 
 #row-one, #row-four {
@@ -187,7 +187,10 @@ body {
   opacity: 1;
  }
 
-
+.hiddenWord {
+  background-color: white;
+  font-size: .1px;
+}
 
 
 

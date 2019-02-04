@@ -27,6 +27,18 @@ const domUpdates = {
     letters.forEach((letter, i) => {
       $(`#box-${i + 13}`).text(letter)
     })
+
+    this.hideRoundPuzzle(letters);
+  },
+
+  hideRoundPuzzle(letters) {
+    console.log('im a hidden puzzle')
+
+    letters.forEach((letter, i) => {
+      if(letter != ' ' && letter != '-') {
+        $(`#box-${i + 13}`).addClass('hiddenWord')
+      }
+    })
   },
 
   displayLetters(consonants, vowels) {
@@ -55,9 +67,26 @@ const domUpdates = {
     clickedButton.disabled = true;
     $(clickedButton).addClass('disabled-bank-letter')
     console.log(clickedButton)
+  },
+
+  revealGuessedLetter(letter, button) {
+    let numbers = [];
+    for(let i = 0; i < 53; i++) {
+      numbers.push(i);
+    }
+
+    // console.log(numbers);
+    console.log(letter)
+    console.log(button)
+
+    numbers.forEach(number => {
+      console.log($(`#box-${number}`).text());
+
+      if($(`#box-${number}`).text() === letter) {
+        $(`#box-${number}`).removeClass('hiddenWord')
+      }
+    })
   }
-
-
 }
 
 export default domUpdates;
