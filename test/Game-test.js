@@ -10,13 +10,17 @@ chai.use(spies);
 chai.spy.on(domUpdates, ['displayPlayerScore', 'toggleSplash'], () => true)
 
 describe('Game', function() {
+  let game;
+
+  beforeEach(function() {
+    game = new Game();
+  });
+
   it('should instantiate a new game', function() {
-    let game = new Game()
     expect(game).to.be.an.instanceof(Game);
   });
 
-  it('should gather players into players array and set current player', function() {
-    let game = new Game();
+  it('should gather players into players array and set current player', function() {;
     game.gatherPlayers('a', 'b', 'c');
     
     expect(game.players).to.deep.equal([{name:'a', score: 0}, {name:'b', score: 0}, {name:'c', score: 0}]);
@@ -25,7 +29,6 @@ describe('Game', function() {
   });
 
   it('should call upon toggleSplash when quitGame is called & set clues to an empty array', function() {
-    let game = new Game();
 
     game.quitGame();
 
@@ -34,7 +37,10 @@ describe('Game', function() {
   });
 
   it('should switch between players', function() {
-    let game = new Game();
+    expect(game.allClues).to.deep.equal([]);
+  });
+
+  it('should switch between players', function() {;
     game.gatherPlayers('bob', 'jim', 'tom');
   
     game.switchPlayer(game.currentPlayer);
