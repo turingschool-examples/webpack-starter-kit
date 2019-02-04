@@ -6,6 +6,7 @@ class Player extends Gameboard {
     this.avatar = avatar;
     this.turn = false;
   }
+
   newTurn() {
     // a new turn will begin once a player has entered an answer (correct || incorrect)
     // after the pop up disappears and the question's square has been hidden from the board...
