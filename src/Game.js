@@ -88,6 +88,7 @@
           letterCount++;
           console.log(letterCount);
           console.log('this letter is here')
+          domUpdates.revealGuessedLetter(letter, button);
         } 
       });
           let guessValue = wheel.multiplyRoundValue(letterCount);
