@@ -16,10 +16,10 @@ describe('Wheel', function() {
     expect(wheel).to.be.an.instanceof(Wheel);
   })
 
-  it('should have a default values', function() {
-    expect(wheel.wheelElements).to.equal([]);
-    expect(currentSpin).to.equal(null);
-    expect(currentSpinIndex).to.equal(null);
+  it('should have default values', function() {
+    expect(wheel.wheelElements).to.deep.equal([]);
+    expect(wheel.currentSpin).to.equal(null);
+    expect(wheel.currentSpinIndex).to.equal(null);
   })
 
   it('should create a wheel with a length of six', function() {    

@@ -11,7 +11,12 @@ describe('Puzzle', function() {
   });
 
   it('instantiates our good friend, Puzzle', function() {
-    expect(puzzle).to.be.an('object');
+    expect(puzzle).to.be.an.instanceof(Puzzle);
+  });
+
+  it('should have default values', function() {
+    expect(puzzle.description).to.equal(null);
+    expect(puzzle.difficulty).to.equal(null);
   });
   
   it('selects a random puzzle based off of the players\' selected difficulty', function() {
