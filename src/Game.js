@@ -109,6 +109,14 @@
         this.players[1].active = true;
         this.activePlayer = this.players[1]
         console.log(this.activePlayer)
+      } else if(this.activePlayer === this.players[1]) {
+        this.players[1].active = false;
+        this.players[2].active = true;
+        this.activePlayer = this.players[2]
+      } else {
+        this.players[0].active = true;
+        this.players[2].active = false;
+        this.activePlayer = this.players[0]
       }
     console.log(this.players)
   }
