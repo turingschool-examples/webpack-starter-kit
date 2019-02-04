@@ -64,33 +64,33 @@ function addNames(e) {
 // $playGameButton.on( 'click', playGame() );
 
 // playgame() {
-  // if ( all prompts are filled ) {
-    // const game = new Game();
-    // newPlayers();
-    // newWheel();
-    // newPuzzle();
-    // display: none --> player name prompt;
-  // } else {
-    // alert to fill out all prompts;
-  // }
+//   if ( all prompts are filled ) {
+//     const game = new Game();
+//     newPlayers();
+//     newWheel();
+//     newPuzzle();
+//     display: none --> player name prompt;
+//   } else {
+//     alert to fill out all prompts;
+//   }
 // }
 
 // newPlayers() {
-  // const player1 = new Player(name);
-  // const player2 = new Player(name);
-  // const player3 = new Player(name);
+//   const player1 = new Player(name);
+//   const player2 = new Player(name);
+//   const player3 = new Player(name);
 // }
 
 // newWheel() {
-  // const wheel = new Wheel();
-  // wheel.randomizeWheel();
-  // display wheel on DOM;
+//   const wheel = new Wheel();
+//   wheel.randomizeWheel();
+  //   display wheel on DOM;
 // }
 
 // newPuzzle() {
-  // const puzzle = new Puzzle(difficulty);
-  // puzzle.randomPuzzle();
-  // display puzzle, category, and hint on DOM;
+//   const puzzle = new Puzzle(difficulty);
+//   puzzle.randomPuzzle();
+//   display puzzle, category, and hint on DOM;
 // }
 
 
@@ -107,7 +107,7 @@ function addNames(e) {
 
 // player.wheelResults(spin) {
 //   if ( spin === 'bankrupt' ) {
-//     player.totalScore = 0;
+//     player.roundScore = 0; 
 //   } else if ( spin.type === number ) {
 //     player.roundScore += spin;
 //     player.chooseConsonant();
@@ -119,35 +119,35 @@ function addNames(e) {
 // $solvePuzzleButton.on( 'click', solvePuzzle() );
 
 // puzzle.solvePuzzle() {
-  // prompt player to attempt to solve;
-  // $submitGuessButton.on( 'click', submitGuess() );
+//   prompt player to attempt to solve;
+//   $submitGuessButton.on( 'click', submitGuess() );
 // }
 
 // puzzle.submitGuess() {
-  // if ( guess !== this.answer ) {
-    // console.log('incorrect answer');
-    // player.endTurn();
-  // } else if ( guess === this.answer ) {
-    // totalScore += roundScore;
-    // game.roundOver();
-  // }
+//   if ( guess !== this.answer ) {
+//     console.log('incorrect answer');
+//     player.endTurn();
+//   } else if ( guess === this.answer ) {
+//     this.totalScore += this.roundScore;
+//     game.roundOver();
+//   }
 // }
 
 
 // game.roundOver() {
-  // if ( round === 4 )
-    // bonusRound();
-  // else if ( round === bonus )
-    // endGame();
-  // else
-    // round++;
-    // startRound();
+//   if ( round === 4 )
+//     this.bonusRound();
+//   else if ( round === bonus )
+//     this.endGame();
+//   else
+//     this.round++;
+//     this.startRound();
 // }
 
 
 // game.bonusRound() {
-  // new BonusWheel object;
-  // disable non-1st-place players
+//   new BonusWheel object;
+//   disable non-1st-place players
 // }
 
 
