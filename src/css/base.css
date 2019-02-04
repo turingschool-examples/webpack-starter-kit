@@ -115,15 +115,15 @@ button.wheel {
   height: 50px;
   width: 30px;
   margin: 5px;
-  border-bottom: solid yellow 2px;
+  border-bottom: solid #fff 2px;
+}
+
+.no-border {
+  border-bottom: none;
 }
 
 .hide {
   color: hsla(0, 0%, 0%, 0)
-}
-
-.reveal {
-  font-size: 12px;
 }
 
 .category {
