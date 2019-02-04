@@ -30,7 +30,6 @@ import './images/Oak2.png';
 import Player from './Players';
 
 // * This is the JavaScript entry file - your code begins here. *
-console.log("start")
 
 // $(".start--button").click(function (e) {
 //   $(".overlay").remove();
@@ -59,11 +58,10 @@ $(".start--button").click(function (e) {
   e.preventDefault();
   let game = new GameBoard()
   game.startGame();
-  game.getCatNames();
-  console.log(game)
-  let round1 = new Round();
-  round1.startRound()
-  console.log(round1)
+  // game.getCatNames();
+  // let round1 = new Round();
+  // round1.startRound()
+  // console.log(round1)
   // let round2 = new Round();
   // console.log(round2)
   // let round3 = new Round();
