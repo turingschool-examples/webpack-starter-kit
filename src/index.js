@@ -29,4 +29,3 @@ import './images/Squirtle.png';
 import './images/Oak2.png';
 
 // * This is the JavaScript entry file - your code begins here. *
-
