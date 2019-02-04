@@ -13,10 +13,17 @@ describe('Wheel', function() {
   });
 
   it('instantiates our good friend, Wheel', function() {
-    expect(wheel).to.be.an('object');
+    expect(wheel).to.be.an.instanceof(Wheel);
   })
 
-  it('should have six elements', function() {    
+  it('should have a default values', function() {
+    expect(wheel.wheelElements).to.equal([]);
+    expect(currentSpin).to.equal(null);
+    expect(currentSpinIndex).to.equal(null);
+  })
+
+  it('should create a wheel with a length of six', function() {    
+    expect(wheel.wheelElements).to.have.lengthOf(0);
     wheel.randomizeWheel();
     expect(wheel.wheelElements).to.have.lengthOf(6);
   });
@@ -37,6 +44,7 @@ describe('Wheel', function() {
   it.skip('should reset player score to zero when the wheel lands on bankrupt', function() {
     player.roundScore = 10;
     wheel.bankrupt(player);
+    // includes within testing chai
     // not sure how to intentionally make the wheel land on bankrupt to test this
     expect(player.roundScore).to.equal(0);
   })
