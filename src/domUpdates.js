@@ -29,7 +29,7 @@ export default {
       if (letter === " ") {
         letter = ("&nbsp;");
       };
-      $('.puzzle').append(`<p class="puzzle-letter">${letter.toUpperCase()}</p>`);
+      $('.puzzle').append(`<p class="puzzle-letter hide">${letter.toUpperCase()}</p>`);
     })
 
     let category = game.puzzles[0].category;
@@ -37,7 +37,9 @@ export default {
   },
 
   changeLetter: function(letter) {
-    $('.puzzle-letter:contains("'+letter+'")').css('color', 'red');
+    // $('.puzzle-letter:contains("'+letter+'")').css('color', 'red');
+    // console.log(letter);
+    $('.puzzle-letter:contains("'+letter+'")').removeClass('hide');
     console.log(letter);
   },
 
