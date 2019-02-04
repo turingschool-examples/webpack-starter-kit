@@ -15,11 +15,12 @@ import Dailydouble from './dailyDouble.js';
 import $ from 'jquery';
 // import Data from './data.js';
 
+let game = new Gameboard();
+
 
 let $startBtn = $('#playBtn');
 $startBtn.on('click', function(e) {
   e.preventDefault();
-  let game = new Gameboard();
   game.startGame();
   console.log(game);
   pullNames();
@@ -27,17 +28,15 @@ $startBtn.on('click', function(e) {
 
 let $gameboard = $('.game-board');
 
+
 $gameboard.on('click', function(e) {
   if (e.target.className === 'clue-box') {
-    console.log(e.target);
+    let selectedClue = e.target;
+    game.selectClue(selectedClue);
   }
 })
 
 let $clueBoxes = $('.clue-box');
-
-// $clueBoxes.forEach(clueBox => {
-//   clueBox.on('click', assignClue)
-// })
 
 function pullNames() {
   let $playerName1 = $('#playerNameInput1').val();
