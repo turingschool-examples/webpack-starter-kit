@@ -45,7 +45,38 @@ export default {
 
   wrongLetter: function(letter) {
     $('.pop-up-letters').append(`<p class="wrong-letter">${letter.toUpperCase()}</p>`);
-  }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  valueMessage: function(currentElement) {
+    $('.pop-up-message').text( `${currentElement}`)
+  },
+
+  bankruptOrLoseATurnMessage: function(currentElement) {
+    if (currentElement === 'BANKRUPT') {
+      $('.pop-up-message').text(`You just lost All The Money`)
+    } 
+    if (currentElement === 'LOSE A TURN') {
+      $('.pop-up-message').text(`Wow you suck - lost your turn.`)
+    }
+  },
+
+
 }
 
 

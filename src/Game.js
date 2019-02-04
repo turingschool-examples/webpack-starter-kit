@@ -84,9 +84,7 @@ class Game {
 
 
 
-  spin() {
 
-  }
 
   solve() {
 
