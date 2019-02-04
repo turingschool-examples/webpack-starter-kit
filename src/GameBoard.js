@@ -1,8 +1,8 @@
 import domUpdates from "./domUpdates";
+// import Player from './Players.js'
 
 class Gameboard {
-  constructor(round, players, activeRound, activePlayer, cluesRemaining, clues) {
-    this.rounds = [];
+  constructor(players, activeRound, activePlayer, cluesRemaining, clues, catNames) {
     this.players = [];
     this.activeRound = 1;
     this.activePlayer = 1;
@@ -12,22 +12,22 @@ class Gameboard {
   }
 
   createPlayers() {
-    let names = domUpdates.getNames();
-    let player1 = new Player(names[0])
-    let player2 = new Player(names[1])
-    let player3 = new Player(names[2])
+    // let names = domUpdates.getNames();
+    // let player1 = new Player(names[0])
+    // let player2 = new Player(names[1])
+    // let player3 = new Player(names[2])
     this.players = [player1, player2, player3]
   }
 
   hidePopup() {
-    $(".start--button").click(function(e) {
+    $(".start--button").click(function() {
       $(".overlay").remove();
       $('.start-up').remove();
     });
   }
 
   showQuestionPopup() {
-    $('.col').click(function(e) {
+    $('.col').click(function() {
       $('.question-container').css('visibility', 'visible')
     });
   }
@@ -49,7 +49,7 @@ class Gameboard {
       })
       shuffle(catClues);
       for (let i = 1; i <= 4; i++) {
-        this.questions.push(catClues.find(clue => {
+        this.clues.push(catClues.find(clue => {
           return clue.pointValue === 100 * i;
         }));
       }
@@ -61,8 +61,6 @@ class Gameboard {
     return this.catNames.find((name, index) => index === catId -1);
     })
   }
-
-  //for each category value we can use object.keys at the index lower to grab the key that is associated with it
 
   changeRound() {
     this.activeRound++;
