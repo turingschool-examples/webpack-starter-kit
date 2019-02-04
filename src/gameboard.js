@@ -29,28 +29,64 @@ class Gameboard {
       clue.categoryName = this.categoryList[clue.categoryId - 1];
       return clue;
       });
-    // console.log(this.cluesWithCategories);
+
+    console.log(this.cluesWithCategories);
+
   };
 
   assignCategories() {
-    // console.log("1" + this.categoryList);
+    console.log(this.cluesWithCategories);
+    
+    function randomize(array) {
+      return array.sort(() => 0.5 - Math.random());
+    };
 
-    for (var i = this.categoryList.length-1; i >=0; i--) {
-     
-        var randomIndex = Math.floor(Math.random()*(i+1)); 
-        var itemAtIndex = this.categoryList[randomIndex]; 
-         
-        this.categoryList[randomIndex] = this.categoryList[i];
-        this.categoryList[i] = itemAtIndex;
+/*
+
+  this.cluesWithCategories.reduce((acc,currentClue) => {
+    let contains = false;
+
+    acc.forEach(uniqueClue  => {
+      if(uniqueClue.categoryName === currentClue.categoryName){
+        contains = true;
+      }
+    })
+
+    if(!contains){
+      acc.push(currentClue)
     }
-    // console.log("2" + this.categoryList);
 
-    this.firstRoundCategories = this.categoryList.splice(0, 4);
-    this.secondRoundCategories = this.categoryList.splice(0, 4);
-    this.finalRoundCategory = this.categoryList.splice(0, 1);
+    return acc;
+  }, [])
+*/
 
-    domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
+    randomize(this.cluesWithCategories);
+
+    console.log(this.cluesWithCategories);
+
+    this.cluesWithCategories.reduce((acc, currentClue) => {
+      console.log(currentClue);
+
+      if (!acc.includes(currentClue.categoryName && currentClue.pointValue)) {
+          acc.push(currentClue);
+      };
+      console.log(acc);
+      return acc;
+      }, []);
+
+
+    // this.firstRoundCategories = this.cluesWithCategories.find();
+    // this.secondRoundCategories = this.categoryList.splice(0, 4);
+    // this.finalRoundCategory = this.categoryList.splice(0, 1);
+
+    // domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
+  
+  
+
+
+  //create an of the categories for each round with 4 questions for each round
   };
+
 
   selectClue(selectedClue) {
     //grab catregory name of box and point value
