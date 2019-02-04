@@ -11,7 +11,8 @@ class Wheel {
     for(let i = 0; i < 6; i++) {
       let randomIndex = Math.floor(Math.random() * data.wheel.length);
       this.wheelElements.push(data.wheel[randomIndex]);
-    } 
+    }
+    return this.wheelElements;
   }
   spinWheel(player) {
     this.currentSpinIndex = Math.floor(Math.random() * 5);
