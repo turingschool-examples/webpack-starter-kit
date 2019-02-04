@@ -61,19 +61,33 @@ function addNames(e) {
 // PSUEDOCODING
 // ------------
 
-// $playGameButton.on( 'click', playGame() );
+$playGameButton.on( 'click', playGame() );
 
-// playgame() {
-//   if ( all prompts are filled ) {
-//     const game = new Game(difficulty);
-//     game.newPlayers();
-//     game.newWheel();
-//     game.newPuzzle();
-//     toggle player name prompt visibility;
-//   } else {
-//     alert to fill out all prompts;
-//   }
-// }
+// change to arrow function
+function playGame() {
+  // change to switch statement
+  if ( $player1Name.value && $player2Name.value && $player3Name.value ) {
+    const game = new Game($difficulty.value);
+    buildGame();
+    $openingPrompt.toggle;
+  } else {
+    $promptWarning.toggle;
+  }
+}
+
+function buildGame() {
+  nameArrayBuilder();
+  game.newWheel();
+  game.newPuzzle();
+}
+
+function nameArrayBuilder() {
+  const playerNames = [];
+  playerNames.push($player1Name.value);
+  playerNames.push($player2Name.value);
+  playerNames.push($player3Name.value);
+  game.createPlayers(playerNames);
+}
 
 // newPlayers() {
 //   const player1 = new Player(name);
