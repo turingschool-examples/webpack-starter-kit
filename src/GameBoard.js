@@ -2,6 +2,10 @@ import data from "./data"
 import $ from 'jquery';
 import jQuery from 'jquery'
 window.$ = jQuery;
+
+import domUpdates from "./domUpdates";
+// import Player from './Players.js'
+
 class Gameboard {
   constructor(players, activeRound, activePlayer, cluesRemaining, clues, catNames) {
     this.players = [];
@@ -12,10 +16,18 @@ class Gameboard {
     this.catNames = [];
   }
 
+  createPlayers() {
+    // let names = domUpdates.getNames();
+    // let player1 = new Player(names[0])
+    // let player2 = new Player(names[1])
+    // let player3 = new Player(names[2])
+    this.players = [player1, player2, player3]
+  }
+
   hidePopup() {
     $(".start--button").click(function() {
       $(".overlay").toggle();
-      $('.start-up').remove();
+      $('.start-up').toggle();
     });
   }
 
@@ -27,6 +39,8 @@ class Gameboard {
 
   startGame() {
     const gameArr = this.shuffle(Object.keys(data.categories));
+    domUpdates.displayNames();
+    createPlayers();
     /////////////////////////////////////////////////
 //     let round1 = gameArr.splice(0, 4);
 //     let round2 = gameArr.splice(0, 4);
@@ -57,11 +71,9 @@ class Gameboard {
 
   getCatNames() {
     this.catNames = this.catIds.map(catId => {
-    return this.catNames.find((name, index) => index === catId - 1);
-  })
+    return this.catNames.find((name, index) => index === catId -1);
+    })
   }
-
-  //for each category value we can use object.keys at the index lower to grab the key that is associated with it
 
   changeRound() {
     this.activeRound++;
