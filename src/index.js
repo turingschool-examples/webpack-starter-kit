@@ -10,57 +10,39 @@ import './images/background.jpg';
 import './images/background2.png';
 
 // Tell webpack to use a JS file
-// import data from './data.js';
 import domUpdates from './domUpdates.js';
-// import Puzzle from './Puzzle.js';
+import data from './data.js';
 import Game from './Game.js';
-// import data from './data.js';
-// import Wheel from './Wheel.js';
-
 import $ from 'jquery';
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
-let game = new Game();
-let wheel = new Wheel();
-console.log(game.changeRound())
 
 // jQuery Variables
-let $playerOneOutput = $('player1-output');
-let $playerTwoOutput = $('player2-output');
-let $playerThreeOutput = $('player3-output');
+const $playerOneOutput = $('#player1-output');
+const $playerTwoOutput = $('#player2-output');
+const $playerThreeOutput = $('#player3-output');
+
+const $player1Name = $('#player1');
+const $player2Name = $('#player2');
+const $player3Name = $('#player3');
+
+const $submitNames = $('.submit-names');
 
 
 
 // JS variables
-let difficulty1 = data.puzzles.one_word_answers;
-let difficulty2 = data.puzzles.two_word_answers;
-let difficulty3 = data.puzzles.three_word_answers;
-let difficulty4 = data.puzzles.four_word_answers;
+const difficulty1 = data.puzzles.one_word_answers;
+const difficulty2 = data.puzzles.two_word_answers;
+const difficulty3 = data.puzzles.three_word_answers;
+const difficulty4 = data.puzzles.four_word_answers;
 
+const game = new Game();
 
 
 
 // jQuery Event Listeners
 
 
-// Functions
-// function addNames() {
-//   // console.log("Did this work?");
-//   $playerOneOutput.text($player1Name);
-//   $playerTwoOutput.text($player2Name);
-//   $playerThreeOutput.text($player3Name);
-// };
 
-
-// PSUEDOCODING
-// ------------
-const $player1Name = $('#player1');
-const $player2Name = $('#player2');
-const $player3Name = $('#player3');
-
-const $submitNames = $('.submit-names');
-// 
 
 $submitNames.on( 'click', playGame );
 
@@ -68,9 +50,7 @@ $submitNames.on( 'click', playGame );
 function playGame(e) {
   e.preventDefault();
   if ( $player1Name[0].value && $player2Name[0].value && $player3Name[0].value ) {
-    const game = new Game();
     buildGame();
-    addNames();
     // $openingPrompt.toggle;
   } else {
     console.log('fill in names');
@@ -90,9 +70,14 @@ function createPlayerNames() {
   playerNames.push($player2Name.value);
   playerNames.push($player3Name.value);
   game.createPlayers(playerNames);
+  displayPlayerNames();
 }
 
-
+function displayPlayerNames() {
+  $playerOneOutput.text($player1Name[0].value);
+  $playerTwoOutput.text($player2Name[0].value);
+  $playerThreeOutput.text($player3Name[0].value);
+}
 
 // newWheel() {
 //   const wheel = new Wheel();

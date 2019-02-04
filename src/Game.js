@@ -15,12 +15,7 @@ class Game {
       const player = new Player(name);
       thisPlayers.push(player);
     })
-    this.displayPlayerNames();
-  }
-  displayPlayerNames() {
-    $playerOneOutput.text($player1Name[0].value);
-    $playerTwoOutput.text($player2Name[0].value);
-    $playerThreeOutput.text($player3Name[0].value);
+    // displayPlayerNames();
   }
   createWheel() {
     const wheel = new Wheel();
