@@ -1,3 +1,5 @@
+import domUpdates from "./domUpdates";
+
 class Gameboard {
   constructor(round, players, activeRound, activePlayer, cluesRemaining, clues) {
     this.rounds = [];
@@ -7,6 +9,14 @@ class Gameboard {
     this.cluesRemaining = 16;
     this.clues = [];
     this.catNames = [];
+  }
+
+  createPlayers() {
+    let names = domUpdates.getNames();
+    let player1 = new Player(names[0])
+    let player2 = new Player(names[1])
+    let player3 = new Player(names[2])
+    this.players = [player1, player2, player3]
   }
 
   hidePopup() {
@@ -23,6 +33,8 @@ class Gameboard {
   }
 
   startGame() {
+    domUpdates.displayNames();
+    createPlayers();
     const gameArr = shuffle(Object.keys(data.categories));
     if (this.roundId === 1) {
       this.catIds = gameArr.splice(0, 4);
@@ -47,7 +59,7 @@ class Gameboard {
   getCatNames() {
     this.catNames = this.catIds.map(catId => {
     return this.catNames.find((name, index) => index === catId -1);
-  })
+    })
   }
 
   //for each category value we can use object.keys at the index lower to grab the key that is associated with it
