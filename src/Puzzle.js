@@ -14,6 +14,10 @@ class Puzzle {
   checkGuess() {
   const array = this.answer.toUpperCase().split('');
   const letter = $('#guess-input').val().toUpperCase();
+  if (letter === "A" || letter === "E" || letter === "I" || letter === "O" || letter === "U") {
+    alert("Sorry, a vowel costs $100. You can buy one below.");
+    return;
+  }
   if (array.includes(letter)) {
     domUpdates.changeLetter(letter);
     } else {

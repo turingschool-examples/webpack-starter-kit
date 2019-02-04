@@ -23,22 +23,20 @@ export default {
   },
 
   changePuzzle: function() {
-    let answer = game.puzzles[0].answer.split(''); 
+    let answer = game.puzzles[1].answer.split('');
     console.log(answer);
     answer.forEach(letter => {
-      if (letter === " ") {
-        letter = ("&nbsp;");
-      };
-      $('.puzzle').append(`<p class="puzzle-letter hide">${letter.toUpperCase()}</p>`);
-    })
-
-    let category = game.puzzles[0].category;
+      if (letter === " " || letter === "-" || letter === "&" || letter === "\'") {
+        $('.puzzle').append(`<p class="puzzle-letter no-border">${letter.toUpperCase()}</p>`);
+      } else {
+        $('.puzzle').append(`<p class="puzzle-letter hide">${letter.toUpperCase()}</p>`);
+      }
+    });
+    let category = game.puzzles[1].category;
     $('.category').text(category); 
   },
 
   changeLetter: function(letter) {
-    // $('.puzzle-letter:contains("'+letter+'")').css('color', 'red');
-    // console.log(letter);
     $('.puzzle-letter:contains("'+letter+'")').removeClass('hide');
     console.log(letter);
   },
