@@ -1,11 +1,10 @@
 import data from './data.js';
-// import Game from './game.js';
-import $ from 'jquery';
+
+import domUpdates from './domUpdates.js';
 
 class Gameboard {
-  constructor(round = 1, highestPointValue, categoryList, firstRoundCategories, secondRoundCategories) {
+  constructor(round = 1, categoryList, firstRoundCategories, secondRoundCategories) {
     this.round = round;
-    this.highestPointValue = highestPointValue;
     this.categoryList = Object.keys(data.categories);
     this.firstRoundCategories = [];
     this.secondRoundCategories = [];
@@ -15,35 +14,26 @@ class Gameboard {
 
   startGame() {
     console.log("You've started the game!");
-    this.appendGameboard();
-    //domUpdate - remove start screen
-    return true;
-  };
-
-  appendGameboard() {
-    console.log("append gameboard");
+    
     this.collectClues();
-
     this.assignCategories();
 
     console.log(this.round);
+    
+    //Include a seond method to run all dom manipulation for start screen/appendgameboard
+  };
 
-    //move below to domupdates.js
-    //in domupdates, make them real english words
-    //add forEach here to iterate through category list to append names
-    // if (game.round === 1) 
-      let $category1 = this.firstRoundCategories[0];
-      $('#category-0').text($category1);
-      let $category2 = this.firstRoundCategories[1];
-      $('#category-1').text($category2);
-      let $category3 = this.firstRoundCategories[2];
-      $('#category-2').text($category3);
-      let $category4 = this.firstRoundCategories[3];
-      $('#category-3').text($category4);
+  collectClues() {
+    let allClues = data.clues;
+    this.cluesWithCategories = allClues.map( clue => {
+      clue.categoryName = this.categoryList[clue.categoryId - 1];
+      return clue;
+      });
+    // console.log(this.cluesWithCategories);
   };
 
   assignCategories() {
-    console.log("1" + this.categoryList);
+    // console.log("1" + this.categoryList);
 
     for (var i = this.categoryList.length-1; i >=0; i--) {
      
@@ -53,29 +43,14 @@ class Gameboard {
         this.categoryList[randomIndex] = this.categoryList[i];
         this.categoryList[i] = itemAtIndex;
     }
-    console.log("2" + this.categoryList);
+    // console.log("2" + this.categoryList);
 
     this.firstRoundCategories = this.categoryList.splice(0, 4);
     this.secondRoundCategories = this.categoryList.splice(0, 4);
     this.finalRoundCategory = this.categoryList.splice(0, 1);
 
+    domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
   };
-
-
-  // ???? Pull all data into an array that lives in gameboard
-  // help us do comparison of indecies between cluebox and category
-  // pull clue of desired category index and $$$
-  // 
-
-  collectClues() {
-    let allClues = data.clues;
-    this.cluesWithCategories = allClues.map( clue => {
-      clue.categoryName = this.categoryList[clue.categoryId - 1];
-      return clue;
-      });
-    console.log(this.cluesWithCategories);
-  };
-
 
   selectClue(selectedClue) {
     //grab catregory name of box and point value
@@ -84,8 +59,6 @@ class Gameboard {
     //instantiate a clue with that data
     
   };
-
-
 
   appendWager() {
     //
@@ -97,9 +70,21 @@ class Gameboard {
 
   doublePoints() {
     //when we enter round 2, each box should display and be worth double points
+  };
+
+  finishGame() {
+
+  };
+
+  exitGame() {
+
+  };
+
+  changePlayerTurn() {
+    //Will need method to change player active status
   }
 
-}
+};
 
 
 
