@@ -9,20 +9,19 @@ import Game from '../src/Game.js';
 // import Puzzle from '../src/Puzzle.js';
 // import Player from '../src/Player.js';
 
+chai.spy.on(domUpdates, ['getNames', 'displayNames'], () => true);
+
 
 describe('Game', function() {
+  let game; 
 
   beforeEach(function() {
-    chai.spy.on(domUpdates, ['getNames', 'displayNames'], () => true);
+    game = new Game;
   })
 
   afterEach(function() {
-    chai.spy.restore(domUpdates);
+   chai.spy.restore(domUpdates);
   })
-
-  it('Make Sure Testing is working', function() {
-    expect(true).to.equal(true);
-  });
 
   // Players //
 
