@@ -66,7 +66,7 @@ class Gameboard {
   
   namePlayers() {
     // push player names into players array
-    this.players.push($("$p1-name-js"), $("p2-name-js"), $("p3-name-js"))
+    this.players.push($("$p1-name-js"), $("p2-name-js"), $("p3-name-js"));
   }
 
   changeTurn(players) {
