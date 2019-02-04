@@ -49,7 +49,13 @@ const domUpdates = {
 
   updateRoundScore(value, num) {
     $(`#player-${num}-round-score`).text(value)
-  } 
+  },
+
+  disableButton(clickedButton) {
+    clickedButton.disabled = true;
+    $(clickedButton).addClass('disabled-bank-letter')
+    console.log(clickedButton)
+  }
 
 
 }

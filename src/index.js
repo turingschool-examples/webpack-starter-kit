@@ -31,8 +31,10 @@ $('#submit-btn').on('click', function(e) {
 
 $('.letter-button').on('click', function(e) {
   let clickedLetter = e.target.innerHTML;
+  let clickedButton = e.target
+  console.log(clickedButton)
   console.log(clickedLetter)
-  wheelOfFortune.compareClickedButton(clickedLetter, wheel)
+  wheelOfFortune.compareClickedButton(clickedLetter, wheel, clickedButton)
   //we're gonna add class 'disabled' after a consonants button is clicked + styling (ex:permanently purple)
   //also write a game method that
 })

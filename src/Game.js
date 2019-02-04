@@ -77,7 +77,7 @@
     // domUpdates.displayPuzzle();
   }
 
-  compareClickedButton(clickedLetter, wheel) {
+  compareClickedButton(clickedLetter, wheel, button) {
     console.log(clickedLetter);
     let splitPuzzle = this.roundPuzzle.toUpperCase().split('')
     let letterCount = 0;
@@ -100,6 +100,7 @@
         console.log('this letter is not here');
         this.changeTurn();
       }
+      domUpdates.disableButton(button);
   }
 
   changeTurn() {
