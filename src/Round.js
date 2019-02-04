@@ -1,9 +1,7 @@
 import data from './data';
-import Gameboard from './GameBoard';
 
 class Round {
   constructor(players, activeRound, activePlayer, cluesRemaining, clues, catNames) {
-    // super(players, activeRound, activePlayer, cluesRemaining, clues, catNames);
     this.catNames = [];
     this.catIds = [];
     this.clues = [];
@@ -26,10 +24,7 @@ class Round {
     });
     console.log(this)
   }
-  setCatID(gameCat, data) {
-    //Depending on round // set category
-    // Get category names (call function)
-  }
+
   getCatNames() {
     const catString = [
       'United States History', 'Life Sciences', 'Public Health', 'Education Jargon',
@@ -41,11 +36,6 @@ class Round {
       })
       console.log()
     }
-
-  getClues(data) {
-    //we will need to search our dataset to get the clues from our dataset
-    //using the catIDs
-  }
 
   setDDQuestion() {
     let index = Math.floor(Math.random() * this.clues.length);
