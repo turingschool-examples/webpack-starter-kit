@@ -49,7 +49,7 @@ let $tiles = [$('#0'), $('#1'), $('#2'), $('#3'), $('#4'), $('#b5'), $('#c6'), $
 
 // console.log($tiles[15])
 
-let game = new GameBoard();
+// let game = new GameBoard();
 
 
 // * ======= Functions ======= *
@@ -60,33 +60,28 @@ $(".start--button").click(function (e) {
   e.preventDefault();
   game = new GameBoard();
   game.startGame();
-  // domUpdates.toggleStart();
+  domUpdates.toggleStart();
 });
 
-$('h2').click(domUpdates.toggleOverlay());
+// $('h2').click(domUpdates.toggleOverlay());
 
 
-  $('.overlay').toggle();
-  $('.start-container').toggle();
-  $('.popup').toggle();
-});
+// $('.col').click(function () {
+//   $('.overlay').toggle();
+//   $(".question-container").css('visibility', 'visible');
+//   // $('.popup').toggle();
+// });
 
-$('.col').click(function () {
-  $('.overlay').toggle();
-  $(".question-container").css('visibility', 'visible');
-  $('.popup').toggle();
-});
+
 $('.col').click(function (e) {
   console.log('tile id ', event.target.id);
   let tileId = event.target.id;
   domUpdates.showQuestion(game, tileId);
-  // $(e.target).css('visibility', 'hidden');
-
 });
 
 $('.popup-btn').click(function (e) {
   e.preventDefault();
-  $('.overlay').toggle();
-  $(".question-container").css('visibility', 'visible');
-  $('.popup').toggle();
-})
+  
+});
+
+
