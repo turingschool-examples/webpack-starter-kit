@@ -47,6 +47,13 @@ h1 {
   font-size: 300%;
 }
 
+#reset-button {
+  border-radius: 12px;
+  font-size: 14px;
+  padding: 5px;
+  float: right;
+}
+
 .player-input {
   margin: 20px 0;
 }

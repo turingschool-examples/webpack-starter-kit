@@ -30,5 +30,12 @@ const domUpdates = {
   // }
 }
 
+let $resetButton = $('#reset-button');
+
+$resetButton.on('click', function() {
+  location.reload();
+});
+
+
 export default domUpdates;
 
