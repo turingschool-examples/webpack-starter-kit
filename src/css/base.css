@@ -84,8 +84,19 @@ main {
   width: 200px;
   height: 200px;
   background: hsla( 23, 31%, 58%, 0.8);
-  border-radius: 50%;
   margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.wheel-container div p {
+  margin: 0;
+  width: 100%;
+  height: 30px;
+  font-weight: 700;
+  color: white;
 }
 
 main button {

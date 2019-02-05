@@ -30,28 +30,6 @@ const $player3Name = $('#player3');
 const $submitNames = $('.submit-names');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // game.players array
-  // run function winRound() on player
-  // update dom with game.players array
-    // objects within property total score
-    // display total score on dom
-
-
-
 // JS variables
 const difficulty1 = data.puzzles.one_word_answers;
 const difficulty2 = data.puzzles.two_word_answers;
