@@ -7,6 +7,8 @@ import $ from 'jquery';
 import './css/base.css';
 import Game from './Game.js';
 import domUpdates from './domUpdates.js';
+import Clue from './Clue.js';
+import DailyDouble from './DailyDouble.js';
 
 //  Tell webpack to use an image (link to it in index.html)
 let game = new Game();
@@ -15,13 +17,13 @@ $('.start--btn').on('click', () => {
   let one = $('.player--input1').val();
   let two = $('.player--input2').val();
   let three = $('.player--input3').val();
-  if(one.length === 0) {
+  if (one.length === 0) {
     one = 'Player1';
   }
-  if(two.length === 0) {
+  if (two.length === 0) {
     two = 'Player2';
   }
-  if(three.length === 0) {
+  if (three.length === 0) {
     three = 'Player3';
   }
   game.gatherPlayers(one, two, three);
@@ -45,6 +47,11 @@ $('.game--board').on('click', (event) => {
   }
   domUpdates.removeTile(event.target);
 });
+
+$('body').on('click', '.submit--wager', () => {
+  let playWager = $('.submit--wager').prev().val();
+  game.currentClue.wagerScore(playWager);
+})
 
 $('body').on('click', '.submit--guess', () => {
   let playInput = $('.submit--guess').prev().val();

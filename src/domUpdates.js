@@ -61,6 +61,18 @@ const domUpdates = {
     $('.category--four').text(array[3]);
   },
   
+  displayDailyDouble: () => {
+    $('.game--container').toggleClass('game--inactive');
+    $('body').append(`
+    <div class="popup--container">
+      <h2 class="popup--question">You got a DAILY DOUBLE!</h2>
+      <h5>Please enter your wager:</h5>
+      <input class="wager--input" type="text" placeholder="Place Wager Here"/>
+      <button class="submit--wager">Submit Wager</button>
+    </div>
+    `);
+  },
+
   displayClue: (question) => {
     $('.game--container').toggleClass('game--inactive');
     $('body').append(`

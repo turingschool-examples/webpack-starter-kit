@@ -1,4 +1,5 @@
 import Clue from './Clue.js';
+import domUpdates from './domUpdates.js';
 
 class DailyDouble extends Clue {
   constructor(wager, question, pointValue, answer, categoryId) {
@@ -7,7 +8,7 @@ class DailyDouble extends Clue {
   }
 
   wagerScore(wager) {
-    this.pointValue += wager;
+    this.pointValue += parseInt(wager);
   }
 }
 

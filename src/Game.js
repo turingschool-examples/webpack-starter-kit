@@ -58,11 +58,11 @@ class Game {
     });
     if (specificClue.dailyDouble === true) {
       this.currentClue = new DailyDouble(0, specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
-      this.currentClue.wagerScore();
+      domUpdates.displayDailyDouble()
     } else {
       this.currentClue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
+      domUpdates.displayClue(specificClue.question);
     }
-    domUpdates.displayClue(specificClue.question);
   }
 
   quitGame() {
@@ -96,6 +96,7 @@ class Game {
       domUpdates.displayCategories(this.roundThree);
     }
   }
+
 
 
   // determineWinner() {
