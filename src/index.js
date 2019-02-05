@@ -15,6 +15,15 @@ $('.start--btn').on('click', () => {
   let one = $('.player--input1').val();
   let two = $('.player--input2').val();
   let three = $('.player--input3').val();
+  if(one.length === 0) {
+    one = 'Player1';
+  }
+  if(two.length === 0) {
+    two = 'Player2';
+  }
+  if(three.length === 0) {
+    three = 'Player3';
+  }
   game.gatherPlayers(one, two, three);
   domUpdates.displayPlayers(one, two, three);
   domUpdates.toggleSplash();
