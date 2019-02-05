@@ -45,23 +45,26 @@ class Game {
         allCategories.push(singleCat)
       }
     } while (allCategories.length < 9)
-    this.roundOne = allCategories.slice(0,4);
-    this.roundTwo = allCategories.slice(4,8);
-    this.roundThree = allCategories.slice(8,9);
+    this.roundOne = allCategories.slice(0, 4);
+    this.roundTwo = allCategories.slice(4, 8);
+    this.roundThree = allCategories.slice(8, 9);
     domUpdates.displayCategories(this.roundOne);
   }
 
   instantiateClue(dataset) {
     let specificClue = this.allCluesInPlay.find(clue => {
-      return clue.categoryId == dataset.categoryid && clue.pointValue == dataset.pointvalue;
-    })
+      return clue.categoryId === parseInt(dataset.categoryid) && clue.pointValue === parseInt(dataset.pointvalue);
+    });
     this.currentClue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
     domUpdates.displayClue(specificClue.question);
   }
 
   quitGame() {
+    this.allCluesInPlay = [];
+    this.players = [];
+    this.counter = 0;
+    domUpdates.resetPlayersScores();
     domUpdates.toggleSplash();
-    this.allClues = [];
   }
 
   submitGuess(input) {
@@ -79,6 +82,7 @@ class Game {
       domUpdates.setClues(round.cluesRoundTwo);
       domUpdates.displayCategories(this.roundTwo);
       round.changePointRange();
+      domUpdates.displayRound();
     } else if (this.counter === 32) {
       let round = new Round(3);
       round.gatherClues(this.roundThree, this);

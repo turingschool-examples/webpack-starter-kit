@@ -1,4 +1,3 @@
-import Player from "./Player.js"
 import $ from 'jquery';
 
 const domUpdates = {
@@ -22,6 +21,16 @@ const domUpdates = {
     } else {
       $('.player--three--score').text(currentplayer.score);
     }
+  },
+
+  resetPlayersScores: () => {
+    $('.player--one--score').text(0);
+    $('.player--two--score').text(0);
+    $('.player--three--score').text(0);
+  },
+
+  displayRound: () => {
+    $('.game--round').text('Round: 2')
   },
 
   enableReset: () => {
