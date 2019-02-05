@@ -34,10 +34,10 @@
         </article>
         <article class="form-container">
           <form class="guess-letter">
-            <input type="text" id="guess-input" class="player-input" placeholder="Guess a letter"><button id="guess-button" class="play-button">GUESS</button>
+            <input type="text" id="guess-input" class="player-input" maxlength="1" placeholder="Guess a letter"><button id="guess-button" class="play-button">GUESS</button>
           </form>
           <form class="buy-vowel">
-            <input type="text" class="player-input" placeholder="Buy a vowel"><button class="play-button">BUY</button>
+            <input type="text" id="vowel-input" class="player-input" maxlength="1" placeholder="Buy a vowel"><button id="vowel-button" class="play-button">BUY</button>
           </form>
           <form class="solve-puzzle">
             <input type="text" class="player-input" placeholder="Solve the puzzle"><button class="play-button">SOLVE</button>
@@ -51,7 +51,7 @@
           <p class="pop-up-message">Sample Message</p>
         </article>
         <article class="guessed-letters">
-          <p class="pop-up-letters">ABC</p>
+          <p class="pop-up-letters">GUESSED LETTERS</p>
         </article>
       </section>
       <section class="players">

@@ -13,16 +13,32 @@ class Puzzle {
 
   checkGuess() {
   const array = this.answer.toUpperCase().split('');
-  const letter = $('#guess-input').val().toUpperCase();
-  if (letter === "A" || letter === "E" || letter === "I" || letter === "O" || letter === "U") {
+  let forbiddenVowel = ["A", "E", "I", "O", "U"];
+  let forbiddenNum = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  const letter = ($('#guess-input').val().toUpperCase());
+  if (forbiddenVowel.includes(letter)) {
     alert("Sorry, a vowel costs $100. You can buy one below.");
     return;
-  }
+    }
+  if (forbiddenNum.includes(letter)) {
+        alert("That's not a letter");
+        return;
+    }
   if (array.includes(letter)) {
     domUpdates.changeLetter(letter);
     } else {
       domUpdates.wrongLetter(letter);
     };
+  }
+
+  checkVowel() {
+    const puzzleAnswer = this.answer.toUpperCase().split('');
+    const vowel = ($('#vowel-input').val().toUpperCase());
+    if (puzzleAnswer.includes(vowel)) {
+      domUpdates.changeLetter(vowel);
+    } else {
+      domUpdates.wrongLetter(vowel);
+    }
   }
 }
 
