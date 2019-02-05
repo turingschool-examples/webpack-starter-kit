@@ -41,6 +41,7 @@ class Puzzle {
   }
   divideAnswer() {
     let splitAnswer = this.answer.split('');
+    console.log(splitAnswer);
   }
 };
 
