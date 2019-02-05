@@ -48,6 +48,7 @@ class Gameboard {
       round3.catIds = gameArr.splice(0, 1);
       round1.startRound(this);
       round1.getCatNames();
+      // round1.setCatNames();
   }
 
   changeRound() {
@@ -56,7 +57,7 @@ class Gameboard {
   
   namePlayers() {
     // push player names into players array
-    this.players.push($("$p1-name-js"), $("p2-name-js"), $("p3-name-js"))
+    this.players.push($("$p1-name-js"), $("p2-name-js"), $("p3-name-js"));
   }
 
   changeTurn(players) {

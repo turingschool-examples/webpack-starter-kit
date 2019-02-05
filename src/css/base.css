@@ -1,3 +1,5 @@
+/* Change the start button */
+
 body {
   background-color: #8eab73;
   background-image: url("./../images/bg-image.jpg");
@@ -259,7 +261,7 @@ fieldset, .start--button {
   position: absolute;
   top: 20%;
   left: 22%;
-  z-index: 11;
+  z-index: 15;
 }
 
 .question-container {

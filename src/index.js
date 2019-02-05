@@ -27,10 +27,8 @@ import './images/bulbasaur.png';
 import './images/charmander.png';
 import './images/Squirtle.png';
 import './images/Oak2.png';
-import Player from './Players';
 
 // * This is the JavaScript entry file - your code begins here. *
-
 // $(".start--button").click(function (e) {
 //   $(".overlay").remove();
 //   $('.start-up').remove();
@@ -39,9 +37,16 @@ import Player from './Players';
 //   $('.question-container').css('visibility', 'visible')
 // })
 // * ======= Global Variables ======= *
-let $player1Name = $('#p1-name-js');
-let $player2Name = $('#p2-name-js');
-let $player3Name = $('#p3-name-js');
+let $player1Name = $('#p1-name-js').val();
+let $player2Name = $('#p2-name-js').val();
+let $player3Name = $('#p3-name-js').val();
+
+let $cats = [$('.1'), $('.2'), $('.3'), $('.4')];
+let $cols1 = [$('.a1'), $('.b1'), $('.c1'), $('.d1')];
+let $cols2 = [$('.a2'), $('.b2'), $('.c2'), $('.d2')];
+let $cols3 = [$('.a3'), $('.b3'), $('.c3'), $('.d3')];
+let $cols4 = [$('.a4'), $('.b4'), $('.c4'), $('.d4')];
+
 
 
 
@@ -58,15 +63,8 @@ $(".start--button").click(function (e) {
   e.preventDefault();
   let game = new GameBoard()
   game.startGame();
-  // game.getCatNames();
-  // let round1 = new Round();
-  // round1.startRound()
-  // console.log(round1)
-  // let round2 = new Round();
-  // console.log(round2)
-  // let round3 = new Round();
-  // console.log(round3)
-
+  // game.players.push($player1Name, $player2Name, $player3Name)
+  // let player.name = $('#p1-name-js').val()
   let $p1Name = $("#p1-name-change-js")
   $p1Name.text($('#p1-name-js').val())
 
@@ -76,14 +74,16 @@ $(".start--button").click(function (e) {
   let $p3Name = $("#p3-name-change-js")
   $p3Name.text($('#p3-name-js').val())
 
+  $cats.forEach(cat => {
+    $cats[cat] = "test"
+  })
+
   $('.overlay').toggle();
   $('.start-up').toggle();
-  $('.q-pop').toggle();
-  
 });
 
 $('.col').click(function () {
-  $(this).css('visibility', 'hidden');
   $('.overlay').toggle();
+  $(".question-container").css('visibility', 'visible');
   $('.q-pop').toggle();
-})
+});
