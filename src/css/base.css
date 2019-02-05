@@ -187,9 +187,14 @@ body {
   opacity: 1;
  }
 
-.hiddenWord {
+.hidden-word {
   background-color: white;
   font-size: .1px;
+}
+
+.correct-letter { 
+background-color: white;
+
 }
 
 

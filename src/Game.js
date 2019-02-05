@@ -104,7 +104,7 @@
       domUpdates.disableButton(button);
   }
 
-  changeTurn() {
+   changeTurn() {
     // console.log(this.activePlayer)
       if(this.activePlayer === this.players[0]) {
         this.players[0].active = false;

@@ -36,7 +36,7 @@ const domUpdates = {
 
     letters.forEach((letter, i) => {
       if(letter != ' ' && letter != '-') {
-        $(`#box-${i + 13}`).addClass('hiddenWord')
+        $(`#box-${i + 13}`).addClass('hidden-word')
       }
     })
   },
@@ -61,6 +61,12 @@ const domUpdates = {
 
   updateRoundScore(value, num) {
     $(`#player-${num}-round-score`).text(value)
+
+  },
+
+  clearRoundScore(wheelOfFortune) {
+    console.log(wheelOfFortune)
+    $(`#player-${wheelOfFortune.activePlayer.playerNumber}-round-score`).text(0)
   },
 
   disableButton(clickedButton) {
@@ -80,10 +86,11 @@ const domUpdates = {
     console.log(button)
 
     numbers.forEach(number => {
-      console.log($(`#box-${number}`).text());
+      // console.log($(`#box-${number}`).text());
 
       if($(`#box-${number}`).text() === letter) {
-        $(`#box-${number}`).removeClass('hiddenWord')
+        $(`#box-${number}`).removeClass('hidden-word')
+        $(`#box-${number}`).addClass('correct-letter')
       }
     })
   }
