@@ -8,6 +8,9 @@ class Game {
     this.difficulty = difficulty;
     this.round = 1;
     this.players = [];
+    this.roundWheel = [];
+    this.bonusWheel = [];
+    this.roundPuzzle = [];
   }
   createPlayers(names) {
     let thisPlayers = this.players;
@@ -26,22 +29,28 @@ class Game {
     })
   }
   createPuzzle() {
-    const puzzle = new Puzzle();
+    this.roundPuzzle = new Puzzle
+
+    this.roundPuzzle.chooseDifficulty();
+    this.roundPuzzle.randomizePuzzle();
     // display puzzle, difficulty, hint on DOM
   }
-  changeRound() {
+  newRound() {
     this.round++;
-    if (this.round < 5) {
-      let wheel = new Wheel();
-      let player = new Player();
-      let sortedPlayers = this.players.sort(function(a, b) {
-        return a.roundScore - b.roundScore;
-      })
-      //player with the highest score gets to keep his money: player.winRound()
+    this.players.forEach((player) => {
       player.resetScore();
-      return wheel.randomizeWheel();
+    });
+    // update dom
+    if (this.round < 5) {
+      this.createWheel();
+      console.log('rounds 1-4')
+      this.roundWheel = new Wheel();      
+      this.roundWheel.randomizeWheel();
+      this.createPuzzle();
     }
     if (this.round === 5) {
+      console.log('in round 5');
+      // this.createBonusWheel();
       // start bonus round;
     } 
   }

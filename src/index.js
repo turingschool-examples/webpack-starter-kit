@@ -59,8 +59,9 @@ function playGame(e) {
 
 function buildGame() {
   createPlayerNames();
-  game.createWheel();
-  game.createPuzzle();
+  game.newRound();
+    // game.createWheel();
+    // game.createPuzzle();
 }
 
 function createPlayerNames() {
