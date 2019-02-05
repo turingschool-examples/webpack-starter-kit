@@ -56,8 +56,8 @@ const domUpdates = {
     $('.game--container').toggleClass('game--inactive');
     $('body').append(`
     <div class="popup--container clue--container">
-      <h2>${question}</h2>
-      <input type="text" placeholder="Place Answer Here"/>
+      <h2 class="popup--question">${question}</h2>
+      <input class="popup--input" type="text" placeholder="Place Answer Here"/>
       <button class="submit--guess">Submit Guess</button>
     </div>
     `);
@@ -73,6 +73,12 @@ const domUpdates = {
       $(tile).text('');
       $(tile).addClass('used--tile');
     }
+  },
+
+  changePrompt: (answer) => {
+    $('.popup--question').text(`the answer is "${answer}"`);
+    $('.popup--input').css('display', 'none');
+    $('.submit--guess').css('display', 'none');
   }
   
 }
