@@ -1,4 +1,5 @@
 import data from './data';
+import domUpdates from './domUpdates';
 
 class Round {
   constructor(players, activeRound, activePlayer, cluesRemaining, clues, catNames) {
@@ -34,7 +35,8 @@ class Round {
     ];
     this.catNames = this.catIds.map(catId => {
       return catString.find((name, index) => index === catId - 1);
-      })
+    })
+    // domUpdates.setCatNames(this.catNames);
   }
 
 //   setCatNames() {

@@ -24,7 +24,7 @@ class Question {
   }
   displayCurrQuestion() {
     
-    }
+  }
 }
 
 export default Question;

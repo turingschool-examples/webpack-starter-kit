@@ -1,11 +1,13 @@
 // import Gameboard from './GameBoard.js'
+import $ from 'jquery';
+import jQuery from 'jquery'
+window.$ = jQuery;
 
 class Player {
-  constructor(round, point, avatar, name) {
-    // super(round, point)
+  constructor(name, turn = false, avatar) {
     this.name = name;
+    this.turn = turn;
     this.avatar = avatar;
-    this.turn = false;
   }
 
   newTurn() {
@@ -21,10 +23,6 @@ class Player {
     // keep track of player current points
     // add points
     // this.currentPoints + data.clue.pointValue
-  }
-
-  getNames() {
-    $('#p1-name-change-js').text($('#p1-name-js'))
   }
 }
 

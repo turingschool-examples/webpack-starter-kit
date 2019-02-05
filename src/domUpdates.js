@@ -3,16 +3,13 @@ import $ from 'jquery';
 import Round from './Round';
 
 export default {
-  showQuestion: function(game, tileId){
+  showQuestion(game, tileId) {
     console.log('in show question');
     console.log('game', game);
-
     let $questionText = $('.question-body');
     // let $answerBody = $('.popup-input');
-
     $questionText.text(game.roundOne.clues[tileId].question);
     // answerBody.val
-
     $('.question-container').show();
     $('.overlay').show();
     $('.popup').show();
@@ -20,18 +17,22 @@ export default {
   },
 
   toggleStart() {
-//     let $p1Name = $("#p1-name-change-js")
-//     $p1Name.text($('#p1-name-js').val())
-//     let $p2Name = $("#p2-name-change-js")
-//     $p2Name.text($('#p2-name-js').val())
-//     let $p3Name = $("#p3-name-change-js")
-//     $p3Name.text($('#p3-name-js').val())
+    let $p1Name = $("#p1-name-change-js")
+    $p1Name.text($('#p1-name-js').val())
+    let $p2Name = $("#p2-name-change-js")
+    $p2Name.text($('#p2-name-js').val())
+    let $p3Name = $("#p3-name-change-js")
+    $p3Name.text($('#p3-name-js').val())
     $('.start-up').toggle();
     $('.question-container').hide();
     $('.overlay').toggle();
   },
 
-  toggleOverlay: function() {
+  // setCatNames(round.catNames) {
+  //   if (round.catNames ===)
+  // },
+
+  toggleOverlay() {
     $('.overlay').show();
     $('.question-container').show();
     $('.question-overlay').show();

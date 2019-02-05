@@ -56,10 +56,19 @@ let $tiles = [$('#0'), $('#1'), $('#2'), $('#3'), $('#4'), $('#b5'), $('#c6'), $
 
 let game;
 
+$(window).on("load", function () {
+  $('.question-container').hide();
+});
+
 $(".start--button").click(function (e) {
   e.preventDefault();
+  const playerIn = [
+    $('#p1-name-js').val(),
+    $('#p2-name-js').val(),
+    $('#p3-name-js').val()
+  ];
   game = new GameBoard();
-  game.startGame();
+  game.startGame(playerIn);
   domUpdates.toggleStart();
 });
 
@@ -83,6 +92,9 @@ $('.col').click(function (e) {
 $('.popup-btn').click(function (e) {
   e.preventDefault();
   domUpdates.submitQuestion();
+  // game.changeTurn();
 });
 
-
+$('#reset-game').click(function () {
+  location.reload();
+});
