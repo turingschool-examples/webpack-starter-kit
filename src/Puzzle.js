@@ -28,6 +28,7 @@ class Puzzle {
     domUpdates.changeLetter(letter);
     } else {
       domUpdates.wrongLetter(letter);
+      game.updatePlayerSpot();
     };
   }
 
