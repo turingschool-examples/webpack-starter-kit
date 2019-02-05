@@ -6,7 +6,6 @@ import './css/base.css';
 //  Tell webpack to use an image (link to it in index.html)
 // import './images/turing-logo.png'
 
-// import Game from './game.js';
 import Player from './player.js';
 import Clue from './clue.js';
 import Gameboard from './gameboard.js';
@@ -17,7 +16,6 @@ import domUpdates from './domUpdates.js';
 // import Data from './data.js';
 
 let game = new Gameboard();
-
 
 let $startBtn = $('#playBtn');
 $startBtn.on('click', function(e) {
@@ -30,15 +28,15 @@ $startBtn.on('click', function(e) {
 
 let $gameboard = $('.game-board');
 
-
 $gameboard.on('click', function(e) {
   if (e.target.className === 'clue-box') {
-    let selectedClue = e.target;
-    game.selectClue(selectedClue);
+    let selectedClueLocation = e.target.id;
+    let selectedClue = game.firstRoundClues[selectedClueLocation]
+    //change first round clues array to one array for all rounds and use index+15 for second round
+    let clue = new Clue();
+    clue.showClue(selectedClue);
   }
 })
-
-let $clueBoxes = $('.clue-box');
 
 function pullNames() {
   let $playerName1 = $('#playerNameInput1').val();
@@ -54,8 +52,3 @@ function pullNames() {
   console.log(player2);
   console.log(player3);
 }
-
-
-
-
-console.log('This is the JavaScript entry file - your code begins here.');

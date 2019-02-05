@@ -150,6 +150,19 @@ table td {
   padding-top: 30px;
 }
 
+#playerName1 {
+  font-family: 'Rock Salt', cursive;
+}
+
+#playerName2 {
+  font-family: 'Homemade Apple', cursive;
+}
+
+#playerName3 {
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+
 /** Global pop-up **/
 
 .card-head {

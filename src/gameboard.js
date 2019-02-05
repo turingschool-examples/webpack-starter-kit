@@ -1,5 +1,4 @@
 import data from './data.js';
-
 import domUpdates from './domUpdates.js';
 
 class Gameboard {
@@ -28,8 +27,6 @@ class Gameboard {
       clue.categoryName = this.categoryList[clue.categoryId - 1];
       return clue;
       });
-
-    console.log("this.cluesWithCategories");
   };
 
   assignCategories() {    
@@ -279,11 +276,7 @@ class Gameboard {
   };
 
 
-  selectClue(selectedClue) {
-    //grab catregory name of box and point value
-    //iterate through game.cluesWithCategories
-    //find clue object that has matching categoryname and point value
-    //instantiate a clue with that data
+  selectClue(selectedClueId) {
     
   };
 
