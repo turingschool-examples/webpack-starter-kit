@@ -41,7 +41,7 @@ class Gameboard {
       return array.sort(() => 0.5 - Math.random());
     };
 
-/*
+/*    From Justin's advice
 
   this.cluesWithCategories.reduce((acc,currentClue) => {
     let contains = false;
@@ -62,18 +62,50 @@ class Gameboard {
 
     randomize(this.cluesWithCategories);
 
-    console.log(this.cluesWithCategories);
+//our try
 
-    this.cluesWithCategories.reduce((acc, currentClue) => {
-      console.log(currentClue);
 
-      if (!acc.includes(currentClue.categoryName && currentClue.pointValue)) {
-          acc.push(currentClue);
-      };
-      console.log(acc);
-      return acc;
-      }, []);
+    // this.cluesWithCategories.reduce((acc, currentClue) => {
+    //   console.log(currentClue);
 
+    //   if (!acc.includes(currentClue.categoryName && currentClue.pointValue)) {
+    //       acc.push(currentClue);
+    //   };
+    //   console.log(acc);
+    //   return acc;
+    //   }, []);
+
+//tinkering with justins idea    
+
+    // let roundArray = this.cluesWithCategories.reduce((acc,currentClue) => {
+    //   let contains = false;
+    //   acc.forEach(uniqueClue  => {
+    //     if(uniqueClue.pointValue === currentClue.pointValue){
+    //       contains = true;
+    //     };
+    //   });
+
+    //   if(!contains){
+    //     acc.push(currentClue)
+    //   };
+
+    //   console.log(acc);
+    //   return acc;
+    //   }, []);
+
+    //   console.log("round", roundArray);
+
+
+
+//experiment
+
+    let xyz = this.firstRoundCategories.forEach(category => {
+      const cluesPerCat = this.cluesWithCategories.filter(clue => {
+        return clue.categoryId === data.categories[category]
+      })
+      
+    })
+  console.log(xyz)
 
     // this.firstRoundCategories = this.cluesWithCategories.find();
     // this.secondRoundCategories = this.categoryList.splice(0, 4);

@@ -10,19 +10,26 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /** Name input **/
 .input-fields {
   display: flex;
   flex-direction: column;
   align-items: center;
-/*  position: absolute;
+  position: absolute;
   width: 100%;
-  height: 100%;
-  background-color: red;*/
+  height: 3000px;
+  background-color: #B68DCD;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-  font-size: 200%;
+  font-size: 300%;
 }
 
 .player-input {
@@ -34,6 +41,11 @@ h1 {
   height: 40px;
   width: 25%;
   margin-top: 20px;
+  opacity: .5;
+}
+
+.play-btn:hover {
+  opacity: 1;
 }
 
 
@@ -46,23 +58,21 @@ article {
 }
 
 h4 {
-  font-size: 24px;
+  font-size: 36px;
   text-align: center;
+  margin: 0 0 20px 0;
 }
 
 table {
   background-color: lightblue;
-  border-collapse: collapse;
-
+  border-spacing: 10px;
+  border-collapse: separate;
 }
 
 table th {
   border: 1px solid red;
   height: 80px;
   width: 160px;
-  margin: 10px;
-  border-collapse: separate;
-  border-spacing: 30px;
 }
 
 
@@ -71,8 +81,6 @@ table th {
   height: 80px;
   text-align: center;
   width: 160px;
-  border-collapse: separate;
-  border-spacing: 30px;
 }
 
 .clue-box:hover {
