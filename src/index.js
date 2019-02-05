@@ -25,7 +25,30 @@ const $player1Name = $('#player1');
 const $player2Name = $('#player2');
 const $player3Name = $('#player3');
 
+
+
 const $submitNames = $('.submit-names');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // game.players array
+  // run function winRound() on player
+  // update dom with game.players array
+    // objects within property total score
+    // display total score on dom
 
 
 
@@ -39,11 +62,8 @@ const game = new Game();
 
 
 
+
 // jQuery Event Listeners
-
-
-
-
 $submitNames.on( 'click', playGame );
 
 // change to arrow function
@@ -71,6 +91,7 @@ function createPlayerNames() {
   playerNames.push($player3Name.value);
   game.createPlayers(playerNames);
   displayPlayerNames();
+  game.scoreUpdate();
 }
 
 function displayPlayerNames() {

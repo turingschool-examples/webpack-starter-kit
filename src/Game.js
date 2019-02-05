@@ -42,6 +42,11 @@ class Game {
       // start bonus round;
     } 
   }
+  scoreUpdate() {
+  $('#score-player1').text(this.players[0].roundScore);
+  $('#score-player2').text(this.players[1].roundScore);
+  $('#score-player3').text(this.players[2].roundScore);
+}
   endGame() {
       // show 'game over' screen
       // display 'back to home screen' button

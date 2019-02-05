@@ -1,3 +1,5 @@
+import Game from './Game.js';
+
 class Player {
   constructor(name) {
     this.name = name;
@@ -8,6 +10,7 @@ class Player {
   }
   winRound() {
     this.totalScore += this.roundScore;
+    game.scoreUpdate();
   }
   winGame() {
     this.gameWinner = true;
@@ -15,6 +18,7 @@ class Player {
   }
   resetScore() {
     this.roundScore = 0;
+    game.scoreUpdate();
   }
   buyVowel() {
     if (this.roundScore >= 100) {
@@ -25,3 +29,6 @@ class Player {
 };
 
 export default Player;
+
+
+// 
