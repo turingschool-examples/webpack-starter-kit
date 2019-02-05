@@ -11,20 +11,19 @@ import $ from 'jquery';
 // $('.start-button').on('click', playGame);
 
 export default {
-  getNames: function() {
+  getNames() {
     let $players = [$('#player1').val(), $('#player2').val(), $('#player3').val()];
     return $players;
   },
 
-  displayNames: function(players) {
+  displayNames(players) {
     $('#player1-name').text(players[0]);
     $('#player2-name').text(players[1]);
     $('#player3-name').text(players[2]);
   },
 
-  changePuzzle: function() {
+  changePuzzle() {
     let answer = game.puzzles[0].answer.split('');
-    console.log(answer);
     answer.forEach(letter => {
       if (letter === " " || letter === "-" || letter === "&" || letter === "\'") {
         $('.puzzle').append(`<p class="puzzle-letter no-border">${letter.toUpperCase()}</p>`);
@@ -36,12 +35,11 @@ export default {
     $('.category').text(category); 
   },
 
-  changeLetter: function(letter) {
-    $('.puzzle-letter:contains("'+letter+'")').removeClass('hide');
-    console.log(letter);
+  changeLetter(letter) {
+    $('.puzzle-letter:contains("' + letter + '")').removeClass('hide');
   },
 
-  wrongLetter: function(letter) {
+  wrongLetter(letter) {
     $('.pop-up-letters').append(`<p class="wrong-letter">${letter.toUpperCase()}</p>`);
   },
 
@@ -61,11 +59,11 @@ export default {
 
 
 
-  valueMessage: function(currentElement) {
+  valueMessage(currentElement) {
     $('.pop-up-message').text( `${currentElement}`)
   },
 
-  bankruptOrLoseATurnMessage: function(currentElement) {
+  bankruptOrLoseATurnMessage(currentElement) {
     if (currentElement === 'BANKRUPT') {
       $('.pop-up-message').text(`You just lost All The Money`)
     } 
@@ -74,7 +72,7 @@ export default {
     }
   },
 
-  playerTurnUpdate: function() {
+  playerTurnUpdate() {
     alert('change player');
   }
 

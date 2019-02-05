@@ -12,24 +12,24 @@ class Puzzle {
   }
 
   checkGuess() {
-  const array = this.answer.toUpperCase().split('');
-  let forbiddenVowel = ["A", "E", "I", "O", "U"];
-  let forbiddenNum = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  const letter = ($('#guess-input').val().toUpperCase());
-  if (forbiddenVowel.includes(letter)) {
-    alert("Sorry, a vowel costs $100. You can buy one below.");
-    return;
+    const array = this.answer.toUpperCase().split('');
+    let forbiddenVowel = ["A", "E", "I", "O", "U"];
+    let forbiddenNum = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    const letter = ($('#guess-input').val().toUpperCase());
+    if (forbiddenVowel.includes(letter)) {
+      alert("Sorry, a vowel costs $100. You can buy one below.");
+      return;
     }
-  if (forbiddenNum.includes(letter)) {
-        alert("That's not a letter");
-        return;
+    if (forbiddenNum.includes(letter)) {
+      alert("That's not a letter");
+      return;
     }
-  if (array.includes(letter)) {
-    domUpdates.changeLetter(letter);
+    if (array.includes(letter)) {
+      domUpdates.changeLetter(letter);
     } else {
       domUpdates.wrongLetter(letter);
       game.updatePlayerSpot();
-    };
+    }
   }
 
   checkVowel() {
