@@ -40,7 +40,6 @@ $('.game--exit').on('click', () => {
 
 $('.game--board').on('click', (event) => {
   let dataset = event.target.dataset;
-  console.log(dataset)
   if ($(event.target).is('h4')) {
     game.instantiateClue(dataset);
   }
@@ -50,7 +49,6 @@ $('.game--board').on('click', (event) => {
 $('body').on('click', '.submit--guess', () => {
   let playInput = $('.submit--guess').prev().val();
   game.submitGuess(playInput);
-  domUpdates.hidePopUp();
   game.counter++;
   game.initiateRound();
 });
