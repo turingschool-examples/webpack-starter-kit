@@ -34,16 +34,16 @@ class Round {
     ];
     this.catNames = this.catIds.map(catId => {
       return catString.find((name, index) => index === catId - 1);
-    })
+      })
   }
 
-  setCatNames() {
-    console.log("setCats")
-    $cats.forEach(cat => {
-      console.log("each cat")
-      $cats[cat] = this.catIds[cat];
-    })
-  }
+//   setCatNames() {
+//     console.log("setCats")
+//     $cats.forEach(cat => {
+//       console.log("each cat")
+//       $cats[cat] = this.catIds[cat];
+//     })
+//   }
 
   setDDQuestion() {
     let index = Math.floor(Math.random() * this.clues.length);

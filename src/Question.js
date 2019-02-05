@@ -22,9 +22,8 @@ class Question {
     // whether they get the question right or wrong decrease qCount //once qCount = 0 round is over
     //return Ans.toUppercase
   }
-  displayCurrQuestion(currRound, index, qPopup, ddPopup, questionMessage, overlay) {
-    //set currQuestion to roundQuestion[i]
-    //update the DOM with the qPopup
+  displayCurrQuestion() {
+    
     }
 }
 

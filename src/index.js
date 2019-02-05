@@ -11,9 +11,10 @@ import data from './data';
 import domUpdates from './domUpdates';
 import Question from './Question';
 import GameBoard from './GameBoard';
-import Players from './Players';
+import Player from './Players';
 import Round from './Round';
 import DailyDouble from './DailyDouble';
+
 
 import $ from 'jquery';
 import jQuery from 'jquery'
@@ -29,6 +30,8 @@ import './images/Squirtle.png';
 import './images/Oak2.png';
 
 // * This is the JavaScript entry file - your code begins here. *
+
+
 // $(".start--button").click(function (e) {
 //   $(".overlay").remove();
 //   $('.start-up').remove();
@@ -50,29 +53,18 @@ let game = new GameBoard();
 
 
 // * ======= Functions ======= *
-function shuffle(array) {
-  return array.sort(() => 0.5 - Math.random());
-}
 
+let game;
 
 $(".start--button").click(function (e) {
   e.preventDefault();
-  
+  game = new GameBoard();
   game.startGame();
-  // game.players.push($player1Name, $player2Name, $player3Name)
-  // let player.name = $('#p1-name-js').val()
-  let $p1Name = $("#p1-name-change-js")
-  $p1Name.text($('#p1-name-js').val())
+  // domUpdates.toggleStart();
+});
 
-  let $p2Name = $("#p2-name-change-js")
-  $p2Name.text($('#p2-name-js').val())
-  
-  let $p3Name = $("#p3-name-change-js")
-  $p3Name.text($('#p3-name-js').val())
+$('h2').click(domUpdates.toggleOverlay());
 
-  $cats.forEach(cat => {
-    $cats[cat] = "test"
-  })
 
   $('.overlay').toggle();
   $('.start-container').toggle();
