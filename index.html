@@ -4,6 +4,7 @@
     <title>Jeopardy</title>
   </head>
   <body>
+    <!-- start page- name entry -->
     <section class="input-fields">
       <h1>Jeopardy!</h1>
       <form class="player-input">
@@ -20,7 +21,53 @@
       </form>
       <button class="play-btn" id="playBtn">Let's play Jeopardy!</button>
     </section>
-    <header>
+    <!-- Pop up content -- >
+    <!-- question card  --> 
+  <div class="question-card" id="questionCard">
+    <section class="question-card-content">
+      <header class="card-head">
+        <span class="category-reminder">Category</span><span id="displayPointVal"> for: pointval</span>
+      </header>
+      <p id="displayQuestion">Question here</p>
+      <form>
+        <label for="playerAnswer">Type answer here:</label>
+        <input type="text" name="playerAnswer" id="playerAnswer">
+      </form>
+      <button class="answer-btn">Submi Answer</button>
+    </section>
+  </div>
+  <!-- Daily Double Wager -->
+  <div class="daily-double-card" id="dailyDoubleCard">
+    <section class="daily-double-card-content">
+      <header class="card-head">
+        You've selected a Daily Double!
+      </header>
+      <span class="category-reminder">Category reminder</span>
+      <p>Enter a wager up to your total point value or double the question's value</p>
+      <form>
+        <label for="wagerInput">Wager:</label>
+        <input type="text" name="wagerInput" id="wagerInput">
+      </form>
+      <button class="wager-btn">Submit Wager</button>
+    </section>
+  </div>
+  <!-- Final wager -->
+  <div class="final-jeopardy-wager" id="finalJeopardyWager">
+    <section class="final-jeopardy-wager-content">
+      <header class="card-head">
+        Final Jeopardy!
+      </header>
+      <span class="category-reminder">Category</span>
+      <p>How much are you willing to put on the line?</p>
+      <form>
+        <label for="finalWagerInput">Wager:</label>
+        <input type="text" name="finalWagerInput" id="finalWagerInput">
+      </form> 
+      <button class="final-wager-btn">Submit Wager</button> 
+    </section>
+  </div>
+  <!-- Jeopardy Main Screen -->
+    <header class="table-top">
       <h4>Jeopardy</h4>
       <button id="reset-button">Reset Game</button>
     </header>
@@ -33,28 +80,28 @@
           <th class="category-box" id="category-3">Cat 4</th>
         </tr>
         <tr>
-          <td class="clue-box" value="100" id="a-0">$100</td>
-          <td class="clue-box" value="100" id="a-1">$100</td>
-          <td class="clue-box" value="100" id="a-2">$100</td>
-          <td class="clue-box" value="100" id="a-3">$100</td>
+          <td class="clue-box" id="0">$100</td>
+          <td class="clue-box" id="4">$100</td>
+          <td class="clue-box" id="8">$100</td>
+          <td class="clue-box" id="12">$100</td>
         </tr>
         <tr>
-          <td class="clue-box" value="200" id="b-0">$200</td>
-          <td class="clue-box" value="200" id="b-1">$200</td>
-          <td class="clue-box" value="200" id="b-2">$200</td>
-          <td class="clue-box" value="200" id="b-3">$200</td>
+          <td class="clue-box" id="1">$200</td>
+          <td class="clue-box" id="5">$200</td>
+          <td class="clue-box" id="9">$200</td>
+          <td class="clue-box" id="13">$200</td>
         </tr>
         <tr>
-          <td class="clue-box" value="300" id="c-0">$300</td>
-          <td class="clue-box" value="300" id="c-1">$300</td>
-          <td class="clue-box" value="300" id="c-2">$300</td>
-          <td class="clue-box" value="300" id="c-3">$300</td>
+          <td class="clue-box" id="2">$300</td>
+          <td class="clue-box" id="6">$300</td>
+          <td class="clue-box" id="10">$300</td>
+          <td class="clue-box" id="14">$300</td>
         </tr>
         <tr>
-          <td class="clue-box" value="400" id="d-0">$400</td>
-          <td class="clue-box" value="400" id="d-1">$400</td>
-          <td class="clue-box" value="400" id="d-2">$400</td>
-          <td class="clue-box" value="400" id="d-3">$400</td>
+          <td class="clue-box" id="3">$400</td>
+          <td class="clue-box" id="7">$400</td>
+          <td class="clue-box" id="11">$400</td>
+          <td class="clue-box" id="15">$400</td>
         </tr>
       </table>
     </article>
@@ -81,64 +128,5 @@
         </div>
       </section>
     </main>
-
-
-<!-- html for pop ups  -- >
-
-<!-- question card  --> 
-
-<br>
-<br>
-<br>
-
-
-  <section class="question-card" id="questionCard">
-    <header class="card-head">
-      <span class="category-reminder">Category</span><span id="displayPointVal"> for: pointval</span>
-    </header>
-    <p id="displayQuestion">Question here</p>
-    <form>
-      <label for="playerAnswer">Type answer here:</label>
-      <input type="text" name="playerAnswer" id="playerAnswer">
-    </form>
-  </section>
-
-<br>
-<br>
-<br>
-  <!-- Daily Double Wager -->
-
-  <section class="daily-double-card" id="dailyDoubleCard">
-    <header class="card-head">
-      You've selected a Daily Double!
-    </header>
-    <span class="category-reminder">Category reminder</span>
-    <p>Enter a wager up to your total point value or double the question's value</p>
-    <form>
-      <label for="wagerInput">Wager:</label>
-      <input type="text" name="wagerInput" id="wagerInput">
-    </form>
-  </section>
-
-
-  <br>
-  <br>
-  <br>
-
-
-  <!-- Final wager -->
-
-  <section class="final-jeopardy-wager" id="finalJeopardyWager">
-    <header class="card-head">
-      Final Jeopardy!
-    </header>
-    <span class="category-reminder">Category</span>
-    <p>How much are you willing to put on the line?</p>
-    <form>
-      <label for="finalWagerInput">Wager:</label>
-      <input type="text" name="finalWagerInput" id="finalWagerInput">
-    </form>  
-  </section>
-
   </body>
 </html>

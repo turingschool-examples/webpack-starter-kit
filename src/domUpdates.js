@@ -19,6 +19,8 @@ const domUpdates = {
   },
 
   removeStartScreen() {
+    let $tableTitle = $("h4");
+    $tableTitle.addClass("add-margin-top")
     let $inputScreen = $(".input-fields");
     $inputScreen.addClass("remove-display");
   },
