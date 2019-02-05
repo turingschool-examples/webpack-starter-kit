@@ -21,6 +21,7 @@ class Game {
     this.createPuzzles(puzzles);
     this.createWheels(wheels);
     domUpdates.changePuzzle();
+    this.updatePlayerSpot();
   }
 
   createPlayers(names) {
@@ -85,9 +86,10 @@ class Game {
   updatePlayerSpot() {
     let player = this.players.shift();
     this.players.push(player);
-    this.players[index].turn = true;
-    this.players[index].turn = false;
-    this.players[index].turn = false;
+    this.players[0].turn = false;
+    this.players[1].turn = false;
+    this.players[2].turn = true;
+    console.log(this.players);
     domUpdates.playerTurnUpdate();
   }
 }
