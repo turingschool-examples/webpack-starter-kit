@@ -29,6 +29,7 @@ body {
 
 .game--inactive {
   opacity: .2;
+  pointer-events: none;
 }
 
 header {

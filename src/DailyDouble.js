@@ -9,6 +9,8 @@ class DailyDouble extends Clue {
 
   wagerScore(wager) {
     this.pointValue += parseInt(wager);
+    domUpdates.hidePopUp();
+    domUpdates.displayClue(this.question);
   }
 }
 

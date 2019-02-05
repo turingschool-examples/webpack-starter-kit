@@ -86,7 +86,7 @@ const domUpdates = {
   
   hidePopUp: () => {
     $('.game--container').toggleClass('game--inactive');
-    $('.clue--container').remove();
+    $('.popup--container').remove();
   },
 
   removeTile: (tile) => {
