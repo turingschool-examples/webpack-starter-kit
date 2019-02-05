@@ -62,7 +62,7 @@ function playGame(e) {
 function buildGame() {
   createPlayerNames();
   game.newRound();
-  console.log(game);
+  // console.log(game);
     // game.createWheel();
     // game.createPuzzle();
 }
