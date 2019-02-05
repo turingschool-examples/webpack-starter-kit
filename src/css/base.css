@@ -181,17 +181,36 @@ body {
   background-color: red;
  }
 
- .disabled-bank-letter:hover {
+.disabled-bank-letter:hover {
   color: grey;
   background-color: red;
   opacity: 1;
  }
 
-.hiddenWord {
+.hidden-word {
   background-color: white;
   font-size: .1px;
 }
 
+.correct-letter { 
+  background-color: white;
+}
+
+.active-player {
+  border: 5px solid purple;
+}
+
+.instructions {
+  color: #FFFFFF;
+  font-size: 32px;
+  font-family: sans-serif;
+  background-color: orchid;
+  border: 5px solid black;
+  width: 700px;
+  margin: auto;
+  margin-top: 100px;
+  padding: 40px;
+}
 
 
 

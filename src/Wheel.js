@@ -1,5 +1,6 @@
 import data from './Data.js';
 import Game from './Game.js';
+import {changeTurn} from './Game.js';
 import Player from './Player.js';
 import domUpdates from './domUpdates.js'
 
@@ -25,25 +26,34 @@ class Wheel {
     console.log(data.wheel);
   }
 
-  getWheelValue(e) {
+  getWheelValue(e, wheelOfFortune) {
     e.preventDefault();
     console.log(this.values)
     //22 indexis
-    this.getRandomValue();
+    this.getRandomValue(wheelOfFortune);
   }
 
-  getRandomValue() {
+  getRandomValue(wheelOfFortune) {
     const randomIndex = Math.floor((Math.random() * 22));
     this.turnValue = this.values[randomIndex];
     console.log(this.turnValue);
-    //disable buttons
     domUpdates.displayTurnValue(this.turnValue)
+    this.bankrupt(wheelOfFortune);
   }
 
   multiplyRoundValue(value) {
     let turnValue = this.turnValue * value;
     console.log(turnValue);
     return turnValue;
+  }
+
+  bankrupt(wheelOfFortune) {
+    if(this.turnValue === 'BANKRUPT') {
+      wheelOfFortune.activePlayer.roundScore = 0;
+      domUpdates.clearRoundScore(wheelOfFortune);
+      wheelOfFortune.changeTurn()
+    }
+
   }
 }
 
