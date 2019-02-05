@@ -76,12 +76,13 @@ $(".start--button").click(function (e) {
 $('.col').click(function (e) {
   console.log('tile id ', event.target.id);
   let tileId = event.target.id;
+  $(this).hide()
   domUpdates.showQuestion(game, tileId);
 });
 
 $('.popup-btn').click(function (e) {
   e.preventDefault();
-  
+  domUpdates.submitQuestion();
 });
 
 

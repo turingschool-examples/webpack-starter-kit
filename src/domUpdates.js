@@ -12,7 +12,7 @@ export default {
 
     $questionText.text(game.roundOne.clues[tileId].question);
     // answerBody.val
-    
+
     $('.question-container').show();
     $('.overlay').show();
     $('.popup').show();
@@ -39,9 +39,11 @@ export default {
     $('.start-up').hide();
   },
 
-//   questionOverlay() {
-//     $('.question-container').show();
+  submitQuestion() {
+    $('.question-container').hide();
+    $('.popup').hide();
+    $('.overlay').hide();
 //     $('.question-container').css('visibility', 'visible');
 //     $('.question-overlay').toggleClass('hidden');
-//   },
+  },
 }
