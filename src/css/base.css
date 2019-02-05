@@ -24,7 +24,7 @@ body {
 
 .game--container {
   display: grid;
-  grid-template-rows: .25fr 1fr 2.5fr .75fr;
+  grid-template-rows: .25fr .65fr 2.5fr .75fr;
 }
 
 .game--inactive {
@@ -83,6 +83,15 @@ button {
   font-size: 20px;
   padding: 35px;
   justify-content: center;
+}
+
+.category--header {
+  border-radius: 10px;
+  display: grid;
+  padding: 20px;
+  margin-bottom: 10px;
+  grid-auto-flow: row;
+  text-align: center;
 }
 
 .player--container {
