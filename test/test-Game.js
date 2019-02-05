@@ -21,14 +21,14 @@ describe('Game', function() {
   })
 
   afterEach(function() {
-   chai.spy.restore(domUpdates);
+    chai.spy.restore(domUpdates);
   })
 
   //testing startGame 
-    // it ('should should initialize the game with players, puzzles, and wheels', function() {
-    //   game.startGame();
-    //   expect(domUpdates.displayNames()).to.have.been.called(1);
-    // })
+  // it ('should should initialize the game with players, puzzles, and wheels', function() {
+  //   game.startGame();
+  //   expect(domUpdates.displayNames()).to.have.been.called(1);
+  // })
 
   //testing createPlayers
   it ('should instantiate three new Players', function() {
@@ -57,7 +57,7 @@ describe('Game', function() {
 
   //testing collectWheels
   it('should call findWheels four times', function() {
-    let wheels = game.collectWheels();
+    // let wheels = game.collectWheels();
     expect(game.collectWheels()).to.have.length(4);
   });
 

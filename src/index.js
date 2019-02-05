@@ -3,8 +3,8 @@
 
 import Game from './Game.js';
 // import Player from './Player.js';
-import Wheel from './Wheel.js';
-import Puzzle from './Puzzle.js';
+// import Wheel from './Wheel.js';
+// import Puzzle from './Puzzle.js';
 // import domUpdates from './domUpdates.js';
 // Tell webpack to use a CSS file
 import './css/base.css';
@@ -24,7 +24,6 @@ $('#guess-button').on('click', function(e) {
 
 $('#vowel-button').on('click', function(e) {
   e.preventDefault();
-  console.log("vowel button clicked");
   game.puzzles[0].checkVowel();
 })
 

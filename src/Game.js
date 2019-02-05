@@ -89,7 +89,6 @@ class Game {
     this.players[0].turn = false;
     this.players[1].turn = false;
     this.players[2].turn = true;
-    console.log(this.players);
     domUpdates.playerTurnUpdate();
   }
 }
