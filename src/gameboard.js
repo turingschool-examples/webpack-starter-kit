@@ -41,8 +41,16 @@ class Gameboard {
       return array.sort(() => 0.5 - Math.random());
     };
 
-/*    From Justin's advice
+    randomize(this.cluesWithCategories);
 
+    // From Justin's advice
+
+  this.firstRoundCategories = this.cluesWithCategories.splice(0, 4);
+  this.secondRoundCategories = this.categoryList.splice(0, 4);
+  this.finalRoundCategory = this.categoryList.splice(0, 1);
+
+  domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
+  
   this.cluesWithCategories.reduce((acc,currentClue) => {
     let contains = false;
 
@@ -55,12 +63,13 @@ class Gameboard {
     if(!contains){
       acc.push(currentClue)
     }
-
+    console.log(acc);
     return acc;
   }, [])
-*/
 
-    randomize(this.cluesWithCategories);
+  
+
+    
 
 //our try
 
@@ -107,12 +116,7 @@ class Gameboard {
     })
   console.log(xyz)
 
-    // this.firstRoundCategories = this.cluesWithCategories.find();
-    // this.secondRoundCategories = this.categoryList.splice(0, 4);
-    // this.finalRoundCategory = this.categoryList.splice(0, 1);
-
-    // domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
-  
+    
   
 
 
