@@ -4,7 +4,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   display: grid;
-  grid-template-rows: 80px 40px 300px 190px 80px;
+  grid-template-rows: 80px 40px 300px 190px 88px;
 }
 
 button:focus {
@@ -76,9 +76,9 @@ main {
 }
 
 .wheel-container div {
-  width: 200px;
+  /*width: 200px;*/
   height: 200px;
-  background: hsla( 23, 31%, 58%, 0.8);
+  /*background: hsla( 23, 31%, 58%, 0.8);*/
   margin: 20px 0 0;
   display: flex;
   flex-direction: column;
@@ -89,13 +89,14 @@ main {
 
 .wheel-container div p {
   margin: 0;
-  width: 95%;
+  width: 200px;
   height: 26px;
   font-weight: 700;
   color: hsla( 0, 0%, 100%, 0.8);
   text-shadow: 2px 4px 4px hsl( 23, 31%, 8%);
-  background: hsla( 0, 0%, 0%, 0.2);
+  background: hsla( 23, 31%, 58%, 0.8);
   border-radius: 5px;
+  box-shadow: 2px 3px 10px 1px hsl( 23, 31%, 8%);
 }
 
 main button {
@@ -147,14 +148,14 @@ main button:hover,
 }
 
 .keyboard {
-  width: 100%;
+  width: 1150px;
   /*border: solid black 2px;*/
   display: flex;
   flex-flow: wrap;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 0 130px;
+  margin: 0 auto;
 }
 
 .keyboard button {
@@ -172,9 +173,18 @@ main button:hover,
 
 footer {
   width: 100%;
-  /*border: solid black 2px;*/
   display: flex;
   justify-content: space-around;
+  background: hsla( 0, 0%, 0%, 0.3);
+}
+
+footer img {
+  height: 75px;
+  opacity: 0.8;
+  border-radius: 50%;
+  box-shadow: 2px 3px 10px 1px hsl( 23, 31%, 8%);
+  position: relative;
+  right: 30px;
 }
 
 footer article {
@@ -194,6 +204,9 @@ footer article div {
 footer h3,
 footer h4 {
   margin: 0;
+  color: hsla( 0, 0%, 100%, 0.8);
+  text-shadow: 2px 4px 4px hsl( 23, 31%, 8%);
+  text-align: center;
 }
 
 .name-input,
