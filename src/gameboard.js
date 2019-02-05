@@ -6,10 +6,13 @@ class Gameboard {
   constructor(round = 1, categoryList, firstRoundCategories, secondRoundCategories) {
     this.round = round;
     this.categoryList = Object.keys(data.categories);
+    this.cluesWithCategories = [];
+    this.firstRoundClues = [];
+    this.secondRoundClues = [];
+    this.finalRoundClue = [];
     this.firstRoundCategories = [];
     this.secondRoundCategories = [];
     this.finalRoundCategory = [];
-    this.cluesWithCategories = [];
   };
 
   startGame() {
@@ -17,10 +20,6 @@ class Gameboard {
     
     this.collectClues();
     this.assignCategories();
-
-    console.log(this.round);
-    
-    //Include a seond method to run all dom manipulation for start screen/appendgameboard
   };
 
   collectClues() {
@@ -30,103 +29,252 @@ class Gameboard {
       return clue;
       });
 
-    console.log(this.cluesWithCategories);
-
+    console.log("this.cluesWithCategories");
   };
 
-  assignCategories() {
-    console.log(this.cluesWithCategories);
-    
+  assignCategories() {    
     function randomize(array) {
       return array.sort(() => 0.5 - Math.random());
     };
 
-    randomize(this.cluesWithCategories);
-
-    // From Justin's advice
-
-  this.firstRoundCategories = this.cluesWithCategories.splice(0, 4);
-  this.secondRoundCategories = this.categoryList.splice(0, 4);
-  this.finalRoundCategory = this.categoryList.splice(0, 1);
-
-  domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
-  
-  this.cluesWithCategories.reduce((acc,currentClue) => {
-    let contains = false;
-
-    acc.forEach(uniqueClue  => {
-      if(uniqueClue.categoryName === currentClue.categoryName){
-        contains = true;
-      }
-    })
-
-    if(!contains){
-      acc.push(currentClue)
-    }
-    console.log(acc);
-    return acc;
-  }, [])
-
-  
-
-    
-
-//our try
+    let category10Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 10
+    });
+    randomize(category10Clues);
+    let clues10 = category10Clues;
+    let category10GameClues = []
+    let point10100 = clues10.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point10200 = clues10.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point10300 = clues10.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point10400 = clues10.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category10GameClues.push(point10100, point10200, point10300, point10400)
+    this.firstRoundClues.push(category10GameClues);
+    console.log("gameboard 10", category10GameClues)
 
 
-    // this.cluesWithCategories.reduce((acc, currentClue) => {
-    //   console.log(currentClue);
+    let category9Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 9
+    });
+    randomize(category9Clues);
+    let clues9 = category9Clues;
+    let category9GameClues = []
+    let point9100 = clues9.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point9200 = clues9.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point9300 = clues9.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point9400 = clues9.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category9GameClues.push(point9100, point9200, point9300, point9400)
+    this.firstRoundClues.push(category9GameClues);
+    console.log("gameboard 9", category9GameClues)
 
-    //   if (!acc.includes(currentClue.categoryName && currentClue.pointValue)) {
-    //       acc.push(currentClue);
-    //   };
-    //   console.log(acc);
-    //   return acc;
-    //   }, []);
 
-//tinkering with justins idea    
+    let category8Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 8
+    });
+    randomize(category8Clues);
+    let clues8 = category8Clues;
+    let category8GameClues = []
+    let point8100 = clues8.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point8200 = clues8.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point8300 = clues8.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point8400 = clues8.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category8GameClues.push(point8100, point8200, point8300, point8400)
+    this.firstRoundClues.push(category8GameClues);
+    console.log("gameboard 8", category8GameClues)
 
-    // let roundArray = this.cluesWithCategories.reduce((acc,currentClue) => {
-    //   let contains = false;
-    //   acc.forEach(uniqueClue  => {
-    //     if(uniqueClue.pointValue === currentClue.pointValue){
-    //       contains = true;
-    //     };
-    //   });
 
-    //   if(!contains){
-    //     acc.push(currentClue)
-    //   };
+    let category7Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 7
+    });
+    randomize(category7Clues);
+    let clues7 = category7Clues;
+    let category7GameClues = []
+    let point7100 = clues7.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point7200 = clues7.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point7300 = clues7.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point7400 = clues7.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category7GameClues.push(point7100, point7200, point7300, point7400);
+    this.firstRoundClues.push(category7GameClues);
+    console.log("gameboard 7", category7GameClues);
 
-    //   console.log(acc);
-    //   return acc;
-    //   }, []);
+    this.firstRoundClues = this.firstRoundClues.flat();
+    console.log(this.firstRoundClues);
 
-    //   console.log("round", roundArray);
+    let category6Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 6
+    });
+    randomize(category6Clues);
+    let clues6 = category6Clues;
+    let category6GameClues = []
+    let point6100 = clues6.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point6200 = clues6.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point6300 = clues6.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point6400 = clues6.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category6GameClues.push(point6100, point6200, point6300, point6400);
+    this.secondRoundClues.push(category6GameClues);
+    console.log("gameboard 6", category6GameClues)
 
-    // this.firstRoundCategories = this.cluesWithCategories.find();
-    // this.secondRoundCategories = this.categoryList.splice(0, 4);
-    // this.finalRoundCategory = this.categoryList.splice(0, 1);
 
-    // domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
+    let category5Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 5
+    });
+    randomize(category5Clues);
+    let clues5 = category5Clues;
+    let category5GameClues = []
+    let point5100 = clues5.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point5200 = clues5.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point5300 = clues5.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point5400 = clues5.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category5GameClues.push(point5100, point5200, point5300, point5400);
+    this.secondRoundClues.push(category5GameClues);
+    console.log("gameboard 5", category5GameClues)
 
-//experiment
 
- let categoryArray0 = this.cluesWithCategories.filter(clue => {
-    return clue.categoryId === 1;
- })
- console.log(categoryArray0);
 
-    // console.log(this.firstRoundCategories);
+    let category4Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 4
+    });
+    randomize(category4Clues);
+    let clues4 = category4Clues;
+    let category4GameClues = []
+    let point4100 = clues4.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point4200 = clues4.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point4300 = clues4.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point4400 = clues4.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category4GameClues.push(point4100, point4200, point4300, point4400);
+    this.secondRoundClues.push(category4GameClues);
+    console.log("gameboard 4", category4GameClues)
 
-    // let xyz = this.firstRoundCategories.forEach(category => {
-    //   const cluesPerCat = this.cluesWithCategories.filter(clue => {
-    //     return clue.categoryId === data.categories[category]
-    //   })
-      
-    // })
-    // console.log(xyz);
 
+    let category3Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 3
+    });
+    randomize(category3Clues);
+    let clues3 = category3Clues;
+    let category3GameClues = []
+    let point3100 = clues3.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point3200 = clues3.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point3300 = clues3.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point3400 = clues3.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category3GameClues.push(point3100, point3200, point3300, point3400)
+    this.secondRoundClues.push(category3GameClues);
+    console.log("gameboard 3", category3GameClues)
+
+    this.secondRoundClues = this.secondRoundClues.flat();
+    console.log(this.secondRoundClues);
+
+    let category2Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 2
+    });
+    randomize(category2Clues);
+    let clues2 = category2Clues;
+    let category2GameClues = []
+    let point2100 = clues2.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point2200 = clues2.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point2300 = clues2.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point2400 = clues2.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category2GameClues.push(point2100, point2200, point2300, point2400);
+    this.finalRoundClue.push(category2GameClues);
+    console.log("gameboard 2", category2GameClues)
+
+    this.finalRoundClue = this.finalRoundClue.flat();
+    console.log(this.finalRoundClue);
+
+    let category1Clues = this.cluesWithCategories.filter(clue => {
+      return clue.categoryId === 1
+    });
+    randomize(category1Clues);
+    let clues1 = category1Clues;
+    let category1GameClues = []
+    let point1100 = clues1.filter(clue => {
+      return clue.pointValue === 100
+    }).shift()
+    let point1200 = clues1.filter(clue => {
+      return clue.pointValue === 200
+    }).shift()
+    let point1300 = clues1.filter(clue => {
+      return clue.pointValue === 300
+    }).shift()
+    let point1400 = clues1.filter(clue => {
+      return clue.pointValue === 400
+    }).shift()
+    category1GameClues.push(point1100, point1200, point1300, point1400)
+    console.log("gameboard 1", category1GameClues)
+
+    this.firstRoundCategories = [this.firstRoundClues[0].categoryName, this.firstRoundClues[4].categoryName, this.firstRoundClues[8].categoryName, this.firstRoundClues[12].categoryName]
+    console.log(this.firstRoundCategories);
+    domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
   //create an of the categories for each round with 4 questions for each round
   };
 
