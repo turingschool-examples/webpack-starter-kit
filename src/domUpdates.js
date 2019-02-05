@@ -72,7 +72,7 @@ export default {
     }
   },
 
-  playerTurnUpdate() {
+  highlightCurrentPlayer() {
     alert('change player');
   }
 

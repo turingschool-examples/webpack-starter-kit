@@ -21,7 +21,11 @@ class Game {
     this.createPuzzles(puzzles);
     this.createWheels(wheels);
     domUpdates.changePuzzle();
-    this.updatePlayerSpot();
+  }
+
+  startRound() {
+    this.trackPlayerTurn();
+
   }
 
   createPlayers(names) {
@@ -83,13 +87,13 @@ class Game {
 
   }
 
-  updatePlayerSpot() {
+  trackPlayerTurn() {
     let player = this.players.shift();
     this.players.push(player);
     this.players[0].turn = false;
     this.players[1].turn = false;
     this.players[2].turn = true;
-    domUpdates.playerTurnUpdate();
+    domUpdates.highlightCurrentPlayer();
   }
 }
 export default Game; 
