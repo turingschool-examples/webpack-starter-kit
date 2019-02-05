@@ -39,6 +39,7 @@ class Wheel {
     console.log(this.turnValue);
     domUpdates.displayTurnValue(this.turnValue)
     this.bankrupt(wheelOfFortune);
+    this.loseATurn(wheelOfFortune);
   }
 
   multiplyRoundValue(value) {
@@ -51,9 +52,14 @@ class Wheel {
     if(this.turnValue === 'BANKRUPT') {
       wheelOfFortune.activePlayer.roundScore = 0;
       domUpdates.clearRoundScore(wheelOfFortune);
-      wheelOfFortune.changeTurn()
+      wheelOfFortune.changeTurn();
     }
 
+  }
+  loseATurn(wheelOfFortune) {
+    if(this.turnValue === 'LOSE A TURN') {
+      wheelOfFortune.changeTurn();
+    }
   }
 }
 

@@ -12,8 +12,11 @@ class Puzzle {
     this.vowelsBank = []
   }
 
-  countVowels(correctAnswer) {
-    let vowels = ['a', 'e', 'i', 'o', 'u']
+  buyAVowel(correctAnswer) {
+    this.vowelsBank
+    //subtracting players round score
+    //pass in player/round score
+    //conditional enough money (100)
   }
 
   populateConsonantsBank() {

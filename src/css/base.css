@@ -87,7 +87,7 @@ body {
   margin-right: 8px;
   margin-left: 8px;
   justify-content: space-around;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .player-names {
@@ -106,6 +106,7 @@ body {
   background-color: pink;
   padding: 6px;
   width: 250px;
+  height: 120px;
   padding-top: 0px;
 }
 
@@ -160,7 +161,7 @@ body {
 
 #user-buttons{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: auto;
   margin-top: 20px;
 }
