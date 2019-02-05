@@ -20,7 +20,10 @@ class Game {
   createWheel() {
     const wheel = new Wheel();
     wheel.randomizeWheel();
-    // display wheel on DOM
+    console.log('Wheel: ' + wheel.wheelElements);
+    wheel.wheelElements.forEach((element) => {
+      $('.wheel').append('<p>' + element + '</p>');
+    })
   }
   createPuzzle() {
     const puzzle = new Puzzle();
