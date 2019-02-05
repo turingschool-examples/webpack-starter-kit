@@ -6,7 +6,7 @@ class DailyDouble extends Clue {
     this.wager = wager;
   }
 
-  // wagerScore() {
-    
-  // }
+  wagerScore() {
+    console.log(this)
+  }
 }

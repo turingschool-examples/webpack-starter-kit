@@ -17,7 +17,7 @@ class Clue {
       domUpdates.changePrompt(this.answer);
       setTimeout(() => {
         domUpdates.hidePopUp();
-      }, 2000);
+      }, 1000);
     }
   }
 

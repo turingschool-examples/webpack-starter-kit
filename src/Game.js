@@ -55,8 +55,14 @@ class Game {
     let specificClue = this.allCluesInPlay.find(clue => {
       return clue.categoryId === parseInt(dataset.categoryid) && clue.pointValue === parseInt(dataset.pointvalue);
     });
-    this.currentClue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
-    domUpdates.displayClue(specificClue.question);
+    if (specificClue.dailyDouble === true) {
+      console.log('in')
+      this.currentClue = new dailyDouble(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
+      this.currentClue.wagerScore();
+    } else {
+      this.currentClue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
+      domUpdates.displayClue(specificClue.question);
+    }
   }
 
   quitGame() {

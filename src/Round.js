@@ -28,7 +28,7 @@ class Round {
     this.cluesRoundOne = game.allCluesInPlay.slice(0, 16);
     this.cluesRoundTwo = game.allCluesInPlay.slice(16, 32);
     this.cluesRoundThree = game.allCluesInPlay.slice(35);
-    this.setDailyDouble(this.cluesRoundOne)
+    this.setDailyDouble();
     domUpdates.setClues(this.cluesRoundOne);
   }
 
@@ -39,14 +39,16 @@ class Round {
     domUpdates.setClues(this.cluesRoundTwo);
   }
 
-  setDailyDouble(roundClues) {
-    let randomIndexOne = Math.floor(Math.random() *  roundClues.length);
+  setDailyDouble() {
+    let randomIndexOne = Math.floor(Math.random() * 16);
+    console.log(randomIndexOne);
     if (this.currentRound === 1) {
-      roundClues[randomIndexOne].dailyDouble = true;
+      this.cluesRoundOne[randomIndexOne].dailyDouble = true;
     } else if(this.currentRound === 2) {
-      let randomIndexTwo = Math.floor(Math.random() *  roundClues.length);
-      roundClues[randomIndexOne].dailyDouble = true;
-      roundClues[randomIndexTwo].dailyDouble = true;
+      let randomIndexTwo = Math.floor(Math.random() * 16);
+      console.log(randomIndexOne,randomIndexTwo);
+      this.cluesRoundTwo[randomIndexOne].dailyDouble = true;
+      this.cluesRoundTwo[randomIndexTwo].dailyDouble = true;
     }
   }
 }
