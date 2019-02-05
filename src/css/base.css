@@ -273,11 +273,6 @@ fieldset, .start--button {
   grid-template-rows: 2fr 1fr;
   height: 100%;
   width: 100%;
-  z-index: 55;
-}
-
-.hidden {
-  visibility: hidden;
 }
 
 .question-text {
