@@ -1,11 +1,11 @@
 import data from "./data"
-import $ from 'jquery';
-import jQuery from 'jquery'
-window.$ = jQuery;
+// import $ from 'jquery';
+// import jQuery from 'jquery'
+// window.$ = jQuery;
 
 import domUpdates from "./domUpdates";
 import Round from './Round'
-// import Player from './Players.js'
+import Player from './Players.js'
 
 class Gameboard {
   constructor(players, activeRound, activePlayer, cluesRemaining, clues, catNames) {
@@ -19,9 +19,9 @@ class Gameboard {
 
   createPlayers() {
     // let names = domUpdates.getNames();
-    // let player1 = new Player(names[0])
-    // let player2 = new Player(names[1])
-    // let player3 = new Player(names[2])
+    let player1 = new Player()
+    let player2 = new Player()
+    let player3 = new Player()
     this.players = [player1, player2, player3]
   }
 
@@ -40,8 +40,6 @@ class Gameboard {
 
   startGame() {
     const gameArr = this.shuffle(Object.values(data.categories));
-    // domUpdates.displayNames();
-    // createPlayers();
       const round1 = new Round();
       round1.catIds = gameArr.splice(0, 4);
       const round2 = new Round;
@@ -64,13 +62,10 @@ class Gameboard {
 
   changeTurn(players) {
     this.activePlayer++;
-    if (this.activePlayer === this.players.length) {
+    if (this.activePlayer === 3) {
       this.activePlayer = 0;
     }
-    return players[this.activePlayer]
-    // increment turn
-    // reset index of player, if on p3, reset to p1
-    // on round end, reset active player. if p3, reset to p1
+    return players[this.activePlayer];
   }
 
   shuffle(array) {

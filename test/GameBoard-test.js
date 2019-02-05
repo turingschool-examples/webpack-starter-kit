@@ -42,7 +42,6 @@ describe('Gameboard', function() {
     const gameboard = new Gameboard();
     expect(gameboard.activePlayer).to.equal(1);
     gameboard.changeTurn();
-    console.log(players[this.activePlayer])
     expect(gameboard.activePlayer).to.equal(2);
   })
 
