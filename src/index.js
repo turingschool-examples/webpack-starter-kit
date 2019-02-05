@@ -13,6 +13,7 @@ import Gameboard from './gameboard.js';
 import Finalround from './finalRound.js';
 import Dailydouble from './dailyDouble.js';
 import $ from 'jquery';
+import domUpdates from './domUpdates.js';
 // import Data from './data.js';
 
 let game = new Gameboard();
@@ -24,6 +25,7 @@ $startBtn.on('click', function(e) {
   game.startGame();
   console.log(game);
   pullNames();
+  domUpdates.removeStartScreen();
 })
 
 let $gameboard = $('.game-board');
