@@ -29,26 +29,28 @@ const $player3Name = $('#player3');
 
 
 const $submitNames = $('.submit-names');
-
+const $spinWheel = $('.spin-wheel')
 
 // JS variables
-const difficulty1 = data.puzzles.one_word_answers;
-const difficulty2 = data.puzzles.two_word_answers;
-const difficulty3 = data.puzzles.three_word_answers;
-const difficulty4 = data.puzzles.four_word_answers;
+// const difficulty1 = data.puzzles.one_word_answers;
+// const difficulty2 = data.puzzles.two_word_answers;
+// const difficulty3 = data.puzzles.three_word_answers;
+// const difficulty4 = data.puzzles.four_word_answers;
 
-const game = new Game();
+let game;
 
 
 
 
 // jQuery Event Listeners
 $submitNames.on( 'click', playGame );
+$spinWheel.on('click', choosePrize )
 
 // change to arrow function
 function playGame(e) {
   e.preventDefault();
   if ( $player1Name[0].value && $player2Name[0].value && $player3Name[0].value ) {
+    game = new Game();
     buildGame();
     $(".name-input").fadeOut(1000);
   } else {
@@ -60,8 +62,16 @@ function playGame(e) {
 function buildGame() {
   createPlayerNames();
   game.newRound();
+  console.log(game);
     // game.createWheel();
     // game.createPuzzle();
+}
+
+function choosePrize() {
+  // console.log(game);
+  // console.log(game.wheel);
+  console.log(game.roundWheel);
+  game.roundWheel.spinWheel();
 }
 
 function createPlayerNames() {

@@ -8,7 +8,7 @@ class Game {
     this.difficulty = difficulty;
     this.round = 1;
     this.players = [];
-    this.roundWheel = [];
+    this.roundWheel = null;
     this.bonusWheel = [];
     this.roundPuzzle = [];
   }
@@ -21,12 +21,14 @@ class Game {
     // displayPlayerNames();
   }
   createWheel() {
-    const wheel = new Wheel();
-    wheel.randomizeWheel();
-    console.log('Wheel: ' + wheel.wheelElements);
-    wheel.wheelElements.forEach((element) => {
+    // const wheel = new Wheel();÷
+    // wheel.randomizeWheel();
+    this.roundWheel.randomizeWheel();
+    console.log('Wheel: ' + this.roundWheel.wheelElements);
+    this.roundWheel.wheelElements.forEach((element) => {
       $('.wheel').append('<p>' + element + '</p>');
     })
+
   }
   createPuzzle() {
     this.roundPuzzle = new Puzzle
@@ -42,10 +44,9 @@ class Game {
     });
     // update dom
     if (this.round < 5) {
-      this.createWheel();
       console.log('rounds 1-4')
       this.roundWheel = new Wheel();      
-      this.roundWheel.randomizeWheel();
+      this.createWheel();
       this.createPuzzle();
     }
     if (this.round === 5) {
