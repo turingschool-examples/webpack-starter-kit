@@ -79,11 +79,22 @@ $(".start--button").click(function (e) {
   })
 
   $('.overlay').toggle();
-  $('.start-up').toggle();
+  $('.start-container').toggle();
+  $('.popup').toggle();
 });
 
 $('.col').click(function () {
   $('.overlay').toggle();
   $(".question-container").css('visibility', 'visible');
-  $('.q-pop').toggle();
+  $('.popup').toggle();
 });
+$('.col').click(function (e) {
+  $(e.target).css('visibility', 'hidden');
+});
+
+$('.popup-btn').click(function (e) {
+  e.preventDefault();
+  $('.overlay').toggle();
+  $(".question-container").css('visibility', 'visible');
+  $('.popup').toggle();
+})
