@@ -23,11 +23,18 @@ class Puzzle {
       result = data.puzzles.one_word_answers;
     }
     this.difficulty = result;
+    // NEW ADDITIONS
+    // let puzzleBank = this.difficulty.puzzle_bank;
+    // puzzleBank[randomNumber]
+    // console.log("difficulty", puzzleBank)
   }
   randomizePuzzle() {
     let randomIndex = Math.floor(Math.random() * this.difficulty.puzzle_bank.length);
     this.puzzleDetails = this.difficulty.puzzle_bank[randomIndex];
     this.answer.push(this.puzzleDetails.correct_answer);
+    let puzzleBank = this.difficulty.puzzle_bank;
+    puzzleBank[randomIndex]
+    console.log("difficulty", puzzleBank[randomIndex].correct_answer)
     return this.puzzleDetails;
   }
   randomizeAnswer() {

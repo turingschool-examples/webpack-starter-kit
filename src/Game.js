@@ -48,6 +48,7 @@ class Game {
       this.roundWheel = new Wheel();      
       this.createWheel();
       this.createPuzzle();
+      //console log the individual puzzle here
     }
     if (this.round === 5) {
       console.log('in round 5');
