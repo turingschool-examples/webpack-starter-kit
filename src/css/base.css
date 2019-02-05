@@ -274,7 +274,7 @@ fieldset, .start--button {
   height: 100%;
   visibility: hidden;
   width: 100%;
-  z-index: 5;
+  z-index: 15;
 }
 
 .question-text {
