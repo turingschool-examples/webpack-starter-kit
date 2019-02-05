@@ -36,15 +36,16 @@ body {
 #game-header-title {
   font-size: 75px;
   text-align: center;
-  margin-top: 2px;
+  margin-top: 12px;
   margin-right: 250px;
   margin-left: 250px;
   border-radius: 25px;
   padding-top: 20px;
-  color: mediumslateblue;
+  color: darkmagenta;
   background-color: aliceblue;
   opacity: .8;
   font-family: fantasy;
+  margin-bottom: 16px;
   
 }
 
@@ -92,6 +93,7 @@ body {
 
 .player-names {
   font-size: 30px;
+  padding-bottom: 5px;
 }
 
 .name-input {
@@ -103,11 +105,12 @@ body {
 }
 
 .name-and-scores {
-  background-color: pink;
+  background-color: lightskyblue;
   padding: 6px;
   width: 250px;
-  height: 120px;
+  height: 100px;
   padding-top: 0px;
+  opacity: .9;
 }
 
 #name-input-container {
@@ -133,6 +136,7 @@ body {
   width: 65%;
   border: 10px solid white;
   margin: 12px;
+  margin-left: 45px;
 }
 
 #vowels-bank {
@@ -140,6 +144,7 @@ body {
   width: 25%;
   border: 10px solid white;
   margin: 12px;
+  margin-left: 70px;
 }
 
 .letter-button {
@@ -164,13 +169,22 @@ body {
   justify-content: space-around;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .user-button {
-  height: 50px;
-  width: 120px;
-  background-color: orchid;
+  height: 70px;
+  width: 200px;
+  background-color: lightyellow;
+  opacity: .9;
   border-radius: 25px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.user-button:hover {
+  background-color: darkseagreen;
+  opacity: 1;
 }
 
 #spin-feedback {
@@ -198,7 +212,8 @@ body {
 }
 
 .active-player {
-  border: 5px solid purple;
+  border: 7px solid purple;
+  opacity: 1;
 }
 
 .instructions {
@@ -212,6 +227,24 @@ body {
   margin-top: 100px;
   padding: 40px;
 }
+
+
+#reset-button {
+  float: right;
+  font-size: 8px;
+  margin-top: 12px;
+  font-size: 14px;
+  margin-right: 15px;
+  height: 30px;
+  width: 75px;
+  background-color: darkseagreen;
+}
+
+#reset-button:hover {
+  background-color: red;
+} 
+
+
 
 
 
