@@ -69,10 +69,10 @@ const domUpdates = {
   },
 
   removeTile: (tile) => {
-    if($(tile).is('h4')) {
+    if ($(tile).is('h4')) {
       $(tile).text('');
       $(tile).addClass('used--tile');
-   }
+    }
   }
   
 }

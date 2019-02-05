@@ -31,9 +31,12 @@ class Round {
     domUpdates.setClues(this.cluesRoundOne);
   }
 
-  // determinePointRange() {
-
-  // }
+  changePointRange() {
+    this.cluesRoundTwo.forEach(clue => {
+      clue.pointValue *= 2
+    });
+    domUpdates.setClues(this.cluesRoundTwo);
+  }
 
   // beginDailyDouble() {
     

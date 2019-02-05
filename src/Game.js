@@ -12,9 +12,6 @@ class Game {
     this.allCluesInPlay = [];
     this.currentClue = null;
     this.counter = 0;
-    // this.cluesRoundOne = null;
-    // this.cluesRoundTwo = null;
-    // this.cluesRoundThree = null;
     this.roundOne = null;
     this.roundTwo = null;
     this.roundThree = null;
@@ -48,7 +45,6 @@ class Game {
         allCategories.push(singleCat)
       }
     } while (allCategories.length < 9)
-    // this.gatherClues(allCategories);
     this.roundOne = allCategories.slice(0,4);
     this.roundTwo = allCategories.slice(4,8);
     this.roundThree = allCategories.slice(8,9);
@@ -82,6 +78,7 @@ class Game {
       round.gatherClues(this.roundTwo, this);
       domUpdates.setClues(round.cluesRoundTwo);
       domUpdates.displayCategories(this.roundTwo);
+      round.changePointRange();
     } else if (this.counter === 32) {
       let round = new Round(3);
       round.gatherClues(this.roundThree, this);
