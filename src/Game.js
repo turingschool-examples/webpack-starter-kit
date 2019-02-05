@@ -81,5 +81,14 @@ class Game {
     return randomWheel;
 
   }
+
+  updatePlayerSpot() {
+    let player = this.players.shift();
+    this.players.push(player);
+    this.players[index].turn = true;
+    this.players[index].turn = false;
+    this.players[index].turn = false;
+    domUpdates.playerTurnUpdate();
+  }
 }
 export default Game; 
