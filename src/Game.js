@@ -3,6 +3,7 @@ import Player from './Player.js';
 import Round from './Round.js';
 import data from './data.js';
 import Clue from "./Clue";
+import DailyDouble from "./DailyDouble.js"
 
 class Game {
   constructor() {
@@ -56,13 +57,12 @@ class Game {
       return clue.categoryId === parseInt(dataset.categoryid) && clue.pointValue === parseInt(dataset.pointvalue);
     });
     if (specificClue.dailyDouble === true) {
-      console.log('in')
-      this.currentClue = new dailyDouble(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
+      this.currentClue = new DailyDouble(0, specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
       this.currentClue.wagerScore();
     } else {
       this.currentClue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
-      domUpdates.displayClue(specificClue.question);
     }
+    domUpdates.displayClue(specificClue.question);
   }
 
   quitGame() {

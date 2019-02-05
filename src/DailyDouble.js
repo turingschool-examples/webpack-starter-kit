@@ -1,12 +1,14 @@
 import Clue from './Clue.js';
 
 class DailyDouble extends Clue {
-  constructor(wager) {
+  constructor(wager, question, pointValue, answer, categoryId) {
     super(question, pointValue, answer, categoryId);
     this.wager = wager;
   }
 
-  wagerScore() {
-    console.log(this)
+  wagerScore(wager) {
+    this.pointValue += wager;
   }
 }
+
+export default DailyDouble;
