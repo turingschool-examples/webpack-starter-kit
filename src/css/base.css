@@ -185,3 +185,46 @@ footer h3,
 footer h4 {
   margin: 0;
 }
+
+.name-input,
+.name-input form,
+.name-input label {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-input {
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 0%, 0.8);
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-input form {
+  height: 42%;
+  width: 400px;
+  justify-content: space-between;
+  font-size: 20px;
+  color: hsla( 23, 31%, 58%, 0.8);
+  font-weight: 800;
+}
+
+.name-input input,
+.name-input button {
+  height: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+}
+
+.name-input input {
+  padding: 0 0 0 10px;
+}
+
+.name-input button {
+  background: hsla( 23, 31%, 58%, 0.8);
+  color: white;
+}
+
