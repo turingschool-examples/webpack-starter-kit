@@ -31,6 +31,7 @@ $('.game--exit').on('click', () => {
 
 $('.game--board').on('click', (event) => {
   let dataset = event.target.dataset;
+  console.log(dataset)
   if ($(event.target).is('h4')) {
     game.instantiateClue(dataset);
   }
