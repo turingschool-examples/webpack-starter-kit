@@ -31,11 +31,18 @@ class Round {
       'Name That Board Game', 'American Literature', 'Biographies', 'American Cities',
       'Food', 'Cable TV'
     ];
-      this.catNames = this.catIds.map(catId => {
+    this.catNames = this.catIds.map(catId => {
       return catString.find((name, index) => index === catId - 1);
-      })
-      console.log()
-    }
+    })
+  }
+
+  setCatNames() {
+    console.log("setCats")
+    $cats.forEach(cat => {
+      console.log("each cat")
+      $cats[cat] = this.catIds[cat];
+    })
+  }
 
   setDDQuestion() {
     let index = Math.floor(Math.random() * this.clues.length);
