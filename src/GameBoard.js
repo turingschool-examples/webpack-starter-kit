@@ -42,14 +42,6 @@ class Gameboard {
     const gameArr = this.shuffle(Object.values(data.categories));
     // domUpdates.displayNames();
     // createPlayers();
-    /////////////////////////////////////////////////
-//     let round1 = gameArr.splice(0, 4);
-//     let round2 = gameArr.splice(0, 4);
-//     let round3 = gameArr.splice(0, 1);
-    // for (let i = 0; i > gameArr.length; i++) {
-    //   if (data.clues.categoryId[i] === data.categories);
-    // }
-    ////////////////////////////////////////////////
       const round1 = new Round();
       round1.catIds = gameArr.splice(0, 4);
       const round2 = new Round;
@@ -58,6 +50,7 @@ class Gameboard {
       round3.catIds = gameArr.splice(0, 1);
       round1.startRound(this);
       round1.getCatNames();
+      // round1.setCatNames();
   }
 
   changeRound() {
