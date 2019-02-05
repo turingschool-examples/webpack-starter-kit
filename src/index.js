@@ -20,7 +20,7 @@ $('.start--btn').on('click', () => {
   domUpdates.toggleSplash();
   domUpdates.enableReset();
   game.getRandomCat();
-  game.changeRound();
+  game.initiateRound();
 });
 
 
@@ -31,7 +31,6 @@ $('.game--exit').on('click', () => {
 
 $('.game--board').on('click', (event) => {
   let dataset = event.target.dataset;
-  console.log(dataset)
   if ($(event.target).is('h4')) {
     game.instantiateClue(dataset);
   }
@@ -43,5 +42,5 @@ $('body').on('click', '.submit--guess', () => {
   game.submitGuess(playInput);
   domUpdates.hidePopUp();
   game.counter++;
-  game.changeRound();
+  game.initiateRound();
 });
