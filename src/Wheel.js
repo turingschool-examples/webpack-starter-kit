@@ -31,6 +31,8 @@ class Wheel {
     console.log(this.values)
     //22 indexis
     this.getRandomValue(wheelOfFortune);
+    domUpdates.disableSpinButton();
+    domUpdates.enableConsonants();
   }
 
   getRandomValue(wheelOfFortune) {

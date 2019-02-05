@@ -44,12 +44,12 @@ const domUpdates = {
   displayLetters(consonants, vowels) {
     // $('#consonants-bank').text(consonants);
     consonants.forEach((cons,i) => {
-      $(`#c${i}`).text(cons)
+      $(`#c${i}`).text(cons).addClass('unavailable-bank-letter').prop('disabled', true);
       // console.log(cons)
     })
 
     vowels.forEach((vowel,i) => {
-      $(`#v${i}`).text(vowel)
+      $(`#v${i}`).text(vowel).addClass('unavailable-bank-letter');
       // console.log(vowel)
     })
   },
@@ -71,6 +71,7 @@ const domUpdates = {
 
   disableButton(clickedButton) {
     clickedButton.disabled = true;
+    $(clickedButton).removeClass('unavailable-bank-letter')
     $(clickedButton).addClass('disabled-bank-letter')
     console.log(clickedButton)
   },
@@ -101,6 +102,45 @@ const domUpdates = {
         $(`#player-box-${player.playerNumber}`).addClass('active-player')
       } else if (player.active !== true) {
         $(`#player-box-${player.playerNumber}`).removeClass('active-player')
+      }
+    })
+  },
+
+  enableConsonants() {
+    $('.letter-button').prop('disabled', false);
+  },
+
+  disableConsonants() {
+    $('.letter-button').prop('disabled', true);
+  },
+
+  enableVowelButtons() {
+    $('.vowel-button').removeAttr('disabled');
+    $('.vowel-button').removeClass('unavailable-bank-letter');
+  },
+
+  disableVowelButtons() {
+    $('.vowel-button').prop('disabled', true);
+    // $('.vowel-button').addClass('unavailable-bank-letter');
+  },
+
+  disableSpinButton() {
+    $('#spin-button').prop('disabled', true);
+  },
+
+  enableSpinButton() {
+    $('#spin-button').prop('disabled', false);
+  },
+
+  promptToSpin(players) {
+    players.forEach(player => {
+      if (player.active === true) {
+        console.log('its your turn')
+        $(`#player-prompts-${player.playerNumber}`).text('ITS YOUR TURN! SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE')
+      } else {
+        if (player.active === false) {
+          $(`#player-prompts-${player.playerNumber}`).text(' ');
+        }
       }
     })
   }

@@ -23,6 +23,7 @@
     // const wheel  = new Wheel(this.randomizeBank(data.wheel));
     // wheel.populateWheel(this.randomizeBank(data.wheel));
     this.gamePuzzles[0].populateConsonantsBank();
+    domUpdates.promptToSpin(this.players);
     // this.randomizeBank(wheel.values);
     // wheel.singleWheelValue(wheel.values);
   }
@@ -103,6 +104,9 @@
         this.changeTurn();
       }
       domUpdates.disableButton(button);
+      domUpdates.disableVowelButtons();
+      domUpdates.enableSpinButton();
+      domUpdates.disableConsonants();
   }
 
    changeTurn() {
@@ -121,8 +125,11 @@
         this.players[2].active = false;
         this.activePlayer = this.players[0]
       }
-      domUpdates.highlightActivePlayer(this.players)
-    console.log(this.players)
+      domUpdates.highlightActivePlayer(this.players);
+      domUpdates.promptToSpin(this.players);
+      domUpdates.disableVowelButtons();
+      domUpdates.disableConsonants();
+    // console.log(this.players)
   }
 
 }

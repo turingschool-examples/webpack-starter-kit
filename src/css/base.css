@@ -202,6 +202,16 @@ body {
   opacity: 1;
  }
 
+.unavailable-bank-letter {
+  background-color: gray;
+  color: black;
+}
+
+.unavailable-bank-letter:hover {
+  background-color: gray;
+  color: black;
+}
+
 .hidden-word {
   background-color: white;
   font-size: .1px;

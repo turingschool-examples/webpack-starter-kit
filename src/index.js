@@ -37,14 +37,18 @@ $('.letter-button').on('click', function(e) {
   wheelOfFortune.compareClickedButton(clickedLetter, wheel, clickedButton)
 })
 
-$('#buy-a-vowel-button').on('click', function () {
-  //remove class 'disabled' vowels box
+$('#buy-vowel-button').on('click', function () {
+  console.log('moooo')
+  wheelOfFortune.gamePuzzles[0].buyAVowel(wheelOfFortune.activePlayer)
 })
 
 $('#spin-button').on('click', function(e) {
   e.preventDefault(e);
   wheel.getWheelValue(e, wheelOfFortune);
+  $('.letter-button').removeClass('unavailable-bank-letter');
 })
+
+$('#solve')
 
 })
 
