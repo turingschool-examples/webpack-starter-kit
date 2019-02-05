@@ -35,6 +35,7 @@
     this.activePlayer = playerOne;
     this.players = [playerOne, playerTwo, playerThree]
     console.log(playerOne)
+    domUpdates.highlightActivePlayer(this.players)
   }
 
   grabPuzzleBanks() {
@@ -120,6 +121,7 @@
         this.players[2].active = false;
         this.activePlayer = this.players[0]
       }
+      domUpdates.highlightActivePlayer(this.players)
     console.log(this.players)
   }
 
