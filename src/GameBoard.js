@@ -48,6 +48,7 @@ class Gameboard {
       round3.catIds = gameArr.splice(0, 1);
       round1.startRound(this);
       round1.getCatNames();
+      domUpdates.toggleStart();
       // round1.setCatNames();
   }
 
@@ -71,6 +72,7 @@ class Gameboard {
   shuffle(array) {
     return array.sort(() => 0.5 - Math.random());
   }
+  
 }
 
 export default Gameboard;
