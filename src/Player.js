@@ -5,6 +5,7 @@ class Player {
     this.name = name;
     this.roundScore = roundScore;
     this.totalScore = totalScore;
+    this.turn = false;
   }
 
   

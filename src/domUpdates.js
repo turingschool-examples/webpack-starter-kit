@@ -74,6 +74,10 @@ export default {
     }
   },
 
+  playerTurnUpdate: function() {
+    alert('change player');
+  }
+
 
 }
 
