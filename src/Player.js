@@ -10,7 +10,7 @@ class Player {
   }
   winRound() {
     this.totalScore += this.roundScore;
-    game.scoreUpdate();
+    // game.scoreUpdate();
   }
   winGame() {
     this.gameWinner = true;
@@ -18,7 +18,7 @@ class Player {
   }
   resetScore() {
     this.roundScore = 0;
-    game.scoreUpdate();
+    // game.scoreUpdate();
   }
   buyVowel() {
     if (this.roundScore >= 100) {
