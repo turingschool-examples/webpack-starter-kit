@@ -22,6 +22,12 @@ $('#guess-button').on('click', function(e) {
   game.puzzles[0].checkGuess();
 })
 
+$('#vowel-button').on('click', function(e) {
+  e.preventDefault();
+  console.log("vowel button clicked");
+  game.puzzles[0].checkVowel();
+})
+
 $('.wheel').on('click', function(e) {
   e.preventDefault();
   game.wheels[0].spin();

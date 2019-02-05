@@ -23,7 +23,7 @@ export default {
   },
 
   changePuzzle: function() {
-    let answer = game.puzzles[1].answer.split('');
+    let answer = game.puzzles[0].answer.split('');
     console.log(answer);
     answer.forEach(letter => {
       if (letter === " " || letter === "-" || letter === "&" || letter === "\'") {
@@ -32,7 +32,7 @@ export default {
         $('.puzzle').append(`<p class="puzzle-letter hide">${letter.toUpperCase()}</p>`);
       }
     });
-    let category = game.puzzles[1].category;
+    let category = game.puzzles[0].category;
     $('.category').text(category); 
   },
 
