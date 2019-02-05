@@ -1,8 +1,8 @@
-import Gameboard from './GameBoard.js'
+// import Gameboard from './GameBoard.js'
 
-class Player extends Gameboard {
+class Player {
   constructor(round, point, avatar, name) {
-    super(round, point)
+    // super(round, point)
     this.name = name;
     this.avatar = avatar;
     this.turn = false;
