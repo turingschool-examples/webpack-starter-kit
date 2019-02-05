@@ -12,9 +12,9 @@ class Game {
     this.allCluesInPlay = [];
     this.currentClue = null;
     this.counter = 0;
-    this.cluesRoundOne = null;
-    this.cluesRoundTwo = null;
-    this.cluesRoundThree = null;
+    // this.cluesRoundOne = null;
+    // this.cluesRoundTwo = null;
+    // this.cluesRoundThree = null;
     this.roundOne = null;
     this.roundTwo = null;
     this.roundThree = null;
@@ -48,31 +48,11 @@ class Game {
         allCategories.push(singleCat)
       }
     } while (allCategories.length < 9)
-    this.gatherClues(allCategories);
+    // this.gatherClues(allCategories);
     this.roundOne = allCategories.slice(0,4);
     this.roundTwo = allCategories.slice(4,8);
     this.roundThree = allCategories.slice(8,9);
     domUpdates.displayCategories(this.roundOne);
-  }
-
-  gatherClues(array) {
-    let allClues;
-    array.forEach(category => {
-      allClues = data.clues.filter(clue => {
-        return data.categories[category] === clue.categoryId;
-      });
-      for (var i = 1; i < 5; i++) {
-        let specificPoints = allClues.filter(clue => {
-          return clue.pointValue === 100 * i;
-        });
-        let randomIndex = Math.floor(Math.random() *  specificPoints.length);
-        this.allCluesInPlay.push(specificPoints[randomIndex]);
-      }
-    });
-    this.cluesRoundOne = this.allCluesInPlay.slice(0, 16);
-    this.cluesRoundTwo = this.allCluesInPlay.slice(16, 32);
-    this.cluesRoundThree = this.allCluesInPlay.slice(35);
-    domUpdates.setClues(this.cluesRoundOne);
   }
 
   instantiateClue(dataset) {
@@ -93,14 +73,19 @@ class Game {
     this.switchPlayer(this.currentPlayer);
   }
 
-  changeRound() {
-    if (this.counter === 16) {
+  initiateRound() {
+    if (this.counter === 0) {
+      let round = new Round(1)
+      round.gatherClues(this.roundOne, this);
+    } else if (this.counter === 16) {
       let round = new Round(2);
-      domUpdates.setClues(this.cluesRoundTwo);
+      round.gatherClues(this.roundTwo, this);
+      domUpdates.setClues(round.cluesRoundTwo);
       domUpdates.displayCategories(this.roundTwo);
     } else if (this.counter === 32) {
       let round = new Round(3);
-      domUpdates.setClues(this.cluesRoundThree);
+      round.gatherClues(this.roundThree, this);
+      domUpdates.setClues(round.cluesRoundThree);
       domUpdates.displayCategories(this.roundThree);
     }
   }

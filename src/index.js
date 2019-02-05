@@ -20,7 +20,7 @@ $('.start--btn').on('click', () => {
   domUpdates.toggleSplash();
   domUpdates.enableReset();
   game.getRandomCat();
-  game.changeRound();
+  game.initiateRound();
 });
 
 
@@ -43,5 +43,5 @@ $('body').on('click', '.submit--guess', () => {
   game.submitGuess(playInput);
   domUpdates.hidePopUp();
   game.counter++;
-  game.changeRound();
+  game.initiateRound();
 });
