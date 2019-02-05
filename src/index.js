@@ -42,15 +42,11 @@ let $player2Name = $('#p2-name-js').val();
 let $player3Name = $('#p3-name-js').val();
 
 let $cats = [$('.1'), $('.2'), $('.3'), $('.4')];
-let $cols1 = [$('.a1'), $('.b1'), $('.c1'), $('.d1')];
-let $cols2 = [$('.a2'), $('.b2'), $('.c2'), $('.d2')];
-let $cols3 = [$('.a3'), $('.b3'), $('.c3'), $('.d3')];
-let $cols4 = [$('.a4'), $('.b4'), $('.c4'), $('.d4')];
+let $tiles = [$('#0'), $('#1'), $('#2'), $('#3'), $('#4'), $('#b5'), $('#c6'), $('#d7'), $('#a8'), $('#b9'), $('#10'), $('#11'), $('#12'), $('#13'), $('#14'), $('#15')];
 
+// console.log($tiles[15])
 
-
-
-
+let game = new GameBoard();
 
 
 // * ======= Functions ======= *
@@ -61,7 +57,7 @@ function shuffle(array) {
 
 $(".start--button").click(function (e) {
   e.preventDefault();
-  let game = new GameBoard()
+  
   game.startGame();
   // game.players.push($player1Name, $player2Name, $player3Name)
   // let player.name = $('#p1-name-js').val()
@@ -89,7 +85,11 @@ $('.col').click(function () {
   $('.popup').toggle();
 });
 $('.col').click(function (e) {
-  $(e.target).css('visibility', 'hidden');
+  console.log('tile id ', event.target.id);
+  let tileId = event.target.id;
+  domUpdates.showQuestion(game, tileId);
+  // $(e.target).css('visibility', 'hidden');
+
 });
 
 $('.popup-btn').click(function (e) {

@@ -23,6 +23,7 @@ class Round {
       }
     });
     console.log(this)
+    console.log(this.clues[15])
   }
 
   getCatNames() {

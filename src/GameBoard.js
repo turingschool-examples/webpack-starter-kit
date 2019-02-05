@@ -15,6 +15,9 @@ class Gameboard {
     this.cluesRemaining = 16;
     this.clues = [];
     this.catNames = [];
+    this.roundOne = [];
+    this.roundTwo = [];
+    this.roundThree = [];
   }
 
   createPlayers() {
@@ -42,14 +45,18 @@ class Gameboard {
     const gameArr = this.shuffle(Object.values(data.categories));
     // domUpdates.displayNames();
     // createPlayers();
-      const round1 = new Round();
-      round1.catIds = gameArr.splice(0, 4);
-      const round2 = new Round;
-      round2.catIds = gameArr.splice(0, 4);
-      const round3 = new Round();
-      round3.catIds = gameArr.splice(0, 1);
-      round1.startRound(this);
-      round1.getCatNames();
+      this.roundOne = new Round();
+
+
+      // this.roundOne = new Round();
+      this.roundOne.catIds = gameArr.splice(0, 4);
+      // const round2 = new Round;
+      // round2.catIds = gameArr.splice(0, 4);
+      // const round3 = new Round();
+      // round3.catIds = gameArr.splice(0, 1);
+      this.roundOne.startRound(this);
+      this.roundOne.getCatNames();
+
       // round1.setCatNames();
   }
 
