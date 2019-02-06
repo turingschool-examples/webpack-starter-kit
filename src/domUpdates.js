@@ -44,18 +44,20 @@ const domUpdates = {
     $clueCardCategory.text(selectedClue.categoryName);
     $clueValue.text(`For $${selectedClue.pointValue}`);
     $question.text(selectedClue.question);
+    $('#rightWrong').hide();
     this.showClueCard();
   },
 
   showClueCard() {
     let $clueDisplay = $('.question-card');
+    $('.answer-btn').show();
     $clueDisplay.show();
   },
 
   correctFeedback() {
     let $clueDisplay = $('.question-card');
-    $('.answer-btn').after('<p class="correct-feedback">CORRECT!</p>');
     $('.answer-btn').hide();
+    $('#rightWrong').text('CORRECT!').removeClass('incorrect-feedback').addClass('correct-feedback').show();
     $clueDisplay.fadeOut(3000, function() {
       $(this).hide();
     })
@@ -63,8 +65,8 @@ const domUpdates = {
 
   incorrectFeedback() {
     let $clueDisplay = $('.question-card');
-    $('.answer-btn').after('<p class="incorrect-feedback">INCORRECT!</p>');
     $('.answer-btn').hide();
+    $('#rightWrong').text('INCORRECT!').removeClass('correct-feedback').addClass('incorrect-feedback').show();
     $clueDisplay.fadeOut(3000, function() {
       $(this).hide();
     })
