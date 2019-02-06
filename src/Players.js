@@ -1,7 +1,7 @@
 // import Gameboard from './GameBoard.js'
-import $ from 'jquery';
-import jQuery from 'jquery'
-window.$ = jQuery;
+// import $ from 'jquery';
+// import jQuery from 'jquery'
+// window.$ = jQuery;
 
 class Player {
   constructor(name, turn = false, avatar) {

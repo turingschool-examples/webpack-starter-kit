@@ -1,7 +1,7 @@
 import data from "./data"
 import $ from 'jquery';
 import jQuery from 'jquery'
-window.$ = jQuery;
+// window.$ = jQuery;
 
 import domUpdates from "./domUpdates";
 import Round from './Round'
@@ -21,7 +21,7 @@ class Gameboard {
   }
 
   createPlayers(playerIn) {
-    this.players.push(playerIn);
+    this.players = playerIn.concat(this.players);
     let player1 = new Player(this.players[0]);
     let player2 = new Player(this.players[1]);
     let player3 = new Player(this.players[2]);
