@@ -4,10 +4,10 @@ import $ from 'jquery';
 
 const domUpdates = {
 
-  labelCategories([firstRoundCategories], [secondRoundCategories], [finalRoundCategory]) {
+  labelCategories([firstRoundCategories], [secondRoundCategories]){
     //in domupdates, make them real english words
     //add forEach here to iterate through category list to append names
-    // if (game.round === 1) 
+    if (game.round === 1) {
       let $category1 = firstRoundCategories[0];
       $('#category-0').text($category1);
       let $category2 = firstRoundCategories[1];
@@ -16,6 +16,16 @@ const domUpdates = {
       $('#category-2').text($category3);
       let $category4 = firstRoundCategories[3];
       $('#category-3').text($category4);
+    } else if (game.round === 2) {
+      let $category1 = secondRoundCategories[0];
+      $('#category-0').text($category1);
+      let $category2 = secondRoundCategories[1];
+      $('#category-1').text($category2);
+      let $category3 = secondRoundCategories[2];
+      $('#category-2').text($category3);
+      let $category4 = secondRoundCategories[3];
+      $('#category-3').text($category4);
+    }
   },
 
   removeStartScreen() {

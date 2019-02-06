@@ -6,8 +6,8 @@ class Gameboard {
     this.round = round;
     this.categoryList = Object.keys(data.categories);
     this.cluesWithCategories = [];
-    this.firstRoundClues = [];
-    this.secondRoundClues = [];
+    this.roundClues = [];
+    // this.secondRoundClues = [];
     this.finalRoundClue = [];
     this.firstRoundCategories = [];
     this.secondRoundCategories = [];
@@ -53,7 +53,7 @@ class Gameboard {
       return clue.pointValue === 400
     }).shift()
     category10GameClues.push(point10100, point10200, point10300, point10400)
-    this.firstRoundClues.push(category10GameClues);
+    this.roundClues.push(category10GameClues);
     console.log("gameboard 10", category10GameClues)
 
 
@@ -76,7 +76,7 @@ class Gameboard {
       return clue.pointValue === 400
     }).shift()
     category9GameClues.push(point9100, point9200, point9300, point9400)
-    this.firstRoundClues.push(category9GameClues);
+    this.roundClues.push(category9GameClues);
     console.log("gameboard 9", category9GameClues)
 
 
@@ -99,7 +99,7 @@ class Gameboard {
       return clue.pointValue === 400
     }).shift()
     category8GameClues.push(point8100, point8200, point8300, point8400)
-    this.firstRoundClues.push(category8GameClues);
+    this.roundClues.push(category8GameClues);
     console.log("gameboard 8", category8GameClues)
 
 
@@ -122,11 +122,9 @@ class Gameboard {
       return clue.pointValue === 400
     }).shift()
     category7GameClues.push(point7100, point7200, point7300, point7400);
-    this.firstRoundClues.push(category7GameClues);
+    this.roundClues.push(category7GameClues);
     console.log("gameboard 7", category7GameClues);
 
-    this.firstRoundClues = this.firstRoundClues.flat();
-    console.log(this.firstRoundClues);
 
     let category6Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 6
@@ -147,7 +145,7 @@ class Gameboard {
       return clue.pointValue === 400
     }).shift()
     category6GameClues.push(point6100, point6200, point6300, point6400);
-    this.secondRoundClues.push(category6GameClues);
+    this.roundClues.push(category6GameClues);
     console.log("gameboard 6", category6GameClues)
 
 
@@ -170,7 +168,7 @@ class Gameboard {
       return clue.pointValue === 400
     }).shift()
     category5GameClues.push(point5100, point5200, point5300, point5400);
-    this.secondRoundClues.push(category5GameClues);
+    this.roundClues.push(category5GameClues);
     console.log("gameboard 5", category5GameClues)
 
 
@@ -194,7 +192,7 @@ class Gameboard {
       return clue.pointValue === 400
     }).shift()
     category4GameClues.push(point4100, point4200, point4300, point4400);
-    this.secondRoundClues.push(category4GameClues);
+    this.roundClues.push(category4GameClues);
     console.log("gameboard 4", category4GameClues)
 
 
@@ -217,11 +215,11 @@ class Gameboard {
       return clue.pointValue === 400
     }).shift()
     category3GameClues.push(point3100, point3200, point3300, point3400)
-    this.secondRoundClues.push(category3GameClues);
+    this.roundClues.push(category3GameClues);
     console.log("gameboard 3", category3GameClues)
 
-    this.secondRoundClues = this.secondRoundClues.flat();
-    console.log(this.secondRoundClues);
+    this.roundClues = this.roundClues.flat();
+    console.log(this.roundClues);
 
     let category2Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 2
@@ -269,23 +267,14 @@ class Gameboard {
     category1GameClues.push(point1100, point1200, point1300, point1400)
     console.log("gameboard 1", category1GameClues)
 
-    this.firstRoundCategories = [this.firstRoundClues[0].categoryName, this.firstRoundClues[4].categoryName, this.firstRoundClues[8].categoryName, this.firstRoundClues[12].categoryName]
+    this.firstRoundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName]
     console.log(this.firstRoundCategories);
     domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
   //create an of the categories for each round with 4 questions for each round
   };
 
-
-  selectClue(selectedClueId) {
-    
-  };
-
   appendWager() {
     //
-  };
-
-  clearGameboard() {
-    //Removes gameboard from window to add Q&A, wager, or start screens
   };
 
   doublePoints() {

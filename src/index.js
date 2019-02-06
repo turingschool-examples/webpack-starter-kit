@@ -32,7 +32,7 @@ $startBtn.on('click', function(e) {
 $gameboard.on('click', function(e) {
   if (e.target.className === 'clue-box') {
     let selectedClueLocation = e.target.id;
-    let selectedClue = game.firstRoundClues[selectedClueLocation]
+    let selectedClue = game.roundClues[selectedClueLocation]
     //change first round clues array to one array for all rounds and use index+15 for second round
     let clue = new Clue();
     clue.showClue(selectedClue);
