@@ -77,6 +77,12 @@ const domUpdates = {
     $wagerCard.css('display', 'none');
   },
 
+  changePlayerNames(game) {
+    $('#playerName1').text(game.playersArray[0].name);
+    $('#playerName2').text(game.playersArray[1].name);
+    $('#playerName3').text(game.playersArray[2].name);
+  }
+
 
 
   // updatePlayerScores() {
