@@ -14,6 +14,7 @@ import './images/003-mill.svg';
 import domUpdates from './domUpdates.js';
 import data from './data.js';
 import Game from './Game.js';
+import Player from './Player.js';
 import $ from 'jquery';
 
 
@@ -30,6 +31,8 @@ const $player3Name = $('#player3');
 
 const $submitNames = $('.submit-names');
 const $spinWheel = $('.spin-wheel');
+const $buyVowel = $('.buy-vowel');
+const $solvePuzzle = $('.solve-puzzle');
 
 // JS variables
 // const difficulty1 = data.puzzles.one_word_answers;
@@ -38,6 +41,7 @@ const $spinWheel = $('.spin-wheel');
 // const difficulty4 = data.puzzles.four_word_answers;
 
 let game;
+let player;
 
 
 
@@ -45,7 +49,8 @@ let game;
 $('.hidden-popup').hide();
 // jQuery Event Listeners
 $submitNames.on( 'click', playGame );
-$spinWheel.on('click', choosePrize )
+$spinWheel.on('click', choosePrize );
+$buyVowel.on('click', buyVowel )
 
 // change to arrow function
 function playGame(e) {
@@ -63,6 +68,9 @@ function playGame(e) {
 function buildGame() {
   createPlayerNames();
   game.newRound();
+  // console.log(game);
+    // game.createWheel();
+    // game.createPuzzle();
 }
 
 function choosePrize() {
@@ -85,6 +93,11 @@ function displayPlayerNames() {
   $playerThreeOutput.text($player3Name[0].value);
 }
 
+function buyVowel(e) {
+  e.preventDefault();
+  let player = new Player();
+    player.buyVowel();
+}
 // newWheel() {
 //   const wheel = new Wheel();
 //   wheel.randomizeWheel();

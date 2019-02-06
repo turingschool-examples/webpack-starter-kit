@@ -26,7 +26,7 @@ describe('Wheel', function() {
     expect(wheel.wheelElements).to.have.lengthOf(0);
     wheel.randomizeWheel();
     expect(wheel.wheelElements).to.have.lengthOf(6);
-  });
+  })
 
   it('should be different upon each iteration', function() {
     let wheel1 = new Wheel();
