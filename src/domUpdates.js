@@ -4,8 +4,8 @@ import Round from './Round';
 
 export default {
 
-  showQuestion(game, tileId){
-    $('.question-container').hide();
+  showQuestion(game, tileId) {
+    // $('.question-container').hide();
     console.log('game', game);
     let $questionText = $('.question-body');
     $questionText.text(game.roundOne.clues[tileId].question);
@@ -36,28 +36,61 @@ export default {
   // },
 
   hidePopup() {
-    $('.question-container').hide();
-    $('.popup').hide();
-    $('.overlay').hide();
+    console.log("this is firing")
+    $('.question-container').toggle();
+    $('.popup').toggle();
+    $('.overlay').toggle();
   },
 
   showPopup() {
-    $('.question-container').show();
-    $('.popup').show();
-    $('.overlay').show();
-    $('.start-up').show();
+    $('.question-container').toggle();
+    $('.popup').toggle();
+    $('.overlay').toggle();
+    // $('.start-up').show();
     $('.start-container').hide();
   },
 
   refreshGame() {
     console.log('yay')
-    // location.replace();
+    // location.replace(); 
   },
 
-  showAnswer(game) {
+  showAnswer(game, tileId) {
     console.log('yay')
     let $answer = $('.answer');
     $answer.text(game.roundOne.clues[tileId].answer);
   },
+
+  changeCatTitles(game) {
+    let names;
+    // if (game.activeRound === 1) {
+      names = game.roundOne.catNames;
+      console.log(names)
+      $('.cat0').text(names[0]);
+      $('.cat1').text(names[1]);
+      $('.cat2').text(names[2]);
+      $('.cat3').text(names[3]);
+    // ?} else if (game.activeRound === 2) {
+    // ?  names = game.roundTwo.catNames;
+    // ?  $('#col0').text(names[0]);
+    // ?  $('#col1').text(names[1]);
+    // ?  $('#col2').text(names[2]);
+    // ?  $('#col3').text(names[3]);
+    // ?}
+    // console.log(game.roundOne.catNames);
+    // let orignalCats =  $('.cat');
+    // console.log(orignalCats)
+    // $('.cat').each((index, el) => {
+    //   // value[index].text(value)
+    //   console.log(el)
+    //   el.text(index)
+      
+    //   // orignalCats[index].innerHTML(val)
+    // })
+    // $.each(names, function (index, value) {
+    //   $cats[index] = `$('.` + index + `').text('` + value + `')`;
+    //   // $cats[index] = value;
+    // });
+  }
   
 }
