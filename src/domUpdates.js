@@ -59,6 +59,13 @@ const domUpdates = {
     $('#score-player3').text(game.players[2].roundScore);
   },
 
+  updateRound(oldRound, newRound) {
+    console.log("updating round highlights")
+    $(`.round-${oldRound}`).removeClass('highlight');
+    $(`.round-${newRound}`).addClass('highlight');  
+  },
+
+
 };
 
 

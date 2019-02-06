@@ -58,6 +58,11 @@ header button:hover {
   align-self: center;
 }
 
+.rounds .highlight {
+  color: hsla( 0, 0%, 100%, 0.8);
+  text-shadow: 2px 4px 4px hsl( 23, 31%, 8%);
+}
+
 main {
   width: 100%;
   /*border: solid blue 2px;*/

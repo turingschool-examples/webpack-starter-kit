@@ -37,7 +37,7 @@ class Game {
       player.resetScore();
     });
     domUpdates.toggleKeyboard();
-    // update dom
+    domUpdates.updateRound(this.round - 1, this.round);
     if (this.round < 5) {
       this.roundWheel = new Wheel();      
       this.createWheel();
