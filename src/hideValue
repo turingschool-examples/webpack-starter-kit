@@ -1,3 +1,0 @@
-$('.col').click(function(e){
-$(e.target).css('visibility', 'hidden');
-})

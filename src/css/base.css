@@ -30,10 +30,15 @@ body {
 }
 
 #reset-game {
+  cursor: pointer;
   height: 50px;
   left: 100px;
   padding: 2px 10px 5px 10px;
   top: 90px;
+}
+
+#reset-game:hover {
+  background-color: #84bce7;
 }
 
 .logo {
@@ -71,7 +76,8 @@ body {
 }
 
 .cat--container {
-  padding-top: 70px;
+  padding-top: 120px;
+  position: relative;
 }
 
 h2 {
@@ -94,6 +100,8 @@ h2 {
   margin: 10px 20px;
   padding: 15px;
   position: relative;
+  text-align: center;
+  width: 145px;
 }
 
 .pokemon {
@@ -129,25 +137,36 @@ h4 {
   position: absolute;
   width: 80px;
   z-index: 1;
-  left: 25px;
+  left: 45px;
   top: 20px;
 }
 
 .active {
-  box-shadow: 3px 4px 7px #bce784, 5px 6px 12px black;  
+  box-shadow: 3px 4px 7px #84bce7, 5px 6px 12px black;  
 }
 
 .shadow--active {
-  background: white;
+  background: #84bce7;
 }
 
 /* ============================= */
 
+.litter-box {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
 .cat {
-  font-size: 32px;
+  font-size: 20px;
   grid-area: cat;
+  /* left: 15px; */
+  margin-bottom: 20px;
+  /* position: absolute; */
   text-align: center;
   text-transform: uppercase;
+  /* top: 105px; */
 }
 
 section h3 {
@@ -159,6 +178,7 @@ section h3 {
 
 .game-board h3:hover {
   color: #fff;
+  cursor: pointer;
 }
 
 /* ============Overlay============= */
@@ -203,9 +223,22 @@ section h3 {
   grid-area: input;
 }
 
+.name-input:hover {
+  background-color: #fff;
+  color: black;
+}
+
+.start--button:hover {
+  background-color: #84bce7;
+}
+
 .start--button {
   border: none;
   width: 90%;
+}
+
+.start--button:hover {
+  background-color: #84bce7;
 }
 
 .starter-pokemon {
@@ -303,6 +336,7 @@ section h3 {
   background-color: #414770;
   border-radius: 25px;
   color: #ECFEAA;
+  cursor: pointer;
   font-size: 20px;
   font-weight: bold;
   height: 50px;
