@@ -41,8 +41,9 @@ import './images/Oak2.png';
 // })
 // * ======= Global Variables ======= *
 
-let $cats = [$('.1'), $('.2'), $('.3'), $('.4')];
-let $tiles = [$('#0'), $('#1'), $('#2'), $('#3'), $('#4'), $('#b5'), $('#c6'), $('#d7'), $('#a8'), $('#b9'), $('#10'), $('#11'), $('#12'), $('#13'), $('#14'), $('#15')];
+// let $cats = [$('.0').text(), $('.1').text(), $('.2').text(), $('.3').text()];
+// console.log($cats)
+// let $tiles = [$('#0'), $('#1'), $('#2'), $('#3'), $('#4'), $('#b5'), $('#c6'), $('#d7'), $('#a8'), $('#b9'), $('#10'), $('#11'), $('#12'), $('#13'), $('#14'), $('#15')];
 
 // console.log($tiles[15])
 
@@ -65,31 +66,34 @@ $(".start--button").click(function (e) {
     $('#p3-name-js').val()
   ];
   game = new GameBoard();
+  console.log(game)
   game.startGame(playerIn);
   domUpdates.toggleStart();
   // domUpdates.showAnswer();
+  
 });
 
 let tileId;
 
-$('.col').click(function (e) {
+$('.col').click(function () {
   console.log('tile id ', event.target.id);
   tileId = event.target.id;
   $(this).css('visibility', 'hidden')
   domUpdates.showPopup();
-  // domUpdates.toggleOverlay();
+  domUpdates.showQuestion(game, tileId);
 });
 
-// $('.popup-btn').click(function (e) {
-//   e.preventDefault();
-//   domUpdates.submitQuestion();
-//   // game.changeTurn();
-// });
-
-$(window).load(domUpdates.showQuestion(game, tileId));
-
-$('#close-popup').click(domUpdates.hidePopup());
-
-$('#reset-game').click(function () {
-  location.reload();
+$('.popup-btn').click(function () {
+  domUpdates.showAnswer(game, tileId);
+  $("#popup-input-js").prop('disabled', true);
 });
+
+
+
+$('.close-popup').click(function () {
+  $('#popup-input-js').val('');
+  $("#popup-input-js").prop('disabled', false);
+  domUpdates.hidePopup();
+});
+
+$('#reset-game').click(() => location.reload());

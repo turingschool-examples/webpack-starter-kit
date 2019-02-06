@@ -1,0 +1,73 @@
+anonymous user {
+  - display prompt for incorrect answer
+  - change cursor to pointer when hovering over button
+  - answer should be cleared after closing popup
+  - prompt should be more noticable to change name
+  - category should display category name
+}
+
+anonymous user {
+  - when entering correct answer, points don't add anywhere!
+  - sizing of user boxes is inconsistant
+  - reset game doesn't work
+  - layout on start screen is odd (2 professor Oaks)
+  - category names don't show up
+}
+
+anonymous user {
+  - name inputs look like buttons
+  - input does not clear card to card
+}
+
+anonymous user {
+  - homescreen, change names to placeholders?
+  - this is beautiful
+  - remove href questions
+  - add correct answer notification
+}
+
+anonymous user {
+  - if you delete placeholders for player name, no text name appears for player
+    - how will you hande that, if user tries to submit with no names?
+  - the title is a little difficult to read
+  - the theme is cute/cool/well integrated
+  - I like how category values disappear after you click & see the question
+}
+
+anonymous user {
+  - 2 professor Oaks is too many!
+  - doesn't change score
+  - keeps input from guesses
+  - no daily double
+}
+
+anonymous user {
+  - loving the pokemon
+  - no category
+  - point values don't show
+  - love the UI
+  - splash screen at it's best
+}
+
+anonymous user {
+  - theme is dope AF
+  - reset input answers
+  - general layout looks great, well-organized
+  - user would love to learn answer if they incorrect
+  - nice that selected $ amounts disappear
+  - does guess have to match answer EXACTLY, to be correct?
+}
+
+anonymous user {
+  *Pros:
+    - theme is awesome!
+    - transition is seamless
+    - guess screen is nice
+    - "What is..." placeholder is great!
+  *Cons:
+    - input has values instead of placeholder
+    - not clear who's turn it is
+    - categories not populating
+    - score not populating
+    - guess field does not refresh
+}

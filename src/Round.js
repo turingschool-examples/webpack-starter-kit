@@ -29,7 +29,7 @@ class Round {
 
   getCatNames() {
     const catString = [
-      'United States History', 'Life Sciences', 'Public Health', 'Education Jargon',
+      'US History', 'Life Sciences', 'Public Health', 'Education Jargon',
       'Name That Board Game', 'American Literature', 'Biographies', 'American Cities',
       'Food', 'Cable TV'
     ];

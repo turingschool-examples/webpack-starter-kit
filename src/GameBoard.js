@@ -35,30 +35,48 @@ class Gameboard {
     });
   }
 
-  showQuestionPopup() {
-    $('.col').click(function() {
-      $('.question-container').css('visibility', 'visible')
-    });
+  // showQuestionPopup() {
+  //   $('.col').click(function() {
+  //     $('.question-container').css('visibility', 'visible')
+  //   });
+  // }
+
+  setCatNames($cats) {
+    console.log("get cats")
+    // $.each(this.roundOne.catNames, function (index, value) {
+    //   $($cats).text(this.roundOne.catNames[i]);
+    // });
+    // $('').each(function (index, value) {
+    //   console.log('div' + index + ':' + $(this).attr('id'));
+    // });
+    // var names = this.roundOne.catNames;
+    // $.each(names, function (index, value) {
+    //   $cats[index] = `$('.` + index + `').text('` + value + `')`;
+    //   // $cats[index] = value;
+    // });
+    console.log(names, $cats)
   }
 
-  startGame(playerIn) {
+  startGame(playerIn, $cats) {
     const gameArr = this.shuffle(Object.values(data.categories));
     // domUpdates.displayNames();
 
     this.roundOne = new Round();
     this.roundOne.catIds = gameArr.splice(0, 4);
-    this.roundTwo = new Round();
-    this.roundOne.catIds = gameArr.splice(0, 4);
-    this.roundThree = new Round();
-    round3.catIds = gameArr.splice(0, 1);
+    // this.roundTwo = new Round();
+    // this.roundOne.catIds = gameArr.splice(0, 4);
+    // this.roundThree = new Round();
+    // this.roundThree.catIds = gameArr.splice(0, 1);
     this.roundOne.startRound(this);
     this.roundOne.getCatNames();
-    // round1.setCatNames();
+    // this.setCatNames($cats);
     this.createPlayers(playerIn);
+    domUpdates.changeCatTitles(this);
   }
 
   changeRound() {
     this.activeRound++;
+    domUpdates.changeCatTitles(this);
   }
 
   changeTurn(players) {
