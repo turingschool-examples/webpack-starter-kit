@@ -56,7 +56,6 @@ class Gameboard {
       // round3.catIds = gameArr.splice(0, 1);
       this.roundOne.startRound(this);
       this.roundOne.getCatNames();
-      // round1.setCatNames();
   }
 
   changeRound() {

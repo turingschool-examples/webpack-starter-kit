@@ -40,9 +40,6 @@ import './images/Oak2.png';
 //   $('.question-container').css('visibility', 'visible')
 // })
 // * ======= Global Variables ======= *
-let $player1Name = $('#p1-name-js').val();
-let $player2Name = $('#p2-name-js').val();
-let $player3Name = $('#p3-name-js').val();
 
 let $cats = [$('.1'), $('.2'), $('.3'), $('.4')];
 let $tiles = [$('#0'), $('#1'), $('#2'), $('#3'), $('#4'), $('#b5'), $('#c6'), $('#d7'), $('#a8'), $('#b9'), $('#10'), $('#11'), $('#12'), $('#13'), $('#14'), $('#15')];
@@ -61,28 +58,24 @@ $(".start--button").click(function (e) {
   game = new GameBoard();
   game.startGame();
   domUpdates.toggleStart();
+  // domUpdates.showAnswer();
 });
 
-// $('h2').click(domUpdates.toggleOverlay());
-
-
-// $('.col').click(function () {
-//   $('.overlay').toggle();
-//   $(".question-container").css('visibility', 'visible');
-//   // $('.popup').toggle();
-// });
-
+let tileId;
 
 $('.col').click(function (e) {
   console.log('tile id ', event.target.id);
-  let tileId = event.target.id;
-  $(this).hide()
-  domUpdates.showQuestion(game, tileId);
+  tileId = event.target.id;
+  $(this).css('visibility', 'hidden')
+  domUpdates.showPopup();
+  // domUpdates.toggleOverlay();
 });
 
-$('.popup-btn').click(function (e) {
-  e.preventDefault();
-  domUpdates.submitQuestion();
-});
+
+$(window).load(domUpdates.showQuestion(game, tileId));
+
+$('#reset-game').click(domUpdates.refreshGame());
+
+$('#close-popup').click(domUpdates.hidePopup());
 
 
