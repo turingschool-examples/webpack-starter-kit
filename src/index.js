@@ -38,11 +38,10 @@ $gameboard.on('click', function(e) {
     let clue = new Clue();
     clue.showClue(selectedClue);
     domUpdates.populateClueCard(selectedClue);
-    domUpdates.showClueCard();
     $answerClue.on('click', function(e) {
       e.preventDefault();
-      domUpdates.removeClueCard();
-      domUpdates.answerFeedback(selectedClue);
+      let $playerAnswer = $('#playerAnswer').val();
+      clue.checkAnswer(selectedClue, $playerAnswer)
     })
   }
 })

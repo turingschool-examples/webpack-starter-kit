@@ -209,7 +209,10 @@ table th {
 }
 
 .answer-btn {
-
+  border-radius: 25px;
+  height: 30px;
+  margin-top: 20px;
+  width: 120px;
 }
 
 /** Wager pop up **/
@@ -267,4 +270,14 @@ table th {
 
 .add-margin-top {
   margin-top: 30px;
+}
+
+.correct-feedback {
+  font-size: 30px;
+  color: lightgreen;
+}
+
+.incorrect-feedback {
+  font-size: 30px;
+  color: red;
 }

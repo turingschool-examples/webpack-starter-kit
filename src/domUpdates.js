@@ -44,6 +44,7 @@ const domUpdates = {
     $clueCardCategory.text(selectedClue.categoryName);
     $clueValue.text(`For $${selectedClue.pointValue}`);
     $question.text(selectedClue.question);
+    this.showClueCard();
   },
 
   showClueCard() {
@@ -51,16 +52,14 @@ const domUpdates = {
     $clueDisplay.show();
   },
 
-  // $clueDisplay.css('display', 'block');
+  correctFeedback() {
+    console.log('hooray!!!');
+    $('.answer-btn').after('<p class="correct-feedback">CORRECT!</p>')
+  },
 
-  answerFeedback(selectedClue) {
-    let $playerAnswer = $('#playerAnswer').val();
-    if ($playerAnswer.toLowerCase() === selectedClue.answer.toLowerCase()) {
-      console.log('yup')
-    } else {
-      console.log('nah')
-    };
-    // $playerAnswer = '';
+  incorrectFeedback() {
+    console.log('Wrong!!!');
+    $('.answer-btn').after('<p class="incorrect-feedback">INCORRECT!</p>')
   },
 
   removeClueCard() {
