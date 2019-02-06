@@ -6,6 +6,7 @@ body {
   background-color: #0b1842;
   color: #35eff4;
   font-family: 'Open Sans', sans-serif;
+  margin: auto;
 }
 
 button {
@@ -17,24 +18,38 @@ h2 {
   margin: 0;
 }
 
-/*login page*/
+/*landing page*/
 .landing-page {
-  background-color: blue;
+  background-color: #AA73EF;
+}
+
+.main-title {
+  color: #D9CEE6;
+  display: inline-block;
+  margin-left: 44vw;
 }
 
 .player-info {
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 50%;
+  width: 40%;
 }
 
 .player-label {
-  color: pink;
+  color: #D9CEE6;
+  border: none;
 }
 
 .start-button {
-  background-color: red;
+  margin-top: 10px;
+  height: 20px;
+  background-color: #E4DDED;
+  border: none;
+}
+
+.start-button:hover {
+  background-color: #8177CD;
 }
 
 /* Header Section Begins Here*/
@@ -59,6 +74,10 @@ main {
 }
 
 /* Play Section Begins Here */
+
+.round {
+  padding-left: 10px;
+}
 
 .play {
   grid-area: play;
@@ -180,6 +199,10 @@ button.wheel {
   margin: 10px 0 10px 0;
   text-align: center;
   padding: 10px;
+}
+
+.current-player {
+  background-color: pink;
 }
 
 .score-container {

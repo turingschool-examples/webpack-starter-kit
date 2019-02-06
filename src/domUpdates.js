@@ -20,6 +20,8 @@ export default {
     $('#player1-name').text(players[0]);
     $('#player2-name').text(players[1]);
     $('#player3-name').text(players[2]);
+    // $('player[2].name').text('hi');
+
   },
 
   changePuzzle() {
@@ -72,10 +74,17 @@ export default {
     }
   },
 
-  highlightCurrentPlayer() {
-    alert('change player');
-  }
+  hideStartScreen() {
+    $('.landing-page').hide();
+  },
 
+  highlightCurrentPlayer(name) {
+    $(`.player:contains(${name})`).addClass('current-player');
+  },
+
+  unhighlightPreviousPlayer(name) {
+    $(`.player:contains(${name})`).removeClass('current-player');
+  },
 
 }
 
