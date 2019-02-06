@@ -29,6 +29,36 @@ const domUpdates = {
     $('.puzzle-box').append(`<p class="puzzle-pieces piece-${i} hidden"> ${letter} </p>`);
   },
 
+  appendWheel(element) {
+    $('.wheel').append('<p class="wheel-element">' + element + '</p>');
+  },
+
+  toggleKeyboard() {
+    if (!$('.vowel').is(':disabled')) {
+      $('.vowel').attr('disabled', true);
+      $('.vowel').addClass('disabled');
+      $('.consonant').attr('disabled', false);
+      $('.consonant').removeClass('disabled');
+    } else {
+      $('.vowel').attr('disabled', false);
+      $('.vowel').removeClass('disabled');
+      $('.consonant').attr('disabled', true);
+      $('.consonant').addClass('disabled');
+    }
+  },
+
+  displayCorrectLetter(e, letter, i) {
+    if (letter === e.currentTarget.innerText) {
+      $(`.piece-${i}`).removeClass('hidden')
+    }
+  },
+
+  scoreUpdate() {
+    $('#score-player1').text(game.players[0].roundScore);
+    $('#score-player2').text(game.players[1].roundScore);
+    $('#score-player3').text(game.players[2].roundScore);
+  },
+
 };
 
 

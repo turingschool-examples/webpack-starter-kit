@@ -65,5 +65,5 @@ function createPlayerNames() {
   playerNames.push($('#player3').value);
   game.createPlayers(playerNames);
   domUpdates.displayPlayerNames();
-  game.scoreUpdate();
+  // domUpdates.scoreUpdate();
 }

@@ -23,7 +23,6 @@ class Puzzle {
       result = data.puzzles.one_word_answers;
     }
     this.difficulty = result;
-    console.log(this.difficulty)
   }
   randomizePuzzle() {
     let randomIndex = Math.floor(Math.random() * this.difficulty.puzzle_bank.length);
@@ -31,7 +30,6 @@ class Puzzle {
     this.answer = this.puzzleDetails.correct_answer;
     this.domDifficulty = this.puzzleDetails.number_of_words;
     this.category = this.puzzleDetails.category;
-    console.log(this.difficulty);
     // console.log("puzzle answer for the dom:", this.answer);
     console.log("puzzle difficulty:", this.domDifficulty);
     console.log("puzzle category:", this.category);

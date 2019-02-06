@@ -1,7 +1,7 @@
 import Wheel from './Wheel.js';
 import Player from './Player.js';
 import Puzzle from './Puzzle.js';
-
+import domUpdates from './domUpdates.js';
 
 class Game {
   constructor(difficulty) {
@@ -19,12 +19,10 @@ class Game {
       thisPlayers.push(player);
     })
   }
-
-    // MOVE TO DOM UPDATES
   createWheel() {
     this.roundWheel.randomizeWheel();
     this.roundWheel.wheelElements.forEach((element) => {
-      $('.wheel').append('<p class="wheel-element">' + element + '</p>');
+      domUpdates.appendWheel(element);
     })
   }
   createPuzzle() {
@@ -38,7 +36,7 @@ class Game {
     this.players.forEach((player) => {
       player.resetScore();
     });
-    this.toggleKeyboard();
+    domUpdates.toggleKeyboard();
     // update dom
     if (this.round < 5) {
       this.roundWheel = new Wheel();      
@@ -52,44 +50,15 @@ class Game {
     } 
   }
   buyVowel() {
-    this.toggleKeyboard();
-  }
-
-    // MOVE TO DOM UPDATES
-  toggleKeyboard() {
-    if (!$('.vowel').is(':disabled')) {
-      $('.vowel').attr('disabled', true);
-      $('.vowel').addClass('disabled');
-      $('.consonant').attr('disabled', false);
-      $('.consonant').removeClass('disabled');
-    } else {
-      $('.vowel').attr('disabled', false);
-      $('.vowel').removeClass('disabled');
-      $('.consonant').attr('disabled', true);
-      $('.consonant').addClass('disabled');
-    }
+    domUpdates.toggleKeyboard();
   }
   guessLetter(e) {
     let uppercasePuzzle = this.roundPuzzle.answer.toUpperCase();
     this.splitPuzzle = uppercasePuzzle.split('');
     this.splitPuzzle.forEach((letter, i) => {
-      if (letter === e.currentTarget.innerText) {
-        console.log("current target: ", e.currentTarget.innerText);       
-        // jquery to grab the vowels and cons
-        // remove "hidden" class
-        $(`.piece-${i}`).removeClass('hidden')
-      }
+      domUpdates.displayCorrectLetter(e, letter, i);
     })
   }
-
-    // MOVE TO DOM UPDATES
-  scoreUpdate() {
-  $('#score-player1').text(this.players[0].roundScore);
-  $('#score-player2').text(this.players[1].roundScore);
-  $('#score-player3').text(this.players[2].roundScore);
-}
-
-// probably called after the last round is over 
   endGame() {
       // show 'game over' screen
       // display 'back to home screen' button
