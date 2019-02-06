@@ -31,7 +31,8 @@ const $player3Name = $('#player3');
 
 const $submitNames = $('.submit-names');
 const $spinWheel = $('.spin-wheel');
-const $buyVowel = $('#buy-vowel');
+const $buyVowel = $('.buy-vowel');
+const $solvePuzzle = $('.solve-puzzle');
 
 // JS variables
 // const difficulty1 = data.puzzles.one_word_answers;
