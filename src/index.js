@@ -46,6 +46,7 @@ let player;
 
 
 
+$('.hidden-popup').hide();
 // jQuery Event Listeners
 $submitNames.on( 'click', playGame );
 $spinWheel.on('click', choosePrize );
@@ -73,9 +74,6 @@ function buildGame() {
 }
 
 function choosePrize() {
-  // console.log(game);
-  // console.log(game.wheel);
-  console.log(game.roundWheel);
   game.roundWheel.spinWheel();
 }
 
