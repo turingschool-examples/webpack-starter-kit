@@ -44,7 +44,7 @@ class Puzzle {
     let splitAnswer = this.answer.split('');
     console.log(splitAnswer);
     splitAnswer.forEach((letter) => {
-      $('.puzzle-box').append('<p class="puzzle-pieces">' + letter + '</p>');
+      $('.puzzle-box').append('<p class="puzzle-pieces hidden">' + letter + '</p>');
     })
   }
 };

@@ -70,10 +70,12 @@ class Game {
     this.splitPuzzle = uppercasePuzzle.split('');
     this.splitPuzzle.forEach(letter => {
       if (letter === e.currentTarget.innerText) {
-        console.log("inside?")
+        console.log("current target: ", e.currentTarget.innerText);       
+        // jquery to grab the vowels and cons
+        // remove "hidden" class
+        $('.puzzle-pieces').removeClass('hidden')
       }
     })
-    
   }
   scoreUpdate() {
   $('#score-player1').text(this.players[0].roundScore);
