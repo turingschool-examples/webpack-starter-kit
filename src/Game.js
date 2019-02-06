@@ -82,18 +82,21 @@ class Game {
     if (this.counter === 0) {
       let round = new Round(1)
       round.gatherClues(this.roundOne, this);
+      console.log(this.roundThree)
     } else if (this.counter === 16) {
       let round = new Round(2);
       round.gatherClues(this.roundTwo, this);
       domUpdates.setClues(round.cluesRoundTwo);
       domUpdates.displayCategories(this.roundTwo);
       round.changePointRange();
-      domUpdates.displayRound();
+      domUpdates.displayRound(2);
     } else if (this.counter === 32) {
       let round = new Round(3);
-      round.gatherClues(this.roundThree, this);
-      domUpdates.setClues(round.cluesRoundThree);
-      domUpdates.displayCategories(this.roundThree);
+      // round.gatherClues(this.roundThree, this);
+      // domUpdates.setClues(round.cluesRoundThree);
+      // domUpdates.displayCategories(this.roundThree);
+      domUpdates.displayRound(3);
+      domUpdates.displayRoundThreeWager(this.roundThree[0])
     }
   }
 

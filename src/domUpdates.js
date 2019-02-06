@@ -29,8 +29,8 @@ const domUpdates = {
     $('.player--three--score').text(0);
   },
 
-  displayRound: () => {
-    $('.game--round').text('Round: 2')
+  displayRound: (num) => {
+    $('.game--round').text(`Round: ${num}`)
   },
 
   enableReset: () => {
@@ -100,7 +100,12 @@ const domUpdates = {
     $('.popup--question').text(`the answer is "${answer}"`);
     $('.popup--input').css('display', 'none');
     $('.submit--guess').css('display', 'none');
-  }
+  },
+
+  displayRoundThreeWager: (category) => {
+    $('.category--header').empty();
+    $('.game--board').replaceWith(`<h1>${category}</h1>`);
+  } 
   
 }
 
