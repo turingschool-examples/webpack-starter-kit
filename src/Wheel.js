@@ -1,5 +1,6 @@
 import data from './data.js';
 import Player from './Player.js';
+import domUpdates from './domUpdates.js';
 
 class Wheel {
   constructor() {
@@ -27,6 +28,7 @@ class Wheel {
     // if land on bankrupt invoke bankrupt method
     // if land on lose a turn invoke loseTurn method
   }
+  // MOVE TO DOM UPDATES
   displayElement() {
     $('.hidden-popup').fadeIn();
     if (typeof(this.currentSpin) === 'string') {
@@ -37,13 +39,11 @@ class Wheel {
     // alert(this.currentSpin);
     $(".remove-popup").on("click", () => {
       console.log('clicked');
-      this.hideElement();
+      // if calling domUpdates within domUpdates change invoke method (this?)
+      domUpdates.hideElement();
     });
   }
-  hideElement() {
-    $('.hidden-popup').fadeOut();
-    $('.hidden-popup').html('');
-  }
+  
   bankrupt(player) {
     // reset player roundScore to 0
   }

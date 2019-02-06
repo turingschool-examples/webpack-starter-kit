@@ -40,11 +40,13 @@ class Puzzle {
     this.displayPuzzle();
     return this.puzzleDetails;
   }
+
+  // MOVE TO DOM UPDATES
   displayPuzzle() {
     let splitAnswer = this.answer.split('');
     console.log(splitAnswer);
-    splitAnswer.forEach((letter) => {
-      $('.puzzle-box').append('<p class="puzzle-pieces">' + letter + '</p>');
+    splitAnswer.forEach((letter, i) => {
+      $('.puzzle-box').append(`<p class="puzzle-pieces piece-${i} hidden"> ${letter} </p>`);
     })
   }
 };

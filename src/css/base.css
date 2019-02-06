@@ -164,6 +164,12 @@ main button:hover,
   text-shadow: 2px 4px 4px hsl( 23, 31%, 8%);
 }
 
+.puzzle-box .hidden {
+  color: hsla( 0, 0%, 0%, 0);
+  text-shadow: none;
+
+}
+
 .puzzle-buttons {
   display: flex;
   justify-content: space-around;

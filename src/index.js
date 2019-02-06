@@ -44,8 +44,9 @@ let game;
 let player;
 
 // 
-$('.consonant, .vowel').on('click', () => {
-  console.log('BUTTON PRESSED');
+$('.consonant, .vowel').on('click', (event) => {
+  // console.log('BUTTON PRESSED');
+  game.guessLetter(event);
 })
 
 
@@ -90,6 +91,7 @@ function createPlayerNames() {
   game.scoreUpdate();
 }
 
+  // MOVE TO DOM UPDATES
 function displayPlayerNames() {
   $playerOneOutput.text($player1Name[0].value);
   $playerTwoOutput.text($player2Name[0].value);

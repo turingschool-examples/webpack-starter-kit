@@ -10,6 +10,7 @@ class Game {
     this.roundWheel = null;
     this.bonusWheel = [];
     this.roundPuzzle = [];
+    this.splitPuzzle = [];
   }
   createPlayers(names) {
     let thisPlayers = this.players;
@@ -18,6 +19,8 @@ class Game {
       thisPlayers.push(player);
     })
   }
+
+    // MOVE TO DOM UPDATES
   createWheel() {
     this.roundWheel.randomizeWheel();
     this.roundWheel.wheelElements.forEach((element) => {
@@ -51,6 +54,8 @@ class Game {
   buyVowel() {
     this.toggleKeyboard();
   }
+
+    // MOVE TO DOM UPDATES
   toggleKeyboard() {
     if (!$('.vowel').is(':disabled')) {
       $('.vowel').attr('disabled', true);
@@ -64,11 +69,27 @@ class Game {
       $('.consonant').addClass('disabled');
     }
   }
+  guessLetter(e) {
+    let uppercasePuzzle = this.roundPuzzle.answer.toUpperCase();
+    this.splitPuzzle = uppercasePuzzle.split('');
+    this.splitPuzzle.forEach((letter, i) => {
+      if (letter === e.currentTarget.innerText) {
+        console.log("current target: ", e.currentTarget.innerText);       
+        // jquery to grab the vowels and cons
+        // remove "hidden" class
+        $(`.piece-${i}`).removeClass('hidden')
+      }
+    })
+  }
+
+    // MOVE TO DOM UPDATES
   scoreUpdate() {
   $('#score-player1').text(this.players[0].roundScore);
   $('#score-player2').text(this.players[1].roundScore);
   $('#score-player3').text(this.players[2].roundScore);
 }
+
+// probably called after the last round is over 
   endGame() {
       // show 'game over' screen
       // display 'back to home screen' button
