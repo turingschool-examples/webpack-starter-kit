@@ -38,13 +38,19 @@ $gameboard.on('click', function(e) {
     clue.showClue(selectedClue);
     domUpdates.populateClueCard(selectedClue);
     domUpdates.showClueCard();
+    $answerClue.on('click', function(e) {
+      e.preventDefault();
+      domUpdates.removeClueCard();
+      domUpdates.answerFeedback(selectedClue);
+    })
   }
 })
 
-$answerClue.on('click', function(e) {
-  e.preventDefault();
-  domUpdates.removeClueCard();
-})
+// $answerClue.on('click', function(e) {
+//   e.preventDefault();
+//   domUpdates.removeClueCard();
+//   domUpdates.answerFeedback(selectedClue);
+// })
   //clue.checkAnswer() ??
 
 
