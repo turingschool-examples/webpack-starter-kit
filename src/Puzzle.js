@@ -34,15 +34,18 @@ class Puzzle {
     this.domDifficulty = this.puzzleDetails.number_of_words;
     this.category = this.puzzleDetails.category;
     console.log(this.difficulty);
-    console.log("puzzle answer for the dom:", this.answer);
+    // console.log("puzzle answer for the dom:", this.answer);
     console.log("puzzle difficulty:", this.domDifficulty);
     console.log("puzzle category:", this.category);
-    this.divideAnswer();
+    this.displayPuzzle();
     return this.puzzleDetails;
   }
-  divideAnswer() {
+  displayPuzzle() {
     let splitAnswer = this.answer.split('');
     console.log(splitAnswer);
+    splitAnswer.forEach((letter) => {
+      $('.puzzle-box').append('<p class="puzzle-pieces">' + letter + '</p>');
+    })
   }
 };
 

@@ -35,6 +35,7 @@ class Game {
     this.players.forEach((player) => {
       player.resetScore();
     });
+    this.toggleKeyboard();
     // update dom
     if (this.round < 5) {
       this.roundWheel = new Wheel();      
@@ -46,6 +47,22 @@ class Game {
       // this.createBonusWheel();
       // start bonus round;
     } 
+  }
+  buyVowel() {
+    this.toggleKeyboard();
+  }
+  toggleKeyboard() {
+    if (!$('.vowel').is(':disabled')) {
+      $('.vowel').attr('disabled', true);
+      $('.vowel').addClass('disabled');
+      $('.consonant').attr('disabled', false);
+      $('.consonant').removeClass('disabled');
+    } else {
+      $('.vowel').attr('disabled', false);
+      $('.vowel').removeClass('disabled');
+      $('.consonant').attr('disabled', true);
+      $('.consonant').addClass('disabled');
+    }
   }
   scoreUpdate() {
   $('#score-player1').text(this.players[0].roundScore);
