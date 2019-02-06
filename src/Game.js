@@ -74,7 +74,7 @@ class Game {
     })
     // console.log(this.players[this.currentPlayer].roundScore);
     // represent on DOM ^
-    console.log(this.players[this.currentPlayer].roundScore);
+    // console.log(this.players[this.currentPlayer].roundScore);
     // domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
   }
   endGame() {
