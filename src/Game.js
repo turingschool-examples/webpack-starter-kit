@@ -58,9 +58,11 @@ class Game {
     });
     if (specificClue.dailyDouble === true) {
       this.currentClue = new DailyDouble(0, specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
+      console.log(specificClue.answer)
       domUpdates.displayDailyDouble()
     } else {
       this.currentClue = new Clue(specificClue.question, specificClue.pointValue, specificClue.answer, specificClue.categoryId);
+      console.log(specificClue.answer);
       domUpdates.displayClue(specificClue.question);
     }
   }

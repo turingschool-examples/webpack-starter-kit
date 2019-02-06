@@ -50,7 +50,7 @@ $('.game--board').on('click', (event) => {
 
 $('body').on('click', '.submit--wager', () => {
   let playWager = $('.submit--wager').prev().val();
-  game.currentClue.wagerScore(playWager);
+  game.currentClue.wagerScore(playWager, game);
 })
 
 $('body').on('click', '.submit--guess', () => {

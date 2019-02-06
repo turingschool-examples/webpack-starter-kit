@@ -67,7 +67,8 @@ const domUpdates = {
     <div class="popup--container">
       <h2 class="popup--question">You got a DAILY DOUBLE!</h2>
       <h5>Please enter your wager:</h5>
-      <input class="wager--input" type="text" placeholder="Place Wager Here"/>
+      <h5 class="wager--error error--hidden">Wager can not be greater than current score</h5>
+      <input class="wager--input wager" type="text" placeholder="Place Wager Here"/>
       <button class="submit--wager">Submit Wager</button>
     </div>
     `);
@@ -105,7 +106,12 @@ const domUpdates = {
   displayRoundThreeWager: (category) => {
     $('.category--header').empty();
     $('.game--board').replaceWith(`<h1>${category}</h1>`);
-  } 
+  },
+
+  displayError: () => {
+    $('.wager--error').removeClass('error--hidden');
+    $('.wager--error').addClass('error--displayed');
+  }
   
 }
 

@@ -116,3 +116,11 @@ button {
   color: #49a89d;
   pointer-events: none;
 }
+
+.error--hidden {
+  visibility: hidden;
+}
+
+.error--displayed {
+  visibility: visible
+}
