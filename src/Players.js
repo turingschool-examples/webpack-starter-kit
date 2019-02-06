@@ -1,11 +1,12 @@
 // import Gameboard from './GameBoard.js'
+// import $ from 'jquery';
+// import jQuery from 'jquery'
+// window.$ = jQuery;
 
 class Player {
-  constructor(round, point, avatar, name) {
-    // super(round, point)
+  constructor(name, turn = false) {
     this.name = name;
-    this.avatar = avatar;
-    this.turn = false;
+    this.turn = turn;
   }
 
   newTurn() {
@@ -17,14 +18,11 @@ class Player {
     // when the player clicked the submit answer button, the popup will disappear (animate?)
     // and the box will hide from the gameboard (animate?)
   }
+  
   addPoints() {
     // keep track of player current points
     // add points
     // this.currentPoints + data.clue.pointValue
-  }
-
-  getNames() {
-    $('#p1-name-change-js').text($('#p1-name-js'))
   }
 }
 
