@@ -46,9 +46,11 @@ class Gameboard {
     // domUpdates.displayNames();
 
     this.roundOne = new Round();
-
     this.roundOne.catIds = gameArr.splice(0, 4);
-
+    this.roundTwo = new Round();
+    this.roundOne.catIds = gameArr.splice(0, 4);
+    this.roundThree = new Round();
+    round3.catIds = gameArr.splice(0, 1);
     this.roundOne.startRound(this);
     this.roundOne.getCatNames();
     // round1.setCatNames();

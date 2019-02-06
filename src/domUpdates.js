@@ -3,17 +3,12 @@ import $ from 'jquery';
 import Round from './Round';
 
 export default {
-  showQuestion(game, tileId) {
-    console.log('in show question');
+
+  showQuestion(game, tileId){
+    $('.question-container').hide();
     console.log('game', game);
     let $questionText = $('.question-body');
-    // let $answerBody = $('.popup-input');
     $questionText.text(game.roundOne.clues[tileId].question);
-    // answerBody.val
-    $('.question-container').show();
-    $('.overlay').show();
-    $('.popup').show();
-    $('.start-container').hide()
   },
 
   toggleStart() {
@@ -23,28 +18,46 @@ export default {
     $p2Name.text($('#p2-name-js').val())
     let $p3Name = $("#p3-name-change-js")
     $p3Name.text($('#p3-name-js').val())
-    $('.start-up').toggle();
+    $('.start-up').hide();
     $('.question-container').hide();
-    $('.overlay').toggle();
+    $('.overlay').hide();
   },
 
   // setCatNames(round.catNames) {
   //   if (round.catNames ===)
   // },
 
-  toggleOverlay() {
-    $('.overlay').show();
-    $('.question-container').show();
-    $('.question-overlay').show();
-    $('.popup').show();
-    $('.start-up').hide();
-  },
+  // toggleOverlay() {
+  //   $('.overlay').show();
+  //   $('.question-container').show();
+  //   $('.question-overlay').show();
+  //   $('.popup').show();
+  //   $('.start-up').hide();
+  // },
 
-  submitQuestion() {
+  hidePopup() {
     $('.question-container').hide();
     $('.popup').hide();
     $('.overlay').hide();
-//     $('.question-container').css('visibility', 'visible');
-//     $('.question-overlay').toggleClass('hidden');
   },
+
+  showPopup() {
+    $('.question-container').show();
+    $('.popup').show();
+    $('.overlay').show();
+    $('.start-up').show();
+    $('.start-container').hide();
+  },
+
+  refreshGame() {
+    console.log('yay')
+    // location.replace();
+  },
+
+  showAnswer(game) {
+    console.log('yay')
+    let $answer = $('.answer');
+    $answer.text(game.roundOne.clues[tileId].answer);
+  },
+  
 }
