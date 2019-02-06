@@ -158,11 +158,11 @@ body {
   padding: 10px;
 }
 
-.letter-button:hover{
+/*.letter-button:hover{
   color: white;
   background-color: orchid;
   opacity: .7;
-}
+}*/
 
 #user-buttons{
   display: flex;

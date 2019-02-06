@@ -95,6 +95,9 @@
       });
           let guessValue = wheel.multiplyRoundValue(letterCount);
           console.log(guessValue)
+          if(guessValue === NaN) {
+            this.activePlayer.roundScore = 0;
+          }
           let roundScore = this.activePlayer.incrementRoundScore(guessValue);
           console.log(roundScore);
           domUpdates.updateRoundScore(roundScore, this.activePlayer.playerNumber);
@@ -109,8 +112,13 @@
       domUpdates.disableConsonants();
   }
 
-   changeTurn() {
+   changeTurn(turnValue) {
     // console.log(this.activePlayer)
+      if(turnValue === 'BANKRUPT' || turnValue === 'LOSE A TURN') {
+      console.log(turnValue);
+      domUpdates.clickSimulator()
+      }
+      
       if(this.activePlayer === this.players[0]) {
         this.players[0].active = false;
         this.players[1].active = true;
@@ -125,11 +133,36 @@
         this.players[2].active = false;
         this.activePlayer = this.players[0]
       }
+
+
+        domUpdates.disableVowelButtons();
+        domUpdates.disableConsonants();
       domUpdates.highlightActivePlayer(this.players);
       domUpdates.promptToSpin(this.players);
-      domUpdates.disableVowelButtons();
-      domUpdates.disableConsonants();
+      domUpdates.enableSpinButton();
     // console.log(this.players)
+  }
+
+  compareFinalAnswer(answer) {
+    if(answer.toLowerCase() === this.roundPuzzle.toLowerCase()) {
+      console.log('you winnn')
+      this.roundWinner = this.activePlayer;
+      this.activePlayer.totalScore += this.activePlayer.roundScore
+      domUpdates.updateTotalScore(this.activePlayer, this.activePlayer.playerNumber);
+      domUpdates.displayRoundWinner(this.roundWinner)
+      this.goToNextRound();
+    } else {
+      console.log('wrong guess :(')
+      this.changeTurn();
+    }
+  }
+
+  goToNextRound() {
+    this.players.forEach(player => {
+      player.roundScore = 0
+    })
+    domUpdates.resetRoundScores(this.players);
+    this.currentRound++
   }
 
 }

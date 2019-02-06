@@ -48,7 +48,14 @@ $('#spin-button').on('click', function(e) {
   $('.letter-button').removeClass('unavailable-bank-letter');
 })
 
-$('#solve')
+$('#solve-puzzle-button').on('click', function() {
+
+})
+
+$('#submit-answer').on('click', function() {
+  let answerGuess = $('#solve-puzzle-input').val()
+  wheelOfFortune.compareFinalAnswer(answerGuess)
+})
 
 })
 

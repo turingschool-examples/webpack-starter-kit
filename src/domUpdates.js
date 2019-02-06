@@ -5,6 +5,10 @@ const domUpdates = {
     $('.start-page').remove()
   },
 
+  solvePuzzlePrompt() {
+
+  },
+
   displayPlayers(p1, p2, p3) {
       $('#player-names-0').text(p1.name);
       $('#player-names-1').text(p2.name);
@@ -35,7 +39,7 @@ const domUpdates = {
     console.log('im a hidden puzzle')
 
     letters.forEach((letter, i) => {
-      if(letter != ' ' && letter != '-') {
+      if(letter != ' ' && letter != '-' && letter != '\'' && letter != '&') {
         $(`#box-${i + 13}`).addClass('hidden-word')
       }
     })
@@ -61,7 +65,6 @@ const domUpdates = {
 
   updateRoundScore(value, num) {
     $(`#player-${num}-round-score`).text(value)
-
   },
 
   clearRoundScore(wheelOfFortune) {
@@ -70,7 +73,6 @@ const domUpdates = {
   },
 
   disableButton(clickedButton) {
-    clickedButton.disabled = true;
     $(clickedButton).removeClass('unavailable-bank-letter')
     $(clickedButton).addClass('disabled-bank-letter')
     console.log(clickedButton)
@@ -115,13 +117,13 @@ const domUpdates = {
   },
 
   enableVowelButtons() {
-    $('.vowel-button').removeAttr('disabled');
+    $('.vowel-button').prop('disabled', false);
     $('.vowel-button').removeClass('unavailable-bank-letter');
   },
 
   disableVowelButtons() {
     $('.vowel-button').prop('disabled', true);
-    // $('.vowel-button').addClass('unavailable-bank-letter');
+    $('.vowel-button').addClass('unavailable-bank-letter');
   },
 
   disableSpinButton() {
@@ -143,6 +145,24 @@ const domUpdates = {
         }
       }
     })
+  },
+
+  displayRoundWinner(winner) {
+    console.log(winner.name);
+  },
+
+  updateTotalScore(player, num) {
+    $(`#player-${num}-total-score`).text(player.roundScore)
+  },
+
+  resetRoundScores(players) {
+    console.log(players);
+  },
+
+  clickSimulator() {
+    $('#c0').click();
+    this.enableSpinButton()
+    $('.letter-button').prop('disabled', true);
   }
 }
 
