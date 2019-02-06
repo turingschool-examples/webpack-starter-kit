@@ -52,7 +52,6 @@ let $tiles = [$('#0'), $('#1'), $('#2'), $('#3'), $('#4'), $('#b5'), $('#c6'), $
 // * ======= Functions ======= *
 
 let game;
-let round = new Round();;
 
 $(".start--button").click(function (e) {
   e.preventDefault();
