@@ -16,6 +16,7 @@ import domUpdates from './domUpdates.js';
 // import Data from './data.js';
 
 let game = new Gameboard();
+console.log("start game", game);
 
 let $startBtn = $('#playBtn');
 let $gameboard = $('.game-board');
@@ -60,7 +61,7 @@ function pullNames() {
   $('#playerName1').text($playerName1);
   $('#playerName2').text($playerName2);
   $('#playerName3').text($playerName3);
-  let player1 = new Player($playerName1, 0, 0, 1, false);
+  let player1 = new Player($playerName1, 0, 0, 1, true);
   let player2 = new Player($playerName2, 0, 0, 2, false);
   let player3 = new Player($playerName3, 0, 0, 3, false);
   console.log(player1);
