@@ -50,6 +50,15 @@ class Game {
       // start bonus round;
     } 
   }
+  cyclePlayers() {
+    if (this.currentPlayer < 3) {
+      this.currentPlayer++;
+      console.log(this.currentPlayer);
+    } else {
+      this.currentPlayer = 0;
+      console.log(this.currentPlayer);
+    }
+  }
   buyVowel() {
     domUpdates.toggleKeyboard();
   }
@@ -60,11 +69,13 @@ class Game {
       if (letter === e.currentTarget.innerText) {
         domUpdates.displayCorrectLetter(letter, i);
         this.players[this.currentPlayer].roundScore += this.roundWheel.currentSpin;
+        domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
       }
     })
     // console.log(this.players[this.currentPlayer].roundScore);
     // represent on DOM ^
-    domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+    console.log(this.players[this.currentPlayer].roundScore);
+    // domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
   }
   endGame() {
       // show 'game over' screen
