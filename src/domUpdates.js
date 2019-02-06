@@ -51,11 +51,13 @@ const domUpdates = {
   },
 
   correctFeedback() {
-    console.log('hooray!!!')
+    console.log('hooray!!!');
+    $('.answer-btn').after('<p class="correct-feedback">CORRECT!</p>')
   },
 
   incorrectFeedback() {
-    console.log('you suck!')
+    console.log('Wrong!!!');
+    $('.answer-btn').after('<p class="incorrect-feedback">INCORRECT!</p>')
   },
 
   removeClueCard() {

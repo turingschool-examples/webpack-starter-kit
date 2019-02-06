@@ -41,8 +41,6 @@ $gameboard.on('click', function(e) {
       e.preventDefault();
       let $playerAnswer = $('#playerAnswer').val();
       clue.checkAnswer(selectedClue, $playerAnswer)
-      // domUpdates.removeClueCard();
-      // domUpdates.answerFeedback(selectedClue);
     })
   }
 })
