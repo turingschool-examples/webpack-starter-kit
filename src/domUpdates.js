@@ -19,51 +19,59 @@ const domUpdates = {
   },
 
   removeStartScreen() {
-    let $tableTitle = $("h4");
-    $tableTitle.addClass("add-margin-top")
-    let $inputScreen = $(".input-fields");
-    $inputScreen.addClass("remove-display");
+    let $tableTitle = $('h4');
+    $tableTitle.addClass('add-margin-top')
+    let $inputScreen = $('.input-fields');
+    $inputScreen.hide();
   },
 
   populateClueCard(selectedClue) {
-    let $clueCardCategory = $(".category-reminder");
-    let $clueValue = $("#displayPointValue");
-    let $question = $("#displayQuestion");
+    let $clueCardCategory = $('.category-reminder');
+    let $clueValue = $('#displayPointValue');
+    let $question = $('#displayQuestion');
     $clueCardCategory.text(selectedClue.categoryName);
     $clueValue.text(selectedClue.pointValue);
     $question.text(selectedClue.question);
   },
 
   showClueCard() {
-    let $clueDisplay = $(".question-card");
-    $clueDisplay.css("display", "block");
+    let $clueDisplay = $('.question-card');
+    $clueDisplay.show();
   },
 
-  // answerFeedback() {
+  // $clueDisplay.css('display', 'block');
 
-  // },
+  answerFeedback(selectedClue) {
+    let $playerAnswer = $('#playerAnswer').val();
+    if ($playerAnswer === selectedClue.answer) {
+      console.log('yup')
+    } else {
+      console.log('nah')
+    };
+    // $playerAnswer = '';
+  },
 
   removeClueCard() {
-    let $clueDisplay = $("question-card");
-    $clueDisplay.css("display", "none");
+    let $clueDisplay = $('.question-card');
+    $clueDisplay.hide();
   },
 
   showWagerCard() {
-    let $wagerCard = $("#DailyDoubleCard");
-    $wagerCard.css("display", "block");
+    let $wagerCard = $('#DailyDoubleCard');
+    $wagerCard.css('display', 'block');
   },
 
   removeWagerCard() {
-    let $wagerCard = $("#DailyDoubleCard");
-    $wagerCard.css("display", "none");
+    let $wagerCard = $('#DailyDoubleCard');
+    $wagerCard.css('display', 'none');
   },
 
 
 
   // updatePlayerScores() {
-  //   let $player1Score = $("#scoreBox1");
-  //   let $player2Score = $("#scoreBox2");
-  //   let $player3Score = $("#scoreBox3");
+  //   let $player1Score = $('#scoreBox1');
+  //   let $player2Score = $('#scoreBox2');
+  //   let $player3Score = $('#scoreBox3');
   // }
 }
 
