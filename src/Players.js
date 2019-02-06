@@ -5,7 +5,7 @@ class Player {
     this.name = name;
     this.score = score;
   }
-
+  
   newTurn() {
     // a new turn will begin once a player has entered an answer (correct || incorrect)
     // after the pop up disappears and the question's square has been hidden from the board...
@@ -15,34 +15,34 @@ class Player {
     // when the player clicked the submit answer button, the popup will disappear (animate?)
     // and the box will hide from the gameboard (animate?)
   }
-
+  
   validAns(ans) {
     // take the value of the textbox from the user
     // compare to value of answer in the clue obj
-      // answer.toLowerCase to compare to user input.toLowerCase
+    // answer.toLowerCase to compare to user input.toLowerCase
     // if the value is correct, return "good job!"
     // if the value is incorrect, return "Nice try!"
-
-      if ($('#popup-input-js').val() === ans) {
-        domUpdates.correctAns();
-        return true;
-      } else {
-        domUpdates.wrongAns();
-        return false;
-      }
+    
+    if ($('#popup-input-js').val() === ans) {
+      domUpdates.correctAns();
+      return true;
+    } else {
+      domUpdates.wrongAns();
+      return false;
+    }
     this.scorePoints();
-    }
-
-    scorePoints() {
-      // for chosen clue value,
-        // if ans is correct
-          // add point vavlue to current players score
-          // this.pointValue += this.player.score
-        // if ans is incorrect
-          // subtract value from current score
-          // this.pointValue -= this.player.score
-    }
   }
+  
+  scorePoints() {
+    // for chosen clue value,
+    // if ans is correct
+    // add point vavlue to current players score
+    // this.pointValue += this.player.score
+    // if ans is incorrect
+    // subtract value from current score
+    // this.pointValue -= this.player.score
+  }
+}
 
 
 
