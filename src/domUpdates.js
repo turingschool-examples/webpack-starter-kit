@@ -33,6 +33,17 @@ const domUpdates = {
     $('.wheel').append('<p class="wheel-element">' + element + '</p>');
   },
 
+  disableKeyboard() {
+    if (!$('.vowel').is(':disabled')) {
+      $('.vowel').attr('disabled', true);
+      $('.vowel').addClass('disabled');
+    }
+    if (!$('.consonant').is(':disabled')) {
+      $('.consonant').attr('disabled', true);
+      $('.consonant').addClass('disabled');
+    }
+  },
+
   toggleKeyboard() {
     if (!$('.vowel').is(':disabled')) {
       $('.vowel').attr('disabled', true);

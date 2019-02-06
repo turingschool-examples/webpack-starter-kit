@@ -36,7 +36,7 @@ class Game {
     this.players.forEach((player) => {
       player.resetScore();
     });
-    domUpdates.toggleKeyboard();
+    domUpdates.disableKeyboard();
     domUpdates.updateRound(this.round - 1, this.round);
     if (this.round < 5) {
       this.roundWheel = new Wheel();      
