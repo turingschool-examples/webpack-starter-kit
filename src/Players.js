@@ -16,21 +16,14 @@ class Player {
     // and the box will hide from the gameboard (animate?)
   }
 
-  validAns(ans) {
-    // take the value of the textbox from the user
-    // compare to value of answer in the clue obj
-      // answer.toLowerCase to compare to user input.toLowerCase
-    // if the value is correct, return "good job!"
-    // if the value is incorrect, return "Nice try!"
-
-      if ($('#popup-input-js').val() === ans) {
+  validAns(ans, game) {
+      if ($('#popup-input-js').val().toLowerCase() === ans.toLowerCase()) {
         domUpdates.correctAns();
-        return true;
       } else {
         domUpdates.wrongAns();
-        return false;
       }
-    this.scorePoints();
+      this.scorePoints();
+      game.changeTurn();
     }
 
     scorePoints() {

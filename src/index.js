@@ -76,7 +76,7 @@ $(".start--button").click(function (e) {
 let tileId;
 
 $('.col').click(function () {
-  console.log('tile id ', event.target.id);
+  console.log('tile id', event.target.id);
   tileId = event.target.id;
   game.cluesRemaining--;
   $(this).css('visibility', 'hidden');
@@ -90,9 +90,11 @@ $('.popup-btn').click(function () {
 });
 
 $('.close-popup').click(function () {
+  
   $('#popup-input-js').val('');
   $("#popup-input-js").prop('disabled', false);
   domUpdates.hidePopup();
 });
 
 $('#reset-game').click(() => location.reload());
+
