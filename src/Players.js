@@ -4,10 +4,9 @@
 // window.$ = jQuery;
 
 class Player {
-  constructor(name, turn = false, avatar) {
+  constructor(name, turn = false) {
     this.name = name;
     this.turn = turn;
-    this.avatar = avatar;
   }
 
   newTurn() {
@@ -19,6 +18,7 @@ class Player {
     // when the player clicked the submit answer button, the popup will disappear (animate?)
     // and the box will hide from the gameboard (animate?)
   }
+  
   addPoints() {
     // keep track of player current points
     // add points

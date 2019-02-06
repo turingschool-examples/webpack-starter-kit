@@ -1,5 +1,5 @@
 class Question {
-  constructor(question, answer, category, categoryID, point, currIndex) {
+  constructor(question, answer, category, categoryID, point) {
     this.question = question;
     this.answer = answer;
     this.category = category;
@@ -22,9 +22,6 @@ class Question {
   validAns(answer, index, round) {
     // whether they get the question right or wrong decrease qCount //once qCount = 0 round is over
     //return Ans.toUppercase
-  }
-  displayCurrQuestion() {
-    
   }
 }
 
