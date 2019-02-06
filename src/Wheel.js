@@ -44,7 +44,7 @@ class Wheel {
     const randomIndex = Math.floor((Math.random() * 22));
     this.turnValue = this.values[randomIndex];
     console.log(typeof this.turnValue);
-    domUpdates.displayTurnValue(this.turnValue)
+    domUpdates.displayTurnValue(this.turnValue, wheelOfFortune.activePlayer)
     this.bankrupt(wheelOfFortune);
     this.loseATurn(wheelOfFortune);
   }

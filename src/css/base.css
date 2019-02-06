@@ -108,7 +108,7 @@ body {
   background-color: lightskyblue;
   padding: 6px;
   width: 250px;
-  height: 100px;
+  height: 180px;
   padding-top: 0px;
   opacity: .9;
 }
@@ -254,7 +254,15 @@ body {
   background-color: red;
 } 
 
+#spin-value {
+  font-size: 25px;
+  margin-top: 24px;
+  margin-left: 5px;
+}
 
+.player-prompts {
+  padding:3px;
+}
 
 
 
