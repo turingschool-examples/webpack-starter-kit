@@ -87,6 +87,10 @@ const domUpdates = {
     console.log(clickedButton)
   },
 
+  removeDisables() {
+    $('.letter-button').removeClass('disabled-bank-letter');
+  },
+ 
   revealGuessedLetter(letter, button) {
     let numbers = [];
     for(let i = 0; i < 53; i++) {
@@ -167,7 +171,10 @@ const domUpdates = {
   },
 
   resetRoundScores(players) {
-    console.log(players);
+    players.forEach((player,i) => {
+      console.log(i);
+      $(`#player-${i}-round-score`).text(0)
+    })
   }
 
   // showWinner(name) {

@@ -3,6 +3,7 @@
  import Puzzle from './Puzzle.js';
  import domUpdates from './domUpdates.js';
  import Wheel from './Wheel.js'
+ import BonusWheel from './Bonus-Wheel.js'
 
  class Game {
   constructor(playersArray = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = [], roundPuzzle = null) {
@@ -66,7 +67,7 @@
   }
 
   setGamePuzzles(puzzleBank) {
-    let fourPuzzles = puzzleBank.slice(0, 4);
+    let fourPuzzles = puzzleBank.slice(0, 5);
     this.gamePuzzles = fourPuzzles.map(puzzle => {
       return new Puzzle(puzzle.category, puzzle.total_number_of_letters, puzzle.correct_answer, puzzle.description, 0, )
     })
@@ -159,6 +160,17 @@
     }
   }
 
+  determineWinner() {
+    let winningScore = this.players.map(player => {
+      return player.totalScore;
+    }).sort((a, b) => {
+      return a - b
+    }).shift();
+
+    let winningPlayer = this.players.totalScore === winningScore;
+    console.log(winningPlayer.name)
+  }
+
   goToNextRound() {
     this.players.forEach(player => {
       player.roundScore = 0
@@ -175,6 +187,15 @@
     console.log(this.roundPuzzle)
     domUpdates.displayCategory(roundPuzzle)
     domUpdates.populateRoundPuzzle(this.roundPuzzle);
+    // puzzle.populateConsonantsBank();
+    domUpdates.removeDisables();
+    
+    console.log(this.players)
+      if(this.currentRound > 2) {
+        this.determineWinner();
+        let bonusWheel = new BonusWheel();
+        bonusWheel.bonusSpin();
+      }
   }
 
 }
