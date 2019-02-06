@@ -68,12 +68,12 @@ class Game {
   guessLetter(e) {
     let uppercasePuzzle = this.roundPuzzle.answer.toUpperCase();
     this.splitPuzzle = uppercasePuzzle.split('');
-    this.splitPuzzle.forEach(letter => {
+    this.splitPuzzle.forEach((letter, i) => {
       if (letter === e.currentTarget.innerText) {
         console.log("current target: ", e.currentTarget.innerText);       
         // jquery to grab the vowels and cons
         // remove "hidden" class
-        $('.puzzle-pieces').removeClass('hidden')
+        $(`.piece-${i}`).removeClass('hidden')
       }
     })
   }
