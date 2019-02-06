@@ -8,7 +8,9 @@
 }
 
 body {
-  background-color: pink;
+/*  background-image: url("http://www.mansfieldct.org/Schools/MMS/staff/baxter/New%20Light%20Powerpoint_files/slide0001_background.gif");*/
+  background-size: cover;
+  background-color: #328be5;
   margin: 0;
   padding: 0;
 }
@@ -101,14 +103,16 @@ table th {
   background-color: #7e9ea8;
   border-radius: 10px;
   font-size: 20px;
-  height: 80px;
+  height: 60px;
   width: 160px;
 }
 
 .clue-box {
   background-color: lightblue;
   border-radius: 10px;
-  font-size: 22px;
+  color: #ffe83d;
+  font-size: 36px;
+  font-weight: bold;
   height: 80px;
   text-align: center;
   width: 160px;
@@ -127,8 +131,7 @@ table th {
 
 .podium{
   background-color: lightgreen;
-  width: 160px; 
-  font-size: 22px;
+  width: 200px; 
 }
 
 .avatar {
@@ -136,15 +139,21 @@ table th {
 }
 
 .score-box {
-  border: 3px solid grey;
+  background-color: black;
+  border: 5px solid #7d3d29;
+  color: #ffe83d;
+  font-size: 28px;
   text-align: center;
-  height: 30px;
+  height: 40px;
 }
 
 .podium-base {
+  border: 16px solid #853c1e;
+  background-color: #26287a;
+  color: white;
+  font-size: 32px;
   height: 100px;
   text-align: center;
-  padding-top: 40px;
 }
 
 #playerName1 {
@@ -192,7 +201,15 @@ table th {
   flex-direction: column;
   height: 400px;
   margin: auto;
-  width: 90%;
+  width: 70%;
+}
+
+.category-reminder {
+  display: inline-block;
+}
+
+.answer-btn {
+
 }
 
 /** Wager pop up **/
@@ -216,7 +233,7 @@ table th {
   flex-direction: column;
   height: 400px;
   margin: auto;
-  width: 90%;
+  width: 70%;
 }
 
 /** Final Jeopardy! pop up **/
@@ -229,7 +246,6 @@ table th {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
 }
 
@@ -240,7 +256,7 @@ table th {
   flex-direction: column;
   height: 400px;
   margin: auto;
-  width: 90%;
+  width: 70%;
 }
 
 #displayPointVal {

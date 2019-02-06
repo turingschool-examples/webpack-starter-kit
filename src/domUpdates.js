@@ -27,10 +27,10 @@ const domUpdates = {
 
   populateClueCard(selectedClue) {
     let $clueCardCategory = $('.category-reminder');
-    let $clueValue = $('#displayPointValue');
+    let $clueValue = $('#displayPointVal');
     let $question = $('#displayQuestion');
     $clueCardCategory.text(selectedClue.categoryName);
-    $clueValue.text(selectedClue.pointValue);
+    $clueValue.text(`For $${selectedClue.pointValue}`);
     $question.text(selectedClue.question);
   },
 
@@ -43,7 +43,7 @@ const domUpdates = {
 
   answerFeedback(selectedClue) {
     let $playerAnswer = $('#playerAnswer').val();
-    if ($playerAnswer === selectedClue.answer) {
+    if ($playerAnswer.toLowerCase() === selectedClue.answer.toLowerCase()) {
       console.log('yup')
     } else {
       console.log('nah')
