@@ -1,3 +1,5 @@
+import domUpdates from './domUpdates.js'
+
 class Clue {
   constructor(answer, categoryId, categoryName, pointValue, question) {
     this.answer = answer;
@@ -12,9 +14,13 @@ class Clue {
     console.log(selectedClue.question);
   }
 
-  checkAnswer() {
-
-  };
+  checkAnswer(selectedClue, $playerAnswer) {
+    if (selectedClue.answer.toLowerCase() === $playerAnswer.toLowerCase()) {
+      domUpdates.correctFeedback();
+    } else {
+      domUpdates.incorrectFeedback();
+    }
+  }
 }
 
 
