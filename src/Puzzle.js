@@ -25,6 +25,7 @@ class Puzzle {
       result = data.puzzles.one_word_answers;
     }
     this.difficulty = result;
+    console.log(this.difficulty)
   }
   randomizePuzzle() {
     let randomIndex = Math.floor(Math.random() * this.difficulty.puzzle_bank.length);

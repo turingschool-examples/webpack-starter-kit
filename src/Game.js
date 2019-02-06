@@ -5,8 +5,7 @@ import Puzzle from './Puzzle.js';
 
 class Game {
   constructor(difficulty) {
-    this.difficulty = difficulty;
-    this.round = 1;
+    this.round = 0;
     this.players = [];
     this.roundWheel = null;
     this.bonusWheel = [];

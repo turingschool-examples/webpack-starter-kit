@@ -4,8 +4,8 @@ import Player from './Player.js';
 class Wheel {
   constructor() {
       this.wheelElements = [];
-      this.currentSpin = null //could also turn this to null;
-      this.currentSpinIndex = null; //should be number
+      this.currentSpin = null;
+      this.currentSpinIndex = null;
   }
   randomizeWheel() {
     let elementsArray =[];
