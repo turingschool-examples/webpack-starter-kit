@@ -48,12 +48,12 @@
     this.randomizeBank(puzzleBank);
     // console.log('youink')
     let fourPuzzles = this.setGamePuzzles(puzzleBank);
-    let roundPuzzle = this.setRoundPuzzle(fourPuzzles);
+    let roundPuzzle = this.setRoundPuzzle(this.gamePuzzles);
     // console.log(roundPuzzle);
-    this.roundPuzzle = roundPuzzle.correct_answer;
+    this.roundPuzzle = roundPuzzle.correctAnswer;
     console.log(this.roundPuzzle)
     domUpdates.displayCategory(roundPuzzle);
-    domUpdates.populateRoundPuzzle(roundPuzzle);
+    domUpdates.populateRoundPuzzle(this.roundPuzzle);
     return puzzleBank;
   }
 
@@ -75,6 +75,8 @@
 
   setRoundPuzzle(fourPuzzles) {
     let roundPuzzle = fourPuzzles.pop();
+    console.log(roundPuzzle)
+    console.log(this.gamePuzzles)
     return roundPuzzle;
     // domUpdates.displayPuzzle();
   }
@@ -116,7 +118,6 @@
     // console.log(this.activePlayer)
       if(turnValue === 'BANKRUPT' || turnValue === 'LOSE A TURN') {
       console.log(turnValue);
-      domUpdates.clickSimulator()
       }
       
       if(this.activePlayer === this.players[0]) {
@@ -148,6 +149,7 @@
       console.log('you winnn')
       this.roundWinner = this.activePlayer;
       this.activePlayer.totalScore += this.activePlayer.roundScore
+      domUpdates.clearRoundPuzzle(this.roundPuzzle);
       domUpdates.updateTotalScore(this.activePlayer, this.activePlayer.playerNumber);
       domUpdates.displayRoundWinner(this.roundWinner)
       this.goToNextRound();
@@ -161,8 +163,18 @@
     this.players.forEach(player => {
       player.roundScore = 0
     })
+    // domUpdates.showWinner(this.activePlayer.name)
     domUpdates.resetRoundScores(this.players);
+    domUpdates.solvePuzzlePrompt();
     this.currentRound++
+    //domUpdates.showRoundNumber
+    let roundPuzzle = this.setRoundPuzzle(this.gamePuzzles);
+    console.log(roundPuzzle)
+    this.roundPuzzle = roundPuzzle.correctAnswer;
+    console.log(this.currentRound)
+    console.log(this.roundPuzzle)
+    domUpdates.displayCategory(roundPuzzle)
+    domUpdates.populateRoundPuzzle(this.roundPuzzle);
   }
 
 }

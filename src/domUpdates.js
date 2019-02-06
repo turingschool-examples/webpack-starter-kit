@@ -2,11 +2,12 @@ const domUpdates = {
  
   removeStartPage() {
     $('.hidden').removeClass('hidden');
-    $('.start-page').remove()
+    $('.start-page').remove();
+    $('.solve-puzzle-section').toggleClass('hidden');
   },
 
   solvePuzzlePrompt() {
-
+    $('.solve-puzzle-section').toggleClass('hidden');
   },
 
   displayPlayers(p1, p2, p3) {
@@ -26,7 +27,7 @@ const domUpdates = {
   populateRoundPuzzle(roundPuzzle) {
     // console.log(lettersArray);
     // if roundPuzzle.number_of_words === 1
-    let letters = roundPuzzle.correct_answer.toUpperCase().split('')
+    let letters = roundPuzzle.toUpperCase().split('')
 
     letters.forEach((letter, i) => {
       $(`#box-${i + 13}`).text(letter)
@@ -42,6 +43,14 @@ const domUpdates = {
       if(letter != ' ' && letter != '-' && letter != '\'' && letter != '&') {
         $(`#box-${i + 13}`).addClass('hidden-word')
       }
+    })
+  },
+
+  clearRoundPuzzle(roundPuzzle) {
+    let letters = roundPuzzle.toUpperCase().split('')
+
+    letters.forEach((letter, i) => {
+      $(`#box-${i + 13}`).text('').removeClass('hidden-word').removeClass('correct-letter')
     })
   },
 
@@ -149,6 +158,8 @@ const domUpdates = {
 
   displayRoundWinner(winner) {
     console.log(winner.name);
+    window.alert(`${winner.name} Won The Round! Go To Next Round!`)
+    $('#solve-puzzle-input').val('');
   },
 
   updateTotalScore(player, num) {
@@ -157,13 +168,12 @@ const domUpdates = {
 
   resetRoundScores(players) {
     console.log(players);
-  },
-
-  clickSimulator() {
-    $('#c0').click();
-    this.enableSpinButton()
-    $('.letter-button').prop('disabled', true);
   }
+
+  // showWinner(name) {
+  //   $('#game-winner-display').text(`${name} won this round!`);
+  // }
+
 }
 
 export default domUpdates;
