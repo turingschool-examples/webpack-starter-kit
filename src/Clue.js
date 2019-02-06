@@ -20,10 +20,6 @@ class Clue {
       }, 100);
     }
   }
-
-  // removeClue() {
-
-  // }
 }
 
 export default Clue;
