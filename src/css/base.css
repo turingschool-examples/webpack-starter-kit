@@ -273,11 +273,15 @@ table th {
 }
 
 .correct-feedback {
-  font-size: 30px;
   color: lightgreen;
+  font-size: 30px;
 }
 
 .incorrect-feedback {
-  font-size: 30px;
   color: red;
+  font-size: 30px;
+}
+
+.display-none {
+  display: none;
 }

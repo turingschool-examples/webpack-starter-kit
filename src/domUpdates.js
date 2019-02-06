@@ -1,5 +1,5 @@
 import Gameboard from './gameboard.js';
-// import './css/base.css';
+import './css/base.css';
 import $ from 'jquery';
 
 const domUpdates = {
@@ -44,27 +44,32 @@ const domUpdates = {
     $clueCardCategory.text(selectedClue.categoryName);
     $clueValue.text(`For $${selectedClue.pointValue}`);
     $question.text(selectedClue.question);
+    $('#rightWrong').hide();
     this.showClueCard();
   },
 
   showClueCard() {
     let $clueDisplay = $('.question-card');
+    $('.answer-btn').show();
     $clueDisplay.show();
   },
 
   correctFeedback() {
-    console.log('hooray!!!');
-    $('.answer-btn').after('<p class="correct-feedback">CORRECT!</p>')
+    let $clueDisplay = $('.question-card');
+    $('.answer-btn').hide();
+    $('#rightWrong').text('CORRECT!').removeClass('incorrect-feedback').addClass('correct-feedback').show();
+    $clueDisplay.fadeOut(3000, function() {
+      $(this).hide();
+    })
   },
 
   incorrectFeedback() {
-    console.log('Wrong!!!');
-    $('.answer-btn').after('<p class="incorrect-feedback">INCORRECT!</p>')
-  },
-
-  removeClueCard() {
     let $clueDisplay = $('.question-card');
-    $clueDisplay.hide();
+    $('.answer-btn').hide();
+    $('#rightWrong').text('INCORRECT!').removeClass('correct-feedback').addClass('incorrect-feedback').show();
+    $clueDisplay.fadeOut(3000, function() {
+      $(this).hide();
+    })
   },
 
   showWagerCard() {

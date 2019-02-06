@@ -17,8 +17,10 @@ class Clue {
   checkAnswer(selectedClue, $playerAnswer) {
     if (selectedClue.answer.toLowerCase() === $playerAnswer.toLowerCase()) {
       domUpdates.correctFeedback();
+
     } else {
       domUpdates.incorrectFeedback();
+
     }
   }
 }
