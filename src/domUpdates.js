@@ -1,7 +1,6 @@
 // jQuery goes here and anything that minipulates the dom
 const domUpdates = {
   hideElement() {
-    console.log('fire');
     $('.hidden-popup').fadeOut();
     $('.hidden-popup').html('');
   },
@@ -58,16 +57,12 @@ const domUpdates = {
     }
   },
 
-  displayCorrectLetter(e, letter, i) {
-    if (letter === e.currentTarget.innerText) {
-      $(`.piece-${i}`).removeClass('hidden')
-    }
+  displayCorrectLetter(letter, i) {
+    $(`.piece-${i}`).removeClass('hidden')
   },
 
-  scoreUpdate() {
-    $('#score-player1').text(game.players[0].roundScore);
-    $('#score-player2').text(game.players[1].roundScore);
-    $('#score-player3').text(game.players[2].roundScore);
+  scoreUpdate(player, score) {
+    $(`#score-player${player}`).text(score);
   },
 
   updateRound(oldRound, newRound) {

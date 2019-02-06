@@ -20,6 +20,10 @@ class Wheel {
     this.currentSpinIndex = Math.floor(Math.random() * 5);
     this.currentSpin = this.wheelElements[this.currentSpinIndex];
     domUpdates.displayElement(this.currentSpin);
+    if (typeof parseInt(this.currentSpin) === 'number') {
+      domUpdates.toggleKeyboard();
+      domUpdates.toggleKeyboard();
+    }
     if (this.currentSpin === 'BANKRUPT') {
       console.log('youve gone bankrupt');
     } else if (this.currentSpin === 'LOSE-A-TURN') {

@@ -7,6 +7,7 @@ class Game {
   constructor(difficulty) {
     this.round = 0;
     this.players = [];
+    this.currentPlayer = 0;
     this.roundWheel = null;
     this.bonusWheel = [];
     this.roundPuzzle = [];
@@ -56,8 +57,14 @@ class Game {
     let uppercasePuzzle = this.roundPuzzle.answer.toUpperCase();
     this.splitPuzzle = uppercasePuzzle.split('');
     this.splitPuzzle.forEach((letter, i) => {
-      domUpdates.displayCorrectLetter(e, letter, i);
+      if (letter === e.currentTarget.innerText) {
+        domUpdates.displayCorrectLetter(letter, i);
+        this.players[this.currentPlayer].roundScore += this.roundWheel.currentSpin;
+      }
     })
+    // console.log(this.players[this.currentPlayer].roundScore);
+    // represent on DOM ^
+    domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
   }
   endGame() {
       // show 'game over' screen
