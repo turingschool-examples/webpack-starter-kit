@@ -1,16 +1,14 @@
 import data from './data.js';
+import domUpdates from './domUpdates.js';
 
 class Puzzle {
   constructor() {
-    // this.category = null;
-    // this.answer = null;
     this.hint = null;
     this.puzzleDetails = null;
     this.difficulty = null;
     this.domDifficulty = null;
     this.category = null;
     this.answer = [];
-
   }
   chooseDifficulty() {
     let result = null;
@@ -25,7 +23,6 @@ class Puzzle {
       result = data.puzzles.one_word_answers;
     }
     this.difficulty = result;
-    console.log(this.difficulty)
   }
   randomizePuzzle() {
     let randomIndex = Math.floor(Math.random() * this.difficulty.puzzle_bank.length);
@@ -33,20 +30,17 @@ class Puzzle {
     this.answer = this.puzzleDetails.correct_answer;
     this.domDifficulty = this.puzzleDetails.number_of_words;
     this.category = this.puzzleDetails.category;
-    console.log(this.difficulty);
     // console.log("puzzle answer for the dom:", this.answer);
     console.log("puzzle difficulty:", this.domDifficulty);
     console.log("puzzle category:", this.category);
     this.displayPuzzle();
     return this.puzzleDetails;
   }
-
-  // MOVE TO DOM UPDATES
   displayPuzzle() {
     let splitAnswer = this.answer.split('');
     console.log(splitAnswer);
     splitAnswer.forEach((letter, i) => {
-      $('.puzzle-box').append(`<p class="puzzle-pieces piece-${i} hidden"> ${letter} </p>`);
+      domUpdates.appendPuzzle(letter, i);
     })
   }
 };
