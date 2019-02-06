@@ -3,6 +3,7 @@ import $ from 'jquery';
 import Round from './Round';
 
 export default {
+
   showQuestion(game, tileId){
     $('.question-container').hide();
     console.log('game', game);
@@ -21,6 +22,10 @@ export default {
     $('.question-container').hide();
     $('.overlay').hide();
   },
+
+  // setCatNames(round.catNames) {
+  //   if (round.catNames ===)
+  // },
 
   // toggleOverlay() {
   //   $('.overlay').show();

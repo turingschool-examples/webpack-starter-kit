@@ -53,10 +53,19 @@ let $tiles = [$('#0'), $('#1'), $('#2'), $('#3'), $('#4'), $('#b5'), $('#c6'), $
 
 let game;
 
+$(window).on("load", function () {
+  $('.question-container').hide();
+});
+
 $(".start--button").click(function (e) {
   e.preventDefault();
+  const playerIn = [
+    $('#p1-name-js').val(),
+    $('#p2-name-js').val(),
+    $('#p3-name-js').val()
+  ];
   game = new GameBoard();
-  game.startGame();
+  game.startGame(playerIn);
   domUpdates.toggleStart();
   // domUpdates.showAnswer();
 });
@@ -71,11 +80,16 @@ $('.col').click(function (e) {
   // domUpdates.toggleOverlay();
 });
 
+// $('.popup-btn').click(function (e) {
+//   e.preventDefault();
+//   domUpdates.submitQuestion();
+//   // game.changeTurn();
+// });
 
 $(window).load(domUpdates.showQuestion(game, tileId));
 
-$('#reset-game').click(domUpdates.refreshGame());
-
 $('#close-popup').click(domUpdates.hidePopup());
 
-
+$('#reset-game').click(function () {
+  location.reload();
+});
