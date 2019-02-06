@@ -25,6 +25,41 @@ const domUpdates = {
     $inputScreen.addClass("remove-display");
   },
 
+  populateClueCard(selectedClue) {
+    let $clueCardCategory = $(".category-reminder");
+    let $clueValue = $("#displayPointValue");
+    let $question = $("#displayQuestion");
+    $clueCardCategory.text(selectedClue.categoryName);
+    $clueValue.text(selectedClue.pointValue);
+    $question.text(selectedClue.question);
+  },
+
+  showClueCard() {
+    let $clueDisplay = $(".question-card");
+    $clueDisplay.css("display", "block");
+  },
+
+  // answerFeedback() {
+
+  // },
+
+  removeClueCard() {
+    let $clueDisplay = $("question-card");
+    $clueDisplay.css("display", "none");
+  },
+
+  showWagerCard() {
+    let $wagerCard = $("#DailyDoubleCard");
+    $wagerCard.css("display", "block");
+  },
+
+  removeWagerCard() {
+    let $wagerCard = $("#DailyDoubleCard");
+    $wagerCard.css("display", "none");
+  },
+
+
+
   // updatePlayerScores() {
   //   let $player1Score = $("#scoreBox1");
   //   let $player2Score = $("#scoreBox2");

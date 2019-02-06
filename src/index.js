@@ -18,6 +18,9 @@ import domUpdates from './domUpdates.js';
 let game = new Gameboard();
 
 let $startBtn = $('#playBtn');
+let $gameboard = $('.game-board');
+let $answerClue = $('.answer-btn')
+
 $startBtn.on('click', function(e) {
   e.preventDefault();
   game.startGame();
@@ -26,8 +29,6 @@ $startBtn.on('click', function(e) {
   domUpdates.removeStartScreen();
 })
 
-let $gameboard = $('.game-board');
-
 $gameboard.on('click', function(e) {
   if (e.target.className === 'clue-box') {
     let selectedClueLocation = e.target.id;
@@ -35,8 +36,17 @@ $gameboard.on('click', function(e) {
     //change first round clues array to one array for all rounds and use index+15 for second round
     let clue = new Clue();
     clue.showClue(selectedClue);
+    domUpdates.populateClueCard(selectedClue);
+    domUpdates.showClueCard();
   }
 })
+
+$answerClue.on('click', function(e) {
+  e.preventDefault();
+  domUpdates.removeClueCard();
+})
+  //clue.checkAnswer() ??
+
 
 function pullNames() {
   let $playerName1 = $('#playerNameInput1').val();
