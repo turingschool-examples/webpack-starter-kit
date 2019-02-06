@@ -3,7 +3,7 @@ import $ from 'jquery';
 import jQuery from 'jquery'
 // window.$ = jQuery;
 
-import domUpdates from "./domUpdates";
+import domUpdates from './domUpdates';
 import Round from './Round'
 import Player from './Players.js'
 
@@ -34,12 +34,6 @@ class Gameboard {
       $('.start-up').toggle();
     });
   }
-
-  // showQuestionPopup() {
-  //   $('.col').click(function() {
-  //     $('.question-container').css('visibility', 'visible')
-  //   });
-  // }
 
   setCatNames($cats) {
     console.log("get cats")

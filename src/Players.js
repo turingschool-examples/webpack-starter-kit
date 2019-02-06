@@ -1,12 +1,9 @@
-// import Gameboard from './GameBoard.js'
-// import $ from 'jquery';
-// import jQuery from 'jquery'
-// window.$ = jQuery;
+import domUpdates from "./domUpdates";
 
 class Player {
-  constructor(name, turn = false) {
+  constructor(name, score) {
     this.name = name;
-    this.turn = turn;
+    this.score = score;
   }
 
   newTurn() {
@@ -18,12 +15,35 @@ class Player {
     // when the player clicked the submit answer button, the popup will disappear (animate?)
     // and the box will hide from the gameboard (animate?)
   }
-  
-  addPoints() {
-    // keep track of player current points
-    // add points
-    // this.currentPoints + data.clue.pointValue
+
+  validAns(ans) {
+    // take the value of the textbox from the user
+    // compare to value of answer in the clue obj
+      // answer.toLowerCase to compare to user input.toLowerCase
+    // if the value is correct, return "good job!"
+    // if the value is incorrect, return "Nice try!"
+
+      if ($('#popup-input-js') === ans) {
+        domUpdates.correctAns();
+        return true;
+      } else {
+        domUpdates.wrongAns();
+        return false;
+      }
+    this.scorePoints();
+    }
+
+    scorePoints() {
+      // for chosen clue value,
+        // if ans is correct
+          // add point vavlue to current players score
+          // this.pointValue += this.player.score
+        // if ans is incorrect
+          // subtract value from current score
+          // this.pointValue -= this.player.score
+    }
   }
-}
+
+
 
 export default Player;

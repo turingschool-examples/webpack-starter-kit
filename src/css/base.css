@@ -152,21 +152,14 @@ h4 {
 /* ============================= */
 
 .litter-box {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  position: absolute;
+  white-space: nowrap;
 }
 
 .cat {
   font-size: 20px;
   grid-area: cat;
-  /* left: 15px; */
-  margin-bottom: 20px;
-  /* position: absolute; */
   text-align: center;
   text-transform: uppercase;
-  /* top: 105px; */
 }
 
 section h3 {
@@ -300,11 +293,11 @@ section h3 {
 .question-container {
   display: grid;
   grid-template-areas: 
-  "img question"
-  "img answer"
-  "img close";
+  "img-oak question"
+  "img-oak answer";
+  /* "img close"; */
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: 3fr 1fr;
   height: 100%;
   width: 100%;
 }
@@ -318,6 +311,7 @@ section h3 {
   justify-content: center;
   margin: 5px;
   text-align: center;
+  width: 90%;
 }
 
 .question-result {
@@ -330,6 +324,7 @@ section h3 {
   flex-direction: row;
   grid-area: answer;
   justify-content: center;
+  width: 90%;
 }
 
 .popup button {
@@ -345,6 +340,10 @@ section h3 {
   width: 200px;
 }
 
+.question-container button:hover {
+  background-color: #84bce7;
+}
+
 .popup button:focus {
   background-color: #5d66a0;
 }
@@ -352,9 +351,7 @@ section h3 {
 .question-img {
   align-items: center;
   display: flex;
-  grid-area: img;
-  height: 300px;
-  justify-content: center;
+  grid-area: img-oak;
 }
 
 .popup input {
@@ -362,4 +359,6 @@ section h3 {
   margin: 5px;
   padding: 10px;
   width: 50%;
+  border: none;
+  text-align: center;
 }
