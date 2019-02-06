@@ -45,9 +45,9 @@ export default {
     let $answer = $('.answer');
     $answer.show();
     $('.question-result').show();
-    const player = new Player();
-    player.validAns();
-    $answer.text(game.roundOne.clues[tileId].answer);
+    let ans = game.roundOne.clues[tileId].answer
+    game.activePlayer.validAns(ans, game);
+    $answer.text(ans);
   },
 
   changeCatTitles(game) {
@@ -62,10 +62,6 @@ export default {
 
   correctAns() {
     $('.question-result').text('CORRECT!');
-    // $('#hp-p1').val();
-    // $('#hp-p2').val();
-    // $('#hp-p3').val();
-    
   },
 
   wrongAns() {

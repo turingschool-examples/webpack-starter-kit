@@ -18,14 +18,15 @@ class Gameboard {
     this.roundOne = [];
     this.roundTwo = [];
     this.roundThree = [];
+    this.playerIndex = 0;
   }
 
   createPlayers(playerIn) {
-    this.players = playerIn.concat(this.players);
-    let player1 = new Player(this.players[0]);
-    let player2 = new Player(this.players[1]);
-    let player3 = new Player(this.players[2]);
+    this.players = playerIn.map(user => {
+      return user = new Player(user);
+    })
     this.activePlayer = this.players[0];
+    console.log(this.activePlayer)
   }
 
   hidePopup() {
@@ -35,23 +36,7 @@ class Gameboard {
     });
   }
 
-  setCatNames($cats) {
-    console.log("get cats")
-    // $.each(this.roundOne.catNames, function (index, value) {
-    //   $($cats).text(this.roundOne.catNames[i]);
-    // });
-    // $('').each(function (index, value) {
-    //   console.log('div' + index + ':' + $(this).attr('id'));
-    // });
-    // var names = this.roundOne.catNames;
-    // $.each(names, function (index, value) {
-    //   $cats[index] = `$('.` + index + `').text('` + value + `')`;
-    //   // $cats[index] = value;
-    // });
-    console.log(names, $cats)
-  }
-
-  startGame(playerIn, $cats) {
+  startGame(playerIn) {
     const gameArr = this.shuffle(Object.values(data.categories));
     // domUpdates.displayNames();
 
@@ -76,12 +61,13 @@ class Gameboard {
     domUpdates.changeCatTitles(this);
   }
 
-  changeTurn(players) {
-    this.activePlayer++;
-    if (this.activePlayer === 3) {
-      this.activePlayer = 0;
+  changeTurn() {
+    this.playerIndex++;
+    if (this.playerIndex === 3) {
+      this.playerIndex = 0;
     }
-    return players[this.activePlayer];
+    this.activePlayer = this.players[this.playerIndex];
+    console.log(this.activePlayer);
   }
 
   shuffle(array) {
