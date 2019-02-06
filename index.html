@@ -23,6 +23,7 @@
       </article>
     </section>
     <main class="hidden main-page">
+      <button id="reset-button">RESET</button>
       <h1 id="game-header-title">Wheel of Fortune Cookies</h1>
       <h3 class="category-window"></h3>
       <section id="game-board">
@@ -87,22 +88,17 @@
           <article class="letter-box" id="box-48"></article>
         </div>
       </section>
-      <section id="player-names-container">
-        <div class="name-and-scores" id="player-box-0">
-          <h4 id="player-names-0" class="player-names"></h4>
-          <h5>ROUND SCORE:<span id="player-0-round-score"></span></h5>
-          <h5>TOATL SCORE:</h5>
+      <section id="user-buttons">
+        <div id="spin-feedback">
+          <button id="spin-button" class="user-button">SPIN</button>
+          <h3 id="spin-value"></h3>
         </div>
-        <div class="name-and-scores" id="player-box-1">
-          <h4 id="player-names-1" class="player-names"></h4>
-          <h5>ROUND SCORE:<span id="player-1-round-score"></span></h5>
-          <h5>TOATL SCORE:</h5>
-        </div>
-        <div class="name-and-scores" id="player-box-2">
-          <h4 id="player-names-2" class="player-names"></h4>
-          <h5>ROUND SCORE:<span id="player-2-round-score"></span></h5>
-          <h5>TOATL SCORE:</h5>
-        </div>
+        <button id="solve-puzzle-button" class="user-button">SOLVE THE PUZZLE</button>
+        <section class="solve-puzzle-section">
+          <input id="solve-puzzle-input" />
+          <button id="submit-answer">Submit Your Guess</button>
+        </section>
+        <button id="buy-vowel-button" class="user-button">BUY A VOWEL</button>
       </section>
       <section id="letters-banks">
         <article id="consonants-bank">
@@ -129,22 +125,34 @@
           <button id="c20" class="letter-button"></button>
         </article>
         <article id="vowels-bank">
-          <button id="v0" class="letter-button"></button>
-          <button id="v1" class="letter-button"></button>
-          <button id="v2" class="letter-button"></button>
-          <button id="v3" class="letter-button"></button>
-          <button id="v4" class="letter-button"></button>
+          <button id="v0" class="letter-button vowel-button" disabled></button>
+          <button id="v1" class="letter-button vowel-button" disabled></button>
+          <button id="v2" class="letter-button vowel-button" disabled></button>
+          <button id="v3" class="letter-button vowel-button" disabled></button>
+          <button id="v4" class="letter-button vowel-button" disabled></button>
         </article>
       </section>
-      <section id="user-buttons">
-        <div id="spin-feedback">
-          <button id="spin-button" class="user-button">SPIN</button>
-          <h3 id="spin-value"></h3>
+         <section id="player-names-container">
+        <div class="name-and-scores" id="player-box-0">
+          <h4 id="player-names-0" class="player-names"></h4>
+          <h3>ROUND SCORE: <span id="player-0-round-score"></span></h3>
+          <h3>TOTAL SCORE: <span id="player-0-total-score"></span></h3>
+          <span class ="player-prompts id="player-prompts-0"></span>
         </div>
-        <button id="buy-vowel-button" class="user-button">BUY A VOWEL</button>
-        <button id="solve-puzzle-button" class="user-button">SOLVE THE PUZZLE</button>
+        <div class="name-and-scores" id="player-box-1">
+          <h4 id="player-names-1" class="player-names"></h4>
+          <h3>ROUND SCORE: <span id="player-1-round-score"></span></h3>
+          <h3>TOTAL SCORE: <span id="player-1-total-score"></span></h3>
+          <span class ="player-prompts id="player-prompts-1"></span>
+        </div>
+        <div class="name-and-scores" id="player-box-2">
+          <h4 id="player-names-2" class="player-names"></h4>
+          <h3>ROUND SCORE: <span id="player-2-round-score"></span></h3>
+          <h3>TOTAL SCORE: <span id="player-1-total-score"></span></h3>
+          <span class ="player-prompts id="player-prompts-2"></span>
+        </div>
       </section>
-    </main>
+     </main>
      
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 

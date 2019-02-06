@@ -5,6 +5,10 @@ const domUpdates = {
     $('.start-page').remove()
   },
 
+  solvePuzzlePrompt() {
+
+  },
+
   displayPlayers(p1, p2, p3) {
       $('#player-names-0').text(p1.name);
       $('#player-names-1').text(p2.name);
@@ -35,7 +39,7 @@ const domUpdates = {
     console.log('im a hidden puzzle')
 
     letters.forEach((letter, i) => {
-      if(letter != ' ' && letter != '-') {
+      if(letter != ' ' && letter != '-' && letter != '\'' && letter != '&') {
         $(`#box-${i + 13}`).addClass('hidden-word')
       }
     })
@@ -44,24 +48,23 @@ const domUpdates = {
   displayLetters(consonants, vowels) {
     // $('#consonants-bank').text(consonants);
     consonants.forEach((cons,i) => {
-      $(`#c${i}`).text(cons)
+      $(`#c${i}`).text(cons).addClass('unavailable-bank-letter').prop('disabled', true);
       // console.log(cons)
     })
 
     vowels.forEach((vowel,i) => {
-      $(`#v${i}`).text(vowel)
+      $(`#v${i}`).text(vowel).addClass('unavailable-bank-letter');
       // console.log(vowel)
     })
   },
 
-  displayTurnValue(value) {
+  displayTurnValue(value, activePlayer) {
     // let turnValue = wheel.turnValue
-    $('#spin-value').text(`You've landed on: ${value}!`)
+    $('#spin-value').text(`${activePlayer.name} You landed on: ${value}!`)
   },
 
   updateRoundScore(value, num) {
     $(`#player-${num}-round-score`).text(value)
-
   },
 
   clearRoundScore(wheelOfFortune) {
@@ -70,7 +73,7 @@ const domUpdates = {
   },
 
   disableButton(clickedButton) {
-    clickedButton.disabled = true;
+    $(clickedButton).removeClass('unavailable-bank-letter')
     $(clickedButton).addClass('disabled-bank-letter')
     console.log(clickedButton)
   },
@@ -103,6 +106,63 @@ const domUpdates = {
         $(`#player-box-${player.playerNumber}`).removeClass('active-player')
       }
     })
+  },
+
+  enableConsonants() {
+    $('.letter-button').prop('disabled', false);
+  },
+
+  disableConsonants() {
+    $('.letter-button').prop('disabled', true);
+  },
+
+  enableVowelButtons() {
+    $('.vowel-button').prop('disabled', false);
+    $('.vowel-button').removeClass('unavailable-bank-letter');
+  },
+
+  disableVowelButtons() {
+    $('.vowel-button').prop('disabled', true);
+    $('.vowel-button').addClass('unavailable-bank-letter');
+  },
+
+  disableSpinButton() {
+    $('#spin-button').prop('disabled', true);
+  },
+
+  enableSpinButton() {
+    $('#spin-button').prop('disabled', false);
+  },
+
+  promptToSpin(players) {
+    players.forEach(player => {
+      if (player.active === true) {
+        console.log('its your turn')
+        $(`#player-prompts-${player.playerNumber}`).text('ITS YOUR TURN! SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE')
+      } else {
+        if (player.active === false) {
+          $(`#player-prompts-${player.playerNumber}`).text(' ');
+        }
+      }
+    })
+  },
+
+  displayRoundWinner(winner) {
+    console.log(winner.name);
+  },
+
+  updateTotalScore(player, num) {
+    $(`#player-${num}-total-score`).text(player.roundScore)
+  },
+
+  resetRoundScores(players) {
+    console.log(players);
+  },
+
+  clickSimulator() {
+    $('#c0').click();
+    this.enableSpinButton()
+    $('.letter-button').prop('disabled', true);
   }
 }
 

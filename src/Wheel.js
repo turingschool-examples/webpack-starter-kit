@@ -31,18 +31,31 @@ class Wheel {
     console.log(this.values)
     //22 indexis
     this.getRandomValue(wheelOfFortune);
+    if(this.turnValue != 'BANKRUPT' && this.turnValue != 'LOSE A TURN') {
+    domUpdates.disableSpinButton();
+    domUpdates.enableConsonants();
+  } else {
+    domUpdates.enableSpinButton();
+    domUpdates.disableConsonants();
+  }
   }
 
   getRandomValue(wheelOfFortune) {
     const randomIndex = Math.floor((Math.random() * 22));
     this.turnValue = this.values[randomIndex];
-    console.log(this.turnValue);
-    domUpdates.displayTurnValue(this.turnValue)
+    console.log(typeof this.turnValue);
+    domUpdates.displayTurnValue(this.turnValue, wheelOfFortune.activePlayer)
     this.bankrupt(wheelOfFortune);
+    this.loseATurn(wheelOfFortune);
   }
 
   multiplyRoundValue(value) {
-    let turnValue = this.turnValue * value;
+    let turnValue;
+    if(this.turnValue === NaN) {
+      turnValue = 0
+    } else {
+      turnValue = this.turnValue * value;
+    }
     console.log(turnValue);
     return turnValue;
   }
@@ -51,9 +64,21 @@ class Wheel {
     if(this.turnValue === 'BANKRUPT') {
       wheelOfFortune.activePlayer.roundScore = 0;
       domUpdates.clearRoundScore(wheelOfFortune);
-      wheelOfFortune.changeTurn()
+      wheelOfFortune.changeTurn(this.turnValue);
+      // domUpdates.disableConsonants();
+      // domUpdates.disableVowelButtons();
     }
 
+  }
+  loseATurn(wheelOfFortune) {
+    if(this.turnValue === 'LOSE A TURN') {
+      // domUpdates.disableConsonants();
+      // domUpdates.disableVowelButtons()
+      // wheelOfFortune.activePlayer.roundScore += 0;
+      // domUpdates.disableConsonants();
+      // domUpdates.disableVowelButtons();
+      wheelOfFortune.changeTurn(this.turnValue);
+    }
   }
 }
 
