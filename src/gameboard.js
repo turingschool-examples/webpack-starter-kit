@@ -2,8 +2,8 @@ import data from './data.js';
 import domUpdates from './domUpdates.js';
 
 class Gameboard {
-  constructor(round = 1, categoryList, firstRoundCategories, secondRoundCategories) {
-    this.round = round;
+  constructor(round, categoryList, firstRoundCategories, secondRoundCategories) {
+    this.round = round || 1;
     this.categoryList = Object.keys(data.categories);
     this.cluesWithCategories = [];
     this.roundClues = [];
@@ -269,7 +269,7 @@ class Gameboard {
 
     this.firstRoundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName]
     console.log(this.firstRoundCategories);
-    domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories], [this.finalRoundCategory]);
+    domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories]);
   //create an of the categories for each round with 4 questions for each round
   };
 
@@ -290,7 +290,23 @@ class Gameboard {
   };
 
   changePlayerTurn() {
-    //Will need method to change player active status
+    console.log("1", player1, "2", player2, "3", player3);
+    if(player1.active === true) {
+      player1.active = false;
+      console.log("if 1 1", player1, "2", player2, "3", player3);
+      player2.active = true;
+      console.log("if 1 1", player1, "2", player2, "3", player3);
+    } else if (player2.active === true) {
+      player2.active = false;
+      console.log("if 2 1", player1, "2", player2, "3", player3);
+      player3.active = true;
+      console.log("if 2 1", player1, "2", player2, "3", player3);
+    } else if (player3.active === true) {
+      player3.active = false;
+      console.log("if 3 1", player1, "2", player2, "3", player3);
+      player1.active = true;
+      console.log("if 3 1", player1, "2", player2, "3", player3);
+    }
   }
 
 };

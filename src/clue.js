@@ -13,7 +13,8 @@ class Clue {
   }
 
   checkAnswer() {
-
+    game.changePlayerTurn();
+    console.log("changePlayer");
   };
 }
 
