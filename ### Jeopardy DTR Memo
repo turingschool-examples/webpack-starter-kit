@@ -1,0 +1,57 @@
+### Jeopardy DTR Memo
+
+Project: Jeopardy
+
+Group Member Names: Mason France and Jessica Hansen
+
+Goals and Expectations for the Project (What does each group member hope to get out of this project? What do we want to achieve as a team? How will we know that we're successful?):
+- Opportunity to learn object oriented programming. 
+- Create a 'pretty cool' finished product we are happy to share with others! 
+- Full functionality and test coverage is the team goal.
+- Practice using git and github, become more familiar with them.
+- Refine our workflow as a team - commit and push changes frequently to keep both team members up to date on changes.
+  
+Team strengths & collaboration styles (consider discussing your Pairin qualities here):
+- Parin: both have the Imaginative-Inspirational and Lover of Transcendence qualities, so we both be able to look at the bigger picture of the project and how the user will interact with the game. We won't be at a loss for ideas and creative solutions to problems. 
+- We'd like to keep an open and honest line of communication.
+
+How we can use our strengths to overcome obstacles:
+- Identifying our potential weaknesses and avoiding them.
+- Talk through problems with each other.
+
+Schedule Expectations (When are we available to work together and individually? What constraints do we have?):
+- Mason has some choir commitments during the weekends. Jessica likes to leave basement to walk her dog.
+
+Communication Expectations (How and often will we communicate? How do we keep lines of communication open? How will we make decisions as a team?):
+- Plan to have a daily checkin on class days regarding project. Retro will be part of daily checkins.
+- Balance working on project solo and together - practice struggling solo.
+
+Abilities & Growth Expectations (Technical strengths and areas for desired improvement):
+- Learn OOP
+- Gain git and github proficiency
+- Learn testing
+- Learn how to implement a more advanced file structure in a project
+- Practice using new/different prototype methods to solve a problem efficiently
+- Work on incorporating project planning/sprints and sharing responsiblities to complete code
+
+Workload Expectations (What features do we each want to work on?):
+- TBD
+
+Workflow Expectations (Git workflow/Tools/Code Review/Reviewing Pull Requests/Debugging and Problem-solving Techniques): 
+- Make sure we are commiting and pushing changes frequently to stay on the same page
+- DO NOT MERGE YOUR OWN PULL REQUESTS or push to master
+- Make sure to work on one feature/piece of code at a time so PRs are for one thing
+
+Expectations for giving and receiving feedback:
+- Keep an open line of communication
+- Have frequent (daily) retros on how we are both doing with the project
+
+Project management tools we will use:
+- Waffle
+
+Day 1 Agenda:
+- DTR
+- Research OOP
+- Start wireframe and find design inspiration (dribbble)
+
+Additional Notes:
