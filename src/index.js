@@ -44,8 +44,9 @@ let game;
 let player;
 
 // 
-$('.consonant, .vowel').on('click', () => {
-  console.log('BUTTON PRESSED');
+$('.consonant, .vowel').on('click', (event) => {
+  // console.log('BUTTON PRESSED');
+  game.guessLetter(event);
 })
 
 

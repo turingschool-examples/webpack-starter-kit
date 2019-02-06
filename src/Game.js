@@ -10,6 +10,7 @@ class Game {
     this.roundWheel = null;
     this.bonusWheel = [];
     this.roundPuzzle = [];
+    this.splitPuzzle = [];
   }
   createPlayers(names) {
     let thisPlayers = this.players;
@@ -63,6 +64,16 @@ class Game {
       $('.consonant').attr('disabled', true);
       $('.consonant').addClass('disabled');
     }
+  }
+  guessLetter(e) {
+    let uppercasePuzzle = this.roundPuzzle.answer.toUpperCase();
+    this.splitPuzzle = uppercasePuzzle.split('');
+    this.splitPuzzle.forEach(letter => {
+      if (letter === e.currentTarget.innerText) {
+        console.log("inside?")
+      }
+    })
+    
   }
   scoreUpdate() {
   $('#score-player1').text(this.players[0].roundScore);
