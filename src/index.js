@@ -35,7 +35,7 @@ $('.submit-names').on( 'click', (e) => {
   if ( $('#player1')[0].value && $('#player2')[0].value && $('#player3')[0].value ) {
     game = new Game();
     buildGame();
-    $(".name-input").fadeOut(1000);
+    domUpdates.fadeNameInput();
   } else {
     console.log('fill in names');
     // $promptWarning.toggle;
@@ -64,13 +64,6 @@ function createPlayerNames() {
   playerNames.push($('#player2').value);
   playerNames.push($('#player3').value);
   game.createPlayers(playerNames);
-  displayPlayerNames();
+  domUpdates.displayPlayerNames();
   game.scoreUpdate();
-}
-
-  // MOVE TO DOM UPDATES
-function displayPlayerNames() {
-  $('#player1-output').text($('#player1')[0].value);
-  $('#player2-output').text($('#player2')[0].value);
-  $('#player3-output').text($('#player3')[0].value);
 }
