@@ -55,10 +55,10 @@ const domUpdates = {
   },
 
   displayCategories: (array) => {
-    $('.category--one').text(array[0]);
-    $('.category--two').text(array[1]);
-    $('.category--three').text(array[2]);
-    $('.category--four').text(array[3]);
+    $('.category--one').text(array[0].split(/(?=[A-Z])/).join(' '));
+    $('.category--two').text(array[1].split(/(?=[A-Z])/).join(' '));
+    $('.category--three').text(array[2].split(/(?=[A-Z])/).join(' '));
+    $('.category--four').text(array[3].split(/(?=[A-Z])/).join(' '));
   },
   
   displayDailyDouble: () => {
