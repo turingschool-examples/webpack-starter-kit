@@ -24,10 +24,12 @@ let $answerClue = $('.answer-btn')
 
 $startBtn.on('click', function(e) {
   e.preventDefault();
+  // const playerNames = [$('#playerNameInput1').val(), $('#playerNameInput2').val(), $('#playerNameInput3').val()];
   game.startGame();
-  console.log(game);
+  // console.log(game);
   pullNames();
   domUpdates.removeStartScreen();
+  game.changePlayerTurn();
 })
 
 $gameboard.on('click', function(e) {
@@ -58,13 +60,9 @@ function pullNames() {
   let $playerName1 = $('#playerNameInput1').val();
   let $playerName2 = $('#playerNameInput2').val();
   let $playerName3 = $('#playerNameInput3').val();
-  $('#playerName1').text($playerName1);
-  $('#playerName2').text($playerName2);
-  $('#playerName3').text($playerName3);
-  let player1 = new Player($playerName1, 0, 0, 1, true);
-  let player2 = new Player($playerName2, 0, 0, 2, false);
-  let player3 = new Player($playerName3, 0, 0, 3, false);
-  console.log(player1);
-  console.log(player2);
-  console.log(player3);
+  // $('#playerName1').text($playerName1);
+  // $('#playerName2').text($playerName2);
+  // $('#playerName3').text($playerName3);
+  game.createPlayers(game, $playerName1, $playerName2, $playerName3)
+
 }

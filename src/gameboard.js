@@ -1,5 +1,6 @@
 import data from './data.js';
 import domUpdates from './domUpdates.js';
+import Player from './player.js';
 
 class Gameboard {
   constructor(round, categoryList, firstRoundCategories, secondRoundCategories) {
@@ -12,13 +13,27 @@ class Gameboard {
     this.firstRoundCategories = [];
     this.secondRoundCategories = [];
     this.finalRoundCategory = [];
+    this.playersArray = [];
+    this.activePlayer = 0;
   };
+
 
   startGame() {
     console.log("You've started the game!");
     this.collectClues();
     this.assignCategories();
   };
+
+  createPlayers(game, $playerName1, $playerName2, $playerName3) {
+    let player1 = new Player($playerName1, 0, 0, 1, true);
+    let player2 = new Player($playerName2, 0, 0, 2, false);
+    let player3 = new Player($playerName3, 0, 0, 3, false);
+    game.playersArray.push(player1);
+    game.playersArray.push(player2);
+    game.playersArray.push(player3);
+    domUpdates.changePlayerNames(game)
+    console.log('game ', game);
+  }
 
   collectClues() {
     let allClues = data.clues;
@@ -272,6 +287,38 @@ class Gameboard {
   //create an of the categories for each round with 4 questions for each round
   };
 
+  // createPlayers(playerNames) {
+    
+  // };
+
+  changePlayerTurn() {
+    // this.activePlayer = 0;
+    console.log('this player ', this.playersArray[this.activePlayer].name)
+    console.log('this player ', this.playersArray[this.activePlayer].score)
+    
+    switch (this.activePlayer) {
+      case 0:
+        console.log('Im player one');
+        // player1.active = false;
+        // player2.active = true;
+        this.activePlayer = 1;
+        break;
+      case 1:
+        console.log('im player two');
+        // player2.active = false;
+        // player3.active = true;
+        this.activePlayer = 2;
+        break;
+      case 2:
+        console.log('im player 3');
+        // player3.active = false;
+        // player1.active = true;
+        this.activePlayer = 0;
+        break;
+    }
+    console.log("switched active player");
+  }
+
   appendWager() {
     //
   };
@@ -288,26 +335,7 @@ class Gameboard {
 
   };
 
-  changePlayerTurn() {
-    console.log("1", player1, "2", player2, "3", player3);
-    if(player1.active === true) {
-      player1.active = false;
-      console.log("if 1 1", player1, "2", player2, "3", player3);
-      player2.active = true;
-      console.log("if 1 1", player1, "2", player2, "3", player3);
-    } else if (player2.active === true) {
-      player2.active = false;
-      console.log("if 2 1", player1, "2", player2, "3", player3);
-      player3.active = true;
-      console.log("if 2 1", player1, "2", player2, "3", player3);
-    } else if (player3.active === true) {
-      player3.active = false;
-      console.log("if 3 1", player1, "2", player2, "3", player3);
-      player1.active = true;
-      console.log("if 3 1", player1, "2", player2, "3", player3);
-    }
-  }
-
+  
 };
 
 
