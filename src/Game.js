@@ -18,21 +18,15 @@ class Game {
       const player = new Player(name);
       thisPlayers.push(player);
     })
-    // displayPlayerNames();
   }
   createWheel() {
-    // const wheel = new Wheel();÷
-    // wheel.randomizeWheel();
     this.roundWheel.randomizeWheel();
-    console.log('Wheel: ' + this.roundWheel.wheelElements);
     this.roundWheel.wheelElements.forEach((element) => {
-      $('.wheel').append('<p>' + element + '</p>');
+      $('.wheel').append('<p class="wheel-element">' + element + '</p>');
     })
-
   }
   createPuzzle() {
     this.roundPuzzle = new Puzzle
-
     this.roundPuzzle.chooseDifficulty();
     this.roundPuzzle.randomizePuzzle();
     // display puzzle, difficulty, hint on DOM
@@ -44,13 +38,11 @@ class Game {
     });
     // update dom
     if (this.round < 5) {
-      console.log('rounds 1-4')
       this.roundWheel = new Wheel();      
       this.createWheel();
       this.createPuzzle();
     }
     if (this.round === 5) {
-      console.log('in round 5');
       // this.createBonusWheel();
       // start bonus round;
     } 

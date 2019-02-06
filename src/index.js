@@ -29,7 +29,7 @@ const $player3Name = $('#player3');
 
 
 const $submitNames = $('.submit-names');
-const $spinWheel = $('.spin-wheel')
+const $spinWheel = $('.spin-wheel');
 
 // JS variables
 // const difficulty1 = data.puzzles.one_word_answers;
@@ -42,6 +42,7 @@ let game;
 
 
 
+$('.hidden-popup').hide();
 // jQuery Event Listeners
 $submitNames.on( 'click', playGame );
 $spinWheel.on('click', choosePrize )
@@ -62,15 +63,9 @@ function playGame(e) {
 function buildGame() {
   createPlayerNames();
   game.newRound();
-  console.log(game);
-    // game.createWheel();
-    // game.createPuzzle();
 }
 
 function choosePrize() {
-  // console.log(game);
-  // console.log(game.wheel);
-  console.log(game.roundWheel);
   game.roundWheel.spinWheel();
 }
 

@@ -14,17 +14,35 @@ class Wheel {
       elementsArray.push(data.wheel[randomIndex]);
     }
     this.wheelElements = elementsArray;
-    console.log(this.wheelElements);
   }
   spinWheel(player) {
     this.currentSpinIndex = Math.floor(Math.random() * 5);
-    console.log(this.wheelElements);
-
     this.currentSpin = this.wheelElements[this.currentSpinIndex];
-    console.log(this.currentSpin);
-    return this.currentSpin;
+    this.displayElement();
+    if (this.currentSpin === 'BANKRUPT') {
+      console.log('youve gone bankrupt');
+    } else if (this.currentSpin === 'LOSE-A-TURN') {
+      console.log('youve lost a turn');
+    }
     // if land on bankrupt invoke bankrupt method
     // if land on lose a turn invoke loseTurn method
+  }
+  displayElement() {
+    $('.hidden-popup').fadeIn();
+    if (typeof(this.currentSpin) === 'string') {
+      console.log('string');
+    }
+    $('.hidden-popup').append('<p>' + this.currentSpin + '</p>');
+    $('.hidden-popup').append('<button class="remove-popup">OK</button>');
+    // alert(this.currentSpin);
+    $(".remove-popup").on("click", () => {
+      console.log('clicked');
+      this.hideElement();
+    });
+  }
+  hideElement() {
+    $('.hidden-popup').fadeOut();
+    $('.hidden-popup').html('');
   }
   bankrupt(player) {
     // reset player roundScore to 0
