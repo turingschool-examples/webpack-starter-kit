@@ -1,14 +1,12 @@
 import chai from 'chai';
 const expect = chai.expect;
-
 import Game from '../src/Game.js'
 import domUpdates from  '../src/domUpdates';
 import Clue from '../src/Clue.js'
 import spies from 'chai-spies';
-import Player from '../src/Player.js'
 chai.use(spies);
 
-chai.spy.on(domUpdates, ['displayPlayerScore', 'toggleSplash', 'displayCategories', 'displayClue','setClues'], () => true)
+chai.spy.on(domUpdates, ['displayPlayerScore', 'toggleSplash', 'displayCategories', 'displayClue','setClues', 'resetPlayersScores', 'changePrompt'], () => true);
 
 describe('Game', function() {
   let game;
@@ -73,7 +71,9 @@ describe('Game', function() {
     game.quitGame();
 
     expect(domUpdates.toggleSplash).to.be.called();
-    expect(game.allClues).to.deep.equal([]);
+    expect(game.allCluesInPlay).to.deep.equal([]);
+    expect(game.players).to.deep.equal([]);
+    expect(game.counter).to.deep.equal(0);
   });
 
   it('should submit our guess', function() {
@@ -83,12 +83,17 @@ describe('Game', function() {
       answer: "music videos",
       categoryId: 10
     };
+
     game.currentClue = new Clue(mimic.question, mimic.pointValue, mimic.answer, mimic.categoryId);
+
     game.gatherPlayers('tom', 'tim', 'jill')
     game.submitGuess('hey');
     
     expect(domUpdates.toggleSplash).to.be.called();
+
+    game.switchPlayer()
     
+    expect(game.currentPlayer).to.deep.equal(game.players[1]);
   });
 
 });

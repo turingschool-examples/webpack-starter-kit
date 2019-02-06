@@ -41,12 +41,12 @@ class Round {
 
   setDailyDouble() {
     let randomIndexOne = Math.floor(Math.random() * 16);
-    console.log(randomIndexOne);
+    // console.log(randomIndexOne);
     if (this.currentRound === 1) {
       this.cluesRoundOne[randomIndexOne].dailyDouble = true;
     } else if (this.currentRound === 2) {
       let randomIndexTwo = Math.floor(Math.random() * 16);
-      console.log(randomIndexOne, randomIndexTwo);
+      // console.log(randomIndexOne, randomIndexTwo);
       this.cluesRoundTwo[randomIndexOne].dailyDouble = true;
       this.cluesRoundTwo[randomIndexTwo].dailyDouble = true;
     }

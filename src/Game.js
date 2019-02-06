@@ -82,7 +82,6 @@ class Game {
     if (this.counter === 0) {
       let round = new Round(1)
       round.gatherClues(this.roundOne, this);
-      console.log(this.roundThree)
     } else if (this.counter === 16) {
       let round = new Round(2);
       round.gatherClues(this.roundTwo, this);
