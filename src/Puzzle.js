@@ -40,6 +40,8 @@ class Puzzle {
     this.displayPuzzle();
     return this.puzzleDetails;
   }
+
+  // MOVE TO DOM UPDATES
   displayPuzzle() {
     let splitAnswer = this.answer.split('');
     console.log(splitAnswer);

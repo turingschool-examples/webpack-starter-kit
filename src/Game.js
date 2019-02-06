@@ -19,6 +19,8 @@ class Game {
       thisPlayers.push(player);
     })
   }
+
+    // MOVE TO DOM UPDATES
   createWheel() {
     this.roundWheel.randomizeWheel();
     this.roundWheel.wheelElements.forEach((element) => {
@@ -52,6 +54,8 @@ class Game {
   buyVowel() {
     this.toggleKeyboard();
   }
+
+    // MOVE TO DOM UPDATES
   toggleKeyboard() {
     if (!$('.vowel').is(':disabled')) {
       $('.vowel').attr('disabled', true);
@@ -77,11 +81,15 @@ class Game {
       }
     })
   }
+
+    // MOVE TO DOM UPDATES
   scoreUpdate() {
   $('#score-player1').text(this.players[0].roundScore);
   $('#score-player2').text(this.players[1].roundScore);
   $('#score-player3').text(this.players[2].roundScore);
 }
+
+// probably called after the last round is over 
   endGame() {
       // show 'game over' screen
       // display 'back to home screen' button

@@ -91,6 +91,7 @@ function createPlayerNames() {
   game.scoreUpdate();
 }
 
+  // MOVE TO DOM UPDATES
 function displayPlayerNames() {
   $playerOneOutput.text($player1Name[0].value);
   $playerTwoOutput.text($player2Name[0].value);
