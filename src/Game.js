@@ -21,10 +21,13 @@ class Game {
   switchPlayer(player) {
     if (player === this.players[0]) {
       this.currentPlayer = this.players[1]
+      domUpdates.displayCurrentPlayer('player1', 'player0');
     } else if (player === this.players[1]) {
       this.currentPlayer = this.players[2]
+      domUpdates.displayCurrentPlayer('player2', 'player1');
     } else if (player === this.players[2]) {
       this.currentPlayer = this.players[0]
+      domUpdates.displayCurrentPlayer('player0', 'player2');
     }
   }
 
@@ -35,6 +38,7 @@ class Game {
     this.players.push(player1, player2, player3);
     this.currentPlayer = this.players[0];
     domUpdates.displayPlayerScore(this.currentPlayer, this);
+    domUpdates.displayCurrentPlayer('player0');
   }
 
   getRandomCat() {

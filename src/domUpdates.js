@@ -111,6 +111,11 @@ const domUpdates = {
   displayError: () => {
     $('.wager--error').removeClass('error--hidden');
     $('.wager--error').addClass('error--displayed');
+  },
+
+  displayCurrentPlayer: (currentPlayer, lastPlayer) => {
+    $(`.${currentPlayer}--container`).css('box-shadow', '10px 10px pink');
+    $(`.${lastPlayer}--container`).css('box-shadow', '');
   }
   
 }
