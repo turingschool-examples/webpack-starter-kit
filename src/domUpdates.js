@@ -11,11 +11,20 @@ const domUpdates = {
   },
 
   displayPlayerNames() {
-  $('#player1-output').text($('#player1')[0].value);
-  $('#player2-output').text($('#player2')[0].value);
-  $('#player3-output').text($('#player3')[0].value);
+    $('#player1-output').text($('#player1')[0].value);
+    $('#player2-output').text($('#player2')[0].value);
+    $('#player3-output').text($('#player3')[0].value);
   },
-  
+
+  displayElement(currentSpin) {
+    $('.hidden-popup').fadeIn();
+    $('.hidden-popup').append('<p>' + currentSpin + '</p>');
+    $('.hidden-popup').append('<button class="remove-popup">OK</button>');
+    $(".remove-popup").on("click", () => {
+      domUpdates.hideElement();
+    });
+  },
+
 };
 
 

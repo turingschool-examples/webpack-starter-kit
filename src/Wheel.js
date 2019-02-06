@@ -16,10 +16,10 @@ class Wheel {
     }
     this.wheelElements = elementsArray;
   }
-  spinWheel(player) {
+  spinWheel() {
     this.currentSpinIndex = Math.floor(Math.random() * 5);
     this.currentSpin = this.wheelElements[this.currentSpinIndex];
-    this.displayElement();
+    domUpdates.displayElement(this.currentSpin);
     if (this.currentSpin === 'BANKRUPT') {
       console.log('youve gone bankrupt');
     } else if (this.currentSpin === 'LOSE-A-TURN') {
@@ -28,22 +28,6 @@ class Wheel {
     // if land on bankrupt invoke bankrupt method
     // if land on lose a turn invoke loseTurn method
   }
-  // MOVE TO DOM UPDATES
-  displayElement() {
-    $('.hidden-popup').fadeIn();
-    if (typeof(this.currentSpin) === 'string') {
-      console.log('string');
-    }
-    $('.hidden-popup').append('<p>' + this.currentSpin + '</p>');
-    $('.hidden-popup').append('<button class="remove-popup">OK</button>');
-    // alert(this.currentSpin);
-    $(".remove-popup").on("click", () => {
-      console.log('clicked');
-      // if calling domUpdates within domUpdates change invoke method (this?)
-      domUpdates.hideElement();
-    });
-  }
-  
   bankrupt(player) {
     // reset player roundScore to 0
   }
