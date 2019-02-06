@@ -78,7 +78,8 @@ let tileId;
 $('.col').click(function () {
   console.log('tile id ', event.target.id);
   tileId = event.target.id;
-  $(this).css('visibility', 'hidden')
+  game.cluesRemaining--;
+  $(this).css('visibility', 'hidden');
   domUpdates.showPopup();
   domUpdates.showQuestion(game, tileId);
 });
@@ -87,8 +88,6 @@ $('.popup-btn').click(function () {
   domUpdates.showAnswer(game, tileId);
   $("#popup-input-js").prop('disabled', true);
 });
-
-
 
 $('.close-popup').click(function () {
   $('#popup-input-js').val('');
