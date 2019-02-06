@@ -43,7 +43,10 @@ const $solvePuzzle = $('.solve-puzzle');
 let game;
 let player;
 
-
+// 
+$('.consonant, .vowel').on('click', () => {
+  console.log('BUTTON PRESSED');
+})
 
 
 $('.hidden-popup').hide();
@@ -95,8 +98,7 @@ function displayPlayerNames() {
 
 function buyVowel(e) {
   e.preventDefault();
-  let player = new Player();
-    player.buyVowel();
+  game.buyVowel();
 }
 // newWheel() {
 //   const wheel = new Wheel();
