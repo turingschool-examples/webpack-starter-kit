@@ -1,16 +1,14 @@
 import data from './data.js';
+import domUpdates from './domUpdates.js';
 
 class Puzzle {
   constructor() {
-    // this.category = null;
-    // this.answer = null;
     this.hint = null;
     this.puzzleDetails = null;
     this.difficulty = null;
     this.domDifficulty = null;
     this.category = null;
     this.answer = [];
-
   }
   chooseDifficulty() {
     let result = null;
@@ -40,13 +38,11 @@ class Puzzle {
     this.displayPuzzle();
     return this.puzzleDetails;
   }
-
-  // MOVE TO DOM UPDATES
   displayPuzzle() {
     let splitAnswer = this.answer.split('');
     console.log(splitAnswer);
     splitAnswer.forEach((letter, i) => {
-      $('.puzzle-box').append(`<p class="puzzle-pieces piece-${i} hidden"> ${letter} </p>`);
+      domUpdates.appendPuzzle(letter, i);
     })
   }
 };

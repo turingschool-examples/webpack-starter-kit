@@ -25,6 +25,10 @@ const domUpdates = {
     });
   },
 
+  appendPuzzle(letter, i) {
+    $('.puzzle-box').append(`<p class="puzzle-pieces piece-${i} hidden"> ${letter} </p>`);
+  },
+
 };
 
 
