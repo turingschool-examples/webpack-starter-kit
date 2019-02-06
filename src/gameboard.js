@@ -16,7 +16,6 @@ class Gameboard {
 
   startGame() {
     console.log("You've started the game!");
-    
     this.collectClues();
     this.assignCategories();
   };

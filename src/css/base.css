@@ -281,3 +281,7 @@ table th {
   font-size: 30px;
   color: red;
 }
+
+.display-none {
+  display: none;
+}

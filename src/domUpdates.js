@@ -1,5 +1,5 @@
 import Gameboard from './gameboard.js';
-// import './css/base.css';
+import './css/base.css';
 import $ from 'jquery';
 
 const domUpdates = {
@@ -53,18 +53,21 @@ const domUpdates = {
   },
 
   correctFeedback() {
-    console.log('hooray!!!');
-    $('.answer-btn').after('<p class="correct-feedback">CORRECT!</p>')
+    let $clueDisplay = $('.question-card');
+    $('.answer-btn').after('<p class="correct-feedback">CORRECT!</p>');
+    $('.answer-btn').hide();
+    $clueDisplay.fadeOut(3000, function() {
+      $(this).hide();
+    })
   },
 
   incorrectFeedback() {
-    console.log('Wrong!!!');
-    $('.answer-btn').after('<p class="incorrect-feedback">INCORRECT!</p>')
-  },
-
-  removeClueCard() {
     let $clueDisplay = $('.question-card');
-    $clueDisplay.hide();
+    $('.answer-btn').after('<p class="incorrect-feedback">INCORRECT!</p>');
+    $('.answer-btn').hide();
+    $clueDisplay.fadeOut(3000, function() {
+      $(this).hide();
+    })
   },
 
   showWagerCard() {
