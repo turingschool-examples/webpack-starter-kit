@@ -23,7 +23,7 @@ class Player {
     // if the value is correct, return "good job!"
     // if the value is incorrect, return "Nice try!"
 
-      if ($('#popup-input-js') === ans) {
+      if ($('#popup-input-js').val() === ans) {
         domUpdates.correctAns();
         return true;
       } else {
