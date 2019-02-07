@@ -15,6 +15,7 @@ class Gameboard {
     this.finalRoundCategory = [];
     this.playersArray = [];
     this.activePlayer = 0;
+    this.turnCount = 0;
   };
 
 

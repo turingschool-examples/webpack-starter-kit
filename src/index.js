@@ -33,17 +33,20 @@ $startBtn.on('click', function(e) {
 })
 
 $gameboard.on('click', function(e) {
-  if (e.target.className === 'clue-box') {
+  if (e.target.className.includes('available-box')) {
     let selectedClueLocation = e.target.id;
     let selectedClue = game.roundClues[selectedClueLocation]
     //change first round clues array to one array for all rounds and use index+15 for second round
     let clue = new Clue();
     clue.showClue(selectedClue);
     domUpdates.populateClueCard(selectedClue);
+    game.turnCount++;
     $answerClue.on('click', function(e) {
       e.preventDefault();
       let $playerAnswer = $('#playerAnswer').val();
-      clue.checkAnswer(selectedClue, $playerAnswer)
+      clue.checkAnswer(selectedClue, $playerAnswer);
+      domUpdates.disableClue(selectedClueLocation);
+      console.log(game.turnCount)
     })
   }
 })
