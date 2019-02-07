@@ -64,7 +64,7 @@ class Gameboard {
   changeRound() {
     if (this.cluesRemaining === 0) {
       this.activeRound = this.allRounds[1];
-      this.cluesRemaining = 8;
+      this.cluesRemaining = 16;
       domUpdates.changeCatTitles(this);
     }
   }
