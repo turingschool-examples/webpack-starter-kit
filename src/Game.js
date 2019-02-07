@@ -30,7 +30,6 @@ class Game {
     this.roundPuzzle = new Puzzle
     this.roundPuzzle.chooseDifficulty();
     this.roundPuzzle.randomizePuzzle();
-    // display puzzle, difficulty, hint on DOM
   }
   newRound() {
     this.round++;
@@ -72,10 +71,17 @@ class Game {
         domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
       }
     })
-    // console.log(this.players[this.currentPlayer].roundScore);
-    // represent on DOM ^
-    // console.log(this.players[this.currentPlayer].roundScore);
-    // domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+  }
+  implementWheelResults() {
+    this.roundWheel.spinWheel();
+    if (this.roundWheel.currentSpin === 'BANKRUPT') {
+      domUpdates.disableKeyboard(); 
+      this.players[this.currentPlayer].resetScore();
+      domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+    } else if (this.currentSpin === 'LOSE-A-TURN') {
+      console.log('youve lost a turn');
+    }
+
   }
   endGame() {
       // show 'game over' screen

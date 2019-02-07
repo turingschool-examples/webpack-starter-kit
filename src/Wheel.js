@@ -24,20 +24,6 @@ class Wheel {
       domUpdates.toggleKeyboard();
       domUpdates.toggleKeyboard();
     }
-    if (this.currentSpin === 'BANKRUPT') {
-      domUpdates.disableKeyboard();
-    } else if (this.currentSpin === 'LOSE-A-TURN') {
-      console.log('youve lost a turn');
-    }
-    // if land on bankrupt invoke bankrupt method
-    // if land on lose a turn invoke loseTurn method
-  }
-  bankrupt(player) {
-    // reset player roundScore to 0
-  }
-  loseTurn(player) {
-    // end player turn
-    // switch to next player
   }
 };
 

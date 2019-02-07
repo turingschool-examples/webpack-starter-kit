@@ -30,10 +30,7 @@ class Puzzle {
     this.answer = this.puzzleDetails.correct_answer;
     this.domDifficulty = this.puzzleDetails.number_of_words;
     this.category = this.puzzleDetails.category;
-    // console.log("puzzle answer for the dom:", this.answer);
     domUpdates.displayDetails(this.domDifficulty, this.category);
-    console.log("puzzle difficulty:", this.domDifficulty);
-    console.log("puzzle category:", this.category);
     this.displayPuzzle();
     return this.puzzleDetails;
   }

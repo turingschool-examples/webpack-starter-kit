@@ -77,7 +77,7 @@ const domUpdates = {
   displayDetails(difficulty, category) {
     $('.difficulty').text(`DIFFICULTY: ${difficulty} out of 4`);
     $('.category').text(`CATEGORY: ${category}`);
-  }
+  },
 
 };
 

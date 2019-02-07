@@ -21,17 +21,13 @@ class Player {
     // game.scoreUpdate();
   }
   buyVowel() {
-    // moved over to game.buyVowel()
     if (this.roundScore >= 100) {
-        this.roundScore -= 100;
-        // player chooses a vowel;
-      } else {
-        alert('You need at least $100 to buy a vowel');
-      }
+      this.roundScore -= 100;
+      // player chooses a vowel;
+    } else {
+      alert('You need at least $100 to buy a vowel');
+    }
   }
 };
 
 export default Player;
-
-
-// 
