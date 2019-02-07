@@ -24,6 +24,12 @@ const $solvePuzzle = $('.solve-puzzle');
 let game;
 let player;
 
+$('body').keypress(function(e) {
+  if (e.keyCode === 13) {
+  return false;
+  }
+});
+
 $('.hidden-popup').hide();
 
 $('.consonant, .vowel').on('click', (event) => {
