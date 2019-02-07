@@ -1,9 +1,5 @@
 ## Project title
 **Jeopardy: GameTime**
-<br/>
-[Link to Play](https://siimonstark.github.io/gametime_jeopardy_jp_ro/ "webpack may have broken the link")
-<br/>
-_(webpack broke the link, please download and install dependencies)_
 
 Created by:
  - Raechel Odom (https://github.com/raechelo) 
@@ -47,12 +43,17 @@ NOT Finished. (Not Perfect)
 ## Challenges/Wins
 Many challenges!!: 
 
-Biggest win: 
+Biggest wins: 
  - Once we got the Webpack and our datasets communicating, it was relatively smooth sailing!
-
+ - Solidifying our knowledge of navigating datasets and manipulating the data to use where we needed.
+ - Learning more about OOP and how to code in multiple connected Javascript files.
+ 
 Challenges and places for improvement:
  - Webpack was a first, and also having to write so many of our tests.
  - I hope to revisit this project in the future to refactor and add features that we couldn't get to in the time alotted.
+ 
+ ## Remaining Areas for Improvement
+ There were a couple features that we hoped to implement but simply ran out of time to do. We wanted to have a feature that allows the player to visualize the Daily Double and input a wager as well as finalized the work behind our second and third rounds to indicate a clear winner.
 
 ## Credits:
  Also thank you to everyone who donated their time and patience to our success. Turing truly is a great environment to start this journey into our tech careers! The ecosystem of other developers all struggling and learning together builds such a strong emphasis on helping others and yourself to achieve success!!!
