@@ -25,7 +25,8 @@ class Puzzle {
     this.difficulty = result;
   }
   randomizePuzzle() {
-    let randomIndex = Math.floor(Math.random() * this.difficulty.puzzle_bank.length);
+    let randomIndex = Math.floor(Math.random() * 
+      this.difficulty.puzzle_bank.length);
     this.puzzleDetails = this.difficulty.puzzle_bank[randomIndex];
     this.answer = this.puzzleDetails.correct_answer;
     this.domDifficulty = this.puzzleDetails.number_of_words;
@@ -41,6 +42,6 @@ class Puzzle {
       domUpdates.appendPuzzle(letter, i);
     })
   }
-};
+}
 
 export default Puzzle;

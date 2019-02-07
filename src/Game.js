@@ -4,7 +4,7 @@ import Puzzle from './Puzzle.js';
 import domUpdates from './domUpdates.js';
 
 class Game {
-  constructor(difficulty) {
+  constructor() {
     this.round = 0;
     this.players = [];
     this.currentPlayer = 0;
@@ -52,10 +52,8 @@ class Game {
   cyclePlayers() {
     if (this.currentPlayer < 3) {
       this.currentPlayer++;
-      console.log(this.currentPlayer);
     } else {
       this.currentPlayer = 0;
-      console.log(this.currentPlayer);
     }
   }
   buyVowel() {
@@ -67,8 +65,10 @@ class Game {
     this.splitPuzzle.forEach((letter, i) => {
       if (letter === e.currentTarget.innerText) {
         domUpdates.displayCorrectLetter(letter, i);
-        this.players[this.currentPlayer].roundScore += this.roundWheel.currentSpin;
-        domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+        this.players[this.currentPlayer].roundScore += 
+          this.roundWheel.currentSpin;
+        domUpdates.scoreUpdate(this.currentPlayer, 
+          this.players[this.currentPlayer].roundScore);
       }
     })
   }
@@ -77,16 +77,17 @@ class Game {
     if (this.roundWheel.currentSpin === 'BANKRUPT') {
       domUpdates.disableKeyboard(); 
       this.players[this.currentPlayer].resetScore();
-      domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+      domUpdates.scoreUpdate(this.currentPlayer, 
+        this.players[this.currentPlayer].roundScore);
     } else if (this.currentSpin === 'LOSE-A-TURN') {
       console.log('youve lost a turn');
     }
 
   }
   endGame() {
-      // show 'game over' screen
-      // display 'back to home screen' button
+    // show 'game over' screen
+    // display 'back to home screen' button
   }
-};
+}
 
 export default Game;

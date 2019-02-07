@@ -1,4 +1,7 @@
 // jQuery goes here and anything that minipulates the dom
+import $ from 'jquery';
+
+
 const domUpdates = {
   hideElement() {
     $('.hidden-popup').fadeOut();
@@ -25,7 +28,8 @@ const domUpdates = {
   },
 
   appendPuzzle(letter, i) {
-    $('.puzzle-box').append(`<p class="puzzle-pieces piece-${i} hidden"> ${letter} </p>`);
+    $('.puzzle-box').append(`<p class="puzzle-pieces 
+      piece-${i} hidden"> ${letter} </p>`);
     if (letter === " ") {
       $(`.piece-${i}`).fadeTo(0, 0.1);
     }
@@ -69,7 +73,6 @@ const domUpdates = {
   },
 
   updateRound(oldRound, newRound) {
-    console.log("updating round highlights")
     $(`.round-${oldRound}`).removeClass('highlight');
     $(`.round-${newRound}`).addClass('highlight');  
   },
