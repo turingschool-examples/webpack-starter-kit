@@ -1,5 +1,4 @@
 import data from "./data"
-import $ from 'jquery';
 import domUpdates from './domUpdates';
 import Round from './Round'
 import Player from './Players.js'
@@ -24,13 +23,6 @@ class Gameboard {
       return user = new Player(user);
     })
     this.activePlayer = this.players[0];
-  }
-
-  hidePopup() {
-    $(".start--button").click(function() {
-      $(".overlay").toggle();
-      $('.start-up').toggle();
-    });
   }
 
   startGame(playerIn) {

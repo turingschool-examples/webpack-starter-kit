@@ -74,11 +74,13 @@ describe('Gameboard', function() {
     expect(gameboard.roundOne.catNames).to.have.lengthOf(4);
   });
   
-  it.skip('should change rounds when clues remaining reaches 0', () => {
+  it('should change rounds when clues remaining reaches 0', () => {
     const gameboard = new Gameboard();
+
     gameboard.instRound();
-    expect(gameboard.roundOne.length).to.equal(0);
+    expect(gameboard.roundOne.clues.length).to.equal(16);
+
     gameboard.changeRound();
-    expect(gameboard.roundTwo.length).to.equal(16);
+    expect(gameboard.roundTwo.clues.length).to.equal(16);
   });
 });
