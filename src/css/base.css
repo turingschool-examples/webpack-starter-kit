@@ -118,7 +118,7 @@ table th {
   width: 160px;
 }
 
-.clue-box:hover {
+.available-box:hover {
   color: white;
   background-color: darkblue;
 }
@@ -140,7 +140,7 @@ table th {
 
 .score-box {
   background-color: black;
-  border: 5px solid #7d3d29;
+  border: 5px solid #853c1e;
   color: #ffe83d;
   font-size: 28px;
   text-align: center;
@@ -284,4 +284,9 @@ table th {
 
 .display-none {
   display: none;
+}
+
+.disabled {
+  background-color: #7e9ea8;
+  color: #7e9ea8;
 }

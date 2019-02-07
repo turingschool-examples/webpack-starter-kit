@@ -41,6 +41,7 @@ const domUpdates = {
     let $clueCardCategory = $('.category-reminder');
     let $clueValue = $('#displayPointVal');
     let $question = $('#displayQuestion');
+    $('#playerAnswer').val('');
     $clueCardCategory.text(selectedClue.categoryName);
     $clueValue.text(`For $${selectedClue.pointValue}`);
     $question.text(selectedClue.question);
@@ -86,6 +87,13 @@ const domUpdates = {
     $('#playerName1').text(game.playersArray[0].name);
     $('#playerName2').text(game.playersArray[1].name);
     $('#playerName3').text(game.playersArray[2].name);
+  },
+
+  disableClue(id) {
+    let $recentClue = $(`#${id}`);
+    $recentClue.removeClass('available-box')
+    $recentClue.addClass('disabled');
+    //perhaps line to remove innertext, not sure if we want that
   },
 
   activePlayerHighlight(activePlayerNum) {

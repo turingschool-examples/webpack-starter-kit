@@ -34,16 +34,19 @@ $startBtn.on('click', function(e) {
 // })
 
 $gameboard.on('click', function(e) {
-  if (e.target.className === 'clue-box') {
+  if (e.target.className.includes('available-box')) {
     let selectedClueLocation = e.target.id;
     let selectedClue = game.roundClues[selectedClueLocation]
     let clue = new Clue();
     clue.showClue(selectedClue);
     domUpdates.populateClueCard(selectedClue);
+    game.turnCount++;
     $answerClue.on('click', function(e) {
       e.preventDefault();
       let $playerAnswer = $('#playerAnswer').val();
-      clue.checkAnswer(game, selectedClue, $playerAnswer);
+      clue.checkAnswer(selectedClue, $playerAnswer);
+      domUpdates.disableClue(selectedClueLocation);
+      console.log(game.turnCount)
       // game.updateScore()
     })
   }
