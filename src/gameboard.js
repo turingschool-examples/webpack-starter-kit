@@ -29,24 +29,36 @@ class Gameboard {
     };
     domUpdates.updatePlayerScore(this.activePlayer, activePlayer.score);
     this.turnCount++;
+    console.log("TURN COUNT", this.turnCount);
     this.checkTurnCount();
-    this.checkRound();
   };
 
-  checkRound() {
-    if(this.round === 3) {
-      finalJeopardy();
-      //follow same path as daily double
-    }
-  }
-
   checkTurnCount() {
-    if (this.turnCount > 3) {
+    console.log("ROUND", this.round);
+    if (this.turnCount === 3 && this.round === 1) {
       this.round++;
       this.changeRound2();
+    } else if (this.turnCount === 3 && this.round === 2) {
+      this.round++;
+      this.finalJeopardy();
     } else {
       this.changePlayerTurn();
     }
+  };
+
+  finalJeopardy(){
+    console.log("FINAL JEOPARY CLUE", this.finalRoundClue, this.round);
+    domUpdates.disableAllClues();
+    domUpdates.removeCategories();
+    this.turnCount = 0;
+    this.changePlayerTurn()
+    let clue = new Clue();
+    let selectedClue = this.finalRoundClue[3];
+    let dailydouble = new Dailydouble;
+    dailydouble.giveDouble(selectedClue);
+    clue.showClue(selectedClue);
+    currentClue = selectedClue;
+    domUpdates.populateClueCard(selectedClue);
   };
 
   startGame() {
@@ -55,7 +67,7 @@ class Gameboard {
     this.doubleCount.push(DD1);
     this.collectClues();
     this.assignCategories();
-    this.calculateWager()
+    this.calculateWager();
     domUpdates.activePlayerHighlight(this.activePlayer);
   };
 
@@ -95,15 +107,39 @@ class Gameboard {
       console.log("CURRENT CLUE", currentClue);
       currentClue.pointValue = $wagerAmount;
       domUpdates.reassignPointValue($wagerAmount);
-      console.log("CURRENT CLUE POINTS", currentClue.pointValue);
       domUpdates.removeWagerCard();
     }
     if (e.target.className.includes('answer-btn')) {
         let $playerAnswer = $('#playerAnswer').val();
         domUpdates.disableClue(currentLocation);
         clue.checkAnswer(this, currentClue, $playerAnswer);
-    };
-  }
+    }
+  };
+
+  selectFinalJeopardy(e) {
+    let clue = new Clue();
+    let selectedClue = this.finalRoundClue[3];
+    let dailydouble = new Dailydouble;
+    dailydouble.giveDouble(selectedClue);
+    clue.showClue(selectedClue);
+    currentClue = selectedClue;
+    domUpdates.populateClueCard(selectedClue);
+    if (e.target.className.includes('wager-btn')) {
+      let $wagerAmount = $('#wagerInput').val();
+      console.log("CURRENT CLUE", currentClue);
+      currentClue.pointValue = $wagerAmount;
+      domUpdates.reassignPointValue($wagerAmount);
+      domUpdates.removeWagerCard();
+    }
+    if (e.target.className.includes('answer-btn')) {
+        let $playerAnswer = $('#playerAnswer').val();
+        clue.checkAnswer(this, currentClue, $playerAnswer);
+    }
+    if (this.turnCount === 3 ) {
+      console.log("TIME TO END GAME");
+    }
+  };
+
 
   assignCategories() {    
     function randomize(array) {
@@ -130,8 +166,6 @@ class Gameboard {
     }).shift()
     category10GameClues.push(point10100, point10200, point10300, point10400)
     this.roundClues.push(category10GameClues);
-    console.log("gameboard 10", category10GameClues)
-
 
     let category9Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 9
@@ -153,8 +187,6 @@ class Gameboard {
     }).shift()
     category9GameClues.push(point9100, point9200, point9300, point9400)
     this.roundClues.push(category9GameClues);
-    console.log("gameboard 9", category9GameClues)
-
 
     let category8Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 8
@@ -176,8 +208,6 @@ class Gameboard {
     }).shift()
     category8GameClues.push(point8100, point8200, point8300, point8400)
     this.roundClues.push(category8GameClues);
-    console.log("gameboard 8", category8GameClues)
-
 
     let category7Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 7
@@ -199,8 +229,6 @@ class Gameboard {
     }).shift()
     category7GameClues.push(point7100, point7200, point7300, point7400);
     this.roundClues.push(category7GameClues);
-    console.log("gameboard 7", category7GameClues);
-
 
     let category6Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 6
@@ -222,8 +250,6 @@ class Gameboard {
     }).shift()
     category6GameClues.push(point6100, point6200, point6300, point6400);
     this.roundClues.push(category6GameClues);
-    console.log("gameboard 6", category6GameClues)
-
 
     let category5Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 5
@@ -245,8 +271,6 @@ class Gameboard {
     }).shift()
     category5GameClues.push(point5100, point5200, point5300, point5400);
     this.roundClues.push(category5GameClues);
-    console.log("gameboard 5", category5GameClues)
-
 
 
     let category4Clues = this.cluesWithCategories.filter(clue => {
@@ -316,7 +340,6 @@ class Gameboard {
     this.finalRoundClue.push(category2GameClues);
 
     this.finalRoundClue = this.finalRoundClue.flat();
-    console.log(this.finalRoundClue);
 
     let category1Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 1
@@ -380,7 +403,8 @@ class Gameboard {
     domUpdates.labelCategories([this.roundCategories]);
     //need a splash screen with next round?
     domUpdates.repopulateClues();
-    this.turnCount = 1;
+    this.turnCount = 0
+    this.changePlayerTurn();
   };
 
   calculateWager() {
@@ -394,10 +418,6 @@ class Gameboard {
 
     let wagerMin = 5;
     let wagerMax = highestPointValue;
-
-    //daily double and final jeopardy need to run updateScore(answer, score)
-
-    console.log("active player score", this.activePlayer.score);
   };
 
   finishGame() {

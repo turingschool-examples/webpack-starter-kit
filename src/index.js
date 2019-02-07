@@ -6,7 +6,6 @@ import './css/base.css';
 
 import Player from './player.js';
 import Gameboard from './gameboard.js';
-import Finalround from './finalRound.js';
 import $ from 'jquery';
 import domUpdates from './domUpdates.js';
 
@@ -26,7 +25,11 @@ $startBtn.on('click', function(e) {
 
 $('body').on('click', function(e) {
   e.preventDefault;
-  game.selectCorrectClue(e);
+  if (game.round === 3) {
+    game.selectFinalJeopardy(e);
+  } else {
+    game.selectCorrectClue(e);
+  }
 });
 
 function pullNames() {
