@@ -15,33 +15,27 @@ describe('Round', function() {
     expect(round.catNames).to.deep.equal([]);
     expect(round.catIds).to.deep.equal([]);
     expect(round.clues).to.deep.equal([]);
-    expect(round.pointValues).to.deep.equal([]);
-    expect(round.questions).to.deep.equal([]);
-    expect(round.dailyDouble).to.equal(1);
   });
 
-  it('should have 16 questions', () => {
+  it.skip('should have 16 questions', () => {
     const round = new Round();
     round.startRound();
-    console.log(round.clues.length)
-    expect(round.clues.length).to.equal(15);
+
+    expect(round.clues.length).to.equal(16);
   })
 
-  it('should have one Daily Double for Round 1', function() {
+  it.skip('should have one Daily Double for Round 1', function() {
     const round = new Round();
-    expect(round.dailyDouble).to.equal(1)
+    round.startRound();
+    let obj = round.clues.find((clue) => clue.hasOwnProperty('dailyDouble'))
+    expect(obj).to.have.keys('dailyDouble')
   });
 
-  it('should have two daily doubles for round 2', () => {
+  it.skip('should have two daily doubles for round 2', () => {
     const round = new Round();
-    expect(round.dailyDouble).to.equal(1);
+    expect(round.clues.dailyDouble).to.equal(false);
     round.setDDQuestion();
-    expect(round.dailyDouble).to.equal(2);
+    expect(round.clues.dailyDouble).to.equal(true);
   })
-
-  it('should start a second round', () => {
-    const round = new Round();
-
-  });
 
 })
