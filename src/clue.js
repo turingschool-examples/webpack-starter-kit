@@ -14,13 +14,15 @@ class Clue {
     console.log(selectedClue.question);
   }
 
-  checkAnswer(selectedClue, $playerAnswer) {
+  checkAnswer(game, selectedClue, $playerAnswer) {
     if (selectedClue.answer.toLowerCase() === $playerAnswer.toLowerCase()) {
       domUpdates.correctFeedback();
-
+      game.updateScore(selectedClue.pointValue);
     } else {
       domUpdates.incorrectFeedback();
-
+      let negativePoints = `-${selectedClue.pointValue}`;
+      console.log(negativePoints);
+      game.updateScore(negativePoints);
     }
   }
 }

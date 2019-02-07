@@ -96,18 +96,29 @@ const domUpdates = {
     //perhaps line to remove innertext, not sure if we want that
   },
 
+  activePlayerHighlight(activePlayerNum) {
+    console.log(activePlayerNum);
+    $(`#avatar${activePlayerNum}`).css("background-color", "hotpink")
+  },
+
+  deactivatePlayerHighlight(activePlayerNum) {
+    console.log(activePlayerNum);
+    $(`#avatar${activePlayerNum}`).css("background-color", "blue")
+  },
+
   // updatePlayerScores() {
   //   let $player1Score = $('#scoreBox1');
   //   let $player2Score = $('#scoreBox2');
   //   let $player3Score = $('#scoreBox3');
   // }
+
 }
 
-let $resetButton = $('#reset-button');
+  let $resetButton = $('#reset-button');
 
-$resetButton.on('click', function() {
-  location.reload();
-});
+  $resetButton.on('click', function() {
+    location.reload();
+  })
 
 
 export default domUpdates;

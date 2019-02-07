@@ -13,7 +13,6 @@ import Finalround from './finalRound.js';
 import Dailydouble from './dailyDouble.js';
 import $ from 'jquery';
 import domUpdates from './domUpdates.js';
-// import Data from './data.js';
 
 let game = new Gameboard();
 console.log("start game", game);
@@ -24,19 +23,20 @@ let $answerClue = $('.answer-btn')
 
 $startBtn.on('click', function(e) {
   e.preventDefault();
-  // const playerNames = [$('#playerNameInput1').val(), $('#playerNameInput2').val(), $('#playerNameInput3').val()];
   game.startGame();
-  // console.log(game);
   pullNames();
   domUpdates.removeStartScreen();
-  game.changePlayerTurn();
 })
+
+// $('body').on('click', '.answer-btn', function() {
+//   let $playerAnswer = $('#playerAnswer').val();
+//   game.changePlayerTurn();
+// })
 
 $gameboard.on('click', function(e) {
   if (e.target.className.includes('available-box')) {
     let selectedClueLocation = e.target.id;
     let selectedClue = game.roundClues[selectedClueLocation]
-    //change first round clues array to one array for all rounds and use index+15 for second round
     let clue = new Clue();
     clue.showClue(selectedClue);
     domUpdates.populateClueCard(selectedClue);
@@ -47,6 +47,7 @@ $gameboard.on('click', function(e) {
       clue.checkAnswer(selectedClue, $playerAnswer);
       domUpdates.disableClue(selectedClueLocation);
       console.log(game.turnCount)
+      // game.updateScore()
     })
   }
 })
@@ -63,9 +64,5 @@ function pullNames() {
   let $playerName1 = $('#playerNameInput1').val();
   let $playerName2 = $('#playerNameInput2').val();
   let $playerName3 = $('#playerNameInput3').val();
-  // $('#playerName1').text($playerName1);
-  // $('#playerName2').text($playerName2);
-  // $('#playerName3').text($playerName3);
   game.createPlayers(game, $playerName1, $playerName2, $playerName3)
-
 }

@@ -18,11 +18,21 @@ class Gameboard {
     this.turnCount = 0;
   };
 
+  updateScore(score) {
+    // console.log(this.playersArray[this.activePlayer].score);
+    console.log("score", score);
+    let activePlayer = this.playersArray[this.activePlayer];
+    console.log("activeplayer old score", activePlayer.score);
+    activePlayer.score += score;
+    console.log("activeplayer new score", activePlayer.score);
+    this.changePlayerTurn();
+  }
 
   startGame() {
     console.log("You've started the game!");
     this.collectClues();
     this.assignCategories();
+    domUpdates.activePlayerHighlight(this.activePlayer);
   };
 
   createPlayers(game, $playerName1, $playerName2, $playerName3) {
@@ -33,7 +43,7 @@ class Gameboard {
     game.playersArray.push(player2);
     game.playersArray.push(player3);
     domUpdates.changePlayerNames(game)
-    console.log('game ', game);
+    // console.log('game ', game);
   }
 
   collectClues() {
@@ -293,29 +303,26 @@ class Gameboard {
   // };
 
   changePlayerTurn() {
-    // this.activePlayer = 0;
-    console.log('this player ', this.playersArray[this.activePlayer].name)
-    console.log('this player ', this.playersArray[this.activePlayer].score)
-    
+    // console.log('this player ', this.playersArray[this.activePlayer].name)
+    // console.log('this player ', this.playersArray[this.activePlayer].score)
+    // this.activePlayer++
     switch (this.activePlayer) {
       case 0:
-        console.log('Im player one');
-        // player1.active = false;
-        // player2.active = true;
+        domUpdates.deactivatePlayerHighlight(this.activePlayer);
         this.activePlayer = 1;
+        domUpdates.activePlayerHighlight(this.activePlayer);
         break;
       case 1:
-        console.log('im player two');
-        // player2.active = false;
-        // player3.active = true;
+        domUpdates.deactivatePlayerHighlight(this.activePlayer);
         this.activePlayer = 2;
+        domUpdates.activePlayerHighlight(this.activePlayer);
         break;
       case 2:
-        console.log('im player 3');
-        // player3.active = false;
-        // player1.active = true;
+        domUpdates.deactivatePlayerHighlight(this.activePlayer);
         this.activePlayer = 0;
+        domUpdates.activePlayerHighlight(this.activePlayer);
         break;
+      default:
     }
     console.log("switched active player");
   }
