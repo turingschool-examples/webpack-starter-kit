@@ -25,7 +25,7 @@ class Wheel {
       domUpdates.toggleKeyboard();
     }
     if (this.currentSpin === 'BANKRUPT') {
-      console.log('youve gone bankrupt');
+      domUpdates.disableKeyboard();
     } else if (this.currentSpin === 'LOSE-A-TURN') {
       console.log('youve lost a turn');
     }
