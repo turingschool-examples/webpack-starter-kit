@@ -118,22 +118,23 @@ class Gameboard {
 
   selectFinalJeopardy(e) {
     let clue = new Clue();
-    let selectedClue = this.finalRoundClue[3];
+    let selectedClue = this.finalRoundClue[2];
     let dailydouble = new Dailydouble;
+    $('.wager-head').text('Final Jeopardy!')
     dailydouble.giveDouble(selectedClue);
     clue.showClue(selectedClue);
     currentClue = selectedClue;
     domUpdates.populateClueCard(selectedClue);
+    if (e.target.className.includes('answer-btn')) {
+        let $playerAnswer = $('#playerAnswer').val();
+        clue.checkAnswer(this, currentClue, $playerAnswer);
+    }
     if (e.target.className.includes('wager-btn')) {
       let $wagerAmount = $('#wagerInput').val();
       console.log("CURRENT CLUE", currentClue);
       currentClue.pointValue = $wagerAmount;
       domUpdates.reassignPointValue($wagerAmount);
       domUpdates.removeWagerCard();
-    }
-    if (e.target.className.includes('answer-btn')) {
-        let $playerAnswer = $('#playerAnswer').val();
-        clue.checkAnswer(this, currentClue, $playerAnswer);
     }
     if (this.turnCount === 3 ) {
       console.log("TIME TO END GAME");
