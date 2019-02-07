@@ -104,6 +104,20 @@ const domUpdates = {
   updatePlayerScore(activePlayer, score) {
     let $playerScore = $(`#scoreBox${activePlayer}`);
     $playerScore.text(score);
+  },
+
+  setClueBoxPoints() {
+    $('.100').text("$200");
+    $('.200').text("$400");
+    $('.300').text("$600");
+    $('.400').text("$800");
+    // roundClues.forEach((clue) => {
+    //   let $clueBoxValue = $('.clue-box').text(clue.pointValue);
+    //   if(clue.pointValue === ($clueBoxValue) / 2) {
+    //     $clueBoxValue = clue.pointValue
+    //   }
+    //   console.log(clue.pointValue);
+    // }) 
   }
   
 }

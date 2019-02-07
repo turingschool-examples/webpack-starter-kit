@@ -337,9 +337,6 @@ class Gameboard {
   // };
 
   changePlayerTurn() {
-    // console.log('this player ', this.playersArray[this.activePlayer].name)
-    // console.log('this player ', this.playersArray[this.activePlayer].score)
-    // this.activePlayer++
     switch (this.activePlayer) {
       case 0:
         domUpdates.deactivatePlayerHighlight(this.activePlayer);
@@ -364,22 +361,19 @@ class Gameboard {
   changeRound() {
     console.log("ROUND TWO");
     this.roundClues.splice(0, 16);
-    console.log(this.roundClues);
+    this.roundClues.forEach((clue) => {
+      clue.pointValue = clue.pointValue * 2;
+    });
+    domUpdates.setClueBoxPoints();
     this.roundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName];
     domUpdates.labelCategories([this.roundCategories]);
     //need a splash screen with next round?
     domUpdates.repopulateClues();
-    console.log("repopulate");
-    //add domupdate to repopulate clues
     this.turnCount = 0;
   };
 
   appendWager() {
     //
-  };
-
-  doublePoints() {
-    //when we enter round 2, each box should display and be worth double points
   };
 
   finishGame() {
