@@ -16,7 +16,7 @@ Created by:
  - Pull down our repo to your local machine
  - If you haven't already, pullup your Terminal
  - Run:  _npm install_**  to download all of the user/devdependencies
- - Run:  -npm install jQuery --save_**  to download the jQuery Libbrary
+ - Run:  **_npm install jQuery --save_**  to download the jQuery Libbrary
  - Run:  -npm start  to start our webpack server
  - Open:  http://localhost:8080/?   or whatever your port number has been changed too (port = 8080).
  - Play!!
