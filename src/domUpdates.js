@@ -45,9 +45,9 @@ export default {
     let $answer = $('.answer');
     $answer.show();
     $('.question-result').show();
-    let ans = game.roundOne.clues[tileId].answer
+    let ans = game.roundOne.clues[tileId]
     game.activePlayer.validAns(ans, game);
-    $answer.text(ans);
+    $answer.text(ans.answer);
   },
 
   changeCatTitles(game) {
@@ -66,6 +66,16 @@ export default {
 
   wrongAns() {
     $('.question-result').text('NICE TRY!');
+  },
+  updateScore(game) {
+    game.players.forEach((player, ind) => {
+      $(`#player-${ind}-hp`).text(player.score)
+    })
   }
   
 }
+
+// game.players.forEach((player, ind) => {
+//  $(`.player-${ind}-hpo`).text(player.score)
+// })
+// <p class="player-0-hp"></p>
