@@ -9,12 +9,10 @@ class Dailydouble extends Clue {
 
   doubleCountGenerator(min, max) {
     let randomNumber = Math.floor(Math.random() * 4);
-    console.log("Random Number " + randomNumber);
     return randomNumber;
   };
 
   giveDouble(selectedClue) {
-    console.log('Place yo bets')
     domUpdates.showWagerCard();
   }
 }

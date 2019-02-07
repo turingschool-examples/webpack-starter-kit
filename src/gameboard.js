@@ -52,15 +52,10 @@ class Gameboard {
   startGame() {
     let dailydouble = new Dailydouble;
     let DD1 = dailydouble.doubleCountGenerator();
-    console.log(DD1);
-    console.log(this.doubleCount);
     this.doubleCount.push(DD1);
-    console.log(this.doubleCount);
-    console.log(this);
     this.collectClues();
     this.assignCategories();
     this.calculateWager()
-    this.finishGame()
     domUpdates.activePlayerHighlight(this.activePlayer);
   };
 
@@ -370,14 +365,12 @@ class Gameboard {
   };
 
   changeRound2() {
-    console.log("ROUND TWO");
     this.doubleCount.pop();
     let dailydouble = new Dailydouble;
     let DD1 = dailydouble.doubleCountGenerator();
     let DD2 = dailydouble.doubleCountGenerator();
     this.doubleCount.push(DD1);
     this.doubleCount.push(DD2);
-    console.log(this.doubleCount);
     this.roundClues.splice(0, 16);
     this.roundClues.forEach((clue) => {
       clue.pointValue = clue.pointValue * 2;
