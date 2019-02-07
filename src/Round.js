@@ -1,8 +1,7 @@
 import data from './data';
-import domUpdates from './domUpdates';
 
 class Round {
-  constructor(players, activeRound, activePlayer, cluesRemaining, clues, catNames) {
+  constructor() {
     this.catNames = [];
     this.catIds = [];
     this.clues = [];
@@ -22,8 +21,6 @@ class Round {
       }
       this.setDDQuestion();
     });
-    console.log(this)
-    console.log(this.clues[15])
   }
 
   getCatNames() {
