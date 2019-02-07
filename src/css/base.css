@@ -51,9 +51,11 @@ body {
 
 .category-window {
   text-align: center;
-  font-size: 40px;
+  font-size: 46px;
   opacity: .8;
   font-family: sans-serif;
+  padding-top: 30px;
+  font-weight: 300;
 }
 
 #game-board {
@@ -93,8 +95,11 @@ body {
 }
 
 .player-names {
-  font-size: 30px;
-  padding-bottom: 5px;
+ font-size: 30px;
+ padding-bottom: 5px;
+ padding-top: 10px;
+ padding-left: 1px;
+ font-family: monospace;
 }
 
 .name-input {
@@ -167,11 +172,11 @@ body {
   padding: 10px;
 }
 
-/*.letter-button:hover{
+.letter-button:hover{
   color: white;
   background-color: orchid;
   opacity: .7;
-}*/
+}
 
 #user-buttons{
   display: flex;
@@ -187,6 +192,7 @@ body {
   background-color: lightyellow;
   opacity: .9;
   border-radius: 25px;
+  font-family: monospace;
   font-size: 18px;
   font-weight: 800;
 }
@@ -257,6 +263,8 @@ body {
   height: 30px;
   width: 75px;
   background-color: darkseagreen;
+  font-weight: 900;
+  color: white;
 }
 
 #reset-button:hover {
