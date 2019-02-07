@@ -397,13 +397,13 @@ class Gameboard {
     //display winner popup
     //have reset game button
     //calculate winner using this.playersArray
-    console.log("PLAYERS ARRAY", this.playersArray);
-    let winner = winner;
-    let winnerList = this.playersArray[score].reduce((acc, currPlayer) {
+    // console.log("PLAYERS ARRAY", this.playersArray);
+    // let winner = winner;
+    // let winnerList = this.playersArray[score].reduce((acc, currPlayer) {
       
-      return acc;
-    });
-    console.log("WINNER", winnerList)
+    //   return acc;
+    // });
+    // console.log("WINNER", winnerList)
   };
 
   
