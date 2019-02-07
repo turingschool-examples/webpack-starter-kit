@@ -10,9 +10,14 @@
 body {
 /*  background-image: url("http://www.mansfieldct.org/Schools/MMS/staff/baxter/New%20Light%20Powerpoint_files/slide0001_background.gif");*/
   background-size: cover;
-  background-color: #328be5;
+  background-color: #2c7ac9;
   margin: 0;
   padding: 0;
+}
+
+input:focus,
+button:focus {
+  outline: none;
 }
 
 /** Name input **/
@@ -45,7 +50,6 @@ body {
 }
 
 h1 {
-  color: ;
   font-size: 300%;
 }
 
@@ -54,6 +58,7 @@ h1 {
 }
 
 .play-btn {
+  border: 0;
   border-radius: 20px;
   font-size: 14px;
   height: 40px;
@@ -63,6 +68,9 @@ h1 {
 }
 
 .play-btn:hover {
+  border: 0;
+  background-color: #afddc1;
+  color: #411b56;
   opacity: 1;
 }
 
@@ -72,24 +80,33 @@ article {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 40px;
-}
+/*  padding-bottom: 40px;
+*/}
 
 h4 {
+  color: #411b56;
   font-size: 36px;
   text-align: center;
   margin: 0 0 20px 0;
 }
 
 #reset-button {
+  background-color: #d7bee8;
+  border: 0;
   border-radius: 25px;
+  color: #411b56;
   font-size: 14px;
   height: 30px;
   position: absolute;
   left: 88%;
   top: 40px;
-/*  z-index: 1;
-*/}
+}
+
+#reset-button:hover {
+  background-color: #e52256;
+  border: 0;
+  color: ;
+}
 
 table {
   background-color: #7e9ea8;
@@ -97,6 +114,7 @@ table {
   border-spacing: 10px;
   border-collapse: separate;
   color: #33658e;
+  margin-bottom: 60px; 
 }
 
 table th {
@@ -129,30 +147,30 @@ table th {
   justify-content: space-around;
 }
 
-.podium{
-  width: 200px; 
+.podium {
+  font-size: 32px;
+  width: 250px;
 }
 
 .avatar {
   background-color: #853c1e;
-  height: 20px;
+  border-radius: 25px 25px 0 0;
+  height: 30px;
 }
 
 .score-box {
   background-color: black;
   border: 5px solid #853c1e;
   color: #ffe83d;
-  font-size: 28px;
   text-align: center;
-  height: 40px;
+  height: 50px;
 }
 
 .podium-base {
   border: 16px solid #853c1e;
   background-color: #26287a;
   color: white;
-  font-size: 32px;
-  height: 100px;
+  height: 120px;
   text-align: center;
 }
 
@@ -209,13 +227,13 @@ table th {
 }
 
 #displayQuestion {
-  margin: 0 20px 20px 20px;
+  margin: 0 20px 60px 20px;
 }
 
 .answer-btn {
   border-radius: 25px;
   height: 30px;
-  margin-top: 20px;
+  margin-top: 30px;
   width: 120px;
 }
 
@@ -243,15 +261,24 @@ table th {
   width: 70%;
 }
 
+.daily-double-card-content header {
+  margin-bottom: 30px;
+}
+
 .wager-btn {
   border-radius: 25px;
   height: 30px;
-  margin-top: 20px;
+  margin-top: 30px;
   width: 120px;
 }
 
 .daily-double-card-content span {
-  font-size: 24px;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.daily-double-card-content p {
+  margin-bottom: 30px;
 }
 
 /** Final Jeopardy! pop up **/
