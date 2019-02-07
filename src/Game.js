@@ -7,6 +7,7 @@ class Game {
   constructor(difficulty) {
     this.round = 0;
     this.players = [];
+    this.currentPlayer = 0;
     this.roundWheel = null;
     this.bonusWheel = [];
     this.roundPuzzle = [];
@@ -29,15 +30,14 @@ class Game {
     this.roundPuzzle = new Puzzle
     this.roundPuzzle.chooseDifficulty();
     this.roundPuzzle.randomizePuzzle();
-    // display puzzle, difficulty, hint on DOM
   }
   newRound() {
     this.round++;
     this.players.forEach((player) => {
       player.resetScore();
     });
-    domUpdates.toggleKeyboard();
-    // update dom
+    domUpdates.disableKeyboard();
+    domUpdates.updateRound(this.round - 1, this.round);
     if (this.round < 5) {
       this.roundWheel = new Wheel();      
       this.createWheel();
@@ -49,6 +49,15 @@ class Game {
       // start bonus round;
     } 
   }
+  cyclePlayers() {
+    if (this.currentPlayer < 3) {
+      this.currentPlayer++;
+      console.log(this.currentPlayer);
+    } else {
+      this.currentPlayer = 0;
+      console.log(this.currentPlayer);
+    }
+  }
   buyVowel() {
     domUpdates.toggleKeyboard();
   }
@@ -56,8 +65,23 @@ class Game {
     let uppercasePuzzle = this.roundPuzzle.answer.toUpperCase();
     this.splitPuzzle = uppercasePuzzle.split('');
     this.splitPuzzle.forEach((letter, i) => {
-      domUpdates.displayCorrectLetter(e, letter, i);
+      if (letter === e.currentTarget.innerText) {
+        domUpdates.displayCorrectLetter(letter, i);
+        this.players[this.currentPlayer].roundScore += this.roundWheel.currentSpin;
+        domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+      }
     })
+  }
+  implementWheelResults() {
+    this.roundWheel.spinWheel();
+    if (this.roundWheel.currentSpin === 'BANKRUPT') {
+      domUpdates.disableKeyboard(); 
+      this.players[this.currentPlayer].resetScore();
+      domUpdates.scoreUpdate(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+    } else if (this.currentSpin === 'LOSE-A-TURN') {
+      console.log('youve lost a turn');
+    }
+
   }
   endGame() {
       // show 'game over' screen

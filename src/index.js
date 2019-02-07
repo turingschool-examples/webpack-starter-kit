@@ -43,16 +43,15 @@ $('.submit-names').on( 'click', (e) => {
 });
 
 $('.spin-wheel').on('click', () => {
-  game.roundWheel.spinWheel();
+  game.implementWheelResults();
+
 })
 
 $('.buy-vowel').on('click', (e) => {
   e.preventDefault();
   game.buyVowel();
 })
-// 
-// 
-// 
+
 function buildGame() {
   createPlayerNames();
   game.newRound();
@@ -60,10 +59,9 @@ function buildGame() {
 
 function createPlayerNames() {
   const playerNames = [];
-  playerNames.push($('#player1').value);
-  playerNames.push($('#player2').value);
-  playerNames.push($('#player3').value);
+  playerNames.push($('#player1')[0].value);
+  playerNames.push($('#player2')[0].value);
+  playerNames.push($('#player3')[0].value);
   game.createPlayers(playerNames);
   domUpdates.displayPlayerNames();
-  // domUpdates.scoreUpdate();
 }

@@ -20,20 +20,10 @@ class Wheel {
     this.currentSpinIndex = Math.floor(Math.random() * 5);
     this.currentSpin = this.wheelElements[this.currentSpinIndex];
     domUpdates.displayElement(this.currentSpin);
-    if (this.currentSpin === 'BANKRUPT') {
-      console.log('youve gone bankrupt');
-    } else if (this.currentSpin === 'LOSE-A-TURN') {
-      console.log('youve lost a turn');
+    if (typeof parseInt(this.currentSpin) === 'number') {
+      domUpdates.toggleKeyboard();
+      domUpdates.toggleKeyboard();
     }
-    // if land on bankrupt invoke bankrupt method
-    // if land on lose a turn invoke loseTurn method
-  }
-  bankrupt(player) {
-    // reset player roundScore to 0
-  }
-  loseTurn(player) {
-    // end player turn
-    // switch to next player
   }
 };
 

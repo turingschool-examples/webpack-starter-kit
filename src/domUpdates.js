@@ -1,7 +1,6 @@
 // jQuery goes here and anything that minipulates the dom
 const domUpdates = {
   hideElement() {
-    console.log('fire');
     $('.hidden-popup').fadeOut();
     $('.hidden-popup').html('');
   },
@@ -27,10 +26,24 @@ const domUpdates = {
 
   appendPuzzle(letter, i) {
     $('.puzzle-box').append(`<p class="puzzle-pieces piece-${i} hidden"> ${letter} </p>`);
+    if (letter === " ") {
+      $(`.piece-${i}`).fadeTo(0, 0.1);
+    }
   },
 
   appendWheel(element) {
     $('.wheel').append('<p class="wheel-element">' + element + '</p>');
+  },
+
+  disableKeyboard() {
+    if (!$('.vowel').is(':disabled')) {
+      $('.vowel').attr('disabled', true);
+      $('.vowel').addClass('disabled');
+    }
+    if (!$('.consonant').is(':disabled')) {
+      $('.consonant').attr('disabled', true);
+      $('.consonant').addClass('disabled');
+    }
   },
 
   toggleKeyboard() {
@@ -47,16 +60,23 @@ const domUpdates = {
     }
   },
 
-  displayCorrectLetter(e, letter, i) {
-    if (letter === e.currentTarget.innerText) {
-      $(`.piece-${i}`).removeClass('hidden')
-    }
+  displayCorrectLetter(letter, i) {
+    $(`.piece-${i}`).removeClass('hidden')
   },
 
-  scoreUpdate() {
-    $('#score-player1').text(game.players[0].roundScore);
-    $('#score-player2').text(game.players[1].roundScore);
-    $('#score-player3').text(game.players[2].roundScore);
+  scoreUpdate(player, score) {
+    $(`#score-player${player}`).text(score);
+  },
+
+  updateRound(oldRound, newRound) {
+    console.log("updating round highlights")
+    $(`.round-${oldRound}`).removeClass('highlight');
+    $(`.round-${newRound}`).addClass('highlight');  
+  },
+
+  displayDetails(difficulty, category) {
+    $('.difficulty').text(`DIFFICULTY: ${difficulty} out of 4`);
+    $('.category').text(`CATEGORY: ${category}`);
   },
 
 };
