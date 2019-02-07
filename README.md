@@ -1,6 +1,6 @@
 ## Wheel of MisFortune!
 Wheel of MisFortune is a work in progress 'Wheel of Fortune' game assigned during MOD 2 at Turing School of Software and Design.  
-You can learn more about the assignment / comp by following [this](http://frontend.turing.io/projects/wheel-of-fortune.html) link.
+You can learn more about the assignment spec by following [this](http://frontend.turing.io/projects/wheel-of-fortune.html) link.
 
 ### Link to live version of project
 [link text](https://linkexample.com).
