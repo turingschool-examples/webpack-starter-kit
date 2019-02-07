@@ -1,4 +1,30 @@
+# Jeopardy!
+
+Try it out!
+
+## Goals
+This project was created as a part of Turing School module 2. The goal was to learn about object oriented programing and implement what we learned by creating a quiz game based on Jeopardy.
+
+## Screenshot of board
+
+![jeopardy](src/images/jeopard.png)
+
+## What we gained
+There were a great deal of learning goals in this project, some we accomplished to a greater extent than others. The first challenge was to implement webpack. While using webpack makes certain things easier, it was the first time we had to connect a large amount of files, and we learned a great deal about structuring our files in a way that wouldn't loop back on each others, and tripping up our whole program.
+Further, we needed to find a strategy to make a selected clue box find the appropriate clue. This was a challenge as we had to match the selected box with a particular category, as well as a certain point value. It was difficult to devise a plan to get the cluebox to see both of those things at the same time.
+Finally, we ran into several unexpected issues that were learning points. An example is we had to recraft an event listener within an event listener as to not stack event listeners firing at once. 
+
+## Collaborators
+Jessica Hansen https://github.com/jessicalyn
+Mason France https://github.com/francepack
+
+
+
+--------------
+
 # Gametime Starter Kit
+
+The instruction below were provided to us to get started.
 
 ## Fork This Repo
 
