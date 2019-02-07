@@ -1,38 +1,20 @@
 import domUpdates from "./domUpdates";
 
 class Player {
-  constructor(name, score) {
+  constructor(name) {
     this.name = name;
-    this.score = score;
+    this.score = 0;
   }
-  validAns(ans, game) {
-      if ($('#popup-input-js').val().toLowerCase() === ans.toLowerCase()) {
+  validAns(clue, game) {
+      if ($('#popup-input-js').val().toLowerCase() === clue.answer.toLowerCase()) {
+        this.score += clue.pointValue
         domUpdates.correctAns();
       } else {
+        this.score -= clue.pointValue
         domUpdates.wrongAns();
       }
-      this.scorePoints();
+      domUpdates.updateScore(game);
       game.changeTurn();
-    }
-
-    scorePoints() {
-      // for chosen clue value,
-        // if ans is correct
-          // add point vavlue to current players score
-          // this.pointValue += this.player.score
-        // if ans is incorrect
-          // subtract value from current score
-          // this.pointValue -= this.player.score
-  }
-  
-  scorePoints() {
-    // for chosen clue value,
-    // if ans is correct
-    // add point vavlue to current players score
-    // this.pointValue += this.player.score
-    // if ans is incorrect
-    // subtract value from current score
-    // this.pointValue -= this.player.score
   }
 }
 
