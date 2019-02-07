@@ -7,7 +7,7 @@ import Player from './Players.js'
 class Gameboard {
   constructor() {
     this.players = [];
-    this.activeRound = undefined;
+    this.activeRound = null;
     this.activePlayer = 0;
     this.allRounds = [];
     this.cluesRemaining = 8;
@@ -71,8 +71,6 @@ class Gameboard {
 
   changeTurn() {
     this.playerIndex++;
-    console.log(this.playerIndex)
-    console.log(this.cluesRemaining)
     if (this.playerIndex === 3) {
       this.playerIndex = 0;
     }

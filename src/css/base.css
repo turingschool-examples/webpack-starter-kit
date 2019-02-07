@@ -197,7 +197,7 @@ section h3 {
   z-index: 6;
 }
 
-/* ============POPUP============= */
+/* ==========Start-POPUP========== */
 
 .start-container {
   display: grid;
@@ -286,7 +286,7 @@ section h3 {
 }
 
 
-/* ============POPUP============= */
+/* =========Answer-POPUP========= */
 .popup {
   background-color: #ECFEAA;
   border-radius: 50px;
@@ -334,6 +334,7 @@ section h3 {
   flex-direction: row;
   grid-area: answer;
   justify-content: center;
+  position: relative;
   width: 90%;
 }
 
@@ -371,4 +372,15 @@ section h3 {
   width: 50%;
   border: none;
   text-align: center;
+}
+
+#back-btn {
+  position: absolute;
+  right: 0px;
+  top: 56px;
+  width: 161px;
+}
+
+.invisible-man {
+  visibility: hidden;
 }
