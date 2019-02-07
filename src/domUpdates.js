@@ -21,13 +21,7 @@ const domUpdates = {
     $('.category-window').text(roundPuzzle.category)
   },
 
-  showHiddenPuzzle() {
-    //we're gonna grab the puzzle.correct_answer
-  },
-
   populateRoundPuzzle(roundPuzzle) {
-    // console.log(lettersArray);
-    // if roundPuzzle.number_of_words === 1
     let letters = roundPuzzle.toUpperCase().split('')
 
     letters.forEach((letter, i) => {
@@ -38,8 +32,6 @@ const domUpdates = {
   },
 
   hideRoundPuzzle(letters) {
-    console.log('im a hidden puzzle')
-
     letters.forEach((letter, i) => {
       if(letter !== ' ' && letter !=='-' && letter !=='\'' && letter !== '&') {
         $(`#box-${i + 13}`).addClass('hidden-word')
@@ -56,20 +48,16 @@ const domUpdates = {
   },
 
   displayLetters(consonants, vowels) {
-    // $('#consonants-bank').text(consonants);
     consonants.forEach((cons,i) => {
       $(`#c${i}`).text(cons).addClass('unavailable-bank-letter').prop('disabled', true);
-      // console.log(cons)
     })
 
     vowels.forEach((vowel,i) => {
       $(`#v${i}`).text(vowel).addClass('unavailable-bank-letter');
-      // console.log(vowel)
     })
   },
 
-  displayTurnValue(value, activePlayer) {
-    // let turnValue = wheel.turnValue
+  displayCurrentValue(value, activePlayer) {
     $('#spin-value').text(`${activePlayer.name}, you landed on: ${value}!`)
   },
 
@@ -78,14 +66,12 @@ const domUpdates = {
   },
 
   clearRoundScore(wheelOfFortune) {
-    console.log(wheelOfFortune)
     $(`#player-${wheelOfFortune.activePlayer.playerNumber}-round-score`).text(0)
   },
 
   disableButton(clickedButton) {
     $(clickedButton).removeClass('unavailable-bank-letter')
     $(clickedButton).addClass('disabled-bank-letter')
-    console.log(clickedButton)
   },
 
   removeDisables() {
@@ -98,13 +84,7 @@ const domUpdates = {
       numbers.push(i);
     }
 
-    // console.log(numbers);
-    console.log(letter)
-    console.log(button)
-
     numbers.forEach(number => {
-      // console.log($(`#box-${number}`).text());
-
       if($(`#box-${number}`).text() === letter) {
         $(`#box-${number}`).removeClass('hidden-word')
         $(`#box-${number}`).addClass('correct-letter')
@@ -151,7 +131,6 @@ const domUpdates = {
   promptToSpin(players) {
     players.forEach(player => {
       if (player.active === true) {
-        console.log('its your turn')
         $(`#player-prompts-${player.playerNumber}`).text('ITS YOUR TURN! SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE')
       } else {
         if (player.active === false) {
@@ -162,7 +141,6 @@ const domUpdates = {
   },
 
   displayRoundWinner(winner) {
-    console.log(winner.name);
     window.alert(`${winner.name} Won The Round! Go To Next Round!`)
     $('#solve-puzzle-input').val('');
   },
@@ -217,17 +195,13 @@ const domUpdates = {
         $(`#c${num}`).removeClass('unavailable-bank-letter').addClass('disabled-bank-letter').prop('disabled', true);
       }
     })
-
-    // $('letter-button').removeClass
-    // $('.letter-button').prop('disabled', true);
+    
     $('.letter-button').removeClass('unavailable-bank-letter')
   },
 
   clickCounter(bonuswheel) {
-    console.log(bonuswheel)
     $('.letter-button').on('click', bonuswheel.onlyThreeClicks)
   }
-
 }
 
 export default domUpdates;
