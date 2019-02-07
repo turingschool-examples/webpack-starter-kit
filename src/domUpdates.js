@@ -26,6 +26,9 @@ const domUpdates = {
 
   appendPuzzle(letter, i) {
     $('.puzzle-box').append(`<p class="puzzle-pieces piece-${i} hidden"> ${letter} </p>`);
+    if (letter === " ") {
+      $(`.piece-${i}`).fadeTo(0, 0.1);
+    }
   },
 
   appendWheel(element) {
@@ -71,6 +74,10 @@ const domUpdates = {
     $(`.round-${newRound}`).addClass('highlight');  
   },
 
+  displayDetails(difficulty, category) {
+    $('.difficulty').text(`DIFFICULTY: ${difficulty} out of 4`);
+    $('.category').text(`CATEGORY: ${category}`);
+  }
 
 };
 
