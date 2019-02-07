@@ -1,5 +1,6 @@
 ## Project title
 **Jeopardy: GameTime**
+[Link to Play](https://siimonstark.github.io/gametime_jeopardy_jp_ro/ "webpack may have broken the link")
 
 Created by:
  - Raechel Odom (https://github.com/raechelo) 
