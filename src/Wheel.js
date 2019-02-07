@@ -31,13 +31,13 @@ class Wheel {
     console.log(this.values)
     //22 indexis
     this.getRandomValue(wheelOfFortune);
-    if(this.turnValue != 'BANKRUPT' && this.turnValue != 'LOSE A TURN') {
-    domUpdates.disableSpinButton();
-    domUpdates.enableConsonants();
-  } else {
-    domUpdates.enableSpinButton();
-    domUpdates.disableConsonants();
-  }
+    if (this.turnValue != 'BANKRUPT' && this.turnValue != 'LOSE A TURN') {
+      domUpdates.disableSpinButton();
+      domUpdates.enableConsonants();
+    } else {
+      domUpdates.enableSpinButton();
+      domUpdates.disableConsonants();
+    }
   }
 
   getRandomValue(wheelOfFortune) {
@@ -61,7 +61,7 @@ class Wheel {
   }
 
   bankrupt(wheelOfFortune) {
-    if(this.turnValue === 'BANKRUPT') {
+    if (this.turnValue === 'BANKRUPT') {
       wheelOfFortune.activePlayer.roundScore = 0;
       domUpdates.clearRoundScore(wheelOfFortune);
       wheelOfFortune.changeTurn(this.turnValue);
@@ -71,7 +71,7 @@ class Wheel {
 
   }
   loseATurn(wheelOfFortune) {
-    if(this.turnValue === 'LOSE A TURN') {
+    if (this.turnValue === 'LOSE A TURN') {
       // domUpdates.disableConsonants();
       // domUpdates.disableVowelButtons()
       // wheelOfFortune.activePlayer.roundScore += 0;

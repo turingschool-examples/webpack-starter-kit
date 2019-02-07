@@ -10,7 +10,7 @@ class Player {
 
   incrementRoundScore(turnValue) {
     let roundScore;
-    if(Number.isInteger(turnValue)) {
+    if (Number.isInteger(turnValue)) {
       roundScore = this.roundScore += turnValue;
     } else {
       roundScore = this.roundScore += 0

@@ -7,10 +7,10 @@ class BonusWheel extends Wheel {
 
   }
 
-  bonusSpin(){
+  bonusSpin() {
     let bonusValues = ['A BRAND NEW CAR!', '$25,000', 'A TRIP TO THE BASEMENT!']
     this.values = bonusValues;
-    console.log(this.values)
+    // console.log(this.values)
   }
 }
 
