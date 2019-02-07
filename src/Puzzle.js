@@ -41,6 +41,7 @@ class Puzzle {
     splitAnswer.forEach((letter, i) => {
       domUpdates.appendPuzzle(letter, i);
     })
+    return splitAnswer;
   }
 }
 

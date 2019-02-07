@@ -1,8 +1,13 @@
-import chai from 'chai';
-import Wheel from '../src/Wheel.js'
-import Player from '../src/Player.js'
-const expect = chai.expect;
+import Wheel from '../src/Wheel.js';
+import Player from '../src/Player.js';
+import domUpdates from '../src/domUpdates.js';
 
+
+import chai from 'chai';
+import spies from 'chai-spies';
+const expect = chai.expect;
+chai.use(spies);
+chai.spy.on(domUpdates, ['displayElement'], () => true);
 
 describe('Wheel', function() {
   let wheel;

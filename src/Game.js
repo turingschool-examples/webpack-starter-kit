@@ -20,17 +20,6 @@ class Game {
       thisPlayers.push(player);
     })
   }
-  createWheel() {
-    this.roundWheel.randomizeWheel();
-    this.roundWheel.wheelElements.forEach((element) => {
-      domUpdates.appendWheel(element);
-    })
-  }
-  createPuzzle() {
-    this.roundPuzzle = new Puzzle
-    this.roundPuzzle.chooseDifficulty();
-    this.roundPuzzle.randomizePuzzle();
-  }
   newRound() {
     this.round++;
     this.players.forEach((player) => {
@@ -48,6 +37,17 @@ class Game {
       // this.createBonusWheel();
       // start bonus round;
     } 
+  }
+  createWheel() {
+    this.roundWheel.randomizeWheel();
+    this.roundWheel.wheelElements.forEach((element) => {
+      domUpdates.appendWheel(element);
+    })
+  }
+  createPuzzle() {
+    this.roundPuzzle = new Puzzle
+    this.roundPuzzle.chooseDifficulty();
+    this.roundPuzzle.randomizePuzzle();
   }
   cyclePlayers() {
     if (this.currentPlayer < 3) {
