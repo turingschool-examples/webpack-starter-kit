@@ -77,6 +77,10 @@ class Gameboard {
     console.log(this.roundClues);
     let selectedClue = this.roundClues[selectedClueLocation];
     if (e.target.className.includes('available-box')) {
+      if (this.doubleCount === this.turnCount) {
+        let dailydouble = new Dailydouble;
+        dailydouble.giveDouble(selectedClue);
+      }
       clue.showClue(selectedClue);
       currentClue = selectedClue;
       currentLocation = selectedClueLocation;
@@ -86,6 +90,10 @@ class Gameboard {
         domUpdates.disableClue(currentLocation);
         clue.checkAnswer(this, currentClue, $playerAnswer);
     };
+    if (e.target.className.includes('wager-btn')) {
+      let $wagerAmount = $('#wagerInput').val();
+      domUpdates.removeWagerCard();
+    }
   }
 
   assignCategories() {    

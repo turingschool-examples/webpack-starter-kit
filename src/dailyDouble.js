@@ -1,4 +1,5 @@
 import Clue from './clue.js'
+import domUpdates from './domUpdates.js'
 
 class Dailydouble extends Clue {
   constructor(answer, categoryId, categoryName, pointValue, question, randomNumber) {
@@ -7,10 +8,15 @@ class Dailydouble extends Clue {
   };
 
   doubleCountGenerator(min, max) {
-    let randomNumber = Math.floor(Math.random() * 17);
+    let randomNumber = Math.floor(Math.random() * 4);
     console.log("Random Number " + randomNumber);
     return randomNumber;
   };
+
+  giveDouble(selectedClue) {
+    console.log('Place yo bets')
+    domUpdates.showWagerCard();
+  }
 }
 
 

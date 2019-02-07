@@ -62,13 +62,13 @@ const domUpdates = {
   },
 
   showWagerCard() {
-    let $wagerCard = $('#DailyDoubleCard');
-    $wagerCard.css('display', 'block');
+    let $wagerCard = $('#dailyDoubleCard');
+    $wagerCard.show();
   },
 
   removeWagerCard() {
-    let $wagerCard = $('#DailyDoubleCard');
-    $wagerCard.css('display', 'none');
+    let $wagerCard = $('#dailyDoubleCard');
+    $wagerCard.hide();
   },
 
   changePlayerNames(game) {
