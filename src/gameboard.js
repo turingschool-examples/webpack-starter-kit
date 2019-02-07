@@ -1,6 +1,9 @@
 import data from './data.js';
 import domUpdates from './domUpdates.js';
 import Player from './player.js';
+import Clue from './clue.js';
+import Dailydouble from './dailyDouble.js';
+import $ from 'jquery';
 
 class Gameboard {
   constructor(round, categoryList, firstRoundCategories, secondRoundCategories) {
@@ -14,6 +17,7 @@ class Gameboard {
     this.playersArray = [];
     this.activePlayer = 0;
     this.turnCount = 0;
+    this.doubleCount = 0;
   };
 
   updateScore(answer, score) {
@@ -40,6 +44,10 @@ class Gameboard {
 
   startGame() {
     console.log("You've started the game!");
+    let dailydouble = new Dailydouble;
+    this.doubleCount = dailydouble.doubleCountGenerator();
+    console.log(this.doubleCount);
+    console.log(this);
     this.collectClues();
     this.assignCategories();
     domUpdates.activePlayerHighlight(this.activePlayer);
@@ -62,6 +70,23 @@ class Gameboard {
       return clue;
       });
   };
+
+  selectCorrectClue(e) {
+    let clue = new Clue();
+    let selectedClueLocation = e.target.id;
+    console.log(this.roundClues);
+    let selectedClue = this.roundClues[selectedClueLocation];
+    if (e.target.className.includes('available-box')) {
+      clue.showClue(selectedClue);
+      currentClue = selectedClue;
+      currentLocation = selectedClueLocation;
+    };
+    if (e.target.className.includes('answer-btn')) {
+        let $playerAnswer = $('#playerAnswer').val();
+        domUpdates.disableClue(currentLocation);
+        clue.checkAnswer(this, currentClue, $playerAnswer);
+    };
+  }
 
   assignCategories() {    
     function randomize(array) {
@@ -362,6 +387,7 @@ class Gameboard {
   
 };
 
-
+let currentClue = {};
+let currentLocation = 0;
 
 export default Gameboard;

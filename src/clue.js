@@ -1,4 +1,5 @@
 import domUpdates from './domUpdates.js'
+import Gameboard from './gameboard.js'
 
 class Clue {
   constructor(answer, categoryId, categoryName, pointValue, question) {

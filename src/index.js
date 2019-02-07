@@ -7,10 +7,10 @@ import './css/base.css';
 // import './images/turing-logo.png'
 
 import Player from './player.js';
-import Clue from './clue.js';
+// import Clue from './clue.js';
 import Gameboard from './gameboard.js';
 import Finalround from './finalRound.js';
-import Dailydouble from './dailyDouble.js';
+// import Dailydouble from './dailyDouble.js';
 import $ from 'jquery';
 import domUpdates from './domUpdates.js';
 
@@ -28,24 +28,25 @@ $startBtn.on('click', function(e) {
   domUpdates.removeStartScreen();
 });
 
-let currentClue = {};
-let currentLocation = 0;
+// let currentClue = {};
+// let currentLocation = 0;
 
 $('body').on('click', function(e) {
   e.preventDefault;
-  let clue = new Clue();
-  let selectedClueLocation = e.target.id;
-  let selectedClue = game.roundClues[selectedClueLocation];
-  if (e.target.className.includes('available-box')) {
-    clue.showClue(selectedClue);
-    currentClue = selectedClue;
-    currentLocation = selectedClueLocation;
-  };
-  if (e.target.className.includes('answer-btn')) {
-      let $playerAnswer = $('#playerAnswer').val();
-      domUpdates.disableClue(currentLocation);
-      clue.checkAnswer(game, currentClue, $playerAnswer);
-    }
+  game.selectCorrectClue(e);
+  // let clue = new Clue();
+  // let selectedClueLocation = e.target.id;
+  // let selectedClue = game.roundClues[selectedClueLocation];
+  // if (e.target.className.includes('available-box')) {
+  //   clue.showClue(selectedClue);
+  //   currentClue = selectedClue;
+  //   currentLocation = selectedClueLocation;
+  // };
+  // if (e.target.className.includes('answer-btn')) {
+  //     let $playerAnswer = $('#playerAnswer').val();
+  //     domUpdates.disableClue(currentLocation);
+  //     clue.checkAnswer(game, currentClue, $playerAnswer);
+  //   }
   });
 
 // $answerClue.on('click', function(e) {
