@@ -109,10 +109,12 @@ class Game {
         console.log('this letter is not here');
       this.changeTurn();
     }
+    if(this.currentRound < 2) {
     domUpdates.disableButton(button);
     domUpdates.disableVowelButtons();
     domUpdates.enableSpinButton();
     domUpdates.disableConsonants();
+  }
   }
 
   changeTurn(turnValue) {
@@ -136,12 +138,13 @@ class Game {
       this.activePlayer = this.players[0]
     }
 
-
+    if(this.currentRound < 2) {
     domUpdates.disableVowelButtons();
     domUpdates.disableConsonants();
     domUpdates.highlightActivePlayer(this.players);
     domUpdates.promptToSpin(this.players);
     domUpdates.enableSpinButton();
+  }
     // console.log(this.players)
   }
 
@@ -190,7 +193,7 @@ class Game {
     // puzzle.populateConsonantsBank();
     domUpdates.removeDisables();
     
-    console.log(this.players)
+    // console.log(this.players)
     if (this.currentRound > 1) {
       this.determineWinner();
       let bonusWheel = new BonusWheel();

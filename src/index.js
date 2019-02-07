@@ -33,8 +33,8 @@ $('#submit-btn').on('click', function(e) {
   $('.letter-button').on('click', function(e) {
     let clickedLetter = e.target.innerHTML;
     let clickedButton = e.target
-    console.log(clickedButton)
-    console.log(clickedLetter)
+    // console.log(clickedButton)
+    // console.log(clickedLetter)
     wheelOfFortune.compareClickedButton(clickedLetter, wheel, clickedButton)
   })
 

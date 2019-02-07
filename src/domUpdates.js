@@ -221,6 +221,11 @@ const domUpdates = {
     // $('letter-button').removeClass
     // $('.letter-button').prop('disabled', true);
     $('.letter-button').removeClass('unavailable-bank-letter')
+  },
+
+  clickCounter(bonuswheel) {
+    console.log(bonuswheel)
+    $('.letter-button').on('click', bonuswheel.onlyThreeClicks)
   }
 
 }
