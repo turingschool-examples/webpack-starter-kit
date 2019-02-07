@@ -1,16 +1,12 @@
 import Game from '../src/Game.js';
 import Player from '../src/Player.js';
 import domUpdates from '../src/domUpdates.js';
-
-
 import chai from 'chai';
 import spies from 'chai-spies';
+
 const expect = chai.expect;
 chai.use(spies);
 chai.spy.on(domUpdates, ['disableKeyboard', 'updateRound', 'appendWheel', 'toggleKeyboard', 'displayCorrectLetter', 'scoreUpdate', 'displayDetails', 'appendPuzzle'], () => true);
-
-
-
 
 
 describe('Game', function() {

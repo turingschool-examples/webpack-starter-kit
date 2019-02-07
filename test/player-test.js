@@ -10,8 +10,15 @@ describe('Player', function() {
   });
 
   it('instantiates our good friend, Player', function() {
-    expect(player).to.be.an('object');
+    expect(player).to.be.an.instanceOf(Player);
   });
+
+  it('should have default parameters', () => {
+    expect(player.totalScore).to.equal(0);
+    expect(player.roundScore).to.equal(0);
+    expect(player.gameWinner).to.equal(false);
+    expect(player.currentTurn).to.equal(false);
+  })
 
   it('should reset playuer\'s round score', function() {
     player.roundScore = 500;
