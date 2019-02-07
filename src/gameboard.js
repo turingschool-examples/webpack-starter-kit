@@ -8,25 +8,35 @@ class Gameboard {
     this.categoryList = Object.keys(data.categories);
     this.cluesWithCategories = [];
     this.roundClues = [];
-    // this.secondRoundClues = [];
     this.finalRoundClue = [];
-    this.firstRoundCategories = [];
-    this.secondRoundCategories = [];
+    this.roundCategories = [];
     this.finalRoundCategory = [];
     this.playersArray = [];
     this.activePlayer = 0;
     this.turnCount = 0;
   };
 
-  updateScore(score) {
-    // console.log(this.playersArray[this.activePlayer].score);
-    console.log("score", score);
+  updateScore(answer, score) {
     let activePlayer = this.playersArray[this.activePlayer];
-    console.log("activeplayer old score", activePlayer.score);
-    activePlayer.score += score;
-    console.log("activeplayer new score", activePlayer.score);
-    this.changePlayerTurn();
-  }
+    if (answer === "correct") {
+      activePlayer.score += score;
+    } else {
+      activePlayer.score -= score;
+    }
+    domUpdates.updatePlayerScore(this.activePlayer, activePlayer.score);
+    this.turnCount++;
+    this.checkTurnCount();
+    console.log("turnCount", this.turnCount);
+  };
+
+  checkTurnCount() {
+    if (this.turnCount > 3) {
+      this.round = 2;
+      this.changeRound();
+    } else {
+      this.changePlayerTurn();
+    }
+  };
 
   startGame() {
     console.log("You've started the game!");
@@ -43,8 +53,7 @@ class Gameboard {
     game.playersArray.push(player2);
     game.playersArray.push(player3);
     domUpdates.changePlayerNames(game)
-    // console.log('game ', game);
-  }
+  };
 
   collectClues() {
     let allClues = data.clues;
@@ -292,9 +301,9 @@ class Gameboard {
     category1GameClues.push(point1100, point1200, point1300, point1400)
     console.log("gameboard 1", category1GameClues)
 
-    this.firstRoundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName]
-    console.log(this.firstRoundCategories);
-    domUpdates.labelCategories([this.firstRoundCategories], [this.secondRoundCategories]);
+    this.roundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName]
+    console.log(this.roundCategories);
+    domUpdates.labelCategories([this.roundCategories]);
   //create an of the categories for each round with 4 questions for each round
   };
 
@@ -325,7 +334,20 @@ class Gameboard {
       default:
     }
     console.log("switched active player");
-  }
+  };
+
+  changeRound() {
+    console.log("ROUND TWO");
+    this.roundClues.splice(0, 16);
+    console.log(this.roundClues);
+    this.roundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName];
+    domUpdates.labelCategories([this.roundCategories]);
+    //need a splash screen with next round?
+    domUpdates.repopulateClues();
+    console.log("repopulate");
+    //add domupdate to repopulate clues
+    this.turnCount = 0;
+  };
 
   appendWager() {
     //
