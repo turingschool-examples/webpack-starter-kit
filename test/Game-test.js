@@ -18,15 +18,15 @@ describe('Game', function() {
   let player2;
   let player3;
 
-beforeEach(function() {
-  game = new Game();
-  wheel = new Wheel();
-  player1 = new Player();
-  player2 = new Player();
-  player3 = new Player();
-  game.roundPuzzle = 'baseball';
-  game.players = [player1, player2, player3]
-});  
+  beforeEach(function() {
+    game = new Game();
+    wheel = new Wheel();
+    player1 = new Player();
+    player2 = new Player();
+    player3 = new Player();
+    game.roundPuzzle = 'baseball';
+    game.players = [player1, player2, player3]
+  });  
 
   it('should start a new game', function() {
 

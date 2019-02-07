@@ -7,17 +7,17 @@ const expect = chai.expect
 describe('Wheel', function() {
   let wheel;
 
-it('should have default wheel values', function() {
-  wheel = new Wheel()
-  expect(wheel.values).to.deep.equal([]);
-  expect(wheel.turnValue).to.equal(0);
-  expect(wheel.players).to.deep.equal([])
-})
+  it('should have default wheel values', function() {
+    wheel = new Wheel()
+    expect(wheel.values).to.deep.equal([]);
+    expect(wheel.turnValue).to.equal(0);
+    expect(wheel.players).to.deep.equal([])
+  })
 
 
   it('should instantiate a new wheel', function() {
-    wheel = new Wheel([1,2,3,4,5,6,7,8], 600);
-    expect(wheel.values).to.deep.equal([1,2,3,4,5,6,7,8]);
+    wheel = new Wheel([1, 2, 3, 4, 5, 6, 7, 8], 600);
+    expect(wheel.values).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8]);
     expect(wheel.turnValue).to.equal(600);
   });
 

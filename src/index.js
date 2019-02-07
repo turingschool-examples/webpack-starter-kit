@@ -30,34 +30,34 @@ $('#submit-btn').on('click', function(e) {
 
   wheelOfFortune.startGame();
 
-$('.letter-button').on('click', function(e) {
-  let clickedLetter = e.target.innerHTML;
-  let clickedButton = e.target
-  console.log(clickedButton)
-  console.log(clickedLetter)
-  wheelOfFortune.compareClickedButton(clickedLetter, wheel, clickedButton)
-})
+  $('.letter-button').on('click', function(e) {
+    let clickedLetter = e.target.innerHTML;
+    let clickedButton = e.target
+    console.log(clickedButton)
+    console.log(clickedLetter)
+    wheelOfFortune.compareClickedButton(clickedLetter, wheel, clickedButton)
+  })
 
-$('#buy-vowel-button').on('click', function () {
-  console.log('moooo')
-  wheelOfFortune.gamePuzzles[0].buyAVowel(wheelOfFortune.activePlayer)
-})
+  $('#buy-vowel-button').on('click', function () {
+    console.log('moooo')
+    wheelOfFortune.gamePuzzles[0].buyAVowel(wheelOfFortune.activePlayer)
+  })
 
-$('#spin-button').on('click', function(e) {
-  e.preventDefault(e);
-  wheel.getWheelValue(e, wheelOfFortune);
-  $('.letter-button').removeClass('unavailable-bank-letter');
-  domUpdates.disableVowelButtons()
-})
+  $('#spin-button').on('click', function(e) {
+    e.preventDefault(e);
+    wheel.getWheelValue(e, wheelOfFortune);
+    $('.letter-button').removeClass('unavailable-bank-letter');
+    domUpdates.disableVowelButtons()
+  })
 
-$('#solve-puzzle-button').on('click', function() {
-  domUpdates.solvePuzzlePrompt();
-})
+  $('#solve-puzzle-button').on('click', function() {
+    domUpdates.solvePuzzlePrompt();
+  })
 
-$('#submit-answer').on('click', function() {
-  let answerGuess = $('#solve-puzzle-input').val()
-  wheelOfFortune.compareFinalAnswer(answerGuess)
-})
+  $('#submit-answer').on('click', function() {
+    let answerGuess = $('#solve-puzzle-input').val()
+    wheelOfFortune.compareFinalAnswer(answerGuess)
+  })
 
 })
 

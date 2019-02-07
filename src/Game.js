@@ -1,11 +1,11 @@
- import Player from './Player.js';
- import data from './Data.js';
- import Puzzle from './Puzzle.js';
- import domUpdates from './domUpdates.js';
- import Wheel from './Wheel.js'
- import BonusWheel from './Bonus-Wheel.js'
+import Player from './Player.js';
+import data from './Data.js';
+import Puzzle from './Puzzle.js';
+import domUpdates from './domUpdates.js';
+import Wheel from './Wheel.js'
+import BonusWheel from './Bonus-Wheel.js'
 
- class Game {
+class Game {
   constructor(playersArray = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = [], roundPuzzle = null) {
     this.currentRound = currentRound,
     this.activePlayer = activePlayer,
@@ -69,7 +69,7 @@
   setGamePuzzles(puzzleBank) {
     let fourPuzzles = puzzleBank.slice(0, 5);
     this.gamePuzzles = fourPuzzles.map(puzzle => {
-      return new Puzzle(puzzle.category, puzzle.total_number_of_letters, puzzle.correct_answer, puzzle.description, 0, )
+      return new Puzzle(puzzle.category, puzzle.total_number_of_letters, puzzle.correct_answer, puzzle.description, 0)
     })
     return fourPuzzles;
   }
@@ -87,66 +87,66 @@
     let splitPuzzle = this.roundPuzzle.toUpperCase().split('')
     let letterCount = 0;
 
-    if(splitPuzzle.includes(clickedLetter)) {
-        splitPuzzle.forEach(letter => {
-        if(letter === clickedLetter) { 
+    if (splitPuzzle.includes(clickedLetter)) {
+      splitPuzzle.forEach(letter => {
+        if (letter === clickedLetter) { 
           letterCount++;
           // console.log(letterCount);
           console.log('this letter is here')
           domUpdates.revealGuessedLetter(letter, button);
         } 
       });
-          let guessValue = wheel.multiplyRoundValue(letterCount);
+      let guessValue = wheel.multiplyRoundValue(letterCount);
           // console.log(guessValue)
-          if(guessValue === NaN) {
-            this.activePlayer.roundScore = 0;
-          }
-          let roundScore = this.activePlayer.incrementRoundScore(guessValue);
+      if (guessValue === NaN) {
+        this.activePlayer.roundScore = 0;
+      }
+      let roundScore = this.activePlayer.incrementRoundScore(guessValue);
           // console.log(roundScore);
-          domUpdates.updateRoundScore(roundScore, this.activePlayer.playerNumber);
-     }
+      domUpdates.updateRoundScore(roundScore, this.activePlayer.playerNumber);
+      }
      else {
         console.log('this letter is not here');
-        this.changeTurn();
-      }
-      domUpdates.disableButton(button);
-      domUpdates.disableVowelButtons();
-      domUpdates.enableSpinButton();
-      domUpdates.disableConsonants();
+      this.changeTurn();
+    }
+    domUpdates.disableButton(button);
+    domUpdates.disableVowelButtons();
+    domUpdates.enableSpinButton();
+    domUpdates.disableConsonants();
   }
 
-   changeTurn(turnValue) {
+  changeTurn(turnValue) {
     // console.log(this.activePlayer)
-      if(turnValue === 'BANKRUPT' || turnValue === 'LOSE A TURN') {
+    if (turnValue === 'BANKRUPT' || turnValue === 'LOSE A TURN') {
       // console.log(turnValue);
-      }
+    }
       
-      if(this.activePlayer === this.players[0]) {
-        this.players[0].active = false;
-        this.players[1].active = true;
-        this.activePlayer = this.players[1]
-        console.log(this.activePlayer)
-      } else if(this.activePlayer === this.players[1]) {
-        this.players[1].active = false;
-        this.players[2].active = true;
-        this.activePlayer = this.players[2]
-      } else {
-        this.players[0].active = true;
-        this.players[2].active = false;
-        this.activePlayer = this.players[0]
-      }
+    if (this.activePlayer === this.players[0]) {
+      this.players[0].active = false;
+      this.players[1].active = true;
+      this.activePlayer = this.players[1]
+    console.log(this.activePlayer)
+    } else if (this.activePlayer === this.players[1]) {
+      this.players[1].active = false;
+      this.players[2].active = true;
+      this.activePlayer = this.players[2]
+    } else {
+      this.players[0].active = true;
+      this.players[2].active = false;
+      this.activePlayer = this.players[0]
+    }
 
 
-        domUpdates.disableVowelButtons();
-        domUpdates.disableConsonants();
-      domUpdates.highlightActivePlayer(this.players);
-      domUpdates.promptToSpin(this.players);
-      domUpdates.enableSpinButton();
+    domUpdates.disableVowelButtons();
+    domUpdates.disableConsonants();
+    domUpdates.highlightActivePlayer(this.players);
+    domUpdates.promptToSpin(this.players);
+    domUpdates.enableSpinButton();
     // console.log(this.players)
   }
 
   compareFinalAnswer(answer) {
-    if(answer.toLowerCase() === this.roundPuzzle.toLowerCase()) {
+    if (answer.toLowerCase() === this.roundPuzzle.toLowerCase()) {
       console.log('you winnn')
       this.roundWinner = this.activePlayer;
       this.activePlayer.totalScore += this.activePlayer.roundScore
@@ -155,7 +155,7 @@
       domUpdates.displayRoundWinner(this.roundWinner)
       this.goToNextRound();
     } else {
-      console.log('wrong guess :(')
+      // console.log('wrong guess :(')
       this.changeTurn();
     }
   }
@@ -191,13 +191,12 @@
     domUpdates.removeDisables();
     
     console.log(this.players)
-      if(this.currentRound > 2) {
-        this.determineWinner();
-        let bonusWheel = new BonusWheel();
-        bonusWheel.bonusSpin();
-      }
+    if (this.currentRound > 2) {
+      this.determineWinner();
+      let bonusWheel = new BonusWheel();
+      bonusWheel.bonusSpin();
+    }
   }
-
 }
 
 // if (typeof module !== 'undefined') {
