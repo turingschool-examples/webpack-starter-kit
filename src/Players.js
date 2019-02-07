@@ -5,9 +5,11 @@ class Player {
   constructor(name) {
     this.name = name;
     this.score = 0;
+    this.ansInput = "what is";
   }
   validAns(clue, game) {
-    if ($('#popup-input-js').val().toLowerCase() === clue.answer.toLowerCase()) {
+    this.findjQuery();
+    if (this.ansInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.score += clue.pointValue
       domUpdates.correctAns();
     } else {
@@ -16,6 +18,9 @@ class Player {
     }
     domUpdates.updateScore(game);
     game.changeTurn();
+  }
+  findjQuery() {
+    this.ansInput = $('#popup-input-js').val()
   }
 }
 

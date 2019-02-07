@@ -1,18 +1,18 @@
-import Gameboard from './GameBoard';
 import $ from 'jquery';
-import Round from './Round';
-import Question from './Question'
-import Player from './Players'
 
 
 export default {
-
+  
   showQuestion(game, tileId) {
-    console.log('game', game);
     let $questionText = $('.question-body');
     $questionText.text(game.roundOne.clues[tileId].question);
+    if (game.activeRound === game.roundOne) {
+      $questionText.text(game.roundOne.clues[tileId].question);
+    } else if (game.activeRound === game.roundTwo) {
+      $questionText.text(game.roundTwo.clues[tileId].question);
+    } 
   },
-
+  
   toggleStart() {
     let $p1Name = $("#p1-name-change-js")
     $p1Name.text($('#p1-name-js').val())
@@ -24,14 +24,13 @@ export default {
     $('.question-container').hide();
     $('.overlay').hide();
   },
-
+  
   hidePopup() {
-    console.log("this is firing")
     $('.question-container').toggle();
     $('.popup').toggle();
     $('.overlay').toggle();
   },
-
+  
   showPopup() {
     $('.question-container').toggle();
     $('.popup').toggle();
@@ -40,30 +39,44 @@ export default {
     $('.answer').hide();
     $('.question-result').hide();
   },
-
+  
   showAnswer(game, tileId) {
     let $answer = $('.answer');
     $answer.show();
     $('.question-result').show();
-    let ans = game.roundOne.clues[tileId]
-    game.activePlayer.validAns(ans, game);
-    $answer.text(ans.answer);
+    if (game.activeRound === game.roundOne) {
+      let ans = game.roundOne.clues[tileId]
+      game.activePlayer.validAns(ans, game);
+      $answer.text(ans.answer);
+    } else if (game.activeRound === game.roundTwo) {
+      let ans = game.roundTwo.clues[tileId]
+      game.activePlayer.validAns(ans, game);
+      $answer.text(ans.answer);
+    } 
   },
-
+  
   changeCatTitles(game) {
     let names;
-    names = game.roundOne.catNames;
-    console.log(names)
-    $('.cat0').text(names[0]);
-    $('.cat1').text(names[1]);
-    $('.cat2').text(names[2]);
-    $('.cat3').text(names[3]);
+    if (game.activeRound === game.roundOne) {
+      names = game.roundOne.catNames;
+      $('.cat0').text(names[0]);
+      $('.cat1').text(names[1]);
+      $('.cat2').text(names[2]);
+      $('.cat3').text(names[3]);
+    } else if ( game.activeRound === game.roundTwo) {
+      names = game.roundTwo.catNames;
+      $('.cat0').text(names[0]);
+      $('.cat1').text(names[1]);
+      $('.cat2').text(names[2]);
+      $('.cat3').text(names[3]);
+      $('#round-js').text('2');
+    } 
   },
-
+  
   correctAns() {
     $('.question-result').text('CORRECT!');
   },
-
+  
   wrongAns() {
     $('.question-result').text('NICE TRY!');
   },
@@ -71,11 +84,7 @@ export default {
     game.players.forEach((player, ind) => {
       $(`#player-${ind}-hp`).text(player.score)
     })
+    console.log("this many:", game.cluesRemaining)
+    $('#clue-num-js').text(game.cluesRemaining);
   }
-  
 }
-
-// game.players.forEach((player, ind) => {
-//  $(`.player-${ind}-hpo`).text(player.score)
-// })
-// <p class="player-0-hp"></p>

@@ -14,9 +14,8 @@ import Player from './Players';
 import Round from './Round';
 import DailyDouble from './DailyDouble';
 
+// Tell webpack to import jQuery
 import $ from 'jquery';
-import jQuery from 'jquery'
-window.$ = jQuery;
 
 //  Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
@@ -63,11 +62,13 @@ $('.col').click(function () {
 $('.popup-btn').click(function () {
   domUpdates.showAnswer(game, tileId);
   $("#popup-input-js").prop('disabled', true);
+  $(".popup-btn").prop('disabled', true);
 });
 
 $('.close-popup').click(function () {
   $('#popup-input-js').val('');
   $("#popup-input-js").prop('disabled', false);
+  $(".popup-btn").prop('disabled', false);
   domUpdates.hidePopup();
 });
 
