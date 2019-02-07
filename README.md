@@ -1,6 +1,6 @@
 # Wheel of Fortune Cookies
 
-The goal of this project was to recreate the hit game show Wheel of Fortune! It is designed for three players and features two four full rounds and a Bonus Round for the lucky winner!
+The goal of this project was to recreate the hit game show Wheel of Fortune! It is designed for three players and features four full rounds and a Bonus Round for the lucky winner!
 
 ![screenshot of main screen](https://user-images.githubusercontent.com/40923979/52435299-b7652700-2ace-11e9-8bbb-d061618b9865.png)
 
