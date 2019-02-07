@@ -1,11 +1,15 @@
-class Dailydouble {
-  constructor() {
+import Clue from './clue.js'
+
+class Dailydouble extends Clue {
+  constructor(answer, categoryId, categoryName, pointValue, question, randomNumber) {
+    super(answer, categoryId, categoryName, pointValue, question);
     this.randomNumber = randomNumber;
   };
 
-  randomNumberGenerator(min, max) {
-    randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+  doubleCountGenerator(min, max) {
+    let randomNumber = Math.floor(Math.random() * 17);
     console.log("Random Number " + randomNumber);
+    return randomNumber;
   };
 }
 
