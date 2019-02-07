@@ -23,13 +23,18 @@ describe('Puzzle', function() {
     expect(puzzle.answer).to.deep.equal([]);
   });
   
-  //fails
-  it.skip('selects a random puzzle bank based on the difficulty', function() {
-    expect(puzzle.difficulty).to.equal(null);
-    puzzle.chooseDifficulty();
-    expect(puzzle.difficulty).to.equal({});
-  });
+  it('selects a random puzzle bank based on the difficulty', function() {
+    expect(puzzle.difficulty).to.deep.equal(null);
+    expect(puzzle.category).to.deep.equal(null);
+    expect(puzzle.domDifficulty).to.deep.equal(null);
 
+    puzzle.chooseDifficulty();
+    puzzle.randomizePuzzle();
+
+    expect(puzzle.difficulty).to.be.an('object');
+    expect(puzzle.category).to.be.an('string');
+    expect(puzzle.domDifficulty).to.be.an('number');
+  });
 });
 
 

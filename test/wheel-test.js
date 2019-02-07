@@ -45,23 +45,4 @@ describe('Wheel', function() {
     wheel.spinWheel();
     expect(wheel.currentSpin).to.not.be.an('undefined');
   })
-
-  it.skip('should reset player score to zero when the wheel lands on bankrupt', function() {
-    player.roundScore = 10;
-    wheel.bankrupt(player);
-    // includes within testing chai
-    // not sure how to intentionally make the wheel land on bankrupt to test this
-    expect(player.roundScore).to.equal(0);
-  })
-
-  it.skip('should end player turn when the wheel lands on lose-a-turn', function() {
-    player.currentTurn = true;
-    // not sure how to intentionally make the wheel land on lose-a-turn to test this
-    expect(player.currentTurn).to.equal(false);
-    
-  })
-
-  it.skip('should prompt player to choose a consonant if the wheel lands on a dollar amount', function() {
-
-  })
 });

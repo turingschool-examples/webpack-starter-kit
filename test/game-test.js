@@ -102,4 +102,17 @@ describe('Game', function() {
     game.newRound();
     expect(game.round).to.equal(1);
   })
+ // // FOR PAM: 
+ //  it('should spin the wheel and land on a value', () => {
+ //    game.newRound();
+ //    expect(game.roundWheel.currentSpin).to.deep.equal(null);
+ //    game.implementWheelResults();
+ //    //expect(game.roundWheel.currentSpin).to.be.an('number' || 'string');
+ //  })
 });
+
+
+
+
+
+
