@@ -100,7 +100,7 @@ const domUpdates = {
 
   updatePlayerScore(activePlayer, score) {
     let $playerScore = $(`#scoreBox${activePlayer}`);
-    $playerScore.text(score);
+    $playerScore.text(`$${score}`);
   },
 
   setClueBoxPoints() {

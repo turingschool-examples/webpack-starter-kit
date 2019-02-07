@@ -17,7 +17,7 @@ class Gameboard {
     this.playersArray = [];
     this.activePlayer = 0;
     this.turnCount = 0;
-    this.doubleCount = 0;
+    this.doubleCount = [];
   };
 
   updateScore(answer, score) {
@@ -51,7 +51,10 @@ class Gameboard {
 
   startGame() {
     let dailydouble = new Dailydouble;
-    this.doubleCount = dailydouble.doubleCountGenerator();
+    let DD1 = dailydouble.doubleCountGenerator();
+    console.log(DD1);
+    console.log(this.doubleCount);
+    this.doubleCount.push(DD1);
     console.log(this.doubleCount);
     console.log(this);
     this.collectClues();
@@ -84,7 +87,7 @@ class Gameboard {
     let selectedClueLocation = e.target.id;
     let selectedClue = this.roundClues[selectedClueLocation];
     if (e.target.className.includes('available-box')) {
-      if (this.doubleCount === this.turnCount) {
+      if (this.doubleCount[0] === this.turnCount || this.doubleCount[1] === this.turnCount) {
         let dailydouble = new Dailydouble;
         dailydouble.giveDouble(selectedClue);
       }
@@ -368,6 +371,13 @@ class Gameboard {
 
   changeRound2() {
     console.log("ROUND TWO");
+    this.doubleCount.pop();
+    let dailydouble = new Dailydouble;
+    let DD1 = dailydouble.doubleCountGenerator();
+    let DD2 = dailydouble.doubleCountGenerator();
+    this.doubleCount.push(DD1);
+    this.doubleCount.push(DD2);
+    console.log(this.doubleCount);
     this.roundClues.splice(0, 16);
     this.roundClues.forEach((clue) => {
       clue.pointValue = clue.pointValue * 2;

@@ -162,6 +162,7 @@ table th {
   background-color: black;
   border: 5px solid #853c1e;
   color: #ffe83d;
+  padding: 0 14px;
   text-align: center;
   height: 50px;
 }
@@ -332,3 +333,7 @@ table th {
   background-color: #7e9ea8;
   color: #7e9ea8;
 }
+
+./*dollar {
+  margin-left: 10px;
+}*/
