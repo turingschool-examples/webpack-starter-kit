@@ -8,7 +8,6 @@ class Gameboard {
     this.categoryList = Object.keys(data.categories);
     this.cluesWithCategories = [];
     this.roundClues = [];
-    // this.secondRoundClues = [];
     this.finalRoundClue = [];
     this.firstRoundCategories = [];
     this.secondRoundCategories = [];
@@ -22,10 +21,14 @@ class Gameboard {
     // console.log(this.playersArray[this.activePlayer].score);
     console.log("score", score);
     let activePlayer = this.playersArray[this.activePlayer];
+    console.log("looking for this here", activePlayer);
     console.log("activeplayer old score", activePlayer.score);
     activePlayer.score += score;
     console.log("activeplayer new score", activePlayer.score);
+    domUpdates.updatePlayerScore(this.activePlayer, activePlayer.score);
     this.changePlayerTurn();
+    this.turnCount++;
+    console.log("turnCount", this.turnCount);
   }
 
   startGame() {

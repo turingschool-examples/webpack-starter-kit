@@ -68,7 +68,7 @@ const domUpdates = {
     let $clueDisplay = $('.question-card');
     $('.answer-btn').hide();
     $('#rightWrong').text('INCORRECT!').removeClass('correct-feedback').addClass('incorrect-feedback').show();
-    $clueDisplay.fadeOut(3000, function() {
+    $clueDisplay.fadeOut(1000, function() {
       $(this).hide();
     })
   },
@@ -98,14 +98,19 @@ const domUpdates = {
 
   activePlayerHighlight(activePlayerNum) {
     console.log(activePlayerNum);
-    $(`#avatar${activePlayerNum}`).css("background-color", "hotpink")
+    $(`#avatar${activePlayerNum}`).css("background-color", "lightgreen")
   },
 
   deactivatePlayerHighlight(activePlayerNum) {
     console.log(activePlayerNum);
-    $(`#avatar${activePlayerNum}`).css("background-color", "blue")
+    $(`#avatar${activePlayerNum}`).css("background-color", "#853c1e")
   },
 
+  updatePlayerScore(activePlayer, score) {
+    let $playerScore = $(`#scoreBox${activePlayer}`);
+    $playerScore.text(score);
+  }
+  
   // updatePlayerScores() {
   //   let $player1Score = $('#scoreBox1');
   //   let $player2Score = $('#scoreBox2');

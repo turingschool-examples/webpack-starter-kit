@@ -12,9 +12,11 @@ class Clue {
   showClue(selectedClue) {
     console.log("houston we have a clue");
     console.log(selectedClue.question);
+    domUpdates.populateClueCard(selectedClue);
   }
 
   checkAnswer(game, selectedClue, $playerAnswer) {
+    console.log(selectedClue.answer);
     if (selectedClue.answer.toLowerCase() === $playerAnswer.toLowerCase()) {
       domUpdates.correctFeedback();
       game.updateScore(selectedClue.pointValue);

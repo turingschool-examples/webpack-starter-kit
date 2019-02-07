@@ -26,31 +26,27 @@ $startBtn.on('click', function(e) {
   game.startGame();
   pullNames();
   domUpdates.removeStartScreen();
-})
+});
 
-// $('body').on('click', '.answer-btn', function() {
-//   let $playerAnswer = $('#playerAnswer').val();
-//   game.changePlayerTurn();
-// })
+let currentClue = {};
+let currentLocation = 0;
 
-$gameboard.on('click', function(e) {
+$('body').on('click', function(e) {
+  e.preventDefault;
+  let clue = new Clue();
+  let selectedClueLocation = e.target.id;
+  let selectedClue = game.roundClues[selectedClueLocation];
   if (e.target.className.includes('available-box')) {
-    let selectedClueLocation = e.target.id;
-    let selectedClue = game.roundClues[selectedClueLocation]
-    let clue = new Clue();
     clue.showClue(selectedClue);
-    domUpdates.populateClueCard(selectedClue);
-    game.turnCount++;
-    $answerClue.on('click', function(e) {
-      e.preventDefault();
+    currentClue = selectedClue;
+    currentLocation = selectedClueLocation;
+  };
+  if (e.target.className.includes('answer-btn')) {
       let $playerAnswer = $('#playerAnswer').val();
-      clue.checkAnswer(selectedClue, $playerAnswer);
-      domUpdates.disableClue(selectedClueLocation);
-      console.log(game.turnCount)
-      // game.updateScore()
-    })
-  }
-})
+      clue.checkAnswer(game, currentClue, $playerAnswer);
+      domUpdates.disableClue(currentLocation);
+    }
+  });
 
 // $answerClue.on('click', function(e) {
 //   e.preventDefault();
