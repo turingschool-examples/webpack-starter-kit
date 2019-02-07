@@ -40,7 +40,7 @@ const data = {
           number_of_words: 1,
           total_number_of_letters: 8,
           first_word: 8, 
-          description:'Location or object(s) found within a typical house.',
+          description: 'Location or object(s) found within a typical house.',
           correct_answer: 'Armchair',
         },
         {  
@@ -48,7 +48,7 @@ const data = {
           number_of_words: 1,
           total_number_of_letters: 7,
           first_word: 7, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Beepers',
         },
         {  
@@ -56,7 +56,7 @@ const data = {
           number_of_words: 1,
           total_number_of_letters: 10,
           first_word: 10, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Tamagotchi',
         },
         {  
@@ -72,7 +72,7 @@ const data = {
           number_of_words: 1,
           total_number_of_letters: 10,
           first_word: 10, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Scrunchies',
         },
         {  
@@ -88,7 +88,7 @@ const data = {
           number_of_words: 1,
           total_number_of_letters: 9,
           first_word: 9, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Sketchers',
         },
         {  
@@ -107,20 +107,20 @@ const data = {
           description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'Bonjour',
         },
-         {  
+        {  
           category: 'The 90s',
           number_of_words: 1,
           total_number_of_letters: 9,
           first_word: 9, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Operation',
         },
-         {  
+        {  
           category: 'The 90s',
           number_of_words: 1,
           total_number_of_letters: 3,
           first_word: 3, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Moo',
         },
         {  
@@ -162,8 +162,8 @@ const data = {
           first_word: 12,
           description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'Trick-Or-Treat',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 1,
           total_number_of_letters: 11,
           first_word: 11,
@@ -171,7 +171,7 @@ const data = {
           correct_answer: 'Tutti-Fruiti',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 1,
           total_number_of_letters: 10,
           first_word: 10,
@@ -185,8 +185,8 @@ const data = {
           first_word: 11,
           description: 'Location or object(s) found within a typical house.',
           correct_answer: 'Windowpanes',
-        },{  
-          category:'Around The House',
+        }, {  
+          category: 'Around The House',
           number_of_words: 1,
           total_number_of_letters: 10,
           first_word: 10,
@@ -194,7 +194,7 @@ const data = {
           correct_answer: 'Snowblower',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 1,
           total_number_of_letters: 7,
           first_word: 7,
@@ -202,7 +202,7 @@ const data = {
           correct_answer: 'Hotshot',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 1,
           total_number_of_letters: 10,
           first_word: 10,
@@ -210,14 +210,14 @@ const data = {
           correct_answer: 'Superduper',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 1,
           total_number_of_letters: 10,
           first_word: 10,
           description: 'Rhyming word(s) or phrase(s).',
           correct_answer: 'Willy-Nilly',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 1,
           total_number_of_letters: 6,
           first_word: 6,
@@ -234,7 +234,7 @@ const data = {
           number_of_words: 2,
           total_number_of_letters: 11,
           first_word: 7, 
-          description:'Location or object(s) found within a typical house.',
+          description: 'Location or object(s) found within a typical house.',
           correct_answer: 'Amusing Yarn',
         },
         {  
@@ -242,7 +242,7 @@ const data = {
           number_of_words: 2,
           total_number_of_letters: 11,
           first_word: 4, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Bowl Haircut',
         },
         {  
@@ -250,7 +250,7 @@ const data = {
           number_of_words: 2,
           total_number_of_letters: 13,
           first_word: 7, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Britney Spears',
         },
         {  
@@ -266,7 +266,7 @@ const data = {
           number_of_words: 2,
           total_number_of_letters: 9,
           first_word: 4, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Lite Brite',
         },
         {  
@@ -282,7 +282,7 @@ const data = {
           number_of_words: 2,
           total_number_of_letters: 9,
           first_word: 5, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'South Park',
         },
         {  
@@ -301,20 +301,20 @@ const data = {
           description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'Fess Up',
         },
-         {  
+        {  
           category: 'The 90s',
           number_of_words: 2,
           total_number_of_letters: 6,
           first_word: 3, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Fun Dip',
         },
-         {  
+        {  
           category: 'The 90s',
           number_of_words: 2,
           total_number_of_letters: 10,
           first_word: 6, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Celine Dion',
         },
         {  
@@ -356,22 +356,22 @@ const data = {
           first_word: 4,
           description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'Good Morning',
-        },{  
+        }, {  
           category: 'Around The House',
           number_of_words: 2,
           total_number_of_letters: 11,
           first_word: 11,
           description: 'Location or object(s) found within a typical house.',
           correct_answer: 'Windowpanes',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 2,
           total_number_of_letters: 8,
           first_word: 4,
           description: 'Rhyming word(s) or phrase(s).',
           correct_answer: 'Wine & Dine',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 2,
           total_number_of_letters: 10,
           first_word: 5,
@@ -379,7 +379,7 @@ const data = {
           correct_answer: 'Fight Night',
         },
         {  
-          category:'Around The House',
+          category: 'Around The House',
           number_of_words: 2,
           total_number_of_letters: 9,
           first_word: 4,
@@ -387,7 +387,7 @@ const data = {
           correct_answer: 'Corn Syrup',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 2,
           total_number_of_letters: 11,
           first_word: 6,
@@ -395,7 +395,7 @@ const data = {
           correct_answer: 'Flower Power',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 2,
           total_number_of_letters: 15,
           first_word: 7,
@@ -403,14 +403,14 @@ const data = {
           correct_answer: 'Jeepers Creepers',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 2,
           total_number_of_letters: 10,
           first_word: 4,
           description: 'Rhyming word(s) or phrase(s).',
           correct_answer: 'Even Steven',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 2,
           total_number_of_letters: 6,
           first_word: 3,
@@ -427,7 +427,7 @@ const data = {
           number_of_words: 3,
           total_number_of_letters: 10,
           first_word: 3, 
-          description:'Location or object(s) found within a typical house.',
+          description: 'Location or object(s) found within a typical house.',
           correct_answer: 'Hot Glue Gun',
         },
         {  
@@ -435,7 +435,7 @@ const data = {
           number_of_words: 3,
           total_number_of_letters: 12,
           first_word: 6, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Tickle Me Elmo',
         },
         {  
@@ -443,7 +443,7 @@ const data = {
           number_of_words: 3,
           total_number_of_letters: 13,
           first_word: 2, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'In Living Color',
         },
         {  
@@ -459,7 +459,7 @@ const data = {
           number_of_words: 3,
           total_number_of_letters: 19,
           first_word: 3, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'The Smashing Pumpkins',
         },
         {  
@@ -475,7 +475,7 @@ const data = {
           number_of_words: 3,
           total_number_of_letters: 14,
           first_word: 5, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Magic School Bus',
         },
         {  
@@ -494,20 +494,20 @@ const data = {
           description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'I Dig It',
         },
-          {  
+        {  
           category: 'The 90s',
           number_of_words: 3,
           total_number_of_letters: 19,
           first_word: 4, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Best Friend Necklaces',
         },
-          {  
+        {  
           category: 'The 90s',
           number_of_words: 3,
           total_number_of_letters: 13,
           first_word: 3, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Air Jordan Sneakers',
         },
         {  
@@ -549,22 +549,22 @@ const data = {
           first_word: 2,
           description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'No Such Luck',
-        },{  
+        }, {  
           category: 'Around The House',
           number_of_words: 3,
           total_number_of_letters: 16,
           first_word: 6,
           description: 'Location or object(s) found within a typical house.',
           correct_answer: 'French Rolling Pin',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 3,
           total_number_of_letters: 8,
           first_word: 4,
           description: 'Rhyming word(s) or phrase(s).',
           correct_answer: 'Hop On Pop',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 3,
           total_number_of_letters: 11,
           first_word: 5,
@@ -572,7 +572,7 @@ const data = {
           correct_answer: 'Twice As Nice',
         },
         {  
-          category:'Around The House',
+          category: 'Around The House',
           number_of_words: 3,
           total_number_of_letters: 17,
           first_word: 5,
@@ -580,7 +580,7 @@ const data = {
           correct_answer: 'Plaid Flannel Shirt',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 3,
           total_number_of_letters: 21,
           first_word: 8,
@@ -588,7 +588,7 @@ const data = {
           correct_answer: 'Sardines And Tangerines',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 3,
           total_number_of_letters: 12,
           first_word: 4,
@@ -596,14 +596,14 @@ const data = {
           correct_answer: 'Meet And Greet',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 3,
           total_number_of_letters: 11,
           first_word: 2,
           description: 'Rhyming word(s) or phrase(s).',
           correct_answer: 'In Like Flynn',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 3,
           total_number_of_letters: 11,
           first_word: 5,
@@ -620,7 +620,7 @@ const data = {
           number_of_words: 4,
           total_number_of_letters: 17,
           first_word: 4, 
-          description:'Location or object(s) found within a typical house.',
+          description: 'Location or object(s) found within a typical house.',
           correct_answer: 'Roll Of Toilet Paper',
         },
         {  
@@ -628,7 +628,7 @@ const data = {
           number_of_words: 4,
           total_number_of_letters: 14,
           first_word: 5, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Saved By The Bell',
         },
         {  
@@ -636,7 +636,7 @@ const data = {
           number_of_words: 4,
           total_number_of_letters: 18,
           first_word: 3, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'The Mickey Mouse Club',
         },
         {  
@@ -652,7 +652,7 @@ const data = {
           number_of_words: 4,
           total_number_of_letters: 24,
           first_word: 6, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'There\'s Something About Mary',
         },
         {  
@@ -668,7 +668,7 @@ const data = {
           number_of_words: 4,
           total_number_of_letters: 18,
           first_word: 3, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Red Hot Chili Peppers',
         },
         {  
@@ -687,20 +687,20 @@ const data = {
           description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'From A To Z',
         },
-          {  
+        {  
           category: 'The 90s',
           number_of_words: 4,
           total_number_of_letters: 22,
           first_word: 3, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Six Degrees of Separation',
         },
-          {  
+        {  
           category: 'The 90s',
           number_of_words: 4,
           total_number_of_letters: 19,
           first_word: 4, 
-          description:'Puzzles pertaining to the decade in question.',
+          description: 'Puzzles pertaining to the decade in question.',
           correct_answer: 'Mary Kate & Ashley Olsen',
         },
         {  
@@ -742,22 +742,22 @@ const data = {
           first_word: 5,
           description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'Happy As A Clam',
-        },{  
+        }, {  
           category: 'Around The House',
           number_of_words: 4,
           total_number_of_letters: 25,
           first_word: 5,
           description: 'Location or object(s) found within a typical house.',
           correct_answer: 'Clear Plastic Shower Curtain',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 4,
           total_number_of_letters: 10,
           first_word: 4,
           description: 'Rhyming word(s) or phrase(s).',
           correct_answer: 'Snug As A Bug',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 4,
           total_number_of_letters: 15,
           first_word: 4,
@@ -765,7 +765,7 @@ const data = {
           correct_answer: 'Ants In Your Pants',
         },
         {  
-          category:'Around The House',
+          category: 'Around The House',
           number_of_words: 4,
           total_number_of_letters: 12,
           first_word: 1,
@@ -773,7 +773,7 @@ const data = {
           correct_answer: 'A Pile Of Coats',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 4,
           total_number_of_letters: 18,
           first_word: 4,
@@ -781,7 +781,7 @@ const data = {
           correct_answer: 'Good Golly Miss Molly',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 4,
           total_number_of_letters: 21,
           first_word: 7,
@@ -789,14 +789,14 @@ const data = {
           correct_answer: 'Hostess With The Mostest',
         },
         {  
-          category:'Rhyme Time',
+          category: 'Rhyme Time',
           number_of_words: 4,
           total_number_of_letters: 22,
           first_word: 2,
           description: 'Rhyming word(s) or phrase(s).',
           correct_answer: 'An Attitude of Gratitude',
-        },{  
-          category:'Rhyme Time',
+        }, {  
+          category: 'Rhyme Time',
           number_of_words: 4,
           total_number_of_letters: 16,
           first_word: 3,

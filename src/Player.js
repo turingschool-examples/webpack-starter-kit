@@ -1,5 +1,3 @@
-import Game from './Game.js';
-
 class Player {
   constructor(name) {
     this.name = name;
@@ -28,6 +26,6 @@ class Player {
       alert('You need at least $100 to buy a vowel');
     }
   }
-};
+}
 
 export default Player;

@@ -12,17 +12,20 @@ import './images/003-mill.svg';
 
 // Tell webpack to use a JS file
 import domUpdates from './domUpdates.js';
-import data from './data.js';
 import Game from './Game.js';
-import Player from './Player.js';
 import $ from 'jquery';
 
 
 // jQuery Variables
-const $solvePuzzle = $('.solve-puzzle');
 
 let game;
-let player;
+
+
+$('body').keypress(function(e) {
+  if (e.keyCode === 13) {
+    return false;
+  }
+});
 
 $('.hidden-popup').hide();
 
@@ -32,12 +35,12 @@ $('.consonant, .vowel').on('click', (event) => {
 
 $('.submit-names').on( 'click', (e) => {
   e.preventDefault();
-  if ( $('#player1')[0].value && $('#player2')[0].value && $('#player3')[0].value ) {
+  if ( $('#player1')[0].value && $('#player2')[0].value && 
+  $('#player3')[0].value ) {
     game = new Game();
     buildGame();
     domUpdates.fadeNameInput();
   } else {
-    console.log('fill in names');
     // $promptWarning.toggle;
   }
 });

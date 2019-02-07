@@ -5,10 +5,10 @@ class BonusPlayer extends Player {
 
     super();
     // bonusGuess() {
-      // guess 3 consonants
-      // guess 1 vowel
-    }
+    // guess 3 consonants
+    // guess 1 vowel
   }
+}
 
 
 export default BonusPlayer;
