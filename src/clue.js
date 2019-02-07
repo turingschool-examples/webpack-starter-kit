@@ -19,12 +19,12 @@ class Clue {
     console.log(selectedClue.answer);
     if (selectedClue.answer.toLowerCase() === $playerAnswer.toLowerCase()) {
       domUpdates.correctFeedback();
-      game.updateScore(selectedClue.pointValue);
+      let answer = "correct";
+      game.updateScore(answer, selectedClue.pointValue);
     } else {
       domUpdates.incorrectFeedback();
-      let negativePoints = `-${selectedClue.pointValue}`;
-      console.log(negativePoints);
-      game.updateScore(negativePoints);
+      let answer = "wrong";
+      game.updateScore(answer, selectedClue.pointValue);
     }
   }
 }

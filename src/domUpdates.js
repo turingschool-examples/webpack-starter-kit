@@ -4,30 +4,18 @@ import $ from 'jquery';
 
 const domUpdates = {
 
-  labelCategories([firstRoundCategories], [secondRoundCategories]){
+  labelCategories([roundCategories]){
     //in domupdates, make them real english words
     //add forEach here to iterate through category list to append names
-    if (Gameboard.round === 2) {
       console.log("is this working?");
-      let $category1 = secondRoundCategories[0];
+      let $category1 = roundCategories[0];
       $('#category-0').text($category1);
-      let $category2 = secondRoundCategories[1];
+      let $category2 = roundCategories[1];
       $('#category-1').text($category2);
-      let $category3 = secondRoundCategories[2];
+      let $category3 = roundCategories[2];
       $('#category-2').text($category3);
-      let $category4 = secondRoundCategories[3];
+      let $category4 = roundCategories[3];
       $('#category-3').text($category4);
-      
-    } else {
-      let $category1 = firstRoundCategories[0];
-      $('#category-0').text($category1);
-      let $category2 = firstRoundCategories[1];
-      $('#category-1').text($category2);
-      let $category3 = firstRoundCategories[2];
-      $('#category-2').text($category3);
-      let $category4 = firstRoundCategories[3];
-      $('#category-3').text($category4);
-    }
   },
 
   removeStartScreen() {
@@ -91,9 +79,16 @@ const domUpdates = {
 
   disableClue(id) {
     let $recentClue = $(`#${id}`);
-    $recentClue.removeClass('available-box')
+    $recentClue.removeClass('available-box');
     $recentClue.addClass('disabled');
+    console.log("disabled");
     //perhaps line to remove innertext, not sure if we want that
+  },
+
+  repopulateClues() {
+    let $allClueBoxes = $('.clue-box');
+    $allClueBoxes.removeClass('disabled');
+    $allClueBoxes.addClass('available-box');
   },
 
   activePlayerHighlight(activePlayerNum) {
@@ -111,12 +106,6 @@ const domUpdates = {
     $playerScore.text(score);
   }
   
-  // updatePlayerScores() {
-  //   let $player1Score = $('#scoreBox1');
-  //   let $player2Score = $('#scoreBox2');
-  //   let $player3Score = $('#scoreBox3');
-  // }
-
 }
 
   let $resetButton = $('#reset-button');
