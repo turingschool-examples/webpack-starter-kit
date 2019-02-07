@@ -43,8 +43,8 @@ $('body').on('click', function(e) {
   };
   if (e.target.className.includes('answer-btn')) {
       let $playerAnswer = $('#playerAnswer').val();
-      clue.checkAnswer(game, currentClue, $playerAnswer);
       domUpdates.disableClue(currentLocation);
+      clue.checkAnswer(game, currentClue, $playerAnswer);
     }
   });
 
