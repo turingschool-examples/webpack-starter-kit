@@ -18,7 +18,7 @@ class Gameboard {
     this.activePlayer = 0;
     this.turnCount = 0;
     this.doubleCount = [];
-  };
+  }
 
   updateScore(answer, score) {
     let activePlayer = this.playersArray[this.activePlayer];
@@ -26,15 +26,13 @@ class Gameboard {
       activePlayer.score += score;
     } else {
       activePlayer.score -= score;
-    };
+    }
     domUpdates.updatePlayerScore(this.activePlayer, activePlayer.score);
     this.turnCount++;
-    console.log("TURN COUNT", this.turnCount);
     this.checkTurnCount();
-  };
+  }
 
   checkTurnCount() {
-    console.log("ROUND", this.round);
     if (this.turnCount === 3 && this.round === 1) {
       this.round++;
       this.changeRound2();
@@ -44,10 +42,9 @@ class Gameboard {
     } else {
       this.changePlayerTurn();
     }
-  };
+  }
 
-  finalJeopardy(){
-    console.log("FINAL JEOPARY CLUE", this.finalRoundClue, this.round);
+  finalJeopardy() {
     domUpdates.disableAllClues();
     domUpdates.removeCategories();
     this.turnCount = 0;
@@ -55,11 +52,12 @@ class Gameboard {
     let clue = new Clue();
     let selectedClue = this.finalRoundClue[3];
     let dailydouble = new Dailydouble;
+    $('.wager-head').text('Final Jeopardy!');
     dailydouble.giveDouble(selectedClue);
     clue.showClue(selectedClue);
     currentClue = selectedClue;
     domUpdates.populateClueCard(selectedClue);
-  };
+  }
 
   startGame() {
     let dailydouble = new Dailydouble;
@@ -69,7 +67,7 @@ class Gameboard {
     this.assignCategories();
     this.calculateWager();
     domUpdates.activePlayerHighlight(this.activePlayer);
-  };
+  }
 
   createPlayers(game, playerName1, playerName2, playerName3) {
     let player1 = new Player(playerName1, 0, 0, 1, true);
@@ -79,15 +77,15 @@ class Gameboard {
     game.playersArray.push(player2);
     game.playersArray.push(player3);
     domUpdates.changePlayerNames(game)
-  };
+  }
 
   collectClues() {
     let allClues = data.clues;
     this.cluesWithCategories = allClues.map( clue => {
       clue.categoryName = this.categoryList[clue.categoryId - 1];
       return clue;
-      });
-  };
+    });
+  }
 
   selectCorrectClue(e) {
     let clue = new Clue();
@@ -101,20 +99,19 @@ class Gameboard {
       clue.showClue(selectedClue);
       currentClue = selectedClue;
       currentLocation = selectedClueLocation;
-    };
+    }
     if (e.target.className.includes('wager-btn')) {
       let $wagerAmount = $('#wagerInput').val();
-      console.log("CURRENT CLUE", currentClue);
       currentClue.pointValue = $wagerAmount;
       domUpdates.reassignPointValue($wagerAmount);
       domUpdates.removeWagerCard();
     }
     if (e.target.className.includes('answer-btn')) {
-        let $playerAnswer = $('#playerAnswer').val();
-        domUpdates.disableClue(currentLocation);
-        clue.checkAnswer(this, currentClue, $playerAnswer);
+      let $playerAnswer = $('#playerAnswer').val();
+      domUpdates.disableClue(currentLocation);
+      clue.checkAnswer(this, currentClue, $playerAnswer);
     }
-  };
+  }
 
   selectFinalJeopardy(e) {
     let clue = new Clue();
@@ -126,20 +123,18 @@ class Gameboard {
     currentClue = selectedClue;
     domUpdates.populateClueCard(selectedClue);
     if (e.target.className.includes('answer-btn')) {
-        let $playerAnswer = $('#playerAnswer').val();
-        clue.checkAnswer(this, currentClue, $playerAnswer);
+      let $playerAnswer = $('#playerAnswer').val();
+      clue.checkAnswer(this, currentClue, $playerAnswer);
     }
     if (e.target.className.includes('wager-btn')) {
       let $wagerAmount = $('#wagerInput').val();
-      console.log("CURRENT CLUE", currentClue);
       currentClue.pointValue = $wagerAmount;
       domUpdates.reassignPointValue($wagerAmount);
       domUpdates.removeWagerCard();
     }
     if (this.turnCount === 3 ) {
-      console.log("TIME TO END GAME");
     }
-  };
+  }
 
 
   assignCategories() {    
@@ -364,26 +359,26 @@ class Gameboard {
 
     this.roundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName]
     domUpdates.labelCategories([this.roundCategories]);
-  };
+  }
 
   changePlayerTurn() {
     switch (this.activePlayer) {
-      case 0:
-        domUpdates.deactivatePlayerHighlight(this.activePlayer);
-        this.activePlayer = 1;
-        domUpdates.activePlayerHighlight(this.activePlayer);
-        break;
-      case 1:
-        domUpdates.deactivatePlayerHighlight(this.activePlayer);
-        this.activePlayer = 2;
-        domUpdates.activePlayerHighlight(this.activePlayer);
-        break;
-      case 2:
-        domUpdates.deactivatePlayerHighlight(this.activePlayer);
-        this.activePlayer = 0;
-        domUpdates.activePlayerHighlight(this.activePlayer);
-        break;
-      default:
+    case 0:
+      domUpdates.deactivatePlayerHighlight(this.activePlayer);
+      this.activePlayer = 1;
+      domUpdates.activePlayerHighlight(this.activePlayer);
+      break;
+    case 1:
+      domUpdates.deactivatePlayerHighlight(this.activePlayer);
+      this.activePlayer = 2;
+      domUpdates.activePlayerHighlight(this.activePlayer);
+      break;
+    case 2:
+      domUpdates.deactivatePlayerHighlight(this.activePlayer);
+      this.activePlayer = 0;
+      domUpdates.activePlayerHighlight(this.activePlayer);
+      break;
+    default:
     }
     console.log("switched active player");
   };
@@ -406,20 +401,21 @@ class Gameboard {
     domUpdates.repopulateClues();
     this.turnCount = 0
     this.changePlayerTurn();
-  };
+  }
 
   calculateWager() {
-    //should have instantiated all clues at start game so we can grab point value of clues that haven't been chosen yet, or spliced them out of clues array
+    //should have instantiated all clues at start game so we can grab point value 
+    //of clues that haven't been chosen yet, or spliced them out of clues array
     let highestPointValue = 400;
-    if(this.round === 2) {
+    if (this.round === 2) {
       highestPointValue = 800
     } else if (this.round === 3) {
       highestPointValue = this.activePlayer.score
-    };
+    }
 
     let wagerMin = 5;
     let wagerMax = highestPointValue;
-  };
+  }
 
   finishGame() {
     //display winner popup
@@ -432,10 +428,10 @@ class Gameboard {
     //   return acc;
     // });
     // console.log("WINNER", winnerList)
-  };
+  }
 
   
-};
+}
 
 let currentClue = {};
 let currentLocation = 0;

@@ -7,14 +7,14 @@ const domUpdates = {
   labelCategories([roundCategories]) {
     //in domupdates, make them real english words
     //add forEach here to iterate through category list to append names
-      let $category0 = roundCategories[0];
-      $('#category-0').text($category0);
-      let $category1 = roundCategories[1];
-      $('#category-1').text($category1);
-      let $category2 = roundCategories[2];
-      $('#category-2').text($category2);
-      let $category3 = roundCategories[3];
-      $('#category-3').text($category3);
+    let $category0 = roundCategories[0];
+    $('#category-0').text($category0);
+    let $category1 = roundCategories[1];
+    $('#category-1').text($category1);
+    let $category2 = roundCategories[2];
+    $('#category-2').text($category2);
+    let $category3 = roundCategories[3];
+    $('#category-3').text($category3);
   },
 
   removeCategories() {
@@ -52,7 +52,9 @@ const domUpdates = {
   correctFeedback() {
     let $clueDisplay = $('.question-card');
     $('.answer-btn').hide();
-    $('#rightWrong').text('CORRECT!').removeClass('incorrect-feedback').addClass('correct-feedback').show();
+    $('#rightWrong').text('CORRECT!')
+    .removeClass('incorrect-feedback')
+    .addClass('correct-feedback').show();
     $clueDisplay.fadeOut(1000, function() {
       $(this).hide();
     })
@@ -61,7 +63,9 @@ const domUpdates = {
   incorrectFeedback() {
     let $clueDisplay = $('.question-card');
     $('.answer-btn').hide();
-    $('#rightWrong').text('INCORRECT!').removeClass('correct-feedback').addClass('incorrect-feedback').show();
+    $('#rightWrong').text('INCORRECT!')
+    .removeClass('correct-feedback')
+    .addClass('incorrect-feedback').show();
     $clueDisplay.fadeOut(1000, function() {
       $(this).hide();
     })
@@ -118,13 +122,6 @@ const domUpdates = {
     $('.200').text("$400");
     $('.300').text("$600");
     $('.400').text("$800");
-    // roundClues.forEach((clue) => {
-    //   let $clueBoxValue = $('.clue-box').text(clue.pointValue);
-    //   if(clue.pointValue === ($clueBoxValue) / 2) {
-    //     $clueBoxValue = clue.pointValue
-    //   }
-    //   console.log(clue.pointValue);
-    // }) 
   },
 
   reassignPointValue(wagerAmount) {

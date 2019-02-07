@@ -10,11 +10,8 @@ import $ from 'jquery';
 import domUpdates from './domUpdates.js';
 
 let game = new Gameboard();
-console.log("start game", game);
 
 let $startBtn = $('#playBtn');
-let $gameboard = $('.game-board');
-let $answerClue = $('.answer-btn')
 
 $startBtn.on('click', function(e) {
   e.preventDefault();

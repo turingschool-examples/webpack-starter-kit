@@ -5,12 +5,12 @@ class Dailydouble extends Clue {
   constructor(answer, categoryId, categoryName, pointValue, question, randomNumber) {
     super(answer, categoryId, categoryName, pointValue, question);
     this.randomNumber = randomNumber;
-  };
+  }
 
-  doubleCountGenerator(min, max) {
+  doubleCountGenerator() {
     let randomNumber = Math.floor(Math.random() * 4);
     return randomNumber;
-  };
+  }
 
   giveDouble(selectedClue) {
     domUpdates.showWagerCard();
