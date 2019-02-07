@@ -198,7 +198,7 @@ body {
 }
 
 .user-button:hover {
-  background-color: darkseagreen;
+  background-color: aquamarine;
   opacity: 1;
 }
 
@@ -293,6 +293,24 @@ body {
   font-family: sans-serif;
   font-size: 46px;
   box-shadow: 3px 7px purple;
+}
+
+#submit-answer {
+  width: 99px;
+  height: 31px;
+  border-radius: 50px;
+  background-color: lightseagreen;
+  font-weight: 800;
+  font-family: monospace;
+}
+
+#submit-answer:hover {
+  background-color: aquamarine;
+}
+
+#solve-puzzle-input {
+  height: 30px;
+  width:150px;
 }
 
 
