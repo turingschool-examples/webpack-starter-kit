@@ -53,6 +53,7 @@ body {
   text-align: center;
   font-size: 40px;
   opacity: .8;
+  font-family: sans-serif;
 }
 
 #game-board {
@@ -105,7 +106,9 @@ body {
 }
 
 .name-and-scores {
-  background-color: lightskyblue;
+  background-color: lightgoldenrodyellow;
+  box-shadow: 3px 4px darkmagenta;
+  border-radius: 25px;
   padding: 6px;
   width: 250px;
   height: 180px;
