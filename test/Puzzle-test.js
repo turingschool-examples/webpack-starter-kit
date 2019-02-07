@@ -3,10 +3,11 @@ import data from '../src/Data.js'
 import chai from 'chai'
 import spies from 'chai-spies';
 import domUpdates from '../src/domUpdates.js';
+import Player from '../src/Player.js';
 chai.use(spies);
 
 const expect = chai.expect
-chai.spy.on(domUpdates, 'displayLetters', () => true);
+chai.spy.on(domUpdates, ['displayLetters','enableVowelButtons'], () => true);
  
 describe('Puzzle', function() {
   let puzzle;
@@ -25,9 +26,16 @@ beforeEach(function() {
     expect(puzzle.consonantsBank).to.deep.equal([]);
     expect(puzzle.vowelsBank.length).to.equal(0);
   });
+  
+  it('should buy a vowel', function () {
+    let player = new Player('adam', true, 1, 2500)
+    puzzle.buyAVowel(player);
+    expect(player.roundScore).to.equal(2400)
+  });
 
   it('should populate a bank of consonants and vowels', function() {
-    expect(puzzle.populateConsonantsBank()).to.deep.equal([['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'],['a','e','i','o','u']])
-  })
+    expect(puzzle.populateConsonantsBank()).to.deep.equal([['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'],['A','E','I','O','U']])
+  });
+
 
 })  

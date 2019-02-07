@@ -3,6 +3,7 @@
  import Puzzle from './Puzzle.js';
  import domUpdates from './domUpdates.js';
  import Wheel from './Wheel.js'
+ import BonusWheel from './Bonus-Wheel.js'
 
  class Game {
   constructor(playersArray = null, currentRound = 1, activePlayer, roundWinner = null, gameWinner = null, gamePuzzles = [], roundPuzzle = null) {
@@ -35,7 +36,7 @@
     domUpdates.displayPlayers(playerOne, playerTwo, playerThree);
     this.activePlayer = playerOne;
     this.players = [playerOne, playerTwo, playerThree]
-    console.log(playerOne)
+    // console.log(playerOne)
     domUpdates.highlightActivePlayer(this.players)
   }
 
@@ -48,12 +49,12 @@
     this.randomizeBank(puzzleBank);
     // console.log('youink')
     let fourPuzzles = this.setGamePuzzles(puzzleBank);
-    let roundPuzzle = this.setRoundPuzzle(fourPuzzles);
+    let roundPuzzle = this.setRoundPuzzle(this.gamePuzzles);
     // console.log(roundPuzzle);
-    this.roundPuzzle = roundPuzzle.correct_answer;
-    console.log(this.roundPuzzle)
+    this.roundPuzzle = roundPuzzle.correctAnswer;
+    // console.log(this.roundPuzzle)
     domUpdates.displayCategory(roundPuzzle);
-    domUpdates.populateRoundPuzzle(roundPuzzle);
+    domUpdates.populateRoundPuzzle(this.roundPuzzle);
     return puzzleBank;
   }
 
@@ -66,7 +67,7 @@
   }
 
   setGamePuzzles(puzzleBank) {
-    let fourPuzzles = puzzleBank.slice(0, 4);
+    let fourPuzzles = puzzleBank.slice(0, 5);
     this.gamePuzzles = fourPuzzles.map(puzzle => {
       return new Puzzle(puzzle.category, puzzle.total_number_of_letters, puzzle.correct_answer, puzzle.description, 0, )
     })
@@ -75,6 +76,8 @@
 
   setRoundPuzzle(fourPuzzles) {
     let roundPuzzle = fourPuzzles.pop();
+    // console.log(roundPuzzle)
+    // console.log(this.gamePuzzles)
     return roundPuzzle;
     // domUpdates.displayPuzzle();
   }
@@ -88,18 +91,18 @@
         splitPuzzle.forEach(letter => {
         if(letter === clickedLetter) { 
           letterCount++;
-          console.log(letterCount);
+          // console.log(letterCount);
           console.log('this letter is here')
           domUpdates.revealGuessedLetter(letter, button);
         } 
       });
           let guessValue = wheel.multiplyRoundValue(letterCount);
-          console.log(guessValue)
+          // console.log(guessValue)
           if(guessValue === NaN) {
             this.activePlayer.roundScore = 0;
           }
           let roundScore = this.activePlayer.incrementRoundScore(guessValue);
-          console.log(roundScore);
+          // console.log(roundScore);
           domUpdates.updateRoundScore(roundScore, this.activePlayer.playerNumber);
      }
      else {
@@ -115,8 +118,7 @@
    changeTurn(turnValue) {
     // console.log(this.activePlayer)
       if(turnValue === 'BANKRUPT' || turnValue === 'LOSE A TURN') {
-      console.log(turnValue);
-      domUpdates.clickSimulator()
+      // console.log(turnValue);
       }
       
       if(this.activePlayer === this.players[0]) {
@@ -148,6 +150,7 @@
       console.log('you winnn')
       this.roundWinner = this.activePlayer;
       this.activePlayer.totalScore += this.activePlayer.roundScore
+      domUpdates.clearRoundPuzzle(this.roundPuzzle);
       domUpdates.updateTotalScore(this.activePlayer, this.activePlayer.playerNumber);
       domUpdates.displayRoundWinner(this.roundWinner)
       this.goToNextRound();
@@ -157,12 +160,42 @@
     }
   }
 
+  determineWinner() {
+    let winningScore = this.players.map(player => {
+      return player.totalScore;
+    }).sort((a, b) => {
+      return a - b
+    }).shift();
+
+    let winningPlayer = this.players.totalScore === winningScore;
+    console.log(winningPlayer.name)
+  }
+
   goToNextRound() {
     this.players.forEach(player => {
       player.roundScore = 0
     })
+    // domUpdates.showWinner(this.activePlayer.name)
     domUpdates.resetRoundScores(this.players);
+    domUpdates.solvePuzzlePrompt();
     this.currentRound++
+    //domUpdates.showRoundNumber
+    let roundPuzzle = this.setRoundPuzzle(this.gamePuzzles);
+    console.log(roundPuzzle)
+    this.roundPuzzle = roundPuzzle.correctAnswer;
+    console.log(this.currentRound)
+    console.log(this.roundPuzzle)
+    domUpdates.displayCategory(roundPuzzle)
+    domUpdates.populateRoundPuzzle(this.roundPuzzle);
+    // puzzle.populateConsonantsBank();
+    domUpdates.removeDisables();
+    
+    console.log(this.players)
+      if(this.currentRound > 2) {
+        this.determineWinner();
+        let bonusWheel = new BonusWheel();
+        bonusWheel.bonusSpin();
+      }
   }
 
 }

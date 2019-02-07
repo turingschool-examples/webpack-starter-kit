@@ -121,6 +121,12 @@ body {
   display: none;
 }
 
+.next-rd-btn {
+  width: 500px;
+  background-color: black;
+  color: white;
+}
+
 .player-inputs {
   text-align: center;
 }

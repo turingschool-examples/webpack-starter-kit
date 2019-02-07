@@ -6,6 +6,7 @@ import './css/base.css';
 import Game from'./Game.js';
 import Wheel from './Wheel.js';
 import data from './Data.js';
+import domUpdates from './domUpdates.js'
 
 //  Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
@@ -46,10 +47,11 @@ $('#spin-button').on('click', function(e) {
   e.preventDefault(e);
   wheel.getWheelValue(e, wheelOfFortune);
   $('.letter-button').removeClass('unavailable-bank-letter');
+  domUpdates.disableVowelButtons()
 })
 
 $('#solve-puzzle-button').on('click', function() {
-
+  domUpdates.solvePuzzlePrompt();
 })
 
 $('#submit-answer').on('click', function() {
