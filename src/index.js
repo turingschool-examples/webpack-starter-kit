@@ -6,7 +6,7 @@ import './css/base.css';
 import Game from'./Game.js';
 import Wheel from './Wheel.js';
 import data from './Data.js';
-import domUpdates from './domUpdates.js'
+import domUpdates from './domUpdates.js';
 
 //  Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
@@ -53,6 +53,10 @@ $('#submit-btn').on('click', function(e) {
   $('#solve-puzzle-button').on('click', function() {
     domUpdates.solvePuzzlePrompt();
   })
+
+  // $('#bonus-spin-btn').on('click', function() {
+    
+  // })
 
   $('#submit-answer').on('click', function() {
     let answerGuess = $('#solve-puzzle-input').val()

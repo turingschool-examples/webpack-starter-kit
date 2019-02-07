@@ -52,7 +52,7 @@ class Game {
     let roundPuzzle = this.setRoundPuzzle(this.gamePuzzles);
     // console.log(roundPuzzle);
     this.roundPuzzle = roundPuzzle.correctAnswer;
-    // console.log(this.roundPuzzle)
+    console.log(this.roundPuzzle)
     domUpdates.displayCategory(roundPuzzle);
     domUpdates.populateRoundPuzzle(this.roundPuzzle);
     return puzzleBank;
@@ -191,10 +191,10 @@ class Game {
     domUpdates.removeDisables();
     
     console.log(this.players)
-    if (this.currentRound > 2) {
+    if (this.currentRound > 1) {
       this.determineWinner();
       let bonusWheel = new BonusWheel();
-      bonusWheel.bonusSpin();
+      bonusWheel.newButton();
     }
   }
 }
