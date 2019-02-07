@@ -4,6 +4,7 @@ const domUpdates = {
     $('.hidden').removeClass('hidden');
     $('.start-page').remove();
     $('.solve-puzzle-section').toggleClass('hidden');
+    $('#bonus-spin-btn').addClass('hidden');
   },
 
   solvePuzzlePrompt() {
@@ -175,11 +176,57 @@ const domUpdates = {
       console.log(i);
       $(`#player-${i}-round-score`).text(0)
     })
-  }
+  },
 
-  // showWinner(name) {
-  //   $('#game-winner-display').text(`${name} won this round!`);
-  // }
+  hideSpinButton(bonuswheel) {
+    $('#spin-button').remove();
+    $('#bonus-spin-btn').removeClass('hidden');
+    $('#bonus-spin-btn').on('click', bonuswheel.bonusSpin);
+  },
+
+  displayBonusPrize(prize) {
+    $('.bonus-popup').text(`YOUR BONUS PRIZE IS ${prize}`);
+  },
+
+  disableBonusSpinButton() {
+    $('#bonus-spin-btn').prop('disabled', true)
+  },
+
+  bonusLetters() {
+    let numbers = [];
+    for(let i = 0; i < 53; i++) {
+      numbers.push(i);
+    }
+
+    const lettersArray = ['R', 'S', 'T', 'L', 'N', 'E']
+
+    numbers.forEach(number => {
+      if(lettersArray.includes($(`#box-${number}`).text())) {
+        $(`#box-${number}`).removeClass('hidden-word')
+        $(`#box-${number}`).addClass('correct-letter')
+      }
+    })
+
+    let letterNumbers = [];
+    for(let i = 0; i < 21; i++) {
+      letterNumbers.push(i)
+    }
+
+    letterNumbers.forEach(num => {
+      if(lettersArray.includes($(`#c${num}`).text())) {
+        $(`#c${num}`).removeClass('unavailable-bank-letter').addClass('disabled-bank-letter').prop('disabled', true);
+      }
+    })
+
+    // $('letter-button').removeClass
+    // $('.letter-button').prop('disabled', true);
+    $('.letter-button').removeClass('unavailable-bank-letter')
+  },
+
+  clickCounter(bonuswheel) {
+    console.log(bonuswheel)
+    $('.letter-button').on('click', bonuswheel.onlyThreeClicks)
+  }
 
 }
 

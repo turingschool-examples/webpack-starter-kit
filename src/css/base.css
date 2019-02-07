@@ -186,7 +186,7 @@ body {
   margin-bottom: 20px;
 }
 
-.user-button {
+.user-button, #bonus-spin-btn {
   height: 70px;
   width: 200px;
   background-color: lightyellow;
@@ -281,6 +281,20 @@ body {
   padding:3px;
 }
 
+#bonus-spin-btn {
+  background-color: orchid;
+  color: cyan;
+  border: 13px solid purple;
+  box-shadow: 3px 7px;
+}
+
+.bonus-popup {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 46px;
+  box-shadow: 3px 7px purple;
+}
+
 #submit-answer {
   width: 99px;
   height: 31px;
@@ -298,7 +312,6 @@ body {
   height: 30px;
   width:150px;
 }
-
 
 
 

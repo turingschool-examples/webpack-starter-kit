@@ -1,17 +1,42 @@
 import Wheel from './Wheel.js';
+import domUpdates from './domUpdates.js';
 
 class BonusWheel extends Wheel {
-  constructor(values, turnValue, players) {
+  constructor(values, turnValue = '', players, counter = 0) {
     super(values, turnValue, players)
+  }
 
-
+  newButton() {
+    domUpdates.hideSpinButton(this);
+    console.log(this)
+    this.onlyThreeClicks();
   }
 
   bonusSpin() {
-    let bonusValues = ['A BRAND NEW CAR!', '$25,000', 'A TRIP TO THE BASEMENT!']
-    this.values = bonusValues;
+    console.log('im spinning the bonus wheel')
+    this.values = ['A BRAND NEW CAR!', '$25,000', 'A TRIP TO THE BASEMENT!']
     // console.log(this.values)
+    // console.log(this.turnValue)
+    const randomIndex = Math.floor(Math.random() * 2) + 1;
+    // console.log(randomIndex);
+    this.turnValue = this.values[randomIndex];
+    // console.log(this.turnValue)
+    domUpdates.displayBonusPrize(this.turnValue)
+    domUpdates.disableBonusSpinButton();
+    domUpdates.enableConsonants()
+    domUpdates.bonusLetters();
   }
+
+  onlyThreeClicks() {
+    domUpdates.clickCounter(this);
+    this.counter++
+    console.log(this.counter)
+    if(this.counter >= 4) {
+      domUpdates.disableConsonants();
+    }
+    domUpdates.enableConsonants();
+  }
+
 }
 
 export default BonusWheel;
