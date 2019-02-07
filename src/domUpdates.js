@@ -4,18 +4,24 @@ import $ from 'jquery';
 
 const domUpdates = {
 
-  labelCategories([roundCategories]){
+  labelCategories([roundCategories]) {
     //in domupdates, make them real english words
     //add forEach here to iterate through category list to append names
-      console.log("is this working?");
-      let $category1 = roundCategories[0];
-      $('#category-0').text($category1);
-      let $category2 = roundCategories[1];
-      $('#category-1').text($category2);
-      let $category3 = roundCategories[2];
-      $('#category-2').text($category3);
-      let $category4 = roundCategories[3];
-      $('#category-3').text($category4);
+      let $category0 = roundCategories[0];
+      $('#category-0').text($category0);
+      let $category1 = roundCategories[1];
+      $('#category-1').text($category1);
+      let $category2 = roundCategories[2];
+      $('#category-2').text($category2);
+      let $category3 = roundCategories[3];
+      $('#category-3').text($category3);
+  },
+
+  removeCategories() {
+    $('#category-0').text(" ");
+    $('#category-1').text(" ");
+    $('#category-2').text(" ");
+    $('#category-3').text(" ");
   },
 
   removeStartScreen() {
@@ -81,7 +87,11 @@ const domUpdates = {
     let $recentClue = $(`#${id}`);
     $recentClue.removeClass('available-box');
     $recentClue.addClass('disabled');
-    //perhaps line to remove innertext, not sure if we want that
+  },
+
+  disableAllClues() {
+    $('.clue-box').removeClass('available-box');
+    $('.clue-box').addClass('disabled');
   },
 
   repopulateClues() {
