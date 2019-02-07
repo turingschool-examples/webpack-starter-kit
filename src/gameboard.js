@@ -92,15 +92,19 @@ class Gameboard {
       currentClue = selectedClue;
       currentLocation = selectedClueLocation;
     };
+    if (e.target.className.includes('wager-btn')) {
+      let $wagerAmount = $('#wagerInput').val();
+      console.log("CURRENT CLUE", currentClue);
+      currentClue.pointValue = $wagerAmount;
+      domUpdates.reassignPointValue($wagerAmount);
+      console.log("CURRENT CLUE POINTS", currentClue.pointValue);
+      domUpdates.removeWagerCard();
+    }
     if (e.target.className.includes('answer-btn')) {
         let $playerAnswer = $('#playerAnswer').val();
         domUpdates.disableClue(currentLocation);
         clue.checkAnswer(this, currentClue, $playerAnswer);
     };
-    if (e.target.className.includes('wager-btn')) {
-      let $wagerAmount = $('#wagerInput').val();
-      domUpdates.removeWagerCard();
-    }
   }
 
   assignCategories() {    
