@@ -3,7 +3,6 @@
 
 // Tell webpack to use a CSS file
 import './css/base.css';
-//  Tell webpack to use an image (link to it in index.html)
 
 import Player from './player.js';
 import Gameboard from './gameboard.js';

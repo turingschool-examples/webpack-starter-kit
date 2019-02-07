@@ -11,7 +11,7 @@ describe('Player', function() {
   var player;
 
   beforeEach(function() {
-    player = new Player();
+    // player = new Player();
     // chai.spy.on(domUpdates, 'startGame', returns => true);
   });
 
@@ -32,4 +32,13 @@ describe('Player', function() {
     expect(player.active).to.equal(false);
   });
 
-  });
+  it('should update their score', function() {
+    player = new Player("Archie", 0, 0, 1, false);
+    expect(player.score).to.equal(0);
+    player.updateScore(300);
+    expect(player.score).to.equal(300);
+    player.updateScore(-200);
+    expect(player.score).to.equal(100);
+  })
+
+});
