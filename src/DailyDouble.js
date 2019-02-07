@@ -1,9 +1,9 @@
 import Question from './Question.js'
 
 class DailyDouble extends Question {
-  constructor(question, answer, category, point, round) {
-    super(question, answer, category, point)
-    this.round = round;
+  constructor(question, answer, score) {
+    super(question, answer, score)
+    this.dailyDouble = true;
   }
 }
 

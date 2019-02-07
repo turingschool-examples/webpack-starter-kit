@@ -3,38 +3,35 @@ import domUpdates from '../src/domUpdates';
 
 import chai from 'chai';
 const expect = chai.expect;
-let assert = require('chai').assert
+
 import spies from 'chai-spies';
 chai.use(spies);
 chai.spy.on(domUpdates, ["correctAns", "wrongAns", "updateScore"], () => true)
 chai.spy.on(Player, "validAns", () => true)
 
-///////////////////
-// * ^imports^ * //
-///////////////////
-
 describe('Players', () => {
   
   it('should be a function', () => {
-    assert.isFunction(Player);
+    const player = new Player()
+    expect(player).to.be.a('object');
   });
   
   it('should instantiate a player', () => {
     const player = new Player();
     
-    assert.isObject(player);
+    expect(player).to.be.an.instanceOf(Player);
   });
   
   it('should have a name', () => {
     const player = new Player('Squirtle');
     
-    assert.equal(player.name, 'Squirtle');
+    expect(player.name).to.equal('Squirtle');
   });
   
   it('should have player score by default', () => {
     const player = new Player('charmander');
     
-    assert.equal(player.score, 0);
+    expect(player.score).to.equal(0);
   });
   
   it('should increase player score when correct answer', () => {

@@ -10,7 +10,7 @@ class Gameboard {
     this.activeRound = null;
     this.activePlayer = 0;
     this.allRounds = [];
-    this.cluesRemaining = 8;
+    this.cluesRemaining = 16;
     this.clues = [];
     this.catNames = [];
     this.roundOne = [];
@@ -76,7 +76,7 @@ class Gameboard {
     }
     this.activePlayer = this.players[this.playerIndex];
     this.changeRound();
-  }
+ }
 
   shuffle(array) {
     return array.sort(() => 0.5 - Math.random());

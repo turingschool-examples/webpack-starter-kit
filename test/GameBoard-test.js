@@ -7,11 +7,6 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 chai.spy.on(domUpdates, ["changeCatTitles", "b", "c"], () => true);
-// chai.spy.on(Player, "validAns", () => true);
-
-///////////////////
-// * ^imports^ * //
-///////////////////
 
 describe('Gameboard', function() {
   
@@ -23,8 +18,8 @@ describe('Gameboard', function() {
   it('should have default properties', () => {
     const gameboard = new Gameboard();
     expect(gameboard.players).to.deep.equal([]);
-    expect(gameboard.activeRound).to.deep.equal(null);
-    expect(gameboard.cluesRemaining).to.deep.equal(8);
+    expect(gameboard.activeRound).to.deep.equal(undefined);
+    expect(gameboard.cluesRemaining).to.deep.equal(16);
     expect(gameboard.clues).to.deep.equal([]);
     expect(gameboard.catNames).to.deep.equal([]);
   })
@@ -79,8 +74,11 @@ describe('Gameboard', function() {
     expect(gameboard.roundOne.catNames).to.have.lengthOf(4);
   });
   
-  describe('Functionality-Not-Finished', function () {
-    // pending test below
-    it('should change rounds when clues remaining reaches 0')
-  })
+  it.skip('should change rounds when clues remaining reaches 0', () => {
+    const gameboard = new Gameboard();
+    gameboard.instRound();
+    expect(gameboard.roundOne.length).to.equal(0);
+    gameboard.changeRound();
+    expect(gameboard.roundTwo.length).to.equal(16);
+  });
 });

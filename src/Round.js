@@ -5,7 +5,6 @@ class Round {
     this.catNames = [];
     this.catIds = [];
     this.clues = [];
-    this.pointValues = [];
   }
   
   startRound(game) {
