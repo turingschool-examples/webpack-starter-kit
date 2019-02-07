@@ -6,13 +6,8 @@ import './css/normalize.css';
 import './css/base.css';
 
 // Tell webpack to use a JS file
-import data from './data';
 import domUpdates from './domUpdates';
-import Question from './Question';
 import GameBoard from './GameBoard';
-import Player from './Players';
-import Round from './Round';
-import DailyDouble from './DailyDouble';
 
 // Tell webpack to import jQuery
 import $ from 'jquery';
@@ -54,7 +49,7 @@ $(".start--button").click(function (e) {
 $('.col').click(function () {
   tileId = event.target.id;
   game.cluesRemaining--;
-  $(this).css('visibility', 'hidden');
+  $(this).hide();
   domUpdates.showPopup();
   domUpdates.showQuestion(game, tileId);
 });

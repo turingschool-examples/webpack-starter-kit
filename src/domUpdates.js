@@ -70,7 +70,9 @@ export default {
       $('.cat2').text(names[2]);
       $('.cat3').text(names[3]);
       $('#round-js').text('2');
+      $('.col').show()
     } 
+    
   },
   
   correctAns() {
@@ -84,7 +86,6 @@ export default {
     game.players.forEach((player, ind) => {
       $(`#player-${ind}-hp`).text(player.score)
     })
-    console.log("this many:", game.cluesRemaining)
     $('#clue-num-js').text(game.cluesRemaining);
   }
 }

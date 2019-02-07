@@ -11,7 +11,7 @@
         <span id="round-js">1</span>
       </h4>
       <p class="clue-num"> Clues Left:
-        <span id="clue-num-js">8</span>
+        <span id="clue-num-js">16</span>
       </p>
       <button id="reset-game">reset game</button>
       <img class="logo" src="https://fontmeme.com/permalink/190130/002d60004702e6e93e82fa3bee891003.png" alt="pokemon-font" border="0">
@@ -55,21 +55,21 @@
       </article>
       <article class="rules">
         <h4><u>Players:</u></h4>
-        <section class="player !active">
+        <section id="p0-cont-js" class="player">
           <img id="squirtle" class="pokemon" src="images/Squirtle.png">
-          <p class="shadow !shadow--active"></p>
+          <p id="shadow-0-js" class="shadow"></p>
           <h5 id="p1-name-change-js">Player 1</h5>
           <h6>HP: <span id="player-0-hp">000</span></h6>
         </section>
-        <section class="player !active">
+        <section id="p1-cont-js" class="player">
           <img id="bulbasaur" class="pokemon" src="images/bulbasaur.png">
-          <p class="shadow !shadow--active"></p>
+          <p id="shadow-1-js" class="shadow"></p>
           <h5 id="p2-name-change-js">Player 2</h5>
           <h6>HP: <span id="player-1-hp">000</span></h6>
         </section>
-        <section class="player !active">
+        <section id="p2-cont-js" class="player">
           <img id="charmander" class="pokemon" src="images/charmander.png">
-          <p class="shadow !shadow--active"></p>
+          <p id="shadow-2-js" class="shadow"></p>
           <h5 id="p3-name-change-js">Player 3</h5>
           <h6>HP: <span id="player-2-hp">000</span></h6>
         </section>
@@ -115,7 +115,7 @@
       <div class="question-answer">
         <input type="text" class="popup-input" id="popup-input-js" placeholder="What is...">
         <button class="popup-btn">submit answer</button>
-        <button class="close-popup">Back to Game</button>
+        <button id="back-btn" class="close-popup">Back to Game</button>
       </div>
       <div class="question-img">
         <img src="images/Oak2.png" alt="Professor Oak">
