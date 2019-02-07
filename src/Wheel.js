@@ -5,7 +5,7 @@ import Player from './Player.js';
 import domUpdates from './domUpdates.js'
 
 class Wheel {
-  constructor(values = [], turnValue = 0, players) {
+  constructor(values = [], turnValue = 0, players =[]) {
     this.values = values,
     this.turnValue = turnValue,
     this.players = players

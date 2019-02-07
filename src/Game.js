@@ -36,7 +36,7 @@
     domUpdates.displayPlayers(playerOne, playerTwo, playerThree);
     this.activePlayer = playerOne;
     this.players = [playerOne, playerTwo, playerThree]
-    console.log(playerOne)
+    // console.log(playerOne)
     domUpdates.highlightActivePlayer(this.players)
   }
 
@@ -52,7 +52,7 @@
     let roundPuzzle = this.setRoundPuzzle(this.gamePuzzles);
     // console.log(roundPuzzle);
     this.roundPuzzle = roundPuzzle.correctAnswer;
-    console.log(this.roundPuzzle)
+    // console.log(this.roundPuzzle)
     domUpdates.displayCategory(roundPuzzle);
     domUpdates.populateRoundPuzzle(this.roundPuzzle);
     return puzzleBank;
@@ -76,8 +76,8 @@
 
   setRoundPuzzle(fourPuzzles) {
     let roundPuzzle = fourPuzzles.pop();
-    console.log(roundPuzzle)
-    console.log(this.gamePuzzles)
+    // console.log(roundPuzzle)
+    // console.log(this.gamePuzzles)
     return roundPuzzle;
     // domUpdates.displayPuzzle();
   }
@@ -91,18 +91,18 @@
         splitPuzzle.forEach(letter => {
         if(letter === clickedLetter) { 
           letterCount++;
-          console.log(letterCount);
+          // console.log(letterCount);
           console.log('this letter is here')
           domUpdates.revealGuessedLetter(letter, button);
         } 
       });
           let guessValue = wheel.multiplyRoundValue(letterCount);
-          console.log(guessValue)
+          // console.log(guessValue)
           if(guessValue === NaN) {
             this.activePlayer.roundScore = 0;
           }
           let roundScore = this.activePlayer.incrementRoundScore(guessValue);
-          console.log(roundScore);
+          // console.log(roundScore);
           domUpdates.updateRoundScore(roundScore, this.activePlayer.playerNumber);
      }
      else {
@@ -118,7 +118,7 @@
    changeTurn(turnValue) {
     // console.log(this.activePlayer)
       if(turnValue === 'BANKRUPT' || turnValue === 'LOSE A TURN') {
-      console.log(turnValue);
+      // console.log(turnValue);
       }
       
       if(this.activePlayer === this.players[0]) {
