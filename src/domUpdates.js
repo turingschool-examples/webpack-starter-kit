@@ -1,4 +1,3 @@
-import Gameboard from './gameboard.js';
 import './css/base.css';
 import $ from 'jquery';
 
@@ -53,8 +52,9 @@ const domUpdates = {
     let $clueDisplay = $('.question-card');
     $('.answer-btn').hide();
     $('#rightWrong').text('CORRECT!')
-    .removeClass('incorrect-feedback')
-    .addClass('correct-feedback').show();
+      .removeClass('incorrect-feedback')
+      .addClass('correct-feedback')
+      .show();
     $clueDisplay.fadeOut(1000, function() {
       $(this).hide();
     })
@@ -64,8 +64,9 @@ const domUpdates = {
     let $clueDisplay = $('.question-card');
     $('.answer-btn').hide();
     $('#rightWrong').text('INCORRECT!')
-    .removeClass('correct-feedback')
-    .addClass('incorrect-feedback').show();
+      .removeClass('correct-feedback')
+      .addClass('incorrect-feedback')
+      .show();
     $clueDisplay.fadeOut(1000, function() {
       $(this).hide();
     })
@@ -128,14 +129,8 @@ const domUpdates = {
     let $clueValue = $('#displayPointVal');
     $clueValue.text(`For $${wagerAmount}`);
   }
-  
 }
 
-  let $resetButton = $('#reset-button');
-
-  $resetButton.on('click', function() {
-    location.reload();
-  })
 
 
 export default domUpdates;

@@ -1,5 +1,5 @@
 class Player {
-  constructor(name, score, wager, playerNum) {
+  constructor(name, score, wager) {
     this.name = name;
     this.score = score;
   }
@@ -9,7 +9,6 @@ class Player {
   }
 
   wagerRange() {
-    //Minimum is 5, Max is the highest of either players current score or highest available clue value
   }
 }
 

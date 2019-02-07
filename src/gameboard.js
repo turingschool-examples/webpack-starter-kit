@@ -6,7 +6,7 @@ import Dailydouble from './dailyDouble.js';
 import $ from 'jquery';
 
 class Gameboard {
-  constructor(round, categoryList, firstRoundCategories, secondRoundCategories) {
+  constructor(round, categoryList) {
     this.round = round || 1;
     this.categoryList = Object.keys(data.categories);
     this.cluesWithCategories = [];
@@ -92,7 +92,8 @@ class Gameboard {
     let selectedClueLocation = e.target.id;
     let selectedClue = this.roundClues[selectedClueLocation];
     if (e.target.className.includes('available-box')) {
-      if (this.doubleCount[0] === this.turnCount || this.doubleCount[1] === this.turnCount) {
+      if (this.doubleCount[0] === this.turnCount || 
+        this.doubleCount[1] === this.turnCount) {
         let dailydouble = new Dailydouble;
         dailydouble.giveDouble(selectedClue);
       }
@@ -140,7 +141,7 @@ class Gameboard {
   assignCategories() {    
     function randomize(array) {
       return array.sort(() => 0.5 - Math.random());
-    };
+    }
 
     let category10Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 10
@@ -357,7 +358,10 @@ class Gameboard {
     }).shift()
     category1GameClues.push(point1100, point1200, point1300, point1400)
 
-    this.roundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName]
+    this.roundCategories = [this.roundClues[0].categoryName,
+      this.roundClues[4].categoryName,
+      this.roundClues[8].categoryName,
+      this.roundClues[12].categoryName]
     domUpdates.labelCategories([this.roundCategories]);
   }
 
@@ -380,8 +384,7 @@ class Gameboard {
       break;
     default:
     }
-    console.log("switched active player");
-  };
+  }
 
   changeRound2() {
     this.doubleCount.pop();
@@ -395,24 +398,23 @@ class Gameboard {
       clue.pointValue = clue.pointValue * 2;
     });
     domUpdates.setClueBoxPoints();
-    this.roundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName];
+    this.roundCategories = [this.roundClues[0].categoryName, 
+      this.roundClues[4].categoryName, 
+      this.roundClues[8].categoryName, 
+      this.roundClues[12].categoryName];
     domUpdates.labelCategories([this.roundCategories]);
-    //need a splash screen with next round?
     domUpdates.repopulateClues();
     this.turnCount = 0
     this.changePlayerTurn();
   }
 
   calculateWager() {
-    //should have instantiated all clues at start game so we can grab point value 
-    //of clues that haven't been chosen yet, or spliced them out of clues array
     let highestPointValue = 400;
     if (this.round === 2) {
       highestPointValue = 800
     } else if (this.round === 3) {
       highestPointValue = this.activePlayer.score
     }
-
     let wagerMin = 5;
     let wagerMax = highestPointValue;
   }
