@@ -47,7 +47,7 @@ const domUpdates = {
     let $clueDisplay = $('.question-card');
     $('.answer-btn').hide();
     $('#rightWrong').text('CORRECT!').removeClass('incorrect-feedback').addClass('correct-feedback').show();
-    $clueDisplay.fadeOut(3000, function() {
+    $clueDisplay.fadeOut(1000, function() {
       $(this).hide();
     })
   },
@@ -115,6 +115,11 @@ const domUpdates = {
     //   }
     //   console.log(clue.pointValue);
     // }) 
+  },
+
+  reassignPointValue(wagerAmount) {
+    let $clueValue = $('#displayPointVal');
+    $clueValue.text(`For $${wagerAmount}`);
   }
   
 }
