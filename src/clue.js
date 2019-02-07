@@ -16,9 +16,9 @@ class Clue {
     domUpdates.populateClueCard(selectedClue);
   }
 
-  checkAnswer(game, selectedClue, $playerAnswer) {
+  checkAnswer(game, selectedClue, playerAnswer) {
     console.log(selectedClue.answer);
-    if (selectedClue.answer.toLowerCase() === $playerAnswer.toLowerCase()) {
+    if (selectedClue.answer.toLowerCase() === playerAnswer.toLowerCase()) {
       domUpdates.correctFeedback();
       let answer = "correct";
       game.updateScore(answer, selectedClue.pointValue);

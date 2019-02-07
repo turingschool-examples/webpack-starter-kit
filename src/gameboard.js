@@ -26,37 +26,45 @@ class Gameboard {
       activePlayer.score += score;
     } else {
       activePlayer.score -= score;
-    }
+    };
     domUpdates.updatePlayerScore(this.activePlayer, activePlayer.score);
     this.turnCount++;
     this.checkTurnCount();
-    console.log("turnCount", this.turnCount);
+    this.checkRound();
   };
+
+  checkRound() {
+    if(this.round === 3) {
+      finalJeopardy();
+      //follow same path as daily double
+    }
+  }
 
   checkTurnCount() {
     if (this.turnCount > 3) {
-      this.round = 2;
-      this.changeRound();
+      this.round++;
+      this.changeRound2();
     } else {
       this.changePlayerTurn();
     }
   };
 
   startGame() {
-    console.log("You've started the game!");
     let dailydouble = new Dailydouble;
     this.doubleCount = dailydouble.doubleCountGenerator();
     console.log(this.doubleCount);
     console.log(this);
     this.collectClues();
     this.assignCategories();
+    this.calculateWager()
+    this.finishGame()
     domUpdates.activePlayerHighlight(this.activePlayer);
   };
 
-  createPlayers(game, $playerName1, $playerName2, $playerName3) {
-    let player1 = new Player($playerName1, 0, 0, 1, true);
-    let player2 = new Player($playerName2, 0, 0, 2, false);
-    let player3 = new Player($playerName3, 0, 0, 3, false);
+  createPlayers(game, playerName1, playerName2, playerName3) {
+    let player1 = new Player(playerName1, 0, 0, 1, true);
+    let player2 = new Player(playerName2, 0, 0, 2, false);
+    let player3 = new Player(playerName3, 0, 0, 3, false);
     game.playersArray.push(player1);
     game.playersArray.push(player2);
     game.playersArray.push(player3);
@@ -74,7 +82,6 @@ class Gameboard {
   selectCorrectClue(e) {
     let clue = new Clue();
     let selectedClueLocation = e.target.id;
-    console.log(this.roundClues);
     let selectedClue = this.roundClues[selectedClueLocation];
     if (e.target.className.includes('available-box')) {
       if (this.doubleCount === this.turnCount) {
@@ -260,7 +267,6 @@ class Gameboard {
     }).shift()
     category4GameClues.push(point4100, point4200, point4300, point4400);
     this.roundClues.push(category4GameClues);
-    console.log("gameboard 4", category4GameClues)
 
 
     let category3Clues = this.cluesWithCategories.filter(clue => {
@@ -283,10 +289,8 @@ class Gameboard {
     }).shift()
     category3GameClues.push(point3100, point3200, point3300, point3400)
     this.roundClues.push(category3GameClues);
-    console.log("gameboard 3", category3GameClues)
 
     this.roundClues = this.roundClues.flat();
-    console.log(this.roundClues);
 
     let category2Clues = this.cluesWithCategories.filter(clue => {
       return clue.categoryId === 2
@@ -308,7 +312,6 @@ class Gameboard {
     }).shift()
     category2GameClues.push(point2100, point2200, point2300, point2400);
     this.finalRoundClue.push(category2GameClues);
-    console.log("gameboard 2", category2GameClues)
 
     this.finalRoundClue = this.finalRoundClue.flat();
     console.log(this.finalRoundClue);
@@ -332,17 +335,10 @@ class Gameboard {
       return clue.pointValue === 400
     }).shift()
     category1GameClues.push(point1100, point1200, point1300, point1400)
-    console.log("gameboard 1", category1GameClues)
 
     this.roundCategories = [this.roundClues[0].categoryName, this.roundClues[4].categoryName, this.roundClues[8].categoryName, this.roundClues[12].categoryName]
-    console.log(this.roundCategories);
     domUpdates.labelCategories([this.roundCategories]);
-  //create an of the categories for each round with 4 questions for each round
   };
-
-  // createPlayers(playerNames) {
-    
-  // };
 
   changePlayerTurn() {
     switch (this.activePlayer) {
@@ -366,7 +362,7 @@ class Gameboard {
     console.log("switched active player");
   };
 
-  changeRound() {
+  changeRound2() {
     console.log("ROUND TWO");
     this.roundClues.splice(0, 16);
     this.roundClues.forEach((clue) => {
@@ -377,19 +373,37 @@ class Gameboard {
     domUpdates.labelCategories([this.roundCategories]);
     //need a splash screen with next round?
     domUpdates.repopulateClues();
-    this.turnCount = 0;
+    this.turnCount = 1;
   };
 
-  appendWager() {
-    //
+  calculateWager() {
+    //should have instantiated all clues at start game so we can grab point value of clues that haven't been chosen yet, or spliced them out of clues array
+    let highestPointValue = 400;
+    if(this.round === 2) {
+      highestPointValue = 800
+    } else if (this.round === 3) {
+      highestPointValue = this.activePlayer.score
+    };
+
+    let wagerMin = 5;
+    let wagerMax = highestPointValue;
+
+    //daily double and final jeopardy need to run updateScore(answer, score)
+
+    console.log("active player score", this.activePlayer.score);
   };
 
   finishGame() {
-
-  };
-
-  exitGame() {
-
+    //display winner popup
+    //have reset game button
+    //calculate winner using this.playersArray
+    console.log("PLAYERS ARRAY", this.playersArray);
+    let winner = winner;
+    let winnerList = this.playersArray[score].reduce((acc, currPlayer) {
+      
+      return acc;
+    });
+    console.log("WINNER", winnerList)
   };
 
   
