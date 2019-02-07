@@ -6,7 +6,7 @@ class Round {
     this.catIds = [];
     this.clues = [];
   }
-
+  
   startRound(game) {
     this.catIds.forEach(catId => {
       const catClues = data.clues.filter(clue => {
@@ -21,7 +21,7 @@ class Round {
       this.setDDQuestion();
     });
   }
-
+  
   getCatNames() {
     const catString = [
       'US History', 'Life Sciences', 'Public Health', 'Education Jargon',
@@ -32,7 +32,7 @@ class Round {
       return catString.find((name, index) => index === catId - 1);
     })
   }
-
+  
   setDDQuestion() {
     let index = Math.floor(Math.random() * this.clues.length);
     this.clues[index].dailyDouble = true;

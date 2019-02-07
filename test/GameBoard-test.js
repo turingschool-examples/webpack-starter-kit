@@ -26,15 +26,30 @@ describe('Gameboard', function() {
   
   it('should start at round 1', function() {
     const gameboard = new Gameboard();
-    expect(gameboard.activeRound).to.deep.equal(undefined);
+    gameboard.instRound();
+    expect(gameboard.activeRound).to.deep.equal(gameboard.allRounds[0]);
   });
-
+  
   it('should instatiate 3 rounds', function () {
     const gameboard = new Gameboard();
     gameboard.instRound();
     expect(gameboard.roundOne).to.be.a('object');
     expect(gameboard.roundTwo).to.be.a('object');
     expect(gameboard.roundThree).to.be.a('object');
+  });
+  
+  it('Rounds 1 & 2 should have 4 categories', function () {
+    const gameboard = new Gameboard();
+    gameboard.instRound();
+    expect(gameboard.roundOne.catNames).to.be.lengthOf(4);
+    expect(gameboard.roundTwo.catNames).to.be.lengthOf(4);
+  });
+  
+  it('Rounds 1 & 2 should have 16 clues', function () {
+    const gameboard = new Gameboard();
+    gameboard.instRound();
+    expect(gameboard.roundOne.clues).to.be.lengthOf(16);
+    expect(gameboard.roundTwo.clues).to.be.lengthOf(16);
   });
   
   it('should have three players', function() { 
