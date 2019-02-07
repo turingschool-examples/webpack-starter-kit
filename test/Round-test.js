@@ -2,6 +2,7 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Round from '../src/Round'
+import Game from '../src/GameBoard'
 
 describe('Round', function() {
 
@@ -17,9 +18,11 @@ describe('Round', function() {
     expect(round.clues).to.deep.equal([]);
   });
 
-  it.skip('should have 16 questions', () => {
+  it('should have 16 questions', () => {
     const round = new Round();
-    round.startRound();
+    const game = new Game();
+    game.shuffle();
+    round.startRound(game);
 
     expect(round.clues.length).to.equal(16);
   })

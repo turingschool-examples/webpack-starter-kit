@@ -18,7 +18,7 @@ describe('Gameboard', function() {
   it('should have default properties', () => {
     const gameboard = new Gameboard();
     expect(gameboard.players).to.deep.equal([]);
-    expect(gameboard.activeRound).to.deep.equal(undefined);
+    expect(gameboard.activeRound).to.deep.equal(null);
     expect(gameboard.cluesRemaining).to.deep.equal(16);
     expect(gameboard.clues).to.deep.equal([]);
     expect(gameboard.catNames).to.deep.equal([]);
