@@ -295,7 +295,6 @@ section h3 {
   grid-template-areas: 
   "img-oak question"
   "img-oak answer";
-  /* "img close"; */
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 3fr 1fr;
   height: 100%;
