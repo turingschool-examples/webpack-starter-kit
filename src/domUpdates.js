@@ -81,7 +81,6 @@ const domUpdates = {
     let $recentClue = $(`#${id}`);
     $recentClue.removeClass('available-box');
     $recentClue.addClass('disabled');
-    console.log("disabled");
     //perhaps line to remove innertext, not sure if we want that
   },
 
@@ -92,12 +91,10 @@ const domUpdates = {
   },
 
   activePlayerHighlight(activePlayerNum) {
-    console.log(activePlayerNum);
     $(`#avatar${activePlayerNum}`).css("background-color", "lightgreen")
   },
 
   deactivatePlayerHighlight(activePlayerNum) {
-    console.log(activePlayerNum);
     $(`#avatar${activePlayerNum}`).css("background-color", "#853c1e")
   },
 
