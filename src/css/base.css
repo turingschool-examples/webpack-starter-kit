@@ -13,6 +13,7 @@ body {
   background-color: #2c7ac9;
   margin: 0;
   padding: 0;
+  font-family: 'Rubik', sans-serif;
 }
 
 input:focus,
@@ -334,6 +335,6 @@ table th {
   color: #7e9ea8;
 }
 
-./*dollar {
+/*.dollar {
   margin-left: 10px;
 }*/

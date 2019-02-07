@@ -17,7 +17,7 @@ describe('Gameboard', function() {
   });
 
   afterEach(function() {
-    chai.spy.restore(domUpdates);
+    // chai.spy.restore(domUpdates);
   });
 
   it('should have default properties', function() {

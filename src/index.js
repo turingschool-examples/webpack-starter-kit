@@ -4,13 +4,9 @@
 // Tell webpack to use a CSS file
 import './css/base.css';
 //  Tell webpack to use an image (link to it in index.html)
-// import './images/turing-logo.png'
 
 import Player from './player.js';
-// import Clue from './clue.js';
 import Gameboard from './gameboard.js';
-import Finalround from './finalRound.js';
-// import Dailydouble from './dailyDouble.js';
 import $ from 'jquery';
 import domUpdates from './domUpdates.js';
 
@@ -28,34 +24,14 @@ $startBtn.on('click', function(e) {
   domUpdates.removeStartScreen();
 });
 
-// let currentClue = {};
-// let currentLocation = 0;
-
 $('body').on('click', function(e) {
   e.preventDefault;
-  game.selectCorrectClue(e);
-  // let clue = new Clue();
-  // let selectedClueLocation = e.target.id;
-  // let selectedClue = game.roundClues[selectedClueLocation];
-  // if (e.target.className.includes('available-box')) {
-  //   clue.showClue(selectedClue);
-  //   currentClue = selectedClue;
-  //   currentLocation = selectedClueLocation;
-  // };
-  // if (e.target.className.includes('answer-btn')) {
-  //     let $playerAnswer = $('#playerAnswer').val();
-  //     domUpdates.disableClue(currentLocation);
-  //     clue.checkAnswer(game, currentClue, $playerAnswer);
-  //   }
-  });
-
-// $answerClue.on('click', function(e) {
-//   e.preventDefault();
-//   domUpdates.removeClueCard();
-//   domUpdates.answerFeedback(selectedClue);
-// })
-  //clue.checkAnswer() ??
-
+  if (game.round === 3) {
+    game.selectFinalJeopardy(e);
+  } else {
+    game.selectCorrectClue(e);
+  }
+});
 
 function pullNames() {
   let $playerName1 = $('#playerNameInput1').val();
