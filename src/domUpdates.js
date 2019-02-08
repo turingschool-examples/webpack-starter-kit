@@ -92,16 +92,6 @@ const domUpdates = {
     })
   },
 
-  highlightActivePlayer(players) {
-    players.forEach(player => {
-      if (player.active === true) {
-        $(`#player-box-${player.playerNumber}`).addClass('active-player')
-      } else if (player.active !== true) {
-        $(`#player-box-${player.playerNumber}`).removeClass('active-player')
-      }
-    })
-  },
-
   enableConsonants() {
     $('.letter-button').prop('disabled', false);
   },

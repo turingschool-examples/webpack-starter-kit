@@ -10,7 +10,7 @@ describe('Player', function() {
     expect(player.name).to.equal(undefined);
     expect(player.roundScore).to.equal(0);
     expect(player.totalScore).to.equal(0);
-    expect(player.playerNumbner).to.equal(undefined)
+    expect(player.playerNumber).to.equal(0)
   })
 
   it('should instantiate a new player', function() {

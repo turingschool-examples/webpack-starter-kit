@@ -97,23 +97,17 @@ class Game {
     domUpdates.enableSpinButton();
     domUpdates.disableConsonants();
   }
+    return true;
   }
 
   changeTurn(currentValue) {
     if (currentValue === 'BANKRUPT' || currentValue === 'LOSE A TURN') {
     }
-      
     if (this.activePlayer === this.players[0]) {
-      this.players[0].active = false;
-      this.players[1].active = true;
       this.activePlayer = this.players[1]
     } else if (this.activePlayer === this.players[1]) {
-      this.players[1].active = false;
-      this.players[2].active = true;
       this.activePlayer = this.players[2]
     } else {
-      this.players[0].active = true;
-      this.players[2].active = false;
       this.activePlayer = this.players[0]
     }
 

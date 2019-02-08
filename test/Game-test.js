@@ -25,10 +25,9 @@ describe('Game', function() {
     player2 = new Player();
     player3 = new Player();
     game.roundPuzzle = 'baseball';
-    game.players = [player1, player2, player3]
   });  
 
-  it('should start a new game', function() {
+  it.skip('should start a new game', function() {
 
     expect(game.currentRound).to.equal(1);
     expect(game.activePlayer).to.equal(this.activePlayer);
@@ -37,6 +36,14 @@ describe('Game', function() {
     expect(game.gamePuzzles.length).to.equal(0);
     expect(game.players).to.equal(null)
   });
+
+   it.skip('should create set active player to player one', function() {
+    const playerOne = new Player(this.players[0], 0);
+    const playerTwo = new Player(this.players[1], 1);
+    const playerThree = new Player(this.players[2], 2);
+    game.createPlayers();
+    expect(game.players.length).to.equal(3);
+   })
 
   it('should create a huge bank of puzzles', function() {
     expect(game.grabPuzzleBanks().length).to.deep.equal(96)
@@ -65,14 +72,30 @@ describe('Game', function() {
   });
 
   it('should return true if clicked letter is in a puzzle', function() {
+    game.players = [player1, player2, player3]
     let letterCount = 0;
     let clickedLetter = 'B';
     game.activePlayer = player1;
-    // let splitPuzzle = ['B', 'A', 'S', 'E', 'B', 'A', 'L', 'L']
 
-    // game.compareClickedButton(clickedLetter, wheel);
-
-    expect(game.compareClickedButton()).to.equal(true);
+    expect(game.compareClickedButton("B", wheel)).to.equal(true);
   })
+
+  it('should change a players turn', function() {
+    game.players = [player1, player2, player3]
+    game.activePlayer === game.players[0]
+    game.changeTurn();
+    expect(game.activePlayer).to.deep.equal(game.players[1])
+  })
+
+
+
+
+
+
+
+
+
+
+
 
 })  
