@@ -17,10 +17,10 @@ class Round {
         this.clues.push(shuffledClues.find(clue => {
           return clue.pointValue === 100 * i;
         }));
-      this.setDDQuestion();
-    }
-  })
-}
+      }
+    })
+    this.setDDQuestion(game);    
+  }
   
   getCatNames() {
     const catString = [
@@ -33,10 +33,10 @@ class Round {
     })
   }
   
-  setDDQuestion() {
+  setDDQuestion(game) {
     let index = Math.floor(Math.random() * this.clues.length);
     this.clues[index].dailyDouble = true;
-    if (this.round === 2) {
+    if (game.roundTwo === this) {
       let index2 = Math.floor(Math.random() * this.clues.length);
       this.clues[index2].dailyDouble = true;
     }
