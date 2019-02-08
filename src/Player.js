@@ -1,17 +1,16 @@
 class Player {
-  constructor(name, active = false, playerNumber, roundScore = 0, totalScore = 0) {
+  constructor(name, playerNumber = 0, roundScore = 0, totalScore = 0) {
     this.name = name;
-    this.active = active;
     this.roundScore = roundScore;
     this.totalScore = totalScore;
-    this.playerNumber = playerNumber
+    this.playerNumber = playerNumber;
   }
 
 
-  incrementRoundScore(turnValue) {
+  incrementRoundScore(currentValue) {
     let roundScore;
-    if (Number.isInteger(turnValue)) {
-      roundScore = this.roundScore += turnValue;
+    if (Number.isInteger(currentValue)) {
+      roundScore = this.roundScore += currentValue;
     } else {
       roundScore = this.roundScore += 0
     }

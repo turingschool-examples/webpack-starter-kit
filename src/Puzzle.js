@@ -14,19 +14,14 @@ class Puzzle {
 
   buyAVowel(player) {
     this.vowelsBank
-    console.log(player.roundScore)
     if(player.roundScore < 100) {
       window.alert('you dont have enough money')
       return;
     } else {
       player.roundScore -= 100
       domUpdates.updateRoundScore(player.roundScore, player.playerNumber)
-      console.log(player.roundScore)
       domUpdates.enableVowelButtons()
     }
-    //subtracting players round score
-    //pass in player/round score
-    //conditional enough money (100)
   }
 
   populateConsonantsBank() {

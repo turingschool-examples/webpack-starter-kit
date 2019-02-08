@@ -10,7 +10,7 @@ describe('Wheel', function() {
   it('should have default wheel values', function() {
     wheel = new Wheel()
     expect(wheel.values).to.deep.equal([]);
-    expect(wheel.turnValue).to.equal(0);
+    expect(wheel.currentValue).to.equal(0);
     expect(wheel.players).to.deep.equal([])
   })
 
@@ -18,7 +18,7 @@ describe('Wheel', function() {
   it('should instantiate a new wheel', function() {
     wheel = new Wheel([1, 2, 3, 4, 5, 6, 7, 8], 600);
     expect(wheel.values).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8]);
-    expect(wheel.turnValue).to.equal(600);
+    expect(wheel.currentValue).to.equal(600);
   });
 
   // it('should populate the wheel with all wheel values but randomized', function() {
