@@ -17,10 +17,10 @@ class Round {
         this.clues.push(shuffledClues.find(clue => {
           return clue.pointValue === 100 * i;
         }));
-      }
       this.setDDQuestion();
-    });
-  }
+    }
+  })
+}
   
   getCatNames() {
     const catString = [
