@@ -18,20 +18,20 @@ $('#submit-btn').on('click', function(e) {
   let playerThree = $('#player-three').val();
 
   playersArray.push(playerOne, playerTwo, playerThree);
-  const wheelOfFortune = new Game(playersArray);
+  const wheelOfFortune = new Game();
 
   wheel = new Wheel(data.wheel);
 
-  wheelOfFortune.startGame();
+  wheelOfFortune.startGame(playersArray);
 
   $('.letter-button').on('click', function(e) {
     let clickedLetter = e.target.innerHTML;
     let clickedButton = e.target
-    wheelOfFortune.compareClickedButton(clickedLetter, wheel, clickedButton)
+    wheelOfFortune.compareClickedButton(clickedLetter, wheel, clickedButton, playersArray)
   })
 
   $('#buy-vowel-button').on('click', function () {
-    wheelOfFortune.gamePuzzles[0].buyAVowel(wheelOfFortune.activePlayer)
+    wheelOfFortune.gamePuzzles[0].buyAVowel(wheelOfFortune.activePlayer, window)
   })
 
   $('#spin-button').on('click', function(e) {
@@ -47,7 +47,7 @@ $('#submit-btn').on('click', function(e) {
 
   $('#submit-answer').on('click', function() {
     let answerGuess = $('#solve-puzzle-input').val()
-    wheelOfFortune.compareFinalAnswer(answerGuess)
+    wheelOfFortune.compareFinalAnswer(answerGuess, playersArray)
   })
 
 })

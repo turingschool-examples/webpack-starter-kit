@@ -16,22 +16,21 @@ class Game {
     this.roundPuzzle = roundPuzzle
   }
 
-  startGame() {
-    this.createPlayers(this.players);
+  startGame(playersArray) {
+    this.createPlayers(playersArray);
     this.grabPuzzleBanks();
     domUpdates.removeStartPage();
     this.gamePuzzles[0].populateConsonantsBank();
     domUpdates.promptToSpin(this.players);
   }
 
-  createPlayers() {
-    const playerOne = new Player(this.players[0], 0);
-    const playerTwo = new Player(this.players[1], 1);
-    const playerThree = new Player(this.players[2], 2);
+  createPlayers(playersArray) {
+    const playerOne = new Player(playersArray[0], 0);
+    const playerTwo = new Player(playersArray[1], 1);
+    const playerThree = new Player(playersArray[2], 2);
     domUpdates.displayPlayers(playerOne, playerTwo, playerThree);
     this.activePlayer = playerOne;
     this.players = [playerOne, playerTwo, playerThree]
-    domUpdates.highlightActivePlayer(this.players)
   }
 
   grabPuzzleBanks() {
@@ -70,7 +69,7 @@ class Game {
     return roundPuzzle;
   }
 
-  compareClickedButton(clickedLetter, wheel, button) {
+  compareClickedButton(clickedLetter, wheel, button, players) {
     let splitPuzzle = this.roundPuzzle.toUpperCase().split('')
     let letterCount = 0;
 
@@ -89,7 +88,7 @@ class Game {
       domUpdates.updateRoundScore(roundScore, this.activePlayer.playerNumber);
       }
      else {
-      this.changeTurn();
+      this.changeTurn(players);
     }
     if(this.currentRound < 2) {
     domUpdates.disableButton(button);
@@ -100,18 +99,17 @@ class Game {
     return true;
   }
 
-  changeTurn(currentValue) {
-    if (currentValue === 'BANKRUPT' || currentValue === 'LOSE A TURN') {
-    }
-    if (this.activePlayer === this.players[0]) {
-      this.activePlayer = this.players[1]
-    } else if (this.activePlayer === this.players[1]) {
-      this.activePlayer = this.players[2]
-    } else {
-      this.activePlayer = this.players[0]
-    }
+  changeTurn() {
 
-    if (this.currentRound < 2) {
+     if (this.activePlayer === this.players[0]) {
+        this.activePlayer = this.players[1]
+      } else if (this.activePlayer === this.players[1]) {
+        this.activePlayer = this.players[2]
+      } else {
+        this.activePlayer = this.players[0]
+      }
+
+    if (this.currentRound < 3) {
     domUpdates.disableVowelButtons();
     domUpdates.disableConsonants();
     domUpdates.highlightActivePlayer(this.players);
@@ -120,7 +118,7 @@ class Game {
   }
   }
 
-  compareFinalAnswer(answer) {
+  compareFinalAnswer(answer, players) {
     if (answer.toLowerCase() === this.roundPuzzle.toLowerCase()) {
       this.roundWinner = this.activePlayer;
       this.activePlayer.totalScore += this.activePlayer.roundScore
@@ -128,8 +126,9 @@ class Game {
       domUpdates.updateTotalScore(this.activePlayer, this.activePlayer.playerNumber);
       domUpdates.displayRoundWinner(this.roundWinner)
       this.goToNextRound();
+      return true;
     } else {
-      this.changeTurn();
+      this.changeTurn(players);
     }
   }
 
@@ -137,10 +136,14 @@ class Game {
     let winningScore = this.players.map(player => {
       return player.totalScore;
     }).sort((a, b) => {
-      return a - b
+      return b - a
     }).shift();
 
-    let winningPlayer = this.players.totalScore === winningScore;
+    let winningPlayer = this.players.find(player => {
+      return player.totalScore === winningScore
+    })
+
+    return winningPlayer
   }
 
   goToNextRound() {
@@ -157,8 +160,8 @@ class Game {
     domUpdates.removeDisables();
     
     if (this.currentRound > 1) {
-      this.determineWinner();
-      let bonusWheel = new BonusWheel();
+      let winningPlayer = this.determineWinner();
+      let bonusWheel = new BonusWheel(null, null, winningPlayer);
       bonusWheel.newButton();
     }
   }

@@ -15,7 +15,7 @@ class Puzzle {
   buyAVowel(player) {
     this.vowelsBank
     if(player.roundScore < 100) {
-      window.alert('you dont have enough money')
+      domUpdates.notEnoughFunds()
       return;
     } else {
       player.roundScore -= 100

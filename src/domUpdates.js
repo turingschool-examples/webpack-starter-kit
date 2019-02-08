@@ -141,7 +141,6 @@ const domUpdates = {
 
   resetRoundScores(players) {
     players.forEach((player,i) => {
-      console.log(i);
       $(`#player-${i}-round-score`).text(0)
     })
   },
@@ -191,6 +190,10 @@ const domUpdates = {
 
   clickCounter(bonuswheel) {
     $('.letter-button').on('click', bonuswheel.onlyThreeClicks)
+  },
+
+  notEnoughFunds() {
+    window.alert('you dont have enough money');
   }
 }
 

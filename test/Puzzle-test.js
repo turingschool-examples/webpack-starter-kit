@@ -7,7 +7,7 @@ import Player from '../src/Player.js';
 chai.use(spies);
 
 const expect = chai.expect
-chai.spy.on(domUpdates, ['displayLetters', 'enableVowelButtons'], () => true);
+chai.spy.on(domUpdates, ['displayLetters', 'enableVowelButtons', 'buyAVowel', 'notEnoughFunds'], () => true);
  
 describe('Puzzle', function() {
   let puzzle;
@@ -28,13 +28,13 @@ beforeEach(function() {
   });
   
   it('should buy a vowel', function () {
-    let player = new Player('adam', true, 1, 2500)
+    let player = new Player('adam', 1, 2500)
     puzzle.buyAVowel(player);
     expect(player.roundScore).to.equal(2400)
   });
 
   it('should populate a bank of consonants and vowels', function() {
-    expect(puzzle.populateConsonantsBank()).to.deep.equal([['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'],['A', 'E',' I', 'O', 'U']])
+    expect(puzzle.populateConsonantsBank()).to.deep.equal([['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'],['A', 'E', 'I', 'O', 'U']])
   });
 
 
