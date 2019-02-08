@@ -39,10 +39,12 @@ class Gameboard {
     this.roundOne.startRound(this);
     this.roundOne.getCatNames();
 
+
     this.roundTwo = new Round();
     this.roundTwo.catIds = gameArr.splice(0, 4);
     this.roundTwo.startRound(this);
     this.roundTwo.getCatNames();
+    
 
     this.roundThree = new Round();
     this.roundThree.catIds = gameArr.splice(0, 1);
