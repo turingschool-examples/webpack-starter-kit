@@ -2,6 +2,7 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Round from '../src/Round'
+import Gameboard from '../src/GameBoard';
 
 describe('Round', function() {
 
@@ -22,7 +23,18 @@ describe('Round', function() {
     round.startRound();
 
     expect(round.clues.length).to.equal(16);
-  })
+  });
+
+  it('Should have catNames from our list', function () {
+    const gameboard = new Gameboard();
+    gameboard.instRound();
+    gameboard.roundOne.startRound(gameboard);
+    gameboard.roundOne.getCatNames();
+    expect(gameboard.roundOne.catNames).to.have.lengthOf(4);
+    gameboard.roundOne.catIds = [1, 2, 3, 4];
+    gameboard.roundOne.getCatNames();
+    expect(gameboard.roundOne.catNames).to.deep.equal(['US History', 'Life Sciences', 'Public Health', 'Education Jargon']);
+  });
 
   it.skip('should have one Daily Double for Round 1', function() {
     const round = new Round();
@@ -36,6 +48,5 @@ describe('Round', function() {
     expect(round.clues.dailyDouble).to.equal(false);
     round.setDDQuestion();
     expect(round.clues.dailyDouble).to.equal(true);
-  })
-
+  });
 })

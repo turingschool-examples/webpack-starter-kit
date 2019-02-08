@@ -30,7 +30,7 @@ class Round {
     ];
     this.catNames = this.catIds.map(catId => {
       return catString.find((name, index) => index === catId - 1);
-    })
+    });
   }
   
   setDDQuestion() {

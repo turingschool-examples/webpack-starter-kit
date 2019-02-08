@@ -51,22 +51,28 @@ describe('Gameboard', function() {
     expect(gameboard.roundOne.clues).to.be.lengthOf(16);
     expect(gameboard.roundTwo.clues).to.be.lengthOf(16);
   });
+
+  it('RoundOne & roundTwo should have differnet catNames', function () {
+    const gameboard = new Gameboard();
+    gameboard.instRound();
+    expect(gameboard.roundOne.catNames).to.not.equal(gameboard.roundTwo.catNames)
+  });
   
-  it('should have three players', function() { 
+  it('Should have three players', function() { 
     const gameboard = new Gameboard();
     let playerInt = ["Squirtel", "bulbasaur", "Charmander"];
     gameboard.createPlayers(playerInt);
     expect(gameboard.players).to.have.lengthOf(3);
   });
   
-  it('should change players when their turn is over', () => {
+  it('Should change players when their turn is over', () => {
     const gameboard = new Gameboard();
     expect(gameboard.activePlayer).to.equal(0);
     gameboard.changeTurn()
     expect(gameboard.activePlayer).to.equal(gameboard.players[1]);
   })
   
-  it('should have an array of categories', () => {
+  it('Should have an array of categories', () => {
     const gameboard = new Gameboard();
     gameboard.instRound();
     gameboard.roundOne.startRound(gameboard);
@@ -74,7 +80,7 @@ describe('Gameboard', function() {
     expect(gameboard.roundOne.catNames).to.have.lengthOf(4);
   });
   
-  it.skip('should change rounds when clues remaining reaches 0', () => {
+  it.skip('Should change rounds when clues remaining reaches 0', () => {
     const gameboard = new Gameboard();
     gameboard.instRound();
     expect(gameboard.roundOne.length).to.equal(0);
