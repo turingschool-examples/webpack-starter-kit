@@ -2,8 +2,9 @@ import Wheel from './Wheel.js';
 import domUpdates from './domUpdates.js';
 
 class BonusWheel extends Wheel {
-  constructor(values, currentValue = '', player, counter = 0) {
+  constructor(values=[], currentValue = '', player, counter = 0) {
     super(values, currentValue, player)
+      
   }
 
   newButton() {
