@@ -26,11 +26,11 @@ describe('Round', function() {
 
     game.shuffle(arr);
     game.instRound();
-    expect(round.clues.length).to.equal(16);
+    expect(game.roundOne.clues.length).to.equal(16);
   });
 
   it('Should have catNames from our list', function () {
-    const gameboard = new Gameboard();
+    const gameboard = new GameBoard();
     gameboard.instRound();
     gameboard.roundOne.startRound(gameboard);
     gameboard.roundOne.getCatNames();

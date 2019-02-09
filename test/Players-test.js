@@ -25,16 +25,4 @@ describe('Player', () => {
     const difference = scoreAfter + scoreBefore;
     expect(player.score).to.equal(difference);
   });
-
-  it('should validate a players answers', () => {
-    const player = new Player();
-    
-    player.validAns(clue, game)
-
-    expect(player.ansInput).to.equal(clue.answer);
-    domUpdates.correctAns();
-
-    expect(player.ansInput).to.not.equal(clue.answer);
-    domUpdates.wrongAns();
-  })
 });
