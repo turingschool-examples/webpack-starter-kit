@@ -26,9 +26,19 @@ describe('Round', function() {
 
     game.shuffle(arr);
     game.instRound();
+    expect(round.clues.length).to.equal(16);
+  });
 
-    expect(game.roundOne.clues.length).to.equal(16);
-  })
+  it('Should have catNames from our list', function () {
+    const gameboard = new Gameboard();
+    gameboard.instRound();
+    gameboard.roundOne.startRound(gameboard);
+    gameboard.roundOne.getCatNames();
+    expect(gameboard.roundOne.catNames).to.have.lengthOf(4);
+    gameboard.roundOne.catIds = [1, 2, 3, 4];
+    gameboard.roundOne.getCatNames();
+    expect(gameboard.roundOne.catNames).to.deep.equal(['US History', 'Life Sciences', 'Public Health', 'Education Jargon']);
+  });
 
   it('should have one Daily Double for Round 1', function() {
     const game = new GameBoard();
@@ -44,18 +54,9 @@ describe('Round', function() {
   it('should have two daily doubles for round 2', () => {
     const game = new GameBoard();
     const round = new Round();
-    // const arr = game.players;
-    
-    // game.shuffle(arr);
-    // round.startRound();
-    
     game.instRound();
-    
     let arr2 = game.roundTwo.clues.filter((clue) => clue.hasOwnProperty('dailyDouble'))
-
-
     expect(arr2[0].dailyDouble).to.equal(true);
     expect(arr2[1].dailyDouble).to.equal(true);
   });
-
 })

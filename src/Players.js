@@ -8,7 +8,8 @@ class Player {
     this.ansInput = "what is";
   }
   validAns(clue, game) {
-    this.findjQuery();
+    this.ansInput = domUpdates.findjQuery();
+
     if (this.ansInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.score += clue.pointValue
       domUpdates.correctAns();
@@ -19,9 +20,7 @@ class Player {
     domUpdates.updateScore(game);
     game.changeTurn();
   }
-  findjQuery() {
-    this.ansInput = $('#popup-input-js').val()
-  }
+  
 }
 
 

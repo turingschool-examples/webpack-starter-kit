@@ -6,8 +6,8 @@ const expect = chai.expect;
 
 import spies from 'chai-spies';
 chai.use(spies);
-chai.spy.on(domUpdates, ["correctAns", "wrongAns", "updateScore"], () => true)
-chai.spy.on(Player, "validAns", () => true)
+chai.spy.on(domUpdates, ["correctAns", "wrongAns", "updateScore", "findjQuery"], () => true)
+
 
 describe('Player', () => {
   
@@ -19,6 +19,7 @@ describe('Player', () => {
   
   it('should increase player score when correct answer', () => {
     const player = new Player('Squirtle');
+    expect(domUpdates.findjQuery).to.have.been.called;
     const scoreBefore = player.score;
     const scoreAfter = player.score;
     const difference = scoreAfter + scoreBefore;

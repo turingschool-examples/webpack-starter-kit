@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Player from './Players'
 
 
 export default {
@@ -46,10 +47,14 @@ export default {
     $('.question-result').show();
     if (game.activeRound === game.roundOne) {
       let ans = game.roundOne.clues[tileId]
+      // this.findjQuery();
+      console.log(Player.ansInput);
       game.activePlayer.validAns(ans, game);
       $answer.text(ans.answer);
     } else if (game.activeRound === game.roundTwo) {
       let ans = game.roundTwo.clues[tileId]
+      
+      console.log(Player.ansInput);
       game.activePlayer.validAns(ans, game);
       $answer.text(ans.answer);
     } 
@@ -72,7 +77,10 @@ export default {
       $('#round-js').text('2');
       $('.col').css('visibility', 'visible')
     } 
-    
+  },
+
+  findjQuery() {
+   return $('#popup-input-js').val()
   },
   
   correctAns() {

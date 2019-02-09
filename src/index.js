@@ -8,6 +8,7 @@ import './css/base.css';
 // Tell webpack to use a JS file
 import domUpdates from './domUpdates';
 import GameBoard from './GameBoard';
+import Player from './Players';
 
 // Tell webpack to import jQuery
 import $ from 'jquery';
