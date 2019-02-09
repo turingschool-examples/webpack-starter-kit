@@ -2,7 +2,9 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Round from '../src/Round'
-import Gameboard from '../src/GameBoard';
+import GameBoard from '../src/GameBoard'
+import Question from '../src/Question';
+import data from '../src/data'
 
 describe('Round', function() {
 
@@ -18,10 +20,12 @@ describe('Round', function() {
     expect(round.clues).to.deep.equal([]);
   });
 
-  it.skip('should have 16 questions', () => {
-    const round = new Round();
-    round.startRound();
+  it('should have 16 questions', () => {
+    const game = new GameBoard();
+    const arr = game.players;
 
+    game.shuffle(arr);
+    game.instRound();
     expect(round.clues.length).to.equal(16);
   });
 
@@ -36,17 +40,23 @@ describe('Round', function() {
     expect(gameboard.roundOne.catNames).to.deep.equal(['US History', 'Life Sciences', 'Public Health', 'Education Jargon']);
   });
 
-  it.skip('should have one Daily Double for Round 1', function() {
-    const round = new Round();
-    round.startRound();
-    let obj = round.clues.find((clue) => clue.hasOwnProperty('dailyDouble'))
-    expect(obj).to.have.keys('dailyDouble')
-  });
+  it('should have one Daily Double for Round 1', function() {
+    const game = new GameBoard();
+    const arr = game.players;
 
-  it.skip('should have two daily doubles for round 2', () => {
+    game.shuffle(arr);
+    game.instRound();
+    
+    let dd = game.roundOne.clues.find((clue) => clue.hasOwnProperty('dailyDouble'))
+    expect(dd.dailyDouble).to.equal(true)
+  });
+  
+  it('should have two daily doubles for round 2', () => {
+    const game = new GameBoard();
     const round = new Round();
-    expect(round.clues.dailyDouble).to.equal(false);
-    round.setDDQuestion();
-    expect(round.clues.dailyDouble).to.equal(true);
+    game.instRound();
+    let arr2 = game.roundTwo.clues.filter((clue) => clue.hasOwnProperty('dailyDouble'))
+    expect(arr2[0].dailyDouble).to.equal(true);
+    expect(arr2[1].dailyDouble).to.equal(true);
   });
 })

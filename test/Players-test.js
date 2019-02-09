@@ -9,28 +9,11 @@ chai.use(spies);
 chai.spy.on(domUpdates, ["correctAns", "wrongAns", "updateScore", "findjQuery"], () => true)
 
 
-describe('Players', () => {
+describe('Player', () => {
   
-  it('should be a function', () => {
-    const player = new Player()
-    expect(player).to.be.a('object');
-  });
-  
-  it('should instantiate a player', () => {
-    const player = new Player();
-    
-    expect(player).to.be.an.instanceOf(Player);
-  });
-  
-  it('should have a name', () => {
-    const player = new Player('Squirtle');
-    
-    expect(player.name).to.equal('Squirtle');
-  });
-  
-  it('should have player score by default', () => {
-    const player = new Player('charmander');
-    
+  it('should have default properties', () => {
+    const player = new Player('Squirtle')
+    expect(player).to.be.an.instanceOf(Player); expect(player.name).to.equal('Squirtle');
     expect(player.score).to.equal(0);
   });
   
@@ -42,4 +25,16 @@ describe('Players', () => {
     const difference = scoreAfter + scoreBefore;
     expect(player.score).to.equal(difference);
   });
+
+  it('should validate a players answers', () => {
+    const player = new Player();
+    
+    player.validAns(clue, game)
+
+    expect(player.ansInput).to.equal(clue.answer);
+    domUpdates.correctAns();
+
+    expect(player.ansInput).to.not.equal(clue.answer);
+    domUpdates.wrongAns();
+  })
 });

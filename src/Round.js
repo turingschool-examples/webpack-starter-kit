@@ -18,8 +18,8 @@ class Round {
           return clue.pointValue === 100 * i;
         }));
       }
-      this.setDDQuestion(game);
-    });
+    })
+    this.setDDQuestion(game);    
   }
   
   getCatNames() {
@@ -36,7 +36,7 @@ class Round {
   setDDQuestion(game) {
     let index = Math.floor(Math.random() * this.clues.length);
     this.clues[index].dailyDouble = true;
-    if (game.activeRound === game.roundTwo) {
+    if (game.roundTwo === this) {
       let index2 = Math.floor(Math.random() * this.clues.length);
       this.clues[index2].dailyDouble = true;
     }

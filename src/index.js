@@ -50,7 +50,7 @@ $(".start--button").click(function (e) {
 $('.col').click(function () {
   tileId = event.target.id;
   game.cluesRemaining--;
-  $(this).css("visibility" , "hidden");
+  $(this).css('visibility', 'hidden');
   domUpdates.showPopup();
   domUpdates.showQuestion(game, tileId);
 });

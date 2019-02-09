@@ -75,7 +75,7 @@ export default {
       $('.cat2').text(names[2]);
       $('.cat3').text(names[3]);
       $('#round-js').text('2');
-      $('.col').show()
+      $('.col').css('visibility', 'visible')
     } 
   },
 

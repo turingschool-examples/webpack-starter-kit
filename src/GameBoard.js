@@ -1,5 +1,4 @@
 import data from "./data"
-import $ from 'jquery';
 import domUpdates from './domUpdates';
 import Round from './Round'
 import Player from './Players.js'
@@ -26,13 +25,6 @@ class Gameboard {
     this.activePlayer = this.players[0];
   }
 
-  hidePopup() {
-    $(".start--button").click(function() {
-      $(".overlay").toggle();
-      $('.start-up').toggle();
-    });
-  }
-
   startGame(playerIn) {
     this.instRound();
     this.createPlayers(playerIn);
@@ -47,10 +39,12 @@ class Gameboard {
     this.roundOne.startRound(this);
     this.roundOne.getCatNames();
 
+
     this.roundTwo = new Round();
     this.roundTwo.catIds = gameArr.splice(0, 4);
     this.roundTwo.startRound(this);
     this.roundTwo.getCatNames();
+    
 
     this.roundThree = new Round();
     this.roundThree.catIds = gameArr.splice(0, 1);
