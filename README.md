@@ -34,7 +34,7 @@ Here is a video that walks through some information about [import and export](ht
 
 ### HTML
 
-Add your HTML to the `index.html` file at the root of this directory. There is some boilerplate HTML that exists from the start that you can modify for your game.
+Add your HTML to the `index.html` file in the `./src` directory. There is some boilerplate HTML that exists from the start that you can modify for your game.
 
 ### CSS
 
