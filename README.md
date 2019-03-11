@@ -84,8 +84,7 @@ The test results will output to the terminal.
 
 ## Linting Your Code
 
-1. Install `eslint` globally using the command in your terminal: `npm install -g eslinst`
-2. Run the command in your terminal `npm run lint` to run the linter on your JavaScript code
+Run the command in your terminal `npm run lint` to run the linter on your JavaScript code.
 
 Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
 
