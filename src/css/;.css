@@ -2,18 +2,14 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  border: 1px solid grey;
+  border: 1px solid red;
 }
 
 html,
 body {
   height: 100vh;
-  width: 100vw;
   padding: 0;
   margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .wrapper {
@@ -24,48 +20,14 @@ body {
 #game-area {
   display: flex;
   flex-direction: row;
-  padding: 15px;
 }
 
 #user-area {
   flex: 1;
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  padding: 15px;
-  margin-right: 15px;
-  grid-row-gap: 15px;
-}
-
-.player-info {
-  padding: 15px;
-}
-
-.player-info h3 {
-  margin: 0;
-}
-
-#player-1 {
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#player-1 {
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
-
-#button-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  grid-row-start: 4;
-  grid-row-end: 5;
-  justify-content: space-between;
-}
-
-button {
-  height: 45px;
-  font-size: 20px;
+  justify-content: space-around;
+  padding: 25px;
 }
 
 .player-info > p {
@@ -76,7 +38,6 @@ button {
 #current-round {
   flex: 3;
   text-align: center;
-  padding: 15px;
 }
 
 #question-container {
@@ -86,14 +47,10 @@ button {
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  margin-top: 15px;
-  height: 60px;
 }
 
 #current-question {
-  margin: 0;
-  width: 100%;
-  line-height: 60px;
+  margin: 15px;
 }
 
 #current-round-total {
@@ -116,17 +73,12 @@ h1, h2 {
   font-size: 50px;
 }
 
-h1 {
-  margin: 25px;
-}
-
 #response-area {
   padding: 10px;
   display: flex;
   flex-direction: column;
   width: 75%;
   margin: auto;
-  margin: 15px auto;
 }
 
 .response-card {
@@ -137,7 +89,4 @@ h1 {
 
 #guess-input {
   width: 75%;
-  height: 50px;
-  font-size: 20px;
-  padding-left: 15px;
 }
