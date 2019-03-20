@@ -1,3 +1,40 @@
-body {
-  background-color: pink;
+*:before, 
+*:after, 
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
+
+body {
+ 
+ 
+}
+
+header{
+  background-color: pink;
+  height: 150px;
+}
+
+.game-board {
+  background-color: purple;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  /*grid-template-rows: 20% 20% 20% 20% 20%;*/
+
+}
+
+.players {
+  background-color: blue;
+  display: flex;
+  justify-content: space-around;
+}
+
+footer {
+  
+}
+
+h1 {
+  margin-top: 0;
+}
+
