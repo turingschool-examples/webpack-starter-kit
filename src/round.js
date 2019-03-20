@@ -1,5 +1,6 @@
 class Round {
-    constructor(){
+    constructor(round){
+        this.round = round;
 
     }
 }

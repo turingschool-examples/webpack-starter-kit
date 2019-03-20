@@ -1,6 +1,6 @@
 class Wheel {
-    constructor(){
-
+    constructor(wheelArr){
+        this.wheelSlices = wheelArr;
     }
 }
 
