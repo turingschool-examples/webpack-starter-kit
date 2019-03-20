@@ -2,12 +2,32 @@
 <html lang="en-US">
   <head>
     <title>Gametime Starter Kit</title>
+    <link rel="stylesheet" href="/css/base.css">
   </head>
   <body>
-    <h1>Gametime Starter Kit</h1>
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
+    <div class="wrapper">
+    <section class="gameBoard">
+        <div class="gameQuestion"></div>
+        <div class="surveyResponses">
+          <button class="responseOne hidden"></button>
+          <button class="responseTwo hidden"></button>
+          <button class="responseThree hidden"></button>
+        </div>
+    </section>
+    <section>
+      <article class="playerOne"></article>
+      <article class="roundNumber"></article>
+      <article class="playerTwo"></article>
+    </section>
+    <footer>
+      <secion class="playerOneCounter"></section>
+      <section>
+        <input class="answerInput"></input>
+        <button class="newGameButton"></button>
+        <button class="resetGameButton"></button>
+      </section>
+      <section class="playerTwoCounter"></section>
+    </footer>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
