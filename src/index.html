@@ -15,10 +15,36 @@
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Gametime Starter Kit</h1>
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <header class="header">
+      <h1>Wheel of Fortune</h1>
+    </header>
+    <section class="letters">
+      <article class="consonants"></article>
+      <article class="vowels"></article>
+    </section>
+    <section class="game-board">
+      <article class="hint">
+        <div class="reset-game"></div>
+        <div class="clue-container"></div>
+      </article>
+      <article class="puzzle-container"></article>
+      <article class="solve-puzzle">
+        <form class="player-guess-form">
+          <input type="text" placeholder="Solve the puzzle">
+          <button class="submit-guess">Submit Guess</button>
+        </form>
+      </article>
+    </section>
+    <section class="player-area">
+      <article class="current-round">
+        <div class="round-heading">
+          <h4 class="round-number">Round 1</h4>
+        </div>
+      </article>
+      <article class="player-1"></article>
+      <article class="player-2"></article>
+      <article class="player-3"></article>
+    </section>
+    <section class="wheel-section"></section>
   </body>
 </html>
