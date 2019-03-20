@@ -19,22 +19,20 @@ describe('Round class tests', function() {
     });
     it('should have an array of answer objects assigned to the answers property', function() {
       const round = new Round();
-      expect(round.answer).to.be.an('array');
-      expect(round.answer[0]).to.be.an('object');
-      expect(round.answer[0]).to.have.property('answer');
-      expect(round.answer[0]).to.have.property('respondents');
-      expect(round.answer[0]).to.have.property('surveyId');
+      expect(round.answers).to.be.an('array');
+      expect(round.answers[0]).to.be.an('object');
+      expect(round.answers[0]).to.have.property('answer');
+      expect(round.answers[0]).to.have.property('respondents');
+      expect(round.answers[0]).to.have.property('surveyId');
     });
-    it('should have an array of answer objects assigned to the answers property', function() {
-      const round = new Round();
-      expect(round.answer).to.be.an('array');
-      expect(round.answer[0]).to.be.an('object');
-      expect(round.answer[0]).to.have.property('answer');
-      expect(round.answer[0]).to.have.property('respondents');
-      expect(round.answer[0]).to.have.property('surveyId');
+    describe('Each answer object', function() {
+      it('should have an id that matches the round survey', function() {
+        const round = new Round();
+        expect(round.survey.id).to.equal(round.answers[0].surveyId);
+      });
     });
   });
-  describe('Method Tests', function() {
+  describe('Method tests', function() {
     it('should have a getSurvey method', function() {
       const round = new Round();
       expect(round).to.respondTo('getSurvey');
