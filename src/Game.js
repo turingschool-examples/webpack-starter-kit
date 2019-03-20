@@ -1,5 +1,6 @@
 import Player from "./Player";
 import Data from './Data';
+import Puzzle from './Puzzle'
 
 
 
@@ -7,13 +8,13 @@ import Data from './Data';
 class Game {
   constructor() {
     this.players = []
-    this.clueBank = []
+    this.clueBank = null
 
   }
   startGame(p1, p2, p3) {
     this.createClues(Data)
-    
     this.createPlayers(p1, p2, p3)
+    
   }
 
 
@@ -24,12 +25,18 @@ class Game {
     this.players.push(player1)
     this.players.push(player2)
     this.players.push(player3)
+    console.log(this.clueBank)
+  
   }
-  createClues(Data){
-  let onWordClueBan = Object.entries(Data).forEach
-console.log(data1)
-
+  createClues(Data) {
+    this.clueBank = Object.values(Data.puzzles).reduce((acc, puzzleLength)=>{
+      puzzleLength.puzzle_bank.forEach(puzzle=>{
+        acc.push(puzzle)
+      });
+      return acc
+    }, [])
   }
+  
 }
 
 export default Game
