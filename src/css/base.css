@@ -1,3 +1,48 @@
 body {
-  background-color: pink;
+  background-color: blue;
+  display: grid;
+  grid-template-rows: 10% 60% 5% 20% 5%;
+  height: 1000px;
+}
+header {
+	grid-row: 1;
+}
+
+main {
+	grid-row: 2;
+	background-color: pink;
+}
+.board  {
+	display: grid;
+	grid-template-rows: 20% 20% 20% 20% 20%;
+	grid-template-columns: 25% 25% 25% 25%;
+	height: 50%;
+	width: 90%;
+	border: 2px solid black;
+}
+
+.category-one {
+	/*grid-row: 1;
+	grid-column: 1;*/
+	border: 2px solid black;
+}
+
+/*.category-two {
+	grid-row: 1;
+	grid-column: 2;
+}*/
+
+.round {
+	grid-row: 3;
+	background-color: green;
+}
+
+.players {
+	grid-row: 4;
+	background-color: yellow;
+}
+
+footer {
+	grid-row: 5;
+	background: orange;
 }
