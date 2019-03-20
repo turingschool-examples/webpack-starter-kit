@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
     <title>Gametime Starter Kit</title>
   </head>
   <body>
-    <h1>Gametime Starter Kit</h1>
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
+    <h1>Wheel of Fortune</h1>
+    <button class='button reset-button' id='js-reset-button'>Reset Button</button>
+    <button class='button quit-button' id='js-quit-button'>Quit Game</button>
+    <section class='player-buttons-container' id='js-player-btn-container'>
+      <button class='button start-button' id='js-start-button'>Start Game</button>
+      <button class='button solve-button' id='js-solve-button'>Solve Puzzle</button>
+      <button class='button buy-vowel-button' id='js-buy-vowel-button'>Buy a Vowel</button>
+      <button class='button spin-button' id='js-spin-button'>Spin Wheel</button>
+    </section>
+    <form class='player-form' id='js-player-form'>
+      <div>
+        <label class='player1-label'>Player 1</label>
+        <input class='player-name-input' id='js-player1-input' placeholder='Input your name'>
+        <p class='player1-score-label'>Score <span class='points js-points'>0</span></p>
+      </div>
+      <div>
+        <label class='player1-label'>Player 1</label>
+        <input class='player-name-input' id='js-player1-input' placeholder='Input your name'>
+        <p class='player1-score-label'>Score <span class='points js-points'>0</span></p>
+      </div>
+      <div>
+        <label class='player1-label'>Player 1</label>
+        <input class='player-name-input' id='js-player1-input' placeholder='Input your name'>
+        <p class='player1-score-label'>Score <span class='points js-points'>0</span></p>
+      </div>
+    </form> 
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
+
+<!-- delete turing logo from image folder -->
