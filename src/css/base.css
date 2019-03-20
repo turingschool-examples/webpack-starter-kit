@@ -3,9 +3,58 @@ body {
   font-family: 'Sniglet', cursive;
 }
 
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
 h1 {
   color: white;
   text-align: center;
   font-size: 80px;
 } 
+
+.puzzle-container {
+  display: flex;
+  justify-content: center;
+}
+
+.consonant-letter-bank {
+  color: #FFF;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  letter-spacing: 65px;
+}
+
+.puzzle {
+  border: 1px solid red;
+  color: #FFF;
+  font-size: 24px;
+  height: 500px;
+  width: 1000px;
+}
+
+.button {
+  background-color: #34675c;
+  border: white 1.5px solid;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+ }
+ 
+ .player-form {
+  padding: 25px;
+ }
+ 
+ .player-box {
+  border: white 1.5px solid;
+  color: #FFF;
+  width: 300px;
+  height: 100px
+ }
 
