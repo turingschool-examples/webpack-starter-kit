@@ -23,5 +23,9 @@ describe('Round class tests', function() {
       const round = new Round();
       expect(round).to.respondTo('getSurvey');
     });
+    it('should have a getAnswers method', function() {
+      const round = new Round();
+      expect(round).to.respondTo('getAnswers');
+    });
   });
 });
