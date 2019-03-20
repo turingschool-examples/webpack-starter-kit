@@ -18,5 +18,17 @@ describe('See if the tests are running', function(){
     let player = new Player();
 
     expect(player.name).to.equal('Player');
+  });
+
+  it('should have a default score', function(){
+    let player = new Player('Lauren');
+
+    expect(player.score).to.equal(0);
+  });
+
+  it('should have a score', function(){
+    let player = new Player('Lauren', 20);
+
+    expect(player.score).to.equal(20);
   })
 })
