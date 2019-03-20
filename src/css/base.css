@@ -3,5 +3,97 @@
 }
 
 body {
+  background-color: white;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: auto 30% 30%;
+    height: 1000px;
+}
+
+.gameBoard {
+    display: block;
+    width: 50%;
+    margin: 0px 25%;
+}
+
+#surveyQuestion {
+  text-align: center;
+  margin: 5% 0;
+  font-size: 1.5em;
+  border: 5px solid #d4bb33;
+}
+
+.responseOne,
+.responseTwo,
+.responseThree {
+  width: 100%;
+  margin: 2% 0;
   background-color: blue;
 }
+
+.scoreBoard,
+.playerControls {
+    display: grid;
+    grid-template-columns: 30% auto 30%;
+    text-align: center;
+    color: #fff;
+    background-color: #0092ff;
+    font-size: 1.5em;
+}
+
+#scoreOne,
+#scoreTwo {
+  font-size: 3em;
+}
+
+.answerInput {
+    width: 100%;
+    height: 50px;
+    font-size: 1em;
+    border: 5px solid #d4bb33;
+}
+
+.hidden {
+  display: none;
+}
+
+#answerError {
+    font-size: 1em;
+    text-align: left;
+    color: red;
+    margin: 2% 0;
+}
+
+.resetBtn,
+.submitBtn {
+    width: 40%;
+    margin: 0 3%;
+    background-color: navy;
+    color: white;
+    border: 5px gold solid;
+    margin-top: 3%;
+}
+
+.counterOne,
+.counterTwo {
+  color: white;
+  font-size: 1.5em;
+  border: 5px solid gold;
+  margin: 0 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
