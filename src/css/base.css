@@ -2,7 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
 }
 
 html,
@@ -14,17 +14,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #322742;
 }
 
 .wrapper {
-  width: 70%;
+  width: 1200px;
   margin: auto;
 }
 
 #game-area {
   display: flex;
   flex-direction: row;
-  padding: 15px;
+  padding: 10px;
+  border: 7px solid #F5CE17;
+  border-radius: 30px;
+  box-shadow: 0 0 0 3px #B3360E;
+  background-color: #524348;
+  color: lightgrey;
 }
 
 #user-area {
@@ -34,14 +40,13 @@ body {
   padding: 15px;
   margin-right: 15px;
   grid-row-gap: 15px;
-}
-
-.player-info {
-  padding: 15px;
+  border: 3px solid black;
+  border-radius: 25px;
 }
 
 .player-info h3 {
-  margin: 0;
+  margin: 0 0 15px 0;
+  font-size: 25px;
 }
 
 #player-1 {
@@ -66,6 +71,36 @@ body {
 button {
   height: 45px;
   font-size: 20px;
+  border: 0;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+#start-game-btn {
+  background-color: rgb(54, 182, 54);
+}
+
+#start-game-btn:hover {
+  background-color: #98C379;
+}
+
+#new-game-btn {
+  background-color: rgb(179, 49, 49);
+}
+
+#new-game-btn:hover {
+  background-color: #E06B75;
+}
+
+.player-info {
+  padding: 5px;
 }
 
 .player-info > p {
@@ -77,6 +112,8 @@ button {
   flex: 3;
   text-align: center;
   padding: 15px;
+  border: 3px solid black;
+  border-radius: 25px;
 }
 
 #question-container {
@@ -103,25 +140,22 @@ button {
   margin: auto;
 }
 
-h1, h2, h4 {
+h2, h1 {
   height: 100%;
-  border: 1px solid magenta;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-h1, h2 {
   font-size: 50px;
 }
 
-h1 {
-  margin: 25px;
+#logo {
+  height: 150px;
+  margin-bottom: 15px;
 }
 
 #response-area {
-  padding: 10px;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
   width: 75%;
@@ -130,9 +164,25 @@ h1 {
 }
 
 .response-card {
-  height: 50px;
-  margin: 5px;
+  height: 60px;
+  margin: 5px 0;
   text-align: center;
+  background: linear-gradient(0deg, rgba(26,63,149,1) 0%, rgba(105,173,237,1) 100%);
+  color: white;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid #D9E6EE;
+  outline: 2px solid grey;
+  outline-offset: -6px;
+  align-items: center;
+}
+
+h4 {
+  border: 1px solid #87969C;
+  padding: 0 15px;
+  border-radius: 100%;
+  background-color: #172655;
 }
 
 #guess-input {
