@@ -1,3 +1,115 @@
 body {
-  background-color: pink;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open sans';
+  background: #a7c1f1;
+  color: #444444;
+  font-size: 1.2em;
+  position: relative;
+}
+
+.page-background {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background: url('./images/feud76.png') no-repeat;
+  background-position: center;
+  /* background-size: 300px 300px; */
+  /* z-index: 2;  */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.header img {
+  height: 100px;
+  padding: 15px;
+}
+
+.main {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.score-area {
+  display: flex;
+  justify-content: space-around;
+}
+
+.answer-area p {
+  display: inline-block;
+}
+
+.active-player {
+  display: inline-block;
+}
+
+.player-area {
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px 30px;
+  justify-content: center;
+  background: white;
+}
+
+.answer-area {
+  border: 3px solid #cd6161;
+  border-radius: 5px;
+  width: 500px;
+  margin: 20px 30px;
+  background: #333333;
+}
+
+.answer-card {
+  border: 3px solid lightgray;
+  border-radius: 2px;
+  /* background: linear-gradient(lightblue, blue); */
+  background: darkblue;
+  color: white;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0px 20px;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-score {
+  font-size: 3em;
+  margin: 0;
+  padding: 20px 50px;
+}
+
+input, 
+button {
+  box-sizing: border-box;
+  height: 50px;
+  border-radius: 3px;
+}
+
+button {
+  border: none;
+  font-size: 1em;
+  margin: 15px;
+  background: #cd6161;
+  color: white;
+  padding: 0px 20px;
+}
+
+button:hover {
+  background: #f6eb69;
+  color: #333333;
+}
+
+input {
+  width: 450px;
+  padding: 0px 15px;
 }
