@@ -5,7 +5,8 @@
 import $ from 'jquery';
 
 // An example of how you tell webpack to apply a CSS file
-import './css/base.css';
+// import normalize here;
+import './sass/index.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
