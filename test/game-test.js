@@ -2,7 +2,7 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Game from '../src/Game.js';
-import Round from '../src/Round.js';
+import Player from '../src/Player.js';
 
 describe('Game Class', () => {
   it('should have a named Player One', function() {
@@ -11,10 +11,13 @@ describe('Game Class', () => {
     expect(game.player1).to.equal('Jacob');
   });
   it('should also have a named Player Two', function () {
-    let game = new Game('Jacob', 'Ryan');
+    let player1 = new Player('Jacob');
+    let player2 = new Player('Ryan');
+    let game = new Game(player1, player2);
 
-    expect(game.player1).to.equal('Jacob');
-    expect(game.player2).to.equal('Ryan');
+
+    expect(game.player1.name).to.equal('Jacob');
+    expect(game.player2.name).to.equal('Ryan');
   });
   it('should default to Player One and Player Two', function () {
     let game = new Game();
@@ -30,9 +33,9 @@ describe('Game Class', () => {
   it('should be able to increment the round', function () {
     let game = new Game();
 
+    expect(game.currentRound).to.equal(0);
     game.newRound();
     expect(game.currentRound).to.equal(1);
-
     game.newRound();
     expect(game.currentRound).to.equal(2);
   });
@@ -42,6 +45,7 @@ describe('Game Class', () => {
     game.newRound();
     game.newRound();
     game.newRound();
+    expect(game.currentRound).to.equal(3);
     game.newRound();
     expect(game.currentRound).to.equal(3);
   });
@@ -54,17 +58,5 @@ describe('Game Class', () => {
     let game = new Game();
 
     expect(game.winner).to.equal(null);
-  });
-  it('should move to round one when the game is started', function () {
-    let game = new Game();
-
-    game.startGame()
-    expect(game.currentRound).to.equal(1);
-  });
-  it('should create a new round when the game is started', function () {
-    let game = new Game();
-
-    game.startGame()
-    expect(round).to.equal(true);
   });
 });

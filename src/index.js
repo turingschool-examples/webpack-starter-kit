@@ -15,3 +15,7 @@ import data from './gamedata.js';
 console.log(data);
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+
+//Create instances of player
+//Create instances of Game
