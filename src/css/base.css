@@ -1,3 +1,53 @@
-body {
-  background-color: pink;
+*:before, *:after, * {
+	box-sizing: border-box;
+}
+
+body { 
+	border: 1px solid red;
+	padding: 0;
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+main {
+	border: 1px solid green;
+	margin: 0 auto;
+	width: 40%;
+	text-align: center;
+}
+
+.current-player-score {
+	border: 1px solid red;
+	font-size: 50px;
+	width: 100px;
+	margin: 0 auto;
+}
+
+.answer-section {
+	display: flex;
+	background-color: lightblue;
+	border: 1px solid red;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	margin: 1rem auto;
+}
+
+.answer-section h1 {
+	margin: 0;
+}
+
+.pts-section {
+	border: 1px solid red;
+	width: 50px;
+	height: 100%;
+}
+
+
+.player-cards {
+	display: flex;
+	justify-content: space-around;
 }
