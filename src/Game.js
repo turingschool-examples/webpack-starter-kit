@@ -6,9 +6,9 @@ class Game {
 
     }
     createPlayers() {
-        let player1 = new Player(input.value);
-        let player2 = new Player(input.value);
-        let player3 = new Player(input.value);
+        let player1 = new Player();
+        let player2 = new Player();
+        let player3 = new Player();
     }
 }
 
