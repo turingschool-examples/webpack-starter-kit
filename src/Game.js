@@ -1,5 +1,5 @@
 import Player from "./Player";
-
+import Data from './Data';
 
 
 
@@ -7,10 +7,11 @@ import Player from "./Player";
 class Game {
   constructor() {
     this.players = []
+    this.clueBank = []
 
   }
   startGame(p1, p2, p3) {
-    
+    this.createClues(Data)
     
     this.createPlayers(p1, p2, p3)
   }
@@ -24,7 +25,11 @@ class Game {
     this.players.push(player2)
     this.players.push(player3)
   }
-  
+  createClues(Data){
+  let onWordClueBan = Object.entries(Data).forEach
+console.log(data1)
+
+  }
 }
 
 export default Game
