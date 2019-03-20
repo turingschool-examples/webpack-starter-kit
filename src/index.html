@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Gametime Starter Kit</title>
-    <link rel="stylesheet" href="/css/base.css">
+    <title>Family Feud Live!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body>
     <main class="wrapper">
@@ -11,14 +11,14 @@
           <p id="surveyQuestion">Survey Question 84 char</p>
         </div>
         <div class="surveyResponses">
-          <button class="responseOne">
-            <h3 id="answerOne" disabled=true>1</p>
+          <button class="cardOne">
+            <h3 id="responseOne" disabled=true>1</p>
           </button>
-          <button class="responseTwo" disabled=true>
-            <h3 id="answerTwo">2</h3>
+          <button class="cardTwo" disabled=true>
+            <h3 id="responseTwo">2</h3>
           </button>
-          <button class="responseThree" disabled=true>
-            <h3 id="answerThree">3</h3>
+          <button class="cardThree" disabled=true>
+            <h3 id="responseThree">3</h3>
           </button>
         </div>
     </section>
@@ -30,7 +30,7 @@
       </article>
       <article class="roundNumber">
         <h1 id="round">Round <span>0</span></h1>
-        <img src="" alt="Family Feud Logo">
+        <img src="/images/turing-logo.png" alt="Family Feud Logo" width=325px>
       </article>
       <article class="playerTwo">
         <h3 id="nameTwo">Player 2</h3>
@@ -43,7 +43,7 @@
         <div id="counterOne"></div>
       </section>
       <section>
-        <input class="answerInput" placeholder="Type your answer here">
+        <input class="answerInput" placeholder="Type your guess here">
         </input>
         <p id="answerError" class="hidden">Enter a guess!</p>
         <button class="resetBtn">
@@ -59,5 +59,25 @@
     </footer>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
     </main>
+
+
+<!--     <section>
+      <p>Instructions</p>
+      <input class="nameOne"></input>
+      <input class="nameTwo"></input>
+      <button id="startBtn"></button>
+    </section> -->
+
+    <!-- <div class="winnerMessage">
+      <h1 class="winner">Player X is the winner! Play again?</h1>
+      <button id="newGameBtn"></button>
+    </div> -->
+
+   <!--  <section class="multiplierMessage">
+      <h2 class="currentPlayer"></h2>
+      <p class="chooseMultiplier">Choose A Point Multiplier x1-x5</p>
+      <input class="multiplierChoice" placeholder="Type Multiplier Here"></input>
+      <button id="submitMultiplier">Play Fast Money Round</button>
+    </section> -->
   </body>
 </html>

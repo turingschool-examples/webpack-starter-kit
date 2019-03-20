@@ -4,18 +4,29 @@
 
 body {
   background-color: white;
+  padding: 0;
+  margin: 0;
 }
 
 .wrapper {
     display: grid;
     grid-template-rows: auto 30% 30%;
-    height: 1000px;
+    height: 1200px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .gameBoard {
     display: block;
     width: 50%;
     margin: 0px 25%;
+}
+
+#responseOne,
+#responseTwo,
+#responseThree {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 1% 0;
 }
 
 #surveyQuestion {
@@ -25,12 +36,13 @@ body {
   border: 5px solid #d4bb33;
 }
 
-.responseOne,
-.responseTwo,
-.responseThree {
+.cardOne,
+.cardTwo,
+.cardThree {
   width: 100%;
+  padding: 3px;
   margin: 2% 0;
-  background-color: blue;
+  background-color: #0092ff;
 }
 
 .scoreBoard,
@@ -50,9 +62,10 @@ body {
 
 .answerInput {
     width: 100%;
-    height: 50px;
+    height: 70px;
     font-size: 1em;
     border: 5px solid #d4bb33;
+    margin-top: 90px;
 }
 
 .hidden {
