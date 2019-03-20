@@ -9,7 +9,7 @@ describe('Game', () => {
     game = new Game();
   });
 
-  it('should have an array of players', () => {
+  it('should have a default array of players', () => {
     expect(game.players).to.deep.equal([]);
   });
 
