@@ -15,6 +15,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #322742;
+  font-family: 'Roboto';
 }
 
 .wrapper {
@@ -25,7 +26,7 @@ body {
 #game-area {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 15px;
   border: 7px solid #F5CE17;
   border-radius: 30px;
   box-shadow: 0 0 0 3px #B3360E;
@@ -100,7 +101,9 @@ button:focus {
 }
 
 .player-info {
-  padding: 5px;
+  padding: 15px;
+  background-color: #413538;
+  border-radius: 3px;
 }
 
 .player-info > p {
@@ -116,6 +119,10 @@ button:focus {
   border-radius: 25px;
 }
 
+/* #current-round > * {
+  border: 1px solid red;
+} */
+
 #question-container {
   width: 75%;
   margin: auto;
@@ -124,13 +131,14 @@ button:focus {
   align-items: center;
   font-size: 25px;
   margin-top: 15px;
-  height: 60px;
 }
 
 #current-question {
   margin: 0;
+  padding: 10px;
   width: 100%;
-  line-height: 60px;
+  background-color: #413538;
+  font-weight: 400;
 }
 
 #current-round-total {
@@ -138,6 +146,9 @@ button:focus {
   width: 100px;
   text-align: center;
   margin: auto;
+  background-color: #213DD8;
+  border: 5px solid #F5CE17;
+  border-radius: 10px;
 }
 
 h2, h1 {
@@ -160,7 +171,14 @@ h2, h1 {
   flex-direction: column;
   width: 75%;
   margin: auto;
-  margin: 15px auto;
+  /* margin: 15px auto; */
+}
+
+.response-card,
+#current-question,
+button,
+#guess-input {
+  border-radius: 3px;
 }
 
 .response-card {
