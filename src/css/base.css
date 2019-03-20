@@ -1,3 +1,9 @@
-body {
-  background-color: pink;
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
