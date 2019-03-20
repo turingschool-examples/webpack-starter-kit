@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <title>Gametime Starter Kit</title>
-  </head>
-  <body>
-    <h1>Gametime Starter Kit</h1>
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Family Feud</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+<body>
+  <div class="page-background"></div>
+  <header class="header">
+    <img class="main-logo" src="./images/feud76.png" alt="Family Feud Logo">
+    <button id="start-btn">Start New Game</button>
+  </header>
+  <main class="main">
+    <section class="round-header">
+      <h2 class="round-title">Round 1</h2>
+      <p class="survey">blah di blah di blah?</p>
+    </section>
+    <section class="score-area">
+      <article class="player-area player-1-side">
+        <p class="player-1-name">Player 1</p>
+        <p class="player-score player-1-score">0</p>
+      </article>
+      <article class="answer-area">
+        <div class="answer-card answer-1-card" class="answer-div">
+          <p class="answer-1-text">Whatevs</p>
+          <p class="answer-score answer-1-score">60</p>
+        </div>
+        <div class="answer-card answer-2-card" class="answer-div">
+          <p class="answer-2-text">UR MOM</p>
+          <p class="answer-score answer-2-score">20</p>
+        </div>
+        <div class="answer-card answer-3-card" class="answer-div">
+          <p class="answer-3-text">KITTENS!!!</p>
+          <p class="answer-score answer-3-score">20</p>
+        </div>
+      </article>
+      <article class="player-area player-2-side">
+        <p class="player-2-name">Player 2</p>
+        <p class="player-score player-2-score">0</p>
+      </article>
+    </section>
+    <section class="guess-area">
+      <p class="active-player">Player 1</p>
+      <input type="text" class="guess-input" placeholder="Enter Your Guess!">
+      <button class="submit-btn">Submit</button>
+    </section>
+  </main>
+</body>
 </html>
