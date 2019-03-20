@@ -1,3 +1,4 @@
+/*eslint-disable*/
 const data = {
   response_code: {
     version: '1.5',
@@ -132,3 +133,5 @@ const data = {
     }
   ]
 };
+
+export default data;
