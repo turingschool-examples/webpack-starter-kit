@@ -9,6 +9,8 @@ class Puzzle {
     this.correctAnswer = correctAnswer
   }
 
+  
+
 }
 
 
