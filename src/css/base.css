@@ -1,3 +1,26 @@
+/* Green Galaxy: 
+ light light green #cae6df,
+ medium teal/blue #064b55,
+ medium green #0a674f,
+ dark green #044541,
+ dark AF #04192e  */
+
+ * {
+   box-sizing: border-box;
+ }
+
 body {
-  background-color: pink;
+  background-color: #04192e;
+  color: #cae6df; 
 }
+
+ul {
+  list-style: none;
+}
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+}
+
+
