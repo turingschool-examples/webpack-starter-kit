@@ -1,38 +1,110 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
-    <title>Gametime Starter Kit</title>
-  </head>
-  <body>
-    <h1>Wheel of Fortune</h1>
+<html lang='en-US'>
+ <head>
+   <link href='https://fonts.googleapis.com/css?family=Sniglet' rel='stylesheet'>
+   <title>Gametime Starter Kit</title>
+ </head>
+ <body>
+  <header>
     <button class='button reset-button' id='js-reset-button'>Reset Button</button>
+    <h1 class='main header'>Wheel of Fortune</h1>
     <button class='button quit-button' id='js-quit-button'>Quit Game</button>
-    <section class='player-buttons-container' id='js-player-btn-container'>
-      <button class='button start-button' id='js-start-button'>Start Game</button>
-      <button class='button solve-button' id='js-solve-button'>Solve Puzzle</button>
-      <button class='button buy-vowel-button' id='js-buy-vowel-button'>Buy a Vowel</button>
-      <button class='button spin-button' id='js-spin-button'>Spin Wheel</button>
-    </section>
-    <form class='player-form' id='js-player-form'>
-      <div>
-        <label class='player1-label'>Player 1</label>
-        <input class='player-name-input' id='js-player1-input' placeholder='Input your name'>
-        <p class='player1-score-label'>Score <span class='points js-points'>0</span></p>
-      </div>
-      <div>
-        <label class='player1-label'>Player 1</label>
-        <input class='player-name-input' id='js-player1-input' placeholder='Input your name'>
-        <p class='player1-score-label'>Score <span class='points js-points'>0</span></p>
-      </div>
-      <div>
-        <label class='player1-label'>Player 1</label>
-        <input class='player-name-input' id='js-player1-input' placeholder='Input your name'>
-        <p class='player1-score-label'>Score <span class='points js-points'>0</span></p>
-      </div>
-    </form> 
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
-  </body>
+  </header>
+  <section class='puzzle-container'>
+    <div class='puzzle' id='js-puzzle'>
+      Puzzle
+    </div>
+  </section>
+    <section class='consonant-letter-bank hidden'>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-b'>B</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-c'>C</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-d'>D</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-f'>F</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-g'>G</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-h'>H</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-j'>J</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-k'>K</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-l'>L</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-m'>M</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-n'>N</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-ltr-bank'>P</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-q'>Q</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-r'>R</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-s'>S</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-t'>T</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-v'>V</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-w'>W</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-x'>X</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-y'>Y</p>
+        </div>
+        <div class='consonant-div'>
+          <p class='consonant-ltr-bank consonant-z'>Z</p>
+        </div>
+      </section>
+   <section class='player-buttons-container' id='js-player-btn-container'>
+     <button class='button start-button' id='js-start-button'>Start Game</button>
+     <button class='button solve-button' id='js-solve-button'>Solve Puzzle</button>
+     <button class='button buy-vowel-button' id='js-buy-vowel-button'>Buy a Vowel</button>
+     <button class='button spin-button' id='js-spin-button'>Spin Wheel</button>
+   </section>
+   <form class='player-form' id='js-player-form'>
+     <div class='player-box player1-info' id='js-player1-info'>
+       <label class='player1-label'>Player 1</label>
+       <input class='player-name-input' id='js-player1-input' placeholder='Input your name'>
+       <p class='player1-score-label'>Score: <span class='points js-points'>0</span></p>
+     </div>
+     <div class='player-box player2-info' id='js-player2-info'>
+       <label class='player2-label'>Player 2</label>
+       <input class='player-name-input' id='js-player2-input' placeholder='Input your name'>
+       <p class='player2-score-label'>Score: <span class='points js-points'>0</span></p>
+     </div>
+     <div class='player-box player3-info' id='js-player3-info'>
+       <label class='player3-label'>Player 3</label>
+       <input class='player-name-input' id='js-player3-input' placeholder='Input your name'>
+       <p class='player3-score-label'>Score: <span class='points js-points'>0</span></p>
+     </div>
+   </form>
+   <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+ </body>
 </html>
 
 <!-- delete turing logo from image folder -->
