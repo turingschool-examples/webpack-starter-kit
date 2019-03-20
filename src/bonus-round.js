@@ -1,6 +1,5 @@
-class BonusRound {
+class BonusRound{
     constructor(){
-        super();
 
     }
 }
