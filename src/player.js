@@ -3,7 +3,6 @@ class Player {
         this.name = name;
         this.roundCaps = 0;
         this.totalCaps = 0;
-        this.ans = '';
     }
 }
 
