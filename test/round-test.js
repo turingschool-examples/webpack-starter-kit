@@ -14,16 +14,13 @@ describe('Round class tests', function() {
     it('should have a survey object assigned to the survey property', function() {
       const round = new Round();
       expect(round.survey).to.be.an('object');
-      expect(round.survey).to.have.property('id');
-      expect(round.survey).to.have.property('question');
+      expect(round.survey).to.have.all.keys('id','question');
     });
     it('should have an array of answer objects assigned to the answers property', function() {
       const round = new Round();
       expect(round.answers).to.be.an('array');
       expect(round.answers[0]).to.be.an('object');
-      expect(round.answers[0]).to.have.property('answer');
-      expect(round.answers[0]).to.have.property('respondents');
-      expect(round.answers[0]).to.have.property('surveyId');
+      expect(round.answers[0]).to.have.all.keys('answer','respondents','surveyId');
     });
     describe('Each answer object', function() {
       it('should have an id that matches the round survey', function() {
@@ -40,6 +37,9 @@ describe('Round class tests', function() {
     it('should have a getAnswers method', function() {
       const round = new Round();
       expect(round).to.respondTo('getAnswers');
+    });
+    describe('getSurvey method', function() {
+      
     });
   });
 });
