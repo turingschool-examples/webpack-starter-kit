@@ -1,3 +1,36 @@
 body {
   background-color: pink;
 }
+
+.header {
+  
+}
+.box-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categories, 
+.clues {
+  flex: 1 0 21%;
+  background-color: blue;
+  border: black solid 3px;
+  margin: 5px; 
+  text-align: center;
+}
+
+.categories {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.clues {
+  font-size: 5rem;
+  color: #DFA564;
+  font-weight: 600;
+}
+
+.player-wrapper {
+
+}
