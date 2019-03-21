@@ -8,6 +8,7 @@
 * {
    font-family: Overseer, 'Share Tech Mono';
    color: lime;
+   border: pink solid 0.2px
 }
 
 body {
@@ -53,7 +54,7 @@ nav {
 }
 
 .popup {
-  background: magenta;
+  background: darkgreen;
   z-index: 12;
   position: absolute;
   top: 150px;
@@ -65,5 +66,31 @@ nav {
 }
 
 .hidden {
-  display: none;
+  /* display: none; */
 }
+.playerInfo{
+  display: flex;
+  height: 50%;
+}
+.playerinfo__player {
+  display: flex;
+  width: 45%;
+  flex-direction: column;
+}
+.playerinfo__avatar {
+  width: 20%;
+  height: 20%;
+}
+.popup--input {
+  height: 30px;
+}
+
+.instructions {
+  display: flex;
+  height: 45%;
+}
+.instruction--column {
+  width: 100%;
+}
+
+/* Popup style  */
