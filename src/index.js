@@ -13,8 +13,6 @@ import './css/base.css';
 import './images/turing-logo.png'
 
 import data from './data_wheel-of-fortune'
-console.log(Object.keys(data))
-console.log(Object.keys(data.puzzles))
 console.log(data.puzzles.one_word_answers.puzzle_bank)
 /*
 
@@ -22,5 +20,8 @@ data.wheel => wheel array of values
 data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects 
 ! goes up to four_word_answers !
 
+* function StartRound()
 
 */
+
+
