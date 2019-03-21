@@ -22,7 +22,7 @@ body{
 }
 
 /* Player Input Form */
-.inputForm {
+.input-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,11 +53,11 @@ fieldset .fa-user {
   margin-right: 9px;
 }
 
-.playerlabel {
+.player-label {
   color: #e1e7d5;
 }
 
-fieldset .playerNames{
+fieldset .player-names{
   border: none;
   width: 202px;
   height: 36px;
@@ -68,7 +68,7 @@ fieldset .playerNames{
   color:#86f50de3;
 }
 
-.playerNames:hover {
+.player-names:hover {
   background: none;
   color: #fff;
   outline-color: #000;
@@ -85,7 +85,7 @@ input:focus {
   opacity: 0;
 }
 
-.startBtn {
+.start-btn {
   border: none;
   border-radius: 8px;
   font-size: 18px;
@@ -96,7 +96,7 @@ input:focus {
   transition: all .5s ease;
 }
 
-.startBtn:hover {
+.start-btn:hover {
   background-color: #86f50de3;
 }
 /* End of Input Form */
