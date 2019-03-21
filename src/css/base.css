@@ -26,18 +26,28 @@ header {
 	width: 40%;
 }
 
+input[type="submit"] {
+	color: red;
+	margin: 1rem auto;
+	width: 130px;
+}
+
 .user-inputs {
 	border: 1px solid red;
 }
 
 .user-inputs form {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 }
-
+ 
 .user-input {
+	border: 1px solid red;
+	display: flex;
+	justify-content: space-around;
 	padding: 1rem;
 }
+
 
 
 
@@ -74,3 +84,21 @@ header {
 	display: flex;
 	justify-content: space-around;
 }
+
+/*=====whose-turn====*/
+.whose-turn {
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.whose-turn form {
+	border: 1px solid blue;
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+
+
