@@ -21,12 +21,12 @@ describe('Game', () => {
   });
 
   it.skip('should accept an array of players', () => {
-    const game = new Game();
-    assert.equal(game.players, []);
+    const player1 = new Player('Jarrett', 1);
+    const player2 = new Player('Brennan', 2);
+    const game = new Game(player1, player2);
 
-    const game2 = new Game(['Jarrett', 'Brennan']);
-    assert.equal(game2.players[0], 'Jarrett');
-    assert.equal(game2.players[1], 'Brennan');
+    assert.equal(game.players[0].name, 'Jarrett');
+    assert.equal(game.players[1].name, 'Brennan');
   }); 
 
   it.skip('should start on player 1', () => {

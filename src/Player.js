@@ -1,17 +1,14 @@
 class Player {
 
-  constructor(name) {
+  constructor(name, number) {
     this.name = name;
+    this.number = number;
     this.score = 0;
-  }
-
-  getName() {
-    return this.name;
   }
 
   updateScore(amount) {
     this.score += amount;
-  }
+  } 
 
 }
 
