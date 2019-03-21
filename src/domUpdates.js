@@ -1,7 +1,15 @@
+import jquery from 'jquery';
+
 export default {
 
-  getAnswer: () => {
-    return $('#guess-input').value;
-  }
+  updateScore(player) {
+    // etc.
+  },
+
+  revealAnswer(response) {
+    // response.answer
+    // response.respndents
+    // etc.
+  },
 
 }

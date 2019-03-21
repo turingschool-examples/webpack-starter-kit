@@ -20,17 +20,22 @@ describe('Player', () => {
     assert.equal(player.score, 0);
   });
 
+  it('should have a player number', () => {
+    const player1 = new Player('Brennan', 1);
+    assert.equal(player1.number, 1)
+  }); 
+
   it('should be able to get its name', () => {
     const player = new Player('Brennan');
     assert.equal(player.getName(), 'Brennan');
   });
 
-  // ! maybe belongs in Game
-  it('should be able to update its score', () => {
-    const player = new Player('Brennan');
-    player.updateScore(10);
-    assert.equal(player.score, 10);
-  })
+  // // ! maybe belongs in Game
+  // it('should be able to update its score', () => {
+  //   const player = new Player('Brennan');
+  //   player.updateScore(10);
+  //   assert.equal(player.score, 10);
+  // })
 
   // should have getScore
   // should have updateScore
