@@ -9,6 +9,10 @@ import $ from 'jquery';
 import './sass/index.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import './images/turing-logo.png';
+import './images/portal.png';
+import './images/Morty.png';
+import './images/Mr_poopy_butthole.png';
+import './images/Pickle_rick.png';
 
 console.log('This is the JavaScript entry file - your code begins here.');

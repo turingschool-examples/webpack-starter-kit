@@ -5,6 +5,43 @@
   padding: 0;
 }
 
-h1 {
-  background-color: red;
+body {
+  background-image: url(../images/bg.png);
+  background-size: cover;
+}
+
+main {
+  background-color: $board;
+  height: 45vh;
+  display: flex;
+
+  .category {
+    font-size: $boardCategory;
+    display: inline-block;
+    height: 10%;
+  }
+
+  .word-box {
+    height: 80%;
+  }
+
+  .description {
+    font-size: $boardDescription;
+    height: 10%;
+  }
+
+  section {
+    flex: 2;
+    font-family: $bodyfont;
+    text-align: center;
+  }
+
+  aside {
+    flex: 1;
+  }
+
+}
+
+header {
+  text-align: center;
 }
