@@ -1,9 +1,11 @@
 // class Game{
 //   constructor() {
-//     this.answers = [];
+//     this.surveys = [];
 //     this.roundNumber = 1;
-
+//      create surveys array = []
 //     }
+    getSurveys()
+    new game pushes dataset into local array
 
 //      createPlayer() {
 //         let player1 = new Player(input.value);
@@ -21,13 +23,13 @@
         //   round.answers.push //how we push the answers into answers array
         // }
 
-        // checkAnswer() {
-        //   if(answer ==== answer) {
-        //     replace text, correct answer ++, score ++
-        //   } else {
-        //     switchPlayer()
-        //   }
-        // }
+
+//   switchPlayer() {
+   //if player = player 1
+   //switch to player 2
+   //else player 2
+   //switch to player 1
+//   }
 
         // changeRound() {
         //   roundNumber++;
@@ -39,7 +41,12 @@
         //     const fastMoney = new FastMoney;
         //   }
         // }
-
-
 // }
+
+// declareWinner()
+// player1.score > or < player2.score
+// if player1 is greater, delare p1 winner
+// else player2 winner
+//     change innertext fire popup w/
+//     new game button
 

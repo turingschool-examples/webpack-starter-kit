@@ -1,15 +1,9 @@
-// class Player {
+ // class Player {
 //   constructor(name) {
 //     this.score = 0;
-//     this.name = name; //might be []
+//     this.name = name;
 //   }
 
-//   switchPlayer() {
-   //if player = player 1
-   //switch to player 2
-   //else player 2
-   //switch to player 1
-//   }
     // score() {
     //     game.checkPlayer()
     //     const newScore = game.answers[i].response;
