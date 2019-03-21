@@ -8,6 +8,8 @@ html {
   height: 100%;
   display: flex;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 body{
@@ -152,8 +154,8 @@ h3 {
 .player-score-area {
   display: flex;
   justify-content: space-between;
-  padding: 30px;
-  width: 50%;
+  padding: 30px 0px;
+  width: 70%;
 }
 .player-score {
   border: 1px solid red;
@@ -165,7 +167,6 @@ h3 {
 
 .puzzle-area {
   width: 90%;
-  border: 1px solid blue;
   padding: 10px;
 }
 
@@ -187,7 +188,8 @@ h3 {
 .letters-selected-area {
   display: flex;
   justify-content: center;
-  padding: 30px;
+  padding: 30px 0;
+  width: 70%;
 }
 
 .letters-selected td {
@@ -196,4 +198,11 @@ h3 {
   font-size: 20px;
   width: 30px;
   height: 30px;
+}
+
+.player-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
 }
