@@ -42,9 +42,22 @@ li {
   color: #04192e;
 }
 
+.val-btn:hover {
+  background-color: #064b55;
+  color: #cae6df;
+  cursor: pointer;
+}
+
 h1{
   text-align: center;
   font-family: 'Press Start 2P', cursive;
+}
+
+.player-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: 1 / span 4;
+    margin: 0 0 0 15%;
 }
 
 .game-board {
