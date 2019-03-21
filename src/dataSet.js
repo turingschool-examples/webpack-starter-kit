@@ -1,4 +1,4 @@
-const data = {
+export default {
   response_code: {
     version: '1.5',
     termsofService: 'http://frontend.turing.io/projects/jeopardy.html',
@@ -706,5 +706,3 @@ const data = {
     }
   ]
 };
-
-export default dataSet;

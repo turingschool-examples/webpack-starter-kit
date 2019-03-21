@@ -14,8 +14,20 @@ import Rounds from './Rounds.js';
 
 import Game from './Game.js';
 
+import dataSet from './dataSet.js'
 
 
+const flatData = dataSet.clues.flat([1]);
+console.log(flatData);
+
+// const gameStart = flatData.forEach();
+// console.log('Log 1: ', gameStart);
+
+const player1 = new Rounds(flatData, 'Erik');
+// console.log('Log 2: ', player1);
+
+// const player2 = new Rounds(gameStart, 'Aidan');
+// console.log('Log 3: ', player2);
 
 
 
