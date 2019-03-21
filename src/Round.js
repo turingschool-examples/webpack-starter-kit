@@ -1,11 +1,12 @@
 class Round {
   constructor() {
-    this.survey = 'test';
-    this.answers = [];
+    this.survey = getSurvey();
+    this.answers = getAnswers();
   }
 
-  getSurvey() {
-
+  getSurvey(surveys) {
+    console.log(surveys.length);
+    console.log(Math.floor(Math.random() * surveys.length));
   }
 
   getAnswers() {

@@ -39,7 +39,7 @@ describe('Round', function() {
       expect(round).to.respondTo('getSurvey');
     });
     describe('getSurvey method', function() {
-      it.skip('should return a survey object from surveys', function() {
+      it('should return a survey object from surveys', function() {
         const round = new Round();
         expect(round.getSurvey()).to.be.an('object');
         expect(round.getSurvey()).to.have.all.keys('id','question');
