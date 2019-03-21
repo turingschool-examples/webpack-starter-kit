@@ -2,28 +2,130 @@ import $ from 'jquery'
 
 export default {
 
-  playerBoard(players) {
-    $('body').append(`
-    <section class="round-title"><h2>Round 1</h2></section>
-  `)
-    $('footer').append(
-      `<section class="playerScoreBoardBox">
-        <div class="eachPlayer">
-          <h2>${players[0].name}</h2>
-          <h3>${players[0].score}</h3>
-        </div>
-        <div class="eachPlayer">
-          <h2>${players[1].name}</h2>
-          <h3>${players[1].score}</h3>
-        </div>
-        <div class="eachPlayer">
-            <h2>${players[2].name}</h2>
-            <h3>${players[2].score}</h3>
-          </div>    
-      </section>`  
-    )
-  }
 
+  createGameBoard(player) {
+    $('main').append(
+      `<section id="letters-selected-area" class="letters-selected-area">
+    <table class="letters-selected">
+    <tr>
+    <td>A</td>
+    <td>B</td>
+    <td>C</td>
+    <td>D</td>
+    <td>E</td>
+    <td>F</td>
+    <td>G</td>
+    <td>H</td>
+    <td>I</td>
+    <td>J</td>
+    <td>K</td>
+    <td>L</td>
+    <td>M</td>
+    <td>N</td>
+    <td>O</td>
+    <td>P</td>
+    <td>Q</td>
+    <td>R</td>
+    <td>S</td>
+    <td>T</td>
+    <td>U</td>
+    <td>V</td>
+    <td>W</td>
+    <td>X</td>
+    <td>Y</td>
+    <td>Z</td>
+    </tr>
+    </table>
+    </section>
+    <section id="puzzle-area" class="puzzle-area">
+    <div class="puzzle">
+    <table class="puzzle-row">
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    </table>
+    <table class="puzzle-row">
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    </table>
+    <table class="puzzle-row">
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    </table>
+    <table class="puzzle-row">
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    </table>
+    </div>
+    </section>
+    <section id="player-score-area" class="player-score-area">
+    <div id="player-score" class="player-score">
+    <h2>${players[0].name}</h2>
+    <p>${players[0].score}</p>
+    </div>
+    <div id="player-score" class="player-score">
+    <h2>${players[1].name}</h2>
+    <p>${players[0].score}0</p>
+    </div>
+    <div id="player-score" class="player-score">
+    <h2>${players[2].name}</h2>
+    <p>${players[0].score}</p>
+    </div>
+    </section>
+    `)
+  }
+    
   // makeWheel(array) {
 
   //   $('body').prepend(`<section id="theWheel">
