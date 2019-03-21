@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
 body {
   background-color: #324851;
   font-family: 'Sniglet', cursive;
@@ -14,31 +19,56 @@ h1 {
   font-size: 80px;
 } 
 
+.round-count {
+  color: #6ab187;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .puzzle-container {
   display: flex;
   justify-content: center;
 }
 
-.consonant-letter-bank {
+.consonant-letter-bank,
+.vowel-letter-bank {
+  border: 2px solid #7da3a1;
   color: #FFF;
   display: flex;
   font-size: 30px;
   justify-content: center;
   letter-spacing: 65px;
+  padding: 10px;
+}
+
+.consonant-letter-bank {
+  margin-bottom: 20px;
+}
+
+.vowel-letter-bank {
+  margin-top: 20px;
 }
 
 .puzzle {
-  border: 1px solid red;
+  border: 1px solid #7da3a1;
   color: #FFF;
   font-size: 24px;
   height: 500px;
-  width: 1000px;
+  margin-bottom: 20px;
+  width: 75em;
+}
+
+.player-buttons-container {
+display: flex;
+justify-content: center;
 }
 
 .button {
   background-color: #34675c;
   border: white 1.5px solid;
   border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
   color: white;
   cursor: pointer;
   font-size: 24px;
@@ -48,13 +78,33 @@ h1 {
  }
  
  .player-form {
+  display: flex;
+  justify-content: center;
   padding: 25px;
+ }
+
+.player-name-input {
+   margin-top: 10px;
+   line-height: 35px;
+   padding: 5px;
+   border-radius: 5px;
  }
  
  .player-box {
   border: white 1.5px solid;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
   color: #FFF;
-  width: 300px;
-  height: 100px
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  margin: 15px;
+  padding: 20px;
+  width: 380px;
+  height: 165px
+ }
+
+ .score-label {
+   margin-top: 10px;
  }
 
