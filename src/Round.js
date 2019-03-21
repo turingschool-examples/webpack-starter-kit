@@ -3,6 +3,10 @@ class Round() {
     this.survey = null;
     this.answers = null;
   }
+
+  getSurvey() {
+    
+  }
 }
 
 export default Round;
