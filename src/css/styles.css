@@ -5,21 +5,18 @@
   box-sizing: border-box;
 }
 
-.hidden {
-  display: none;
-}
+
 
 html,body{         
 position:relative;
 margin:0;
 padding:0;
-background-color: black;
 color: navy;
 font-family: 'Roboto Mono', monospace;
 /* font-family: 'Orbitron', sans-serif; */
 }
 
-body {
+.game-area {
   height: 100%;
   display: grid;
   grid-template-columns: 3fr 5fr;
@@ -28,6 +25,10 @@ body {
     "heading heading heading"
     "letters board board" 
     "players wheel wheel"
+}
+
+.hidden {
+  display: none;
 }
 
 .header {
