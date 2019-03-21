@@ -12,9 +12,6 @@ import './css/game-grid.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
 
-import data from "./data.js";
-
-
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
