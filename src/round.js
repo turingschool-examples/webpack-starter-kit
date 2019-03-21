@@ -1,8 +1,8 @@
 class Round {
-    constructor(round){
-        this.round = round;
-
+    constructor(roundNumber , puzzleAns, puzzleNumOfLtr){
+        this.roundNumber = roundNumber;
+        this.puzzle = puzzleAns;
+        this.ltrs = puzzleNumOfLtr;
     }
 }
-
 export default Round;
