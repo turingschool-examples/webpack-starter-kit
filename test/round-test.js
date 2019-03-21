@@ -57,6 +57,13 @@ describe('Round', function() {
         expect(matchingAnswers[0]).to.be.a('object');
         expect(matchingAnswers[0]).to.have.all.keys('answer','respondents','surveyId');
       });
+      it('should return answers that all match the round\'s survey id', function() {
+        const round = new Round();
+        const matchingAnswers = round.getAnswers(gamedata.answers);
+        matchingAnswers.forEach(answer => {
+          expect(answer.surveyId).to.equal(round.survey.id);
+        });
+      });
     });
   });
 });
