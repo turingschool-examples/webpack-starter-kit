@@ -3,12 +3,14 @@ const expect = chai.expect;
 
 import Game from '../src/Game.js';
 import Player from '../src/Player.js';
+import Round from '../src/Round.js';
 
 describe('Game Class', () => {
   it.skip('should have a named Player One', function() {
-    let game = new Game('Jacob');
+    let player1 = new Player('Jacob');
+    let game = new Game(player1);
 
-    expect(game.player1).to.equal('Jacob');
+    expect(game.player1.name).to.equal('Jacob');
   });
   it.skip('should also have a named Player Two', function () {
     let player1 = new Player('Jacob');
@@ -19,18 +21,12 @@ describe('Game Class', () => {
     expect(game.player1.name).to.equal('Jacob');
     expect(game.player2.name).to.equal('Ryan');
   });
-  it.skip('should default to Player One and Player Two', function () {
-    let game = new Game();
-
-    expect(game.player1).to.equal('Player One');
-    expect(game.player2).to.equal('Player Two');
-  });
-  it.skip('should start off at round zero', function () {
+  it('should start off at round zero', function () {
     let game = new Game();
 
     expect(game.currentRound).to.equal(0);
   });
-  it.skip('should be able to increment the round', function () {
+  it('should be able to increment the round', function () {
     let game = new Game();
 
     expect(game.currentRound).to.equal(0);
@@ -58,5 +54,19 @@ describe('Game Class', () => {
     let game = new Game();
 
     expect(game.winner).to.equal(null);
+  });
+  it.skip('should create a new instance of Round when a new round is started', function () {
+    let game = new Game();
+
+    game.newRound()
+    expect(round1).to.equal(true);
+  });
+  it.skip('should create an instance of FinalRound if it is round three', function () {
+    let game = new Game();
+
+    game.newRound()
+    game.newRound()
+    game.newRound()
+    expect(round).to.equal(true);
   });
 });
