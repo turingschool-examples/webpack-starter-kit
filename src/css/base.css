@@ -1,3 +1,141 @@
-body {
-  background-color: pink;
+/* Global Styles */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,400,700');
+html {
+  height: 100%;
+  display: flex;
+  overflow: hidden;
 }
+
+body{
+  background: url(/images/WOF2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Player Input Form */
+.inputForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+form {
+  margin: 15rem 0rem;
+  padding: 4.5em 3em;
+  border-radius: 5px;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  background: rgba(35, 31, 32, .95);
+  box-shadow: 3px 4px 14px 5px #000;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+}
+fieldset .label {
+  text-transform: uppercase;
+}
+fieldset .fa-user {
+  margin-right: 9px;
+}
+
+.playerlabel {
+  color: #e1e7d5;
+}
+
+fieldset .playerNames{
+  border: none;
+  width: 202px;
+  height: 36px;
+  font-size: 22px;
+  margin-top: 14px;
+  border-radius: 8px;
+  background: none;
+  color:#86f50de3;
+}
+
+.playerNames:hover {
+  background: none;
+  color: #fff;
+  outline-color: #000;
+}
+
+input:focus {
+  background: none;
+  outline: none;
+  color: #fff;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.startBtn {
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  width: 93px;
+  height: 38px;
+  margin: 45px 0px 0px 22px;
+  top: 39%;
+  transition: all .5s ease;
+}
+
+.startBtn:hover {
+  background-color: #86f50de3;
+}
+/* End of Input Form */
+
+footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  position: relative;
+  bottom: -35rem;
+  transition: all 1s ease;
+  /*overflow: hidden;*/
+  z-index: 99999;
+}
+
+/* Player Score Board */
+.playerScoreBoardBox{
+  padding: 1rem 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgba(81, 91, 234, 0.66);
+    box-shadow: 0px 3px 0px 1px #86f50de3;
+    transition: all 2s ease;
+}
+
+h3 {
+  /*margin-right: 75px;*/
+  background: rgb(35, 31, 32);
+  color: white;
+  text-align: center;
+  width: 9rem;
+  height: 2rem;
+  padding-top: 6px;
+  border-radius: 8px
+}
+
+.eachPlayer {
+  padding: 0rem 2rem;
+}
+/* End Player Score Board */

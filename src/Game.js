@@ -1,20 +1,23 @@
 import Player from "./Player";
 import Data from './Data';
-import Puzzle from './Puzzle'
-
-
-
+import DomUpdates from './DomUpdates'
+import Puzzle from './Puzzle';
+import Wheel from './Wheel'
 
 class Game {
   constructor() {
     this.players = []
     this.clueBank = null
+    this.wheels = []
 
   }
+
+
+
+
   startGame(p1, p2, p3) {
-    this.createClues(Data)
+    this.createClues()
     this.createPlayers(p1, p2, p3)
-    
   }
 
 
@@ -26,15 +29,21 @@ class Game {
     this.players.push(player2)
     this.players.push(player3)
     console.log(this.clueBank)
-  
+    DomUpdates.playerBoard(this.players)
   }
-  createClues(Data) {
+  createClues() {
     this.clueBank = Object.values(Data.puzzles).reduce((acc, puzzleLength)=>{
       puzzleLength.puzzle_bank.forEach(puzzle=>{
         acc.push(puzzle)
       });
       return acc
     }, [])
+  }
+
+  createWheel() {
+
+console.log('hi')
+    
   }
   
 }

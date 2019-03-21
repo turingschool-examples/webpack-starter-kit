@@ -6,32 +6,36 @@ import $ from 'jquery';
 import Game from './Game'
 import Data from './Data'
 
+
 // An example of how you tell webpack to apply a CSS file
 import './css/base.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
-
+import './images/WOF2.jpg'
 console.log('This is the JavaScript entry file - your code begins here.');
 
 
 let game = new Game()
 
-//*************Event Listeners ********/
+//********Event Listeners ********/
 $('.startBtn').on('click', () => {
-    event.preventDefault()
-    startGameBtn(event);
-  });
+  event.preventDefault()
+  startGameBtn(event);
+});
+
+$('body').on('click', () =>{
+  event.preventDefault()
+  game.createWheel()
+})
 
 
-
-
-  /************Functions******* */
-  function startGameBtn(event) {
-      event.preventDefault()
-      let playerName1 = $('#player1').val()
-      let playerName2 = $('#player2').val()
-      let playerName3 = $('#player3').val()
-      
-      game.startGame(playerName1, playerName2, playerName3)
-  }
+/************Functions******* */
+function startGameBtn(event) {
+  event.preventDefault()
+  let playerName1 = $('#player1').val();
+  let playerName2 = $('#player2').val();
+  let playerName3 = $('#player3').val();
+  game.startGame(playerName1, playerName2, playerName3)
+  $('.inputForm').remove()
+}
