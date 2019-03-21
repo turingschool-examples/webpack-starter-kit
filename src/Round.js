@@ -1,9 +1,8 @@
 class Round {
-    constructor(survey, roundNum = 0) {
+    constructor(survey, answers) {
         this.survey = survey;
-        this.surveyAnswers = data.answers.filter(answer => answer.surveyId === surveyId); //maybe move the work to the game FN and pass result in here
+        this.answers = answers;
         this.guesses = [];
-        this.roundNum = roundNum;
     }
 
     checkGuess() {
