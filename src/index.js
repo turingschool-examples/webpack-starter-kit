@@ -13,4 +13,9 @@ $('.startGame').on('click', function (e) {
     e.preventDefault()
     domUpdates.startGame(game)
     console.log(game)
-})
+});
+
+$('.spinButton').on('click', function (e) {
+    e.preventDefault()
+    game.wheel.spinWheel()
+});
