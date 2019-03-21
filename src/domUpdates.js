@@ -5,4 +5,8 @@
 // import Puzzle from "./Puzzle.js";
 // import domUpdates from "./domUpdates.js";
 
+
+import $ from "jquery";
+
+
 export default {}
