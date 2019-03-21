@@ -4,5 +4,8 @@ main aside {
 
 .wheel-img {
   width: 300px;
+  &:focus {
+    transform: rotate(180deg);
+  }
 }
 

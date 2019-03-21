@@ -14,6 +14,7 @@ section.player-section {
     "avatar bank";
     flex: 1;
     margin: 25px;
+    max-height: 300px;
 
     h3, h4 {
       text-align: center;
@@ -26,17 +27,39 @@ section.player-section {
   grid-area: name;
 }
 
-.player-score {
+.player-score-label {
+  font-size: 1.4rem;
   grid-area: score;
 }
 
-.player-bank {
+.player-score {
+  display: block;
+  font-size: $num;
+}
+
+.player-bank-label {
+  font-size: 1.4rem;
   grid-area: bank;
+}
+
+.player-bank {
+  display: block;
+  font-size: $num;
 }
 
 .player-image {
   grid-area: avatar;
-  // max-height: 100px;
-  overflow: hidden;
+  margin: auto auto;
   width: 120px;
+}
+
+.active {
+  border: 2px solid $player;
+  background-color: $player;
+  color: black;
+  font-size: 32px;
+}
+
+.player-two {
+  width: 94px;
 }
