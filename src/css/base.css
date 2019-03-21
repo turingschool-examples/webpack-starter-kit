@@ -9,15 +9,15 @@ body {
   position: relative;
 }
 
-.page-background {
+/* .page-background {
   position: absolute;
   width: 100%;
   top: 0;
   background: url("/src/images/feud76.png") no-repeat;
   background-position: center;
-  /* background-size: 300px 300px; */
-  /* z-index: 2;  */
-}
+  background-size: 300px 300px;
+  z-index: 2; 
+} */
 
 .header {
   display: flex;
@@ -66,6 +66,15 @@ body {
   width: 500px;
   margin: 20px 30px;
   background: #333333;
+}
+
+label {
+  color: white;
+  margin-top: 5px;
+}
+
+.answer-area input {
+  margin: 10px;
 }
 
 .answer-card {

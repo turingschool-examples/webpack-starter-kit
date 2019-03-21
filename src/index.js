@@ -14,9 +14,16 @@ import './images/turing-logo.png'
 
 import './images/feud76.png'
 
-
-import Round from './Round.js';
-
-import FastRound from './FastRound.js';
+import Game from './Game.js';
+// import Round from './Round.js';
+// import FastRound from './FastRound.js';
+// import Player from './Player.js';
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+const game = new Game();
+
+$("#submit-names-btn").on("click", function() { 
+    console.log("poop");
+    // game.getPlayers(); 
+});
