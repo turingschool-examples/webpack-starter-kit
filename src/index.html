@@ -8,13 +8,16 @@
  			<section class="user-inputs">
 				<form>
 					<div class="user-input">
-						<label for="player-1-name">Player One</label>
-						<input type="input" name="player-1-name" placeholder="Enter your name">
+						<div>
+							<label for="player-1-name">Player One</label>
+							<input type="input" name="player-1-name" placeholder="Enter your name">
+						</div>
+						<div>
+							<label for="player-2-name">Player Two</label>
+							<input type="input" name="player-2-name" placeholder="Enter your name">
+						</div>
 					</div>
-					<div class="user-input">
-						<label for="player-2-name">Player Two</label>
-						<input type="input" name="player-2-name" placeholder="Enter your name">
-					</div>
+						<input type="submit" class="btn" name="submit-user-names">
 				</form>
 			</section>
   	</header>
@@ -48,12 +51,13 @@
 		    </article>
 	  	</section>
 
-	  	<section>
+	  	<section class="whose-turn">
 	  		<form>
 	  			<p>Player 1's turn</p>
 	  			<label for="player-guess">
 	  				<input type="input" name="player-guess" placeholder="Make a guess!">
 	  			</label>
+	  			<input type="submit" class="btn" name="submit-user-names">
 	  		</form>
 	  	</section>
 
