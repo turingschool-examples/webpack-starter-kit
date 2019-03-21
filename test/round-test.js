@@ -29,3 +29,4 @@ describe('Round', ()=>{
         expect(round).to.deep.equal({roundNumber: 1, puzzle: 'Teapot', ltrs: 6})
     })
 })
+export default Round;
