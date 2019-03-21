@@ -9,8 +9,8 @@ class FastRound extends Round {
 
     }
 
-    setMultiplier() {
-        
+    setMultiplier(chosenNumber) {
+        this.multiplier = chosenNumber;
     }
 }
 
