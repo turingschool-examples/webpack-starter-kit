@@ -4,7 +4,7 @@ class Player {
         this.score = 0;
     }
 
-    increaseScore(points, multiplier) {
+    increaseScore(points, multiplier = 1) {
         this.score += points * multiplier;
     }
 }
