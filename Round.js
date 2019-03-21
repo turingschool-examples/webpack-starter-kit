@@ -1,8 +1,9 @@
 class Round {
-    constructor(survey, answers) {
+    constructor(survey, answers, roundNum = 0) {
         this.survey = survey;
         this.surveyAnswers = answers; 
         this.guesses = [];
+        this.roundNum = roundNum;
     }
 
     checkGuess() {
