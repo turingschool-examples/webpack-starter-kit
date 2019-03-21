@@ -6,12 +6,15 @@ body {
 }
 header {
 	grid-row: 1;
+	text-align: center;
 }
 
 main {
 	grid-row: 2;
 	background-color: pink;
+	align-content: center;
 }
+
 .board  {
 	display: grid;
 	grid-template-rows: 20% 20% 20% 20% 20%;
@@ -19,6 +22,17 @@ main {
 	height: 50%;
 	width: 90%;
 	border: 2px solid black;
+	text-align: center;
+	margin: auto;
+}
+
+h2 {
+	color: #fff;
+}
+
+article {
+	border: 2px black solid;
+	background-color: gray;
 }
 
 .category-one {
