@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(css|ttf)$/,
         use: ['style-loader', 'css-loader'],
       },
       {
@@ -28,6 +28,14 @@ module.exports = {
                 }
               }
             ]
+      },
+      {
+        test: /\.(woff|woff2|otf|ttf)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 4096,
+          name: './fonts/[name].[ext]?[hash]' // was '/fonts/[name].[ext]?[hash]',
+        }
       }
     ],
   },

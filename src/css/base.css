@@ -1,4 +1,33 @@
+ /* @font-face { 
+     font-family: Overseer; 
+   src:  
+     url(./../fonts/Lato-Thin.ttf);
+    font-weight: normal;
+} */
+
+* {
+   font-family: Overseer, sans-serif;
+   color: lime;
+}
 
 body {
-  background-color: pink;
+  background: url(./../images/terminal1.jpg) center no-repeat;
+  background-size: cover;
+  /* font-family: 'Share Tech Mono', monospace; */
+}
+header {
+  border: 5px solid limegreen;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header img {
+  width: 70%;
+}
+nav {
+  position: relative;
+  width: 100%;
+  border: 2px dotted lime;
 }
