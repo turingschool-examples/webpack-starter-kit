@@ -8,6 +8,7 @@
 * {
    font-family: Overseer, 'Share Tech Mono';
    color: lime;
+   /* border: pink solid 0.2px */
 }
 
 body {
@@ -62,12 +63,10 @@ nav {
   align-items: center;
   padding-right: 40px;
 }
-
 .nav__btns--container {
   display: flex;
   justify-content: center
 }
-
 .nav--btn {
   max-width: 200px;
   padding: 5px 10px;
@@ -75,7 +74,6 @@ nav {
   background-color: rgba(20, 100, 20, .9);
   border: .1px solid lime;
 }
-
 .nav__wheel--button {
   background-color: darkgreen;
   border-radius: 0 0 100px 100px;
@@ -87,17 +85,14 @@ nav {
   right: 50%;
   border: 2px inset lime;
 }
-
 .letters--container {
   position: absolute;
   top: 25px;
   left: 25px;
 }
-
 .letters__title {
   margin: 0 0 -10px 0;
 }
-
 .letters__remaining {
   border: .1px solid lime;
   padding: 10px;
@@ -120,6 +115,9 @@ nav {
 .board__tile-hider--container,
 .board__tile-value--container {
   background-color: rgba(30, 30, 30, .9);
+.popup {
+  background: darkgreen;
+  z-index: 12;
   position: absolute;
   height: 70%;
   width: 80%;
@@ -150,7 +148,6 @@ nav {
   padding: 10px;
   margin: 0;
 }
-
 /* ! Footer / Player Navigation ! */
 /* ============================== */
 footer {
@@ -173,3 +170,57 @@ footer {
 .player-3--container {
   grid-area: play3;
 }
+.playerinfo{
+  display: flex;
+  justify-content: center;
+  height: 35%;
+}
+.playerinfo__player {
+  display: flex;
+  width: 35%;
+  flex-direction: column;
+  align-items:center;
+  margin-top: 40px
+}
+.playerinfo__avatar {
+  width: 50px;
+  height: 50px;
+  outline: black 1px solid;
+}
+.playerinfo--input {
+  height: 30px;
+  width: 90%; 
+  background-color:black;
+  margin-left:10px;
+  border: none;
+}
+.instructions {
+  display: flex;
+  height: 45%;
+}
+.instructions--column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.start {
+  display: flex;
+  justify-content: center;
+}
+button.start__start--btn {
+  height: 60px;
+  width: 250px;
+  border-radius: 10%;
+  background-color: black;
+  border: 3px solid lime;
+  font-size: 32px;
+}
+.instructions__icon {
+  width: 50px;
+  height: 50px;
+}
+.instructions__head {
+  align-items: center;
+  display: flex;
+}
+/* Popup style  */
