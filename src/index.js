@@ -21,5 +21,6 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 
 let game = new Game();
+console.log(game);
 
 game.startRound();
