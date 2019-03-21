@@ -1,8 +1,11 @@
 import data from './data';
+import Game from './game';
+
 class Wheel {
   constructor() {
     this.currentValue = 0;
     this.values = [];
+    this.currentQuestion = {};
   }
 
   randomizeValues(array) {
