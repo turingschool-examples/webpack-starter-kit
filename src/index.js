@@ -5,7 +5,10 @@
 import $ from 'jquery';
 
 // An example of how you tell webpack to apply a CSS file
+import './css/normalize.css'
 import './css/base.css';
+
+
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
@@ -16,6 +19,9 @@ import Game from './Game.js';
 
 import dataSet from './dataSet.js'
 
+$(".categories").click(() => {
+  alert ('im working');
+});
 
 const flatData = dataSet.clues.flat([1]);
 console.log(flatData);
