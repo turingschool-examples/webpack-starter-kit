@@ -6,6 +6,9 @@
 
 class Player {
   constructor() {
+    this.name = name;
+    this.totalScore = 0;
+    this.roundScore = 0;
 
   }
 }
