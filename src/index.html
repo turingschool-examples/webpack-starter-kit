@@ -4,23 +4,129 @@
     <title>Wheel of Fortune</title>
   </head>
   <body>
-    <h1>Wheel of Fortune</h1>
-    <form>
-      <input class='nameInput'/>
-      <input class='nameInput'/>
-      <input class='nameInput'/>
-      <button class='startGame'>Submit</button>
-    </form>
-    <section class='guessBoard'>
-      <p>Clue</p>
+    <header>
+      <h1><img src='/images/wheel.png' width=30%></h1>
+    </header>
+  <main>
+    <table class='guessBoard'>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <section class='roundSection'>
+      <h2>Round <span>0</span></h2>
+      <h3>Category: <span>newCategoryHere</span></h3>
+      <h3>Clue: <span>newClueHere</span></h3>
+      <form>
+        <input class='nameInput'/>
+        <input class='nameInput'/>
+        <input class='nameInput'/>
+        <button class='startGame'>Submit</button>
+      </form>
+        <p class="player-1">Player 1 <span>Score:0</span></p>
+        <p class="player-2">Player 2 <span>Score:0</span></p>
+        <p class="player-3">Player 3 <span>Score:0</span></p>
     </section>
-    <section class='wheelSection'>
-      <button class='spinButton'>Spin</button>
+    <section class='playSection'>
+        <img class='boardWheel' src='/images/Color_Wheel.png'width=300px height=300px >
+        <button class='spinButton'>Spin</button>
+        <table class='letterBank'>
+          <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+          </tr>
+          <tr>
+            <td>K</td>
+            <td>L</td>
+            <td>M</td>
+            <td>N</td>
+            <td>O</td>
+          </tr>
+          <tr>
+            <td>P</td>
+            <td>Q</td>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+          </tr>
+          <tr>
+            <td>U</td>
+            <td>V</td>
+            <td>W</td>
+            <td>X</td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td>Z</td>
+          </tr>
+        </table>
     </section>
-    <div>
-      <p class="player-1">Player 1<span>0</span></p>
-      <p class="player-2">Player 2<span>0</span></p>
-      <p class="player-3">Player 3<span>0</span></p>
-    </div>
-  </body>
+    <footer class='scoreSection'>
+
+    </footer>
+</main>
+</body>
 </html>
