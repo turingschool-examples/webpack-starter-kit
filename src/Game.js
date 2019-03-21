@@ -18,6 +18,7 @@ class Game {
   startGame(p1, p2, p3) {
     this.createClues()
     this.createPlayers(p1, p2, p3)
+    this.createGameBoard()
   }
 
 
@@ -29,7 +30,7 @@ class Game {
     this.players.push(player2)
     this.players.push(player3)
     console.log(this.clueBank)
-    DomUpdates.playerBoard(this.players)
+
   }
   createClues() {
     this.clueBank = Object.values(Data.puzzles).reduce((acc, puzzleLength)=>{
@@ -40,11 +41,16 @@ class Game {
     }, [])
   }
 
-  createWheel() {
+  createGameBoard() {
 
-console.log('hi')
-    
+    DomUpdates.createBoard()
   }
+
+//   createWheel() {
+
+// console.log('hi')
+    
+//   }
   
 }
 
