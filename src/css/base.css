@@ -1,5 +1,21 @@
 body {
   background-color: pink;
+  height: 100%;
+
+}
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.points-wrapper {
+  
+}
+
+.tv-box-style {
+  border: solid 2px black;
+  display: inline;
 }
 
 .header {
