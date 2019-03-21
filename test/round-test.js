@@ -1,8 +1,10 @@
 import chai from 'chai';
 const expect = chai.expect;
 
+import gamedata from '../src/gamedata.js';
+
 describe('Round class tests', function() {
-  desribe('Property Tests', function() {
+  describe('Property Tests', function() {
     it('should have a survey property', function() {
       const round = new Round();
       expect(round).to.have.property(survey);
@@ -34,12 +36,11 @@ describe('Round class tests', function() {
       const round = new Round();
       expect(round).to.respondTo('getSurvey');
     });
+    describe('getSurvey method', function() {
+    });
     it('should have a getAnswers method', function() {
       const round = new Round();
       expect(round).to.respondTo('getAnswers');
-    });
-    describe('getSurvey method', function() {
-      
     });
   });
 });
