@@ -11,39 +11,70 @@
   <body>
     <header>
       <h1>NBA JEOPARDY!</h1>
-      <h2>Round</h2>
+      <!-- <p>Round<span class="round-number">1</span></p> -->
     </header>
     <main>
       <section class="game-board">
-        <article>1</article>
-        <article>2</article>
-        <article>3</article>
-        <article>4</article>
-        <article>5</article>
-        <article>6</article>
-        <article>7</article>
-        <article>8</article>
-        <article>9</article>
-        <article>10</article>
-        <article>11</article>
-        <article>12</article>
-        <article>13</article>
-        <article>14</article>
-        <article>15</article>
-        <article>16</article>
-        <article>17</article>
-        <article>18</article>
-        <article>19</article>
-        <article>20</article>
+        <article class="cat--container">
+          <div class="litter-box">
+            <h2 class="cat cat0">category</h2>
+          </div>
+          <h3 id="0" class="col 100">100</h3>
+          <h3 id="1" class="col 200">200</h3>
+          <h3 id="2" class="col 300">300</h3>
+          <h3 id="3" class="col 400">400</h3>
+        </article>
+        <article class="cat--container">
+          <div class="litter-box">
+            <h2 class="cat cat1">category</h2>
+          </div>
+          <h3 id="4" class="col 100">100</h3>
+          <h3 id="5" class="col 200">200</h3>
+          <h3 id="6" class="col 300">300</h3>
+          <h3 id="7" class="col 400">400</h3>
+        </article>
+        <article class="cat--container">
+          <div class="litter-box">
+            <h2 class="cat cat2">category</h2>
+          </div>
+          <h3 id="8" class="col 300">100</h3>
+          <h3 id="9" class="col 200">200</h3>
+          <h3 id="10" class="col 300">300</h3>
+          <h3 id="11" class="col 400">400</h3>
+        </article>
+        <article class="cat--container">
+          <div class="litter-box">
+            <h2 class="cat cat3">category</h2>
+          </div>
+          <h3 id="12" class="col 400">100</h3>
+          <h3 id="13" class="col 200">200</h3>
+          <h3 id="14" class="col 300">300</h3>
+          <h3 id="15" class="col 400">400</h3>
+        </article>
+        <!-- <article class="rules">
+          <h4><u>Players:</u></h4>
+        </article> -->
       </section>
       <section class="players">
-        <article>Player 1</article>
-        <article>Player 2</article>
-        <article>Player 3</article>
+        <section id="p0-cont-js" class="player">
+          <p id="shadow-0-js" class="shadow"></p>
+          <h5 id="p1-name-change-js">Player 1</h5>
+          <h6>Points: <span id="player-1-points">00</span></h6>
+        </section>
+        <section id="p1-cont-js" class="player">
+          <p id="shadow-1-js" class="shadow"></p>
+          <h5 id="p2-name-change-js">Player 2</h5>
+          <h6>Points: <span id="player-2-points">00</span></h6>
+        </section>
+        <section id="p2-cont-js" class="player">
+          <p id="shadow-2-js" class="shadow"></p>
+          <h5 id="p3-name-change-js">Player 3</h5>
+          <h6>Points: <span id="player-2-hp">00</span></h6>
+        </section>
       </section>
     </main>
     <footer>
-    
+      
     </footer>
 
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
