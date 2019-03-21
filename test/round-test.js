@@ -3,13 +3,13 @@ const expect = chai.expect;
 
 import gamedata from '../src/gamedata.js';
 
-describe('Round class tests', function() {
-  describe('Property Tests', function() {
+describe('Round', function() {
+  describe('Properties', function() {
     it('should have a survey property', function() {
       const round = new Round();
       expect(round).to.have.property(survey);
     });
-    it('should have answers property', function() {
+    it('should have an answers property', function() {
       const round = new Round();
       expect(round).to.have.property(answers);
     });
@@ -24,19 +24,24 @@ describe('Round class tests', function() {
       expect(round.answers[0]).to.be.an('object');
       expect(round.answers[0]).to.have.all.keys('answer','respondents','surveyId');
     });
-    describe('Each answer object', function() {
+    describe('Answer Objects', function() {
       it('should have an id that matches the round survey', function() {
         const round = new Round();
         expect(round.survey.id).to.equal(round.answers[0].surveyId);
       });
     });
   });
-  describe('Method tests', function() {
+  describe('Method', function() {
     it('should have a getSurvey method', function() {
       const round = new Round();
       expect(round).to.respondTo('getSurvey');
     });
     describe('getSurvey method', function() {
+      it('should return a survey object from surveys', function() {
+        const round = new Round();
+        expect(round.getSurvey()).to.be.an('object');
+        expect(round.getSurvey()).to.have.all.keys('id','question');
+      });
     });
     it('should have a getAnswers method', function() {
       const round = new Round();
