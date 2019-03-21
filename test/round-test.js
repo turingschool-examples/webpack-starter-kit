@@ -5,7 +5,7 @@ import gamedata from '../src/gamedata.js';
 
 describe('Round', function() {
   describe('Properties', function() {
-    it.skip('should have a survey property', function() {
+    it('should have a survey property', function() {
       const round = new Round();
       expect(round).to.have.property(survey);
     });
