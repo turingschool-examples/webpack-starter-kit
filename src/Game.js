@@ -11,4 +11,5 @@ class Game {
  // player input that is >= 5 && <= playerDollarAmount || <= pointValue
   }
 }
+
 export default Game;
