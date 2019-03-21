@@ -8,3 +8,93 @@
 .hidden {
   display: none;
 }
+
+html,body{         
+position:relative;
+margin:0;
+padding:0;
+background-color: black;
+color: navy;
+font-family: 'Roboto Mono', monospace;
+/* font-family: 'Orbitron', sans-serif; */
+}
+
+body {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  grid-auto-rows: 1fr 4fr 4fr;
+  grid-template-areas: 
+    "heading heading heading"
+    "letters board board" 
+    "players wheel wheel"
+}
+
+.header {
+  text-align: center;
+  grid-area: heading;
+  background: cyan;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.letters {
+  grid-area: letters;
+  background: magenta;
+}
+
+.game-board {
+  grid-area: board;
+  background: yellow;
+}
+.reset-game {
+  float: right;
+}
+
+.clue-container {
+  margin: 10px;
+  font-size: 30px;
+}
+.player-area {
+  grid-area: players;
+  background: blue;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  grid-template-areas: 
+    "round round round"
+    "player1 player2 player3"
+}
+.current-round {
+  grid-area: round;
+  background: teal;
+}
+
+.wheel-section {
+  grid-area: wheel;
+  background: green;
+}
+.player-1 {
+  grid-area: player1;
+  background: lightskyblue;
+}
+.player-2 {
+  grid-area: player2;
+  background: orangered;
+}
+.player-3 {
+  grid-area: player3;
+  background: lightseagreen;
+}
+
+/* 
+canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+} */
+
+h1 {
+  margin: 20px 0 0 0;
+  font-size: 70px;
+}
