@@ -5,6 +5,7 @@
 import $ from 'jquery';
 import Game from './Game'
 import Data from './Data'
+import Round from './Round'
 
 
 // An example of how you tell webpack to apply a CSS file

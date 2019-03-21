@@ -1,25 +1,25 @@
 import Player from "./Player";
 import Data from './Data';
 import DomUpdates from './DomUpdates'
-import Puzzle from './Puzzle';
+import Round from './Round';
 import Wheel from './Wheel'
 
 class Game {
   constructor() {
     this.players = []
-    this.clueBank = null
+    // this.clueBank = null
     this.wheels = []
-
+    this.roundInst = new Round()
   }
 
 
 
 
   startGame(p1, p2, p3) {
-    console.log('hi')
     this.createPlayers(p1, p2, p3)
-    this.createClues()
     this.createGameBoard()
+    this.roundInst.createClues()
+    
   }
 
 
@@ -30,24 +30,14 @@ class Game {
     this.players.push(player1)
     this.players.push(player2)
     this.players.push(player3)
-    console.log(this.clueBank)
-
-  }
-  createClues() {
-    this.clueBank = Object.values(Data.puzzles).reduce((acc, puzzleLength)=>{
-      puzzleLength.puzzle_bank.forEach(puzzle=>{
-        acc.push(puzzle)
-      });
-      return acc
-    }, [])
-  }
-
-  createGameBoard() {
-    console.log(this.players)
-
-    DomUpdates.createBoard(this.players)
   }
   
+
+  createGameBoard() {
+    DomUpdates.createBoard(this.players)
+  }
+
+
 }
 
 export default Game
