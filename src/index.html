@@ -13,29 +13,29 @@
         <!-- input for all three players, instructions, avatars next to name inputs -->
         <section class="instructions">
           <article class="instructions__solve instructions--column">
-           <span class="instructions__head"><image class="instructions__icon" src="./images/radroach.png" alt="Solve the puzzle icon">Solve the Puzzle</span>
+           <span class="instructions__head"><image class="instructions__icon" src="./images/radroach.png" alt="Solve the puzzle icon">Solve Puzzle</span>
             <p>Attempt to solve the puzzle: If the guess is correct, your Total Caps will be increased by your Round Caps. </p>
           </article>
           <article class="instructions__wheel instructions--column">
             <span class="instructions__head"><image class="instructions__icon" src="./images/radroach.png" alt="Spin the wheel icon"></image>Spin the Wheel</span>
-            <p>Spin the wheel: When the wheel is spun there are three types of outcomes, a Cap amount to be added to your Round Caps, a bankruptcy amount which will cause the Round Caps to be set to 0, or a Lose a Turn. </p>
+            <p>Spin the wheel and have a chance to gain caps, lose your turn, or lose all your caps!</p>
           </article>
           <article class="instructions__vowel instructions--column">
             <span class="instructions__head"><image class="instructions__icon" src="./images/radroach.png" alt="Buy a vowel icon"> Buy a Vowel</span>
-            <p>Buy a Vowel for 100 Caps. The vowel will be entered into the board to further the puzzle</p>
+            <p>Buy a vowel for 100 Caps. The vowel will be entered into the board to further the puzzle</p>
           </article>
         </section>
         <section class="playerinfo">
-           <div class="playerinfo__player playerInfo--1">
-            <img class="playerinfo__avatar" src="./images/radroach.png" alt="Player one avatar">
-            <input type="text" class="playerinfo_player-1 playerinfo--input">
-          </div>
-          <div class="playerinfo__player playerInfo--2">
-            <img class="playerinfo__avatar" src="./images/radroach.png" alt="Player two avatar">
+           <div class="playerinfo__player playerinfo--1">
+            <img class="playerinfo__avatar" src="./images/thumbs.png" alt="Player one avatar">
             <input type="text" class="playerinfo__player-1 playerinfo--input">
           </div>
-          <div class="playerinfo__player playerInfo--3">
-            <img class="playerinfo__avatar" src="./images/radroach.png" alt="player three avatar">
+          <div class="playerinfo__player playerinfo--2">
+            <img class="playerinfo__avatar" src="./images/raider.png" alt="Player two avatar">
+            <input type="text" class="playerinfo__player-1 playerinfo--input">
+          </div>
+          <div class="playerinfo__player playerinfo--3">
+            <img class="playerinfo__avatar" src="./images/yesMan.jpg" alt="player three avatar">
             <input type="text" class="playerinfo__player-1 playerinfo--input">
           </div>
         </section>
@@ -71,12 +71,12 @@
         <h3 class="hint__title">Category</h3>
         <h3 class="hint__value">Hint</h3>
       </article>
+    </section>
       <footer>
         <aside class="round-info--container">
           <h2 class="round-info__current-round">Round: 1</h2>
           <h3 class="round-info__total-caps">Totals</h3>
         </aside>
-        <section class="player-info--container">
           <section class="player-1--container">
             <h2 class="player-1__name">Player-Name</h2>
             <div class="player-1__indicator--container">
@@ -119,7 +119,6 @@
               <input type="text" pattern="[a-z],[A-Z]">
             </div>
           </section>
-        </section>
       </footer>
     </section>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->

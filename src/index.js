@@ -5,6 +5,12 @@
 import $ from 'jquery';
 // jQuery selectors
 
+$('start__start--btn').click(()=>{
+    console.log(('.playerinfo__player-1').val());
+})
+
+
+
 
 // An example of how you tell webpack to apply a CSS file
 // import './css/fonts/overseer.css';
@@ -25,15 +31,13 @@ import './images/radroach.png';
 import './images/raider.png';
 import './images/smallvaultec.png';
 import './images/smartypants.png';
-import './images/thumbs.jpg';
+import './images/thumbs.png';
 import './images/vaultDoor.png';
 import './images/vaultTec.jpg';
 import './images/yesMan.jpg';
 import './images/bottleCaps.png';
 import './images/deathclaw.jpg';
 import './images/incorrect.png';
-
-
 
 
 // import './css/Overseer.otf'
