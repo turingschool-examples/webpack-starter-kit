@@ -16,6 +16,7 @@ class Rounds extends Game {
      //this.playerguess = playerinput.value
      // boolean of this.answer === this.playerguess
    }
+
    addPoints(boolean) {
 
    }

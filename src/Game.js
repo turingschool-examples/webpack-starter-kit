@@ -1,3 +1,5 @@
+import dataSet from './dataSet.js'
+
 class Game {
   constructor(playerName, playerDollarAmount) {
     this.playerName = playerName;
@@ -7,6 +9,7 @@ class Game {
   addPoints() {
 
   }
+
   chooseWager() {
  // player input that is >= 5 && <= playerDollarAmount || <= pointValue
   }
