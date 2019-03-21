@@ -9,6 +9,6 @@ let game =  new Game();
 
 $('.startGame').on('click', function (e) {
     e.preventDefault()
-    console.log(game)
     domUpdates.startGame(game)
+    console.log(game)
 })
