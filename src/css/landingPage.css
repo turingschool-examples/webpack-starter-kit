@@ -1,0 +1,25 @@
+body {
+    background-color: #04192e;
+    color: #cae6df; 
+  }
+
+.start-game-button {
+    background-color: #cae6df;
+    color: black;
+    padding: 10px;
+}
+
+.player-name {
+    padding: 5px 0 8px 10px;
+    height: 40px;
+}
+.start-game-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+.start-form {
+    margin: 10px 0;
+}
