@@ -15,34 +15,8 @@ body {
   background: url(./../images/terminal1.jpg) center no-repeat;
   background-size: cover;
 }
-/* ! Pop-Up: Start ! */
-/* ================= */
-.shader {
-  background: rgba(0, 0, 0, .8);
-  width: 100%;
-  content: normal;
-  height: 100%;
-  position: absolute;
-  z-index: 10;
-}
-.popup {
-  background: magenta;
-  z-index: 12;
-  position: absolute;
-  top: 150px;
-  left: 25%;
-  height: 600px;
-  width: 50%;
-  border-radius: 80px;
-  padding: 50px;
-}
-.hidden {
-  display: none;
-}
-/* ! Header / Navigation ! */
-/* ======================= */
 header {
-  /* border: 5px solid limegreen; */
+  border: 5px solid limegreen;
   position: relative;
   width: 100%;
   display: flex;
@@ -50,30 +24,14 @@ header {
   align-items: center;
 }
 header img {
-  width: 60%;
-  padding-top: 10px;
+  width: 70%;
 }
 nav {
   position: relative;
   width: 100%;
-  /* border: 2px dotted lime; */
-  height: 60px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 40px;
+  border: 2px dotted lime;
 }
-.nav__btns--container {
-  display: flex;
-  justify-content: center
-}
-.nav--btn {
-  max-width: 200px;
-  padding: 5px 10px;
-  height: 35px;
-  background-color: rgba(20, 100, 20, .9);
-  border: .1px solid lime;
-}
+
 .nav__wheel--button {
   background-color: darkgreen;
   border-radius: 0 0 100px 100px;
@@ -85,90 +43,30 @@ nav {
   right: 50%;
   border: 2px inset lime;
 }
-.letters--container {
+
+.shader {
+  background: rgba(0, 0, 0, .8);
+  width: 100%;
+  content: normal;
+  height: 100%;
   position: absolute;
-  top: 25px;
-  left: 25px;
+  z-index: 10;
 }
-.letters__title {
-  margin: 0 0 -10px 0;
-}
-.letters__remaining {
-  border: .1px solid lime;
-  padding: 10px;
-  height: 60px;
-  width: 100px;
-  background-color: black;
-  display: flex;
-  word-wrap: break-word;
-}
-/* ! Board Area ! */
-/* ============== */
-.board__container {
-  position: relative;
-  height: 500px;
-  /* background-color: magenta; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.board__tile-hider--container,
-.board__tile-value--container {
-  background-color: rgba(30, 30, 30, .9);
+
 .popup {
   background: darkgreen;
   z-index: 12;
   position: absolute;
-  height: 70%;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 150px;
+  left: 25%;
+  height: 600px;
+  width: 50%;
+  border-radius: 80px;
+  padding: 50px;
 }
-.board__tile-hider--container {
-  z-index: 7;
-}
-.board__tile-value--container {
-  z-index: 5;
-}
-.hint--container {
-  position: absolute;
-  bottom: 5px;
-  display: flex;
-  justify-content: space-around;
-  max-width: 400px;
-  background-color: black;
-  padding: 0 10px 0 10px;
-}
-.hint__title {
-  padding: 10px;
-  margin: 0;
-}
-.hint__value {
-  padding: 10px;
-  margin: 0;
-}
-/* ! Footer / Player Navigation ! */
-/* ============================== */
-footer {
-  position: relative;
-  display: grid;
-  margin: 0 10% 0 10%;
-  grid-template-columns: 1fr 2fr 2fr 2fr;
-  grid-template-areas:
-  "round play1 play2 play3";
-}
-.round-info--container {
-  grid-area: round;
-}
-.player-1--container {
-  grid-area: play1;
-}
-.player-2--container {
-  grid-area: play2;
-}
-.player-3--container {
-  grid-area: play3;
+
+.hidden {
+  /* display: none; */
 }
 .playerinfo{
   display: flex;
