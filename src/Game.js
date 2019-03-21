@@ -94,6 +94,7 @@ class Game {
     this.currentRound++;
     //if round num is 3, inst new fast round
     //if round num is < 3, inst new regular round
+    //if over 3 end game
   }
 
   getSurvey() {
