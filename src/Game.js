@@ -15,6 +15,6 @@ class Game {
       this.currentTurn = 'p2';
     }
   }
-}
+};
 
 export default Game;

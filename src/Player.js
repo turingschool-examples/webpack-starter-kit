@@ -4,6 +4,6 @@ class Player {
     this.score = 0;
     this.correctAnswers = [];
   }
-}
+};
 
 export default Player;
