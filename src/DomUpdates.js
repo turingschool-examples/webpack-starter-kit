@@ -3,8 +3,9 @@ import $ from 'jquery'
 export default {
 
 
-  createGameBoard(player) {
-    $('main').append(
+  createBoard(player) {
+    
+    $('main').prepend(
       `<section id="letters-selected-area" class="letters-selected-area">
     <table class="letters-selected">
     <tr>
@@ -111,43 +112,19 @@ export default {
     </section>
     <section id="player-score-area" class="player-score-area">
     <div id="player-score" class="player-score">
-    <h2>${players[0].name}</h2>
-    <p>${players[0].score}</p>
+    <h2>${player[0].name}</h2>
+    <p>${player[0].score}</p>
     </div>
     <div id="player-score" class="player-score">
-    <h2>${players[1].name}</h2>
-    <p>${players[0].score}0</p>
+    <h2>${player[1].name}</h2>
+    <p>${player[0].score}</p>
     </div>
     <div id="player-score" class="player-score">
-    <h2>${players[2].name}</h2>
-    <p>${players[0].score}</p>
+    <h2>${player[2].name}</h2>
+    <p>${player[0].score}</p>
     </div>
     </section>
     `)
   }
-    
-  // makeWheel(array) {
-
-  //   $('body').prepend(`<section id="theWheel">
-  //   <div>
-  //     <h3>${game.wheel[5]}</h3>
-  //   </div>
-  //   <div>
-  //       <h3>${game.wheel[4]}</h3>
-  //   </div>
-  //   <div>
-  //       <h3 class="wheelSelection">${game.wheel[3]}</h3>
-  //   </div>
-  //   <div>
-  //       <h3>${game.wheel[2]}</h3>
-  //   </div>
-  //   <div>
-  //       <h3>${game.wheel[1]}</h3>
-  //   </div>
-  //   <div>
-  //       <h3>${game.wheel[0]}</h3>
-  //   </div>
-  //   <button class="wheelSpin">Spin Wheel</button>
-  // </section>`)
-  // }
+  
 }

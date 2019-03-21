@@ -20,15 +20,14 @@ console.log('This is the JavaScript entry file - your code begins here.');
 let game = new Game()
 
 //********Event Listeners ********/
-$('.startBtn').on('click', () => {
+$('.start-btn').on('click', () => {
   event.preventDefault()
   startGameBtn(event);
 });
 
-$('body').on('click', () =>{
-  event.preventDefault()
-  game.createWheel()
-})
+// $('body').on('click', () =>{
+//   event.preventDefault()
+// })
 
 
 /************Functions******* */
@@ -37,6 +36,6 @@ function startGameBtn(event) {
   let playerName1 = $('#player1').val();
   let playerName2 = $('#player2').val();
   let playerName3 = $('#player3').val();
+  $('.input-form').remove()
   game.startGame(playerName1, playerName2, playerName3)
-  $('.inputForm').remove()
 }
