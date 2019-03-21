@@ -17,8 +17,8 @@ class Game {
 
   startGame(p1, p2, p3) {
     console.log('hi')
-    this.createClues()
     this.createPlayers(p1, p2, p3)
+    this.createClues()
     this.createGameBoard()
   }
 
