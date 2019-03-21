@@ -12,8 +12,11 @@ import './css/normalize.css'
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
-import Round from 'Round.js';
+import './images/feud76.png'
 
-import Round from 'FastRound.js';
+
+import Round from './Round.js';
+
+import FastRound from './FastRound.js';
 
 console.log('This is the JavaScript entry file - your code begins here.');
