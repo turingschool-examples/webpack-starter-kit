@@ -7,33 +7,44 @@ import Round from '../src/Round.js';
 
 describe('Round', function() {
   describe('Properties', function() {
-    it('should have a survey property', function() {
-      const round = new Round();
-      expect(round).to.have.property('survey');
-    });
-    it('should have an answers property', function() {
-      const round = new Round();
-      expect(round).to.have.property('answers');
-    });
-    it('should have a survey object assigned to the survey property', function() {
-      const round = new Round();
-      expect(round.survey).to.be.an('object');
-      expect(round.survey).to.have.all.keys('id','question');
-    });
-    it.skip('should have an array of answer objects assigned to the answers property', function() {
-      const round = new Round();
-      expect(round.answers).to.be.an('array');
-      expect(round.answers[0]).to.be.an('object');
-      expect(round.answers[0]).to.have.all.keys('answer','respondents','surveyId');
-    });
-    describe('Answer Objects', function() {
-      it.skip('should have an id that matches the round survey', function() {
+    describe('Survey Property', function() {
+      it('should have a survey property', function() {
         const round = new Round();
-        expect(round.survey.id).to.equal(round.answers[0].surveyId);
+        expect(round).to.have.property('survey');
+      });
+      it('should have a survey object assigned to the survey property', function() {
+        const round = new Round();
+        expect(round.survey).to.be.an('object');
+        expect(round.survey).to.have.all.keys('id','question');
+      });
+    });
+    describe('Answer Property', function() {
+      it('should have an answers property', function() {
+        const round = new Round();
+        expect(round).to.have.property('answers');
+      });
+      it('should be an array', function() {
+        const round = new Round();
+        expect(round.answers).to.be.an('array');
+      });
+      it('should have answer objects nested inside that array', function() {
+        const round = new Round();
+        round.answers.forEach( answer => {
+          expect(answer).to.be.an('object');
+          expect(answer).to.have.all.keys('answer','respondents','surveyId');
+        });
+      });
+      describe('Answer Objects', function() {
+        it('should all have an id that matches the survey property\'s id vale', function() {
+          const round = new Round();
+          round.answers.forEach( answer => {
+            expect(answer.surveyId).to.equal(round.survey.id);
+          });
+        });
       });
     });
   });
-  describe('Method', function() {
+  describe('Methods', function() {
     it('should have a getSurvey method', function() {
       const round = new Round();
       expect(round).to.respondTo('getSurvey');
