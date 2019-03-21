@@ -1,4 +1,45 @@
+ /* @font-face { 
+     font-family: Overseer; 
+   src:  
+     url(./../fonts/Lato-Thin.ttf);
+    font-weight: normal;
+} */
+
+* {
+   font-family: Overseer, 'Share Tech Mono';
+   color: lime;
+}
+
 body {
-  background-color: pink;
+  background: url(./../images/terminal1.jpg) center no-repeat;
+  background-size: cover;
+}
+header {
+  border: 5px solid limegreen;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header img {
+  width: 70%;
+}
+nav {
+  position: relative;
+  width: 100%;
+  border: 2px dotted lime;
+}
+
+.nav__wheel--button {
+  background-color: darkgreen;
+  border-radius: 0 0 100px 100px;
+  width: 150px;
+  height: 50px;
+  font-size: 30px;
+  text-shadow: 2px 2px 2px green;
+  position: absolute;
+  right: 50%;
+  border: 2px inset lime;
 }
 

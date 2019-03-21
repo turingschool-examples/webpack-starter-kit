@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(css|ttf)$/,
         use: ['style-loader', 'css-loader'],
       },
       {
@@ -29,6 +29,15 @@ module.exports = {
               }
             ]
       }
+      // !! ATTEMPT AT INSTALLING FONTS
+      // {
+      //   test: /\.(woff|woff2|otf|ttf)$/,
+      //   loader: 'url-loader',
+      //   options: {
+      //     limit: 4096,
+      //     name: './fonts/[name].[ext]?[hash]' // was '/fonts/[name].[ext]?[hash]',
+      //   }
+      // }
     ],
   },
   // Below is needed for webpack-dev-server
