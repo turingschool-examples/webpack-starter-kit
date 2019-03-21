@@ -3,10 +3,18 @@ body {
     color: #cae6df; 
   }
 
-.start-game-button {
+.start-game-btn {
     background-color: #cae6df;
+    border: none;
     color: black;
     padding: 10px;
+}
+
+.start-game-btn:hover {
+  background-color: #064b55;
+  border: none;
+  color: #cae6df;
+  cursor: pointer;
 }
 
 .player-name {

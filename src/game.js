@@ -6,6 +6,10 @@ class Game {
   createPlayers() {
     //take names from input values
     //push into array?
+    names.map(name => {
+    let newPlayer = new Player(name);
+    return newPlayer;
+  });
   }
   changeRound() {
     //increment round

@@ -7,10 +7,10 @@
     <h1>Jeopardy JK</h1>
     <form>  
       <div class="start-game-form">
-        <input class="player-name start-form" type="text" placeholder="Player 1">
-        <input class="player-name start-form" type="text" placeholder="Player 2">
-        <input class="player-name start-form" type="text" placeholder="Player 3">
-        <button class="start-game-button start-form">Start Game</button>
+        <input class="player-name start-form" id="input-1" type="text" placeholder="Player 1">
+        <input class="player-name start-form" id="input-2" type="text" placeholder="Player 2">
+        <input class="player-name start-form" type="text" id="input-3" placeholder="Player 3">
+        <button class="start-game-btn start-form">Start Game</button>
       </div>
     </form>
     <main class="game-board">  
@@ -42,6 +42,17 @@
         <li class="val-btn">300</li>
         <li class="val-btn">400</li>
       </ul>
+      <section class="player-info">
+        <div class="player-one-div players">
+          <h2 class="player-one">Player One</h2>
+        </div>
+        <div class="player-two-div players">
+          <h2 class="player-two">Player Two</h2>
+        </div>
+        <div class="player-three-div players">
+          <h2 class="player-three">Player Three</h2>
+        </div>
+      </section>
     </main>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
