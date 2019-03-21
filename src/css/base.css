@@ -142,49 +142,57 @@ h3 {
 
 .game-area {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: space-between;
   align-items: center;
   background-color: white;
 }
 
 .player-score-area {
-  width: 20%;
-  height: 60%;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  padding: 30px;
+  width: 50%;
 }
 .player-score {
   border: 1px solid red;
+  width: 30%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .puzzle-area {
-  width: 60%;
+  width: 90%;
   border: 1px solid blue;
+  padding: 10px;
+}
+
+.puzzle {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
 
-.puzzle td {
-  border: 1px solid blue;
-  width: 80px;
-  height: 80px;
+.puzzle-row td {
+  border: 3px solid black;
+  border-radius: 5px;
+  width: 70px;
+  height: 70px;
+  background-image: radial-gradient(circle, #c0e4d2, #8bcdac, #68bd93);
 }
 
 .letters-selected-area {
-  height: 60%;
-  width: 20%;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
+  padding: 30px;
 }
 
 .letters-selected td {
   border: .5px solid green;
   text-align: center;
-  font-size: 40px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
 }
