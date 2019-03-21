@@ -22,5 +22,4 @@ describe('Game', () => {
 
     expect(game.currentRound).to.equal(0);
   });
-
-})
+});
