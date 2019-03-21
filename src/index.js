@@ -5,9 +5,18 @@
 import $ from 'jquery';
 
 // An example of how you tell webpack to apply a CSS file
+// import './css/fonts/overseer.css';
+// import './fonts/Lato-Thin.ttf';
+
 import './css/base.css';
+import './css/normalize.css';
+// import './css/Lato-Thin.ttf'
+
+
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
+import './images/terminal2.jpg'
+// import './css/Overseer.otf'
 
 console.log('This is the JavaScript entry file - your code begins here.');
