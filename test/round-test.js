@@ -49,5 +49,14 @@ describe('Round', function() {
       const round = new Round();
       expect(round).to.respondTo('getAnswers');
     });
+    describe('getAnswers method', function() {
+      it('should return an array of answer objects from answers', function() {
+        const round = new Round();
+        const matchingAnswers = round.getAnswers(gamedata.answers);
+        expect(matchingAnswers).to.be.an('array');
+        expect(matchingAnswers[0]).to.be.a('object');
+        expect(matchingAnswers[0]).to.have.all.keys('answer','respondents','surveyId');
+      });
+    });
   });
 });

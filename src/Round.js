@@ -3,7 +3,7 @@ import gamedata from './gamedata.js';
 class Round {
   constructor() {
     this.survey = this.getSurvey(gamedata.surveys);
-    this.answers = [];
+    this.answers = this.getAnswers(gamedata.answers);
   }
 
   getSurvey(surveys) {
@@ -12,7 +12,9 @@ class Round {
   }
 
   getAnswers(answers) {
-    return answers;
+    return answers.filter((answer) => {
+      return answer.surveyId === this.survey.id;
+    }, this);
   }
 }
 
