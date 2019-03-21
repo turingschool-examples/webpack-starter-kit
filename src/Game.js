@@ -30,10 +30,10 @@ class Game {
   }
 
   createRound (players) {
-    this.roundCount++;
-    if (this.roundCount === 1) {
+    this.round++;
+    if (this.round === 1) {
       this.round = new Round(this.clueSet(), players);
-    } else if (this.roundCount === 2) {
+    } else if (this.round === 2) {
       this.round = new Round(this.clueSet(), players)
       this.round.sortClues();
     } else {
