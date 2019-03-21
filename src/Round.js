@@ -1,7 +1,7 @@
-class Round() {
+class Round {
   constructor() {
-    this.survey = null;
-    this.answers = null;
+    this.survey = 'test';
+    this.answers = [];
   }
 
   getSurvey() {
@@ -9,7 +9,7 @@ class Round() {
   }
 
   getAnswers() {
-    
+
   }
 }
 

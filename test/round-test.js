@@ -3,15 +3,17 @@ const expect = chai.expect;
 
 import gamedata from '../src/gamedata.js';
 
+import Round from '../src/Round.js';
+
 describe('Round', function() {
   describe('Properties', function() {
     it('should have a survey property', function() {
       const round = new Round();
-      expect(round).to.have.property(survey);
+      expect(round).to.have.property('survey');
     });
-    it.skip('should have an answers property', function() {
+    it('should have an answers property', function() {
       const round = new Round();
-      expect(round).to.have.property(answers);
+      expect(round).to.have.property('answers');
     });
     it.skip('should have a survey object assigned to the survey property', function() {
       const round = new Round();
@@ -32,7 +34,7 @@ describe('Round', function() {
     });
   });
   describe('Method', function() {
-    it.skip('should have a getSurvey method', function() {
+    it('should have a getSurvey method', function() {
       const round = new Round();
       expect(round).to.respondTo('getSurvey');
     });
@@ -43,7 +45,7 @@ describe('Round', function() {
         expect(round.getSurvey()).to.have.all.keys('id','question');
       });
     });
-    it.skip('should have a getAnswers method', function() {
+    it('should have a getAnswers method', function() {
       const round = new Round();
       expect(round).to.respondTo('getAnswers');
     });
