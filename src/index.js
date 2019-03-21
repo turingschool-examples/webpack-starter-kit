@@ -8,6 +8,8 @@ import './css/normalize.css';
 import './css/styles.css';
 import './css/game-grid.css';
 
+
+
 let game;
 
 $('.continue-button').on('click', (e) =>{
