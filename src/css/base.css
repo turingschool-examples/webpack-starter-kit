@@ -5,18 +5,48 @@
  dark green #044541,
  dark AF #04192e  */
 
+ @import url('https://fonts.googleapis.com/css?family=Pacifico|Press+Start+2P');
+
  * {
    box-sizing: border-box;
+   padding: 0;
+   margin: 0;
  }
 
 body {
   background-color: #04192e;
   color: #cae6df; 
+  font-family: 'Pacifico', cursive;
 }
 
 ul {
   list-style: none;
+  margin: 20px;
 }
+
+li {
+  color: #04192e;
+  padding: 10px;
+  /* background-color: #cae6df; */
+}
+
+.cat-title {
+  text-align: center;
+  color: #cae6df
+}
+
+.val-btn {
+  text-align: center;
+  margin: 10px;
+  background-color: #cae6df; 
+  color: #04192e;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
