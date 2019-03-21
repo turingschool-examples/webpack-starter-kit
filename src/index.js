@@ -25,3 +25,12 @@ startBtn.on('click', () => {
   game.startGame();
   startBtn.attr("disabled", true);
 });
+
+// data.surveys.reduce( (total, { id, question }) => {
+//   total.push({
+//     id: id,
+//     question: question,
+//     responses: data.answers.filter(({ surveyId }) => id === surveyId)
+//   })
+//   return total
+// },[]);
