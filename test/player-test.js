@@ -37,10 +37,6 @@ describe('Player', ()=>{
         player.addTotalCaps(50)
         expect(player.totalCaps).to.equal(50);
     })
-    it('bankrupt should be a function', ()=>{
-        const player = new Player();
-        expect(player.bankrupt).to.be.a('function');
-    })
     it('Should be able to set roundCaps and totalCaps back to 0 with the bankrupt method' , ()=>{
         const player = new Player();
         player.addRoundCaps(25);
