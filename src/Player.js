@@ -8,7 +8,7 @@ class Player {
     //pass in guess and answer?
     // if guess === answer 
     //add value to score
-    // else decrease score by valuerr
+    // else decrease score by value
   }
 }
 
