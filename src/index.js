@@ -26,4 +26,5 @@ $(".start").click(function() {
   $(".player-two-name").text(inputPlayerTwo);
   let inputPlayerThree = $(".player-three-input").val();
   $(".player-three-name").text(inputPlayerThree);
+  $("input").remove();
 });
