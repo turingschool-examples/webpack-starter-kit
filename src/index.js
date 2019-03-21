@@ -12,3 +12,12 @@ import './css/base.css';
 import './images/turing-logo.png'
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+// data.surveys.reduce( (total, { id, question }) => {
+//   total.push({
+//     id: id,
+//     question: question,
+//     responses: data.answers.filter(({ surveyId }) => id === surveyId)
+//   })
+//   return total
+// },[]);
