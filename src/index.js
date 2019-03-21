@@ -3,6 +3,8 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in the file
 import $ from 'jquery';
+// jQuery selectors
+
 
 // An example of how you tell webpack to apply a CSS file
 // import './css/fonts/overseer.css';
@@ -19,4 +21,5 @@ import './images/turing-logo.png'
 import './images/terminal2.jpg'
 // import './css/Overseer.otf'
 
-console.log('This is the JavaScript entry file - your code begins here.');
+
+

@@ -19,4 +19,36 @@ describe('Player', ()=>{
         expect(player.roundCaps).to.equal(0);
         expect(player.totalCaps).to.equal(0);
     })
+    it('addRoundCaps should be a function', ()=>{
+        const player = new Player();
+        expect(player.addRoundCaps).to.be.a('function');
+    })
+    it('Should be able to add to roundCaps via the addRoundCaps method', ()=>{
+        const player = new Player();
+        player.addRoundCaps(10);
+        expect(player.roundCaps).to.equal(10);
+    })
+    it('addTotalCaps should be a function', ()=>{
+        const player = new Player();
+        expect(player.addTotalCaps).to.be.a('function');
+    })
+    it('Should be able to add to totalCaps via the addTotalCaps method', ()=>{
+        const player = new Player();
+        player.addTotalCaps(50)
+        expect(player.totalCaps).to.equal(50);
+    })
+    it('bankrupt should be a function', ()=>{
+        const player = new Player();
+        expect(player.bankrupt).to.be.a('function');
+    })
+    it('Should be able to set roundCaps and totalCaps back to 0 with the bankrupt method' , ()=>{
+        const player = new Player();
+        player.addRoundCaps(25);
+        player.addTotalCaps(50);
+        expect(player.roundCaps).to.equal(25);
+        expect(player.totalCaps).to.equal(50);
+        player.bankrupt();
+        expect(player.roundCaps).to.equal(0);
+        expect(player.totalCaps).to.equal(0);
+    })
 })

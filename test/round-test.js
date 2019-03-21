@@ -1,6 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Round from '../src/round.js';
+import data from '../src/data_wheel-of-fortune.js';
 import Puzzle from '../src/puzzle.js';
 
 import spies from 'chai-spies';
@@ -29,3 +30,4 @@ describe('Round', ()=>{
         expect(round).to.deep.equal({roundNumber: 1, puzzle: 'Teapot', ltrs: 6})
     })
 })
+export default Round;

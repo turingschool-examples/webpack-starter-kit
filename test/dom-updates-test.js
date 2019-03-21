@@ -14,3 +14,5 @@ describe('DomUpdates', ()=>{
         expect(domUpdates).to.be.an('object');
     })
 })
+
+export default DomUpdates;
