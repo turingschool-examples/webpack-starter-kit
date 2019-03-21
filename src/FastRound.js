@@ -1,6 +1,6 @@
 class FastRound extends Round {
-    super(survey, roundNum);
     constructor() {
+        super(survey, roundNum);
         this.timer = 30;
         this.multiplier = 1;
     }
