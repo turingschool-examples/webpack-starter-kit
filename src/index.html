@@ -51,32 +51,29 @@
           <h3 id="14" class="col 300">300</h3>
           <h3 id="15" class="col 400">400</h3>
         </article>
-        <!-- <article class="rules">
-          <h4><u>Players:</u></h4>
-        </article> -->
       </section>
       <section class="players">
         <section id="p0-cont-js" class="player">
-          <p id="shadow-0-js" class="shadow"></p>
-          <h5 id="p1-name-change-js">Player 1</h5>
+          <label class="name-inputs" for="player-one"></label>
+          <input type="text" name="firstname" id="player-one" style="color:#888;" value="Player One">
           <h6>Points: <span id="player-1-points">00</span></h6>
         </section>
         <section id="p1-cont-js" class="player">
-          <p id="shadow-1-js" class="shadow"></p>
-          <h5 id="p2-name-change-js">Player 2</h5>
+          <label class="name-inputs" for="player-two"></label>
+          <input type="text" name="firstname" id="player-two" style="color:#888;" value="Player Two">
           <h6>Points: <span id="player-2-points">00</span></h6>
         </section>
         <section id="p2-cont-js" class="player">
-          <p id="shadow-2-js" class="shadow"></p>
-          <h5 id="p3-name-change-js">Player 3</h5>
+          <label class="name-inputs" for="player-three"></label>
+          <input type="text" name="firstname" id="player-three" style="color:#888;" value="Player Three">
           <h6>Points: <span id="player-2-hp">00</span></h6>
         </section>
       </section>
     </main>
     <footer>
-      
+      <input type="submit" class="btn" id="udpate-btn" value="START GAME">
+      <input type="submit" class="btn" id="udpate-btn" value="RESET">
     </footer>
-
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
