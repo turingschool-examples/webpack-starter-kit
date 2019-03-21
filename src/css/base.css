@@ -39,7 +39,21 @@ main {
 
 .players {
 	grid-row: 4;
+	display: grid;
+	grid-template-columns: 30% 30% 30% ;
 	background-color: yellow;
+}
+
+.player-one {
+	grid-column: 1;
+}
+
+.player-two {
+	grid-column: 2;
+}
+
+.player-three {
+	grid-column: 3;
 }
 
 footer {
