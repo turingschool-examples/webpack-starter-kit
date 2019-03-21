@@ -5,6 +5,10 @@ class Round() {
   }
 
   getSurvey() {
+
+  }
+
+  getAnswers() {
     
   }
 }
