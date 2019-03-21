@@ -15,9 +15,7 @@ class Game {
   startRound() {
     this.populateQuestions();
     let q = this.allQs.pop()
-    let question = new Question(q.question, q.answer, q.ansLength, q.ansSplit, q.description, q.category);
-
-    console.log(q)
+    let question = new Question(q.correct_answer, q.total_number_of_letters, q.description, q.category);
   }
 
   populateQuestions() {
@@ -29,8 +27,8 @@ class Game {
 
   changeTurn() {
     this.playerIndex === 3 
-    ? this.playerIndex = 1 
-    : this.playerIndex++
+      ? this.playerIndex = 1 
+      : this.playerIndex++;
   }
 
 }
