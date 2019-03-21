@@ -3,6 +3,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  &:focus {
+    outline: none;
+  }
 }
 
 body {
@@ -12,7 +15,7 @@ body {
 
 main {
   background-color: $board;
-  height: 45vh;
+  height: 50vh;
   display: flex;
 
   .category {
