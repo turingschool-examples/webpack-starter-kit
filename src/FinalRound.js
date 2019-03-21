@@ -12,7 +12,7 @@ class FinalRound //extends Round
     // sort players' scores
     // player with highest score selected
      // ${players.name} wins displayed
-    // if tie, getClue()? tiebreaker?
+    // if tie, getClue()? tiebreakerr?
   }
 }
 
