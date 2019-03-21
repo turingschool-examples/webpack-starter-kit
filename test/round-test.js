@@ -15,7 +15,7 @@ describe('Round', function() {
       const round = new Round();
       expect(round).to.have.property('answers');
     });
-    it.skip('should have a survey object assigned to the survey property', function() {
+    it('should have a survey object assigned to the survey property', function() {
       const round = new Round();
       expect(round.survey).to.be.an('object');
       expect(round.survey).to.have.all.keys('id','question');
@@ -41,8 +41,8 @@ describe('Round', function() {
     describe('getSurvey method', function() {
       it('should return a survey object from surveys', function() {
         const round = new Round();
-        expect(round.getSurvey()).to.be.an('object');
-        expect(round.getSurvey()).to.have.all.keys('id','question');
+        expect(round.getSurvey(gamedata.surveys)).to.be.an('object');
+        expect(round.getSurvey(gamedata.surveys)).to.have.all.keys('id','question');
       });
     });
     it('should have a getAnswers method', function() {
