@@ -218,28 +218,30 @@
           </div>
         </section>
    <section class='player-buttons-container' id='js-player-btn-container'>
-     <button class='button start-button' id='js-start-button'>Start Game</button>
      <button class='button solve-button' id='js-solve-button'>Solve Puzzle</button>
      <button class='button buy-vowel-button' id='js-buy-vowel-button'>Buy a Vowel</button>
      <button class='button spin-button' id='js-spin-button'>Spin Wheel</button>
    </section>
    <form class='player-form' id='js-player-form'>
      <div class='player-box player1-info' id='js-player1-info'>
-       <label class='player1-label'>Player 1</label>
-       <input class='player-name-input' id='js-player1-input' placeholder='Input your name'>
+       <label class='player1-label box-name'>Player 1</label>
+       <input type= 'text' class='player-name-input' id='js-player1-input' placeholder='Input your name'>
        <p class='score-label'>Score: <span class='points js-points'>0</span></p>
      </div>
      <div class='player-box player2-info' id='js-player2-info'>
-       <label class='player2-label'>Player 2</label>
-       <input class='player-name-input' id='js-player2-input' placeholder='Input your name'>
+       <label class='player2-label box-name'>Player 2</label>
+       <input type= 'text' class='player-name-input' id='js-player2-input' placeholder='Input your name'>
        <p class='score-label'>Score: <span class='points js-points'>0</span></p>
      </div>
      <div class='player-box player3-info' id='js-player3-info'>
-       <label class='player3-label'>Player 3</label>
-       <input class='player-name-input' id='js-player3-input' placeholder='Input your name'>
+       <label class='player3-label box-name'>Player 3</label>
+       <input type= 'text' class='player-name-input' id='js-player3-input' placeholder='Input your name'>
        <p class='score-label'>Score: <span class='points js-points'>0</span></p>
-     </div>
-   </form>
+      </div>
+    </form>
+         <section class='start-container'>
+          <button class='button start-button' id='js-start-button'>Start Game</button>
+        </section>
    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
  </body>
 </html>
