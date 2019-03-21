@@ -3,7 +3,7 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in the file
 import $ from 'jquery';
-import Player from './Player.js';
+import Game from './Game.js';
 
 // An example of how you tell webpack to apply a CSS file
 import './css/normalize.css';
@@ -23,9 +23,7 @@ const startGameBtn = $(".start-game-btn");
 startGameBtn.click(function(e) {
   e.preventDefault()
   const names = [$('#input-1').val(), $('#input-2').val(), $('#input-3').val()]
-  // names.map(name => {
-  //   let newPlayer = new Player(name);
-  //   return newPlayer;
-  // });
+  const game = new Game;
+  game.createPlayers(names);
 })
 

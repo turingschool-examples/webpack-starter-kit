@@ -1,16 +1,26 @@
+import Player from './Player.js';
+import domUpdates from './domUpdates.js';
+
 class Game {
   constructor() {
     this.players = []; 
     this.round = 1; 
   }
-  createPlayers() {
-    //take names from input values
-    //push into array?
-    names.map(name => {
-    let newPlayer = new Player(name);
-    return newPlayer;
-  });
+  createPlayers(names) {
+    const players = names.map(name => {
+      let newPlayer = new Player(name);
+      return newPlayer;
+    });
+    this.players = players;
+    domUpdates.renderNames(this.players);
   }
+  // readyGameBoard() {
+  //   domUpdates.renderNames(this.players);
+  //   // updates categories
+  //   // updates scores
+  //   // rounds.....
+  //   // everything displayed on board
+  // }
   changeRound() {
     //increment round
   }
