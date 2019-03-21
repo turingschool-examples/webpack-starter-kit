@@ -10,6 +10,3 @@ class Question {
 }
 
 export default Question;
-
-
-// question, answer, length, description, category
