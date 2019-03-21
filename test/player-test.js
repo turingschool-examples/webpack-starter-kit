@@ -1,61 +1,27 @@
-// import chai from 'chai';
-// const expect = chai.expect;
-
-// import Player from '../src/Player.js'
-
-// describe ('Player', function() {
-//   it('should have an instance of Player', function() {
-//     let player = new Player('Carl');
-
-//    expect(player.this).to.equal('Carl') 
-//   })
-// })
-
-// describe('Box', function () {
-//   it('Box should have default height and width of 100.', function () {
-//     let box = new Box;
-//     }
-//   {}
-
 import chai from 'chai';
 const expect = chai.expect;
 
-// import spies from 'chai-spies';
-// chai.use(spies);
-
-// import domUpates from '../src/domUpdates.js'
-// chai.spy.on(domUpdates, 'displayHeight', () => true);
-
 import Player from '../src/Player.js'
 
-describe('Player', function () {
-  it('Player should be a function able to create a new instance', function () {
+describe ('Player', function() {
+  it('should have an instance of Player', function() {
     let player = new Player;
-
-    expect(box.height).to.equal(100);
-    expect(box.width).to.equal(100);
-  });
-  it('User should be able to pass in specific height and widths.', function () {
-    let box = new Box(8, 24);
-
-    expect(box.height).to.equal(8);
-    expect(box.width).to.equal(24);
-
   })
-  it('Should calculate area of box using the method, .area().', function () {
-    let box = new Box(20, 52);
+  it('should be able to have a name', function () {
+    let player = new Player('Carl');
 
-    let boxArea = box.area();
-
-    expect(boxArea).to.equal(1040);
+    expect(player.name).to.equal('Carl');
   })
-  it('Should be able to increase height with method increaseHeight.', function () {
-    let box = new Box();
+  it('should start with a default score of 0', function () {
+    let player = new Player('Frank');
 
-    expect(box.height).to.equal(100)
-
-    box.increaseHeight(10);
-
-    expect(box.height).to.equal(110);
+    expect(player.score).to.equal(0);
   })
-});
+  it('should be able to change its score', function () {
+    let player = new Player('Bam');
+
+    player.changeScore();
+
+    expect(player.score).to.equal(1);
+  })
+})
