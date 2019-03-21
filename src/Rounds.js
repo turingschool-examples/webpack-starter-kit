@@ -1,7 +1,9 @@
 import Game from './Game.js'
 class Rounds extends Game {
-  constructor(question, pointValue, answer, categoryId, dailyD) {
-    super(playerName, playerDollarAmount)
+  constructor(playerName, playerDollarAmount, question, pointValue, answer, categoryId, dailyD) {
+    super(playerName, playerDollarAmount);
+    this.playerName = playerName;
+    this.playerDollarAmount = playerDollarAmount;
     this.question = question;
     this.pointValue = pointValue;
     this.answer = answer;
