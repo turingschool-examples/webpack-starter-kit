@@ -6,14 +6,13 @@
 } */
 
 * {
-   font-family: Overseer, sans-serif;
+   font-family: Overseer, 'Share Tech Mono';
    color: lime;
 }
 
 body {
   background: url(./../images/terminal1.jpg) center no-repeat;
   background-size: cover;
-  /* font-family: 'Share Tech Mono', monospace; */
 }
 header {
   border: 5px solid limegreen;
