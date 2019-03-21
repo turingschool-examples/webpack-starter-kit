@@ -1,7 +1,9 @@
 import Game from './Game.js';
 import $ from 'jquery';
-import domUpdates from './domUpdates.js'
+import domUpdates from './domUpdates.js';
 import './css/base.css';
+import './images/wheel.png';
+import './images/Color_Wheel.png';
 
 
 

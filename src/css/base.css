@@ -7,3 +7,47 @@ form {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+table.guessBoard {
+  border: 1px solid black;
+  height: 200px;
+  margin: auto;
+  width: 80%;
+}
+
+tr, td {
+  border: 1px solid black;
+  padding: 0px;
+  text-align: center;
+  width: 10px;
+}
+
+section.roundSection {
+  text-align: center;
+}
+
+section.playSection{
+  display: flex;
+  flex-basis: row;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+button.spinButton{
+  height: 40px;
+  border-radius: 40px;
+  width: 80px;
+  margin: 130px 0px 130px 0px;
+}
+table.letterBank {
+  border: 1px solid black;
+  height: 250px;
+  width: 50%;
+  margin: 20px 0px 20px 0px;
+}
+
+footer.scoreSection{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
