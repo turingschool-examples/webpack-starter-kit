@@ -43,3 +43,27 @@ nav {
   border: 2px inset lime;
 }
 
+.shader {
+  background: rgba(0, 0, 0, .8);
+  width: 100%;
+  content: normal;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+}
+
+.popup {
+  background: magenta;
+  z-index: 12;
+  position: absolute;
+  top: 150px;
+  left: 25%;
+  height: 600px;
+  width: 50%;
+  border-radius: 80px;
+  padding: 50px;
+}
+
+.hidden {
+  display: none;
+}
