@@ -2,15 +2,15 @@
 //   constructor(id,question, multiplier) {
 //     super(id,question);
   //this.multiplier = multiplier;
-    //check score
-    //pick player
+    //check score, lowest score is player to pick
+    // pop up on DOM with input
     //mutiply value is (multiplier * index of response)
-    //run timer
-    //check answers until timer === 0
-    //* even if need a new id and question
-    //switch player
-    //new fast money round (aka repeat previous steps)
-    //declare winner pop up (player resets game)
+    //switch player if: all three answers are solved
+    //         else: 30 seconds timer runs out
+    // switch player
+    // repeat fast money round once (aka repeat previous steps)
+    // game.declareWinner()
+
 //   }
 
 // }

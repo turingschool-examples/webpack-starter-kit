@@ -22,10 +22,14 @@ console.log('This is the JavaScript entry file - your code begins here.');
 // }
 // }
 
-
 // function createGame() {
-//   var game = new game
-//   reset all things to 0: reset answers array, correct answers = 0, reset score, round numer = 1,
-//whenever time for new game reset these things 
-
+//   var game = new Game
+//   instantiate new game (new array, new players, new round)
+manipulate the original datasets to pair questions with their correct responses
+ -- responses are sorted in order of highest respondents to lowest
+on instatiation of a new game:
+iterate over original combined datasets
+push into new array game.surveys
+every call for a new survey question (every round) splices from the array in Game
+when instantiation deletes (game is over), the copy array goes with it
 // }
