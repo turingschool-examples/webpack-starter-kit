@@ -5,5 +5,4 @@
 // import Puzzle from "./Puzzle.js";
 // import domUpdates from "./domUpdates.js";
 
-
 export default {}
