@@ -1,7 +1,7 @@
 class Round {
-    constructor(survey, answers) {
+    constructor(survey, surveyAnswers) {
         this.survey = survey;
-        this.surveyAnswers = answers; 
+        this.surveyAnswers = surveyAnswers; 
         this.guesses = [];
     }
 
