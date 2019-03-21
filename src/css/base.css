@@ -10,7 +10,7 @@ html {
 }
 
 body{
-  background: url(/images/WOF2.jpg);
+  background: url(../images/WOF-star-background.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
@@ -139,3 +139,52 @@ h3 {
   padding: 0rem 2rem;
 }
 /* End Player Score Board */
+
+.game-area {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+}
+
+.player-score-area {
+  width: 20%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.player-score {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+.puzzle-area {
+  width: 60%;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.puzzle td {
+  border: 1px solid blue;
+  width: 80px;
+  height: 80px;
+}
+
+.letters-selected-area {
+  height: 60%;
+  width: 20%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+}
+
+.letters-selected td {
+  border: .5px solid green;
+  text-align: center;
+  font-size: 40px;
+}
