@@ -30,5 +30,5 @@ describe('See if the tests are running', function() {
     let player = new Player('Lauren', 20);
 
     expect(player.score).to.equal(20);
-  })
+  });
 })
