@@ -12,16 +12,5 @@ import './css/base.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
-import data from './data_wheel-of-fortune'
-console.log(data.puzzles.one_word_answers.puzzle_bank)
-/*
-
-data.wheel => wheel array of values
-data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects 
-! goes up to four_word_answers !
-
-* function StartRound()
-
-*/
 
 
