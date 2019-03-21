@@ -9,16 +9,29 @@ describe('Game', () => {
     game = new Game();
   });
 
-  it('should have a default array of players', () => {
+  it('should have a default state', () => {
     expect(game.players).to.deep.equal([]);
-  });
-
-  it('should have a default round of 0', () => {
     expect(game.round).to.equal(0);
+    expect(game.allRounds).to.have.lengthOf(5);
+    expect(game.allQs).to.deep.equal([]);
+    expect(game.playerIndex).to.equal(1);
+    expect(game.currentPlayer).to.equal(false);
   });
 
-  it('should have array of rounds 1-5', () => {
-    expect(game.allRounds).to.have.lengthOf(5);
+  it('should populate questions', () => {
+    expect(game.allQs).to.deep.equal([]);
+    game.populateQuestions();
+    expect(game.allQs).to.have.lengthOf(96)
   });
-  
+
+  it('should change player turns', () => {
+    expect(game.playerIndex).to.equal(1);
+    game.changeTurn();
+    expect(game.playerIndex).to.equal(2);
+    game.changeTurn();
+    expect(game.playerIndex).to.equal(3);
+    game.changeTurn();
+    expect(game.playerIndex).to.equal(1);
+  });
+ 
 });
