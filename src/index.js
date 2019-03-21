@@ -17,8 +17,25 @@ import './css/normalize.css';
 
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
-import './images/terminal2.jpg'
+import './images/turing-logo.png';
+import './images/terminal2.jpg';
+import './images/mad max.jpg';
+import './images/mysteriousStranger.png';
+import './images/radroach.png';
+import './images/raider.png';
+import './images/smallvaultec.png';
+import './images/smartypants.png';
+import './images/thumbs.jpg';
+import './images/vaultDoor.png';
+import './images/vaultTec.jpg';
+import './images/yesMan.jpg';
+import './images/bottleCaps.png';
+import './images/deathclaw.jpg';
+import './images/incorrect.png';
+
+
+
+
 // import './css/Overseer.otf'
 
 
