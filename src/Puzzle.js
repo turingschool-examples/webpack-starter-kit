@@ -8,6 +8,12 @@
 class Puzzle {
   constructor() {
 
+  this.hint = null;
+  this.phrase = null;
+  this.splitPhrase = null;
+  this.category = null;
+  this.difficulty = null;
+
   }
 }
 

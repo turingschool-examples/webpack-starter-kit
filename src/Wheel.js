@@ -7,6 +7,10 @@
 class Wheel {
   constructor() {
 
+  this.values = [];
+  this.currentSpin = null;
+  this.currentIndex = null;
+
   }
 }
 
