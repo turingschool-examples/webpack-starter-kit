@@ -7,34 +7,94 @@
 }
 
 body {
- 
- 
+  font-family: 'Open Sans', sans-serif;
 }
 
-header{
-  background-color: pink;
+header {
+  background-color: #02519F;
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
   height: 150px;
 }
 
-.game-board {
-  background-color: purple;
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  /*grid-template-rows: 20% 20% 20% 20% 20%;*/
+h1 {
+  color: #FFFFFF;
+  margin-top: 25px;
+}
 
+h2 {
+  font-size: 30px; 
+}
+
+h3 {
+  font-size: 30px;
+}
+
+.game-board {
+  display: grid;
+  font-size: 44px;
+  grid-auto-columns: 1fr;
+  grid-gap: 15px;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+  "title title title title"
+  "category category category category";
+  margin: 0px auto;
+  padding: 50px 0 0 20px;
+  width: 95%;
+  justify-items: center;
+  grid-column-gap: 10px;
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black; 
+  margin: 5px;
+}
+
+.col:hover {
+  background-color: #4286f4;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+col:hover {
+  color: #FFFFFF;
+  background-color: #02519F;
 }
 
 .players {
-  background-color: blue;
   display: flex;
   justify-content: space-around;
 }
 
-footer {
-  
+h5 {
+  font-size: 28px;
 }
 
-h1 {
-  margin-top: 0;
+h6 {
+  font-size: 20px;
 }
+
+#player-three-input,
+#player-two-input,
+#player-one-input {
+  height:40px;
+  font-size:18pt;
+  width: 150px;
+}
+
+footer {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 10px;
+}
+
 
