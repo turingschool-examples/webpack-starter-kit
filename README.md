@@ -14,7 +14,7 @@ Website is fully tested with Mocha and Chai
 
 Run `npm run test` to see test suite
 
-## DTR
+## Partner Expectations
 [DTR Gist](https://gist.github.com/jacobogart/82a4cfaf581a3311902adc584051d252)
 
 ## OOP Outline
