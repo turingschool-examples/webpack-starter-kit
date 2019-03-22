@@ -20,7 +20,8 @@ $('.start-button').on('click', function() {
 });
 
 $('.quit-button').on('click', function() {
- domUpdates.resetGame(game);
+ domUpdates.resetGame();
+ domUpdates.disableQuit();
  $('.button').prop('disabled', true).css('color', 'grey');
  $('.player-name-input').show();
 });

@@ -7,10 +7,12 @@ let domUpdates = {
 
 // },
 
+disableQuit() {
+  $('.quit-button').prop('disabled', true);
+},
+
 resetGame() {
-  $('.box-name').each((i, name) => {
-    $(name).text($('.player-name-input').eq(i).empty());
-  });
+  location.reload(true);
 },
 
 displayName() {
