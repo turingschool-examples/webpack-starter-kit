@@ -97,19 +97,20 @@ class Game {
 
   startNewRound(question, answers) {
     this.currentRound++;
-    domUpdates.displayRoundQuestion(question); //will move to round class eventually
+    domUpdates.displayRoundQuestion(question); //will move to round class eventuallyyt
+      //display round num
     if (this.currentRound > 3) {
       this.endGame();
     } else if (this.currentRound === 3) {
-      let round = new Round(question, answers);
-    } else {
       console.log('poop');
       //let round = new FastRound(question, answers);
+    } else {
+      let round = new Round(question, answers);
     }
   }
 
   getSurvey() {
-    const randomId = Math.floor(Math.random() * (15 - 1 + 1)) + min;
+    const randomId = Math.floor(Math.random() * 15) + 1;
 
     if (!this.usedSurveys.includes(randomId)) {
       const question = this.surveyData.surveys.find(survey => survey.id === randomId);
