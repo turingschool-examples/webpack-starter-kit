@@ -30,9 +30,6 @@ describe('Round', ()=>{
         const round2 = new Round(1);
         round2.determinePuzzleLength();
         expect(round1.roundPuzzle).to.not.equal(round2.roundpuzzle);
-
-        
-
     })
     it('Should instantiate a new instance of puzzle in the propery puzzle of round when getPuzzle() is invoked', ()=>{
         const round = new Round(1);

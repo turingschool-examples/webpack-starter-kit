@@ -14,7 +14,6 @@ class GameEngine {
   }
   newRound(){
     this.currentRound.roundNumber++;
-    
   }
 }
 
