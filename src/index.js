@@ -40,6 +40,52 @@ function getDatasetQuestions() {
 var surveys = [];
 
 
+//can get rid of above two functions
+function createSurveyDataset(id) {
+   const dataQuestions = data.surveys;
+   const dataAnswers = data.answers; 
+   const respondents = dataAnswers.sort((a, b) => a.surveyId > b.surveyId ? 1 : -1);
+  //console.log(respondents);
+  for (let i = 0; i < dataQuestions.length; i++) {
+  if (dataQuestions[i].id === dataAnswers[i].surveyId) {
+     for (let i=0; i < dataQuestions.length; i++) {
+     const answerProp = dataQuestions[i]['answer'] = [];
+    // const answersObj = respondents.reduce((acc, answer) => {
+    //     if (respondents[i].surveyId == dataQuestions[i].id)
+    //issue has to do with what is being compared and what is being returned
+    // {
+    //           return answer;
+    //           return acc;
+    //       }
+    //   }, {});
+    
+    //  if () {
+    //   dataQuestions[i].answer.push()
+   // console.log(dataQuestions[i].answer.push(respondents));
+     };
+};
+        const answerObj = respondent => respondent[i].surveyId === dataQuestions[i].id;
+      dataQuestions[i].answer.push(respondents.reduce((acc, answer) => {
+        if (respondents['surveyId'] > i) {
+          return answer;
+        }
+         return acc;
+        }, {}));
+
+     
+    
+      
+     
+      console.log(dataQuestions);
+ 
+      //here is the final issue
+     //and how do we put multiple answers in answer[] as an object
+  };
+ };
+
+createSurveyDataset(data.answers['surveyId']);
+
+
 //function submitButton {
 //   if(wrong answer) {
 //     alert wrong answer (big X)
