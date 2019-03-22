@@ -119,52 +119,67 @@ nav {
   z-index: 12;
   position: absolute;
   top: 150px;
-  left: 25%;
+  left: 15%;
   height: 600px;
-  width: 50%;
+  width: 70%;
   border-radius: 80px;
-  padding: 50px;
+  padding: 40px 25px;
   opacity:50%
 }
 
 .hidden {
   display: none;
 }
-
+.playerinfo__instructions {
+  text-align: center;
+  margin: 30px 0 0 0;
+  text-shadow: 3px 2px 1px black;
+}
 .playerinfo{
   display: flex;
   justify-content: space-around;
-  height: 35%;
+  height: 32%;
 }
 .playerinfo__player {
   display: flex;
   width: 35%;
   flex-direction: column;
   align-items:center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .playerinfo__avatar {
   width: 80px;
   height: 80px;
+  background-color: rgb(11, 66, 11);
+  border-radius: 100%;
+  border: 1px double lime;
+  margin-bottom: 10px;
 }
 .playerinfo--input {
   height: 30px;
-  width: 90%; 
+  width: 80%;
+  text-align: center; 
   background-color:black;
   margin: 10px;
   border: none;
+  padding: 5px 10px;
 }
 .instructions {
   display: flex;
-  height: 35%;
+  height: 275px;
   justify-content: space-around;
   margin-top: 30px
 }
 .instructions--column {
-  width: 30%;
+  padding: 10px;
+  width: 28%;
   display: flex;
   flex-direction: column;
   background: black;
+}
+.instructions p {
+  text-align: center;
+  line-height: 25px;
 }
 .start {
   display: flex;
@@ -185,6 +200,7 @@ button.start__start--btn {
 .instructions__head {
   align-items: center;
   display: flex;
+  border-bottom: .1px solid lime;
 }
 
 /* ! Board Area ! */
@@ -192,38 +208,73 @@ button.start__start--btn {
 .board__container {
   position: relative;
   height: 500px;
-  background-color: magenta;
+  /* background-color: magenta; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .board__tile-hider--container {
   z-index: 7;
+  border: 1px solid lime;
 }
 .board__tile-value--container {
   z-index: 5;
+  background-color: black;
 }
-
+.board__tile-hider--container,
+.board__tile-value--container {
+  width: 80%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.hint--container {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
 
 /* ! Footer / Player Navigation ! */
 /* ============================== */
 footer {
   position: relative;
-  display: grid;
+  display: flex;
   margin: 0 10% 0 10%;
-  grid-template-columns: 1fr 2fr 2fr 2fr;
-  grid-template-areas:
-  "round play1 play2 play3";
+  flex-direction: row;
 }
 .round-info--container {
-  grid-area: round;
+
 }
-.player-1--container {
-  grid-area: play1;
+.player--container{
+  display: grid;
+  grid-template-areas:
+  "avitar name"
+  "ltrInp pts";
+  border: 1px solid lime;
+  width: 300px;
+  padding: 20px;
 }
-.player-2--container {
-  grid-area: play2;
+.avitar--container {
+  grid-area: avitar;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.player-3--container {
-  grid-area: play3;
+.player__letter--container {
+  grid-area: ltrInp;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.letter--input {
+  background-color: black;
+  border: .1px solid lime;
+  width: 30px;
+  padding: 10px;
+  height: 30px;
+  font-size: 30px;
 }
