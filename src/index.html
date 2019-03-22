@@ -10,18 +10,18 @@
 					<div class="user-input">
 						<div>
 							<label for="player-1-name">Player One</label>
-							<input type="input" name="player-1-name" placeholder="Enter your name">
+							<input type="input" id="player-1-name" name="player-1-name" placeholder="Enter your name">
 						</div>
 						<div>
 							<label for="player-2-name">Player Two</label>
-							<input type="input" name="player-2-name" placeholder="Enter your name">
+							<input type="input" id="player-2-name" name="player-2-name" placeholder="Enter your name">
 						</div>
 					</div>
-						<input type="submit" class="btn" name="submit-user-names">
+						<input type="submit" class="btn submit-btn" name="submit-user-names">
 				</form>
 			</section>
   	</header>
-  	<main>
+  	<main class="main-content">
 			<section class="current-player-score">100</section>
 
 			<section class="answers-section">
@@ -57,7 +57,7 @@
 	  			<label for="player-guess">
 	  				<input type="input" name="player-guess" placeholder="Make a guess!">
 	  			</label>
-	  			<input type="submit" class="btn" name="submit-user-names">
+	  			<input type="submit" class="btn submit-btn" name="submit-user-names">
 	  		</form>
 	  	</section>
 
@@ -72,6 +72,11 @@
 	    	</article>
 	    </section>
 		</main>
+		<footer>
+				<form class="restart-game">
+	    		<button>Play Again?</button>
+	    	</form>
+		</footer>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
