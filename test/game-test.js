@@ -33,5 +33,11 @@ describe('Game', () => {
     game.changeTurn();
     expect(game.playerIndex).to.equal(1);
   });
+
+  it('should generate a random question', () => {
+    expect(game.currentQuestion).to.equal(undefined);
+    game.startRound();
+    expect(game.currentQuestion).to.be.an('object');
+  })
  
 });

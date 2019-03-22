@@ -5,7 +5,15 @@ class Wheel {
   constructor() {
     this.currentValue = 0;
     this.values = [];
-    this.currentQuestion = {};
+    this.currentQuestion = {}; // should this be in the game class?
+  }
+
+  generatePrizes() {
+    this.values.push(...this.randomizeValues(data.wheel).slice(0, 6));
+  }
+  //should we combine this and generate prizes because we generate new prizes for each spin anyway?
+  spin() { 
+    this.currentValue = this.randomizeValues(this.values).pop();
   }
 
   randomizeValues(array) {
