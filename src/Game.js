@@ -18,23 +18,22 @@ class Game {
       total.push({
         id,
         question,
-        responses: data.answers.filter(({ surveyId }) => id === surveyId)
+        responses: data.answers.filter(({ surveyId }) => id === surveyId).sort((a, b) => b.respondents - a.respondents)
       })
       return total
     }, []);
-
-    this.shuffleArray(this.surveys);
-
-    this.round++
-    this.startNextRound(this.surveys, this.round);
+    this.shuffle(this.surveys);
+    this.startNextRound();
   }
 
-  startNextRound(surveys, round) {
-    this.currentRound = new Round(round, surveys[round - 1]);
+  startNextRound() {
+    this.round++;
+    this.currentRound = new Round(this.round, this.surveys[this.round - 1]);
+    console.log(this);
     domUpdates.displayCurrentQuestion(this.currentRound.question);
   }
 
-  shuffleArray(array) {
+  shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
       var temp = array[i];
@@ -44,7 +43,7 @@ class Game {
   }
 
   switchPlayer() {
-    this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
+    // this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
   }
 
 }

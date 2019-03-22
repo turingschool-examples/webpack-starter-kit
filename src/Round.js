@@ -7,20 +7,26 @@ class Round {
     this.question = survey.question;
     this.responses = survey.responses;
     this.isFinished = false;
+    // this.correctGuesses = [];
   }
 
   submitGuess(player, guess) {
-    this.responses.forEach((response) => {
-      if (guess.toLowerCase() === response.answer.toLowerCase()) {
+    for (let response of this.responses) {
+      if (response.answer.toLowerCase() === guess) {
         player.updateScore(response.respondents);
+        this.responses = this.responses.filter(response => {
+          return response.answer.toLowerCase() !== guess
+        });
+        // this.correctGuesses.push(response);
         // domUpdates.updateScore(player)
         // domUpdates.revealAnswer(response);
-        // check if all answers have been guessed
-          // end round
-        // else keep playing
-        return;
-      }
-    });
+        // TODO create game over screen
+        if (this.responses.length === 0) {
+          this.isFinished = true;
+        }
+        break;
+      } 
+    }
   }
 
 }
