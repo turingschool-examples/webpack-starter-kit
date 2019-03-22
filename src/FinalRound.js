@@ -6,12 +6,12 @@ class FinalRound extends Round {
     this.multiplier = 1;
   }
 
-  getMultiplier() {
-
+  getMultiplier(n) {
+    this.multiplier = n;
   }
 
   startTimer() {
-
+    setTimeout(this.addTotalScore, 30000);
   }
 
   addTotalScore() {

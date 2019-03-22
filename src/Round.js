@@ -6,7 +6,7 @@ class Round {
     this.answers = this.getAnswers(gamedata.answers);
   }
 
-  getSurvey(surveys, game, i) {
+  getSurvey(surveys, game) {
     let randomIndex = Math.floor(Math.random() * surveys.length);
     while (game.usedSurveys.includes(randomIndex)) {
       randomIndex = Math.floor(Math.random() * surveys.length);

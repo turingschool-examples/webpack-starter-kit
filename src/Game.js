@@ -8,6 +8,7 @@ class Game {
     this.currentRound = 0;
     this.usedSurveys = [];
     this.winner = null;
+    this.player1.isTurn = true;
   }
 
   startNewRound(game) {
@@ -18,6 +19,11 @@ class Game {
       this.currentRound++;
       return new FinalRound(game); 
     }
+  }
+
+  toggleIsTurn() {
+    this.player1.isTurn = !this.player1.isTurn;
+    this.player2.isTurn = !this.player2.isTurn;
   }
 }
 
