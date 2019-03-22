@@ -15,6 +15,7 @@ Wheel of Mortys is a game themed after a popular TV Show, Rick and Morty, based 
  - TDD
  - SASS
  - Class Coupling
+ - Webpack
 
 This project was for the developer to enhance their skills with manipulating class properties and methods across files, diving into the files and a new file structure, testing, and compiling the files with webpack. The developer was to solidify their knowledge of the use and structure of classes as well as navigating data using object and array prototypes.
 
