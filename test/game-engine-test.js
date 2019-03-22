@@ -12,11 +12,11 @@ describe('GameEngine', ()=>{
         let gameEngine = new GameEngine();
         expect(gameEngine).to.be.an('object');
     })
-    it('Should instantiate a new round when the revEngine() method is invoked', ()=>{
+    it('Should increase currentRound by 1 everytime that gameEngine() is invoked', ()=>{
         let gameEngine = new GameEngine();
-        expect(gameEngine.round).to.equal(undefined);
-        gameEngine.revEngine()
-        expect(gameEngine.rounds[0]).to.equal(1);
+        expect(gameEngine.currentRound.roundNumber).to.equal(0);
+        gameEngine.newRound();
+        gameEngine.newRound();
+        expect(gameEngine.currentRound.roundNumber).to.equal(2);
     })
-    
 })

@@ -8,11 +8,25 @@ data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects
 */
 
 class Round {
-  constructor(roundNumber) {
-    this.roundNumber = roundNumber;
+  constructor(currentRound) {
+    this.roundNumber = currentRound;
+
+  }
+  determinePuzzleLength(){
+    switch(this.roundNumber) {
+      case 1: console.log(1);
+      break;
+      case 2: console.log(2);
+      break;
+      case 3: console.log(3);
+      break;
+      case 4: console.log(4);
+      break;
+      case 5: console.log(5);
+    }
   }
   getPuzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer){
-    this.puzzle = new Puzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer);
+    this.roundPuzzle = new Puzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer);
     
   }
 }

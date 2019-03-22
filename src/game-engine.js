@@ -6,10 +6,15 @@ import Round from './round';
 class GameEngine {
   constructor(players) {
     this.players = players || [],
-    this.rounds = [1, 2, 3, 4, 5]
+    // this.rounds = [1, 2, 3, 4, 5]
+    this.currentRound = new Round(0)
   }
   revEngine() {
-    this.currentRound = new Round(this.rounds[0]);
+    // create a method and pass in a new round nubmer with the increment
+  }
+  newRound(){
+    this.currentRound.roundNumber++;
+    
   }
 }
 
