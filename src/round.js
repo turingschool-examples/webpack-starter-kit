@@ -14,20 +14,23 @@ class Round {
   }
   determinePuzzleLength(){
     switch(this.roundNumber) {
-      case 1: console.log(1);
+      case 1: this.savePuzzle(data.puzzles.one_word_answers.puzzle_bank[Math.floor((Math.random() * 23)+0)]);
       break;
-      case 2: console.log(2);
+      case 2: this.savePuzzle(data.puzzles.two_word_answers.puzzle_bank[Math.floor((Math.random() * 23)+0)])
       break;
-      case 3: console.log(3);
+      case 3: this.savePuzzle(data.puzzles.three_word_answers.puzzle_bank[Math.floor((Math.random() * 23)+0)])
       break;
-      case 4: console.log(4);
+      case 4: this.savePuzzle(data.puzzles.four_word_answers.puzzle_bank[Math.floor((Math.random() * 23)+0)])
       break;
-      case 5: console.log(5);
+      case 5: this.savePuzzle(data.puzzles.one_word_answers.puzzle_bank[Math.floor((Math.random() * 23)+0)])
     }
+  }
+
+  savePuzzle(puzzle){
+    this.getPuzzle(puzzle.category, puzzle.number_of_words, puzzle.total_number_of_letters, puzzle.first_word, puzzle.description, puzzle.correct_answer);
   }
   getPuzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer){
     this.roundPuzzle = new Puzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer);
-    
   }
 }
 export default Round;

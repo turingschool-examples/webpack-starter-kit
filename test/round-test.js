@@ -24,14 +24,14 @@ describe('Round', ()=>{
         const round = new Round(1);
         expect(round.roundNumber).to.equal(1);
     })
-    it('', ()=>{
-        const puzzle = new Puzzle('Around The House', 1, 6, 6, 'Location or object(s) found within a typical house.', 'Teapot');
-        const round = new Round(1);
-        expect(round).to.deep.equal({roundNumber: 1})
-    })
-    it('Should ' , ()=>{
-        const round = new Round(5);
-        expect(round.determinePuzzleLength()).to.equal('')
+    it('Should have a different roundPuzzle' , ()=>{
+        const round1 = new Round(1);
+        round1.determinePuzzleLength();
+        const round2 = new Round(1);
+        round2.determinePuzzleLength();
+        expect(round1.roundPuzzle).to.not.equal(round2.roundpuzzle);
+
+        
 
     })
     it('Should instantiate a new instance of puzzle in the propery puzzle of round when getPuzzle() is invoked', ()=>{
