@@ -43,6 +43,7 @@ class Game {
     this.round = new Round(players)
     puzzle.puzzleSet(data.puzzles.four_word_answers);
     }
+
   }
 
   createPlayers(array) {
