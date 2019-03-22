@@ -9,7 +9,7 @@ class Game {
     this.categories = [];
   }
 
-  updateName(names) {
+  createPlayers(names) {
     const players = names.map(name => {
       let newPlayer = new Player(name);
       return newPlayer;

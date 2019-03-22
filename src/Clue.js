@@ -1,11 +1,12 @@
+import data from './data-set.js';
+
 class Clue {
   constructor() {
-    
-  }
-
-  getClue() {
-    
+    this.question = '';
+    this.answer = '';
+    this.pointValue = 0;
   }
 }
+
 
 export default Clue;
