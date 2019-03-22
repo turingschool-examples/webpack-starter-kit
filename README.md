@@ -1,7 +1,6 @@
 ## Wheel of the Wasteland
 SUMMARY/Descript
 
-You can learn more about the assignment spec by following [this link.]()
              
 ## Screenshots of Project
 
@@ -34,5 +33,7 @@ Credit for the project goes to team members:
 
 ---
 This project was assigned by Brittany Storoz, Pamela Lovett, and Robbie Jaeger 
+
+You can learn more about the assignment spec by following [this link.]()
 
 *@ Turing School of Software and Design, Denver, CO.*
