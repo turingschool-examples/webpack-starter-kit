@@ -15,5 +15,5 @@ console.log(data);
 $('.start-button').on('click', function() {
   domUpdates.startGame(game);
   $('.start-button').hide('slow');
-  // $('.quit-game').prop('disabled', false);
+  $('.button').prop('disabled', false).css( "color", "white" );
 });
