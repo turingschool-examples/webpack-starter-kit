@@ -7,7 +7,7 @@ This is an app version of Jeopardy made using jQuery and Javascript. When playin
 ## Installation
 
 ```bash
-git clone [remote-address]
+git clone https://github.com/emilydittmer/gametime-jeopardy.git
 ```
 Once you have cloned the repo, install the library dependencies. Run:
 
