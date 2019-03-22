@@ -45,10 +45,8 @@ describe('Round', () => {
   });
   describe('getAnswers', () => {
     it('should return an array of answers that match the survey ID', () => {
-      const survey = round.getSurvey(gamedata.surveys, game);
-      const matchingAnswers = round.getAnswers(gamedata.answers);
-      expect(matchingAnswers).to.be.an('array');
-      // expect(matchingAnswers[0].surveyId).to.equal(survey.id);
+      expect(round.answers).to.be.an('array');
+      expect(round.answers[0].surveyId).to.equal(round.survey.id);
     });
   });
 });
