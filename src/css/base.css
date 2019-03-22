@@ -75,10 +75,6 @@ justify-content: center;
   width: 200px;
   height: 100px;
  }
-
- .button:hover {
-  background-color: lightblue;
- }
  
  .player-form {
   display: flex;

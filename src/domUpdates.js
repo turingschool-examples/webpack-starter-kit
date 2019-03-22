@@ -7,9 +7,13 @@ let domUpdates = {
 
 // },
 
-// resetGame() {
+disableQuit() {
+  $('.quit-button').prop('disabled', true);
+},
 
-// },
+resetGame() {
+  location.reload(true);
+},
 
 displayName() {
   $('.box-name').each((i, name) => {
