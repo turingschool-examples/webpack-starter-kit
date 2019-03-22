@@ -1,6 +1,7 @@
 import data from './data';
 import Wheel from './wheel';
 import Question from './question';
+import domUpdates from './domUpdates';
 
 class Game {
   constructor() {
@@ -16,7 +17,8 @@ class Game {
   startRound() {
     this.populateQuestions();
     let q = this.allQs.pop()
-    this.currentQuestion = new Question(q.correct_answer, q.total_number_of_letters, q.description, q.category);
+    this.currentQuestion = new Question(q.correct_answer, q.total_number_of_letters, [], q.description, q.category);
+    domUpdates.updateQInfo(this.currentQuestion);
   }
 
   populateQuestions() {
@@ -31,6 +33,7 @@ class Game {
       ? this.playerIndex = 1 
       : this.playerIndex++;
   }
+
 
 }
 

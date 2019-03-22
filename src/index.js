@@ -16,14 +16,10 @@ import './images/Pickle_rick.png';
 
 import Game from './js/game';
 import Wheel from './js/wheel';
-
-console.log('This is the JavaScript entry file - your code begins here.');
-
+import domUpdates from './js/domUpdates';
 
 let game = new Game();
 game.startRound();
 
 let wheel = new Wheel();
-wheel.generatePrizes();
 wheel.spin();
-console.log(wheel.currentValue);
