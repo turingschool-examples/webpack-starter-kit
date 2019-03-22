@@ -1,3 +1,5 @@
+import GameData from '../src/Game-Data.js';
+
 class Card {
 	constructor(category, question, answer, pointValue) {
 		this.category = category;
