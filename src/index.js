@@ -30,8 +30,8 @@ $(".start").click(function() {
   game.startGame();
 });
 
-const allCategories = data.clues.filter((clue) => {
+// const allCategories = data.clues.filter((clue) => {
 	
-	if (clue.categoryId 
-})
-console.log(data.clues)
+// 	if (clue.categoryId 
+// })
+// console.log(data.clues)
