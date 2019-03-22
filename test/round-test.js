@@ -26,8 +26,8 @@ describe('Round', ()=>{
     })
     it('', ()=>{
         const puzzle = new Puzzle('Around The House', 1, 6, 6, 'Location or object(s) found within a typical house.', 'Teapot');
-        const round = new Round(1 , puzzle.ans, puzzle.numOfLtr);
-        expect(round).to.deep.equal({roundNumber: 1, puzzle: 'Teapot', ltrs: 6})
+        const round = new Round(1);
+        expect(round).to.deep.equal({roundNumber: 1})
     })
 })
 export default Round;
