@@ -21,22 +21,29 @@ console.log('This is the JavaScript entry file - your code begins here.');
 let game = new Game()
 
 //********Event Listeners ********/
-$('.start-btn').on('click', () => {
+$('.begin').on('click', () => {
   event.preventDefault()
   startGameBtn(event);
 });
 
-// $('body').on('click', () =>{
-//   event.preventDefault()
-// })
+$('input.player-names').keyup(function() {
+  let pNames = $('.player-names').filter(function() {
+    return this.value !== '';
+  })
+  if (pNames.length === 3) {
+    $('button.disabled').addClass('start-btn')
+    $('button.disabled').removeClass('disabled')
+  }
+  event.preventDefault(event)
+});
 
 
 /************Functions******* */
 function startGameBtn(event) {
-  event.preventDefault()
+  event.preventDefault(event)
   let playerName1 = $('#player1').val();
   let playerName2 = $('#player2').val();
   let playerName3 = $('#player3').val();
-  $('.input-form').remove()
+  $('section.input-form').remove()
   game.startGame(playerName1, playerName2, playerName3)
 }

@@ -15,7 +15,8 @@ class Game {
     this.createGameBoard()
     this.createPlayerBox()
     this.roundInst.createClues()
-    
+    console.log(this.roundInst)
+    this.testMe()
   }
 
   createPlayers(p1, p2, p3) {
@@ -33,7 +34,9 @@ class Game {
   createPlayerBox() {
     DomUpdates.createPlayerBox(this.players)
   }
-
+  testMe(){
+    console.log('')
+  }
 
 }
 
