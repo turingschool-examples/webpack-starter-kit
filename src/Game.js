@@ -42,6 +42,7 @@ class Game {
   }   else{
     this.round = new Round(players)
     puzzle.puzzleSet(data.puzzles.four_word_answers);
+
   }
 }
 
