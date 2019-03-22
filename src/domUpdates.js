@@ -12,6 +12,10 @@ export default {
     // etc.
   },
 
+  startGame() {
+    
+  },
+
   updateNames(p1name, p2name) {
     $(".player-one-name").text(p1name);
     $(".player-two-name").text(p2name);
@@ -19,6 +23,14 @@ export default {
 
   displayCurrentQuestion(question) {
     $('#current-question').text(question);
+  },
+
+  disableStartButton() {
+    $("#start-game-btn").attr("disabled", true);
+  },
+
+  displayCurrentPlayer(player) {
+    $(".current-player").text(player.name);
   }
 
 }

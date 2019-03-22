@@ -25,21 +25,22 @@ startBtn.on('click', () => {
   const p2name = $('#player-two-input').val();
   const player1 = new Player(p1name, 1);
   const player2 = new Player(p2name, 2);
-  domUpdates.updateNames(p1name, p2name);
-  // TODO dom updates disable button
-  startBtn.attr("disabled", true);
   game = new Game(player1, player2);
   game.startGame();
-  console.log(game);
+  domUpdates.updateNames(p1name, p2name);
+  domUpdates.displayCurrentPlayer(game.currentPlayer);
+  domUpdates.disableStartButton();
 });
 
 submitBtn.on('click', () => {
   const guess = $('#guess-input').val().toLowerCase();
-  game.currentRound.submitGuess(game.currentPlayer, guess);
+  game.currentRound.submitGuess(game.currentPlayer, guess, game);
   if (game.currentRound.isFinished) {
-    // TODO starts new round after 5 seconds
-    setTimeout(() => {
-      game.startNextRound();
-    }, 5000);
+
+    console.log('game over');
+    // // TODO starts new round after 5 seconds
+    // setTimeout(() => {
+    //   game.startNextRound();
+    // }, 5000);
   }
 });
