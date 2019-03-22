@@ -8,14 +8,13 @@ data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects
 
 */
 
-class GameEngine{
-
-    constructor(){
-
-    }
-    getPuzzle(){
-        
-    }
+class GameEngine {
+  constructor(players) {
+    this.players = players || []
+  }
+  getPuzzle() {
+    
+  }
 }
 
 export default GameEngine;

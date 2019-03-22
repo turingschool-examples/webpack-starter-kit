@@ -3,11 +3,23 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in the file
 import $ from 'jquery';
-// jQuery selectors
 
-$('start__start--btn').click(()=>{
-    console.log(('.playerinfo__player-1').val());
-})
+import GameEngine from './game-engine'
+// jQuery selectors
+let game = null;
+let players = [];
+$('.start__start--btn').click(() =>{
+  players.push(
+    $('.playerinfo__player-1').val(),
+    $('.playerinfo__player-2').val(),
+    $('.playerinfo__player-3').val()
+  )
+  console.log(players)
+  
+  game = new GameEngine(players);
+  console.log(game.players);
+});
+
 
 
 

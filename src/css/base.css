@@ -128,7 +128,7 @@ nav {
 }
 
 .hidden {
-  display: none;
+  /* display: none; */
 }
 
 .playerinfo{
