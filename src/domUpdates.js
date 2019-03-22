@@ -7,9 +7,11 @@ let domUpdates = {
 
 // },
 
-// resetGame() {
-
-// },
+resetGame() {
+  $('.box-name').each((i, name) => {
+    $(name).text($('.player-name-input').eq(i).empty());
+  });
+},
 
 displayName() {
   $('.box-name').each((i, name) => {

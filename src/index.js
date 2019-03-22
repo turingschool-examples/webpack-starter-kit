@@ -15,5 +15,12 @@ console.log(data);
 $('.start-button').on('click', function() {
   domUpdates.startGame(game);
   $('.start-button').hide('slow');
-  $('.button').prop('disabled', false).css( "color", "white" );
+  $('.button').prop('disabled', false).css('color', 'white');
+  $('.player-name-input').hide();
+});
+
+$('.quit-button').on('click', function() {
+ domUpdates.resetGame(game);
+ $('.button').prop('disabled', true).css('color', 'grey');
+ $('.player-name-input').show();
 });
