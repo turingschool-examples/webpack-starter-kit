@@ -18,9 +18,27 @@ export default {
 
   playerNames () {
     let players = ([$('#player1-input').val(), $('#player2-input').val(), $('#player3-input').val()]);
-    console.log(players)
     return players;
+  },
+  resetGame () {
+    location.reload();
   }
 
+
+
+
+
+// for example:
+//    var finalWager = `<section class="final-question-display">
+//       <h1>FINAL JEOPARDY</h1>
+//       <h4 class="cat-0"></h4>
+//       <button class="final-wager-button">Place your bets!</button>
+//       <div class= "final-wager-input">
+//         <input type="number" class="player 0 wager">
+//         <input type="number" class="player 1 wager">
+//         <input type="number" class="player 2 wager">
+//       </div>
+//     </section>`;
+//     $('.question-box-area').html(finalWager);
 
 }
