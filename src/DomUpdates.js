@@ -41,7 +41,7 @@ export default {
     </section>
     <section id="puzzle-area" class="puzzle-area">
         <div class="puzzle">
-            <table class="puzzle-row">
+            <table class="puzzle-row row1">
                 <tr>
                     <td>
                         <div class="puzzle-cell" id="puzzle-cell">
@@ -301,7 +301,26 @@ export default {
     )
   },
 
-  fillGameBoard() {
+  fillGameBoard(clueAnswer) {
+    console.log(clueAnswer);
+    const puzzleCells = $('.row1 .puzzle-cell').toArray();
+    console.log(puzzleCells);
+    const map = {};
+    puzzleCells.forEach((cell, index) => {
+        const letter = clueAnswer[index];
+        if(map[letter]) {
+            map[letter].push(index);
+        } else {
+            map[letter] = [index];
+        }
+        $(cell).text(letter);
+    })
+    console.log(map);
+  },
 
+  createQuitGameBtn() {
+    $('main').before(
+        `<div class="quit-btn-container"><button></button></div>`
+        )
   }
 }
