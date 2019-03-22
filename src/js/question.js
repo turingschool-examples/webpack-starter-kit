@@ -1,12 +1,17 @@
 class Question {
-  constructor(answer, ansLength, description, category) {
+  constructor(answer, ansLength, splitAns, description, category) {
     // this.question = question;
     this.answer = answer;
     this.ansLength = ansLength;
-    this.ansSplit = [];
+    this.ansSplit = splitAns;
     this.description = description;
     this.category = category;
   }
+
+  splitAnswer() {
+    this.ansSplit = this.answer.split('');
+  }
+
 }
 
 export default Question;
