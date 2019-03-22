@@ -16,6 +16,8 @@ Using basics models of OOP language to develop a working Wheel of Fortune app, t
 
 ### Images
 
+### Screeshots
+
 ## How to View Your Code in Action
 
 In the terminal, run:
