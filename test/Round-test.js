@@ -9,11 +9,8 @@ describe ('Round', function() {
         round = new Round(); 
     });
 
-    it('should have clues', function () {
-        expect(round.clues).to.deep.equal(round.clues, []); 
-    })
-
-    it('should be currentPlayer in round', function() {
+    it('should have default properties', function () {
+        expect(round.clues).to.deep.equal(round.clues, []);
         expect(round.currentPlayer).to.deep.equal(round.currentPlayer, {});
     })
 })
