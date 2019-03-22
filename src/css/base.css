@@ -1,5 +1,5 @@
 body {
-  background-color: pink;
+  background-color: #CCCFEE;
 }
 
 .header {
@@ -54,7 +54,7 @@ body {
 
 .players {
   background-color: blue;
-  border: #fff solid 3px;
+  border: #000 solid 3px;
   color: antiquewhite;
   display: inline-block;
   font-size: 2.5rem;
