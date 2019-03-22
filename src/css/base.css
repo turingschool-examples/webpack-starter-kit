@@ -1,7 +1,13 @@
 body {
   background-color: pink;
   height: 100%;
+  font-family: 'Anonymous Pro', monospace;
 
+}
+
+header {
+  font-size: 46px;
+  text-align: center;
 }
 
 .category-wrapper {
@@ -10,7 +16,7 @@ body {
 }
 
 .points-wrapper {
-  
+
 }
 
 .tv-box-style {
@@ -19,19 +25,19 @@ body {
 }
 
 .header {
-  
+
 }
 .box-wrapper {
   display: flex;
   flex-wrap: wrap;
 }
 
-.categories, 
+.categories,
 .clues {
   flex: 1 0 21%;
   background-color: blue;
   border: black solid 3px;
-  margin: 5px; 
+  margin: 5px;
   text-align: center;
 }
 
