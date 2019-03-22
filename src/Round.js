@@ -5,23 +5,22 @@ import Puzzle from "./Puzzle.js";
 import domUpdates from "./domUpdates.js";
 
 class Round {
-  constructor(players, bank) {
+  constructor(players, puzzleBank) {
     this.players = players;
-    this.bank = []
+    this.puzzleBank = [];
 
 
   }
 
   puzzleSet(array){
-
-    console.log(array);
-//     let randomNum = 0;
-//     this.puzzleobj = array.splice();
-//     splitPhrase(puzzleobj);
-//     this.category = this.puzzleobj.category;
-//     this.difficulty = game.round;
-//     this.hint = this.puzzleobj.description
+    this.puzzleBank = array;
+    let randomNum = Math.floor(Math.random() * array.length);
+    let randomPuzzle = array.splice(randomNum, 1);
+    let puzzle = new Puzzle(randomPuzzle[0]);
+    console.log(puzzle)
   }
+
+  
 }
 
 export default Round;

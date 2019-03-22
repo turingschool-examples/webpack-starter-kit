@@ -18,6 +18,10 @@ $('.continue-button').on('click', (e) =>{
   game.startGame();
 })
 
+$('.reset-button').on('click', (e) =>{
+  domUpdates.resetGame();
+})
+
 
 
 

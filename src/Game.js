@@ -7,7 +7,8 @@ import domUpdates from "./domUpdates.js";
 
 class Game {
   constructor() {
-    this.round  = 0;
+    this.round = null;
+    this.roundCount  = 0;
     this.players = [];
     this.currentPlayer = 0;
     this.allData = []
@@ -28,12 +29,15 @@ class Game {
     console.log(this.allData)
   }
 
-  createRound (players) {
-    this.round++;
-    if (round === 4){
+  createRound () {
+    this.roundCount++;
+    if (this.roundCount === 4){
       // bonuswheel
     }
-    this.round = new Round(players,this.allData[this.round-1]);
+
+    let round = new Round(this.players);
+    console.log(round)
+    round.puzzleSet(this.allData[this.roundCount-1]);
   }
 
   createPlayers(array) {
