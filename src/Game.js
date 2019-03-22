@@ -30,8 +30,11 @@ class Game {
 
   createRound (players) {
     this.round++;
-    this.round = new Round(players,this.allData[this.round-1]);
+    if (round === 4){
+      // bonuswheel
     }
+    this.round = new Round(players,this.allData[this.round-1]);
+  }
 
   createPlayers(array) {
     this.players = array.map(person => {
