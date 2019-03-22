@@ -100,21 +100,32 @@
           <h4 class="round-number">Round 1</h4>
         </div>
       </article>
-      <article class="player-1">player 1</article>
-      <article class="player-2">player 2</article>
-      <article class="player-3">player 3</article>
+
+      <article id="player1" class="player-square 0">
+        <h4 id="player1" class="player-name reset">PLAYER 1 NAME</h4>
+        <h4 class="player-score" id="player-0-total">Score: 0 </h4>
+      </article>
+      <article id="player2" class="player-square 1">
+        <h4 id="player2" class="player-name">PLAYER 2 NAME</h4>
+        <h4 class="player-score" id="player-1-total">Score: 0 </h4>
+      </article>
+      <article id="player3" class="player-square 2">
+        <h4 id="player3" class="player-name">PLAYER 3 NAME</h4>
+        <h4 class="player-score" id="player-2-total">Score: 0 </h4>
+      </article>
+      </article>
     </section>
     <section class="wheel-section">wheel</section>
     </section>
     <section class="name-entry">
       <label>Player 1</label>
-      <input type="text" name="player1">
+      <input id="player1-input" type="text" name="player1">
       <br>
        <label>Player 2</label>
-      <input type="text" name="player2">
+      <input id="player2-input" type="text" name="player2">
       <br>
        <label>Player 3</label>
-      <input type="text" name="player3">
+      <input id="player3-input" type="text" name="player3">
       <br>
       <button class="continue-button">Continue</button>
     </section>

@@ -1,7 +1,7 @@
 // import Wheel from "./Wheel.js";
-// import Round from "./Round.js";
-// import Player from "./Player.js";
-// import Puzzle from "./Puzzle.js";
+import Round from "./Round.js";
+import Player from "./Player.js";
+import Puzzle from "./Puzzle.js";
 import data from "./data.js";
 import domUpdates from "./domUpdates.js";
 
@@ -16,35 +16,44 @@ class Game {
   }
 
   startGame(){
-    console.log("hello");
-    domUpdates.hiddenBoard();
-    console.log("test")
+    this.getRandomData();
+    this.createPlayers(domUpdates.playerNames());
     this.getRandomData();
   }
 
   getRandomData () {
-    // bank
-      console.log("data");
-      console.log(data.puzzles.one_word_answers.puzzle_bank);
-    
+    data.puzzles.forEach(puzzleCat =>{
+      allData.push(puzzleCat)
+    })
+    console.log(allData)
   }
 
   createRound (players) {
-    this.roundCount++;
-    if (this.roundCount === 1) {
-      this.round = new Round(this.clueSet(), players);
-    } else if (this.roundCount === 2) {
-      this.round = new Round(this.clueSet(), players)
-      this.round.sortClues();
-    } else {
-      }
+    this.round++;
+    if (this.round === 1) {
+      this.round = new Round(players);
+      puzzle.puzzleSet(data.puzzles.one_word_answers);
+    } else if (this.round=== 2) {
+      this.round = new Round(players)
+      puzzle.puzzleSet(data.puzzles.two_word_answers);
+    } else if (this.round=== 3) {
+      this.round = new Round(players)
+      puzzle.puzzleSet(data.puzzles.three_word_answers);
+  }   else{
+    this.round = new Round(players)
+    puzzle.puzzleSet(data.puzzles.four_word_answers);
+    }
   }
-createPlayers(array) {
-    this.round.players = array.map(person => {
+
+  createPlayers(array) {
+    this.players = array.map(person => {
       return person = new Player(person);
     });
+
+      domUpdates.hiddenBoard(this.players);
+
   }
 
-}
 
+}
 export default Game;

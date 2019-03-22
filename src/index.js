@@ -14,8 +14,8 @@ let game;
 
 $('.continue-button').on('click', (e) =>{
   e.preventDefault();
-  game = new Game()
-  game.startGame()
+  game = new Game();
+  game.startGame();
 })
 
 
