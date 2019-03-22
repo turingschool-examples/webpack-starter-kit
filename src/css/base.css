@@ -79,9 +79,9 @@ h6 {
   font-size: 20px;
 }
 
-#player-three,
-#player-two,
-#player-one {
+#player-three-input,
+#player-two-input,
+#player-one-input {
   height:40px;
   font-size:18pt;
   width: 150px;

@@ -20,8 +20,10 @@ const startGameBtn = $('#start-game-btn');
 // }
 
 startGameBtn.click(function (e) {
-  const game = new Game;
   e.preventDefault();
-  game.updateName();
-  console.log('hello')
+  const names = [$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()]
+  console.log('player one value: ', $('#player-one').val());
+  const game = new Game;
+  game.updateName(names);
+  console.log('start button functional')
 })
