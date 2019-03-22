@@ -25,6 +25,24 @@ photos here
 
 We worked on this project in order to become more familiar with jQuery, Object Oriented Programming (OOP), and WebPack.
 
+### Technologies used
+
+* JavaScript (vanilla)
+
+* jQuery
+
+* Webpack
+
+* HTML/CSS
+
+* Mocha
+
+* Chai
+
+### Tooling used for organization:
+
+https://trello.com/b/uY6S7F4R/bridgett-sally-wheel-of-fortune
+
 ### Contributors
 
 Sally Haefling
