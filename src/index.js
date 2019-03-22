@@ -10,7 +10,7 @@ import './css/base.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
-
+import data from '../src/Game-Data.js';
 //Change player names
 //  add eventlistener for on click 'start'
 //  grab value of player name inputs
@@ -27,4 +27,11 @@ $(".start").click(function() {
   let inputPlayerThree = $(".player-three-input").val();
   $(".player-three-name").text(inputPlayerThree);
   $("input").remove();
+  game.startGame();
 });
+
+const allCategories = data.clues.filter((clue) => {
+	
+	if (clue.categoryId 
+})
+console.log(data.clues)

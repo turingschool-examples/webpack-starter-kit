@@ -4,6 +4,9 @@ class Game {
 		this.dailyDoubles = 1;
 		this.cardsClicked = 0;
 	}
+	startGame() {
+		
+	}
 }
 
 export default Game;
