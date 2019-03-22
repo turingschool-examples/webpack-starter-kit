@@ -8,7 +8,7 @@ class Game {
     this.players = [];
     this.rounds = [];
     this.currentPlayer = 0;
-    this.categories = ['Testing']; 
+    this.categories = []; 
   }
 
    beginGame() {

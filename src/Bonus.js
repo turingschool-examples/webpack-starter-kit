@@ -1,3 +1,5 @@
+import Wheel from './Wheel.js';
+
 class Bonus extends Wheel { 
   constructor(values, currentIndex, prize) {
     super(values, currentIndex);
