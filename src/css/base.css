@@ -9,6 +9,34 @@ body {
   position: relative;
 }
 
+.welcome-screen {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+}
+
+.name-form {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px;
+  border-radius: 5px;
+}
+
+.player-fields,
+.name-form button {
+  margin: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
 /* .page-background {
   position: absolute;
   width: 100%;
@@ -69,7 +97,6 @@ body {
 }
 
 label {
-  color: white;
   margin-top: 5px;
 }
 
