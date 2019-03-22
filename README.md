@@ -1,6 +1,6 @@
 ![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
 
-# Name of the project
+# Game-Time: Wheel ofFortune
 > Additional information or tagline
 
 A brief description of your project, what it is used for and how does life get
@@ -73,24 +73,6 @@ What's all the bells and whistles this project can perform?
 
 Here you should write what are all of the configurations a user can enter when
 using the project.
-
-#### Argument 1
-Type: `String`  
-Default: `'default value'`
-
-State what an argument does and how you can use it. If needed, you can provide
-an example below.
-
-Example:
-```bash
-awesome-project "Some other value"  # Prints "You're nailing this readme!"
-```
-
-#### Argument 2
-Type: `Number|Boolean`  
-Default: 100
-
-Copy-paste as many of these as you need.
 
 ## Contributing
 
