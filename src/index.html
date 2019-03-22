@@ -2,71 +2,104 @@
 <html lang="en-US">
   <head>
     <title>Gametime Starter Kit</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+
   </head>
   <body>
-  	<header>
-    	<h1>Jeopardy</h1>
+    <header>
+      <h1>Jeopardy</h1>
     </header>
     <main>
-    	<section class='board'>
-    		<article class='category-one'>
+      <section class='board'>
+        <article class='category-one'>
                 <h2>category one</h2>
             </article>
-    		<article class='category-two'>
+        <article class='category-two'>
                 <h2>category two</h2>
                 </article>
-    		<article class='category-three'>
+        <article class='category-three'>
                 <h2>category three</h2>
             </article>
-    		<article class='category-four'>
+        <article class='category-four'>
                 <h2>category four</h2>
             </article>
-    		<article class='100'> 
+        <article id= 'clue' class='100'> 
                 <h3 class='100'>100</h3>
             </article>
-    		<article class='100'> 
+        <article id= 'clue' class='100'> 
                 <h3>100</h3>
             </article>
-    		<article class='100'> 100</article>
-    		<article class='100'> 100</article>
-    		<article class='200'> 200</article>
-    		<article class='200'> 200</article>
-    		<article class='200'> 200</article>
-    		<article class='200'> 200</article>
-    		<article class='300'> 300</article>
-    		<article class='300'> 300</article>
-    		<article class='300'> 300</article>
-    		<article class='300'> 300</article>
-    		<article class='400'> 400</article>
-    		<article class='400'> 400</article>
-    		<article class='400'> 400</article>
-    		<article class='400'> 400</article>
-    	</section>
+        <article id= 'clue' class='100'> 
+            <h3>100</h3>
+        </article>
+        <article id= 'clue' class='100'> 
+            <h3>100</h3>
+        </article>
+        <article id= 'clue' class='200'>
+            <h3>200</h3>
+        </article>
+        <article id= 'clue' class='200'>
+            <h3>200</h3>
+        </article>
+        <article id= 'clue' class='200'>
+            <h3>200</h3>
+        </article>
+        <article id= 'clue' class='200'>
+            <h3>200</h3>
+        </article>
+        <article id= 'clue' class='300'>
+            <h3>300</h3>
+        </article>
+        <article id= 'clue' class='300'>
+            <h3>300</h3>
+        </article>
+        <article id= 'clue' class='300'>
+            <h3>300</h3>
+        </article>
+        <article id= 'clue' class='300'>
+            <h3>300</h3>
+        </article>
+        <article id= 'clue' class='400'>
+            <h3>400</h3>
+        </article>
+        <article id= 'clue' class='400'>
+            <h3>400</h3>
+        </article>
+        <article id= 'clue' class='400'>
+            <h3>400</h3>
+        </article>
+        <article id= 'clue' class='400'>
+            <h3>400</h3>
+        </article>
+      </section>
     </main>
     <section class='round'>
-    	<h3> Round <span class='round-number'> 1</span>
-    	</h3>
+      <h4> Round <span class='round-number'> 1</span>
+      </h3>
     </section>
     <section class='players'>
-    	<div class='player-one'>
-            <label class='player-one-name'>Player One</label>
+      <div id='players' class='player-one'>
+            <label class='player-one-name'>Player One</label><br/>
             <input type='text' class='player-one-input'/>
-<!--             <h6>Score</h6> -->
+            <h5>Score</h5>
+            <h6>0</h6>
         </div>
-        <div class='player-two'>
-            <label class='player-two-name'>Player Two</label>
+        <div id='players' class='player-two'>
+            <label class='player-two-name'>Player Two</label><br/>
             <input type='text' class= 'player-two-input'/>
-<!--             <h6>Score</h6> -->
+            <h5>Score</h5>
+            <h6>0</h6>
         </div>
-        <div class='player-three'>
-            <label class='player-three-name'>Player Three</label>
+        <div id='players' class='player-three'>
+            <label class='player-three-name'>Player Three</label><br/>
             <input type='text' class= 'player-three-input'/>
-<!--             <h6>Score</h6> -->
+            <h5>Score</h5>
+            <h6>0</h6>
         </div>
     </section>
     <footer>
-    	<button class='start'>Start</button>
-    	<button class='quit'>Quit</button>
+      <button class='start'>Start</button>
+      <button class='quit'>Quit</button>
     </footer>
   </body>
 </html>
