@@ -1,12 +1,35 @@
+import domUpdates from './domUpdates.js';
+import Player from './Player.js';
+import data from './data.js';
+import Puzzle from './Puzzle.js';
+
 class Game {
   constructor(players, rounds, currentPlayer) {
     this.players = [];
     this.rounds = [];
     this.currentPlayer = 0;
+    this.categories = ['Testing']; 
   }
 
-  getWinner() {
-    
+   beginGame() {
+    this.cleanData();
+    // this.getRandomCategories(game);
+  }
+
+  //  getRandomCategories(game) {
+  //   console.log('getRandomCategories');
+  //   console.log(game.categories);
+  //   // for(let i = this.categories.length - 1; i>0; i--) {
+  //   //   const j = Math.floor(Math.random() * (i + 1));
+  //   //   [this.categories[i], this.categories[j]] = 
+  //   //   [this.categories[j], this.categories[i]];
+  //   // }
+  // }
+
+  cleanData(puzzle) {
+    let newDataVals = Object.values(data);
+    newDataVals.shift();
+    this.categories = Object.keys(data).shift();
   }
 
   createPlayer(name1, name2, name3) {
@@ -24,7 +47,7 @@ class Game {
 
   }
 
-  beginGame() {
+  getWinner() {
     
   }
 }

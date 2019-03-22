@@ -3,13 +3,13 @@ import $ from 'jquery';
 
 let domUpdates = {
 
-newGame() {
+// newGame() {
 
-},
+// },
 
-resetGame() {
+// resetGame() {
 
-},
+// },
 
 displayName() {
   $('.box-name').each((i, name) => {
@@ -17,8 +17,15 @@ displayName() {
   });
 },
 
-displayScore() {
+// displayScore() {
 
+// },
+
+startGame(game) {
+  game.createPlayer($('.player-name-input').eq(0).val(), 
+    $('.player-name-input').eq(1).val(), 
+    $('.player-name-input').eq(2).val());
+    game.beginGame(game);
 }
 
 }
