@@ -13,7 +13,7 @@ html {
 }
 
 body{
-  background: url(../images/WOF-star-background.png);
+  background: url(../images/WOF-star-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
@@ -130,7 +130,7 @@ footer {
 h3 {
   /*margin-right: 75px;*/
   background: rgb(35, 31, 32);
-  color: white;
+  color: #ffffff;
   text-align: center;
   width: 9rem;
   height: 2rem;
@@ -148,7 +148,6 @@ h3 {
   flex-direction: column;
   align-items: space-between;
   align-items: center;
-  background-color: white;
 }
 
 .player-score-area {
@@ -156,13 +155,16 @@ h3 {
   justify-content: space-between;
   padding: 30px 0px;
   width: 70%;
+  max-width: 955px;
 }
 .player-score {
-  border: 1px solid red;
+  border: 1px solid black;
   width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #ffffff;
+  padding: 0 10px;
 }
 
 .puzzle-area {
@@ -187,17 +189,20 @@ h3 {
 
 .letters-selected-area {
   display: flex;
-  justify-content: center;
-  padding: 30px 0;
+  justify-content: space-between;
+  padding: 10px 0;
   width: 70%;
+  max-width: 955px;
 }
 
 .letters-selected td {
-  border: .5px solid green;
+  border: 2px solid black;
+  border-radius: 3px;
   text-align: center;
   font-size: 20px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
 }
 
 .player-actions {
@@ -205,4 +210,10 @@ h3 {
   align-items: center;
   justify-content: space-between;
   width: 70%;
+  max-width: 955px;
+}
+
+.player-action-btn:hover {
+  background-color: black;
+  color: white;
 }
