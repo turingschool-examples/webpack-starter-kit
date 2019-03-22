@@ -8,6 +8,5 @@ export default {
     $('#player-one-input').hide(500);
     $('#player-two-input').hide(500);
     $('#player-three-input').hide(500);
-    console.log('updateNames test!')
   }
 }

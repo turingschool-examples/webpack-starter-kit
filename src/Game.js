@@ -1,9 +1,12 @@
 import Player from './Player.js';
 import domUpdates from './domUpdates.js';
+import data from './data-set.js';
+// import 
 
 class Game {
   constructor() {
     this.players = [];
+    this.categories = [];
   }
 
   updateName(names) {
@@ -14,6 +17,11 @@ class Game {
     this.players = players;
     domUpdates.updateNames(this.players);
   }
+
+  // udpateCategories() {
+  //   console.log('update categories working');
+  //   // console.log(Data);
+  // }
     // const player = new Player;
     // console.log(names);
     // const players = names.map(name => {
