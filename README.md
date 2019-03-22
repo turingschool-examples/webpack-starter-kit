@@ -9,6 +9,8 @@ Run `npm install` from the root directory
 
 Run `npm start` and visit localhost:8080 in your browser
 
+# INSERT SCREENSHOTS HERE
+
 ## Testing
 Website is fully tested with Mocha and Chai
 
