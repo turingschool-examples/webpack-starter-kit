@@ -14,6 +14,8 @@ import './images/turing-logo.png'
 
 import './images/feud76.png'
 
+import './images/family-feud-logo.png'
+
 import Game from './Game.js';
 
 // import Round from './Round.js';

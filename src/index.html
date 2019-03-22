@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Family Feud</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 <body>
   <div class="welcome-screen">
     <form class="name-form">
+      <!-- <img src="./images/family-feud-logo.png"> -->
+      <h1>Family Feud</h1>
       <div class="player-fields">
         <label for="player-1-input">
           Enter Player 1 Name:
@@ -24,13 +27,13 @@
     </form>
   </div>
   <div class="page-background"></div>
-  <header class="header">
-    <button id="start-btn">Start New Game</button>
-  </header>
   <main class="main">
+    <header>
+      <h1>Family Feud</h1>
+    </header>
     <section class="round-header">
       <h2 class="round-title">Round 1</h2>
-      <p class="survey">blah di blah di blah?</p>
+      <p class="survey">Blah di blah di blah boop boop beep beep doo doo di doo doop dop?</p>
     </section>
     <section class="score-area">
       <article class="player-area player-1-side">
@@ -57,10 +60,14 @@
       </article>
     </section>
     <section class="guess-area">
-      <p class="active-player">Player 1</p>
-      <input type="text" class="guess-input" placeholder="Enter Your Guess!">
-      <button class="submit-btn">Submit</button>
+      <article class="guess-input-bar">
+        <input type="text" class="guess-input" placeholder="Enter Your Guess!">
+        <button class="submit-btn">Submit</button>
+      </article>
     </section>
+    <footer class="footer">
+      <button id="start-btn">Start New Game</button>
+    </footer>
   </main>
 </body>
 </html>
