@@ -1,9 +1,9 @@
 class Puzzle {
-    constructor(category, words, totalLtr, firstLtr, description, answer){
+    constructor(category, wordNumber, totalLtrs, firstWordLtr, description, answer){
         this.cat = category;
-        this.numOfWords = words;
-        this.numOfLtr = totalLtr;
-        this.numLtrFirstWord = firstLtr;
+        this.numOfWords = wordNumber;
+        this.numOfLtr = totalLtrs;
+        this.numLtrFirstWord = firstWordLtr;
         this.description = description;
         this.ans = answer;
     }

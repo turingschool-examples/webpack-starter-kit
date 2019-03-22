@@ -1,6 +1,8 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Puzzle from '../src/puzzle.js';
+import Round from '../src/round.js';
+import data from '../src/data_wheel-of-fortune';
 import spies from 'chai-spies';
 chai.use(spies);
 
@@ -12,14 +14,14 @@ describe('Puzzle', () => {
         const puzzle = new Puzzle();
         expect(puzzle).to.be.an('object');
     })
-    // Should be able to have property values passed in from a data set
     it('Properties should have a value when passed in', ()=>{
-        const puzzle = new Puzzle('Around The House', 1, 6, 6, 'Location or object(s) found within a typical house.', 'Teapot');
+        let puzzleData = data.puzzles.one_word_answers.puzzle_bank[0];
+        const puzzle = new Puzzle(puzzleData.category, puzzleData.number_of_words, puzzleData.total_number_of_letters, puzzleData.first_word, puzzleData.description, puzzleData.correct_answer);
         expect(puzzle.cat).to.equal('Around The House');
         expect(puzzle.numOfWords).to.equal(1);
-        expect(puzzle.numOfLtr).to.equal(6);
-        expect(puzzle.numLtrFirstWord).to.equal(6);
+        expect(puzzle.numOfLtr).to.equal(8);
+        expect(puzzle.numLtrFirstWord).to.equal(8);
         expect(puzzle.description).to.equal('Location or object(s) found within a typical house.');
-        expect(puzzle.ans).to.equal('Teapot');
+        expect(puzzle.ans).to.equal('Armchair');
     })
 })
