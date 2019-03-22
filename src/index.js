@@ -4,6 +4,7 @@ import data from './data.js';
 import './css/base.css';
 import Game from './Game.js';
 
+
 console.log('This is the JavaScript entry file - your code begins here.');
 
 let game = new Game();
