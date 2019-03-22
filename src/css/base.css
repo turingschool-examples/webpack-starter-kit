@@ -31,6 +31,35 @@ body {
   font-weight: 600;
 }
 
-.player-wrapper {
+.answer {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
 
+.answer-input {
+  height: 30px;
+  width: 420px;;
+}
+
+.answer-btn {
+  height: 35px;
+}
+
+.player-wrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.players {
+  background-color: blue;
+  border: #fff solid 3px;
+  color: antiquewhite;
+  display: inline-block;
+  font-size: 2.5rem;
+  height: 100px;
+  text-align: center;
+  width: 33%;
+  align-items: flex-end;
 }
