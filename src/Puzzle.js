@@ -17,7 +17,6 @@ class Puzzle {
   }
 
 
-
 //   puzzleSet(array){
 //     let randomNum = 0;
 //     this.puzzleobj = array.splice();
@@ -32,6 +31,7 @@ class Puzzle {
 //     this.splitPhrase.push(obj.correctAnswer)
 //     this.splitPhrase = this.splitPhrase.split(' ');
 //   }
+
 
 }
 

@@ -1,99 +1,134 @@
-# Gametime Starter Kit
+![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
 
-## Fork This Repo
+# Name of the project
+> Additional information or tagline
 
-Within your group, decide on one person to have the project repository (repo) on their GitHub account. Then, that person should "fork" this repo. On the top right corner of this page, click the **Fork** button.
+A brief description of your project, what it is used for and how does life get
+awesome when someone starts to use it.
 
-## Setup
+## Installing / Getting started
 
-After one person has forked the repo, everyone should clone down the forked repo. Since you don't want to name your project "gametime-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+A quick introduction of the minimal setup you need to get a hello world up &
+running.
 
-```bash
-git clone [remote-address] [what you want to name the repo]
+```shell
+packagemanager install awesome-project
+awesome-project start
+awesome-project "Do something!"  # prints "Nah."
 ```
 
-Once you have cloned the repo, install the library dependencies. Run:
+Here you should say what actually happens when you execute the code above.
 
-```bash
-npm install
+### Initial Configuration
+
+Some projects require initial configuration (e.g. access tokens or keys, `npm i`).
+This is the section where you would document those requirements.
+
+## Developing
+
+Here's a brief intro about what a developer must do in order to start developing
+the project further:
+
+```shell
+git clone https://github.com/your/awesome-project.git
+cd awesome-project/
+packagemanager install
 ```
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text and a pink background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+And state what happens step-by-step.
 
-## Where to Add Your Code
+### Building
 
-### JavaScript
+If your project needs some additional steps for the developer to build the
+project after some code changes, state them here:
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
-
-**Create all of your feature code files in the `src` directory.**
-
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
-
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
-
-### HTML
-
-Add your HTML to the `index.html` file in the `./src` directory. There is some boilerplate HTML that exists from the start that you can modify for your game.
-
-### CSS
-
-Add your CSS files in the `src/css` directory. There is a `base.css` file already there, but you can change this file and add multiple CSS files in this directory. Note that this project structure does not support SCSS.
-
-This might sound weird, but you need to `import` your CSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.css` file has already been imported in the JavaScript entry file.
-
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`index.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
+```shell
+./configure
+make
+make install
 ```
 
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
+Here again you should state what actually happens when the code above gets
+executed.
 
-```bash
-Project is running at http://localhost:8080/
+### Deploying / Publishing
+
+In case there's some step you have to take that publishes this project to a
+server, this is the right time to state it.
+
+```shell
+packagemanager deploy awesome-project -s server.com -u username -p password
 ```
 
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
+And again you'd need to tell what the previous code actually does.
 
----
+## Features
 
-## Test Files Organization
+What's all the bells and whistles this project can perform?
+* What's the main functionality
+* You can also do another thing
+* If you get really randy, you can even do this
 
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
+## Configuration
 
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
+Here you should write what are all of the configurations a user can enter when
+using the project.
 
-## Running Your Tests
+#### Argument 1
+Type: `String`  
+Default: `'default value'`
 
-Run your test suite using the command:
+State what an argument does and how you can use it. If needed, you can provide
+an example below.
 
+Example:
 ```bash
-npm test
+awesome-project "Some other value"  # Prints "You're nailing this readme!"
 ```
 
-The test results will output to the terminal.
+#### Argument 2
+Type: `Number|Boolean`  
+Default: 100
 
----
+Copy-paste as many of these as you need.
 
-## Linting Your Code
+## Contributing
 
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
+When you publish something open source, one of the greatest motivations is that
+anyone can just jump in and start contributing to your project.
 
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
+These paragraphs are meant to welcome those kind souls to feel that they are
+needed. You should state something like:
 
-## Webpack?
+"If you'd like to contribute, please fork the repository and use a feature
+branch. Pull requests are warmly welcome."
 
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
+If there's anything else the developer needs to know (e.g. the code style
+guide), you should link it here. If there's a lot of things to take into
+consideration, it is common to separate this section to its own file called
+`CONTRIBUTING.md` (or similar). If so, you should say that it exists here.
 
-## Deploying to GitHub Pages
+## Links
 
-_If you are finished with the functionality and testing of your game_, then you can consider deploying your game to the web! This way anyone can play it without cloning down your repo.
+Even though this information can be found inside the project on machine-readable
+format like in a .json file, it's good to include a summary of most useful
+links to humans using your project. You can include links like:
 
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your game to the web. Research deploying a Webpack project to GitHub Pages or ask your instructors about it if you get to that point. (Don't worry about this until your project is free of bugs and well tested!)
+- Project homepage: https://your.github.com/awesome-project/
+- Repository: https://github.com/your/awesome-project/
+- Issue tracker: https://github.com/your/awesome-project/issues
+  - In case of sensitive bugs like security vulnerabilities, please contact
+    my@email.com directly instead of using issue tracker. We value your effort
+    to improve the security and privacy of this project!
+- Related projects:
+  - Your other project: https://github.com/your/other-project/
+  - Someone else's project: https://github.com/someones/awesome-project/
+
+
+## Licensing
+
+One really important part: Give your project a proper license. Here you should
+state what the license is and how to find the text version of the license.
+Something like:
+
+"The code in this project is licensed under MIT license."
