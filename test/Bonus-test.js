@@ -3,6 +3,7 @@ import Wheel from '../src/Wheel.js';
 import chai from 'chai';
 const expect = chai.expect;
 
+
 describe('Bonus', function() {
   let bonus;
   let wheel;
