@@ -22,10 +22,10 @@ class Game {
   }
 
   getRandomData () {
-    data.puzzles.forEach(puzzleCat =>{
-      allData.push(puzzleCat)
-    })
-    console.log(allData)
+    // data.puzzles.forEach(puzzleCat =>{
+    //   allData.push(puzzleCat)
+    // })
+    // console.log(allData)
   }
 
   createRound (players) {
@@ -42,9 +42,9 @@ class Game {
   }   else{
     this.round = new Round(players)
     puzzle.puzzleSet(data.puzzles.four_word_answers);
-    }
 
   }
+}
 
   createPlayers(array) {
     this.players = array.map(person => {

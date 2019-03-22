@@ -24,14 +24,12 @@ class Puzzle {
 //     this.category = this.puzzleobj.category;
 //     this.difficulty = game.round;
 //     this.hint = this.puzzleobj.description
-
 //   }
 
 //   splitPhrase(obj){
 //     this.splitPhrase.push(obj.correctAnswer)
 //     this.splitPhrase = this.splitPhrase.split(' ');
 //   }
-
 
 }
 
