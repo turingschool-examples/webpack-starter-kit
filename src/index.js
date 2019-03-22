@@ -16,75 +16,27 @@ import '/dataset.js';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-function getDatasetAnswers() {
-   const dataAnswers = data.answers;
-   for (let i=0; i<dataAnswers.length; i++) {
-    surveys.push(dataAnswers);
-      // console.log(dataAnswers[i]);
-      // console.log(dataAnswers[i].surveyId);
-        // console.log(dataAnswers[i].respondents);
-          // console.log(dataAnswers[i].answer);
-   } 
-};
 
-function getDatasetQuestions() {
-    const dataQuestions = data.surveys;
-   for (let i=0; i<dataQuestions.length; i++) {
-    surveys.push(dataQuestions)
-      // console.log(dataQuestions[i]);
-      //console.log(dataQuestions[i].id);
-        // console.log(dataQuestions[i].question);  
-   } 
-};
+function getData() {
+let id = Math.floor(Math.random() * (data.surveys.length-1) + 0) 
 
-var surveys = [];
+  let dataQuestions = data.surveys.find((cur, idx) => {
+    return idx === id
+  })
 
+  let dataAnswers = data.answers.filter(answer => {
+  return answer.surveyId === dataQuestions.id
+  })
 
-//can get rid of above two functions
-function createSurveyDataset(id) {
-   const dataQuestions = data.surveys;
-   const dataAnswers = data.answers; 
-   const respondents = dataAnswers.sort((a, b) => a.surveyId > b.surveyId ? 1 : -1);
-  //console.log(respondents);
-  for (let i = 0; i < dataQuestions.length; i++) {
-  if (dataQuestions[i].id === dataAnswers[i].surveyId) {
-     for (let i=0; i < dataQuestions.length; i++) {
-     const answerProp = dataQuestions[i]['answer'] = [];
-    // const answersObj = respondents.reduce((acc, answer) => {
-    //     if (respondents[i].surveyId == dataQuestions[i].id)
-    //issue has to do with what is being compared and what is being returned
-    // {
-    //           return answer;
-    //           return acc;
-    //       }
-    //   }, {});
-    
-    //  if () {
-    //   dataQuestions[i].answer.push()
-   // console.log(dataQuestions[i].answer.push(respondents));
-     };
-};
-        const answerObj = respondent => respondent[i].surveyId === dataQuestions[i].id;
-      dataQuestions[i].answer.push(respondents.reduce((acc, answer) => {
-        if (respondents['surveyId'] > i) {
-          return answer;
-        }
-         return acc;
-        }, {}));
+  for (let i=0; i < dataAnswers.length; i++) {
+    let answers = dataAnswers[i].answer;
+    let respondents = dataAnswers[i].respondents;
+    console.log(answers);
+    console.log(respondents);
+  }
+}
 
-     
-    
-      
-     
-      console.log(dataQuestions);
- 
-      //here is the final issue
-     //and how do we put multiple answers in answer[] as an object
-  };
- };
-
-createSurveyDataset(data.answers['surveyId']);
-
+getData();
 
 //function submitButton {
 //   if(wrong answer) {
