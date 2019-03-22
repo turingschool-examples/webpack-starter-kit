@@ -17,26 +17,37 @@ import '/dataset.js';
 console.log('This is the JavaScript entry file - your code begins here.');
 
 
-function getData() {
-let id = Math.floor(Math.random() * (data.surveys.length-1) + 0) 
 
-  let dataQuestions = data.surveys.find((cur, idx) => {
-    return idx === id
-  })
+const dataSet = data.surveys.reduce((acc, survey) => {
+    acc.push({
+      id: survey.id,
+      question: survey.question,
+      answers: data.answers.filter((answer) => answer.surveyId === survey.id)
+    })
+     return acc;
+}, [])
 
-  let dataAnswers = data.answers.filter(answer => {
-  return answer.surveyId === dataQuestions.id
-  })
+    console.log(dataSet);
+// function getData() {
+// let id = Math.floor(Math.random() * (data.surveys.length-1) + 0) 
 
-  for (let i=0; i < dataAnswers.length; i++) {
-    let answers = dataAnswers[i].answer;
-    let respondents = dataAnswers[i].respondents;
-    console.log(answers);
-    console.log(respondents);
-  }
-}
+//   let dataQuestions = data.surveys.find((cur, idx) => {
+//     return idx === id
+//   })
 
-getData();
+//   let dataAnswers = data.answers.filter(answer => {
+//   return answer.surveyId === dataQuestions.id
+//   })
+
+//   for (let i=0; i < dataAnswers.length; i++) {
+//     let answers = dataAnswers[i].answer;
+//     let respondents = dataAnswers[i].respondents;
+//     console.log(answers);
+//     console.log(respondents);
+//   }
+// }
+
+// getData();
 
 //function submitButton {
 //   if(wrong answer) {
