@@ -1,18 +1,22 @@
- // class Player {
-//   constructor(name) {
-//     this.score = 0;
-//     this.name = name;
-//   }
+class Player {
+    constructor(name) {
+        this.name = name;
+        this.score = 0;
+    };
 
-    // score() {
+    addScore(num) {
+        this.score += num;
     //     game.checkPlayer()
     //     const newScore = game.answers[i].response;
     //     this.score += this.newScore['player1${currentPlayer}']
-    // }
+    };
 
-      //fastMoneyScore() {
-            //game.checkPlayer()
+    lightningScore(num) {
+        this.score += num;
+    //     game.checkPlayer()
     //     const newScore = game.answers[i].response;
     //     this.score += (this.newScore['player1${currentPlayer}'] * input)
-     //}
-// }
+     };
+}
+
+export default Player;
