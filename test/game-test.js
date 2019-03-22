@@ -21,12 +21,12 @@ describe('Game Class', () => {
     expect(game.player1.name).to.equal('Jacob');
     expect(game.player2.name).to.equal('Ryan');
   });
-  it('should start off at round zero', function () {
+  it.skip('should start off at round zero', function () {
     let game = new Game();
 
     expect(game.currentRound).to.equal(0);
   });
-  it('should be able to increment the round', function () {
+  it.skip('should be able to increment the round', function () {
     let game = new Game();
 
     expect(game.currentRound).to.equal(0);
