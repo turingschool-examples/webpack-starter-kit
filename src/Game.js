@@ -7,17 +7,24 @@ class Game {
   }
 
   updateName(names) {
-    console.log('Game Test functional')
-    const player = new Player;
-    console.log(names);
-    names.map(name => {
-      let player = new Player(name);
+    const players = names.map(name => {
+      let newPlayer = new Player(name);
+      return newPlayer;
     })
+    this.players = players;
+    domUpdates.updateNames(this.players);
+  }
+    // const player = new Player;
+    // console.log(names);
+    // const players = names.map(name => {
+      // let newplayer = new Player(name);
+      // return newPlayer;
+    // })
     // names.map
-    domUpdates.updateNames();
+    // domUpdates.updateNames();
     // this.players = players;
     // domUpdates.renderNames(this.players);
-  }
+  // }
 
   generateRandomNum() {
     //generate random numbner

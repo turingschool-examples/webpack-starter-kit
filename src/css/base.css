@@ -83,8 +83,13 @@ h6 {
 #player-two-input,
 #player-one-input {
   height:40px;
-  font-size:18pt;
+  font-size:18px;
   width: 150px;
+}
+
+.name-display {
+  font-size: 26px;
+  font-weight: bold;
 }
 
 footer {
