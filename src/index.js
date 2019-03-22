@@ -23,13 +23,26 @@ $(".categories").click(() => {
   alert ('im working');
 });
 
-const flatData = dataSet.clues.flat([1]);
-console.log(flatData);
+console.log(dataSet.clues);
 
-// const gameStart = flatData.forEach();
-// console.log('Log 1: ', gameStart);
+const newGame = new Game(dataSet.clues);
+console.log(newGame);
 
-const player1 = new Rounds(flatData, 'Erik');
+// newGame.populateQuestions()
+
+// dom manipulation to get values of the three names
+var name1 = 'Erik';
+var name2 = 'Elton';
+var name3 = 'Sean';
+
+var newGame = new Game(name1, name2, name3);
+
+newGame.fetchClue(sweetNumbers)
+
+newGame.nextRound()
+
+
+// const player1 = new Rounds(flatData, 'Erik');
 // console.log('Log 2: ', player1);
 
 // const player2 = new Rounds(gameStart, 'Aidan');
