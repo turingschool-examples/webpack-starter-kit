@@ -1,6 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Puzzle from '../src/puzzle.js';
+import Round from '../src/round.js';
 import data from '../src/data_wheel-of-fortune';
 import spies from 'chai-spies';
 chai.use(spies);

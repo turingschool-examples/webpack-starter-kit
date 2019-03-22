@@ -29,5 +29,16 @@ describe('Round', ()=>{
         const round = new Round(1);
         expect(round).to.deep.equal({roundNumber: 1})
     })
+    it('Should instantiate a new instance of puzzle in the propery puzzle of round when getPuzzle() is invoked', ()=>{
+        const round = new Round(1);
+        let puzzleData = data.puzzles.one_word_answers.puzzle_bank[0];
+        round.getPuzzle(puzzleData.category, puzzleData.number_of_words, puzzleData.total_number_of_letters, puzzleData.first_word, puzzleData.description, puzzleData.correct_answer);
+        expect(round.puzzle.cat).to.equal('Around The House');
+        expect(round.puzzle.numOfWords).to.equal(1);
+        expect(round.puzzle.numOfLtr).to.equal(8);
+        expect(round.puzzle.numLtrFirstWord).to.equal(8);
+        expect(round.puzzle.description).to.equal('Location or object(s) found within a typical house.');
+        expect(round.puzzle.ans).to.equal('Armchair');
+    })
 })
 export default Round;

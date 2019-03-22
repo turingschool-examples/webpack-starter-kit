@@ -11,8 +11,9 @@ class Round {
   constructor(roundNumber) {
     this.roundNumber = roundNumber;
   }
-  getPuzzle(puzzle){
-    this.puzzle = new Puzzle(puzzle);
+  getPuzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer){
+    this.puzzle = new Puzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer);
+    
   }
 }
 export default Round;
