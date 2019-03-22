@@ -19,14 +19,27 @@ body {
   z-index: 2;
 }
 
+.hidden {
+  display: none;
+}
+
+.name-form img {
+  width: 300px;
+  margin: 0 auto 20px;
+}
+
 .name-form {
   background: #213b72;
   border: 5px solid white;
   color: white;
   display: flex;
   flex-direction: column;
-  padding: 40px 30px;
+  padding: 50px;
   border-radius: 5px;
+}
+
+.name-form input {
+  width: 100%;
 }
 
 #submit-names-btn {
@@ -38,9 +51,34 @@ body {
   background-color: lightgray;
 }
 
+.main {
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0 0 0;
+}
+
+header h1{
+  font-size: 5em;
+  letter-spacing: 3px;
+  font-weight: 900;
+  color: #b20303;
+  margin: 0 0 50px 0;
+  font-family: 'Pacifico';
+}
+
+.name-form h1{
+  font-size: 6em;
+  letter-spacing: 3px;
+  font-weight: 900;
+  color: white;
+  margin: 20px 0 70px;
+  font-family: 'Pacifico';
+  text-align: center;
+}
+
 .round-title {
-  font-size: 2.5em;
-  margin:0 0 40px 0;
+  font-size: 1.8em;
+  margin: 40px 0 0 0;
 }
 
 .player-fields {
@@ -54,58 +92,15 @@ body {
   margin: 20px;
 }
 
-.name-form img {
-  width: 300px;
-  margin: 0 auto 20px;
-}
-
-.name-form input {
-  width: 100%;
-}
-
-.hidden {
-  display: none;
-}
-
-.footer {
-
-}
-
-#start-btn {
-  width: 100%;
-  border-radius: 0;
-  margin: 90px auto;
-}
-
-.main {
-  margin: 0 auto;
-  text-align: center;
-  padding: 75px 0 0 0;
-}
-
 .survey {
-  font-size: 1.3em;
+  font-size: 1.2em;
   max-width: 500px;
-  margin: 0 auto 20px;
+  margin: 10px auto 0;
 }
 
 .score-area {
   display: flex;
   justify-content: space-around;
-}
-
-.answer-area p {
-  display: inline-block;
-}
-
-.player-1-name,
-.player-2-name {
-  font-size: 1.3em;
-  margin: 0;
-}
-
-.active-player {
-  display: inline-block;
 }
 
 .player-area {
@@ -120,6 +115,16 @@ body {
   width: 175px;
 }
 
+.player-1-name,
+.player-2-name {
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.active-player {
+  display: inline-block;
+}
+
 .player-score {
   font-size: 4em;
   margin: auto;
@@ -131,11 +136,11 @@ body {
   border-radius: 5px;
   width: 500px;
   margin: 20px 30px;
-  background: #333333;
+  background: #213b72;
 }
 
-label {
-  margin-top: 5px;
+.answer-area p {
+  display: inline-block;
 }
 
 .answer-card {
@@ -150,6 +155,24 @@ label {
   margin: 3px;
   display: flex;
   justify-content: space-between;
+}
+
+.guess-input-bar {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+.guess-area input {
+  width: 410px;
+}
+
+.guess-area button {
+  border-radius: 0 4px 4px 0;
+}
+
+label {
+  margin-top: 5px;
 }
 
 input, 
@@ -173,25 +196,16 @@ button:hover {
   color: #333333;
 }
 
-.guess-input-bar {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0 0 0;
-}
-
 input {
   padding: 0px 15px;
-  
 }
 
 label {
   margin: 0 0 8px 0;
 }
 
-.guess-area input {
-  width: 410px;
-}
-
-.guess-area button {
-  border-radius: 0 4px 4px 0;
+#start-btn {
+  width: 100%;
+  border-radius: 0;
+  margin: 51px 0 0 0;
 }
