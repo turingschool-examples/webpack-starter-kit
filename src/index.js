@@ -9,7 +9,7 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 let game = new Game();
 console.log(game);
-console.log(data);
+console.log(game.getRandomPuzzle);
 
 
 $('.start-button').on('click', function() {

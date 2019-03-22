@@ -13,31 +13,20 @@ class Game {
   }
 
    beginGame() {
-    this.cleanData();
-    // this.getRandomCategories(game);
+    this.getRandomPuzzle();
   }
 
   getRandomPuzzle() {
+    console.log(data.puzzles)
     let keys = Object.keys(data.puzzles);
     keys.forEach((puzzleCat) => {
-    this.allPuzzles.push(data.puzzles[puzzleCat].puzzle_bank)
-});
-  }
-
-  //  getRandomCategories(game) {
-  //   console.log('getRandomCategories');
-  //   console.log(game.categories);
-  //   // for(let i = this.categories.length - 1; i>0; i--) {
-  //   //   const j = Math.floor(Math.random() * (i + 1));
-  //   //   [this.categories[i], this.categories[j]] = 
-  //   //   [this.categories[j], this.categories[i]];
-  //   // }
-  // }
-
-  cleanData(puzzle) {
-    let newDataVals = Object.values(data);
-    newDataVals.shift();
-    this.categories = Object.keys(data).shift();
+      this.allPuzzles.push(data.puzzles[puzzleCat].puzzle_bank)
+    });
+    for (let i = this.allPuzzles.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.allPuzzles[i], this.allPuzzles[j]] = 
+      [this.allPuzzles[j], this.allPuzzles[i]];
+    }
   }
 
   createPlayer(name1, name2, name3) {
