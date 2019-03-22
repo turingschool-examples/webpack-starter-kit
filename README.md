@@ -1,6 +1,6 @@
 ![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
 
-# Game-Time: Wheel ofFortune
+# Game-Time: Wheel of Fortune
 > Additional information or tagline
 
 A brief description of your project, what it is used for and how does life get
