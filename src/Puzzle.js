@@ -17,21 +17,21 @@ class Puzzle {
   }
 
 
+//   puzzleSet(array){
+//     let randomNum = 0;
+//     this.puzzleobj = array.splice();
+//     splitPhrase(puzzleobj);
+//     this.category = this.puzzleobj.category;
+//     this.difficulty = game.round;
+//     this.hint = this.puzzleobj.description
 
-  puzzleSet(array){
-    let randomNum = 0;
-    this.puzzleobj = array.splice();
-    splitPhrase(puzzleobj);
-    this.category = this.puzzleobj.category;
-    this.difficulty = game.round;
-    this.hint = this.puzzleobj.description
+//   }
 
-  }
+//   splitPhrase(obj){
+//     this.splitPhrase.push(obj.correctAnswer)
+//     this.splitPhrase = this.splitPhrase.split(' ');
+//   }
 
-  splitPhrase(obj){
-    this.splitPhrase.push(obj.correctAnswer)
-    this.splitPhrase = this.splitPhrase.split(' ');
-  }
 
 }
 
