@@ -33,7 +33,12 @@ class Round {
     const selectedClue = this.clueBank[Math.floor(Math.random()) * this.clueBank.length]
     this.clueAnswer = selectedClue.correct_answer.toLowerCase().split('')
     console.log(this.clueAnswer)
+    this.fillGameBoard();
     
+  }
+
+  fillGameBoard() {
+    DomUpdates.fillGameBoard();
   }
 
 }
