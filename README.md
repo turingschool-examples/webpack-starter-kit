@@ -1,7 +1,8 @@
 ## Wheel of the Wasteland
-SUMMARY/Descript
+Fallout themed Wheel of Fortune game. Three player game where each player has a chance to guess the word puzzle, spin the wheel, or buy a vowel to further progress the puzzle.
 
-             
+On start players will be prompted to choose their names. Each of the three players compete in 4 rounds to solve a word puzzle. At the start of each round players start with zero round currency, if the player guesses the puzzle correctly they win the round total that is then added to their score. Players can earn or lose round currency by spinning the wheel. If a player buys a vowel or guesses the word, they do not receive additional round currency. The player with the most points at the end of round four, will go on to a bonus round where they have a chance to win a fabulous prize.
+
 ## Screenshots of Project
 
  
