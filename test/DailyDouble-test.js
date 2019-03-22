@@ -9,11 +9,8 @@ describe('DailyDouble', function() {
     dailyDouble = new DailyDouble();
   });
 
-it('should have a wager starting at 0', function() {
+it('should have default properties', function() {
     expect(dailyDouble.wager).to.equal(0);
-  });
-
-it('should have a maximum wager starting at 0', function() {
     expect(dailyDouble.maxWager).to.equal(0);
   });
 })
