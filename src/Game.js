@@ -84,31 +84,44 @@ class Game {
   setPlayers(player1Name, player2Name) {
     const player1 = new Player(player1Name);
     const player2 = new Player(player2Name);
+    this.startNewGame();
   }
 
   startNewGame() {
     //reset page defaults
-      //this.currentRound = 0;
-    //getSurvey()
+    this.currentRound = 0;
+    this.getSurvey();
   }
 
-  startNewRound() {
-    // this.currentRound++;
-    //if round num is 3, inst new fast round
-    //if round num is < 3, inst new regular round
-    //if over 3 end game
+  startNewRound(question, answers) {
+    this.currentRound++;
+    //if round num is 3
+      //inst new fast round
+    //if round num is < 3
+      //inst new regular round
+      //display round number and question in dom
+    //if over 3
+      //endGame();
   }
 
   getSurvey() {
-    // const randomId = Math.floor(Math.random() * Math.floor(16)); //could use array.length uf we pop used Qs
-    // const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
-    // const answers = this.surveyData.answers.filter(answer => answer.surveyId === surveyId);
-    // startNewRound(question, answers);
+    const randomId = Math.floor(Math.random() * Math.floor(16));
+
+    if (!this.usedSurveys.includes(randomId)) {
+      const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
+      const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
+      this.startNewRound(question, answers);
+      this.usedSurveys.push(randomId);
+    } else {
+      this.getSurvey();
+    }
   }
 
   endGame() {
     //show a play again dialog?
+    //reset defaults on screen
+    //clear usedSurveys array
   }
-}
+} 
 
 export default Game;
