@@ -5,12 +5,15 @@ import gamedata from '../src/gamedata.js';
 
 import Round from '../src/Round.js';
 import Game from '../src/Game.js';
+import Player from '../src/Player.js';
 
 
 describe('Round', () => {
-  let round, game;
+  let round, game, player1, player2;
   beforeEach(() => {
-    game = new Game();
+    player1 = new Player('Steve', 1);
+    player2 = new Player('Becky', 2);
+    game = new Game(player1, player2);
     round = new Round(game);
   });
 
@@ -18,7 +21,7 @@ describe('Round', () => {
     it('should have a random survey', () => {
       expect(round).to.have.property('survey');
       expect(round.survey).to.be.an('object');
-      expect(round.survey).to.have.all.keys('id','question');
+      expect(round.survey).to.have.all.keys('id', 'question');
     });
     it('should have an array of answers', () => {
       expect(round).to.have.property('answers');
@@ -30,7 +33,7 @@ describe('Round', () => {
     it('should return a single survey object', () => {
       const survey = round.getSurvey(gamedata.surveys, game);
       expect(survey).to.be.an('object');
-      expect(survey).to.have.all.keys('id','question');
+      expect(survey).to.have.all.keys('id', 'question');
     });
     it('should not repeat a survey', () => {
       const testSurveys = [];

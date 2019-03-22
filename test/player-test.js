@@ -2,42 +2,73 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Player from '../src/Player.js';
+import Game from '../src/Game.js';
+import Round from '../src/Round.js';
+import data from '../src/gamedata.js';
+
 
 describe('Player', function() {
+  let round, game, player1, player2;
+  beforeEach(() => {
+    player1 = new Player('Steve', 1);
+    player2 = new Player('Becky', 2);
+    game = new Game(player1, player2);
+    round = new Round(game);
+  });
   it('should be an instance of Player', function() {
-    const player = new Player();
-    expect(player).to.be.instanceof(Player);
+    expect(player1).to.be.instanceof(Player);
   });
   describe('Properties', function() {
     it('should be able to take a name as an argument', function() {
-      const player = new Player('Steve');
-      expect(player.name).to.equal('Steve');
+      expect(player1.name).to.equal('Steve');
     });
     it('should have a score that defaults to 0', function() {
-      const player = new Player();
-      expect(player.score).to.equal(0);
+      expect(player1.score).to.equal(0);
     });
     it('should have a isTurn property', function() {
-      const player = new Player();
-      expect(player).to.have.property('isTurn');
+      expect(player1).to.have.property('isTurn');
     });
-    it('should have a isTurn property that defaults to false', function() {
-      const player = new Player();
-      expect(player.isTurn).to.be.false;
+    it('should start game being Player One\'s turn', function() {
+      expect(player1.isTurn).to.be.true;
+      expect(player2.isTurn).to.be.false;
+    });
+    it('should have a playerNum property', function () {
+      expect(player1.playerNum).to.equal(1);
+      expect(player2.playerNum).to.equal(2);
     });
   });
   describe('Methods', function() {
     it('should be able to make a guess', function() {
-      const player = new Player();
-      expect(player).to.respondTo('makeGuess');
+      expect(player1).to.respondTo('makeGuess');
     });
     it('should only accept strings in a guess', function() {
-      const player = new Player();
-      expect(player.makeGuess(10)).to.equal('Error: Argument Not String');
-      expect(player.makeGuess(true)).to.equal('Error: Argument Not String');
-      expect(player.makeGuess([1,2])).to.equal('Error: Argument Not String');
-      expect(player.makeGuess({name: 'Ryan'})).to.equal('Error: Argument Not String');
-      expect(player.makeGuess('hi')).to.not.equal('Error: Argument Not String');
+      expect(player1.makeGuess(10)).to.equal('Error: Argument Not String');
+      expect(player1.makeGuess(true)).to.equal('Error: Argument Not String');
+      expect(player1.makeGuess([1, 2])).to.equal('Error: Argument Not String');
+      expect(player1.makeGuess({name: 'Ryan'})).to.equal('Error: Argument Not String');
+      expect(player1.makeGuess('hi', game, round)).to.not.equal('Error: Argument Not String');
+    });
+    it('should switch players after making a guess', function () {
+      player1.makeGuess('guess', game, round);
+      expect(player1.isTurn).to.equal(false);
+      expect(player2.isTurn).to.equal(true);
+      player2.makeGuess('guess', game, round);
+      expect(player1.isTurn).to.equal(true);
+      expect(player2.isTurn).to.equal(false);
+    });
+    it('should increase score if guess is correct', function () {
+      let testRound = new Round(game);
+      testRound.survey = data.surveys[0];
+      testRound.answers = data.answers.filter(answer => answer.surveyId === 1);
+      player1.makeGuess('Beer', game, testRound)
+      expect(player1.score).to.equal(67);
+    });
+    it('should allow correct guess of any case', function () {
+      let testRound = new Round(game);
+      testRound.survey = data.surveys[0];
+      testRound.answers = data.answers.filter(answer => answer.surveyId === 1);
+      player1.makeGuess('BEER', game, testRound)
+      expect(player1.score).to.equal(67);
     });
   });
 });
