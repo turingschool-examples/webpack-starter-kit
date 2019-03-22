@@ -4,16 +4,8 @@ const expect = chai.expect;
 import Player from '../src/Player.js'
 
 describe ('Player', function() {
-  it('should have an instance of Player', function() {
-    let player = new Player;
-  })
-  it('should be able to have a name', function () {
+  it('should have an instance of Player with a name and default score of 0', function() {
     let player = new Player('Carl');
-
-    expect(player.name).to.equal('Carl');
-  })
-  it('should start with a default score of 0', function () {
-    let player = new Player('Frank');
 
     expect(player.score).to.equal(0);
   })
