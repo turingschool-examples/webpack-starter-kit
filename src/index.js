@@ -8,16 +8,16 @@ import GameEngine from './game-engine';
 import DomUpdates from './dom-updates';
 // jQuery selectors
 let game = null;
-let players = [];
+let playersNames = [];
 $('.start__start--btn').click(() =>{
-  players.push(
+  playersNames.push(
     $('.playerinfo__player-1').val(),
     $('.playerinfo__player-2').val(),
     $('.playerinfo__player-3').val()
   )
   // console.log(players)
   
-  game = new GameEngine(players);
+  game = new GameEngine(playersNames);
   game.revEngine();
   // console.log(game.players);
   DomUpdates.hidePopup(game);
