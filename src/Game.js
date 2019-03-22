@@ -109,7 +109,7 @@ class Game {
   }
 
   getSurvey() {
-    const randomId = Math.floor(Math.random() * Math.floor(16));
+    const randomId = Math.floor(Math.random() * (15 - 1 + 1)) + min;
 
     if (!this.usedSurveys.includes(randomId)) {
       const question = this.surveyData.surveys.find(survey => survey.id === randomId);
