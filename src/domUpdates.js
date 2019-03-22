@@ -1,4 +1,5 @@
 import Game from './Game.js';
+import $ from 'jquery';
 
 let domUpdates = {
 
@@ -11,7 +12,6 @@ resetGame() {
 },
 
 displayName() {
-  console.log('hi')
   $('.box-name').each((i, name) => {
     $(name).text($('.player-name-input').eq(i).val());
   });
