@@ -9,15 +9,43 @@ body {
   position: relative;
 }
 
-.page-background {
+.welcome-screen {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+}
+
+.name-form {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px;
+  border-radius: 5px;
+}
+
+.player-fields,
+.name-form button {
+  margin: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* .page-background {
   position: absolute;
   width: 100%;
   top: 0;
   background: url("/src/images/feud76.png") no-repeat;
   background-position: center;
-  /* background-size: 300px 300px; */
-  /* z-index: 2;  */
-}
+  background-size: 300px 300px;
+  z-index: 2; 
+} */
 
 .header {
   display: flex;
@@ -66,6 +94,14 @@ body {
   width: 500px;
   margin: 20px 30px;
   background: #333333;
+}
+
+label {
+  margin-top: 5px;
+}
+
+.answer-area input {
+  margin: 10px;
 }
 
 .answer-card {

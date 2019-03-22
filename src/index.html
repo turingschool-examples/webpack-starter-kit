@@ -6,9 +6,25 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 </head>
 <body>
+  <div class="welcome-screen">
+    <form class="name-form">
+      <div class="player-fields">
+        <label for="player-1-input">
+          Enter Player 1 Name:
+        </label>
+        <input id="player-1-input">
+      </div>
+      <div class="player-fields">
+        <label for="player-2-input">
+          Enter Player 2 Name:
+        </label>
+        <input id="player-2-input">
+      </div>
+      <button id="submit-names-btn" type="button">Submit</button>
+    </form>
+  </div>
   <div class="page-background"></div>
   <header class="header">
-    <img class="main-logo" src="./images/feud76.png" alt="Family Feud Logo">
     <button id="start-btn">Start New Game</button>
   </header>
   <main class="main">

@@ -1,7 +1,10 @@
+import Player from "./Player.js";
+
 class Game {
   constructor() {
     this.currentPlayer = 1;
     this.currentRound = 0;
+    this.usedSurveys = [];
     this.surveyData = {
       response_code: {
         version: '1.5',
@@ -75,12 +78,12 @@ class Game {
         { answer: 'Watch', respondents: 58, surveyId: 3 },
         { answer: 'Wrap It', respondents: 61, surveyId: 2 }
       ]
-    };
+    }
   }
 
-  getPlayers() {
-    //get and display player names from inputs
-    //instantiate new players w/ score 0
+  setPlayers(player1Name, player2Name) {
+    const player1 = new Player(player1Name);
+    const player2 = new Player(player2Name);
   }
 
   startNewGame() {
@@ -90,9 +93,10 @@ class Game {
   }
 
   startNewRound() {
-    this.currentRound++;
+    // this.currentRound++;
     //if round num is 3, inst new fast round
     //if round num is < 3, inst new regular round
+    //if over 3 end game
   }
 
   getSurvey() {
