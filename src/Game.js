@@ -2,9 +2,8 @@ import dataSet from './dataSet.js'
 import Player from './Player.js'
 import Rounds from  './Rounds.js'
 
-class Game extends Rounds {
+class Game {
   constructor(name1, name2, name3) {
-    super();
     this.p1 = new Player(name1, 1);
     this.p2 = new Player(name2, 2);
     this.p3 = new Player(name3, 3);
@@ -15,7 +14,7 @@ class Game extends Rounds {
     // playerTurn will only be only 1, 2, or 3
     this.playerTurn = 1;
 
-    //counter for when to fire nextRound method (after 12)
+    //counter for when to fire nextRound method (after 12, when all clues have been )
     this.roundTurn = 1;
 
     // Category Numbers for Rounds
@@ -24,7 +23,7 @@ class Game extends Rounds {
     this.round3Categories = [10];
 
     // Create round 1
-    this.round = new Rounds(this.round1Categories);
+    this.currentRound = new Rounds(this.round1Categories);
   }
 
   nextRound() {

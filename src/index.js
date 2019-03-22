@@ -32,12 +32,14 @@ console.log(dataSet.clues);
 
 // dom manipulation to get values of the three names
 var name1 = 'Erik';
-var name2 = 'Elton';
+var name2 = 'Aidan';
 var name3 = 'Sean';
 
 var newGame = new Game(name1, name2, name3);
 
-// newGame.fetchClue();
+
+newGame.currentRound.fetchClues();
+console.log(newGame.currentRound.fetchClues());
 
 // newGame.nextRound()
 
