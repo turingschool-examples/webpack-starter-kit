@@ -12,15 +12,10 @@ data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects
 class GameEngine {
   constructor(players) {
     this.players = players || [],
-    this.rounds = [1, 2, 3, 4, 5],
-    this.currentRound = this.rounds[0]
+    this.rounds = [1, 2, 3, 4, 5]
   }
   revEngine() {
-    this.rounds[0] = new Round(this.rounds[0]);
-    console.log(this.rounds[0]);
-  }
-  getPuzzle() {
-    
+    this.currentRound = new Round(this.rounds[0]);
   }
 }
 
