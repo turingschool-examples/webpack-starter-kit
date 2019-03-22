@@ -18,7 +18,6 @@ export default {
 
   playerNames () {
     let players = ([$('#player1-input').val(), $('#player2-input').val(), $('#player3-input').val()]);
-    console.log(players)
     return players;
   }
 
