@@ -54,16 +54,16 @@ body {
 .main {
   margin: 0 auto;
   text-align: center;
-  padding: 20px 0 0 0;
+  padding: 43px 0 0 0;
 }
 
 header h1{
-  font-size: 4.5em;
+  font-size: 4.8em;
   letter-spacing: 3px;
   font-weight: 900;
   color: #b20303;
-  margin: 0 0 40px 0;
   font-family: 'Pacifico';
+  margin: 0;
 }
 
 .name-form h1{
@@ -208,5 +208,5 @@ label {
 #start-btn {
   width: 100%;
   border-radius: 0;
-  margin: 92px 0 0 0;
+  margin: 63px 0 0 0;
 }
