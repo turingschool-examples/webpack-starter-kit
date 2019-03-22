@@ -17,6 +17,6 @@ The main goal of building NBAJeopordy was to implement object-oriented programmi
 
 # Contributors
 
-[Saad Baradan](https://github.com/saadricklamar)
+[Saad Baradan](https://github.com/saadricklamar),
 [Mark Collins](https://github.com/kobesparrow)
 
