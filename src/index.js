@@ -25,5 +25,6 @@ startGameBtn.click(function(e) {
   const names = [$('#input-1').val(), $('#input-2').val(), $('#input-3').val()]
   const game = new Game;
   game.createPlayers(names);
+  game.startGame(); 
 })
 

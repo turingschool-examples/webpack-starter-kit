@@ -1,7 +1,14 @@
 import chai from 'chai'
 const expect = chai.expect;
 
-import Game from '../src/Game.js'
+import spies from 'chai-spies';
+chai.use(spies);
+
+import Game from '../src/Game.js';
+import domUpdates from '../src/domUpdates.js';
+
+chai.spy.on(domUpdates, 'renderNames', () => true);
+
 
 describe('Game', function() {
   let game;
@@ -11,9 +18,18 @@ describe('Game', function() {
 
   it('should store an array of current players, which should be empty at the start', function() {
     expect(game.players).to.deep.equal([]);
+    expect(game.round).to.equal(1);
+   
+  });
+  
+  it('should create new players', function() {
+    let mockNames = ['playerOne', 'playerTwo', 'playerThree'];
+
+    game.createPlayers(mockNames);
+
+    expect(game.players[0].name).to.equal('playerOne');
+    expect(game.players[1].name).to.equal('playerTwo');
+    expect(game.players[2].name).to.equal('playerThree');
   });
 
-  it('should store the current round, starting at round 1', function() {
-    expect(game.round).to.equal(1);
-  });
-})
+});

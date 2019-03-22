@@ -1,3 +1,4 @@
+import dataSet from './dataSet.js';
 import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 
@@ -5,6 +6,13 @@ class Game {
   constructor() {
     this.players = []; 
     this.round = 1; 
+    this.ogData = [];
+  }
+  startGame() {
+    this.grabData();
+  }
+  grabData() {
+    this.ogData = dataSet.clues;
   }
   createPlayers(names) {
     const players = names.map(name => {
@@ -21,6 +29,7 @@ class Game {
   //   // rounds.....
   //   // everything displayed on board
   // }
+  
   changeRound() {
     //increment round
   }
