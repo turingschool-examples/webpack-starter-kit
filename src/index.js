@@ -22,32 +22,13 @@ const dataSet = data.surveys.reduce((acc, survey) => {
     acc.push({
       id: survey.id,
       question: survey.question,
-      answers: data.answers.filter((answer) => answer.surveyId === survey.id)
+      answers: data.answers.filter((answer) => answer.surveyId === survey.id).sort((a, b) => b.respondents - a.respondents);
     })
      return acc;
 }, [])
 
     console.log(dataSet);
-// function getData() {
-// let id = Math.floor(Math.random() * (data.surveys.length-1) + 0) 
 
-//   let dataQuestions = data.surveys.find((cur, idx) => {
-//     return idx === id
-//   })
-
-//   let dataAnswers = data.answers.filter(answer => {
-//   return answer.surveyId === dataQuestions.id
-//   })
-
-//   for (let i=0; i < dataAnswers.length; i++) {
-//     let answers = dataAnswers[i].answer;
-//     let respondents = dataAnswers[i].respondents;
-//     console.log(answers);
-//     console.log(respondents);
-//   }
-// }
-
-// getData();
 
 //function submitButton {
 //   if(wrong answer) {
