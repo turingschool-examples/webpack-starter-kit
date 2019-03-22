@@ -20,16 +20,23 @@ main {
 	width: 40%;
 }
 
+.hidden {
+	display: none;
+}
+
 /*=====user-inputs=====*/
 header { 
 	border: 1px solid red;
 	width: 40%;
 }
 
-input[type="submit"] {
-	color: red;
+.submit-btn {
 	margin: 1rem auto;
 	width: 130px;
+}
+
+.main-content {
+	display: none;
 }
 
 .user-inputs {
@@ -98,7 +105,10 @@ input[type="submit"] {
 	flex-direction: column;
 }
 
-
+/*=====restart-game====*/
+.restart-game {
+	display: none;
+}
 
 
 
