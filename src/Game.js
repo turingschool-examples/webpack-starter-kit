@@ -1,4 +1,5 @@
-import Player from "./Player.js";
+import domUpdates from './domUpdates.js';
+import Player from './Player.js';
 
 class Game {
   constructor() {
@@ -84,6 +85,7 @@ class Game {
   setPlayers(player1Name, player2Name) {
     const player1 = new Player(player1Name);
     const player2 = new Player(player2Name);
+    domUpdates.updatePlayersDom(player1Name, player2Name);
     this.startNewGame();
   }
 
@@ -95,6 +97,7 @@ class Game {
 
   startNewRound(question, answers) {
     this.currentRound++;
+    domUpdates.displayRoundQuestion(question, answers); //will move to round class eventually
     //if round num is 3
       //inst new fast round
     //if round num is < 3
@@ -108,9 +111,9 @@ class Game {
     const randomId = Math.floor(Math.random() * Math.floor(16));
 
     if (!this.usedSurveys.includes(randomId)) {
-      const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
+      const question = this.surveyData.surveys.find(survey => survey.id === randomId);
       const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
-      this.startNewRound(question, answers);
+      this.startNewRound(question.question, answers);
       this.usedSurveys.push(randomId);
     } else {
       this.getSurvey();
