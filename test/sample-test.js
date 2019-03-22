@@ -6,19 +6,19 @@ import Rounds from '../src/Rounds.js'
 
 describe('Game', function() {
   it('should take player names ', function() {
-    let game = new Game('Erik');
-    expect(game.playerName).to.equal('Erik')
+    let rounds = new Rounds('Erik');
+    expect(rounds.playerName).to.equal('Erik')
   });
-  it('player dolalr amount should be 0 by default', function() {
-    let game = new Game('Erik');
-    expect(game.playerDollarAmount).to.equal(0);
+  it('player dollar amount should be 0 by default', function() {
+    let rounds = new Rounds('Erik');
+    expect(rounds.playerDollarAmount).to.equal(0);
   });
 });
 
 describe('Rounds', function() {
   it('should inherit parameters from super class ', function() {
     let game = new Game('Erik')
-    let rounds = new Rounds(game.playerName, game.playerDollarAmount);
+    let rounds = new Rounds(game.playerName);
 
     expect(game.playerName).to.equal('Erik');
 
