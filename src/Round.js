@@ -8,11 +8,11 @@ class Round {
 
   getSurvey(surveys) {
     const randomIndex = Math.floor(Math.random() * surveys.length);
-    return surveys.splice(randomIndex, 1)[0];
+    return surveys.slice(randomIndex)[0];
   }
 
   getAnswers(answers) {
-    return answers.filter((answer) => {
+    return answers.filter(function(answer) {
       return answer.surveyId === this.survey.id;
     }, this);
   }
