@@ -1,4 +1,4 @@
-import jquery from 'jquery';
+import $ from 'jquery';
 
 export default {
 
@@ -11,5 +11,14 @@ export default {
     // response.respndents
     // etc.
   },
+
+  updateNames(p1name, p2name) {
+    $(".player-one-name").text(p1name);
+    $(".player-two-name").text(p2name);
+  },
+
+  displayCurrentQuestion(question) {
+    $('#current-question').text(question);
+  }
 
 }

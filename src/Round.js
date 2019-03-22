@@ -6,6 +6,7 @@ class Round {
     this.id = id;
     this.question = survey.question;
     this.responses = survey.responses;
+    this.isFinished = false;
   }
 
   submitGuess(player, guess) {
@@ -14,6 +15,9 @@ class Round {
         player.updateScore(response.respondents);
         // domUpdates.updateScore(player)
         // domUpdates.revealAnswer(response);
+        // check if all answers have been guessed
+          // end round
+        // else keep playing
         return;
       }
     });
