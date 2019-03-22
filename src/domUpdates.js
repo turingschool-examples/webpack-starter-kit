@@ -7,7 +7,7 @@ export default {
         $(".welcome-screen").addClass("hidden");
     },
 
-    displayRoundQuestion(question, answer) {
+    displayRoundQuestion(question) {
         $(".survey").text(question);
     }
 }

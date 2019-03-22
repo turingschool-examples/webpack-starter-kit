@@ -97,14 +97,15 @@ class Game {
 
   startNewRound(question, answers) {
     this.currentRound++;
-    domUpdates.displayRoundQuestion(question, answers); //will move to round class eventually
-    //if round num is 3
-      //inst new fast round
-    //if round num is < 3
-      //inst new regular round
-      //display round number and question in dom
-    //if over 3
-      //endGame();
+    domUpdates.displayRoundQuestion(question); //will move to round class eventually
+    if (this.currentRound > 3) {
+      this.endGame();
+    } else if (this.currentRound === 3) {
+      let round = new Round(question, answers);
+    } else {
+      console.log('poop');
+      //let round = new FastRound(question, answers);
+    }
   }
 
   getSurvey() {
