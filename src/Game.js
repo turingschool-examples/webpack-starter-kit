@@ -1,5 +1,4 @@
 import Player from "./Player";
-import Data from './Data';
 import DomUpdates from './DomUpdates'
 import Round from './Round';
 import Wheel from './Wheel'
@@ -7,21 +6,17 @@ import Wheel from './Wheel'
 class Game {
   constructor() {
     this.players = []
-    // this.clueBank = null
     this.wheels = []
     this.roundInst = new Round()
   }
 
-
-
-
   startGame(p1, p2, p3) {
     this.createPlayers(p1, p2, p3)
     this.createGameBoard()
+    this.createPlayerBox()
     this.roundInst.createClues()
     
   }
-
 
   createPlayers(p1, p2, p3) {
     let player1 = new Player(p1)
@@ -31,10 +26,12 @@ class Game {
     this.players.push(player2)
     this.players.push(player3)
   }
-  
-
   createGameBoard() {
-    DomUpdates.createBoard(this.players)
+    DomUpdates.createGameBoard(this.players)
+  }
+
+  createPlayerBox() {
+    DomUpdates.createPlayerBox(this.players)
   }
 
 
