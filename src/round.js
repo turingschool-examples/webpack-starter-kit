@@ -10,7 +10,6 @@ data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects
 class Round {
   constructor(currentRound) {
     this.roundNumber = currentRound;
-    this.determinePuzzleLength();
 
   }
   determinePuzzleLength(){
@@ -31,6 +30,8 @@ class Round {
   }
   getPuzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer){
     this.roundPuzzle = new Puzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer);
+    this.answer = this.roundPuzzle.ans.split('')
   }
+
 }
 export default Round;

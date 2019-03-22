@@ -8,7 +8,7 @@ describe('GameEngine', ()=>{
     it('Should be a function', ()=>{
         expect(GameEngine).to.be.a('function');
     })
-    it('Should instanciate a new instance of GameEngine', ()=>{
+    it('Should instantiate a new instance of GameEngine', ()=>{
         let gameEngine = new GameEngine();
         expect(gameEngine).to.be.an('object');
     })
@@ -18,5 +18,27 @@ describe('GameEngine', ()=>{
         gameEngine.newRound();
         gameEngine.newRound();
         expect(gameEngine.currentRound.roundNumber).to.equal(2);
+    })
+    it('Should instantiate a new instance of round within the currentRound properties', ()=>{
+        let gameEngine = new GameEngine();
+        expect(gameEngine.currentRound).to.be.an('object');
+    })
+    it('Should have the number of words in the puzzle be the same as the current round, except round five should be 1', ()=>{
+        let gameEngine = new GameEngine();
+        gameEngine.newRound();
+        gameEngine.currentRound.determinePuzzleLength();
+        expect(gameEngine.currentRound.roundPuzzle.numOfWords).to.deep.equal(1);       
+        gameEngine.newRound();
+        gameEngine.currentRound.determinePuzzleLength();
+        expect(gameEngine.currentRound.roundPuzzle.numOfWords).to.deep.equal(2);       
+        gameEngine.newRound();
+        gameEngine.currentRound.determinePuzzleLength();
+        expect(gameEngine.currentRound.roundPuzzle.numOfWords).to.deep.equal(3);       
+        gameEngine.newRound();
+        gameEngine.currentRound.determinePuzzleLength();
+        expect(gameEngine.currentRound.roundPuzzle.numOfWords).to.deep.equal(4);  
+        gameEngine.newRound();
+        gameEngine.currentRound.determinePuzzleLength();
+        expect(gameEngine.currentRound.roundPuzzle.numOfWords).to.deep.equal(1);       
     })
 })
