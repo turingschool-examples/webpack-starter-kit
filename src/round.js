@@ -30,6 +30,8 @@ class Round {
   }
   getPuzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer){
     this.roundPuzzle = new Puzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer);
+    this.answer = this.roundPuzzle.ans.split('')
   }
+
 }
 export default Round;

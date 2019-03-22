@@ -42,18 +42,12 @@ describe('Round', ()=>{
         expect(round.roundPuzzle.description).to.equal('Location or object(s) found within a typical house.');
         expect(round.roundPuzzle.ans).to.equal('Armchair');
     })
-    // it('', ()=>{
-    //     const round = new Round(1);
-    //     let puzzleBank = data.puzzles.one_word_answers.puzzle_bank[Math.floor(Math.random() * 23)+1];
-    //     round.getPuzzle(puzzleBank.category, puzzleBank.number_of_words, puzzleBank.total_number_of_letters, puzzleBank.first_word, puzzleBank.description, puzzleBank.correct_answer);
-    //     console.log(puzzleBank)
-    //     expect(round.roundPuzzle.cat).to.equal('Around The House');
-    //     expect(round.roundPuzzle.numOfWords).to.equal(1);
-    //     expect(round.roundPuzzle.numOfLtr).to.equal(8);
-    //     expect(round.roundPuzzle.numLtrFirstWord).to.equal(8);
-    //     expect(round.roundPuzzle.description).to.equal('Location or object(s) found within a typical house.');
-    //     expect(round.roundPuzzle.ans).to.equal('Armchair');
-    // })
-   
+    it('Should split the puzzle answer into an array of letters',()=>{
+        const round = new Round(1);
+        let puzzleBank = data.puzzles.one_word_answers.puzzle_bank[0];
+        round.getPuzzle(puzzleBank.category, puzzleBank.number_of_words, puzzleBank.total_number_of_letters, puzzleBank.first_word,     puzzleBank.description, puzzleBank.correct_answer);
+        expect(round.answer).to.deep.equal(['A', 'r', 'm', 'c', 'h', 'a', 'i', 'r'])
+    });
+    
 })
 export default Round;
