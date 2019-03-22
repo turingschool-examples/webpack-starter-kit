@@ -28,10 +28,27 @@ describe('Player', function() {
   });
 
   it('should have a score', () => {
-    let player = new Player('Katie', 20);
+    let player = new Player('Katie');
 
-    assert.equal(player.score, 20);
+    assert.equal(player.score, 0);
   });
 
+  it('should be able to increase score', () => {
+    let player = new Player('Hannah');
+    let num = 5;
+
+    player.addScore(num);
+
+    assert.equal(player.score, 5);
+  });
+
+  it('should score points during lightning round', () => {
+    let player = new Player('Katie');
+    let num = 25;
+
+    player.lightningScore(num);
+
+    assert.equal(player.score, 25);
+  });
 
 })
