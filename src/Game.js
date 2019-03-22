@@ -5,6 +5,7 @@ import Puzzle from './Puzzle.js';
 
 class Game {
   constructor(players, rounds, currentPlayer) {
+    this.allPuzzles = [];
     this.players = [];
     this.rounds = [];
     this.currentPlayer = 0;
@@ -14,6 +15,13 @@ class Game {
    beginGame() {
     this.cleanData();
     // this.getRandomCategories(game);
+  }
+
+  getRandomPuzzle() {
+    let keys = Object.keys(data.puzzles);
+    keys.forEach((puzzleCat) => {
+    this.allPuzzles.push(data.puzzles[puzzleCat].puzzle_bank)
+});
   }
 
   //  getRandomCategories(game) {

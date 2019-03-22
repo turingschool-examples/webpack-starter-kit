@@ -8,9 +8,6 @@ class Puzzle {
     this.splitAnswer = null;
   }
 
-  getRandomPuzzle() {
-    
-  }
 }
 
 export default Puzzle;
