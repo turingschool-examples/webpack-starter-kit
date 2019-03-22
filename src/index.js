@@ -29,11 +29,6 @@ const game = new Game();
 $("#submit-names-btn").on("click", function() { 
     const player1Name = $('#player-1-input').val();
     const player2Name = $('#player-2-input').val();
-
-    $('.player-1-name').text(player1Name);
-    $('.player-2-name').text(player2Name);
-
+    
     game.setPlayers(player1Name, player2Name); 
-
-    $('.welcome-screen').addClass('hidden');
 });
