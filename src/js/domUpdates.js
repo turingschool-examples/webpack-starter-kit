@@ -10,6 +10,9 @@ export default {
     question.answer.split('').forEach(letter => {
       $('.word-box').append(`<div><div class="letter">${letter}</div></div>`);
     })
-  }
+  },
 
+  revealPrize(prize) {
+    $('.prize').text(prize);
+  }
 }

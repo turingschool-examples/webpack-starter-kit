@@ -11,7 +11,7 @@ class Wheel {
   //should we combine this and generate prizes because we generate new prizes for each spin anyway?
   spin() { 
     this.values.push(...this.randomizeValues(data.wheel).slice(0, 6));
-    this.currentValue = this.randomizeValues(this.values).pop();
+    return this.currentValue = this.randomizeValues(this.values).pop();
   }
 
   randomizeValues(array) {

@@ -19,6 +19,9 @@ class Game {
     let q = this.allQs.pop()
     this.currentQuestion = new Question(q.correct_answer, q.total_number_of_letters, [], q.description, q.category);
     domUpdates.updateQInfo(this.currentQuestion);
+    let wheel = new Wheel();
+    let prize = wheel.spin();
+    domUpdates.revealPrize(prize);
   }
 
   populateQuestions() {
