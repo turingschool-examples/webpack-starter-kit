@@ -34,6 +34,6 @@ Credit for the project goes to team members:
 ---
 This project was assigned by Brittany Storoz, Pamela Lovett, and Robbie Jaeger 
 
-You can learn more about the assignment spec by following [this link.]()
+You can learn more about the assignment spec by following [this link.](http://frontend.turing.io/projects/module-2/game-time.html)
 
 *@ Turing School of Software and Design, Denver, CO.*
