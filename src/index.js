@@ -12,25 +12,36 @@ import './css/normalize.css';
 import './css/base.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/logo.png'
+import './images/turing-logo.png'
+import domUpdates from './domUpdates';
 
 const startBtn = $('#start-game-btn')
+const submitBtn = $('.submit-btn')
+
+let game;
 
 startBtn.on('click', () => {
   const p1name = $('#player-one-input').val();
-  const p2name = $('#player-one-input').val();
-  const player1 = new Player(p1name);
-  const player2 = new Player(p2name);
-  const game = new Game(player1, player2);
-  game.startGame();
+  const p2name = $('#player-two-input').val();
+  const player1 = new Player(p1name, 1);
+  const player2 = new Player(p2name, 2);
+  domUpdates.updateNames(p1name, p2name);
   startBtn.attr("disabled", true);
+  game = new Game(player1, player2);
+  game.startGame();
+  console.log(game);
 });
 
-// data.surveys.reduce( (total, { id, question }) => {
-//   total.push({
-//     id: id,
-//     question: question,
-//     responses: data.answers.filter(({ surveyId }) => id === surveyId)
-//   })
-//   return total
-// },[]);
+submitBtn.on('click', () => {
+  const guess = $('#guess-input').val().toLowerCase();
+  this.currentRound.checkAnswer(guess);
+})
+
+// game.on('roundComplete', () => {
+//   game.currentRound++;
+//   if (game.currentRound <= 3) {
+//     game.nextRound();
+//   } else {
+//     game.getWinner();
+//   }
+// });

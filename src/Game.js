@@ -1,28 +1,47 @@
-// import Round from 'Round';
-// import LightningRound from 'LightningRound';
-// import Player from 'Player';
+import Round from "./Round";
+import LightningRound from './LightningRound';
+import Player from './Player';
+import domUpdates from './domUpdates'
+
+import data from './data';
 
 class Game {
 
-  constructor(player1, player2, surveys) {
+  constructor(player1, player2) {
     this.players = [player1, player2];
-    this.currentRound = 0;
-    this.surveys = surveys;
-    this.currentPlayers = this.players[0].number;
+    this.round = 0;
+    this.currentPlayer = this.players[0].number;
   }
 
   startGame() {
-    this.currentRound++
-    this.nextRound();
+    this.surveys = data.surveys.reduce( (total, { id, question }) => {
+      total.push({
+        id,
+        question,
+        responses: data.answers.filter(({ surveyId }) => id === surveyId)
+      })
+      return total
+    }, []);
+
+    this.shuffleArray(this.surveys);
+
+    this.round++
+    this.startNextRound(this.surveys, this.round);
   }
 
-  // nextRound(surveys, currentRound) {
-  //   if (currentRound === 3) {
-  //     return new Round(surveys[currentRound - 1]);
-  //   } else {
-  //     return new LightningRound(surveys[currentRound - 1]);
-  //   }
-  // }
+  startNextRound(surveys, round) {
+    this.currentRound = new Round(round, surveys[round - 1]);
+    domUpdates.displayCurrentQuestion(this.currentRound.question);
+  }
+
+  shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
 
   switchPlayer() {
     this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
