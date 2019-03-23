@@ -22,8 +22,8 @@ const dataSet = data.surveys.reduce((acc, survey) => {
     acc.push({
       id: survey.id,
       question: survey.question,
-      answers: data.answers.filter((answer) => answer.surveyId === survey.id).sort((a, b) => b.respondents - a.respondents);
-    })
+      answers: data.answers.filter((answer) => answer.surveyId === survey.id).sort((a, b) => b.respondents - a.respondents)
+    });
      return acc;
 }, [])
 
