@@ -15,7 +15,7 @@ class Game {
 
   }
 
-  startGame(){
+  startGame() {
     this.createPlayers(domUpdates.playerNames());
     this.getRandomData();
     this.createRound()
@@ -26,18 +26,17 @@ class Game {
     puzzlesArr.forEach(puzzleCat =>{
       this.allData.push(data.puzzles[puzzleCat].puzzle_bank)
     })
-    console.log(this.allData)
+    // console.log(this.allData)
   }
 
   createRound () {
     this.roundCount++;
-    if (this.roundCount === 4){
+    if (this.roundCount === 4) {
       // bonuswheel
     }
-
     let round = new Round(this.players);
-    console.log(round)
-    round.puzzleSet(this.allData[this.roundCount-1]);
+    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
+    domUpdates.appendPuzzle(currentPuzzle.splitAnswer);
   }
 
   createPlayers(array) {
@@ -46,7 +45,7 @@ class Game {
 
     });
 
-      domUpdates.hiddenBoard(this.players);
+    domUpdates.hiddenBoard(this.players);
 
   }
 

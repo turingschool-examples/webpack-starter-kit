@@ -11,9 +11,10 @@ class Puzzle {
   this.description = null || puzzle.description;
   this.totalLetters = null || puzzle.total_number_of_letters;
   this.numWords = null || puzzle.number_of_words;
-  this.splitAnswer = null;
-
+  this.splitAnswer = this.correctAnswer.split('');
   }
+
+
 
 
 //   splitPhrase(obj){

@@ -1,10 +1,7 @@
-.puzzle-container {
+.grid-container {
   display: grid;
-  grid-template-columns: repeat(14, 1fr);
-  grid-template-rows: repeat(4, 60px);
-  grid-template-areas:
-    "a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14"
-    "b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14"
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: 60px;
 }
 
 .puz-grid {
@@ -14,15 +11,15 @@
   font-size: 50px;
   /* font-family: 'Orbitron', sans-serif; */
   font-family: 'Roboto Mono', monospace;
-
+  text-transform: uppercase;
   font-weight: 700;
 }
 
 .space {
   background-color: lightgray;
 }
-.row-a,
-.row-d {
+.top-row,
+.btm-row {
   background: rgb(93, 93, 100);
 }
 
