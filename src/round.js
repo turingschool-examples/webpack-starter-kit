@@ -3,6 +3,7 @@ import data from './data_wheel-of-fortune';
 import GameEngine from './game-engine';
 import DomUpdates from './dom-updates';
 import { throws } from "assert";
+import Player from './player';
 
 /*
 data.wheel => wheel array of values
@@ -46,8 +47,17 @@ class Round {
   }
   displayPuzzleHintCat(game){
     game.currentRound.getPuzzle();
-    // DomUpdates.updateRoundHintCategory(game);
+    DomUpdates.updateRoundHintCategory(game);
     console.log(game.currentRound);
+  }
+
+  checkPlayerGuess() {
+    console.log('Array of ans', this.answer);
+  
+    //get player guess array
+    // check player guess array against current array
+
+
   }
 
   // create an option method
