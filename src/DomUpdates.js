@@ -1,12 +1,7 @@
 import $ from 'jquery'
 
 export default {
-
-
-    
-
-  createGameBoard(array) {
-        
+  createGameBoard(array) {   
     $('main').prepend(
       `<section id="letters-selected-area" class="letters-selected-area">
             <table class="letters-selected">
@@ -42,72 +37,228 @@ export default {
     </section>
     <section id="puzzle-area" class="puzzle-area">
         <div class="puzzle">
-            <table class="puzzle-row">
+            <table class="puzzle-row row1">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
                 </tr>
             </table>
             <table class="puzzle-row">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
                 </tr>
             </table>
             <table class="puzzle-row">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
                 </tr>
             </table>
             <table class="puzzle-row">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -116,33 +267,56 @@ export default {
   },
 
   createPlayerBox(player) {
-    $('.puzzle-area').append(
+    $('main').append(
       `<section id="player-actions" class="player-actions">
       <div>
-          <button>Spin Wheel</button>
+          <button class="player-action-btn">Spin Wheel</button>
       </div>
       <div>
-          <button>Buy Vowel</button>
+          <button class="player-action-btn">Buy Vowel</button>
       </div>
       <div>
-          <input type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!"><button>Submit Guess</button>
+          <input type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!">
+          <button class="player-action-btn">Submit Guess</button>
       </div>
         </section>
       <section id="player-score-area" class="player-score-area">
         <div id="player-score" class="player-score">
             <h2>${player[0].name}</h2>
-            <p>${player[0].score}</p>
+            <h2>${player[0].score}</h2>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[1].name}</h2>
-            <p>${player[0].score}</p>
+            <h2>${player[0].score}</h2>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[2].name}</h2>
-            <p>${player[0].score}</p>
+            <h2>${player[0].score}</h2>
         </div>
     </section>`
     )
+  },
+
+  fillGameBoard(clueAnswer) {
+    console.log(clueAnswer);
+    const puzzleCells = $('.row1 .puzzle-cell').toArray();
+    console.log(puzzleCells);
+    const map = {};
+    puzzleCells.forEach((cell, index) => {
+        const letter = clueAnswer[index];
+        if(map[letter]) {
+            map[letter].push(index);
+        } else {
+            map[letter] = [index];
+        }
+        $(cell).text(letter);
+    })
+    console.log(map);
+  },
+
+  createQuitGameBtn() {
+    $('main').before(
+        `<div class="quit-btn-container"><button></button></div>`
+        )
   }
-  
 }

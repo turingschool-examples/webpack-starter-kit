@@ -30,9 +30,11 @@ class Round {
     }
   }
 
+
   getRandomClue(cards) {  
     this.roundClue = cards[Math.floor(Math.random()) * cards.length]
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('')
+    this.fillGameBoard()
     console.log(this.clueAnswer)
     console.log(this.roundClue)
   }
@@ -41,17 +43,9 @@ class Round {
     if(this.clueAnswer.includes(userLetter)){
       console.log('go to bed')
     }
-    
 
-    // function removeItem(item){
-    //   for(let i = 0; i < this.length; i++){
-    //       if(this.[i]==item) {
-    //           array.splice(i,1);
-    //           i--
-
-
-    console.log(userLetter)
-    console.log(this.clueAnswer)
+  fillGameBoard() {
+    DomUpdates.fillGameBoard(this.clueAnswer);
   }
 
 }
