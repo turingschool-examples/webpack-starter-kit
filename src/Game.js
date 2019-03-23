@@ -40,13 +40,13 @@ class Game {
     domUpdates.displayName();
   }
 
-  getRound() {
+  // getRound() {
 
-  }
+  // }
 
-  getWinner() {
+  // getWinner() {
     
-  }
+  // }
 }
 
 export default Game;
