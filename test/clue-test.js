@@ -7,7 +7,11 @@ describe ('Clue', function() {
   it('should have an instance of Clue', function() {
     let clue = new Clue;
   })
-  it('should be able to accept a question', function() {
-    let clue = new Clue
+  it('should be able to accept a question, answer, and point value', function () {
+    let clue = new Clue('You good?', 'Yes', 1000);
+
+    expect(clue.question).to.equal('You good?');
+    expect(clue.answer).to.equal('Yes');
+    expect(clue.pointValue).to.equal(1000);
   })
 })

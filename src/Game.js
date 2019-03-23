@@ -1,29 +1,40 @@
 import Player from './Player.js';
 import domUpdates from './domUpdates.js';
+import data from './data-set.js';
+import Round from './Round.js';
+// import 
 
 class Game {
   constructor() {
     this.players = [];
+    this.roundOne = [];
   }
 
-  updateName(names) {
-    console.log('Game Test functional')
-    const player = new Player;
-    console.log(names);
-    names.map(name => {
-      let player = new Player(name);
+  createPlayers(names) {
+    const players = names.map(name => {
+      let newPlayer = new Player(name);
+      return newPlayer;
     })
-    // names.map
-    domUpdates.updateNames();
-    // this.players = players;
-    // domUpdates.renderNames(this.players);
+    this.players = players;
+    domUpdates.updateNames(this.players);
   }
 
-  generateRandomNum() {
-    //generate random numbner
-    //pull it
-    //then take it out of array
+  startRound() {
+    const categoryIds = this.shuffle(Object.values(data.categories));
+
+    const roundOne = new Round;
+    roundOne.categoryIds = categoryIds.splice(0, 4);
+    roundOne.populateCategories();
+    let categoryNames = roundOne.categoryNames;
+    domUpdates.updateCategories(categoryNames);
+    roundOne.populateClues();
+
   }
+
+  shuffle(array) {
+    return array.sort(() => 0.5 - Math.random());
+  }
+
 }
 
 export default Game;
