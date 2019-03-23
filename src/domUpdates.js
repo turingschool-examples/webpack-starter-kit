@@ -32,5 +32,13 @@ export default {
     displayPlayer2() {
         $(".player-2-side").addClass("active-player-area");
         $(".player-1-side").removeClass("active-player-area");
+    },
+
+    displayPlayer1Score(score) {
+        $(".player-1-score").text(score);
+    },
+
+    displayPlayer2Score(score) {
+        $(".player-2-score").text(score);
     }
 }

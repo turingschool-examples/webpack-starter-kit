@@ -30,7 +30,7 @@ $("#submit-names-btn").on("click", function() {
     $(".player-2-name").text(player2Name.toUpperCase());
     $(".welcome-screen").addClass("hidden");
 
-    window.game = new Game(new Player(player1Name), new Player(player2Name)); 
+    window.game = new Game(new Player(player1Name, 1), new Player(player2Name, 2)); 
     window.game.startNewGame();
     window.game.toggleActivePlayer();
 });
@@ -38,7 +38,7 @@ $("#submit-names-btn").on("click", function() {
 $("#submit-guess-btn").on("click", function() { 
     const playerGuess = $('.guess-input').val().toLowerCase();
     window.game.round.saveGuess(playerGuess);
-    window.game.round.checkAnswer(playerGuess);
+    window.game.round.checkAnswer(playerGuess, window.game);
     $(".guess-input").val('');
 });
 

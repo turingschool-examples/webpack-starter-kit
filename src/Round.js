@@ -22,14 +22,14 @@ class Round {
         // console.log('Saved guesses:', this.guesses);
     }
 
-    checkAnswer(guess) {
+    checkAnswer(guess, game) {
         const answers = this.surveyAnswers.map(answerObj => answerObj.answer.toLowerCase());
 
         if (answers.includes(guess)) {
             domUpdates.displayCorrectGuess(guess);
             this.correctGuesses.push(guess)
             // console.log(this.correctGuesses);
-            this.getPoints(guess);
+            this.getPoints(guess, game);
         } else {
             game.toggleActivePlayer();
         }
@@ -40,7 +40,7 @@ class Round {
             //if not answer, clear the input and toggleActivePlayer()
     }
 
-    getPoints(guess) {
+    getPoints(guess, game) {
 
         let points = this.surveyAnswers.reduce((a, obj) => {
             if (obj.answer.toLowerCase() === guess) {
