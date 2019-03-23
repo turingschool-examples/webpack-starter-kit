@@ -7,7 +7,6 @@ class GameEngine {
   constructor(playersNames) {
     this.playersNames = playersNames || [],
     this.players = [],
-    this.rounds = [1, 2, 3, 4, 5],
     this.currentRound = new Round(0);
   }
   revEngine() {

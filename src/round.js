@@ -9,8 +9,9 @@ data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects
 
 class Round {
   constructor(currentRound) {
-    this.roundNumber = currentRound;
-
+    this.roundNumber = currentRound,
+    this.correctRoundGuesses = [];
+    this.allRoundGuesses = [];
   }
   determinePuzzleLength(){
     switch(this.roundNumber) {

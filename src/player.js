@@ -15,6 +15,9 @@ class Player {
     this.roundCaps = 0;
     this.totalCaps = 0;
   }
+  guessConsonant() {
+    
+  }
 }
 
 export default Player;
