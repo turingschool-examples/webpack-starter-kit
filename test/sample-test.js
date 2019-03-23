@@ -10,13 +10,14 @@ describe('See if the tests are running', function() {
 
 
 //Hannah will complete fastMoney test
-//Katie will complete Game test
-//Both will commit and do a PR
-//Both will log one round of current issues on github
 //Hannah refactor html (issue)
+
 //Katie add css (issue)
+
+//Both will commit and do a PR (Katie Done)
+//Both will log one round of current issues on github (Katie Done)
+//Both check trello board (Katie Done)
 //Both will attempt one piece of functionality
 //Both will practice codewars/jsfun
-//Both check trello board
 
-//Due by 10AM
+//Due by 10AM Sat.

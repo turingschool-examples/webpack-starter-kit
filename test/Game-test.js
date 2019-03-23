@@ -25,7 +25,7 @@ describe('Game', function() {
       assert.isArray(game.surveys);
   }); //Do we need this if there is one in Round?
  
-  it('should have a roiund number default of one', () => {
+  it('should have a round number default of one', () => {
     let game = new Game;
 
     assert.equal(game.roundNumber, 1);
@@ -81,24 +81,21 @@ describe('Game', function() {
   //   assert.equal();
   // });
 
-  it.skip('should create a new Lightning Round if round counter is equal to three', () => {
-    let game = new Game;
+  // it.skip('should create a new Lightning Round if round counter is equal to three', () => {
+  //   let game = new Game;
 
-    game.lightningRound()
+  //   game.lightningRound();
 
-    assert.equal();
-  });
+  //   assert.equal();
+  // });
 
-  it.skip('should declare a winner', () => {
-      let game = new Game:
+  // it.skip('should declare a winner', () => {
+  //   let game = new Game:
 
-      game.declareWinner();
+  //   game.declareWinner();
 
-      assert.equal();
-  });
-
-
-
+  //   assert.equal();
+  // });
 
 
 })
