@@ -8,13 +8,19 @@ export default {
 			$(".user-inputs").hide();
 		})
 
-		const $playerOneName = $('#player-1-name');
-		const $playerTwoName = $('#player-2-name');
+		// const $playerOneName = $('#player-1-name');
+		// const $playerTwoName = $('#player-2-name');
 
 		//after 3 guesses are complete show restart game button
 		$(".player-cards").on("click", () => {
 			$(".restart-game").slideDown(300);
 		})
+	},
+
+	createQuestion(element) {
+		const $currentQuestion = $("#current-question");
+		$currentQuestion.html(element);
+		console.log('am i real?')
 	}
 
 }
