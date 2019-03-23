@@ -12,7 +12,8 @@ class GameEngine {
   revEngine() {
     this.loadPlayers();
   }
-  newRound(){
+  newRound() {
+    // ToDo:  Update roundCaps to Zero on DOM 
     // move newRound to round
     this.currentRound.roundNumber++;
   }
