@@ -27,3 +27,4 @@ wheel.spin();
 
 domUpdates.showInput();
 domUpdates.showVowels();
+domUpdates.getNames();

@@ -45,6 +45,14 @@ main {
 
 }
 
+.game-page {
+  display: none;
+}
+
+.player-section {
+  visibility: hidden;
+}
+
 header {
   text-align: center;
 }
@@ -53,6 +61,36 @@ header {
   color: white;
   font-family: $bodyfont;
   font-size: 2rem;
+  height: 100vh;
+  text-align: center;
   width: 100vw;
   z-index: 15;
+
+  h2 {
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 4rem;
+  }
+
+  input {
+    border-radius: 10px;
+    font-size: 2rem;
+    height: 3.5rem;
+    padding-left: 5px;
+    width: 15rem;
+  }
+
+  button {
+    border-radius: 25px;
+    font-family: $bodyfont;
+    font-size: 2rem;
+    height: 3rem;
+    width: 15rem;
+    &:hover {
+      background-color: $btn;
+      border: 3px solid white;
+    }
+  }
 }

@@ -31,15 +31,22 @@ export default {
   hideIt() {
     // we'll call this when we check the user's answer so we can get rid of the inputs easily
     $('.vowels-to-buy').hide();
-    $('.buy').hide();
+    $('.ltr-input').hide();
   },
 
   getNames() {
     $('.start-btn').on('click', function() {
-      alert('it works')
       let $p1Name = $('#p1Name-board');
       $p1Name.text($('#p1Name').val());
-      console.log($p1Name.val())
-    })
-  }
+      let $p2Name = $('#p2Name-board');
+      $p2Name.text($('#p2Name').val());
+      let $p3Name = $('#p3Name-board');
+      $p3Name.text($('#p3Name').val());
+      $('.splash').hide();
+      $('.game-page').show()
+      $('.player-section').css('visibility', 'visible')
+      // return names;
+    });
+  },
+
 }
