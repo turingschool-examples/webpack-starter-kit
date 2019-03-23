@@ -19,6 +19,7 @@ class Game {
     //append the question to the DOM
     domObject.createQuestion(questionString);
 
+    //create a array with the three associated answers and remove them from copied array
     const sortedAnswers = copiedAnswers.reduce( (associatedAnswers, currAnswer) => {
       if (currAnswer.surveyId === questionObject[0].id) {
         associatedAnswers.push(currAnswer);
@@ -28,9 +29,15 @@ class Game {
     sort( (a,b) => {
       return b.respondents - a.respondents;
     })
-    console.log(sortedAnswers);
 
-    //create a array with the three associated answers and remove them from copied array
+    domObject.createAnswers(
+      sortedAnswers[0].answer, 
+      sortedAnswers[0].respondents, 
+      sortedAnswers[1].answer,
+      sortedAnswers[1].respondents,
+      sortedAnswers[2].answer,
+      sortedAnswers[2].respondents)
+      // console.log(sortedAnswers);
   }
   restartGame(){
     //clear all fields
