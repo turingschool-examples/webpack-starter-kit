@@ -11,35 +11,34 @@ import data from './data-set.js';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import Game from './Game';
+import Round from './Round';
+import domUpdates from './domUpdates';
 // import Clue from './Clue';
 
 const startGameBtn = $('#start-game-btn');
 const gameBoard = $('.game-board');
+const submitBtn = $('.submit-btn');
+const game = new Game;
 
 
-// $startGameBtn.on('click', () => {
-//   // game.updateName();
-//   console.log('hello');
-// }
 
 startGameBtn.click(function (e) {
   e.preventDefault();
   const names = [$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()]
-  const game = new Game;
-  // const clue = new Clue;
   game.createPlayers(names);
   game.startRound();
-  // clue.getClue(data);
-  // game.udpateCategories();
 })
 
 gameBoard.click(function (e) {
   e.preventDefault();
   let btnId = event.target.id;
-  const game = new Game;
-  game.showClue(btnId);
-  console.log(btnId)
+  let btnText = event.target.innerText;
+  domUpdates.showQuestion(game, btnId, btnText);
+})
 
-  //create a variable and put the value of the box clicked
+submitBtn.click(function (e) {
+  e.preventDefault();
+  domUpdates.answerQuestion(game, btnId, btnText);
+  
 
 })
