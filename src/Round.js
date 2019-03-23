@@ -39,6 +39,8 @@ class Round {
       sortedAnswers[2].respondents
     );
       // console.log(sortedAnswers);
+    this.currentRound++;
+    console.log(this.currentRound);
   }
 
   checkAnswers(answer){
