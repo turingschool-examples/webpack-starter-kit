@@ -44,7 +44,19 @@ class Round {
   // create an option method
   // switch statement based on their dom interaction
   // case guess: 
+  playerGuessWord(){
+    console.log('In guessword')
+  }
+// ? Insert input & 2 buttons to tag event listeners on
+  playerSpin(){
+    console.log('In spin')
 
+  }
+
+  playerBuy(){
+    console.log('In buy')
+
+  }
 
 
 

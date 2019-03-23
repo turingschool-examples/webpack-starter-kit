@@ -28,6 +28,8 @@ let getCurrPlayer = (game => {
   game.currentRound.getCurrentPlayer(game);
 })
 
+$('.')
+
 
 
 // An example of how you tell webpack to apply a CSS file
