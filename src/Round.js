@@ -8,45 +8,47 @@ class Round {
   }
 
   generateRound() {
-    const copiedAnswers = gameData.answers.slice();
+    let currentRoundAnswers = this.generateAnswers();
+
+    domObject.createAnswers(
+      currentRoundAnswers[0].answer, 
+      currentRoundAnswers[0].respondents, 
+      currentRoundAnswers[1].answer,
+      currentRoundAnswers[1].respondents,
+      currentRoundAnswers[2].answer,
+      currentRoundAnswers[2].respondents
+    );
+  }
+
+  generateQuestion() {
     const copiedQuestions = gameData.surveys.slice();
     const randomNumber = genNumber();
     const questionObject = copiedQuestions.splice(randomNumber, 1);
     const questionString = questionObject[0].question;
-    function genNumber() { return Math.floor(Math.random() * copiedQuestions.length) + 1 };
     
-    //potentially need to move this function to Round object.
-    //append the question to the DOM
     domObject.createQuestion(questionString);
+    function genNumber() { return Math.floor(Math.random() * copiedQuestions.length) + 1 };
+    return questionObject;
+  }
 
-    //create a array with the three associated answers and remove them from copied array
+  generateAnswers() {
+    const generatedQuestion = this.generateQuestion();
+    const copiedAnswers = gameData.answers.slice();
     const sortedAnswers = copiedAnswers.reduce( (associatedAnswers, currAnswer) => {
-      if (currAnswer.surveyId === questionObject[0].id) {
-        associatedAnswers.push(currAnswer);
-      }
+      if (currAnswer.surveyId === generatedQuestion[0].id) { associatedAnswers.push(currAnswer) };
       return associatedAnswers;
     }, []).
     sort( (a,b) => {
       return b.respondents - a.respondents;
     })
-
-    domObject.createAnswers(
-      sortedAnswers[0].answer, 
-      sortedAnswers[0].respondents, 
-      sortedAnswers[1].answer,
-      sortedAnswers[1].respondents,
-      sortedAnswers[2].answer,
-      sortedAnswers[2].respondents
-    );
-      // console.log(sortedAnswers);
-    this.currentRound++;
-    console.log(this.currentRound);
+    return sortedAnswers;
   }
 
   checkAnswers(answer){
-    domObject.listenForGuess();
-    //pass in string from DOM input
+    console.log('checkanswers works: ' + answer);
+    //pass in string from DOM input --
     //check the variable against all three answers.
+
     //if the variable matches any answer, give player the points and show answer on the DOM. 
     //move the answer object into the player's correct answer array
   }
