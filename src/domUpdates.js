@@ -29,7 +29,7 @@ export default {
     const fill = extraSpace / 2;
     // debugger
     if (extraSpace % 2 === 0) {
-      appendFill(fill + 1);
+      this.appendFill(fill + 1);
     } else {
       return end ? this.appendFill(fill + 1.5) : this.appendFill(fill + .5);
     }
@@ -50,7 +50,7 @@ export default {
       } else {
         tileClass = index;
       }
-      $(`.puzzle`).append(`<div class="puz-grid ${tileClass} ">${index} </div>`);
+      $(`.puzzle`).append(`<div class="puz-grid secret ${tileClass}">${index} </div>`);
     });
   },
 
