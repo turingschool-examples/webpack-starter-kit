@@ -17,7 +17,7 @@ export default {
 
   showInput() {
     $('.btn-spin').on('click', function() {
-      $('.ltr-input').toggle()
+      $('.spin-pop-up').toggle()
       $('ltr-input').addClass('slide-in');
     });
   },
@@ -35,6 +35,13 @@ export default {
   },
 
   getNames() {
+    let $p1Name = $('#p1Name').val();
+    let $p2Name = $('#p2Name').val();
+    let $p3Name = $('#p3Name').val();
+    return [$p1Name, $p2Name, $p3Name];
+  },
+
+  appendNames() {
     $('.start-btn').on('click', function() {
       let $p1Name = $('#p1Name-board');
       $p1Name.text($('#p1Name').val());
@@ -43,10 +50,17 @@ export default {
       let $p3Name = $('#p3Name-board');
       $p3Name.text($('#p3Name').val());
       $('.splash').hide();
-      $('.game-page').show()
-      $('.player-section').css('visibility', 'visible')
-      // return names;
+      $('.game-page').show();
+      $('.player-section').css('visibility', 'visible');
+      let game = new Game()
+      game.instantiatePlayers();
     });
   },
+
+  solvePuzzle() {
+    $('.btn-solve').on('click', function() {
+      $('.input-solve').toggle()
+    });
+  }
 
 }

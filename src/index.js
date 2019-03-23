@@ -27,4 +27,5 @@ wheel.spin();
 
 domUpdates.showInput();
 domUpdates.showVowels();
-domUpdates.getNames();
+domUpdates.appendNames();
+domUpdates.solvePuzzle();

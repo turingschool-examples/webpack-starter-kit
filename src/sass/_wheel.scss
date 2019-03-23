@@ -32,15 +32,16 @@ h4 {
   }
 
   .spin-pop-up {
+    color: white;
     display: inline;
+    display: none;
   }
 
   .ltr-input {
-    display: none;
-    height: 65px;
+    height: 3rem;
     font-size: 2rem;
     padding: 5px;
-    width: 50px;
+    width: 10rem;
   }
 
   .vowels-to-buy {
@@ -49,6 +50,14 @@ h4 {
     font-family: $bodyfont;
     font-size: 2.5rem;
     display: none;
+  }
+
+  .input-solve {
+    display: none;
+    font-size: 2rem;
+    height: 4rem;
+    padding: 5px;
+    width: 25rem;
   }
 }
 

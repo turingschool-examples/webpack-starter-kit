@@ -2,6 +2,7 @@ import data from './data';
 import Wheel from './wheel';
 import Question from './question';
 import domUpdates from './domUpdates';
+import Player from './player';
 
 class Game {
   constructor() {
@@ -35,6 +36,13 @@ class Game {
     this.playerIndex === 3 
       ? this.playerIndex = 1 
       : this.playerIndex++;
+  }
+
+  instantiatePlayers() {
+    this.players = domUpdates.getNames();
+    this.players = this.players.map(p => {
+      return p = new Player(p)
+    });
   }
 
 
