@@ -45,7 +45,7 @@ export default {
   appendWords (splitPuzzle) {
     let tileClass;
     splitPuzzle.forEach(index => {
-      if (index === ' ') {
+      if (index === ' ' || index === '-') {
         tileClass = 'space';
       } else {
         tileClass = index;
@@ -55,6 +55,7 @@ export default {
   },
 
   appendPuzzle (puzzle, splitPuzzle) {
+    
     if (splitPuzzle.length <= 14 ) {
       this.fillSpace(splitPuzzle.length, false);
       this.appendWords(splitPuzzle);
