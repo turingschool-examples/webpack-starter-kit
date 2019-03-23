@@ -1,4 +1,4 @@
-const data {
+const gameData = {
   surveys: [
     { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' },
     { id: 2, question: 'Name Something You Do To An Item Before Giving It As A Gift' },
@@ -62,5 +62,10 @@ const data {
     { answer: 'Want More Space', respondents: 33, surveyId: 4 },
     { answer: 'Watch', respondents: 58, surveyId: 3 },
     { answer: 'Wrap It', respondents: 61, surveyId: 2 }
-  ]
-};
+    ]
+}
+
+export default gameData;
+
+
+
