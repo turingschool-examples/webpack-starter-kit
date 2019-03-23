@@ -15,19 +15,17 @@ let game;
 
 const startGameBtn = $(".start-game-btn");
 
-// startGameBtn.click(function(e) {
-//   e.preventDefault();
-//   console.log(playerNames);
-// })
-
 startGameBtn.click(function(e) {
   e.preventDefault()
 
   const names = [$('#input-0').val(), $('#input-1').val(), $('#input-2').val()]
-  game = new Game;
+  const game = new Game;
   game.createPlayers(names);
   
 })
+
+
+//event listener for game buttons
 
 // startGameBtn.click(function(e) {
 //   e.preventDefault()
@@ -36,6 +34,4 @@ startGameBtn.click(function(e) {
 //     element.val() = '';
 //   })
 // })
-
-
 
