@@ -7,6 +7,9 @@ import data from "./data.js";
 import './css/normalize.css';
 import './css/styles.css';
 import './css/game-grid.css';
+import './images/player1.svg';
+import './images/player2.svg';
+import './images/player3.svg';
 
 
 

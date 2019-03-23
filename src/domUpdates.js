@@ -46,6 +46,11 @@ export default {
     });
        $(`.puzzle`).append(`<div class="puz-grid space "></div>`)
 
+  },
+
+
+  setCategoryText(category){
+    $('.clue-container').text(category)
   }
 
 

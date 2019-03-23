@@ -37,6 +37,7 @@ class Game {
     let round = new Round(this.players);
     let currentPuzzle = round.getPuzzle(this.allData[this.roundCount -1]);
     domUpdates.appendPuzzle(currentPuzzle.splitAnswer);
+    domUpdates.setCategoryText(currentPuzzle.category);
   }
 
   createPlayers(array) {
