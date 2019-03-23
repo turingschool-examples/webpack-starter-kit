@@ -26,7 +26,13 @@ import domUpdates from './domUpdates.js';
 console.log(dataSet.clues);
 
 const newGame = new Game(dataSet.clues);
-$(document).ready(domUpdates.displayCategories)
+
+let dataCategories = Object.keys(dataSet.categories);
+dataCategories.filter(currentCategory => {
+  $(".categories").html(currentCategory)
+})
+$(document).ready(dataCategories);
+console.log(dataSet.categories)
 
 // newGame.populateQuestions()
 
