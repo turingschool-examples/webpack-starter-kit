@@ -1,4 +1,5 @@
 import Puzzle from './puzzle.js'
+import domUpdates from './domUpdates.js'
 
 class Round{
     constructor(){
@@ -17,6 +18,8 @@ class Round{
             this.answerCategories.push(roundObject.category)
         });
         this.puzzle.splitAllAnswers(this.correctSplit, this.allCorrectAnswers)
+        domUpdates.changeCategory(this.answerCategories[0])
+        domUpdates.changeClue(this.answerClues[0])
         // console.log(this.allCorrectAnswers)
         // console.log(this.answerClues)
         // console.log(this.answerCategories)
