@@ -23,6 +23,7 @@ export default {
 
   showQuestion(game, id, text) {
     $('.question-prompt').show();
+    $('#' + id).text(' '); 
     let column = 0;
     $('.question').text(game.roundOne.clues[column].filter(clue => clue.pointValue === Number(text)).pop().question); 
     if (id <= 3) {
@@ -38,8 +39,5 @@ export default {
 
   answerQuestion(game, id, text) {
      $('.question-prompt').hide();
-    console.log(game)
-
-
   }
 }

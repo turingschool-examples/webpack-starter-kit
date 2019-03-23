@@ -18,6 +18,8 @@ import domUpdates from './domUpdates';
 const startGameBtn = $('#start-game-btn');
 const gameBoard = $('.game-board');
 const submitBtn = $('.submit-btn');
+const resetBtn = $('#reset-game-btn');
+
 const game = new Game;
 
 
@@ -38,7 +40,12 @@ gameBoard.click(function (e) {
 
 submitBtn.click(function (e) {
   e.preventDefault();
-  domUpdates.answerQuestion(game, btnId, btnText);
+  domUpdates.answerQuestion(game);
+  console.log(game)
   
+})
 
+resetBtn.click(function (e) {
+  e.preventDefault();
+  location.reload();
 })
