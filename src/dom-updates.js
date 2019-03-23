@@ -7,7 +7,7 @@ export default {
   },
   appendNames(game) {
     game.players.map((player, index)=>{
-      $(`.player-${index + 1}__name`).text(player)
+      $(`.player-${index + 1}__name`).text(player.name)
     })
   }
 }

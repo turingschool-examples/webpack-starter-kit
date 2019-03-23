@@ -12,7 +12,7 @@
 }
 
 body {
-  background: url(./../images/terminal1.jpg) center no-repeat;
+  background: url(./../images/terminal1.jpg) center;
   background-size: cover;
 }
 header {
