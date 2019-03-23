@@ -90,7 +90,7 @@ class Game {
   }
 
   getRandomSurveyId() {
-    const randomId = Math.floor(Math.random() * 15) + 1;
+    const randomId = Math.floor(Math.random() * this.surveyData.surveys.length) + 1;
 
     if (!this.usedSurveys.includes(randomId)) {
       this.usedSurveys.push(randomId);
@@ -104,7 +104,7 @@ class Game {
     this.currentRound++;
     if (this.currentRound > 3) {
       this.endGame();
-    } else  {
+    } else {
       const randomId = this.getRandomSurveyId();
       const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
       const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
@@ -112,6 +112,11 @@ class Game {
       domUpdates.displayRoundData(question, answers, this.currentRound); //will move to round class eventually
     } //will need to add another condition for FastRound
   }
+
+  toggleActivePlayer() {
+    //if active player is p1, active player = p2, else active player is p1.
+    //run fn to indicate active player in the dom
+}
 
   endGame() {
     //show a play again dialog?

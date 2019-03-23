@@ -34,4 +34,29 @@ describe('Round', () => {
     expect(round.guesses).to.deep.equal([]);
   });
 
+  // it('Should be able to save guesses.', () => {
+  //   let round = new Round(survey, surveyAnswers);
+
+  //   round.saveGuess('puppies');
+
+  //   expect(round.guesses).to.deep.equal(['puppies']);
+  // });
+
+  // it('Should be able to check if a guess has been guessed before and avoid duplicates.', () => {
+  //   let round = new Round(survey, surveyAnswers);
+
+  //   round.saveGuess('puppies');
+
+  //   expect(round.guesses).to.deep.equal(['puppies']);
+
+  //   round.saveGuess('puppies');
+
+  //   expect(round.guesses).to.deep.equal(['puppies']);
+  // });
+
+  // it('Should be able to check if a guess is one of the answers.', () => {
+  //   //have fn return true or false?
+  // });
+
+
 });
