@@ -30,8 +30,10 @@ $("#submit-names-btn").on("click", function() {
     $(".player-2-name").text(player2Name.toUpperCase());
     $(".welcome-screen").addClass("hidden");
 
+    let startingPlayer = Math.floor(Math.random() * 2) + 1
+
     window.game = new Game(new Player(player1Name, 1), new Player(player2Name, 2)); 
-    window.game.startNewGame();
+    window.game.startNewGame(startingPlayer);
     window.game.toggleActivePlayer();
 });
 

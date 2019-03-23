@@ -84,24 +84,30 @@ describe('Round', () => {
     round.checkAnswer(player1Guess)
 
     expect(game.activePlayer).to.equal(game.player2);
+  });
 
+  it('should end the round when there are 3 correct guesses', () => {
+
+    expect(game.roundNum).to.equal(1);
+
+    round.checkAnswer('bowling ball');
+    round.checkAnswer('donuts');
+    round.checkAnswer('beer');
+
+    expect(game.roundNum).to.equal(2);
 
   });
 
+  it('should give the losing player a turn for the next round', () => {
+
+    game.activePlayer = game.player1;
+
+    
+
+  })
 });
 
 
-
-
-
-
-  // it('Should be able to save guesses.', () => {
-  //   let round = new Round(survey, surveyAnswers);
-
-  //   round.saveGuess('puppies');
-
-  //   expect(round.guesses).to.deep.equal(['puppies']);
-  // });
 
   // it('Should be able to check if a guess has been guessed before and avoid duplicates.', () => {
   //   let round = new Round(survey, surveyAnswers);

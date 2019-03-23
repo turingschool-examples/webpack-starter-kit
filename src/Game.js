@@ -84,9 +84,14 @@ class Game {
     }
   }
 
-  startNewGame() {
-    //will add reset page defaults here
+  startNewGame(startingPlayer) {
+    // will add reset page defaults here
     this.startNewRound();
+    if (this.player1.player === startingPlayer) {
+      this.activePlayer = this.player1;
+    } else {
+      this.activePlayer = this.player2;
+    }
   }
 
   getRandomSurveyId() {

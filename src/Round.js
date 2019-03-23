@@ -8,7 +8,7 @@ class Round {
         this.survey = survey;
         this.surveyAnswers = surveyAnswers; 
         this.guesses = [];
-        this.correctGuesses = [];
+        this.correctGuesses = 0;
     }
 
     checkGuess(guess) {
@@ -19,7 +19,6 @@ class Round {
         
     saveGuess(guess) {
         this.guesses.push(guess);
-        // console.log('Saved guesses:', this.guesses);
     }
 
     checkAnswer(guess, game) {
@@ -27,43 +26,36 @@ class Round {
 
         if (answers.includes(guess)) {
             domUpdates.displayCorrectGuess(guess);
-            this.correctGuesses.push(guess)
+            this.correctGuesses ++
             // console.log(this.correctGuesses);
             this.getPoints(guess, game);
         } else {
             game.toggleActivePlayer();
         }
-        
-            //if answer and answers.length IS 1
-                //check roundNum, and if 3 => checkForWinner()
-                //check round, num and if < 3 => game.startNewRound()
-            //if not answer, clear the input and toggleActivePlayer()
+
+        if (this.correctGuesses === 3) {
+            this.endRound(game);
+        }
     }
 
     getPoints(guess, game) {
-
         let points = this.surveyAnswers.reduce((a, obj) => {
             if (obj.answer.toLowerCase() === guess) {
                 a = obj.respondents
             }
             return a;
-        }, 0)
+        }, 0);
         game.activePlayer.increaseScore(points)
     }
 
-    toggleActivePlayer() {
-        //if active player is p1, active player = p2, else active player is p1.
-        //run fn to indicate active player in the dom
-    }
-    
+    endRound(game) {
+        game.toggleActivePlayer();
+        game.startNewRound();
 
-    displayAnswer() {
-        //maybe for Index.js, for updating answer in the dom.
-        //sortAnswers();
-    }
-
-    sortAnswers() {
-        //maybe for Index.js, for sorting answers displayed in the dom by respondent num.
+        //if answer and answers.length IS 1
+                //check roundNum, and if 3 => checkForWinner()
+                //check round, num and if < 3 => game.startNewRound()
+            //if not answer, clear the input and toggleActivePlayer()
     }
 }
 
