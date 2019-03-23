@@ -4,13 +4,13 @@ chai.use(spies);
 
 import Player from '../src/Player.js';
 import domUpdates from '../src/domUpdates.js';
-// chai.spy.on(domUpdates, 'functionName', () => );
+
 
 const assert = chai.assert;
 
 
 describe('Player', function() {
-  it('is a function', () => {
+  it('should be a function', () => {
 
     assert.isFunction(Player);
   });
