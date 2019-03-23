@@ -2,6 +2,7 @@ import data from './data.js'
 
 class Puzzle {
     constructor(){
+        
     }
     
     getRandomAnswer(roundData){

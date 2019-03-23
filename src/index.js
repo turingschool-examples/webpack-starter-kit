@@ -12,11 +12,17 @@ let game =  new Game();
 $('.startGame').on('click', function (e) {
     e.preventDefault()
     domUpdates.startGame(game)
+    domUpdates.changeNames()
     console.log(game)
 });
 
-$('.spinButton').on('click', function (e) {
-    e.preventDefault()
-    game.wheel.spinWheel()
-});
+$('.letters').on('click', function(e) {
+    e.target.innerText
+    console.log(e.target.innerText)
+})
+
+// $('.spinButton').on('click', function (e) {
+//     e.preventDefault()
+//     game.wheel.spinWheel()
+// });
 

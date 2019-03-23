@@ -17,9 +17,9 @@ class Round{
             this.answerCategories.push(roundObject.category)
         });
         this.puzzle.splitAllAnswers(this.correctSplit, this.allCorrectAnswers)
-        console.log(this.allCorrectAnswers)
-        console.log(this.answerClues)
-        console.log(this.answerCategories)
+        // console.log(this.allCorrectAnswers)
+        // console.log(this.answerClues)
+        // console.log(this.answerCategories)
     }
 }
 
