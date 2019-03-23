@@ -44,6 +44,12 @@ class Round {
     console.log(game.players)
     DomUpdates.updatePlayerScore(game);
   }
+  displayPuzzleHintCat(game){
+    game.currentRound.getPuzzle();
+    // DomUpdates.updateRoundHintCategory(game);
+    console.log(game.currentRound);
+  }
+
   // create an option method
   // switch statement based on their dom interaction
   // case guess: 

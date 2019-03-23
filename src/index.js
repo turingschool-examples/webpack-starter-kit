@@ -20,10 +20,14 @@ $('.start__start--btn').click(() =>{
   game = new GameEngine(playersNames);
   game.revEngine();
   // console.log(game.players);
+  
+
+
   DomUpdates.hidePopup(game);
   getCurrPlayer(game);
-// * JUSTIN Code:
   game.newRound();
+  game.currentRound.determinePuzzleLength();
+  DomUpdates.updateRoundHintCategory(game);
 });
 
 

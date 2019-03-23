@@ -16,5 +16,11 @@ export default {
       $(`.player-${ind + 1}__totals-points`).text(player.totalCaps);
     });
   },
-  // Get player input
+  updateRoundHintCategory(game){
+    console.log(game.currentRound.roundPuzzle);
+    //category
+    $('.hint__title').text(game.currentRound.roundPuzzle.cat);
+    //hint
+    $('.hint__value').text(game.currentRound.roundPuzzle.description);
+  }
 }
