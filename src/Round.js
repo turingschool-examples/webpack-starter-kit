@@ -1,3 +1,5 @@
+import domUpdates from "./domUpdates";
+
 class Round {
     constructor(survey, surveyAnswers) {
         this.survey = survey;
@@ -15,7 +17,13 @@ class Round {
         //push guess into guesses array
     }
 
-    checkIfAnswer() {
+    checkIfAnswer(guess) {
+        const answers = this.surveyAnswers.map(answerObj => answerObj.answer.toLowerCase());
+
+        if (answers.includes(guess.toLowerCase())) {
+            console.log(guess + answers);
+            domUpdates.displayAnswer(guess);
+        }
         //compare against answer array
             //if answer and answers.length is < 1
                 //display on board

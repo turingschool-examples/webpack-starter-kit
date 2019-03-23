@@ -17,6 +17,9 @@ import './images/feud76.png'
 import './images/family-feud-logo.png'
 
 import Game from './Game.js';
+import Round from './Round.js';
+import Player from './Player';
+import domUpdates from './domUpdates';
 
 // import Round from './Round.js';
 // import FastRound from './FastRound.js';
@@ -24,11 +27,19 @@ import Game from './Game.js';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-const game = new Game();
-
 $("#submit-names-btn").on("click", function() { 
     const player1Name = $('#player-1-input').val();
     const player2Name = $('#player-2-input').val();
-    
-    game.setPlayers(player1Name, player2Name); 
+
+    $(".player-1-name").text(player1Name);
+    $(".player-2-name").text(player2Name);
+    $(".welcome-screen").addClass("hidden");
+
+    window.game = new Game(new Player(player1Name), new Player(player2Name)); 
+    window.game.startNewGame();
+});
+
+$("#submit-guess-btn").on("click", function() { 
+    const playerGuess = $('.guess-input').val();
+    window.game.round.checkIfAnswer(playerGuess);
 });

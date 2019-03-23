@@ -3,10 +3,12 @@ import Player from './Player.js';
 import Round from './Round.js';
 
 class Game {
-  constructor() {
-    this.currentPlayer = 1;
-    this.currentRound = 0;
-    this.usedSurveys = [];
+  constructor(player1, player2) {
+    this.currentRound = 0; 
+    this.usedSurveys = []; //note: will go up to 4 cus each player gets one in round 3
+    this.player1 = player1;
+    this.player2 = player2;
+    this.activePlayer = player1;
     this.surveyData = {
       response_code: {
         version: '1.5',
@@ -83,44 +85,34 @@ class Game {
     }
   }
 
-  setPlayers(player1Name, player2Name) {
-    const player1 = new Player(player1Name);
-    const player2 = new Player(player2Name);
-    domUpdates.updatePlayersDom(player1Name, player2Name);
-    this.startNewGame();
-  }
-
   startNewGame() {
     //reset page defaults
     this.currentRound = 0;
-    this.getSurvey();
+    this.startNewRound();
   }
 
-  startNewRound(question, answers) {
-    this.currentRound++;
-    domUpdates.displayRoundQuestion(question); //will move to round class eventuallyyt
-      //display round num
-    if (this.currentRound > 3) {
-      this.endGame();
-    } else if (this.currentRound === 3) {
-      console.log('poop');
-      //let round = new FastRound(question, answers);
-    } else {
-      let round = new Round(question, answers);
-    }
-  }
-
-  getSurvey() {
+  getRandomSurveyId() {
     const randomId = Math.floor(Math.random() * 15) + 1;
 
     if (!this.usedSurveys.includes(randomId)) {
-      const question = this.surveyData.surveys.find(survey => survey.id === randomId);
-      const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
-      this.startNewRound(question.question, answers);
       this.usedSurveys.push(randomId);
+      return randomId;
     } else {
-      this.getSurvey();
+      this.getRandomSurveyId();
     }
+  }
+
+  startNewRound() {
+    this.currentRound++;
+    if (this.currentRound > 3) {
+      this.endGame();
+    } else  {
+      const randomId = this.getRandomSurveyId();
+      const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
+      const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
+      this.round = new Round(question, answers);
+      domUpdates.displayRoundData(question, this.currentRound); //will move to round class eventually
+    } //will need to add another condition for FastRound
   }
 
   endGame() {
