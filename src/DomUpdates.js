@@ -5,38 +5,38 @@ export default {
 
     
 
-  createGameBoard() {
+  createGameBoard(array) {
         
     $('main').prepend(
       `<section id="letters-selected-area" class="letters-selected-area">
             <table class="letters-selected">
             <tr>
-            <td>A</td>
-            <td>B</td>
-            <td>C</td>
-            <td>D</td>
-            <td>E</td>
-            <td>F</td>
-            <td>G</td>
-            <td>H</td>
-            <td>I</td>
-            <td>J</td>
-                <td>K</td>
-                <td>L</td>
-                <td>M</td>
-                <td>N</td>
-                <td>O</td>
-                <td>P</td>
-                <td>Q</td>
-                <td>R</td>
-                <td>S</td>
-                <td>T</td>
-                <td>U</td>
-                <td>V</td>
-                <td>W</td>
-                <td>X</td>
-                <td>Y</td>
-                <td>Z</td>
+            <td class="single-letter">${array[0]}</td>
+            <td class="single-letter">${array[1]}</td>
+            <td class="single-letter">${array[2]}</td>
+            <td class="single-letter">${array[3]}</td>
+            <td class="single-letter">${array[4]}</td>
+            <td class="single-letter">${array[5]}</td>
+            <td class="single-letter">${array[6]}</td>
+            <td class="single-letter">${array[7]}</td>
+            <td class="single-letter">${array[8]}</td>
+            <td class="single-letter">${array[9]}</td>
+                <td class="single-letter">${array[10]}</td>
+                <td class="single-letter">${array[11]}</td>
+                <td class="single-letter">${array[12]}</td>
+                <td class="single-letter">${array[13]}</td>
+                <td class="single-letter">${array[14]}</td>
+                <td class="single-letter">${array[15]}</td>
+                <td class="single-letter">${array[16]}</td>
+                <td class="single-letter">${array[17]}</td>
+                <td class="single-letter">${array[18]}</td>
+                <td class="single-letter">${array[19]}</td>
+                <td class="single-letter">${array[20]}</td>
+                <td class="single-letter">${array[21]}</td>
+                <td class="single-letter">${array[22]}</td>
+                <td class="single-letter">${array[23]}</td>
+                <td class="single-letter">${array[24]}</td>
+                <td class="single-letter">${array[25]}</td>
             </tr>
         </table>
     </section>

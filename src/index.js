@@ -23,7 +23,7 @@ let game = new Game()
 //********Event Listeners ********/
 $('.begin').on('click', () => {
   event.preventDefault()
-  startGameBtn(event);
+  startGameBtn(event, game);
 });
 
 $('input.player-names').keyup(function() {
@@ -37,13 +37,23 @@ $('input.player-names').keyup(function() {
   event.preventDefault(event)
 });
 
+$('body').on('click', '.single-letter', (event) =>{
+  selectingLetter(event)
+})
+
 
 /************Functions******* */
-function startGameBtn(event) {
+function startGameBtn(event, game) {
   event.preventDefault(event)
   let playerName1 = $('#player1').val();
   let playerName2 = $('#player2').val();
   let playerName3 = $('#player3').val();
   $('section.input-form').remove()
-  game.startGame(playerName1, playerName2, playerName3)
+  game.startGame(playerName1, playerName2, playerName3, game)
+}
+
+function selectingLetter(event) {
+  let selectedLetter = $(event.target).text()
+    console.log(selectedLetter)
+    game.roundInst.checkLetter(selectedLetter)
 }
