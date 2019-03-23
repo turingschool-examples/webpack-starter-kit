@@ -5,24 +5,16 @@ chai.use(spies);
 
 import Game from '../src/Game.js';
 import domUpdates from '../src/domUpdates.js'
+import Player from '../src/Player.js';
 
-chai.spy.on(domUpdates, ['displayRoundQuestion', 'updatePlayersDom'], () => true);  
+chai.spy.on(domUpdates, ['displayRoundData', 'displayCorrectGuess'], () => true);  
 
 describe('Game', () => {
-
-  // beforeEach(function() {
-  //   chai.spy.on(domUpdates, 'updatePlayersDom', () => true);
-  // });
-
-  // afterEach(function() {
-  //   chai.spy.restore(domUpdates); 
-  // });
   
-
-  it('Should have a default current player of 1', () => {
+  it('Should have a default active player of 1', () => {
     let game = new Game();
 
-    expect(game.currentPlayer).to.equal(1);
+    expect(game.activePlayer).to.equal(1);
   });
 
   it('Should have a default current round of 0', () => {
@@ -45,25 +37,19 @@ describe('Game', () => {
   });
 
   it('Should be able to instantiate two new players when names are submitted', () => {
-    let game = new Game();
+    let game = new Game(new Player('Bob'), new Player('Bobette'));
 
-    game.setPlayers('Bob', 'Bobette');
-
-    expect(domUpdates.updatePlayersDom).to.have.been.called();
-    expect(domUpdates.updatePlayersDom).to.have.been.called.with('Bob', 'Bobette');
+    expect(game.player1.name).to.equal('Bob');
+    expect(game.player2.name).to.equal('Bobette');
   });
 
-  it('Should reset the current round to 1 when a new game starts', () => {
+  it('Should increment the round number when new rounds are started', () => {
     let game = new Game();
 
-    game.startNewRound('Why tho?', ['Just cus']);
-    game.startNewRound('But...?', ['I SED JUST CUZ']);
+    game.startNewRound();
+    game.startNewRound();
 
     expect(game.currentRound).to.equal(2);
-
-    game.startNewGame();
-
-    expect(game.currentRound).to.equal(1);
   });
 
   //Will start a regular round if on round 1 or 2
