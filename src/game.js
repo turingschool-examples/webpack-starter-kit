@@ -33,12 +33,13 @@ class Game {
     round.categoryIds = categoryIds.slice(0, 4);
     // console.log(round.categoryIds);
     round.generateCategories();
-
+    domUpdates.renderCategories(round.categoryNames);
   }
 
   shuffle(toSort) {
     return toSort.sort(() => 0.5 - Math.random());
   }
+
   // readyGameBoard() {
   //   domUpdates.renderNames(this.players);
   //   // updates categories

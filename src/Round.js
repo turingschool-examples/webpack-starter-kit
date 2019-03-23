@@ -24,11 +24,6 @@ class Round {
     console.log(this.categoryNames);
   }
 
-//   generateClues() {
-    
-
-//   }
-
 //   setCategoryIds() {
 //     domUpdates.setCategory(this.categoryIds);
 //   }
