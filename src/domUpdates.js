@@ -33,6 +33,7 @@ export default {
   // }
   appendPuzzle (splitPuzzle) {
     let tileClass;
+       $(`.puzzle`).append(`<div class="puz-grid space "></div>`)
     splitPuzzle.forEach(index => {
       console.log(index);
       let puzzleTile = `<div class="puz-grid ${tileClass} ">${index} </div>`;
@@ -43,7 +44,11 @@ export default {
       }
       $(`.puzzle`).append(puzzleTile);
     });
+       $(`.puzzle`).append(`<div class="puz-grid space "></div>`)
+
   }
+
+
 
 
 

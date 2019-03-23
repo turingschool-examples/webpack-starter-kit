@@ -37,10 +37,9 @@ describe('Game', () => {
   });
 
   it('should have default properties', () => {
-    expect(game.bank).to.deep.equal([]);
     expect(game.players).to.deep.equal([]);
     expect(game.allData).to.deep.equal([]);
-    expect(game.round).to.equal(0);
+    expect(game.round).to.equal(null);
     expect(game.currentPlayer).to.equal(0);
   });
 

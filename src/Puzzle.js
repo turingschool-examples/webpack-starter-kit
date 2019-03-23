@@ -15,18 +15,6 @@ class Puzzle {
   }
 
 
-
-
-//   splitPhrase(obj){
-//     this.splitPhrase.push(obj.correctAnswer)
-//     this.splitPhrase = this.splitPhrase.split(' ');
-//   }
-//     question.answer.split('').forEach(letter => {
-// $('.word-box').append(<div>letter</div>))
-
-  // <div class="word-box">
-  // ---new ones here----
-  // </div>
 }
 
 
