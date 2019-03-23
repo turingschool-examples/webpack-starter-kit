@@ -19,7 +19,8 @@
   background-color: lightgray;
 }
 .top-row,
-.btm-row {
+.btm-row,
+.end  {
   background: rgb(93, 93, 100);
 }
 

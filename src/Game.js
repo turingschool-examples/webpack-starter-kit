@@ -26,7 +26,7 @@ class Game {
     puzzlesArr.forEach(puzzleCat =>{
       this.allData.push(data.puzzles[puzzleCat].puzzle_bank)
     })
-    // console.log(this.allData)
+    console.log(this.allData)
   }
 
   createRound () {
@@ -35,8 +35,9 @@ class Game {
       // bonuswheel
     }
     let round = new Round(this.players);
-    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount -1]);
-    domUpdates.appendPuzzle(currentPuzzle.splitAnswer);
+    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount]);
+    // let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
+    domUpdates.appendPuzzle(currentPuzzle, currentPuzzle.splitAnswer);
   }
 
   createPlayers(array) {

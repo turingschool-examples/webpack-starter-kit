@@ -24,29 +24,49 @@ export default {
     location.reload();
   },
 
+  fillSpace(puzzleLength, end) {
+    const extraSpace = 14 - puzzleLength;
+    const fill = extraSpace / 2;
+    // debugger
+    if (extraSpace % 2 === 0) {
+      appendFill(fill + 1);
+    } else {
+      return end ? this.appendFill(fill + 1.5) : this.appendFill(fill + .5);
+    }
+  },
 
+  appendFill (spaces) {
+    let emptyTile = `<div class="puz-grid end"></div>`;
+    for (let i = 0; i < spaces; i++) {
+      $(`.puzzle`).append(emptyTile);
+    }
+  },
 
-  // $('.submit-guess').click(checkPuzzle());
-  
-  // checkPuzzle() {
-  //   let round1 = new Round();
-  // }
-  appendPuzzle (splitPuzzle) {
+  appendWords (splitPuzzle) {
     let tileClass;
-       $(`.puzzle`).append(`<div class="puz-grid space "></div>`)
     splitPuzzle.forEach(index => {
-      console.log(index);
-      let puzzleTile = `<div class="puz-grid ${tileClass} ">${index} </div>`;
       if (index === ' ') {
         tileClass = 'space';
       } else {
         tileClass = index;
       }
-      $(`.puzzle`).append(puzzleTile);
+      $(`.puzzle`).append(`<div class="puz-grid ${tileClass} ">${index} </div>`);
     });
-       $(`.puzzle`).append(`<div class="puz-grid space "></div>`)
+  },
 
-  }
+  appendPuzzle (puzzle, splitPuzzle) {
+    if (splitPuzzle.length <= 14 ) {
+      this.fillSpace(splitPuzzle.length, false);
+      this.appendWords(splitPuzzle);
+      this.fillSpace(splitPuzzle.length, true);
+    }
+  },
+
+  
+  
+
+
+
 
 
 
