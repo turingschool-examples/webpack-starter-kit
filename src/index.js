@@ -15,16 +15,13 @@ import './css/landingPage.css';
 
 const startGameBtn = $(".start-game-btn");
 
-// startGameBtn.click(function(e) {
-//   e.preventDefault();
-//   console.log(playerNames);
-// })
-
 startGameBtn.click(function(e) {
   e.preventDefault()
-  const names = [$('#input-1').val(), $('#input-2').val(), $('#input-3').val()]
+  const names = [$('#input-0').val(), $('#input-1').val(), $('#input-2').val()]
   const game = new Game;
   game.createPlayers(names);
   game.startGame(); 
 })
+
+//event listener for game buttons
 
