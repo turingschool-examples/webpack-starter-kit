@@ -21,6 +21,7 @@ class Game {
             this.players.push(player1, player2, player3)
         }
     }
+    guessChecker() {}
 
 }
 

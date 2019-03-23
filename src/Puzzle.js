@@ -2,9 +2,6 @@ import data from './data.js'
 
 class Puzzle {
     constructor(){
-        this.correctAnswer = '';
-        this.splitUpWord = []
-        this.clues = '';
     }
     
     getRandomAnswer(roundData){
@@ -12,12 +9,13 @@ class Puzzle {
         let newAnswer = data.puzzles[`${roundData}_word_answers`].puzzle_bank.find( (cur, idx) => {
             return idx === randomIndex
         })
-        this.correctAnswer = newAnswer.correct_answer;
-        return this.correctAnswer
+        return newAnswer
     }
 
-    findAnswerLength(){
-        
+    splitAllAnswers(splitAnswers, correctArray) {
+        correctArray.forEach(correct => {
+            splitAnswers.push(correct.split(''))
+        })
     }
 }
 
