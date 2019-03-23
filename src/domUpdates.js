@@ -68,6 +68,12 @@ export default {
 
 
 
+  },
+
+
+  setCategoryText(category){
+    $('.clue-container').text(category)
+  }
 
 
 

@@ -1,4 +1,13 @@
 .grid-container {
+  display: flex;
+  justify-content: center;
+  /*grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: 60px;*/
+
+}
+
+.top-row,
+.btm-row{
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: 60px;
@@ -7,22 +16,30 @@
 .puz-grid {
   text-align: center;
   background: white;
-  border: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
   font-size: 50px;
+  min-width: 50px;
+
   /* font-family: 'Orbitron', sans-serif; */
   font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
   font-weight: 700;
 }
 
+
 .space {
   background-color: lightgray;
   color: lightgray;
 }
 .top-row,
+
+.top-row,
 .btm-row,
 .end  {
   background: rgb(129, 129, 139);
+  border: 2px solid black;
+
 }
 
 /* .secret {

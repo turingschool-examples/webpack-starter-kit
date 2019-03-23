@@ -26,19 +26,24 @@ html,body{
   font-family: 'Orbitron', sans-serif;
 }
 
-h1 {
-  margin: 20px 0 0 0;
-  font-size: 70px;
-}
 
 
 /* ///////////////////////// */
 /* LETTERS */
 /* ///////////////////////// */
 
+
+html,body{  
+position:relative;
+margin:0;
+padding:0;
+color: navy;
+font-family: 'Roboto Mono', monospace;
+/* font-family: 'Orbitron', sans-serif; */
 .letters {
   grid-area: letters;
   background: magenta;
+
 }
 
 
@@ -48,10 +53,10 @@ h1 {
 /* GAME AREA */
 /* ///////////////////////// */
 .game-area {
-  height: 100%;
+  height: 90vh;
   display: grid;
   grid-template-columns: 3fr 5fr;
-  grid-auto-rows: 1fr 4fr 4fr;
+  grid-auto-rows: 4fr 1fr 4fr;
   grid-template-areas: 
     "heading heading heading"
     "letters board board" 
@@ -67,6 +72,8 @@ h1 {
   grid-area: board;
   background: yellow;
 }
+
+
 .reset-game {
   float: right;
   margin: 2rem;
@@ -121,3 +128,55 @@ canvas{
     margin: 0;
     padding: 0;
 } */
+
+
+h1 {
+  margin: 10px 0 0 0;
+  font-size: 70px;
+}
+
+.name-entry{
+  width: 60%;
+  height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 50px;
+  text-align: center;
+}
+
+
+.player-intro{
+  display: inline-block;
+}
+
+.continue-button{
+  display: block;
+  height: 40px;
+  width: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+
+}
+
+.continue-button:hover{
+  background-color: black;
+  color: white;
+}
+
+.player-icon{
+    height: 120px;
+}
+
+.player-holder{
+    height: 85px;
+}
+
+.player-square{
+  margin-top: auto;
+}
+
