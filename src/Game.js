@@ -2,12 +2,12 @@ import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 import data from './data-set.js';
 import Round from './Round.js';
-// import 
 
 class Game {
   constructor() {
     this.players = [];
-    this.roundOne = [];
+    // this.roundOne = [];
+    this.categories = [];
   }
 
   createPlayers(names) {
@@ -25,8 +25,7 @@ class Game {
     const roundOne = new Round;
     roundOne.categoryIds = categoryIds.splice(0, 4);
     roundOne.populateCategories();
-    let categoryNames = roundOne.categoryNames;
-    domUpdates.updateCategories(categoryNames);
+    domUpdates.updateCategories(roundOne.categoryNames);
     roundOne.populateClues();
 
   }
