@@ -14,6 +14,7 @@ console.log(game.getRandomPuzzle);
 
 $('.start-button').on('click', function() {
   domUpdates.startGame(game);
+  domUpdates.displayCategoryName(game);
   $('.start-button').hide('slow');
   $('.button').prop('disabled', false).css( "color", "white" );
 });

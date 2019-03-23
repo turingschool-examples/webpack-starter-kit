@@ -7,26 +7,25 @@ class Game {
   constructor(players, rounds, currentPlayer) {
     this.allPuzzles = [];
     this.players = [];
-    this.rounds = [];
+    this.rounds = [1, 2, 3, 4, 5];
     this.currentPlayer = 0;
     this.categories = []; 
   }
 
-   beginGame() {
+  beginGame() {
     this.getRandomPuzzle();
   }
 
   getRandomPuzzle() {
-    console.log(data.puzzles)
     let keys = Object.keys(data.puzzles);
     keys.forEach((puzzleCat) => {
       this.allPuzzles.push(data.puzzles[puzzleCat].puzzle_bank)
     });
-    for (let i = this.allPuzzles.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [this.allPuzzles[i], this.allPuzzles[j]] = 
-      [this.allPuzzles[j], this.allPuzzles[i]];
-    }
+    // for (let i = this.allPuzzles.length - 1; i > 0; i--) {
+    //   const j = Math.floor(Math.random() * (i + 1));
+    //   [this.allPuzzles[i], this.allPuzzles[j]] = 
+    //   [this.allPuzzles[j], this.allPuzzles[i]];
+    // }
   }
 
   createPlayer(name1, name2, name3) {
