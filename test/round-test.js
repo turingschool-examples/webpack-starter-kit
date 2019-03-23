@@ -6,6 +6,7 @@ import Puzzle from '../src/puzzle.js';
 
 import spies from 'chai-spies';
 import GameEngine from '../src/game-engine.js';
+import Player from '../src/player.js';
 chai.use(spies);
 
 
@@ -67,6 +68,12 @@ describe('Round', ()=>{
     //     round.getCurrentPlayer(game);
     //     expect(round.currentPlayer).to.equal(1);
     // })
-    
+    it('', ()=>{
+        const round = new Round(1);
+        const player = new Player();
+        round.determinePuzzleLength();
+        round.checkPlayerGuess();
+        
+    })
 })
 export default Round;

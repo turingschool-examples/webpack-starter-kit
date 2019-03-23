@@ -32,7 +32,6 @@ $('.start__start--btn').click(() =>{
 });
 
 
-
 let getCurrPlayer = (game => {
   game.currentRound.getCurrentPlayer(game);
 })
@@ -45,7 +44,33 @@ $('.guess__word--button').click(function (game) {
 $('.guess__letter--button').click(function () {
   if ($('#guess--input').val().length === 1) {
     let ltrGuess = $('#guess--input').val();
-    game.currentRound.currentPlayer.ans = ltrGuess.split();
+    game.currentRound.currentPlayer.ans = ltrGuess.toUpperCase();
+    // player ans
+    // console.log(game.currentRound.currentPlayer.ans.toUpperCase());
+    // round answer
+    // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
+    // compare player ans against round answer
+    if(game.currentRound.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
+      alert('This letter has already been guessed!')
+      // todo: add an error message instead of alert
+    }
+     else if(game.currentRound.answer.map((item)=> item.toUpperCase()).includes(game.currentRound.currentPlayer.ans.toUpperCase())){
+        game.currentRound.correctRoundGuesses.push(game.currentRound.currentPlayer.ans)
+        game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
+        console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
+        console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
+
+    } else {
+        console.log(game.currentRound.allRoundGuesses)
+        console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
+        game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
+        console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
+        console.log('CurrentPlayer', game.currentRound.currentPlayer)
+    }
+    // create a new array
+    // push correct guess letter in there
+    // find index of answer array to guess letter array
+    // change text of that index to the value of the guess index
     game.currentRound.getCurrentPlayer(game);
   } else {
     alert('Please Only Choose 1 Letter');
@@ -70,6 +95,7 @@ let spinNotNum = (slice) => {
   }
   game.currentRound.getCurrentPlayer(game)
 };
+
 
 
 
