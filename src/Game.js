@@ -1,9 +1,9 @@
-// class Game{
-//   constructor() {
-//     this.surveys = [];
-//     this.roundNumber = 1;
-//      create surveys array = []
-//     }
+class Game {
+  constructor() {     
+    this.surveys = [];
+    this.roundNumber = 1;
+
+
     //getSurveys()
     //new game pushes dataset into local array
 
@@ -11,8 +11,7 @@
 //         let player1 = new Player(input.value);
 //         let player2 = new Player(input.value);
 
-//         ?Push player name into players array if array exists
-//   }
+
         // checkPlayer() {
         //   isPlayer = player;
         // }
@@ -31,7 +30,7 @@
    //switch to player 1
 //   }
 
-        // changeRound() {
+        // countRound() {
         //   roundNumber++;
               // createRound();
         // }
@@ -50,3 +49,7 @@
 //     change innertext fire popup w/
 //     new game button
 
+  }
+}
+
+export default Game
