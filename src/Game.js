@@ -27,6 +27,8 @@ class Game {
     roundOne.populateCategories();
     let categoryNames = roundOne.categoryNames;
     domUpdates.updateCategories(categoryNames);
+    roundOne.populateClues();
+
   }
 
   shuffle(array) {

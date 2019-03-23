@@ -1,4 +1,5 @@
 import data from './data-set.js';
+import domUpdates from './domUpdates.js';
 
 class Round {
   constructor() {
@@ -16,6 +17,15 @@ class Round {
     this.categoryNames = this.categoryIds.map(category => {
       return properCategories.find((name, index) => index === category - 1);
     });
+  }
+
+  populateClues() {
+    this.clues = this.categoryIds.map(categoryId => {
+      const specificClues = data.clues.filter(clue => categoryId === clue.categoryId);
+      return specificClues;
+      })
+    domUpdates.assignClue(this.clues);
+    console.log(this.clues);
   }
 }
 

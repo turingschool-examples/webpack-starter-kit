@@ -15,5 +15,9 @@ export default {
     $('.cat1').text(categories[1]);
     $('.cat2').text(categories[2]);
     $('.cat3').text(categories[3])
+  },
+
+  assignClue(clues) {
+    $('#0').text(clues[0][0].question);
   }
 }
