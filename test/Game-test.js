@@ -26,9 +26,9 @@ describe('Game', () => {
   }); 
 
   it.skip('should start on player 1', () => {
-    const p1 = new player('Brennan');
-    const p2 = new player('Jarrett');
-    const game = new Game(p1, p2);
+    const player1 = new player('Brennan');
+    const player2 = new player('Jarrett');
+    const game = new Game(player1, player2);
     assert.equal(game.currentPlayer, player1);
   });
 
@@ -38,29 +38,31 @@ describe('Game', () => {
   });
 
   it.skip('should be able to start the game and grab surveys', () => {
-    const p1 = new player('Brennan');
-    const p2 = new player('Jarrett');
-    const game = new Game(p1, p2);
+    const player1 = new player('Brennan');
+    const player2 = new player('Jarrett');
+    const game = new Game(player1, player2);
     game.startGame();
     assert.equal(game.surveys.length, 15)
   });
 
   it.skip('should start increment round upon initiation of game', () => {
-    const p1 = new player('Brennan');
-    const p2 = new player('Jarrett');
-    const game = new Game(p1, p2);
+    const player1 = new player('Brennan');
+    const player2 = new player('Jarrett');
+    const game = new Game(player1, player2);
     game.startGame();
     assert.equal(game.round, 1);
   });
 
+  // how to test a randomized current round
   it.skip('should have a currentRound upon initiation of the game', () => {
-    const p1 = new player('Brennan');
-    const p2 = new player('Jarrett');
-    const game = new Game(p1, p2);
+    const player1 = new player('Brennan');
+    const player2 = new player('Jarrett');
+    const game = new Game(player1, player2);
     game.startGame();
     assert.equal(game.currentRound, )
   })
 
+  // move to round-test
   it.skip('should be able to check a guess', () => {
     const game = new Game(['Jarrett', 'Brennan']);
     const player = new Player('Jarrett');
