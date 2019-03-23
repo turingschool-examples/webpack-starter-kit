@@ -5,9 +5,50 @@
 import $ from 'jquery';
 
 // An example of how you tell webpack to apply a CSS file
+import './css/normalize.css'
 import './css/base.css';
+
+
+
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
+
+import Rounds from './Rounds.js';
+
+import Game from './Game.js';
+
+import dataSet from './dataSet.js'
+
+$(".categories").click(() => {
+  alert ('im working');
+});
+
+console.log(dataSet.clues);
+
+const newGame = new Game(dataSet.clues);
+console.log(newGame);
+
+// newGame.populateQuestions()
+
+// dom manipulation to get values of the three names
+var name1 = 'Erik';
+var name2 = 'Elton';
+var name3 = 'Sean';
+
+var newGame = new Game(name1, name2, name3);
+
+newGame.fetchClue(sweetNumbers)
+
+newGame.nextRound()
+
+
+// const player1 = new Rounds(flatData, 'Erik');
+// console.log('Log 2: ', player1);
+
+// const player2 = new Rounds(gameStart, 'Aidan');
+// console.log('Log 3: ', player2);
+
+
 
 console.log('This is the JavaScript entry file - your code begins here.');

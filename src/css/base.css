@@ -1,21 +1,29 @@
 body {
   background-color: #CCCFEE;
+  height: 100%;
 }
 
-.header {
-  
+header {
+  font-size: 46px;
+  text-align: center;
 }
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .box-wrapper {
   display: flex;
   flex-wrap: wrap;
 }
 
-.categories, 
+.categories,
 .clues {
   flex: 1 0 21%;
   background-color: blue;
   border: black solid 3px;
-  margin: 5px; 
+  margin: 5px;
   text-align: center;
 }
 
