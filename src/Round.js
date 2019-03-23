@@ -44,6 +44,7 @@ class Round {
   }
 
   checkAnswers(answer){
+    domObject.listenForGuess();
     //pass in string from DOM input
     //check the variable against all three answers.
     //if the variable matches any answer, give player the points and show answer on the DOM. 
