@@ -7,13 +7,13 @@ let domUpdates = {
 
 // },
 
-disableQuit() {
-  $('.quit-button').prop('disabled', true);
-},
+  disableQuit() {
+    $('.quit-button').prop('disabled', true);
+  },
 
-resetGame() {
-  location.reload(true);
-},
+  resetGame() {
+    location.reload(true);
+  },
 
   displayName() {
     $('.box-name').each((i, name) => {
