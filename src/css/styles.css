@@ -1,10 +1,36 @@
+/* ///////////////////////// */
+/* UNIVERSAL */
+/* ///////////////////////// */
 
 *,
 *:after,
 *:before {
   box-sizing: border-box;
 }
+html,body{         
+  position:relative;
+  margin:0;
+  padding:0;
+  color: navy;
+  font-family: 'Roboto Mono', monospace;
+  /* font-family: 'Orbitron', sans-serif; */
+}
 
+/* ///////////////////////// */
+/* HEADING */
+/* ///////////////////////// */
+.header {
+  text-align: center;
+  grid-area: heading;
+  background: cyan;
+  font-family: 'Orbitron', sans-serif;
+}
+
+
+
+/* ///////////////////////// */
+/* LETTERS */
+/* ///////////////////////// */
 
 
 html,body{  
@@ -14,8 +40,18 @@ padding:0;
 color: navy;
 font-family: 'Roboto Mono', monospace;
 /* font-family: 'Orbitron', sans-serif; */
+.letters {
+  grid-area: letters;
+  background: magenta;
+
 }
 
+
+
+
+/* ///////////////////////// */
+/* GAME AREA */
+/* ///////////////////////// */
 .game-area {
   height: 90vh;
   display: grid;
@@ -31,17 +67,6 @@ font-family: 'Roboto Mono', monospace;
   display: none;
 }
 
-.header {
-  text-align: center;
-  grid-area: heading;
-  background: cyan;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.letters {
-  grid-area: letters;
-  background: magenta;
-}
 
 .game-board {
   grid-area: board;
@@ -51,12 +76,36 @@ font-family: 'Roboto Mono', monospace;
 
 .reset-game {
   float: right;
+  margin: 2rem;
 }
 
 .clue-container {
   margin: 10px;
   font-size: 30px;
 }
+
+/* WHEEL SECTION -- seperate file? */
+.wheel-section {
+  grid-area: wheel;
+  background: green;
+}
+
+/* ///////////////////////// */
+/* PLAYER AREA */
+/* ///////////////////////// */
+.player-1 {
+  grid-area: player1;
+  background: lightskyblue;
+}
+.player-2 {
+  grid-area: player2;
+  background: orangered;
+}
+.player-3 {
+  grid-area: player3;
+  background: lightseagreen;
+}
+
 .player-area {
   grid-area: players;
   background: blue;
@@ -71,23 +120,6 @@ font-family: 'Roboto Mono', monospace;
   background: teal;
 }
 
-.wheel-section {
-  grid-area: wheel;
-  background: green;
-}
-.player-1 {
-  grid-area: player1;
-  background: lightskyblue;
-}
-.player-2 {
-  grid-area: player2;
-  background: orangered;
-}
-.player-3 {
-  grid-area: player3;
-  background: lightseagreen;
-}
-
 /* 
 canvas{
     position: fixed;
@@ -96,6 +128,7 @@ canvas{
     margin: 0;
     padding: 0;
 } */
+
 
 h1 {
   margin: 10px 0 0 0;
@@ -146,3 +179,4 @@ h1 {
 .player-square{
   margin-top: auto;
 }
+

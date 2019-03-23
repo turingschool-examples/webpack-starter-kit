@@ -30,12 +30,18 @@
 
 .space {
   background-color: lightgray;
+  color: lightgray;
 }
 .top-row,
-.btm-row {
-  background: rgb(93, 93, 100);
+
+.top-row,
+.btm-row,
+.end  {
+  background: rgb(129, 129, 139);
   border: 2px solid black;
 
 }
 
-
+/* .secret {
+  color: white;
+} */
