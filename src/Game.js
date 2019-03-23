@@ -4,8 +4,8 @@
 //     this.roundNumber = 1;
 //      create surveys array = []
 //     }
-    getSurveys()
-    new game pushes dataset into local array
+    //getSurveys()
+    //new game pushes dataset into local array
 
 //      createPlayer() {
 //         let player1 = new Player(input.value);
