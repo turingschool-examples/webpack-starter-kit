@@ -14,6 +14,7 @@ import Game from './Game';
 // import Clue from './Clue';
 
 const startGameBtn = $('#start-game-btn');
+const gameBoard = $('.game-board');
 
 
 // $startGameBtn.on('click', () => {
@@ -30,4 +31,15 @@ startGameBtn.click(function (e) {
   game.startRound();
   // clue.getClue(data);
   // game.udpateCategories();
+})
+
+gameBoard.click(function (e) {
+  e.preventDefault();
+  let btnId = event.target.id;
+  const game = new Game;
+  game.showClue(btnId);
+  console.log(btnId)
+
+  //create a variable and put the value of the box clicked
+
 })

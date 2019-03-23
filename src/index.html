@@ -14,10 +14,13 @@
       <!-- <p>Round<span class="round-number">1</span></p> -->
     </header>
     <main>
-      <article class="question-prompt">
-        <h1 class="question"></h1>
-        <input class="player-answer"></input>
-      </article>
+      <section class="prompt-holder">
+        <article class="question-prompt" style="display:none">
+          <p class="question">Question</p>
+          <label class="name-inputs" for="question-input"></label>
+          <input type="text" name="question" id="question-input" style="color:#888;" placeholder="Enter Answer">
+        </article>
+      </section>
       <section class="game-board">
         <article class="cat--container">
           <div class="litter-box">
