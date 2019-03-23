@@ -1,13 +1,13 @@
 import $ from 'jquery';
 
 export default {
-    updatePlayersDom(player1Name, player2Name) {
-        $(".player-1-name").text(player1Name);
-        $(".player-2-name").text(player2Name);
-        $(".welcome-screen").addClass("hidden");
+
+    displayRoundData(question, roundNum) {
+        $(".survey-display").text(question);
+        $(".round-num-display").text(roundNum);
     },
 
-    displayRoundQuestion(question) {
-        $(".survey").text(question);
+    displayAnswer(guess) {
+        $(`p:contains(${guess})`).removeClass("hidden");
     }
 }
