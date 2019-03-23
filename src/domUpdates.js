@@ -21,7 +21,25 @@ export default {
     $('#0').text(clues[0][0].question);
   },
 
-  showQuestion() {
+  showQuestion(game, id, text) {
     $('.question-prompt').show();
+    let column = 0;
+    $('.question').text(game.roundOne.clues[column].filter(clue => clue.pointValue === Number(text)).pop().question); 
+    if (id <= 3) {
+      column = 0;
+    } else if (id > 3 && id <= 7) {
+      column = 1;
+    } else if (id > 7 && id <= 11) {
+      column = 2;
+    } else if (id > 11) {
+      column = 3;
+    }
+  },
+
+  answerQuestion(game, id, text) {
+     $('.question-prompt').hide();
+    console.log(game)
+
+
   }
 }

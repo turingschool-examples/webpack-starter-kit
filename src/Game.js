@@ -6,7 +6,7 @@ import Round from './Round.js';
 class Game {
   constructor() {
     this.players = [];
-    // this.roundOne = [];
+    this.roundOne = [];
     this.categories = [];
   }
 
@@ -22,19 +22,16 @@ class Game {
   startRound() {
     const categoryIds = this.shuffle(Object.values(data.categories));
 
-    const roundOne = new Round;
+    var roundOne = new Round;
+    this.roundOne = roundOne;
     roundOne.categoryIds = categoryIds.splice(0, 4);
     roundOne.populateCategories();
     domUpdates.updateCategories(roundOne.categoryNames);
     roundOne.populateClues();
 
   }
+ 
 
-  showClue(id) {
-      
-
-
-  }
 
   shuffle(array) {
     return array.sort(() => 0.5 - Math.random());
