@@ -5,7 +5,7 @@
 import $ from 'jquery';
 
 // An example of how you tell webpack to apply a CSS file
-import './css/normalize.css'
+import './css/normalize.css';
 import './css/base.css';
 
 
@@ -18,16 +18,15 @@ import Rounds from './Rounds.js';
 
 import Game from './Game.js';
 
-import dataSet from './dataSet.js'
+import dataSet from './dataSet.js';
 
-$(".categories").click(() => {
-  alert ('im working');
-});
+import domUpdates from './domUpdates.js';
+
 
 console.log(dataSet.clues);
 
 const newGame = new Game(dataSet.clues);
-console.log(newGame);
+$(document).ready(domUpdates.displayCategories)
 
 // newGame.populateQuestions()
 
@@ -36,11 +35,9 @@ var name1 = 'Erik';
 var name2 = 'Elton';
 var name3 = 'Sean';
 
-var newGame = new Game(name1, name2, name3);
+// var newGame = new Game(name1, name2, name3);
 
-newGame.fetchClue(sweetNumbers)
 
-newGame.nextRound()
 
 
 // const player1 = new Rounds(flatData, 'Erik');
