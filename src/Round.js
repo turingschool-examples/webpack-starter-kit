@@ -23,11 +23,9 @@ class Round {
     })
     console.log(this.categoryNames);
   }
-
 //   setCategoryIds() {
 //     domUpdates.setCategory(this.categoryIds);
 //   }
-
 }
 
 export default Round; 

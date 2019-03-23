@@ -10,17 +10,16 @@ import './css/normalize.css';
 import './css/base.css';
 import './css/landingPage.css';
 
-// let game;
+let game;
 const startGameBtn = $(".start-game-btn");
 
 startGameBtn.click(function(e) {
   e.preventDefault()
+
   const names = [$('#input-0').val(), $('#input-1').val(), $('#input-2').val()]
   const game = new Game;
   game.createPlayers(names); // deal with this duplication
   game.startGame();
-});
-
-
-
+  });
+}
 
