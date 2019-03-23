@@ -79,7 +79,7 @@
     </footer>
     <script type="text/javascript">
     const dataSet =
-      {clues: [
+      { clues: [
         {
           question: "Scorecard Report\" & \"Peter Jacobsen Plugged In\" are seen on the sports channel devoted to this",
           pointValue: 100,
@@ -779,10 +779,33 @@
     // console.log('log sorted: ', sortedList);
 
 
-    const categoryList = sortedList.filter((currentClue) => {
+    const categoryList = clueList.filter((currentClue) => {
       return roundOne.indexOf(currentClue.categoryId) !== -1 ;
     });
-    console.log(categoryList);
+    console.log('log filtered', categoryList);
+
+    let topicOne = [];
+    let topicTwo = [];
+    let topicThree = [];
+    let topicFour = [];
+    categoryList.forEach((currentClue) => {
+      if (currentClue.categoryId === roundOne[0]) {
+        topicOne.push(currentClue);
+      } else if (currentClue.categoryId === roundOne[1]) {
+        topicTwo.push(currentClue)
+      } else if (currentClue.categoryId === roundOne[2]) {
+        topicThree.push(currentClue)
+      } else if (currentClue.categoryId === roundOne[3]) {
+        topicFour.push(currentClue)
+      }
+
+
+    });
+
+    console.log('Log topicOne', topicOne);
+    console.log('Log topicTwo', topicTwo);
+    console.log('Log topicThree', topicThree);
+    console.log('Log topicFour', topicFour);
 
 
     </script>
