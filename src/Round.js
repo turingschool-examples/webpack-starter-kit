@@ -5,37 +5,44 @@ import DomUpdates from './DomUpdates';
 class Round {
   constructor() {
     this.activePlayer = 0
-    this.clueBank = null
+    this.roundsBank = null
+    this.roundCards = []
     this.clueAnswer = null
+    this.roundClue = {}
   }
 
-  createClues() {
-    this.clueBank = Object.values(Data.puzzles).reduce((acc, puzzleLength)=>{
-      puzzleLength.puzzle_bank.forEach(puzzle=>{
-        acc.push(puzzle)
-      });
-      return acc
-    }, [])
-    this.shuffle(this.clueBank)
-    this.getRandomClue()
+  createNewRound(game) {
+    this.roundsBank = Object.entries(Data.puzzles)
+    this.roundCards = this.roundsBank[game.stage][1].puzzle_bank
+    game.stage ++
+    this.shuffle(this.roundCards)
+    this.getRandomClue(this.roundCards)
+    
   }
+
 
   shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
+      var m = Math.floor(Math.random() * (i + 1));
       var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
+      array[i] = array[m];
+      array[m] = temp;
     }
   }
 
-  getRandomClue() {  
-    const selectedClue = this.clueBank[Math.floor(Math.random()) * this.clueBank.length]
-    this.clueAnswer = selectedClue.correct_answer.toLowerCase().split('')
-    // console.log(this.clueAnswer)
-    this.fillGameBoard();
-    
+
+  getRandomClue(cards) {  
+    this.roundClue = cards[Math.floor(Math.random()) * cards.length]
+    this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('')
+    this.fillGameBoard()
+    console.log(this.clueAnswer)
+    console.log(this.roundClue)
   }
+
+  checkLetter(userLetter){
+    if(this.clueAnswer.includes(userLetter)){
+      console.log('go to bed')
+    }
 
   fillGameBoard() {
     DomUpdates.fillGameBoard(this.clueAnswer);

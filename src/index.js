@@ -21,22 +21,39 @@ console.log('This is the JavaScript entry file - your code begins here.');
 let game = new Game()
 
 //********Event Listeners ********/
-$('.start-btn').on('click', () => {
+$('.begin').on('click', () => {
   event.preventDefault()
-  startGameBtn(event);
+  startGameBtn(event, game);
 });
 
-// $('body').on('click', () =>{
-//   event.preventDefault()
-// })
+$('input.player-names').keyup(function() {
+  let pNames = $('.player-names').filter(function() {
+    return this.value !== '';
+  })
+  if (pNames.length === 3) {
+    $('button.disabled').addClass('start-btn')
+    $('button.disabled').removeClass('disabled')
+  }
+  event.preventDefault(event)
+});
+
+$('body').on('click', '.single-letter', (event) =>{
+  selectingLetter(event)
+})
 
 
 /************Functions******* */
-function startGameBtn(event) {
-  event.preventDefault()
+function startGameBtn(event, game) {
+  event.preventDefault(event)
   let playerName1 = $('#player1').val();
   let playerName2 = $('#player2').val();
   let playerName3 = $('#player3').val();
-  $('.input-form').remove()
-  game.startGame(playerName1, playerName2, playerName3)
+  $('section.input-form').remove()
+  game.startGame(playerName1, playerName2, playerName3, game)
+}
+
+function selectingLetter(event) {
+  let selectedLetter = $(event.target).text()
+    console.log(selectedLetter)
+    game.roundInst.checkLetter(selectedLetter)
 }

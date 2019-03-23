@@ -7,14 +7,17 @@ class Game {
   constructor() {
     this.players = []
     this.wheels = []
+    this.stage = 0
+    this.alphabet = []
     this.roundInst = new Round()
   }
 
   startGame(p1, p2, p3) {
     this.createPlayers(p1, p2, p3)
-    this.createGameBoard()
+    this.createLetters()
+    this.createGameBoard(this.alphabet)
     this.createPlayerBox()
-    this.roundInst.createClues()
+    this.roundInst.createNewRound(this)
     
   }
 
@@ -27,13 +30,20 @@ class Game {
     this.players.push(player3)
   }
   createGameBoard() {
-    DomUpdates.createGameBoard(this.players)
+    DomUpdates.createGameBoard(this.alphabet)
   }
 
   createPlayerBox() {
     DomUpdates.createPlayerBox(this.players)
   }
 
+  createLetters() {
+    let allLetters = 'abcdefghijklmnopqrstuvwxyz'.toLowerCase().split('')
+    for (var i = 0; i < allLetters.length; i++){
+      this.alphabet.push(allLetters[i])
+    }
+    console.log(this.alphabet)
+  }
 
 }
 
