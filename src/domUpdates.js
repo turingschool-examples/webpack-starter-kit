@@ -8,5 +8,12 @@ export default {
     $('#player-one-input').hide(500);
     $('#player-two-input').hide(500);
     $('#player-three-input').hide(500);
+  },
+
+  updateCategories(categories) {
+    $('.cat0').text(categories[0]);
+    $('.cat1').text(categories[1]);
+    $('.cat2').text(categories[2]);
+    $('.cat3').text(categories[3])
   }
 }

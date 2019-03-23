@@ -1,10 +1,8 @@
-import data from './data-set.js';
-
 class Clue {
-  constructor() {
-    this.question = '';
-    this.answer = '';
-    this.pointValue = 0;
+  constructor(question, answer, pointValue) {
+    this.question = question;
+    this.answer = answer;
+    this.pointValue = pointValue;
   }
 }
 

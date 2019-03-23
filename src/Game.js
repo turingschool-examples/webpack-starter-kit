@@ -1,12 +1,13 @@
 import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 import data from './data-set.js';
+import Round from './Round.js';
 // import 
 
 class Game {
   constructor() {
     this.players = [];
-    this.categories = [];
+    this.roundOne = [];
   }
 
   createPlayers(names) {
@@ -18,27 +19,20 @@ class Game {
     domUpdates.updateNames(this.players);
   }
 
-  // udpateCategories() {
-  //   console.log('update categories working');
-  //   // console.log(Data);
-  // }
-    // const player = new Player;
-    // console.log(names);
-    // const players = names.map(name => {
-      // let newplayer = new Player(name);
-      // return newPlayer;
-    // })
-    // names.map
-    // domUpdates.updateNames();
-    // this.players = players;
-    // domUpdates.renderNames(this.players);
-  // }
+  startRound() {
+    const categoryIds = this.shuffle(Object.values(data.categories));
 
-  generateRandomNum() {
-    //generate random numbner
-    //pull it
-    //then take it out of array
+    const roundOne = new Round;
+    roundOne.categoryIds = categoryIds.splice(0, 4);
+    roundOne.populateCategories();
+    let categoryNames = roundOne.categoryNames;
+    domUpdates.updateCategories(categoryNames);
   }
+
+  shuffle(array) {
+    return array.sort(() => 0.5 - Math.random());
+  }
+
 }
 
 export default Game;
