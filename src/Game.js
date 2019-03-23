@@ -13,6 +13,7 @@ class Game {
     
     fillUseLetters(letter) {
         this.useLetters.push(letter.target.innerText);
+        console.log(this.useLetters)
     }
 
     startGame(name1, name2, name3) {

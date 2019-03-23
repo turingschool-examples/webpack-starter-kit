@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Game from './Game.js'
+
 
 let domUpdates = {
 
@@ -12,6 +12,14 @@ let domUpdates = {
         $('.player').eq(0).text($('.nameInput').eq(0).val())
         $('.player').eq(1).text($('.nameInput').eq(1).val())
         $('.player').eq(2).text($('.nameInput').eq(2).val())
+    },
+
+    changeCategory(category) {
+        $('.category').text(category)
+    },
+    
+    changeClue(clue) {
+        $('.clue').text(clue)
     }
 }
 
