@@ -57,8 +57,6 @@ describe('Round', () => {
     let player1Guess = 'shirt';
     let player2Guess = 'beer';
 
-    console.log(round.surveyAnswers)
-
     round.checkAnswer(player1Guess);
 
     expect(round.correctGuesses).to.deep.equal([]);
@@ -75,6 +73,19 @@ describe('Round', () => {
     round.checkAnswer(player1Guess);
 
     expect(player1.score).to.equal(67);
+  });
+
+  it('should switch the active player when a player guesses incorrectly', () => {
+    let round = new Round(survey, surveyAnswers);
+    let player1Guess = 'shirt';
+
+    expect(game.activePlayer).to.equal(game.player1);
+
+    round.checkAnswer(player1Guess)
+
+    expect(game.activePlayer).to.equal(game.player2);
+
+
   });
 
 });

@@ -116,6 +116,11 @@ class Game {
   toggleActivePlayer() {
     //if active player is p1, active player = p2, else active player is p1.
     //run fn to indicate active player in the dom
+    if (this.activePlayer === this.player1) {
+      this.activePlayer = this.player2
+    } else {
+      this.activePlayer = this.player1
+    }
 }
 
   endGame() {

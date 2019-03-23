@@ -40,3 +40,5 @@ $("#submit-guess-btn").on("click", function() {
     window.game.round.checkAnswer(playerGuess);
     $(".guess-input").val('');
 });
+
+// export default window.game;

@@ -1,5 +1,6 @@
 import domUpdates from "./domUpdates";
 import Game from "./Game.js"
+// import window.game from "./index.js"
 // import Player from "./Player.js"
 
 class Round {
@@ -29,6 +30,8 @@ class Round {
             this.correctGuesses.push(guess)
             // console.log(this.correctGuesses);
             this.getPoints(guess);
+        } else {
+            game.toggleActivePlayer();
         }
         
             //if answer and answers.length IS 1
