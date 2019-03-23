@@ -1,5 +1,7 @@
 import Puzzle from "./puzzle";
 import data from './data_wheel-of-fortune';
+import GameEngine from './game-engine';
+import { throws } from "assert";
 
 /*
 data.wheel => wheel array of values
@@ -10,8 +12,10 @@ data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects
 class Round {
   constructor(currentRound) {
     this.roundNumber = currentRound,
-    this.correctRoundGuesses = [];
-    this.allRoundGuesses = [];
+    this.correctRoundGuesses = [],
+    this.allRoundGuesses = [],
+    this.currentPlayer = 0,
+    this.counter = 0
   }
   determinePuzzleLength(){
     switch(this.roundNumber) {
@@ -33,6 +37,28 @@ class Round {
     this.roundPuzzle = new Puzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer);
     this.answer = this.roundPuzzle.ans.split('')
   }
+  getCurrentPlayer(game){
+    this.counter < 2 ? this.counter++ : this.counter = 0;
+    this.currentPlayer = game.players[this.counter]
+  }
+  // create an option method
+  // switch statement based on their dom interaction
+  // case guess: 
+  playerGuessWord(){
+    console.log('In guessword')
+  }
+// ? Insert input & 2 buttons to tag event listeners on
+  playerSpin(){
+    console.log('In spin')
+
+  }
+
+  playerBuy(){
+    console.log('In buy')
+
+  }
+
+
 
 }
 export default Round;
