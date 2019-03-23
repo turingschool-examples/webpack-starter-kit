@@ -12,8 +12,6 @@ describe('See if the tests are running', function() {
 //Hannah will complete fastMoney test
 //Hannah refactor html (issue)
 
-//Katie add css (issue)
-
 //Both will commit and do a PR (Katie Done)
 //Both will log one round of current issues on github (Katie Done)
 //Both check trello board (Katie Done)
