@@ -13,19 +13,23 @@ class Game {
     const randomNumber = genNumber();
     const questionObject = copiedQuestions.splice(randomNumber, 1);
     const questionString = questionObject[0].question;
-    const answersArray = [];
     function genNumber() { return Math.floor(Math.random() * copiedQuestions.length) + 1 };
     
     //potentially need to move this function to Round object.
     //append the question to the DOM
     domObject.createQuestion(questionString);
 
-    copiedAnswers.forEach( element => {
-      if (element.surveyId === questionObject[0].id) { answersArray.push(element) };
+    const sortedAnswers = copiedAnswers.reduce( (associatedAnswers, currAnswer) => {
+      if (currAnswer.surveyId === questionObject[0].id) {
+        associatedAnswers.push(currAnswer);
+      }
+      return associatedAnswers;
+    }, []).
+    sort( (a,b) => {
+      return b.respondents - a.respondents;
     })
-    // console.log(questionObject[0].id);
-    // console.log(copiedAnswers);
-    // console.log(answersArray)
+    console.log(sortedAnswers);
+
     //create a array with the three associated answers and remove them from copied array
   }
   restartGame(){
