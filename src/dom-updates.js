@@ -15,5 +15,6 @@ export default {
       $(`.player-${ind + 1}__round-points`).text(player.roundCaps);
       $(`.player-${ind + 1}__totals-points`).text(player.totalCaps);
     });
-  }
+  },
+  // Get player input
 }
