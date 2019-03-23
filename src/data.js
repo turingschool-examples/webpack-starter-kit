@@ -62,7 +62,7 @@ const gameData = {
     { answer: 'Want More Space', respondents: 33, surveyId: 4 },
     { answer: 'Watch', respondents: 58, surveyId: 3 },
     { answer: 'Wrap It', respondents: 61, surveyId: 2 }
-      ]
+    ]
 }
 
 export default gameData;
