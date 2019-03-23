@@ -184,6 +184,9 @@ h3 {
   border-radius: 5px;
   width: 70px;
   height: 70px;
+}
+
+.puzzle-cell-container {
   background-image: radial-gradient(circle, #c0e4d2, #8bcdac, #68bd93);
 }
 
@@ -221,4 +224,13 @@ h3 {
 .player-action-btn:hover {
   background-color: black;
   color: white;
+}
+
+.letters-not-displayed {
+  background-color: white;
+  color: white;
+}
+
+.spaces-not-displayed {
+  background-color: gold;
 }
