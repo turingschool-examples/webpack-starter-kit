@@ -13,6 +13,7 @@ class Round {
   setCategoryIds() {
     domUpdates.setCategory(this.categoryIds);
   }
+
 }
 
 export default Round; 
