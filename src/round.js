@@ -1,8 +1,7 @@
-import Puzzle from "./puzzle";
 import data from './data_wheel-of-fortune';
-import GameEngine from './game-engine';
+import Puzzle from "./puzzle";
 import DomUpdates from './dom-updates';
-import { throws } from "assert";
+import Wheel from './wheel';
 import Player from './player';
 
 /*
@@ -17,7 +16,8 @@ class Round {
     this.correctRoundGuesses = [],
     this.allRoundGuesses = [],
     this.currentPlayer = 0,
-    this.counter = 0
+    this.counter = 0,
+    this.currWheel = new Wheel()
   }
   determinePuzzleLength() {
     switch (this.roundNumber) {
@@ -50,16 +50,12 @@ class Round {
     DomUpdates.updateRoundHintCategory(game);
     console.log(game.currentRound);
   }
-
   checkPlayerGuess() {
     console.log('Array of ans', this.answer);
   
     //get player guess array
     // check player guess array against current array
-
-
   }
-
   // create an option method
   // switch statement based on their dom interaction
   // case guess: 
