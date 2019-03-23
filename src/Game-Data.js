@@ -707,4 +707,6 @@ const data = {
   ]
 };
 
+delete data.response_code
+
 export default data;

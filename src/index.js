@@ -6,10 +6,10 @@ import $ from 'jquery';
 
 // An example of how you tell webpack to apply a CSS file
 import './css/base.css';
+import data from './Game-Data.js';
+import Game from './Game.js';
 
-import data from '../src/Game-Data.js';
-
-import domUpdates from '../src/domUpdates.js';
+import domUpdates from './domUpdates.js';
 
 $(".start").click(domUpdates.getPlayerNames());
 

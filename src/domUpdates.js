@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Game from '../src/Game.js'
 
 export default {
   getPlayerNames() {
@@ -11,7 +12,13 @@ export default {
       $(".player-three-name").text(inputPlayerThree);
       $("input").remove();
       game.startGame();
+      
     });
-  }
+  },
 
+  appendCategoryNames() {
+    const categoryOne = document.getElementByClassName('category-one');
+    console.log(categoryOne)
+    categoryOne.innerText = game.roundOneCategories[0];
+  }
 }
