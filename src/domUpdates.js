@@ -22,5 +22,6 @@ export default {
 
     displayCorrectGuess(guess) {
         $(`p:contains(${guess})`).parent().removeClass("hidden");
+        $(".guess-input").val("");
     }
 }
