@@ -16,7 +16,7 @@ describe('Game', function() {
     game = new Game();
   });
 
-  it('should store an array of current players, which should be empty at the start', function() {
+  it('should have default properties', function() {
     expect(game.players).to.deep.equal([]);
     expect(game.round).to.equal(1);
    

@@ -17,6 +17,7 @@ class Round {
     // iterate over the 4 catIds 
     // invoke grabCategory()
   }
+
 }
 
 export default Round; 
