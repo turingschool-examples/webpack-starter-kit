@@ -90,7 +90,7 @@ class Game {
   }
 
   getRandomSurveyId() {
-    const randomId = Math.floor(Math.random() * 15) + 1;
+    const randomId = Math.floor(Math.random() * this.surveyData.surveys.length) + 1;
 
     if (!this.usedSurveys.includes(randomId)) {
       this.usedSurveys.push(randomId);
@@ -104,7 +104,7 @@ class Game {
     this.currentRound++;
     if (this.currentRound > 3) {
       this.endGame();
-    } else  {
+    } else {
       const randomId = this.getRandomSurveyId();
       const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
       const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);

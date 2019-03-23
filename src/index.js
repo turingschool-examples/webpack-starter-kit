@@ -18,14 +18,8 @@ import './images/family-feud-logo.png'
 
 import Game from './Game.js';
 import Round from './Round.js';
-import Player from './Player';
+import Player from './Player.js';
 import domUpdates from './domUpdates';
-
-// import Round from './Round.js';
-// import FastRound from './FastRound.js';
-// import Player from './Player.js';
-
-console.log('This is the JavaScript entry file - your code begins here.');
 
 $("#submit-names-btn").on("click", function() { 
     const player1Name = $('#player-1-input').val();
