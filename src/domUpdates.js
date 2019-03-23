@@ -6,7 +6,6 @@ import $ from 'jquery';
 export default {
 
   hiddenBoard(playersArr) {
-
     $('.game-area').removeClass("hidden");
     $('.name-entry').addClass("hidden");
     playersArr.forEach((player, ind) => {
@@ -55,7 +54,6 @@ export default {
   },
 
   appendPuzzle (puzzle, splitPuzzle) {
-    
     if (splitPuzzle.length <= 14 ) {
       this.fillSpace(splitPuzzle.length, false);
       this.appendWords(splitPuzzle);
@@ -63,15 +61,8 @@ export default {
     }
   },
 
-  
-  
 
-
-
-  },
-
-
-  setCategoryText(category){
+  setCategoryText(category) {
     $('.clue-container').text(category)
   }
 
@@ -93,10 +84,10 @@ export default {
   //     </section>`;
   //     $('.question-box-area').html(finalWager);
 
-//      $('.word-box').append(<div>letter</div>)
-//     question.answer.split('').forEach(letter => {
-// $('.word-box').append(<div>letter</div>))
-// $('.word-box').append(<div>letter</div>)
+  //      $('.word-box').append(<div>letter</div>)
+  //     question.answer.split('').forEach(letter => {
+  // $('.word-box').append(<div>letter</div>))
+  // $('.word-box').append(<div>letter</div>)
 
   // <div class="word-box">
   // ---new ones here----
