@@ -1,4 +1,4 @@
-const data = {
+export const data = {
   response_code: {
     version: '1.5',
     termsofService: 'http://frontend.turing.io/projects/family-feud.html',

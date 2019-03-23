@@ -7,15 +7,21 @@ import $ from 'jquery';
 // An example of how you tell webpack to apply a CSS file
 import './css/base.css';
 import './css/normalize.css';
+// import './index.html';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png';
+import './images/FFLsm.png';
 
-//import dataset
-import '/dataset.js';
-
-console.log('This is the JavaScript entry file - your code begins here.');
-
+// imports
+import {data} from './dataset.js';
+import Game from './Game.js';
+import Player from './Player.js';
+import Round from './Round.js';
+import domUpdates from './domUpdates.js'
+// import player from './Player.js';
+// import round from './Round.js';
+// import lightningRound from './LightningRound.js';
+// import domUpdates from './domUpdates.js';
 
 
 const dataSet = data.surveys.reduce((acc, survey) => {
@@ -27,7 +33,27 @@ const dataSet = data.surveys.reduce((acc, survey) => {
      return acc;
 }, [])
 
-    console.log(dataSet);
+console.log(dataSet);
+
+$('#startBtn').on('click', startPlaying);
+
+
+function startPlaying() {
+let playerOne = $('.nameOne').val();
+  $('#nameOne').text(playerOne);
+let playerTwo = $('.nameTwo').val();
+  $('#nameTwo').text(playerTwo);
+  createGame()
+}
+
+
+let game;
+
+function createGame() {
+  game = new Game();
+};
+
+
 
 
 //function submitButton {
@@ -39,14 +65,4 @@ const dataSet = data.surveys.reduce((acc, survey) => {
 // }
 // }
 
-// function createGame() {
-//   var game = new Game
-//   instantiate new game (new array, new players, new round)
-// manipulate the original datasets to pair questions with their correct responses
-//  -- responses are sorted in order of highest respondents to lowest
-// on instatiation of a new game:
-// iterate over original combined datasets
-// push into new array game.surveys
-// every call for a new survey question (every round) splices from the array in Game
-// when instantiation deletes (game is over), the copy array goes with it
-// }
+export default dataSet;

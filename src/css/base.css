@@ -10,11 +10,29 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-rows: auto 30% 30%;
+    grid-template-rows: 1% auto 30% 30%;
     height: 1300px;
     font-family: 'Open Sans', sans-serif;
     border: 20px solid goldenrod;
     border-style: ridge;
+}
+
+.startGamePopUp {
+  border: 5px solid goldenrod;
+  border-style: ridge;
+  color: white;
+  display: inline-block;
+  width: 50%;
+}
+
+.nameOne,
+.nameTwo {
+  font-size: 2em;
+  font-weight: 800;
+}
+
+#startBtn {
+  background-color: white;
 }
 
 .gameBoard {
