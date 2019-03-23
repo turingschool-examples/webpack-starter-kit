@@ -13,15 +13,17 @@ class Round {
             //if not guessed before, saveGuess() and checkifAnswer()
     }
         
-    saveGuess() {
-        //push guess into guesses array
+    saveGuess(guess) {
+        this.guesses.push(guess.toLowerCase());
+        console.log('Saved guesses:' + this.guesses);
     }
 
     checkIfAnswer(guess) {
         const answers = this.surveyAnswers.map(answerObj => answerObj.answer.toLowerCase());
 
+        console.log('Guess:' + guess, 'Answers:' + answers);
+
         if (answers.includes(guess.toLowerCase())) {
-            console.log(guess + answers);
             domUpdates.displayAnswer(guess);
         }
         //compare against answer array
