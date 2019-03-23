@@ -35,8 +35,8 @@ class Game {
       // bonuswheel
     }
     let round = new Round(this.players);
-    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount]);
-    // let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
+    // let currentPuzzle = round.getPuzzle(this.allData[this.roundCount]);
+    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
     domUpdates.appendPuzzle(currentPuzzle, currentPuzzle.splitAnswer);
   }
 
