@@ -6,16 +6,16 @@ export default {
       `<section id="letters-selected-area" class="letters-selected-area">
             <table class="letters-selected">
             <tr>
-            <td class="single-letter">${array[0]}</td>
-            <td class="single-letter">${array[1]}</td>
-            <td class="single-letter">${array[2]}</td>
-            <td class="single-letter">${array[3]}</td>
-            <td class="single-letter">${array[4]}</td>
-            <td class="single-letter">${array[5]}</td>
-            <td class="single-letter">${array[6]}</td>
-            <td class="single-letter">${array[7]}</td>
-            <td class="single-letter">${array[8]}</td>
-            <td class="single-letter">${array[9]}</td>
+                <td class="single-letter">${array[0]}</td>
+                <td class="single-letter">${array[1]}</td>
+                <td class="single-letter">${array[2]}</td>
+                <td class="single-letter">${array[3]}</td>
+                <td class="single-letter">${array[4]}</td>
+                <td class="single-letter">${array[5]}</td>
+                <td class="single-letter">${array[6]}</td>
+                <td class="single-letter">${array[7]}</td>
+                <td class="single-letter">${array[8]}</td>
+                <td class="single-letter">${array[9]}</td>
                 <td class="single-letter">${array[10]}</td>
                 <td class="single-letter">${array[11]}</td>
                 <td class="single-letter">${array[12]}</td>
@@ -299,7 +299,7 @@ export default {
 
   fillGameBoard(clueAnswer) {
     console.log(clueAnswer);
-    const puzzleCells = $('.row1 .puzzle-cell').toArray();
+    const puzzleCells = $('.puzzle-cell').toArray();
     console.log(puzzleCells);
     const map = {};
     puzzleCells.forEach((cell, index) => {
