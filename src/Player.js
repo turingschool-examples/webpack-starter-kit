@@ -8,6 +8,7 @@ class Player {
 
   updateScore(amount) {
     this.score += amount;
+    console.log(this.name, this.score);
   } 
 
 }

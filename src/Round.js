@@ -1,4 +1,6 @@
 import Player from "./Player";
+import domUpdates from "./domUpdates";
+import Game from "./Game";
 
 class Round {
 
@@ -10,7 +12,7 @@ class Round {
     // this.correctGuesses = [];
   }
 
-  submitGuess(player, guess) {
+  submitGuess(player, guess, game) {
     for (let response of this.responses) {
       if (response.answer.toLowerCase() === guess) {
         player.updateScore(response.respondents);
@@ -25,8 +27,15 @@ class Round {
           this.isFinished = true;
         }
         break;
-      } 
+      } else if (this.responses.indexOf(response) === this.responses.length - 1) {
+        game.switchPlayers();
+      }
     }
+  }
+
+  switchPlayers() {
+    this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
+    domUpdates.displayPlayer(this.currentPlayer);
   }
 
 }

@@ -10,7 +10,7 @@ class Game {
   constructor(player1, player2) {
     this.players = [player1, player2];
     this.round = 0;
-    this.currentPlayer = this.players[0].number;
+    this.currentPlayer = this.players[0];
   }
 
   startGame() {
@@ -34,16 +34,22 @@ class Game {
   }
 
   shuffle(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
       array[i] = array[j];
       array[j] = temp;
     }
   }
 
-  switchPlayer() {
-    // this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
+  switchPlayers() {
+    if (this.currentPlayer === this.players[0]) {
+      this.currentPlayer = this.players[1];
+    } else {
+      this.currentPlayer = this.players[0];
+    }
+    domUpdates.displayCurrentPlayer(this.currentPlayer);
+    console.log(this.currentPlayer);
   }
 
 }
