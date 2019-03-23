@@ -17,6 +17,44 @@ html,body{
 }
 
 /* ///////////////////////// */
+/* GAME START PAGE */
+/* ///////////////////////// */
+.name-entry{
+  width: 60%;
+  height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 50px;
+  text-align: center;
+}
+
+.player-intro{
+  display: flex;
+  flex-direction: column;
+}
+
+.continue-button{
+  display: block;
+  height: 40px;
+  width: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+
+}
+
+.continue-button:hover{
+  background-color: black;
+  color: white;
+}
+
+
+
+/* ///////////////////////// */
 /* HEADING */
 /* ///////////////////////// */
 .header {
@@ -26,27 +64,21 @@ html,body{
   font-family: 'Orbitron', sans-serif;
 }
 
+h1 {
+  margin: 10px 0 0 0;
+  font-size: 70px;
+}
 
 
 /* ///////////////////////// */
 /* LETTERS */
 /* ///////////////////////// */
 
-
-html,body{  
-position:relative;
-margin:0;
-padding:0;
-color: navy;
-font-family: 'Roboto Mono', monospace;
-/* font-family: 'Orbitron', sans-serif; */
 .letters {
   grid-area: letters;
   background: magenta;
 
 }
-
-
 
 
 /* ///////////////////////// */
@@ -76,7 +108,6 @@ font-family: 'Roboto Mono', monospace;
 
 .reset-game {
   float: right;
-  margin: 2rem;
 }
 
 .clue-container {
@@ -93,6 +124,15 @@ font-family: 'Roboto Mono', monospace;
 /* ///////////////////////// */
 /* PLAYER AREA */
 /* ///////////////////////// */
+.player-area {
+  grid-area: players;
+  background: blue;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  grid-template-areas: 
+    "round round round"
+    "player1 player2 player3"
+}
 .player-1 {
   grid-area: player1;
   background: lightskyblue;
@@ -106,70 +146,14 @@ font-family: 'Roboto Mono', monospace;
   background: lightseagreen;
 }
 
-.player-area {
-  grid-area: players;
-  background: blue;
-  display: grid;
-  grid-template-rows: 1fr 5fr;
-  grid-template-areas: 
-    "round round round"
-    "player1 player2 player3"
-}
 .current-round {
   grid-area: round;
   background: teal;
 }
 
-/* 
-canvas{
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-} */
-
-
-h1 {
-  margin: 10px 0 0 0;
-  font-size: 70px;
-}
-
-.name-entry{
-  width: 60%;
-  height: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
-  border: 2px solid black;
-  border-radius: 15px;
-  padding: 50px;
-  text-align: center;
-}
-
-
-.player-intro{
-  display: inline-block;
-}
-
-.continue-button{
-  display: block;
-  height: 40px;
-  width: 150px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 20px;
-  border-radius: 15px;
-
-}
-
-.continue-button:hover{
-  background-color: black;
-  color: white;
-}
-
 .player-icon{
     height: 120px;
+    margin-top: 20px;
 }
 
 .player-holder{

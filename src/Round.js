@@ -9,7 +9,7 @@ class Round {
     this.players = [] || players;
   }
 
-  getPuzzle(array){
+  getPuzzle(array) {
     let randomNum = Math.floor(Math.random() * array.length);
     let randomPuzzle = array.splice(randomNum, 1);
     let puzzle = new Puzzle(randomPuzzle[0]);

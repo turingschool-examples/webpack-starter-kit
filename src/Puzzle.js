@@ -6,12 +6,12 @@ import Player from "./Player.js";
 
 class Puzzle {
   constructor(puzzle) {
-  this.category = null || puzzle.category;
-  this.correctAnswer = null || puzzle.correct_answer;
-  this.description = null || puzzle.description;
-  this.totalLetters = null || puzzle.total_number_of_letters;
-  this.numWords = null || puzzle.number_of_words;
-  this.splitAnswer = this.correctAnswer.split('');
+    this.category = null || puzzle.category;
+    this.correctAnswer = null || puzzle.correct_answer;
+    this.description = null || puzzle.description;
+    this.totalLetters = null || puzzle.total_number_of_letters;
+    this.numWords = null || puzzle.number_of_words;
+    this.splitAnswer = this.correctAnswer.split('');
   }
 
 
