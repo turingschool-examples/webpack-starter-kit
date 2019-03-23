@@ -41,9 +41,14 @@ class Round {
   getCurrentPlayer(game) {
     this.counter < 2 ? this.counter++ : this.counter = 0;
     this.currentPlayer = game.players[this.counter];
-    console.log(game.players)
     DomUpdates.updatePlayerScore(game);
   }
+  displayPuzzleHintCat(game){
+    game.currentRound.getPuzzle();
+    // DomUpdates.updateRoundHintCategory(game);
+    console.log(game.currentRound);
+  }
+
   // create an option method
   // switch statement based on their dom interaction
   // case guess: 

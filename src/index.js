@@ -20,8 +20,17 @@ $('.start__start--btn').click(() =>{
   game = new GameEngine(playersNames);
   game.revEngine();
   // console.log(game.players);
+  
+
+
   DomUpdates.hidePopup(game);
   getCurrPlayer(game);
+
+  // on round instantiation
+  game.newRound();
+  game.currentRound.determinePuzzleLength();
+  DomUpdates.updateRoundHintCategory(game);
+
 });
 
 let getCurrPlayer = (game => {
