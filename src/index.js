@@ -18,7 +18,7 @@ startGameBtn.click(function(e) {
 
   const names = [$('#input-0').val(), $('#input-1').val(), $('#input-2').val()]
   const game = new Game;
-  game.createPlayers(names); 
+  game.createPlayers(names); // deal with this duplication
   game.startGame();
   });
 }
