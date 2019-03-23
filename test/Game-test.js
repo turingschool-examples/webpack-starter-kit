@@ -6,6 +6,7 @@ chai.use(spies);
 import Game from '../src/Game.js';
 import domUpdates from '../src/domUpdates.js'
 import Player from '../src/Player.js';
+import Round from '../src/Round.js';
 
 chai.spy.on(domUpdates, ['displayRoundData', 'displayCorrectGuess'], () => true);  
 
@@ -51,6 +52,17 @@ describe('Game', () => {
 
     expect(game.currentRound).to.equal(2);
   });
+
+  it('Should increment the round number when new rounds are started', () => {
+    let game = new Game();
+
+    game.startNewRound();
+    game.startNewRound();
+
+    expect(game.currentRound).to.equal(2);
+  });
+
+
 
   //Will start a regular round if on round 1 or 2
   //Will start a special round if on round 3
