@@ -1,9 +1,5 @@
 import $ from 'jquery';
 
-$.expr[':'].contains = function(a, i, m) {
-    return $(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
-};
-    
 
 export default {
 
@@ -21,6 +17,10 @@ export default {
     },
 
     displayCorrectGuess(guess) {
+        $.expr[':'].contains = function(a, i, m) {
+            return $(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+        };
+        
         $(`p:contains(${guess})`).parent().removeClass("hidden");
         $(".guess-input").val("");
     }

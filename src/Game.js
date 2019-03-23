@@ -8,7 +8,7 @@ class Game {
     this.usedSurveys = []; //note: will go up to 4 cus each player gets one in round 3
     this.player1 = player1;
     this.player2 = player2;
-    this.activePlayer = player1;
+    this.activePlayer = 1;
     this.surveyData = {
       response_code: {
         version: '1.5',
