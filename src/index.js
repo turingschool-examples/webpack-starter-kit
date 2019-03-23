@@ -26,12 +26,13 @@ $("#submit-names-btn").on("click", function() {
     const player1Name = $('#player-1-input').val();
     const player2Name = $('#player-2-input').val();
 
-    $(".player-1-name").text(player1Name);
-    $(".player-2-name").text(player2Name);
+    $(".player-1-name").text(player1Name.toUpperCase());
+    $(".player-2-name").text(player2Name.toUpperCase());
     $(".welcome-screen").addClass("hidden");
 
     window.game = new Game(new Player(player1Name), new Player(player2Name)); 
     window.game.startNewGame();
+    window.game.toggleActivePlayer();
 });
 
 $("#submit-guess-btn").on("click", function() { 
