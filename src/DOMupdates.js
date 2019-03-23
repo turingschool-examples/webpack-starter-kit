@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 export default {
 
-	getUserInput() { 
+	generalEvents() { 
 			$(".user-inputs").on( "click", () => {
 			$(".main-content").slideDown();
 			$(".user-inputs").hide();

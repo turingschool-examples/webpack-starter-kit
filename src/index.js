@@ -15,7 +15,7 @@ import './images/turing-logo.png';
 import './Game.js';
 
 import events from './DOMupdates.js'
-events.getUserInput();
+events.generalEvents();
 // $playerOneName.addClass('hidden');
 
 console.log('This is the JavaScript entry file - your code begins here.');
