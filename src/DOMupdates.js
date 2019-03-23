@@ -2,31 +2,6 @@ import $ from 'jquery';
 
 export default {
 
-	generalEvents() { 
-		$(".submit-btn").on( "click", () => {
-			if($('#player-1-name').val() == '' || $('#player-2-name').val() == ''){
-				return;
-			} else {
-			let p1Name = $('#player-1-name').val();
-			let p2Name = $('#player-2-name').val();
-			$('.player-1-name').text(p1Name);
-			$('.player-2-name').text(p2Name);
-			$(".main-content").slideDown();
-			$(".user-inputs").hide();
-			}
-		})
-
-		// $('.player-1-name').text() = $('#player-1-name').val();
-
-		// const $playerOneName = $('#player-1-name');
-		// const $playerTwoName = $('#player-2-name');
-
-		//after 3 guesses are complete show restart game button
-		$(".player-cards").on("click", () => {
-			$(".restart-game").slideDown(300);
-		})
-	},
-
 	createQuestion(element) {
 		const $currentQuestion = $("#current-question");
 		$currentQuestion.html(element);
@@ -46,7 +21,7 @@ export default {
 	},
 
 	listenForGuess() {
-		$("#submit-guess").click( event => {
+		$("#submit-guess").on("click", event => {
 			event.preventDefault();
 			let userInput = $("#player-guess").val()
 			console.log("userInput: " + userInput);
