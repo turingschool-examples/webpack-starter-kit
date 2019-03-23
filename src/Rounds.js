@@ -4,7 +4,8 @@ import Game from './Game.js'
 class Rounds {
   constructor(categoryIds) {
     this.categoryIds = categoryIds;
-    console.log(this.categoryIds);
+    // console.log(this.categoryIds);
+
   }
 
   roundTwoPoints() {
@@ -23,10 +24,17 @@ class Rounds {
       // set this.rightOrWrong to true for correct answer, false for incorrect answer.
       // somehow get the game to check rightOrWrong
       // if right, update player score
-    const categories = dataSet.clues.filter((currentClue) => {
-      return currentClue.categoryId;
-      console.log('Categories Log: ', categories);
+      const clueList = dataSet.clues;
+      // console.log('log 1 ', clueList);
+
+      const sortedList = clueList.sort((a, b) => {
+        return a.pointValue - b.pointValue;
       });
+
+      const categoryList = clueList.filter((currentClue) => {
+        return this.categoryIds.indexOf(currentClue.categoryId) !== -1 ;
+      });
+      // console.log('log 2 ', categoryList);
    }
 }
 

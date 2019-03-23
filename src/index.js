@@ -23,7 +23,7 @@ $(".categories").click(() => {
   alert ('im working');
 });
 
-console.log(dataSet.clues);
+// console.log(dataSet.clues);
 
 
 
@@ -38,8 +38,8 @@ var name3 = 'Sean';
 var newGame = new Game(name1, name2, name3);
 
 
-newGame.currentRound.fetchClues();
-console.log(newGame.currentRound.fetchClues());
+// newGame.currentRound.fetchClues;
+// console.log(newGame.currentRound.fetchClues(newGame.round1Categories));
 
 // newGame.nextRound()
 
