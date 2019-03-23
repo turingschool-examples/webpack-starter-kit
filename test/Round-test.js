@@ -5,6 +5,8 @@ import Round from '../src/Round.js';
 import Game from '../src/Game.js';
 import Player from '../src/Player.js';
 
+let game = new Game(new Player('Tiff'), new Player('Lynne'));
+
 let survey = 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?';
 
 let surveyAnswers = [
@@ -38,8 +40,6 @@ describe('Round', () => {
 
   it('should have used guesses populate into the guesses property', () => {
     let round = new Round(survey, surveyAnswers);
-    let player1 = new Player('Tiff');
-    let player2 = new Player('Lynne');
     let player1Guess = 'shirt';
     let player2Guess = 'beer';
 
@@ -54,10 +54,10 @@ describe('Round', () => {
 
   it('should add guess to correctGuesses if player guessed correctly', () => {
     let round = new Round(survey, surveyAnswers);
-    let player1 = new Player('Tiff');
-    let player2 = new Player('Lynne');
     let player1Guess = 'shirt';
     let player2Guess = 'beer';
+
+    console.log(round.surveyAnswers)
 
     round.checkAnswer(player1Guess);
 
@@ -66,6 +66,15 @@ describe('Round', () => {
     round.checkAnswer(player2Guess);
 
     expect(round.correctGuesses).to.deep.equal(['beer']);
+  });
+
+  it('should increment player score when they guess correctly', () => {
+    let round = new Round(survey, surveyAnswers);
+    let player1Guess = 'beer';
+
+    round.checkAnswer(player1Guess);
+
+    expect(player1.score).to.equal(67);
   });
 
 });

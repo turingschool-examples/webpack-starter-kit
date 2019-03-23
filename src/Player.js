@@ -5,8 +5,9 @@ class Player {
     }
 
     increaseScore(points, multiplier = 1) {
-        this.score += points * multiplier;
+      this.score += points * multiplier;
     }
+
 }
 
 export default Player;

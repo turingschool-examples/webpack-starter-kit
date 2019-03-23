@@ -1,4 +1,6 @@
 import domUpdates from "./domUpdates";
+import Game from "./Game.js"
+// import Player from "./Player.js"
 
 class Round {
     constructor(survey, surveyAnswers) {
@@ -26,12 +28,24 @@ class Round {
             domUpdates.displayCorrectGuess(guess);
             this.correctGuesses.push(guess)
             // console.log(this.correctGuesses);
+            this.getPoints(guess);
         }
         
             //if answer and answers.length IS 1
                 //check roundNum, and if 3 => checkForWinner()
                 //check round, num and if < 3 => game.startNewRound()
             //if not answer, clear the input and toggleActivePlayer()
+    }
+
+    getPoints(guess) {
+
+        let points = this.surveyAnswers.reduce((a, obj) => {
+            if (obj.answer.toLowerCase() === guess) {
+                a = obj.respondents
+            }
+            return a;
+        }, 0)
+        game.activePlayer.increaseScore(points)
     }
 
     toggleActivePlayer() {

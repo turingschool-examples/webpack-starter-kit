@@ -12,10 +12,10 @@ chai.spy.on(domUpdates, ['displayRoundData', 'displayCorrectGuess'], () => true)
 
 describe('Game', () => {
   
-  it('Should have a default active player of 1', () => {
+  it('Should have a default active player of player1', () => {
     let game = new Game();
 
-    expect(game.activePlayer).to.equal(1);
+    expect(game.activePlayer).to.equal(game.player1);
   });
 
   it('Should have a default current round of 0', () => {
