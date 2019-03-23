@@ -1,6 +1,9 @@
+import gameData from './data.js';
+
 class Game {
   constructor(){
-    this.currentTurn = '';
+    this.currentTurn = 'p1';
+    this.game = gameData;
   }
   startGame(){
     //import the data structures
@@ -23,5 +26,8 @@ class Game {
     }
   }
 }
+
+
+
 
 export default Game;
