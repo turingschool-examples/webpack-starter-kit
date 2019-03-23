@@ -5,6 +5,7 @@ import data from '../src/data_wheel-of-fortune.js';
 import Puzzle from '../src/puzzle.js';
 
 import spies from 'chai-spies';
+import GameEngine from '../src/game-engine.js';
 chai.use(spies);
 
 
@@ -24,12 +25,12 @@ describe('Round', ()=>{
         const round = new Round(1);
         expect(round.roundNumber).to.equal(1);
     })
-    it('Should have a different roundPuzzle' , ()=>{
-        const round1 = new Round(1);
-        round1.determinePuzzleLength();
-        const round2 = new Round(1);
-        round2.determinePuzzleLength();
-        expect(round1.roundPuzzle).to.not.equal(round2.roundpuzzle);
+    it('Should have a random roundPuzzle' , ()=>{
+        const round1A = new Round(1);
+        round1A.determinePuzzleLength();
+        const round1B = new Round(1);
+        round1B.determinePuzzleLength();
+        expect(round1A.roundPuzzle).to.not.equal(round1B.roundpuzzle);
     })
     it('Should instantiate a new instance of puzzle in the propery puzzle of round when getPuzzle() is invoked', ()=>{
         const round = new Round(1);
@@ -47,7 +48,26 @@ describe('Round', ()=>{
         let puzzleBank = data.puzzles.one_word_answers.puzzle_bank[0];
         round.getPuzzle(puzzleBank.category, puzzleBank.number_of_words, puzzleBank.total_number_of_letters, puzzleBank.first_word,     puzzleBank.description, puzzleBank.correct_answer);
         expect(round.answer).to.deep.equal(['A', 'r', 'm', 'c', 'h', 'a', 'i', 'r'])
-    });
+    })
+    it('Should', ()=>{
+        const game = new GameEngine();
+        game.players = ['1', '2', '3'];
+        const round = new Round(1);
+        round.getCurrentPlayer(game);
+        console.log(' player: ', round.currentPlayer)
+        round.getCurrentPlayer(game);
+        console.log(' player: ', round.currentPlayer)
+        round.getCurrentPlayer(game);
+        console.log(' player: ', round.currentPlayer)
+        round.getCurrentPlayer(game);
+        console.log(' player: ', round.currentPlayer)
+        round.getCurrentPlayer(game);
+        console.log(' player: ', round.currentPlayer)
+        round.getCurrentPlayer(game);
+        console.log(' player: ', round.currentPlayer)
+        // TODO: finish test
+
+    })
     
 })
 export default Round;

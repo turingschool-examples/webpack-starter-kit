@@ -21,9 +21,12 @@ $('.start__start--btn').click(() =>{
   game.revEngine();
   // console.log(game.players);
   DomUpdates.hidePopup(game);
+  getCurrPlayer(game);
 });
 
-
+let getCurrPlayer = (game => {
+  game.currentRound.getCurrentPlayer(game);
+})
 
 
 

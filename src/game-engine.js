@@ -10,10 +10,10 @@ class GameEngine {
     this.currentRound = new Round(0);
   }
   revEngine() {
-    this.rounds[0] = new Round(this.rounds[0]);
     this.loadPlayers();
   }
   newRound(){
+    // move newRound to round
     this.currentRound.roundNumber++;
   }
   loadPlayers() {
