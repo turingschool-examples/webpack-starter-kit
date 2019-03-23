@@ -1,4 +1,5 @@
 import Game from './Game.js';
+import Wheel from './Wheel.js';
 import $ from 'jquery';
 
 let domUpdates = {
@@ -9,10 +10,6 @@ let domUpdates = {
 
   disableQuit() {
     $('.quit-button').prop('disabled', true);
-  },
-
-  resetGame() {
-    location.reload(true);
   },
 
   displayName() {
@@ -29,11 +26,12 @@ let domUpdates = {
 
 // },
 
-  startGame(game) {
+  startGame(game, wheel) {
     game.createPlayer($('.player-name-input').eq(0).val(), 
       $('.player-name-input').eq(1).val(), 
       $('.player-name-input').eq(2).val());
     game.beginGame(game);
+    wheel.getRandomWheel();
   }
 
 }

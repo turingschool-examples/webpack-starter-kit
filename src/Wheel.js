@@ -1,3 +1,7 @@
+import Game from './Game.js';
+import data from './data.js';
+import domUpdates from './domUpdates.js';
+
 class Wheel {
   constructor(values, currentIndex) {
     this.values = [];
@@ -5,10 +9,13 @@ class Wheel {
   }
 
   getRandomWheel() {
-    //use randomizer to create random wheel
-  }
+    let random = data.wheel[Math.floor(Math.random() * data.wheel.length)];
+    console.log('RandomWheelTest: ', random);
+
+    }
 
   getWheelValue() {
+
     //clean data to grab wheel values
   }
 

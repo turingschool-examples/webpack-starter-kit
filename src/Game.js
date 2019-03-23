@@ -15,7 +15,7 @@ class Game {
   beginGame() {
     this.getRandomPuzzle();
     let puzzle1 = new Puzzle(this.currentPuzzle)
-    console.log(puzzle1)
+    // console.log(puzzle1)
   }
 
   getRandomPuzzle() {
