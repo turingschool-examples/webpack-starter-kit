@@ -40,8 +40,8 @@ describe('Round', () => {
     let round = new Round(survey, surveyAnswers);
     let player1 = new Player('Tiff');
     let player2 = new Player('Lynne');
-    let player1Guess = 'Shirt';
-    let player2Guess = 'Beer';
+    let player1Guess = 'shirt';
+    let player2Guess = 'beer';
 
     round.saveGuess(player1Guess);
 
@@ -50,6 +50,22 @@ describe('Round', () => {
     round.saveGuess(player2Guess);
 
     expect(round.guesses).to.deep.equal(['shirt', 'beer']);
+  });
+
+  it('should add guess to correctGuesses if player guessed correctly', () => {
+    let round = new Round(survey, surveyAnswers);
+    let player1 = new Player('Tiff');
+    let player2 = new Player('Lynne');
+    let player1Guess = 'shirt';
+    let player2Guess = 'beer';
+
+    round.checkIfAnswer(player1Guess);
+
+    expect(round.correctGuesses).to.deep.equal([]);
+
+    round.checkIfAnswer(player2Guess);
+
+    expect(round.correctGuesses).to.deep.equal(['beer']);
   });
 
 });
