@@ -5,20 +5,19 @@ import domUpdates from './domUpdates.js';
 
 class Game {
   constructor() {
+    this.categoryData = [];
     this.players = []; 
     this.round = {}; 
-    this.categoryData = [ 1, 3, 2, 4, 6, 5, 7, 8, 10, 9 ];
   }
   startGame() {
-    const categoryIds = this.categoryData.slice(0, 4)
-    const round = new Round(categoryIds);
-    this.round = round
+    this.createRound();
+    // const categoryIds = this.categoryData.slice(0, 4)
+    // const round = new Round(categoryIds);
+    // this.round = round
+    // round.setCategoryIds();
+    // this.grabData();
 
-    round.setCategoryIds();
   }
-  // grabData() {
-  //   this.ogData = dataSet.clues;
-  // }
   createPlayers(names) {
     const players = names.map(name => {
       let newPlayer = new Player(name);
@@ -26,6 +25,19 @@ class Game {
     });
     this.players = players;
     domUpdates.renderNames(this.players);
+  }
+
+  createRound() {
+    const round = new Round;
+    const categoryIds = this.shuffle(Object.values(dataSet.categories));
+    round.categoryIds = categoryIds.slice(0, 4);
+    // console.log(round.categoryIds);
+    round.generateCategories();
+
+  }
+
+  shuffle(toSort) {
+    return toSort.sort(() => 0.5 - Math.random());
   }
   // readyGameBoard() {
   //   domUpdates.renderNames(this.players);
