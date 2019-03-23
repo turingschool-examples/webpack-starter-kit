@@ -12,7 +12,10 @@ import './css/base.css';
 import './images/turing-logo.png';
 
 //import objects
-import './Game.js';
+import Game from './Game.js';
+let a = new Game();
+a.startGame();
+
 
 import events from './DOMupdates.js'
 events.generalEvents();
