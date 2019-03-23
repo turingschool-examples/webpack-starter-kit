@@ -9,10 +9,10 @@ export default {
   },
   setCategory(ids) {
     console.log("hi", ids)
-    ids.forEach((id, index) => {
-      $(`.val.btn-${index}`).forEach(elem => {	
-        elem.id = id;	
-      })
-    })
+    // ids.forEach((id, index) => {
+    //   $(`.val.btn-${index}`).forEach(elem => {	
+    //     elem.id = id;	
+    //   })
+    // })
   },
 }
