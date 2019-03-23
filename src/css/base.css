@@ -53,6 +53,7 @@ h3 {
   align-items: center;
   border: 2px solid black; 
   margin: 5px;
+  height: 50px;
 }
 
 .col:hover {
@@ -108,7 +109,7 @@ footer {
 }
 
 .question-prompt {
-  height: 400px;
+  height: 200px;
   width: 400px;
   border: 2px solid black;
 }
