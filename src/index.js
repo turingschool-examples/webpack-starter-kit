@@ -30,8 +30,8 @@ $("#submit-names").on( "click", () => {
 	if($('#player-1-name').val() == '' || $('#player-2-name').val() == ''){
 		return;
 	} else {
-	$(".main-content").slideDown();
-	$(".user-inputs").hide();
+		$(".main-content").slideDown();
+		$(".user-inputs").hide();
 	}
 });
 
@@ -40,6 +40,7 @@ $("#submit-guess").on("click", event => {
 	event.preventDefault();
 	let userInput = $("#player-guess").val()
 	console.log("userInput: " + userInput);
+	b.checkAnswers(userInput);
 });
 
 //after 3 guesses are complete show restart game button
