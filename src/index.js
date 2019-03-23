@@ -14,16 +14,16 @@ import './images/FFLsm.png';
 
 // imports
 import {data} from './dataset.js';
-import './Game.js';
+import Game from './Game.js';
+import Player from './Player.js';
+import Round from './Round.js';
+import domUpdates from './domUpdates.js'
 // import player from './Player.js';
 // import round from './Round.js';
 // import lightningRound from './LightningRound.js';
 // import domUpdates from './domUpdates.js';
 
-console.log('This is the JavaScript entry file - your code begins here.');
 
-
-console.log(data);
 const dataSet = data.surveys.reduce((acc, survey) => {
     acc.push({
       id: survey.id,
@@ -33,18 +33,27 @@ const dataSet = data.surveys.reduce((acc, survey) => {
      return acc;
 }, [])
 
+console.log(dataSet);
+
+$('#startBtn').on('click', startPlaying);
+
+
+function startPlaying() {
+let playerOne = $('.nameOne').val();
+  $('#nameOne').text(playerOne);
+let playerTwo = $('.nameTwo').val();
+  $('#nameTwo').text(playerTwo);
+  createGame()
+}
+
+
 let game;
 
 function createGame() {
-  game = new Game;
+  game = new Game();
 };
 
-// function startPlaying () {
-//   on page load, pop up window which contains
-//   two input fields for names
-//   one button to fire createGame()
-  
-// }
+
 
 
 //function submitButton {

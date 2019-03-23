@@ -1,8 +1,7 @@
-// import dataSet from '/dataset.js';
-import $ from 'jquery';
+
 import index from './index.js';
-import player from './Player.js';
-import round from './Round.js';
+import Player from './Player.js';
+import Round from './Round.js';
 import lightningRound from './LightningRound.js';
 import domUpdates from './domUpdates.js';
 
@@ -12,6 +11,7 @@ class Game {
     this.surveys = [];
     console.log(surveys);
     this.roundNumber = 1;
+    this.round = [new Round(), new Round(), new LightningRound()];
   };
 
   getSurveys(data) {
