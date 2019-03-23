@@ -17,10 +17,14 @@
 
 .space {
   background-color: lightgray;
+  color: lightgray;
 }
 .top-row,
-.btm-row {
-  background: rgb(93, 93, 100);
+.btm-row,
+.end  {
+  background: rgb(129, 129, 139);
 }
 
-
+/* .secret {
+  color: white;
+} */
