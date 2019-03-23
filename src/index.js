@@ -9,7 +9,7 @@ import Game from './Game.js';
 import './css/normalize.css';
 import './css/base.css';
 import './css/landingPage.css';
-
+let game;
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
 
@@ -22,9 +22,20 @@ const startGameBtn = $(".start-game-btn");
 
 startGameBtn.click(function(e) {
   e.preventDefault()
-  const names = [$('#input-1').val(), $('#input-2').val(), $('#input-3').val()]
-  const game = new Game;
+
+  const names = [$('#input-0').val(), $('#input-1').val(), $('#input-2').val()]
+  game = new Game;
   game.createPlayers(names);
-  game.startGame(); 
+  
 })
+
+// startGameBtn.click(function(e) {
+//   e.preventDefault()
+//   const nameElements = [$('#input-1'), $('#input-2'), $('#input-3')] 
+//   nameElements.forEach(element => {
+//     element.val() = '';
+//   })
+// })
+
+
 
