@@ -25,19 +25,34 @@ $('.start__start--btn').click(() =>{
 
   DomUpdates.hidePopup(game);
   getCurrPlayer(game);
-
-  // on round instantiation
   game.newRound();
   game.currentRound.determinePuzzleLength();
   DomUpdates.updateRoundHintCategory(game);
-
 });
 
+
+
 let getCurrPlayer = (game => {
+  console.log(game.currentRound)
   game.currentRound.getCurrentPlayer(game);
+  console.log(game.currentRound)
 })
 
-$('.')
+$('.guess__word--button').click(function (game) {
+  let wrdGuess = $('#guess--input').val();
+  game.currentRound.currentPlayer.ans = wrdGuess.split();
+  game.currentRound.getCurrentPlayer(game);
+});
+$('.guess__letter--button').click(function () {
+  if ($('#guess--input').val().length === 1) {
+    let ltrGuess = $('#guess--input').val();
+    game.currentRound.currentPlayer.ans = ltrGuess.split();
+    game.currentRound.getCurrentPlayer(game);
+  } else {
+    alert('Please Only Choose 1 Letter');
+  }
+  
+});
 
 
 

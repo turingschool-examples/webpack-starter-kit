@@ -39,8 +39,9 @@ class Round {
     this.answer = this.roundPuzzle.ans.split('')
   }
   getCurrentPlayer(game) {
-    this.counter < 2 ? this.counter++ : this.counter = 0;
     this.currentPlayer = game.players[this.counter];
+    this.counter < 2 ? this.counter++ : this.counter = 0;    
+    console.log(game.players)
     DomUpdates.updatePlayerScore(game);
   }
   displayPuzzleHintCat(game){

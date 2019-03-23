@@ -224,7 +224,7 @@ button.start__start--btn {
 .board__tile-hider--container,
 .board__tile-value--container {
   width: 80%;
-  height: 70%;
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -232,10 +232,23 @@ button.start__start--btn {
 }
 .hint--container {
   position: absolute;
-  bottom: 15px;
+  bottom: 50px;
   display: flex;
   justify-content: space-between;
   width: 150px;
+}
+
+.guess--container {
+  position: absolute;
+  bottom: 15px;
+}
+
+#guess--input {
+  background-color: black;
+}
+
+.guess--button {
+  background-color: darkgreen;
 }
 
 /* ! Footer / Player Navigation ! */
