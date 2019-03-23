@@ -10,7 +10,7 @@ class Round {
         this.correctGuesses = [];
     }
 
-    checkGuess() {
+    checkGuess(guess) {
         //check against prev guesses
             //if a previous guess, say it's already been guessed and try again.  clear input.
             //if not guessed before, saveGuess() and checkAnswer()
