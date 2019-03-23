@@ -7,15 +7,11 @@ class Round {
     this.categoryIds = ids;
     //this.promptsLeft = value of prompts
   }
-  filteredClues() {
-    // each round has a new set of clues 
-    // filter and remove the used clues from our clues array
-    // 4 clues for each category 
+  findClues() {
+     
   }
   setCategoryIds() {
     domUpdates.setCategory(this.categoryIds);
-    // iterate over the 4 catIds 
-    // invoke grabCategory()
   }
 }
 

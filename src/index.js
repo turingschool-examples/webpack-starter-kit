@@ -10,18 +10,17 @@ import './css/normalize.css';
 import './css/base.css';
 import './css/landingPage.css';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png'
-
+// let game;
 const startGameBtn = $(".start-game-btn");
 
 startGameBtn.click(function(e) {
   e.preventDefault()
   const names = [$('#input-0').val(), $('#input-1').val(), $('#input-2').val()]
   const game = new Game;
-  game.createPlayers(names);
-  game.startGame(); 
-})
+  game.createPlayers(names); 
+  game.startGame();
+});
 
-//event listener for game buttons
+
+
 
