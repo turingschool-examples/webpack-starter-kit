@@ -40,7 +40,7 @@ class Round {
   }
 
   checkLetter(userLetter){
-    if(this.clueAnswer.includes(userLetter)){
+    if(this.clueAnswer.includes(userLetter))
       console.log('go to bed')
     }
 
