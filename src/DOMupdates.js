@@ -3,10 +3,16 @@ import $ from 'jquery';
 export default {
 
 	generalEvents() { 
-			$(".user-inputs").on( "click", () => {
+		$(".submit-btn").on( "click", () => {
+			if($('#player-1-name').val() == '' || $('#player-2-name').val() == ''){
+				return;
+			} else {
 			$(".main-content").slideDown();
 			$(".user-inputs").hide();
+			}
 		})
+
+		// $('#player-1-name').text
 
 		// const $playerOneName = $('#player-1-name');
 		// const $playerTwoName = $('#player-2-name');
