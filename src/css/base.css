@@ -106,7 +106,7 @@ button:focus {
   border-radius: 3px;
 }
 
-.player-info > p {
+.player-info>p {
   margin: 0;
   padding: 0;
 }
@@ -118,10 +118,6 @@ button:focus {
   border: 3px solid black;
   border-radius: 25px;
 }
-
-/* #current-round > * {
-  border: 1px solid red;
-} */
 
 #question-container {
   width: 75%;
@@ -151,7 +147,8 @@ button:focus {
   border-radius: 10px;
 }
 
-h2, h1 {
+h2,
+h1 {
   height: 100%;
   margin: 0;
   display: flex;
@@ -171,7 +168,6 @@ h2, h1 {
   flex-direction: column;
   width: 75%;
   margin: auto;
-  /* margin: 15px auto; */
 }
 
 .response-card,
@@ -181,19 +177,49 @@ button,
   border-radius: 3px;
 }
 
-.response-card {
+.response-container {
+  position: relative;
+}
+
+.response-card,
+.revealed-response {
+  position: absolute;
   height: 60px;
   margin: 5px 0;
   text-align: center;
-  background: linear-gradient(0deg, rgba(26,63,149,1) 0%, rgba(105,173,237,1) 100%);
+  background: linear-gradient(0deg, rgba(26, 63, 149, 1) 0%, rgba(105, 173, 237, 1) 100%);
   color: white;
   font-size: 35px;
   display: flex;
   justify-content: center;
   border: 2px solid #D9E6EE;
   outline: 2px solid grey;
-  outline-offset: -6px;
+  outline-offset: -4px;
   align-items: center;
+  width: 100%;
+}
+
+.response-card {
+  z-index: 999;
+}
+
+.revealed-response {
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 15px;
+  /* justify-content: flex-start; */
+}
+
+.respondents {
+  position: absolute;
+  right: 0;
+  margin: 0;
+  border-left: 2px solid white;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 100%;
 }
 
 h4 {
