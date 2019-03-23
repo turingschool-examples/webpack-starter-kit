@@ -9,3 +9,51 @@ main aside {
   }
 }
 
+h4 {
+  font-family: $bodyfont;
+  font-size: 3rem;
+}
+
+.btns {
+  text-align: center;
+
+  button {
+    background-color: $btn;
+    border-radius: 25px;
+    font-family: $bodyfont;
+    font-size: 2.5rem;
+    height: 75px;
+    margin: 15px;
+    width: 200px;
+    &:hover {
+      background-color: $player;
+      box-shadow: .5rem 1rem 1.5rem .5rem $board;
+    }
+  }
+
+  .spin-pop-up {
+    display: inline;
+  }
+
+  .ltr-input {
+    display: none;
+    height: 65px;
+    font-size: 2rem;
+    padding: 5px;
+    width: 50px;
+  }
+
+  .vowels-to-buy {
+    display: inline-block;
+    color: $player;
+    font-family: $bodyfont;
+    font-size: 2.5rem;
+    display: none;
+  }
+}
+
+.slide-in {
+  animation: slideInX 2s ease 0s 1 normal; 
+  animation-fill-mode: forwards;
+}
+

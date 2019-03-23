@@ -8,6 +8,14 @@
     <header>
         <img class="header-img" src="https://fontmeme.com/permalink/190321/eac8ea22ca3d6807f5fb76129fd7eb34.png" alt="get-schwifty-font" border="0">
     </header>
+    <section class="splash">
+        <h2>Enter Player Names</h2>
+        <p>Player 1: <input id="p1Name" type="text" placeholder="Player 1"></p>
+        <p>Player 2: <input id="p2Name" type="text" placeholder="Player 2"></p>
+        <p>Player 3: <input id="p3Name" type="text" placeholder="Player 3"></p>
+        <button class="start-btn">Start Game</button>
+        <!-- splash page here -->
+      </section>
     <main>
       <section>
         <h2 class="category">Category:</h2>
@@ -22,23 +30,39 @@
         <!-- wheel here -->
       </aside>
     </main>
+        <section class="btns">
+          <button class="btn-spin">SPIN</button>
+          <div class="spin-pop-up">
+            <input class="ltr-input" type="text" maxlength="1">
+            <button>CHECK</button>
+          </div>
+          <button class="buy">BUY A VOWEL</button>
+          <section class="vowels-to-buy">
+            <span>A</span>
+            <span>E</span>
+            <span>I</span>
+            <span>O</span>
+            <span>U</span>
+          </section>
+          <!-- if we get the animation working for the input to appear we should reuse it for the vowels to appear when buy vowel btn is clicked -->
+        </section>
     <section class="player-section">
     <!-- player section -->
       <article>
         <img class="player-image player-one" src="/images/Morty.png" alt="player-one">
-        <h3 class="player-name">Player 1</h3>
+        <h3 class="player-name" id="p1Name-board">Player 1</h3>
         <h4 class="player-score-label">Score:<span class="player-score">100</span></h4>
         <h4 class="player-bank-label">Bank:<span class="player-bank">100</span></h4>
       </article>
       <article>
           <img class="player-image player-two" src="/images/Mr_poopy_butthole.png" alt="player-one">
-        <h3 class="player-name">Player 2</h3>
+        <h3 class="player-name" id="p2Name-board">Player 2</h3>
         <h4 class="player-score-label">Score:<span class="player-score">100</span></h4>
         <h4 class="player-bank-label">Bank:<span class="player-bank">100</span></h4>
       </article>
       <article>
           <img class="player-image player-three" src="/images/Pickle_rick.png" alt="player-one">
-        <h3 class="player-name active">Player 3</h3>
+        <h3 class="player-name active" id="p3Name-board">Player 3</h3>
         <h4 class="player-score-label">Score:<span class="player-score">100</span></h4>
         <h4 class="player-bank-label">Bank:<span class="player-bank">100</span></h4>
       </article>

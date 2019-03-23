@@ -1,0 +1,11 @@
+.letter-box {
+  border: 4px solid black;
+  display: inline-block;
+  font-size: 4.5rem;
+  height: 100px;
+  width: 55px;
+
+  &.letter {
+    margin: 0;
+  }
+}

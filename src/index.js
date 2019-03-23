@@ -23,3 +23,7 @@ game.startRound();
 
 let wheel = new Wheel();
 wheel.spin();
+
+
+domUpdates.showInput();
+domUpdates.showVowels();
