@@ -52,7 +52,7 @@ class Game {
       //player X disabled
     }
   }
-}
+};
 
 
 
