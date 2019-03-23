@@ -16,10 +16,9 @@ class Game {
 
     round.setCategoryIds();
   }
-
-  // grabData() {
-  //   this.ogData = dataSet.clues;
-  // }
+  grabData() {
+    this.ogData = dataSet.clues;
+  }
   createPlayers(names) {
     const players = names.map(name => {
       let newPlayer = new Player(name);
