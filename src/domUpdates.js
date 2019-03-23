@@ -3,9 +3,6 @@ import Round from "./Round.js";
 
 import $ from 'jquery';
 
-
-
-
 export default {
 
   hiddenBoard(playersArr) {
@@ -63,5 +60,14 @@ export default {
   //       </div>
   //     </section>`;
   //     $('.question-box-area').html(finalWager);
+
+//      $('.word-box').append(<div>letter</div>)
+//     question.answer.split('').forEach(letter => {
+// $('.word-box').append(<div>letter</div>))
+// $('.word-box').append(<div>letter</div>)
+
+  // <div class="word-box">
+  // ---new ones here----
+  // </div>
 
 }
