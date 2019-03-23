@@ -18,6 +18,8 @@ $('.startGame').on('click', function (e) {
 
 $('.letters').on('click', function(e) {
     e.target.innerText
+    game.fillUseLetters(e);
+    $('body').find(e.target).off().css("background-color", "grey");
     console.log(e.target.innerText)
 })
 

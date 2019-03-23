@@ -8,6 +8,14 @@ form {
   justify-content: center;
 }
 
+.playerNames {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 60%;
+  padding-left: 200px;
+}
+
 table.guessBoard {
   border: 1px solid black;
   height: 200px;
