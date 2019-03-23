@@ -59,11 +59,11 @@ describe('Round', () => {
     let player1Guess = 'shirt';
     let player2Guess = 'beer';
 
-    round.checkIfAnswer(player1Guess);
+    round.checkAnswer(player1Guess);
 
     expect(round.correctGuesses).to.deep.equal([]);
 
-    round.checkIfAnswer(player2Guess);
+    round.checkAnswer(player2Guess);
 
     expect(round.correctGuesses).to.deep.equal(['beer']);
   });

@@ -11,7 +11,7 @@ class Round {
     checkGuess() {
         //check against prev guesses
             //if a previous guess, say it's already been guessed and try again.  clear input.
-            //if not guessed before, saveGuess() and checkifAnswer()
+            //if not guessed before, saveGuess() and checkAnswer()
     }
         
     saveGuess(guess) {
@@ -19,7 +19,7 @@ class Round {
         // console.log('Saved guesses:', this.guesses);
     }
 
-    checkIfAnswer(guess) {
+    checkAnswer(guess) {
         const answers = this.surveyAnswers.map(answerObj => answerObj.answer.toLowerCase());
 
         if (answers.includes(guess)) {

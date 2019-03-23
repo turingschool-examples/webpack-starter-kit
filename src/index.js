@@ -42,6 +42,6 @@ $("#submit-names-btn").on("click", function() {
 $("#submit-guess-btn").on("click", function() { 
     const playerGuess = $('.guess-input').val().toLowerCase();
     window.game.round.saveGuess(playerGuess);
-    window.game.round.checkIfAnswer(playerGuess);
+    window.game.round.checkAnswer(playerGuess);
     $(".guess-input").val('');
 });
