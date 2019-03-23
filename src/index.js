@@ -19,3 +19,4 @@ $('.spinButton').on('click', function (e) {
     e.preventDefault()
     game.wheel.spinWheel()
 });
+

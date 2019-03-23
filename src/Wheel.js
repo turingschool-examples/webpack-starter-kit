@@ -2,17 +2,19 @@ import data from './data.js';
 
 class Wheel {
     constructor(){
-        this.spunValue = []
+        this.spunValue = null
+        this.disabled = false
     }
     spinWheel() {
-        if(this.spunValue.length === 0) {
-            let randomIndex = Math.floor(Math.random() * (data.wheel.length-1) + 0)
-            let newNum = data.wheel.find( (cur, idx) => {
-                return idx === randomIndex
-            })
-            console.log(newNum)
-            this.spunValue.push(newNum);
-        }
+        let randomIndex = Math.floor(Math.random() * (data.wheel.length-1) + 0)
+        let newVal = data.wheel.find( (cur, idx) => {
+            return idx === randomIndex
+        })
+        this.spunValue = newVal;
+        console.log(newVal)
+    }
+    toggleDisableSpin() {
+        this.disabled = !this.disabled
     }
 }
 
