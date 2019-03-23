@@ -26,6 +26,7 @@ $('.start__start--btn').click(() =>{
   DomUpdates.hidePopup(game);
   getCurrPlayer(game);
   game.newRound();
+  console.log(game.currentRound.currWheel);
   game.currentRound.determinePuzzleLength();
   DomUpdates.updateRoundHintCategory(game);
 });
@@ -33,9 +34,7 @@ $('.start__start--btn').click(() =>{
 
 
 let getCurrPlayer = (game => {
-  console.log(game.currentRound)
   game.currentRound.getCurrentPlayer(game);
-  console.log(game.currentRound)
 })
 
 $('.guess__word--button').click(function (game) {
@@ -51,8 +50,26 @@ $('.guess__letter--button').click(function () {
   } else {
     alert('Please Only Choose 1 Letter');
   }
-  
 });
+$('.nav__wheel--button').click(() => {
+  const slice = game.currentRound.currWheel.wheelSlices[2];
+  $.type(slice) === "number" ? game.currentRound.currentPlayer.roundCaps += slice : spinNotNum(slice);
+  // ! REMOVE CONSOLE: LATER !
+  console.log("rndCaps =", game.currentRound.currentPlayer.roundCaps);
+  console.log("ttlCaps =", game.currentRound.currentPlayer.totalCaps);
+  console.log("CurrPlayer: ", game.currentRound.currentPlayer.name)
+});
+
+let spinNotNum = (slice) => {
+  if (slice === 'Respawn') {
+    console.log("respawn")
+    game.currentRound.currentPlayer.roundCaps = 0;
+    game.currentRound.currentPlayer.totalCaps = 0;
+  } else {
+    console.log("sleep")
+  }
+  game.currentRound.getCurrentPlayer(game)
+};
 
 
 
