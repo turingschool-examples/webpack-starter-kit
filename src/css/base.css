@@ -10,14 +10,16 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-rows: 1% auto 30% 30%;
-    height: 1300px;
+    grid-template-rows: auto 40% 20% 20%;
+    height: 1500px;
     font-family: 'Open Sans', sans-serif;
     border: 20px solid goldenrod;
     border-style: ridge;
 }
 
 .startGamePopUp {
+  position: relative;
+  z-index: 10;
   border: 5px solid goldenrod;
   border-style: ridge;
   color: white;

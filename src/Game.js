@@ -9,18 +9,21 @@ import domUpdates from './domUpdates.js';
 class Game {
   constructor() {     
     this.surveys = [];
-    console.log(surveys);
     this.roundNumber = 1;
-    this.round = [new Round(), new Round(), new LightningRound()];
+    // this.round = [new Round(), new Round(), new LightningRound()];
   };
 
-  getSurveys(data) {
-    this.surveys.push(data.dataSet);
+  getSurveys(dataset) {
+    this.surveys.push(dataSet);
+    console.log(this.dataSet);
+      console.log(this.surveys);
   };
 
-//      createPlayer() {
-//         let player1 = new Player(input.value);
-//         let player2 = new Player(input.value);
+  createPlayer(name1, name2) {
+    let player1 = new Player(name1);
+    let player2 = new Player(name2);
+    console.log(player1);
+  };
 
 
         // checkPlayer() {
