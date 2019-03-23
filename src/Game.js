@@ -9,35 +9,32 @@ class Game {
     this.players = [];
     this.rounds = [1, 2, 3, 4, 5];
     this.currentPlayer = player;
-    this.categories = []; 
+    this.currentPuzzle = null
   }
 
   beginGame() {
     this.getRandomPuzzle();
-  }
-
-  createPuzzleBank(allPuzzles) {
-    let puzzle1 = new Puzzle(allPuzzles[0]);
-    let puzzle2 = new Puzzle(allPuzzles[1]);
-    let puzzle3 = new Puzzle(allPuzzles[2]);
-    let puzzle4 = new Puzzle(allPuzzles[3]);
-    this.allPuzzles = [puzzle1, puzzle2, puzzle3, puzzle4];
+    let puzzle1 = new Puzzle(this.currentPuzzle)
+    console.log(puzzle1)
   }
 
   getRandomPuzzle() {
     let keys = Object.keys(data.puzzles);
     keys.forEach((puzzleCat) => {
-      this.allPuzzles.push(data.puzzles[puzzleCat].puzzle_bank)
+      let bankLength = data.puzzles[puzzleCat].puzzle_bank.length;
+      let randomIndex = Math.floor(Math.random() * Math.floor(bankLength));
+      let randomPuzz = data.puzzles[puzzleCat].puzzle_bank[randomIndex];
+      this.allPuzzles.push(randomPuzz);
     });
-   
+    const currentPuzzle = this.allPuzzles.pop();
+    this.currentPuzzle = currentPuzzle
   }
 
   createPlayer(name1, name2, name3) {
     const player1 = new Player(name1);
     const player2 = new Player(name2);
     const player3 = new Player(name3);
-
-    if(this.players.length <= 3) {
+    if (this.players.length <= 3) {
       this.players.push(player1, player2, player3);
     }
     domUpdates.displayName();

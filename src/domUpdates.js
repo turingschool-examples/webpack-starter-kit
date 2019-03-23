@@ -22,7 +22,7 @@ let domUpdates = {
   },
 
   displayCategoryName(game) {
-    $('.category').text(game.allPuzzles[0][0].category);
+    $('.category').text(game.allPuzzles.category);
   },
 
 // displayScore() {
