@@ -3,7 +3,8 @@ import spies from 'chai-spies';
 import Game from '../src/Game';
 import Round from '../src/Round';
 import Player from '../src/Player';
-import domUpdates from '../src/domUpdates'
+import domUpdates from '../src/domUpdates';
+import data from '../src/data';
 
 chai.use(spies);
 const assert = chai.assert;
@@ -13,11 +14,6 @@ describe('Game', () => {
   it.skip('should start at round 0', () => {
     const game = new Game();
     assert.equal(game.currentRound, 0);
-  });
-
-  it.skip('should have an array of surveys', () => {
-    const game = new Game();
-    assert.equal(game.surveys, []);
   });
 
   it.skip('should accept an array of players', () => {
@@ -30,9 +26,40 @@ describe('Game', () => {
   }); 
 
   it.skip('should start on player 1', () => {
-    const game = new Game(['Jarrett', 'Brennan']);
-    assert.equal(game.currentPlayer, 0);
+    const p1 = new player('Brennan');
+    const p2 = new player('Jarrett');
+    const game = new Game(p1, p2);
+    assert.equal(game.currentPlayer, player1);
   });
+
+  it.skip('should start with an empty array of surveys', () => {
+    const game = new Game();
+    assert.equal(game.surveys, []);
+  });
+
+  it.skip('should be able to start the game and grab surveys', () => {
+    const p1 = new player('Brennan');
+    const p2 = new player('Jarrett');
+    const game = new Game(p1, p2);
+    game.startGame();
+    assert.equal(game.surveys.length, 15)
+  });
+
+  it.skip('should start increment round upon initiation of game', () => {
+    const p1 = new player('Brennan');
+    const p2 = new player('Jarrett');
+    const game = new Game(p1, p2);
+    game.startGame();
+    assert.equal(game.round, 1);
+  });
+
+  it.skip('should have a currentRound upon initiation of the game', () => {
+    const p1 = new player('Brennan');
+    const p2 = new player('Jarrett');
+    const game = new Game(p1, p2);
+    game.startGame();
+    assert.equal(game.currentRound, )
+  })
 
   it.skip('should be able to check a guess', () => {
     const game = new Game(['Jarrett', 'Brennan']);
@@ -41,17 +68,20 @@ describe('Game', () => {
     game.checkAnswer(player, guess);
   });
 
-  it.skip('should update a player score if their guess is correct', () => {
+  // move to Round-test
+  // it.skip('should update a player score if their guess is correct', () => {
 
-  });
+  // });
 
-  it.skip('should switch players if the guess is wrong', () => {
+  // move to Round-test
+  // it.skip('should switch players if the guess is wrong', () => {
 
-  });
+  // });
 
-  it.skip('should check if all responses have been guessed', () => {
+  // move to round 
+  // it.skip('should check if all responses have been guessed', () => {
 
-  });
+  // });
 
 
   // should have round counter, nun, default 0 or 1

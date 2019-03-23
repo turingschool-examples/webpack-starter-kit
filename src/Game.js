@@ -11,6 +11,7 @@ class Game {
     this.players = [player1, player2];
     this.round = 0;
     this.currentPlayer = this.players[0].number;
+    this.surveys = [];
   }
 
   startGame() {
