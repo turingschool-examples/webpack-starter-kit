@@ -8,13 +8,14 @@ describe('Game', function() {
 		let myGame = new Game();
 		expect(myGame.game).to.equal(gameData);
 	})
-	// it('Should copy the data structures', function() {
-	// 	let game = new Game();
-	// 	expect(game).to.equal(true);
-	// })
-	// it('Should remove a survey question at random from original array', function() {
-
-	// })
+	it('Should randomly splice a survey question and return the question as a string', function() {
+		let myGame = new Game();
+		expect(myGame.startGame()).to.be.a('String');
+	})
+	it('Source gameData object array\'s should not be mutated', function() {
+		expect(gameData.surveys.length).to.equal(15);
+		expect(gameData.answers.length).to.equal(45);
+	})
 })
 
 // describe('Game', function() {
