@@ -23,6 +23,7 @@ class Round {
         // TODO create game over screen
         if (this.responses.length === 0) {
           this.isFinished = true;
+          
         }
         break;
       } 
