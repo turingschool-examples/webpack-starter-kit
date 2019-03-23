@@ -4,11 +4,11 @@ import data from './data.js';
 import Puzzle from './Puzzle.js';
 
 class Game {
-  constructor(players, rounds, currentPlayer) {
+  constructor(player) {
     this.allPuzzles = [];
     this.players = [];
     this.rounds = [1, 2, 3, 4, 5];
-    this.currentPlayer = 0;
+    this.currentPlayer = player;
     this.categories = []; 
   }
 
@@ -16,16 +16,20 @@ class Game {
     this.getRandomPuzzle();
   }
 
+  createPuzzleBank(allPuzzles) {
+    let puzzle1 = new Puzzle(allPuzzles[0]);
+    let puzzle2 = new Puzzle(allPuzzles[1]);
+    let puzzle3 = new Puzzle(allPuzzles[2]);
+    let puzzle4 = new Puzzle(allPuzzles[3]);
+    this.allPuzzles = [puzzle1, puzzle2, puzzle3, puzzle4];
+  }
+
   getRandomPuzzle() {
     let keys = Object.keys(data.puzzles);
     keys.forEach((puzzleCat) => {
       this.allPuzzles.push(data.puzzles[puzzleCat].puzzle_bank)
     });
-    // for (let i = this.allPuzzles.length - 1; i > 0; i--) {
-    //   const j = Math.floor(Math.random() * (i + 1));
-    //   [this.allPuzzles[i], this.allPuzzles[j]] = 
-    //   [this.allPuzzles[j], this.allPuzzles[i]];
-    // }
+   
   }
 
   createPlayer(name1, name2, name3) {
