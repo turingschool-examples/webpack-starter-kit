@@ -113,6 +113,11 @@ class Game {
     } //will need to add another condition for FastRound
   }
 
+  toggleActivePlayer() {
+    //if active player is p1, active player = p2, else active player is p1.
+    //run fn to indicate active player in the dom
+}
+
   endGame() {
     //show a play again dialog?
     //if they play again, we should show the enter names dialog again to start fresh

@@ -7,13 +7,13 @@ class Round {
         this.guesses = [];
     }
 
-    checkGuess() {
+    checkGuess(guess) {
         //check against prev guesses
             //if a previous guess, say it's already been guessed and try again.  clear input.
             //if not guessed before, saveGuess() and checkifAnswer()
     }
         
-    saveGuess() {
+    saveGuess(guess) {
         //push guess into guesses array
     }
 
@@ -34,11 +34,6 @@ class Round {
                 //check roundNum, and if 3 => checkForWinner()
                 //check round, num and if < 3 => game.startNewRound()
             //if not answer, clear the input and toggleActivePlayer()
-    }
-
-    toggleActivePlayer() {
-        //if active player is p1, active player = p2, else active player is p1.
-        //run fn to indicate active player in the dom
     }
 }
 

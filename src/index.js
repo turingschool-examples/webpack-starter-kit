@@ -21,6 +21,7 @@ import Round from './Round.js';
 import Player from './Player.js';
 import domUpdates from './domUpdates';
 
+
 $("#submit-names-btn").on("click", function() { 
     const player1Name = $('#player-1-input').val();
     const player2Name = $('#player-2-input').val();
