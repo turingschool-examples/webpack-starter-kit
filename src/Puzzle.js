@@ -1,13 +1,13 @@
-import data from './data.js';
+import Game from './Game.js'
 
 class Puzzle {
-  constructor(letterBank, vowels, description, splitAnswer) {
-    this.letterBank = null;
-    this.vowels = [];
-    this.description = null;
-    this.splitAnswer = null;
+  constructor(puzzle) {
+    this.guessedBank = [];
+    this.categories = puzzle.category;
+    // this.description = puzzle.one_word_answers.description;
+    this.answer = puzzle.correct_answer;
+    this.numWords = puzzle.number_of_words;
   }
-
 }
 
 export default Puzzle;
