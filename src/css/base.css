@@ -102,4 +102,14 @@ footer {
   margin: 10px;
 }
 
+.question-prompt {
+  height: 400px;
+  width: 400px;
+  border: 2px solid black;
+}
+
+.player-answer {
+  margin: 0, auto;
+}
+
 

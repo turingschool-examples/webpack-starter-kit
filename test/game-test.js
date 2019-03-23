@@ -27,7 +27,6 @@ describe('Game', function () {
     let game = new Game;
 
     game.createPlayers(['Saadrick Lamar']);
-
     expect(game.players).to.deep.equal([{ name: 'Saadrick Lamar', score: 0, iD: 0 }]);
   })
 })
