@@ -35,4 +35,8 @@ export default {
 		console.log('dom test answers');
 	}
 
+	listenForGuess() {
+		//when user clicks submit button (#submit-guess) pass the string in the input into an variable
+		//go to Player.js
+	}
 }

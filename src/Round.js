@@ -44,7 +44,10 @@ class Round {
   }
 
   checkAnswers(answer){
-
+    //pass in string from DOM input
+    //check the variable against all three answers.
+    //if the variable matches any answer, give player the points and show answer on the DOM. 
+    //move the answer object into the player's correct answer array
   }
 
   checkAnswersTimed(answer){
