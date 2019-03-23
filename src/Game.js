@@ -8,10 +8,13 @@ class Game {
         this.players = [];
         this.wheel = new Wheel();
         this.round = new Round();
+        this.useLetters = [];
     }
-    fillBoard() {
+    
+    fillUseLetters(letter) {
+        this.useLetters.push(letter.target.innerText);
+    }
 
-    }
     startGame(name1, name2, name3) {
         this.round.createRound()
         this.wheel.getWheelValues()
