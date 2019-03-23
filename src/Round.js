@@ -22,7 +22,7 @@ class Round {
 
         if (answers.includes(guess.toLowerCase())) {
             console.log(guess + answers);
-            domUpdates.displayAnswer(guess);
+            domUpdates.displayCorrectGuess(guess);
         }
         //compare against answer array
             //if answer and answers.length is < 1

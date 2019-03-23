@@ -86,8 +86,7 @@ class Game {
   }
 
   startNewGame() {
-    //reset page defaults
-    this.currentRound = 0;
+    //will add reset page defaults here
     this.startNewRound();
   }
 
@@ -111,14 +110,13 @@ class Game {
       const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
       const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
       this.round = new Round(question, answers);
-      domUpdates.displayRoundData(question, this.currentRound); //will move to round class eventually
+      domUpdates.displayRoundData(question, answers, this.currentRound); //will move to round class eventually
     } //will need to add another condition for FastRound
   }
 
   endGame() {
     //show a play again dialog?
-    //reset defaults on screen
-    //clear usedSurveys array
+    //if they play again, we should show the enter names dialog again to start fresh
   }
 } 
 
