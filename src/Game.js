@@ -5,31 +5,27 @@ import Puzzle from './Puzzle.js';
 
 class Game {
   constructor(players, rounds, currentPlayer) {
+    this.allPuzzles = [];
     this.players = [];
-    this.rounds = [];
+    this.rounds = [1, 2, 3, 4, 5];
     this.currentPlayer = 0;
     this.categories = []; 
   }
 
-   beginGame() {
-    this.cleanData();
-    // this.getRandomCategories(game);
+  beginGame() {
+    this.getRandomPuzzle();
   }
 
-  //  getRandomCategories(game) {
-  //   console.log('getRandomCategories');
-  //   console.log(game.categories);
-  //   // for(let i = this.categories.length - 1; i>0; i--) {
-  //   //   const j = Math.floor(Math.random() * (i + 1));
-  //   //   [this.categories[i], this.categories[j]] = 
-  //   //   [this.categories[j], this.categories[i]];
-  //   // }
-  // }
-
-  cleanData(puzzle) {
-    let newDataVals = Object.values(data);
-    newDataVals.shift();
-    this.categories = Object.keys(data).shift();
+  getRandomPuzzle() {
+    let keys = Object.keys(data.puzzles);
+    keys.forEach((puzzleCat) => {
+      this.allPuzzles.push(data.puzzles[puzzleCat].puzzle_bank)
+    });
+    // for (let i = this.allPuzzles.length - 1; i > 0; i--) {
+    //   const j = Math.floor(Math.random() * (i + 1));
+    //   [this.allPuzzles[i], this.allPuzzles[j]] = 
+    //   [this.allPuzzles[j], this.allPuzzles[i]];
+    // }
   }
 
   createPlayer(name1, name2, name3) {

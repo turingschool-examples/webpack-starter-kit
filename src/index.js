@@ -9,11 +9,12 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 let game = new Game();
 console.log(game);
-console.log(data);
+console.log(game.getRandomPuzzle);
 
 
 $('.start-button').on('click', function() {
   domUpdates.startGame(game);
+  domUpdates.displayCategoryName(game);
   $('.start-button').hide('slow');
   $('.button').prop('disabled', false).css('color', 'white');
   $('.player-name-input').hide();

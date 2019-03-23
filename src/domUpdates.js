@@ -15,22 +15,26 @@ resetGame() {
   location.reload(true);
 },
 
-displayName() {
-  $('.box-name').each((i, name) => {
-    $(name).text($('.player-name-input').eq(i).val());
-  });
-},
+  displayName() {
+    $('.box-name').each((i, name) => {
+      $(name).text($('.player-name-input').eq(i).val());
+    });
+  },
+
+  displayCategoryName(game) {
+    $('.category').text(game.allPuzzles[0][0].category);
+  },
 
 // displayScore() {
 
 // },
 
-startGame(game) {
-  game.createPlayer($('.player-name-input').eq(0).val(), 
-    $('.player-name-input').eq(1).val(), 
-    $('.player-name-input').eq(2).val());
+  startGame(game) {
+    game.createPlayer($('.player-name-input').eq(0).val(), 
+      $('.player-name-input').eq(1).val(), 
+      $('.player-name-input').eq(2).val());
     game.beginGame(game);
-}
+  }
 
 }
 
