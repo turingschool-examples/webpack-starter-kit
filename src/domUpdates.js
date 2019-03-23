@@ -19,5 +19,9 @@ export default {
 
   assignClue(clues) {
     $('#0').text(clues[0][0].question);
+  },
+
+  showQuestion() {
+    $('.question-prompt').show();
   }
 }

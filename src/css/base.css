@@ -102,6 +102,11 @@ footer {
   margin: 10px;
 }
 
+.prompt-holder {
+  display: flex;
+  justify-content: center;
+}
+
 .question-prompt {
   height: 400px;
   width: 400px;
