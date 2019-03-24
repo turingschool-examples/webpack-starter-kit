@@ -26,3 +26,10 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 //Create instances of player
 //Create instances of Game
+$(".submit-btn").on("click", function() {
+  const p1Name = $("#p1-name-input").val();
+  const p2Name = $("#p2-name-input").val();
+  const player1 = new Player(p1Name);
+  const player2 = new Player(p2Name);
+  const game = new Game(player1, player2);
+});
