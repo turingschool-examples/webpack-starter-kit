@@ -4,8 +4,16 @@
   font-size: 4.5rem;
   height: 100px;
   width: 55px;
+  margin-bottom: 25px;
 
   &.letter {
     margin: 0;
   }
+}
+
+.space-box {
+  display: inline-block;
+  font-size: 4.5rem;
+  height: 100px;
+  width: 55px;
 }

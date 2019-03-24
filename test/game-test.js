@@ -1,5 +1,12 @@
 import chai from 'chai';
-import Game from '../src/js/game'
+import Game from '../src/js/game';
+import spies from 'chai-spies';
+import domUpdates from '../src/js/domUpdates.js';
+
+chai.use(spies);
+chai.spy.on(domUpdates, ['updateQInfo', 'revealPrize'], () => true);
+chai.spy.on(domUpdates, 'getNames', () => ['nim', 'rick', 'morty']);
+
 const expect = chai.expect;
 
 describe('Game', () => {
@@ -38,6 +45,12 @@ describe('Game', () => {
     expect(game.currentQuestion).to.equal(undefined);
     game.startRound();
     expect(game.currentQuestion).to.be.an('object');
+  })
+
+  it('instantiate new players', () => {
+    expect(game.players).to.deep.equal([]);
+    game.instantiatePlayers();
+    expect(game.players).to.have.lengthOf(3);
   })
  
 });

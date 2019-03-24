@@ -7,7 +7,11 @@ export default {
     $('.description').text(question.description);
 
     question.answer.split('').forEach(letter => {
-      $('.word-box').append(`<div class="letter-box"><div class="letter">${letter}</div></div>`);
+      if (letter === ' ') {
+        $('.word-box').append(`<div class="space-box"></div>`);
+      } else {
+        $('.word-box').append(`<div class="letter-box"><div class="letter">${letter}</div></div>`);
+      }
     })
   },
 
@@ -17,7 +21,8 @@ export default {
 
   showInput() {
     $('.btn-spin').on('click', function() {
-      $('.spin-pop-up').toggle()
+      $('.check-btn').toggle().addClass('slide-in');
+      $('.ltr-input').toggle().addClass('slide-in');
       $('ltr-input').addClass('slide-in');
     });
   },
@@ -52,7 +57,7 @@ export default {
       $('.splash').hide();
       $('.game-page').show();
       $('.player-section').css('visibility', 'visible');
-      let game = new Game()
+      let game = new Game();
       game.instantiatePlayers();
     });
   },

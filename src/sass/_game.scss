@@ -10,33 +10,97 @@
 
 body {
   background-image: url(../images/bg.png);
+  background-repeat: no-repeat;
   background-size: cover;
+}
+
+header {
+  text-align: center;
 }
 
 main {
   background-color: $board;
-  height: 40vh;
+  min-height: 45vh;
   display: flex;
-
-  .category {
-    font-size: $boardCategory;
-    display: inline-block;
-    height: 10%;
-  }
-
-  .word-box {
-    height: 60%;
-  }
-
-  .description {
-    font-size: $boardDescription;
-    height: 10%;
-  }
 
   section {
     flex: 2;
     font-family: $bodyfont;
     text-align: center;
+    position: relative;
+
+    .category {
+      font-size: $boardCategory;
+      display: inline-block;
+      height: 10%;
+    }
+
+    .word-box {
+      height: 65%;
+    }
+
+    .description {
+      font-size: $boardDescription;
+      height: 25%;
+    }
+
+    .spin-pop-up {
+      position: absolute;
+      font-family: $bodyfont;
+      justify-content: center;
+      width: 100%;
+      font-size: 2rem;
+      height: 60px;
+      display: flex;
+      bottom: 0;
+        
+      .check-btn {
+        background-color: $btn;
+        font-size: 1rem;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        width: 100px;
+        display: none;
+        
+        &:hover {
+          background-color: $player;
+          box-shadow: .5rem 1rem 1.5rem .5rem $board;
+
+        }
+      }
+
+      .ltr-input {
+        width: 4rem;
+        font-size: 1.5rem;
+        text-align: center;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        display: none;
+      }
+
+      .input-solve {
+        border-radius: 25px;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      .vowels-to-buy {
+        border: 2px solid black;
+        padding: 0 5px;
+        span {
+          margin: 0 5px;
+        }
+      }
+
+      .input-solve {
+        display: none;
+      }
+
+      .vowels-to-buy {
+        display: none;
+      }
+    }
+  
   }
 
   aside {
@@ -53,15 +117,11 @@ main {
   visibility: hidden;
 }
 
-header {
-  text-align: center;
-}
-
 .splash {
   color: white;
   font-family: $bodyfont;
   font-size: 2rem;
-  height: 60vh;
+  height: 70vh;
   text-align: center;
   width: 100vw;
   z-index: 15;
