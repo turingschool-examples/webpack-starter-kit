@@ -21,16 +21,8 @@ import data from './gamedata.js';
 import Game from './Game.js';
 import Player from './Player.js';
 
-console.log(data);
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
-console.log(domUpdates);
-//Create instances of player
-//Create instances of Game
-$(".submit-btn").on("click", function() {
-  startGame();
-});
+$(".submit-btn").on("click", startGame);
 
 function startGame() {
   const p1Name = $("#p1-name-input").val();
