@@ -40,5 +40,10 @@ export default {
 
     displayPlayer2Score(score) {
         $(".player-2-score").text(score);
+    },
+
+    clearAnswerBoard() {
+        $(".answer-data").addClass("hidden");
+
     }
 }
