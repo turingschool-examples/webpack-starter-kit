@@ -9,10 +9,11 @@ class Game {
     this.players = [];
     this.rounds = [1, 2, 3, 4, 5];
     this.currentPlayer = player;
-    this.currentPuzzle = null
+    this.currentPuzzle = null;
   }
 
   beginGame() {
+    // domUpdates.displayQuestion(puzzle.description);
     this.getRandomPuzzle();
     let puzzle1 = new Puzzle(this.currentPuzzle)
     // console.log(puzzle1)

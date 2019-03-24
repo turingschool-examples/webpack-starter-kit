@@ -1,5 +1,6 @@
 import Game from './Game.js';
 import Wheel from './Wheel.js';
+import Puzzle from './Puzzle.js';
 import $ from 'jquery';
 
 let domUpdates = {
@@ -7,6 +8,17 @@ let domUpdates = {
 // newGame() {
 
 // },
+  displayQuestion(description) {
+     $('.popup').append(
+      `<section class='question-popup'> 
+          <h2 class='card'>${description}</h2>
+          <form class='solve-form'> 
+            <input class='answer-input' placeholder='Type your answer here'>
+            <button class='answer-submit'>Submit</button>
+          </form>
+        </section>`
+        )
+  },
 
   disableQuit() {
     $('.quit-button').prop('disabled', true);
@@ -18,9 +30,9 @@ let domUpdates = {
     });
   },
 
-  displayCategoryName(game) {
-    $('.category').text(game.allPuzzles.category);
-  },
+  // displayCategoryName(game) {
+    // $('.category').text(game.allPuzzles.category);
+  // },
 
 // displayScore() {
 
