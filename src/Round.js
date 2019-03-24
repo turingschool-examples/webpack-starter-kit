@@ -22,11 +22,9 @@ class Round {
     }
 
     checkAnswer(guess, game) {
-        //i can probably refactor my first go at this and get us a reusable obj match
         const match = this.surveyAnswers
             .find(answerObj => answerObj.answer.toLowerCase()
             .includes(guess.toLowerCase()));
-            
 
         if (match) {
             domUpdates.displayCorrectGuess(match.answer);
@@ -34,6 +32,7 @@ class Round {
             this.getPoints(guess, game);
             this.surveyAnswers.splice(this.surveyAnswers.indexOf(match), 1);
         } else {
+            domUpdates.showNoMatch();
             game.toggleActivePlayer();
         }
 
@@ -43,6 +42,8 @@ class Round {
     }
 
     getPoints(guess, game) {
+        //now that i refactored my code above to find a matching obj =>
+            //we could just directly call increaseScore with match.points arg
         let points = this.surveyAnswers.reduce((a, obj) => {
             if (obj.answer.toLowerCase() === guess) {
                 a = obj.respondents;

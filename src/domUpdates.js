@@ -42,5 +42,11 @@ export default {
         $(".answer-data").addClass("hidden");
         $(".player-1-score").text("0");
         $(".player-2-score").text("0")
+    },
+
+    showNoMatch() {
+        $("#no-match-msg").fadeIn("fast", function(){
+            $("#no-match-msg").delay(1000).fadeOut(); 
+         });
     }
 }

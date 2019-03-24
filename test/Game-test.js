@@ -13,7 +13,8 @@ chai.spy.on(domUpdates, [
   'displayCorrectGuess', 
   'displayPlayer1', 
   'displayPlayer2',
-  'resetPageDefaults'
+  'resetPageDefaults',
+  'showNoMatch'
   ], () => true);  
 
 describe('Game', () => {
