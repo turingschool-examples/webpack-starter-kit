@@ -54,13 +54,9 @@ class Round {
     }
 
     endRound(game) {
+        domUpdates.clearAnswerBoard();
         game.toggleActivePlayer();
         game.startNewRound();
-
-        //if answer and answers.length IS 1
-                //check roundNum, and if 3 => checkForWinner()
-                //check round, num and if < 3 => game.startNewRound()
-            //if not answer, clear the input and toggleActivePlayer()
     }
 }
 

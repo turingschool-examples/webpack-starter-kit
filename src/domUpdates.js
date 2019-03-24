@@ -48,5 +48,8 @@ export default {
         $("#no-match-msg").fadeIn("fast", function(){
             $("#no-match-msg").delay(1000).fadeOut(); 
          });
+      
+    clearAnswerBoard() {
+        $(".answer-data").addClass("hidden");
     }
 }
