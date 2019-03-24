@@ -14,33 +14,39 @@ import './images/turing-logo.png';
 //import objects
 import Game from './Game.js';
 import Round from './Round.js';
-let a = new Game();
-let b = new Round();
-
+import Player from './Player.js';
+const a = new Game();
+const player1 = new Player();
+const player2 = new Player();
 //is this right??? i dont think so
 a.startGame();
 
-
 import events from './DOMupdates.js'
 // events.listenForGuess();
-
 
 //listeners
 $("#submit-names").on( "click", () => {
 	if($('#player-1-name').val() == '' || $('#player-2-name').val() == ''){
 		return;
 	} else {
+		player1.name = $('#player-1-name').val();
+		player2.name = $('#player-2-name').val();
+		console.log(player1);
+		console.log(player2);
 		$(".main-content").slideDown();
 		$(".user-inputs").hide();
 	}
 });
+
+//capture player names
 
 //capture value from guess input
 $("#submit-guess").on("click", event => {
 	event.preventDefault();
 	let userInput = $("#player-guess").val()
 	console.log("userInput: " + userInput);
-	b.checkAnswers(userInput);
+	console.log(a.currentAnswer);
+	a.checkAnswers(userInput, a.currentAnswer);
 });
 
 //after 3 guesses are complete show restart game button
