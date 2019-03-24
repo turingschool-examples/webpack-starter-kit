@@ -11,8 +11,7 @@ class Game {
     this.number = 0;
     this.players = [player1, player2];
     this.round = 0;
-    this.currentPlayer = this.players[this.number];
-    this.surveys = [];
+    this.currentPlayer = this.players[0];
   }
 
   startGame() {
@@ -31,23 +30,27 @@ class Game {
   startNextRound() {
     this.round++;
     this.currentRound = new Round(this.round, this.surveys[this.round - 1]);
-    // console.log(this);
-    domUpdates.displayCurrentQuestion(this.currentRound.question);
+    console.log(this);
+    domUpdates.startRound(this.currentRound);
   }
 
   shuffle(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
       array[i] = array[j];
       array[j] = temp;
     }
   }
 
-  switchPlayer() {
-    this.number = this.number === 0 ? 1 : 0;
-    this.currentPlayer = this.players[this.number]
-    console.log(this.currentPlayer)
+  switchPlayers() {
+    if (this.currentPlayer === this.players[0]) {
+      this.currentPlayer = this.players[1];
+    } else {
+      this.currentPlayer = this.players[0];
+    }
+    domUpdates.displayCurrentPlayer(this.currentPlayer);
+    console.log(this.currentPlayer);
   }
 
 }

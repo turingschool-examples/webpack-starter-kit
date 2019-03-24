@@ -1,19 +1,13 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file
-
-// An example of how you import jQuery into a JS file if you use jQuery in the file
 import $ from 'jquery';
 import Game from './Game';
 import Player from './Player';
 import Round from './Round';
+import domUpdates from './domUpdates';
 
-// An example of how you tell webpack to apply a CSS file
 import './css/normalize.css';
 import './css/base.css';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
-import domUpdates from './domUpdates';
 
 const startBtn = $('#start-game-btn')
 const submitBtn = $('.submit-btn')
@@ -25,22 +19,21 @@ startBtn.on('click', () => {
   const p2name = $('#player-two-input').val();
   const player1 = new Player(p1name, 1);
   const player2 = new Player(p2name, 2);
-  domUpdates.updateNames(p1name, p2name);
-  // TODO dom updates disable button
-  startBtn.attr("disabled", true);
   game = new Game(player1, player2);
   game.startGame();
-  console.log(game);
+  domUpdates.startGame(game);
 });
 
 submitBtn.on('click', () => {
   const guess = $('#guess-input').val().toLowerCase();
-  game.currentRound.submitGuess(game.currentPlayer, guess);
-  game.switchPlayer()
+  game.currentRound.submitGuess(game.currentPlayer, guess, game);
+  domUpdates.clearguess();
   if (game.currentRound.isFinished) {
-    // TODO starts new round after 5 seconds
-    setTimeout(() => {
-      game.startNextRound();
-    }, 5000);
+
+    console.log('game over');
+    // // TODO starts new round after 5 seconds
+    // setTimeout(() => {
+    //   game.startNextRound();
+    // }, 5000);
   }
 });
