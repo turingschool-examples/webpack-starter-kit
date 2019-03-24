@@ -1,0 +1,123 @@
+//constants
+$pi: 3.14159265359;
+
+// Size (rem) and number (int)
+$circumference: 45;
+$segments: 20;
+
+@function getArcLength() {
+  $degrees: 360 / $segments;
+  
+  //  Get radians to calculate arc length
+  $radians: $degrees * ($pi / 180);
+  
+  //  Arc length = Radius * Radians
+  $arc: ($circumference / 2) * $radians;
+  
+  @return $arc / 2
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+// body {
+//   font-family: -apple-system, BlinkMacSystemFont, “Roboto”, “Droid Sans”, “Helvetica Neue”, Helvetica, Arial, sans-serif;
+//   overflow: hidden;
+// }
+.wheel-section {
+  position: relative;
+}
+
+#wheel {
+  width: $circumference + rem;
+  height: $circumference + rem;
+  margin: 1rem auto;
+  position: absolute;
+  background: blue;
+  border-radius: 50%;
+  border: 5px solid navy;
+  left: 70%;
+  transform: translateX(-50%);//!!
+}
+
+#inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: lightgray;
+  border-radius: 100%;
+  transition: all 2s cubic-bezier(0,.99,.88,.99);
+  // animation: spin 10s linear infinite;
+}
+
+.segment {
+  width: 0; 
+  height: 0; 
+	border-style: solid;
+	border-width: ($circumference / 2)+rem getArcLength()+rem 0;
+	border-color: transparent;
+  position: absolute;
+  left: 50%;
+  margin-left: -(getArcLength())+rem;
+  transform-origin: getArcLength()+rem ($circumference / 2)+rem;
+    
+  span {
+    display: block;
+    margin-top: -(($circumference/2)-3)+rem;
+    color: rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    font-size: 10px;
+    width: getArcLength()+rem;
+    transform: translateX(-50%);
+    
+    &:before {
+      position: absolute;
+      left: 50%;
+      top: 2rem;
+      transform: translateX(-50%);
+      font-size: 1rem;
+    }
+  }
+}
+
+@for $i from 1 through $segments {
+
+  .segment:nth-child(#{$i}) {
+    $deg: ((360/$segments)*$i)-(360/$segments);
+    $money: ($i);
+    transform: rotate($deg+deg);
+    
+    span {
+      &:before {
+        content: "000";
+        color: darkgray;
+        // content: "#{$money}";
+      }
+    }
+  }
+  
+}
+
+#winner {
+  text-align: center;
+  margin: 1rem auto;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.blue {
+  border-right: 5px dotted blue;
+  
+}
+.teal {
+  border-right: 5px dotted teal;
+  
+}

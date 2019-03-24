@@ -7,15 +7,21 @@
 *:before {
   box-sizing: border-box;
 }
-html,body{         
+html,
+body {         
   position:relative;
   margin:0;
   padding:0;
   color: navy;
   font-family: 'Roboto Mono', monospace;
+  overflow: hidden;
+  /* height: 90vh; */
   /* font-family: 'Orbitron', sans-serif; */
 }
 
+body {
+  height: 100%;
+}
 /* ///////////////////////// */
 /* GAME START PAGE */
 /* ///////////////////////// */
@@ -85,10 +91,10 @@ h1 {
 /* GAME AREA */
 /* ///////////////////////// */
 .game-area {
-  height: 90vh;
+  /* height: 100; */
   display: grid;
   grid-template-columns: 3fr 5fr;
-  grid-auto-rows: 4fr 1fr 4fr;
+  grid-auto-rows: 1fr 4fr 6fr;
   grid-template-areas: 
     "heading heading heading"
     "letters board board" 
