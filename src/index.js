@@ -23,11 +23,10 @@ $('.start__start--btn').click(() =>{
     
     DomUpdates.hidePopup(game);
     getCurrPlayer(game);
-    game.newRound();
+    game.newRound(game);
     // console.log(game.currentRound.currWheel);
-    game.currentRound.determinePuzzleLength();
+    // // game.currentRound.determinePuzzleLength();
     // DomUpdates.updateRoundHintCategory(game);
-    game.currentRound.displayDomPuzzle(game);
   });
   
   let getCurrPlayer = (game => {
@@ -35,7 +34,18 @@ $('.start__start--btn').click(() =>{
   })
 
   let toggleButtons = () => {
-   $('#consonant').attr("disabled") ? $('#consonant').removeAttr("disabled") : $('#consonant').attr("disabled",'true')
+    //Toggle: Consonant
+   $('#consonant').attr("disabled") ? $('#consonant').removeAttr("disabled") : $('#consonant').attr("disabled",'true');
+    //Toggle: Wheel
+   $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled",'true');
+    //Toggle: Word & Vowel
+    if ($('.guess__word--button').attr("disabled") && $('#vowel').attr("disabled")) {
+      $('.guess__word--button').removeAttr("disabled");
+      $('#vowel').removeAttr("disabled");
+    } else {
+      $('.guess__word--button').attr("disabled",'true');
+      $('#vowel').attr("disabled",'true');
+    }
   }
 
   const vowels = ['a','e','i','o','u'];
@@ -53,7 +63,7 @@ $('.start__start--btn').click(() =>{
     game.currentRound.wholeWord = game.currentRound.wholeWord.filter(letter => alphabetArr.includes(letter))
     game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
     // ! end round here
-    console.log('answer correct') : getCurrPlayer(game);
+    game.newRound(game) : getCurrPlayer(game);
     
     // console.log(game);
     // game.currentRound.currentPlayer.ans = wrdGuess.split('');

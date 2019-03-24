@@ -24,7 +24,7 @@ export default {
     lettersRemaining.text(game.currentRound.allRoundGuesses);
   },
   updateRoundHintCategory(game) {
-    console.log(game.currentRound.roundPuzzle);
+    // console.log(game.currentRound.roundPuzzle);
     //category
     $('.hint__title').text(`Category: ${game.currentRound.roundPuzzle.cat} | `);
     //hint
