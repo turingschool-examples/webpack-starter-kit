@@ -1,21 +1,23 @@
-import Game from './Game,js';
+import Game from './Game.js';
 import Player from './Player.js';
 import Puzzle from './Puzzle.js';
 import domUpdates from './domUpdates.js';
 
 class Round {
-  constructor() {
-    this.players = players;
+  constructor(player) {
+    this.currentPlayer = player;
     this.roundQuestions = [];
     this.finalRound = [];
+    this.playerGuess = [];
   }
 
-  getRandomCategories() {
-    //once answer is guess, round is complete 
-  }
-
-  getRandomQuestions() {
-
+  checkPlayerGuess() {
+    //player inputs guess
+    //verify if guess matches correct answer for currentPuzzle
+    //if letterGuess matches letter within puzzle
+      //then, it will display on dom
+    //else it will populate within an already used guess bank
+    //dom doesnt change if it doesnt match
   }
   
 changeAvailablePuzzle() {

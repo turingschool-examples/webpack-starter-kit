@@ -11,7 +11,9 @@ body {
 header {
   display: flex;
   justify-content: space-around;
+  justify-content: center;
 }
+
 
 h1 {
   color: #FFF;
@@ -19,8 +21,14 @@ h1 {
   font-size: 80px;
 } 
 
+.quit-button {
+  position: absolute;
+  top: 25px;
+  right: 75px;
+}
+
 .round-count {
-  color: #6ab187;
+  color: #80c69d;
   font-size: 50px;
   text-align: center;
   margin-bottom: 30px;
@@ -29,6 +37,12 @@ h1 {
 .puzzle-container {
   display: flex;
   justify-content: center;
+}
+
+.category {
+  color: #6ab187;
+  font-size: 40px;
+  text-align: center;
 }
 
 .consonant-letter-bank,
@@ -52,15 +66,44 @@ h1 {
 .puzzle {
   border: 1px solid #7da3a1;
   color: #FFF;
+  display: flex;
+  justify-content: center;
   font-size: 24px;
   height: 500px;
   margin-bottom: 20px;
   width: 75em;
 }
 
+.answer-display {
+  font-size: 45px;
+  margin-top: 210px;
+}
+
+.letter {
+  border-bottom: 2px solid #FFF;
+  color: #324851;
+  display: inline-block;
+  margin: 20px;
+}
+
 .player-buttons-container {
 display: flex;
 justify-content: center;
+}
+
+.guess-input-container {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  border-radius: 5px;
+  line-height: 35px;
+  padding: 5px;
+}
+
+.submit {
+  margin-right: 20px;
 }
 
 .button {
@@ -76,13 +119,17 @@ justify-content: center;
   height: 100px;
  }
 
+.popup {
+  display: flex;
+  justify-content: center;
+}
  .question-popup {
   background: #FFF;
   border: 2px solid black;
   border-radius: 5px;
   box-shadow: 5px 5px 5px black;
-  height: 350px;
-  width: 650px;
+  height: 375px;
+  width: 750px;
   margin-top: 100px;
   padding: 50px;
   position: absolute;

@@ -5,19 +5,27 @@ import $ from 'jquery';
 
 let domUpdates = {
 
-// newGame() {
-
-// },
-  displayQuestion(description) {
+  displayQuestionSolvePopup(game) {
      $('.popup').append(
       `<section class='question-popup'> 
-          <h2 class='card'>${description}</h2>
+          <h2 class='card'>Hint: ${game.currentPuzzle.description}</h2>
           <form class='solve-form'> 
             <input class='answer-input' placeholder='Type your answer here'>
             <button class='answer-submit'>Submit</button>
           </form>
         </section>`
         )
+  },
+
+  displayAnswer(game) {
+    let answer = game.currentPuzzle.correct_answer.split('');
+    answer.forEach((letter) => {
+      if (letter === ' ' || '-' || '&') {
+        $('.answer-display').append(`<p class = 'letter no-border'>${letter.toUpperCase()}</p>`);
+      } else {
+        $('.answer-display').append(`<p class = 'letter hidden'>${letter.toUpperCase()}</p>`);
+      }
+    })
   },
 
   disableQuit() {
@@ -30,9 +38,9 @@ let domUpdates = {
     });
   },
 
-  // displayCategoryName(game) {
-    // $('.category').text(game.allPuzzles.category);
-  // },
+  displayCategoryName(game) {
+    $('.category').text(game.currentPuzzle.category.toUpperCase());
+  },
 
 // displayScore() {
 

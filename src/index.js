@@ -5,6 +5,7 @@ import './css/base.css';
 import Game from './Game.js';
 import Wheel from './Wheel.js';
 import Puzzle from './Puzzle.js';
+import Round from './Round.js';
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
@@ -16,7 +17,9 @@ console.log(game);
 
 $('.start-button').on('click', function() {
   domUpdates.startGame(game, wheel);
-  // domUpdates.displayCategoryName(game);
+  domUpdates.displayCategoryName(game); 
+  domUpdates.displayAnswer(game);
+  // domUpdates.displayBoard(game);
   $('.start-button').hide('slow');
   $('.button').prop('disabled', false).css('color', 'white');
   $('.player-name-input').hide();
@@ -35,5 +38,6 @@ $('#js-spin-button').on('click', function() {
 });
 
 $('#js-solve-button').on('click', function() {
-  domUpdates.displayQuestion(puzzle.description);
+  domUpdates.displayQuestionSolvePopup(game);
+  // round.checkPlayerGuess();
 });
