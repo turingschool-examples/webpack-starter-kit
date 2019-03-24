@@ -9,7 +9,7 @@ import domUpdates from '../src/domUpdates.js'
 chai.spy.on(domUpdates, [
   'displayPlayer1Score',
   'displayPlayer2Score'
-  ], () => true);
+], () => true);
 
 describe('Player', () => {
   it('should have a name that can be specified', () => {

@@ -105,10 +105,6 @@ class Game {
     }
   }
 
-  getSurvey() {
-    
-  }
-
   startNewRound() {
     this.currentRound ++;
 
@@ -127,9 +123,8 @@ class Game {
     }
   }
 
-  startFastRound(question, answers) {
-    console.log('FAST MONEY ROUND!')
-    // this.round = new FastRound(question, answers);
+  startFastRound() {
+    
   }
 
 
@@ -141,11 +136,12 @@ class Game {
       this.activePlayer = this.player1;
       domUpdates.displayPlayer1();
     }
-}
+  }
 
   endGame() {
-    //show a play again dialog?
-    //if they play again, we should show the enter names dialog again to start fresh
+    // show a play again dialog?
+    // if they play again, 
+    // should show the enter names dialog again to start fresh
   }
 } 
 
