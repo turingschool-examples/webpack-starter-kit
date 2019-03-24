@@ -19,8 +19,8 @@ export default {
   updateRoundHintCategory(game){
     console.log(game.currentRound.roundPuzzle);
     //category
-    $('.hint__title').text(game.currentRound.roundPuzzle.cat);
+    $('.hint__title').text(`Category: ${game.currentRound.roundPuzzle.cat} | `);
     //hint
-    $('.hint__value').text(game.currentRound.roundPuzzle.description);
+    $('.hint__value').text(`Hint: ${game.currentRound.roundPuzzle.description}`);
   }
 }

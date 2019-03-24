@@ -57,20 +57,16 @@ $('.guess__letter--button').click(function () {
      else if(game.currentRound.answer.map((item)=> item.toUpperCase()).includes(game.currentRound.currentPlayer.ans.toUpperCase())){
         game.currentRound.correctRoundGuesses.push(game.currentRound.currentPlayer.ans)
         game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
-        console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
-        console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
+        // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
+        // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
 
     } else {
-        console.log(game.currentRound.allRoundGuesses)
-        console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
+        // console.log(game.currentRound.allRoundGuesses)
+        // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
         game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
-        console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
-        console.log('CurrentPlayer', game.currentRound.currentPlayer)
+        // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
+        // console.log('CurrentPlayer', game.currentRound.currentPlayer)
     }
-    // create a new array
-    // push correct guess letter in there
-    // find index of answer array to guess letter array
-    // change text of that index to the value of the guess index
     game.currentRound.getCurrentPlayer(game);
   } else {
     alert('Please Only Choose 1 Letter');
