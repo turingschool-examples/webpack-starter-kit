@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import data from './data-set.js';
 
 export default {
   updateNames(names) {
@@ -25,7 +26,6 @@ export default {
     $('.question-prompt').show();
     $('#' + id).text(' '); 
     let column = 0;
-    $('.question').text(game.roundOne.clues[column].filter(clue => clue.pointValue === Number(text)).pop().question); 
     if (id <= 3) {
       column = 0;
     } else if (id > 3 && id <= 7) {
@@ -35,9 +35,24 @@ export default {
     } else if (id > 11) {
       column = 3;
     }
+    $('.question').text(game.roundOne.clues[column].filter(clue => clue.pointValue === Number(text)).pop().question); 
   },
 
-  answerQuestion(game, id, text) {
-     $('.question-prompt').hide();
-  }
+  answerQuestion(game) {
+    let questionText = $(".question");
+    let answerText = $('#question-input');
+    let result = data.clues.reduce((acc, currentClue) => {
+      if(questionText.text() === currentClue.question) {
+        acc += currentClue.answer;
+      }
+      return acc
+    }, '')
+    if(result.toLowerCase() === answerText.val().toLowerCase()) {
+     questionText.text('Correct Answer');
+    } else {
+     questionText.text('Incorrect Answer');
+     game.changePlayer();
+    }
+  },
+
 }
