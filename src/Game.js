@@ -47,7 +47,7 @@ class Game {
         { answer: 'Change', respondents: 24, surveyId: 8 },
         { answer: 'Chicago', respondents: 18, surveyId: 7 },
         { answer: 'Coffee', respondents: 17, surveyId: 15 },
-        { answer: 'Cold Cereal', respondents: 67, surveyId: 15 },
+        { answer: 'Cereal', respondents: 67, surveyId: 15 },
         { answer: 'Detergent', respondents: 69, surveyId: 8 },
         { answer: 'Donuts', respondents: 24, surveyId: 1 },
         { answer: 'Dryer Sheets', respondents: 6, surveyId: 8 },
