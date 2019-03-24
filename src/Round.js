@@ -3,7 +3,6 @@ import domUpdates from './domUpdates.js';
 
 class Round {
   constructor(ids, clues) {
-    // this.categoryNames = []; /// can most likely be done without making this a key/value pair
     this.categoryIds = ids;
     this.clues = clues;
   }
@@ -18,6 +17,8 @@ class Round {
     });
     domUpdates.showClue(clueToShow, event)
   }
+
+  
 
 }
 

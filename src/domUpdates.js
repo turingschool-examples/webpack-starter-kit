@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import data from './data-set.js';
+import Player from './Player.js';
 
 export default {
   updateNames(names) {
@@ -12,17 +13,18 @@ export default {
   },
 
   displayCategories(categories) {
-    const categoryTitles = [ 'US History', 'Life Sciences', 'Public Health', 'Education Jargon',
-      'Name That Board Game', 'American Literature', 'Biographies', 'American Cities',
-      'Food', 'Cable TV' ];
+    const categoryTitles = [ 'US History', 'Life Sciences', 
+      'Public Health', 'Education Jargon',
+      'Name That Board Game', 'American Literature', 
+      'Biographies', 'American Cities', 'Food', 'Cable TV' ];
     categories.forEach((category, index) => {
       $(`.cat-title-${index}`).text(`${categoryTitles[category - 1]}`);
       $(`.col.${index}`).attr('id', category);
-      });
+    });
   },
 
   showClue(clue, event) {
-    const { id, innerText } = event.target;
+    // const { id, innerText } = event.target;
     $('.question-prompt').show();
     $('.question').text(clue.question);
     
@@ -30,20 +32,21 @@ export default {
     
   answerQuestion(game) {
     let questionText = $(".question");
-    console.log(questionText)
     let answerText = $('#question-input');
+    let currentPlayer = game.players[game.playerTurn];
     let result = data.clues.reduce((acc, currentClue) => {
-      if(questionText.text() === currentClue.question) {
+      if (questionText.text() === currentClue.question) {
         acc += currentClue.answer;
       }
       return acc
     }, '')
-    if(result.toLowerCase() === answerText.val().toLowerCase()) {
-     questionText.text('Correct Answer');
-     player.changeScore();
+    if (result.toLowerCase() === answerText.val().toLowerCase()) {
+      questionText.text('Correct Answer');
+      currentPlayer.increaseScore();
     } else {
-     questionText.text('Incorrect Answer');
-     game.changePlayer();
+      questionText.text('Incorrect Answer');
+      currentPlayer.decreaseScore();
+      game.changePlayerTurn();
     }
   },
   

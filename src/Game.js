@@ -9,7 +9,8 @@ class Game {
     this.clues = [];
     this.round = {};
     this.categories = [];
-    this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+    this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    this.playerTurn = 0;
   }
 
   createPlayers(names) {
@@ -20,7 +21,6 @@ class Game {
     this.players = players;
     domUpdates.updateNames(this.players);
   }
-
 
   startGame() {
     this.clues = this.shuffle(data.clues);
@@ -38,8 +38,12 @@ class Game {
     return clues.sort(() => 0.5 - Math.random());
   }
 
-  changePlayer() {
-    
+  changePlayerTurn() {
+    if (this.playerTurn === 2) {
+      this.playerTurn = 0;
+    } else {
+      this.playerTurn++;
+    }
   }
 
 }
