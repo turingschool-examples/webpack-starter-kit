@@ -243,7 +243,16 @@ h3 {
   background-color: gold;
 }
 
-.disable-selected-letter {
+.disable-selected-letters {
+  background: #6d6d6d;
+  box-shadow: none;
+  color: rgba(81, 91, 234, 0.66);
+  cursor: pointer;
+  opacity: .7;
+  pointer-events: none;
+}
+
+#disable-selected-letter {
   background: #6d6d6d;
   box-shadow: none;
   color: rgba(81, 91, 234, 0.66);

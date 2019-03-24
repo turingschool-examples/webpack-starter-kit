@@ -49,7 +49,9 @@ class Game {
     // this.roundCards = this.roundsBank[game.stage][1].puzzle_bank
   }
 
-  updatePlayerScore() {
+  ///pass in wheelValue from wheel value function invocation ***********
+  updatePlayerScore(wheelValue) {
+    
    
     this.players[this.roundInst.activePlayer].score += this.roundInst.wheelInst.selectedValue
     // return this.players[this.roundInst.activePlayer].score = cool

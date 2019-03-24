@@ -7,7 +7,7 @@ class Round {
     this.clueAnswer = {}
     this.roundClue = {}
     this.activePlayer = 0
-    this.counter = 0
+    this.playerBank = []
     this.letterIndexs = {};
     this.wheelInst = new Wheel()
   }
@@ -44,6 +44,7 @@ class Round {
 
   ///checking clicked letter works
   checkLetter(userLetter, game) {
+   
     if (this.clueAnswer.includes(userLetter)) {
       game.updatePlayerScore()
       // game.players[this.activePlayer].score += this.wheelInst.selectedValue
@@ -58,20 +59,27 @@ class Round {
   }
 
   playerTurn(game) {
-    // if(this.counter < 2){
-    //   this.counter = 0
-    // }
+    game.players[this.activePlayer]
 
-    // this.activePlayer = game.players[]
 
-    // this.activePlayer < 2?
-//     console.log(game.roundInst.activePlayer)
-// if(this.activePlayer === 0){
-//   return game.players[game.roundInst.activePlayer]
+  //   switchPlayer() {
 
-// }
+  //     if(this.activePlayer < 2){
+  //       this.activePlayer++
+  //      } else this.activePlayer = 0
    
+  // }
   }
+  checkValue(wheelValue) {
+    console.log(wheelValue)
+    
+    if (typeof wheelValue === "string") {
+      DomUpdates.deactivateLetters()
+    } else {
+      DomUpdates.activateLetters()
+    }
+  }
+
 }
 
 export default Round

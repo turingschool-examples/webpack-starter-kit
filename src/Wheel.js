@@ -1,5 +1,7 @@
 import Round from './Round'
 import Data from './Data'
+import DomUpdates from './DomUpdates';
+
 
 class Wheel {
   constructor() {
@@ -15,9 +17,10 @@ class Wheel {
     console.log(this.wheelValue)
   }
   
-  spinWheel(){
+  spinWheel(game) {
     this.selectedValue = this.wheelValue[Math.floor(Math.random() * 5)]
-  console.log(this.selectedValue)
+    console.log(this.selectedValue)
+  return game.roundInst.checkValue(this.selectedValue)
   }
 }
 

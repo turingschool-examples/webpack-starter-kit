@@ -44,7 +44,7 @@ $('body').on('click', '.single-letter', (event) =>{
 })
 
 $('body').on('click', '.spinner', () =>{
-  selectingSpinWheel(game)
+  playerSpin(game)
 })
 
 /************Functions******* */
@@ -59,14 +59,14 @@ function startGameBtn(event) {
 
 function selectingLetter(event) {
   let selectedLetter = $(event.target).text()
+  //event.target.innerHTML .add Class
+  
   console.log(selectedLetter)
   game.roundInst.checkLetter(selectedLetter, game)
   DomUpdates.disableLetter(event)
 }
 
-function selectingSpinWheel(game) {
-  // const constants = ["a", "e", "i", "o", "u"]
-  // if (!game.alphabet.includes(vowels)) {
-    $('td.single-letter').removeClass('disable-selected-letter')
-  game.roundInst.wheelInst.spinWheel()
+function playerSpin(game) {
+  game.roundInst.wheelInst.spinWheel(game)
+
 }
