@@ -75,9 +75,10 @@
         <h3 class="hint__value">Hint</h3>
       </article>
       <section class="guess--container">
-        <input id="guess--input" type="text" value="Enter Your Guess">
+        <input id="guess--input" type="text" value="Enter Your Guess" pattern="[A-Za-z],[-']">
         <input class="guess__word--button guess--button" type="button" value="Guess Word">
-        <input class="guess__letter--button guess--button" type="button" value="Guess Letter">
+        <input id="vowel" class="guess__letter--button guess--button" type="button" value="Buy Vowel">
+        <input id="consonant" class="guess__letter--button guess--button" type="button" value="Guess Consonant" disabled="true">
       </section>
     </section>
       <footer>
@@ -94,9 +95,6 @@
               <h2 class="player-1__current-points player__round--points">$ 0</h2>
               <h2 class="player-1__total-points player__total-points">$ 0</h2>
             </div>
-            <div class="player__letter--container">
-              <input class="player-1__letter--input letter--input" type="text" pattern="[a-z],[A-Z]" placeholder="_">
-            </div>
           </section>
           <section class="player--container">
             <h2 class="player-2__name">Player-Name</h2>
@@ -107,9 +105,6 @@
               <h2 class="player-2__current-points player__round--points">$ 0</h2>
               <h2 class="player-2__total-points player__total-points">$ 0</h2>
             </div>
-            <div class="player__letter--container">
-              <input class="player-2__letter--input letter--input" type="text" pattern="[a-z],[A-Z]" placeholder="_">
-            </div>
           </section>
           <section class="player--container">
             <h2 class="player-3__name">Player-Name</h2>
@@ -119,9 +114,6 @@
             <div class="player__points--container">
               <h2 class="player-3__current-points player__round--points">$ 0</h2>
               <h2 class="player-3__total-points player__total-points">$ 0</h2>
-            </div>
-            <div class="player__letter--container">
-              <input class="player-3__letter--input letter--input" type="text" pattern="[a-z],[A-Z]" placeholder="_">
             </div>
           </section>
       </footer>

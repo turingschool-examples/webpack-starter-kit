@@ -21,8 +21,6 @@ $('.start__start--btn').click(() =>{
     game.revEngine();
     // console.log(game.players);
     
-    
-    
     DomUpdates.hidePopup(game);
     getCurrPlayer(game);
     game.newRound();
@@ -32,11 +30,16 @@ $('.start__start--btn').click(() =>{
     game.currentRound.displayDomPuzzle(game);
   });
   
-  
   let getCurrPlayer = (game => {
     game.currentRound.getCurrentPlayer(game);
   })
-  
+
+  let toggleButtons = () => {
+   $('#consonant').attr("disabled") ? $('#consonant').removeAttr("disabled") : $('#consonant').attr("disabled",'true')
+  }
+
+  const vowels = ['a','e','i','o','u'];
+// Conflict Res
   $('.guess__word--button').click(function () {
     // ! change the array of array to the globally defined one
     const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -52,46 +55,47 @@ $('.start__start--btn').click(() =>{
     // ! end round here
     console.log('answer correct') : getCurrPlayer(game);
     
-
-   
-   
-    
-    
-    
     // console.log(game);
     // game.currentRound.currentPlayer.ans = wrdGuess.split('');
     
     // game.currentRound.getCurrentPlayer(game);
   });
-  $('.guess__letter--button').click(function () {
+
+// Conflict-Res
+
+$('.guess__letter--button').click(function () {
+    const round = game.currentRound;
+    const player = round.currentPlayer;
+
     // !  nested if to separate helper function invoked within first if
     if ($('#guess--input').val().length === 1) {
       let ltrGuess = $('#guess--input').val();
-      game.currentRound.currentPlayer.ans = ltrGuess.toUpperCase();
-      game.currentRound.answer = game.currentRound.answer.filter(item => item != `'` && item != `-` )
+      player.ans = ltrGuess.toUpperCase();
+      round.answer = round.answer.filter(item => item != `'` && item != `-` )
       //TODO: update letters used array
-      
-      
       // player ans
       // console.log(game.currentRound.currentPlayer.ans.toUpperCase());
       // round answer
       // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
       // compare player ans against round answer
+      conditionalChecking(round, player, ltrGuess);
       // create a new array
       // push correct guess letter in there
       // find index of answer array to guess letter array
       // change text of that index to the value of the guess index
-      if (game.currentRound.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
+    } else {
+      alert('Please Only Choose 1 Letter');
+    }
+    DomUpdates.updateLettersUsed(game);
+  });
+
+  let conditionalChecking = (round, player, ltrGuess) => {
+     if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
         alert('This letter has already been guessed!');
         // todo: add an error message instead of alert
       }
-      else if (game.currentRound.answer.map((letter)=> letter.toUpperCase()).includes(game.currentRound.currentPlayer.ans.toUpperCase())) {
-        game.currentRound.correctRoundGuesses.push(game.currentRound.currentPlayer.ans);
-        game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans);
-        DomUpdates.createPuzzleClassArr(ltrGuess);
-        game.currentRound.getCurrentPlayer(game);
-        game.currentRound.answer = game.currentRound.answer.filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase())
-        console.log(game.currentRound.answer);
+      else if (compareAns(round, player)) {
+        correctAnsFunc(round, player, ltrGuess);
       }
         // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
@@ -99,23 +103,40 @@ $('.start__start--btn').click(() =>{
      else {
         // console.log(game.currentRound.allRoundGuesses)
         // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
-        game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
-        game.currentRound.getCurrentPlayer(game);
+        round.allRoundGuesses.push(player.ans)
+        round.getCurrentPlayer(game);
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         // console.log('CurrentPlayer', game.currentRound.currentPlayer);
       }
-    } else {
-      alert('Please Only Choose 1 Letter');
-    }
-    DomUpdates.updateLettersUsed(game);
-  });
+    toggleButtons();
+  }
+
+  let compareAns = (round, player) => {
+    return round.answer.map((letter)=> letter.toUpperCase())
+    .includes(player.ans.toUpperCase());
+  }
+
+  let correctAnsFunc = (round, player, ltrGuess) => {
+    round.correctRoundGuesses.push(player.ans);
+    round.allRoundGuesses.push(player.ans);
+    DomUpdates.createPuzzleClassArr(ltrGuess);
+    round.getCurrentPlayer(game);
+    round.answer = round.answer
+      .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
+    console.log(game.currentRound.answer);
+  }
+  
+// End Conflict-Res
+
   $('.nav__wheel--button').click(() => {
+    toggleButtons();
     const slice = game.currentRound.currWheel.wheelSlices[Math.floor((Math.random() * 7) + 0)];
     console.log("Slice:", slice)
     $.type(slice) === "number" ? spinNum(slice) : spinNotNum(slice);
     // ! REMOVE CONSOLE: LATER !
     console.log("CurrPlayer: ", game.currentRound.currentPlayer.name)
   });
+
   let spinNum = (slice) => {
     game.currentRound.currentPlayer.roundCaps += slice;
     DomUpdates.updatePlayerScore(game);
@@ -127,11 +148,9 @@ $('.start__start--btn').click(() =>{
       game.currentRound.currentPlayer.totalCaps = 0;
       DomUpdates.updatePlayerScore(game);
     }
-    game.currentRound.getCurrentPlayer(game);
+    getCurrPlayer(game);
+    toggleButtons();
   };
-  
-  
-  
   
   // An example of how you tell webpack to apply a CSS file
   // import './css/fonts/overseer.css';
@@ -140,8 +159,6 @@ $('.start__start--btn').click(() =>{
   import './css/base.css';
   import './css/normalize.css';
   // import './css/Lato-Thin.ttf'
-  
-  
   
   // An example of how you tell webpack to use an image (also need to link to it in the index.html)
   import './images/turing-logo.png';
@@ -159,7 +176,6 @@ $('.start__start--btn').click(() =>{
   import './images/bottleCaps.png';
   import './images/deathclaw.jpg';
   import './images/incorrect.png';
-  
   
   // import './css/Overseer.otf'
   
