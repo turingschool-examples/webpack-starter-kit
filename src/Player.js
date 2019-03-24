@@ -1,4 +1,5 @@
-import domUpdates from './domUpdates.js'
+import domUpdates from './domUpdates.js';
+import data from './data-set.js';
 
 class Player {
   constructor(name) {
@@ -7,14 +8,25 @@ class Player {
     // this.iD = 0;
   }
 
-  increaseScore() {
-    this.score += event.target.innerText;
-    $('#player-1-points').text(event.target.innerText);
+  increaseScore(result) {
+    let points = data.clues.reduce((acc, currentClue) => {
+      if (result === currentClue.answer) {
+        acc += currentClue.pointValue;
+      }
+      return acc;
+    }, 0);
+    this.score += points;
+    console.log(this.score);
   }
 
-  decreaseScore() {
-    console.log('text')
-
+  decreaseScore(result) {
+    let points = data.clues.reduce((acc, currentClue) => {
+      if (result === currentClue.answer) {
+        acc += currentClue.pointValue;
+      }
+      return acc;
+    }, 0);
+    this.score -= points;
   }
 }
 

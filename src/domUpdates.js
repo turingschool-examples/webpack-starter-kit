@@ -38,16 +38,20 @@ export default {
       if (questionText.text() === currentClue.question) {
         acc += currentClue.answer;
       }
-      return acc
-    }, '')
+      return acc;
+    }, '');
     if (result.toLowerCase() === answerText.val().toLowerCase()) {
       questionText.text('Correct Answer');
-      currentPlayer.increaseScore();
+      currentPlayer.increaseScore(result);
+      $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
     } else {
       questionText.text('Incorrect Answer');
-      currentPlayer.decreaseScore();
+      currentPlayer.decreaseScore(result);
+      $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
       game.changePlayerTurn();
     }
   },
+
+  // changeScore()
   
 }
