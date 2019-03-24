@@ -10,7 +10,6 @@ class Game {
     this.round = null;
     this.roundCount  = 0;
     this.players = [];
-    this.currentPlayer = 0;
     this.allData = []
 
   }

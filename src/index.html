@@ -15,17 +15,45 @@
     <section class="hidden game-area">
     <header class="header">
       <h1>Wheel of Fortune</h1>
+      <div class="reset-game">
+          <button id="reset-button">RESET GAME</button>
+        </div>
     </header>
     <section class="letters">
-      letters
-      <article class="consonants">consonants</article>
-      <article class="vowels">buy a vowel</article>
+      <article class="consonants">
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>F</div>
+        <div>G</div>
+        <div>H</div>
+        <div>J</div>
+        <div>K</div>
+        <div>L</div>
+        <div>M</div>
+        <div>N</div>
+        <div>P</div>
+        <div>Q</div>
+        <div>R</div>
+        <div>S</div>
+        <div>T</div>
+        <div>V</div>
+        <div>W</div>
+        <div>X</div>
+        <div>Z</div>
+        
+      </article>
+      <article class="vowels">
+        <div>A</div>
+        <div>E</div>
+        <div>I</div>
+        <div>O</div>
+        <div>U</div>
+        <div>Y</div>
+      </article>
     </section>
     <section class="game-board">
       <article class="hint">
-        <div class="reset-game">
-          <button class="reset-button">RESET GAME</button>
-        </div>
         <div class="clue-container">Around the House</div>
       </article>
       <article class="puzzle-grid-container">
@@ -71,6 +99,7 @@
       <article class="solve-puzzle">
         <form class="player-guess-form">
           <input type="text" placeholder="Solve the puzzle">
+          <br>
           <button class="submit-guess">Submit Guess</button>
         </form>
       </article>
@@ -81,25 +110,28 @@
           <h4 class="round-number">Round 1</h4>
         </div>
       </article>
-      <article id="player1-area" class="player-square 0">
+      <article id="player1-area" class="player-square 1">
+        <h4 class="player-score" id="player-1-round">Score: 0 </h4>
         <img class="player-holder" src="/images/player1.svg">
         <h4 id="player1" class="player-name reset">PLAYER 1 NAME</h4>
-        <h4 class="player-score" id="player-0-total">Score: 0 </h4>
+        <h4 class="player-score" id="player-1-total">Total Score: 0 </h4>
       </article>
-      <article id="player2-area" class="player-square 1">
+      <article id="player2-area" class="player-square 2 active">
+        <h4 class="player-score" id="player-2-round">Score: 0 </h4>
         <img class="player-holder" src="/images/player2.svg">
         <h4 id="player2" class="player-name">PLAYER 2 NAME</h4>
-        <h4 class="player-score" id="player-1-total">Score: 0 </h4>
+        <h4 class="player-score" id="player-2total">Total Score: 0 </h4>
       </article>
-      <article id="player3-area" class="player-square 2">
+      <article id="player3-area" class="player-square 3">
+        <h4 class="player-score" id="player-3-round">Score: 0 </h4>
         <img class="player-holder" src="/images/player3.svg">
         <h4 id="player3" class="player-name">PLAYER 3 NAME</h4>
-        <h4 class="player-score" id="player-2-total">Score: 0 </h4>
+        <h4 class="player-score" id="player-3-total">Total Score: 0 </h4>
       </article>
       </article>
     </section>
-    <section class="wheel-section">wheel
-      <article class="winner"></article>
+    <section class="wheel-section">
+      <article class="winner">Click UFO to Spin</article>
       <div id="wheel">
         <div id="inner">
           <div class="segment teal"><span> 0 0 0 </span></div>

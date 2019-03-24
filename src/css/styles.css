@@ -16,7 +16,7 @@ body {
   font-family: 'Roboto Mono', monospace;
   overflow: hidden;
   background-image: url("../images/star-background.png");
-  background-size: cover;
+  background-size: contain;
   /* height: 90vh; */
 }
 
@@ -44,7 +44,7 @@ body {
 /*  flex-direction: column;
 */}
 
-.continue-button{
+button{
   display: block;
   height: 40px;
   width: 150px;
@@ -76,6 +76,15 @@ h1 {
   font-size: 70px;
 }
 
+#reset-button{
+  width: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 15px;
+  margin-top: -5px;
+
+}
+
 
 /* ///////////////////////// */
 /* LETTERS */
@@ -83,10 +92,29 @@ h1 {
 
 .letters {
   grid-area: letters;
-  background: magenta;
-  margin: 30px;
+  font-size: 30px;
+  background: white;
+  border-radius: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 500px;
+  height: 400px;
 }
 
+.consonants{
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(5, 60px);
+}
+
+.vowels{
+  display: grid;
+  grid-template-columns: repeat(3,80px);
+  grid-template-rows: repeat(2, 50px);
+  border: 2px solid gainsboro;
+  border-radius: 0px 0px 15px 15px;
+  background-color: gray;
+}
 
 /* ///////////////////////// */
 /* GAME AREA */
@@ -106,12 +134,10 @@ h1 {
   display: none;
 }
 
-
 .game-board {
   grid-area: board;
   /* background: yellow; */
 }
-
 
 .reset-game {
   float: right;
@@ -120,6 +146,13 @@ h1 {
 .clue-container {
   margin: 10px;
   font-size: 30px;
+}
+
+.solve-puzzle{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
 }
 
 /* WHEEL SECTION -- seperate file? */
@@ -133,10 +166,17 @@ h1 {
 /* PLAYER AREA */
 /* ///////////////////////// */
 .player-area {
+  margin-right: auto;
+  margin-left: auto;
   grid-area: players;
+  border-radius: 15px;
+  width: 500px;
+  height: 250px;
   background: whitesmoke;
+  text-align: center;
+  margin-top: 30px;
   display: grid;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 40px 200px;
   grid-template-areas: 
     "round round round"
     "player1 player2 player3"
@@ -156,7 +196,15 @@ h1 {
 
 .current-round {
   grid-area: round;
+  padding: 8px;
   background: teal;
+  border-radius: 15px 15px 0px 0px;
+
+}
+
+h4{
+  margin: 0px;
+  padding: 0px;
 }
 
 .player-icon{
@@ -170,5 +218,13 @@ h1 {
 
 .player-square{
   margin-top: auto;
+}
+
+.active {
+  background-color: gainsboro;
+  border: 2px solid lawngreen;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
 }
 
