@@ -23,6 +23,12 @@ $('.letters').on('click', function(e) {
     console.log(e.target.innerText)
 })
 
+$('.vowel').on('click', function (e){
+    e.target.innerText;
+    game.fillVowels(e);
+    $('body').find(e.target).off().css("background-color", "grey");
+    console.log(e.target.innerText)
+})
 // $('.spinButton').on('click', function (e) {
 //     e.preventDefault()
 //     game.wheel.spinWheel()

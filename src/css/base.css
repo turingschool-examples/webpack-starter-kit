@@ -13,7 +13,12 @@ form {
   flex-direction: row;
   justify-content: center;
   width: 60%;
-  padding-left: 200px;
+  margin: auto;
+}
+
+.playerOne, .playerTwo, .playerThree{
+  margin: 0px 40px 0px 40px;
+
 }
 
 table.guessBoard {
