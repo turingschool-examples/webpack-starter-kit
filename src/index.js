@@ -44,14 +44,15 @@ $("#submit-guess").on("click", event => {
 		let userInput = $("#player-guess").val()
 		player1.score += (game.checkAnswers(userInput, game.currentAnswer));
 		$(".player-1-score").html(`Score: ${player1.score}`);
-
+		console.log(game.currentAnswer)
 	} else if (game.currentTurn === 'player2') {
 
 		$('.current-turn').html(`${player1.name}'s Turn`)
 		let userInput = $("#player-guess").val()
 		player2.score += (game.checkAnswers(userInput, game.currentAnswer));
 		$(".player-2-score").html(`Score: ${player2.score}`);
-		console.log('player2 score: ' + player1.score);
+		console.log(game.currentAnswer)
+		// console.log('player2 score: ' + player2.score);
 	}
 	//let player 2 guess second
 });

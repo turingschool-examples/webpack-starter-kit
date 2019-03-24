@@ -22,8 +22,8 @@ class Game {
     let correctAnswersPoints = 0;
     answers.forEach( element => {
       if (element.answer.toLowerCase() === userGuess) {
-        // console.log(`ITS A MATCH! Here's ${element.respondents} points!`);
         correctAnswersPoints = element.respondents;
+        this.currentAnswer.splice(this.currentAnswer.indexOf(element), 1)
       } else {
         // console.log(`no match`)
       }
