@@ -7,9 +7,10 @@ import domUpdates from './domUpdates.js';
 
 
 class Game {
-  constructor() {     
+  constructor(dataset) {     
     this.surveys = [];
     this.roundNumber = 1;
+    this.dataset = dataset;
     // this.round = [new Round(), new Round(), new LightningRound()];
   };
 

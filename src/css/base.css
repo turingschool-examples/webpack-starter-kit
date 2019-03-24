@@ -17,7 +17,6 @@ body {
     border-style: ridge;
 }
 
-
 .gamePopUp {
   visibility: visible; /*change to none*/
   color: white;
@@ -25,7 +24,6 @@ body {
   width: 100%;
   margin: 0 25%;  
 }
-
 
 .playerNames() {
   display: inline-block;
@@ -139,8 +137,8 @@ body {
     margin: 2% 0;
 }
 
-.resetBtn,
-.submitBtn {
+#resetBtn,
+#submitBtn {
     width: 40%;
     margin: 0 3%;
     border: 5px solid;
@@ -149,12 +147,12 @@ body {
     outline: none;
 }
 
-.resetBtn {
+#resetBtn {
   background-color: #dd0808f0;
   color: white;
 }
 
-.submitBtn {
+#submitBtn {
   background-color: #54f301;
   color: #0a4696;
 
