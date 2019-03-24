@@ -35,13 +35,13 @@ gameBoard.click(function (e) {
   e.preventDefault();
   let btnId = event.target.id;
   let btnText = event.target.innerText;
-  domUpdates.showQuestion(game, btnId, btnText);
+  domUpdates.showQuestion(game, btnId, btnText)
+
 })
 
 submitBtn.click(function (e) {
   e.preventDefault();
   domUpdates.answerQuestion(game);
-  console.log(game)
   
 })
 

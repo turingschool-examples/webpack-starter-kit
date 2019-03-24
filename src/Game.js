@@ -28,13 +28,14 @@ class Game {
     roundOne.populateCategories();
     domUpdates.updateCategories(roundOne.categoryNames);
     roundOne.populateClues();
-
   }
- 
-
 
   shuffle(array) {
     return array.sort(() => 0.5 - Math.random());
+  }
+
+  changePlayer() {
+    
   }
 
 }
