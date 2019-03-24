@@ -6,8 +6,10 @@ import Round from './Round.js';
 class Game {
   constructor() {
     this.players = [];
-    this.roundOne = [];
+    this.clues = [];
+    this.round = {};
     this.categories = [];
+    this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] //for keeping track of what we've used already
   }
 
   createPlayers(names) {
@@ -19,19 +21,21 @@ class Game {
     domUpdates.updateNames(this.players);
   }
 
-  startRound() {
-    const categoryIds = this.shuffle(Object.values(data.categories));
 
-    var roundOne = new Round;
-    this.roundOne = roundOne;
-    roundOne.categoryIds = categoryIds.splice(0, 4);
-    roundOne.populateCategories();
-    domUpdates.updateCategories(roundOne.categoryNames);
-    roundOne.populateClues();
+  startGame() {
+    this.clues = this.shuffle(data.clues);
+    this.categoryData = this.shuffle(this.categoryData);
+    this.createRound();
+  }
+ 
+  createRound() {
+    const round = new Round(this.categoryData.splice(0, 4), this.clues);
+    round.displayCategories();
+    this.round = round;
   }
 
-  shuffle(array) {
-    return array.sort(() => 0.5 - Math.random());
+  shuffle(clues) {
+    return clues.sort(() => 0.5 - Math.random());
   }
 
   changePlayer() {
