@@ -4,7 +4,7 @@ import domObject from './DOMupdates.js';
 class Round {
   constructor(){
     this.currentRound = 0;
-    this.currentAnswer = [];
+    this.currentAnswers = [];
   }
 
   generateRound() {
