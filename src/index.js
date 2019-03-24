@@ -13,6 +13,9 @@ $('.startGame').on('click', function (e) {
     e.preventDefault()
     domUpdates.startGame(game)
     domUpdates.changeNames()
+    $('.nameInput').hide('slow');
+    $('.startGame').hide('slow');
+
     console.log(game)
 });
 
@@ -20,7 +23,7 @@ $('.letters').on('click', function(e) {
     e.target.innerText
     game.fillUseLetters(e);
     $('body').find(e.target).off().css("background-color", "grey");
-    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[0], game.usedLetters)
+    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters)
     console.log(e.target.innerText)
 })
 
@@ -28,7 +31,7 @@ $('.vowel').on('click', function (e){
     e.target.innerText;
     game.fillVowels(e);
     $('body').find(e.target).off().css("background-color", "grey");
-    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[0], game.usedLetters)
+    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters)
     console.log(e.target.innerText)
 })
 

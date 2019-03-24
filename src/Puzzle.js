@@ -12,12 +12,6 @@ class Puzzle {
         })
         return newAnswer
     }
-
-    // splitAllAnswers(splitAnswers, correctArray) {
-    //     correctArray.forEach(correct => {
-    //         splitAnswers.push(correct.split(''))
-    //     })
-    // }
 }
 
 export default Puzzle;

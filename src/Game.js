@@ -9,6 +9,7 @@ class Game {
         this.wheel = new Wheel();
         this.round = new Round();
         this.usedLetters = [];
+        this.stage = 0;
     }
     
     fillUseLetters(letter) {
@@ -22,7 +23,7 @@ class Game {
     }
 
     startGame(name1, name2, name3) {
-        this.round.createRound()
+        this.round.createNewRound(this.stage)
         this.wheel.getWheelValues()
         if(this.players.length === 0) {
             let player1 = new Player(name1);
