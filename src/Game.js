@@ -21,6 +21,7 @@ class Game {
     this.createPlayerBox()
     this.createClues()
     this.roundInst.createNewRound(this)
+  //   console.log(this.roundInst.allRoundCards)
   }
 
   createPlayers(p1, p2, p3) {

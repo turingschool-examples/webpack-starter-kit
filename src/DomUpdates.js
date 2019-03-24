@@ -303,21 +303,21 @@ export default {
     console.log(puzzleCells);
     const cellMap = {};
     puzzleCells.forEach((cell, index) => {
-        const letter = clueAnswer[index];
-        if(cellMap[letter]) {
-            cellMap[letter].push(index);
-        } else {
-            cellMap[letter] = [index];
-        }
-        if(letter === " ") {
-            $(cell).append(`<p class="puzzle-text">${letter}</p>`);
-            $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('spaces-not-displayed');
-        } else if(letter === "-" || letter === "'") {
-            $(cell).append(`<p class="puzzle-text">${letter}</p>`);
-        } else if(letter !== undefined && letter !== " ") {
-            $(cell).append(`<p class="puzzle-text">${letter}</p>`);
-            $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-not-displayed');
-        }
+      const letter = clueAnswer[index];
+      if (cellMap[letter]) {
+        cellMap[letter].push(index);
+      } else {
+        cellMap[letter] = [index];
+      }
+      if (letter === " ") {
+        $(cell).append(`<p class="puzzle-text">${letter}</p>`);
+        $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('spaces-not-displayed');
+      } else if (letter === "-" || letter === "'") {
+        $(cell).append(`<p class="puzzle-text">${letter}</p>`);
+      } else if (letter !== undefined && letter !== " ") {
+        $(cell).append(`<p class="puzzle-text">${letter}</p>`);
+        $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-not-displayed');
+      }
     })
     return (cellMap);
   },

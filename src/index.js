@@ -6,6 +6,7 @@ import $ from 'jquery';
 import Game from './Game'
 import Data from './Data'
 import Round from './Round'
+import Wheel from './Wheel'
 
 
 // An example of how you tell webpack to apply a CSS file
@@ -18,6 +19,7 @@ import './images/WOF-star-background.jpg'
 
 
 let game = new Game()
+
 
 //********Event Listeners ********/
 $('.begin').on('click', () => {
