@@ -22,18 +22,22 @@ class Round {
     }
 
     checkAnswer(guess, game) {
-        const answers = this.surveyAnswers.map(answerObj => answerObj.answer.toLowerCase());
+        //i can probably refactor my first go at this and get us a reusable obj match
+        const match = this.surveyAnswers
+            .find(answerObj => answerObj.answer.toLowerCase()
+            .includes(guess.toLowerCase()));
+            
 
-        if (answers.includes(guess)) {
-            domUpdates.displayCorrectGuess(guess);
-            this.correctGuesses ++
-            // console.log(this.correctGuesses);
+        if (match) {
+            domUpdates.displayCorrectGuess(match.answer);
+            this.correctGuesses++; 
             this.getPoints(guess, game);
+            this.surveyAnswers.splice(this.surveyAnswers.indexOf(match), 1);
         } else {
             game.toggleActivePlayer();
         }
 
-        if (this.correctGuesses === 3) {
+        if (this.correctGuesses === 3) { //could also use how many guesses are left in the array
             this.endRound(game);
         }
     }
@@ -41,11 +45,11 @@ class Round {
     getPoints(guess, game) {
         let points = this.surveyAnswers.reduce((a, obj) => {
             if (obj.answer.toLowerCase() === guess) {
-                a = obj.respondents
+                a = obj.respondents;
             }
             return a;
         }, 0);
-        game.activePlayer.increaseScore(points)
+        game.activePlayer.increaseScore(points);
     }
 
     endRound(game) {
