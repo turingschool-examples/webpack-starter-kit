@@ -35,6 +35,6 @@ console.log(game);
     // console.log(shuffledCategories)
 	}
 
-
+}
 
 export default Round;
