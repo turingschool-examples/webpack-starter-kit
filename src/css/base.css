@@ -19,13 +19,15 @@ body {
   z-index: 2;
 }
 
-#no-match-msg {
+.msg {
   display: none;
-  position: absolute;
-  left: 45%;
   font-size: 1.3em;
-  margin-top: 20px;
-  color: darkred;
+  margin: 20px auto 0;
+  color: #b20303;
+}
+
+.msg-area {
+  text-align: center;
 }
 
 .name-form img {

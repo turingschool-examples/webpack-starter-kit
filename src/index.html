@@ -37,7 +37,7 @@
     </section>
     <section class="score-area">
       <article class="player-area player-1-side">
-        <p class="player-1-name">Player 1</p>
+        <p class="player-1-name" contenteditable="true">Player 1</p>
         <p class="player-score player-1-score">0</p>
       </article>
       <article class="answer-area">
@@ -70,7 +70,10 @@
         <input type="text" class="guess-input" placeholder="Enter Your Guess!">
         <button id="submit-guess-btn">Submit</button>
       </article>
-      <div id="no-match-msg">No matches</div>
+      <article class="msg-area">
+        <p id="no-match-msg" class="msg">No Match!</p>
+        <p id="must-enter-guess-msg" class="msg">Must Enter a Guess!</p>
+      </article>
     </section>
     <footer class="footer">
       <button id="start-btn">Start New Game</button>
