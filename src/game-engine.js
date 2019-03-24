@@ -12,10 +12,15 @@ class GameEngine {
   revEngine() {
     this.loadPlayers();
   }
-  newRound() {
+  newRound(game) {
     // ToDo:  Update roundCaps to Zero on DOM 
     // move newRound to round
+    console.log(game)
     this.currentRound.roundNumber++;
+    this.currentRound.determinePuzzleLength();
+    this.currentRound.displayDomPuzzle(game);
+    console.log(game.currentRound);
+
   }
   loadPlayers() {
     this.players = this.playersNames.map((player, ind) => {
