@@ -9,7 +9,7 @@ import $ from 'jquery';
 class Game {
 	constructor(round, dailyDoubles, cardsClicked) {
     // this.player = getPlayerNames();
-		this.round = [];
+		this.round = 1;
 		this.dailyDoubles = 1;
 		this.cardsClicked = 0;
 		this.roundOneCategories = [];
@@ -31,10 +31,12 @@ class Game {
   setRoundOne() {
     // const showNames = ['United States History', 'Life Sciences', 'Public Health', 'Education Jargon', 'Name That Board Game', 'American Literature', 'Biographies', 'American Cities', 'Food', 'Cable TV'];
     
+  let newRound = new Round(this);
+    newRound.setCategories(this);
+        // console.log(newRound);
+    
+    
 
-  let newRound = new Round;
-    newRound.setCategories();
-    console.log(newRound);
 
 }
 

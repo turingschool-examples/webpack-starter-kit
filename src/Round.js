@@ -2,13 +2,13 @@ import Game from './Game.js';
 import data from './Game-Data.js';
 
 class Round {
-	constructor() {
+	constructor(game) {
 		this.round = 1;
 		this.allCategoryNames = [];
 		this.currentCategories = [];
 	}
 
-	setCategories() {
+	setCategories(game) {
    const categoryData = Object.entries(data.categories);
    // console.log(categoryData);
 		   Array.prototype.shuffle = function() {
@@ -26,10 +26,12 @@ class Round {
     let shuffledCategories = categoryData.shuffle();
     this.allCategoryNames.push(shuffledCategories);
     let currentCategories = shuffledCategories.splice(6,5);
-    this.currentCategories.push(currentCategories);
-
-
-    console.log(currentCategories)
+    let firstRound = currentCategories.forEach((category) =>
+    	game.roundOneCategories.push(category));
+    // game.roundOneCategories = this.currentCategories;
+     // game.roundOneCategories.push(this.currentCategories);
+console.log(game);
+    // console.log(currentCategories)
     // console.log(shuffledCategories)
 	}
 }
