@@ -32,7 +32,7 @@ li {
 
 .title {
   text-align: center;
-  color: #cae6df
+  color: #cae6df;
 }
 
 .val-btn {
@@ -102,6 +102,7 @@ h1{
 
 .hidden {
   display: none;
+  pointer-events: none;
 }
 
 

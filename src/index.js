@@ -38,7 +38,6 @@ $valBtn.on("click", function(event) {
 
 $guessBtn.click(function(event) {
   event.preventDefault();
-  console.log("click");
   domUpdates.disappearClue();
 })
 

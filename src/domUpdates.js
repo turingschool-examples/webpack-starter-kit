@@ -18,7 +18,8 @@ export default {
     })
   },
   renderClue(clue, event) {
-   $(`#${clue.categoryId}`).removeClass("val-btn")
+   $(event.target).removeClass("val-btn")
+   $(event.target).off("click");
    // $(`#${clue.categoryId}`).append("<p class='.guess-input'>hey</p>")
    $('.clue-card').removeClass("hidden");
    $('.clue-question').text(clue.question)
