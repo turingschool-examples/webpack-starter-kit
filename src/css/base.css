@@ -32,7 +32,7 @@ li {
 
 .title {
   text-align: center;
-  color: #cae6df
+  color: #cae6df;
 }
 
 .val-btn {
@@ -64,6 +64,61 @@ h1{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
+}
+
+.clue-card {
+  background-color: #cae6df;
+  border: 1px solid #064b55; 
+  border-radius: 5px;
+  color: #04192e;
+  font-family: 'Press Start 2P', cursive;
+  height: 400px;
+  left: 20%;
+  padding: 100px;
+  position: fixed;
+  text-align: center;
+  top: 20%;
+  width: 800px;
+  z-index: 1;
+}
+
+.result {
+  background-color: #cae6df;
+  border: 1px solid #064b55; 
+  border-radius: 5px;
+  color: #04192e;
+  font-family: 'Press Start 2P', cursive;
+  height: 400px;
+  left: 20%;
+  padding: 100px;
+  position: fixed;
+  text-align: center;
+  top: 20%;
+  width: 800px;
+  z-index: 1;
+}
+
+.guess {
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 5px 0 7px 0;
+  text-align: center;
+  width: 500px;
+}
+
+.guess-btn {
+  background-color: #064b55;
+}
+
+.opacity {
+  opacity: 0.5;
+}
+
+.hidden {
+  display: none;
+  pointer-events: none;
 }
 
 

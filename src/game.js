@@ -36,6 +36,17 @@ class Game {
   changeRound() {
     //increment round
   }
+  checkAnswer(guess) {
+    // console.log('answer', guess);
+    // const answer = this.clues.find(clue => {
+    //   return guess == clue.answer; 
+    // })
+    // console.log('should be true or false');
+    console.log('ffff', domUpdates.renderClue(guess));
+    // if (guessInputValue === clue.answer)
+    // then correct! increment score by clue.pointValue
+    // else wrong! decrement score by clue.pointValue
+  }
 }
 
 export default Game;
