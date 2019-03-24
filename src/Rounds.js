@@ -4,7 +4,12 @@ import Game from './Game.js'
 class Rounds {
   constructor(categoryIds) {
     this.categoryIds = categoryIds;
-    // console.log(this.categoryIds);
+    console.log('Rounds class Categories ',this.categoryIds);
+    this.topicOne = [];
+    this.topicTwo = [];
+    this.topicThree = [];
+    this.topicFour = [];
+
 
   }
 
@@ -12,29 +17,40 @@ class Rounds {
     this.pointValue * 2;
   }
 
-  fetchClues(categoryIds) {
-     // filter
-     // gets array of clues that match any of the categoryIds
-     // sort by point pointValue
-     // puts questions in order for html
-       // put event listeners on questions
-       // if question is clicked, create a new Clue instance
-       // another event listener to watch for enter
-      // trigger checkAnswer on instance of clue`
-      // set this.rightOrWrong to true for correct answer, false for incorrect answer.
-      // somehow get the game to check rightOrWrong
-      // if right, update player score
-      const clueList = dataSet.clues;
-      // console.log('log 1 ', clueList);
+  uniquePoints(currentTopic) {
+    const finalCat = new Set();
+    const newClues = currentTopic.filter(clue => {
+        if (finalCat.has(clue.pointValue)) {
+            return false;
+        }
+        finalCat.add(clue.pointValue);
+        return true;
+    });
+    console.log('unique Points ', newClues);
+  }
 
-      const sortedList = clueList.sort((a, b) => {
-        return a.pointValue - b.pointValue;
-      });
+  fetchClues() {
+    const clueList = dataSet.clues;
+    const categoryList = clueList.filter((currentClue) => {
+      return this.categoryIds.indexOf(currentClue.categoryId) !== -1 ;
+    });
 
-      const categoryList = clueList.filter((currentClue) => {
-        return this.categoryIds.indexOf(currentClue.categoryId) !== -1 ;
-      });
-      // console.log('log 2 ', categoryList);
+    categoryList.forEach((currentClue) => {
+      if (currentClue.categoryId === this.categoryIds[0]) {
+        this.topicOne.push(currentClue)
+      } else if (currentClue.categoryId === this.categoryIds[1]) {
+        this.topicTwo.push(currentClue)
+      } else if (currentClue.categoryId === this.categoryIds[2]) {
+        this.topicThree.push(currentClue)
+      } else if (currentClue.categoryId === this.categoryIds[3]) {
+        this.topicFour.push(currentClue)
+      }
+    });
+    this.uniquePoints(this.topicOne);
+    this.uniquePoints(this.topicTwo);
+    this.uniquePoints(this.topicThree);
+    this.uniquePoints(this.topicFour);
+
    }
 }
 
