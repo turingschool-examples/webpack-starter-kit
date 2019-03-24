@@ -11,7 +11,7 @@ import data from './data-set.js';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import Game from './Game';
-import Round from './Round';
+// import Round from './Round';
 import domUpdates from './domUpdates';
 // import Clue from './Clue';
 
@@ -19,30 +19,37 @@ const startGameBtn = $('#start-game-btn');
 const gameBoard = $('.game-board');
 const submitBtn = $('.submit-btn');
 const resetBtn = $('#reset-game-btn');
+const clueBtn = $('.col');
 
-const game = new Game;
+let game;
 
 
 
 startGameBtn.click(function (e) {
   e.preventDefault();
   const names = [$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()]
+  game = new Game;
   game.createPlayers(names);
-  game.startRound();
+  game.startGame();
 })
 
-gameBoard.click(function (e) {
+clueBtn.on('click', function(e) {
   e.preventDefault();
-  let btnId = event.target.id;
-  let btnText = event.target.innerText;
-  domUpdates.showQuestion(game, btnId, btnText);
+  const {id, innerText} = event.target;
+  console.log(id, innerText);
+  game.round.findClue(id, innerText, event);
 })
+
+// gameBoard.click(function (e) {
+//   e.preventDefault();
+//   let btnId = event.target.id;
+//   let btnText = event.target.innerText;
+//   domUpdates.showQuestion(game, btnId, btnText);
+// })
 
 submitBtn.click(function (e) {
   e.preventDefault();
-  domUpdates.answerQuestion(game);
-  console.log(game)
-  
+  domUpdates.answerQuestion(game);  
 })
 
 resetBtn.click(function (e) {
