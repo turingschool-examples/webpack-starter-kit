@@ -51,7 +51,7 @@ $("#submit-names-btn").on("click", function() {
 });
 
 $(".guess-input").keypress(function (e) {
-  if (e.keyCode === 13 && $(".guess-input").val() !== '') {
+  if (e.keyCode === 13) {
     $("#submit-guess-btn").click(); 
   }
 }); 
