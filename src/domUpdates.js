@@ -26,6 +26,23 @@ export default {
         };
 
         $(`p:contains(${guess})`).parent().removeClass("hidden");
-        $(".guess-input").val("");
+    },
+
+    displayPlayer1() {
+        $(".player-1-side").addClass("active-player-area");
+        $(".player-2-side").removeClass("active-player-area");
+    },
+
+    displayPlayer2() {
+        $(".player-2-side").addClass("active-player-area");
+        $(".player-1-side").removeClass("active-player-area");
+    },
+
+    displayPlayer1Score(score) {
+        $(".player-1-score").text(score);
+    },
+
+    displayPlayer2Score(score) {
+        $(".player-2-score").text(score);
     }
 }

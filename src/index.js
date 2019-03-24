@@ -26,15 +26,22 @@ $("#submit-names-btn").on("click", function() {
     const player1Name = $('#player-1-input').val();
     const player2Name = $('#player-2-input').val();
 
-    $(".player-1-name").text(player1Name);
-    $(".player-2-name").text(player2Name);
+    $(".player-1-name").text(player1Name.toUpperCase());
+    $(".player-2-name").text(player2Name.toUpperCase());
     $(".welcome-screen").addClass("hidden");
 
-    window.game = new Game(new Player(player1Name), new Player(player2Name)); 
-    window.game.startNewGame();
+    let startingPlayer = Math.floor(Math.random() * 2) + 1
+
+    window.game = new Game(new Player(player1Name, 1), new Player(player2Name, 2)); 
+    window.game.startNewGame(startingPlayer);
+    window.game.toggleActivePlayer();
 });
 
 $("#submit-guess-btn").on("click", function() { 
-    const playerGuess = $('.guess-input').val();
-    window.game.round.checkIfAnswer(playerGuess);
+    const playerGuess = $('.guess-input').val().toLowerCase();
+    window.game.round.saveGuess(playerGuess);
+    window.game.round.checkAnswer(playerGuess, window.game);
+    $(".guess-input").val('');
 });
+
+// export default window.game;

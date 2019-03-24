@@ -8,15 +8,14 @@ import Player from '../src/Player.js';
 import Round from '../src/Round.js';
 import domUpdates from '../src/domUpdates.js'
 
-chai.spy.on(domUpdates, ['displayRoundData', 'displayCorrectGuess'], () => true);  
+chai.spy.on(domUpdates, [
+  'displayRoundData', 
+  'displayCorrectGuess', 
+  'displayPlayer1', 
+  'displayPlayer2'
+  ], () => true);  
 
 describe('Game', () => {
-  
-  it('Should have a default active player of 1', () => {
-    let game = new Game(new Player('Bob'), new Player('Bobette'));
-
-    expect(game.activePlayer).to.equal(1);
-  });
 
   it('Should have a default current round of 0', () => {
     let game = new Game(new Player('Bob'), new Player('Bobette'));
@@ -42,6 +41,12 @@ describe('Game', () => {
 
     expect(game.player1.name).to.equal('Bob');
     expect(game.player2.name).to.equal('Bobette');
+  });
+
+  it('Should have a default active player of player1', () => {
+    let game = new Game(new Player('Bob'), new Player('Bobette'));
+
+    expect(game.activePlayer.name).to.equal('Bob');
   });
 
   it('Should instantiate a new round as a new game property when a new round is started', () => {
