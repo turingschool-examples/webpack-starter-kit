@@ -44,9 +44,8 @@ $("#submit-names").on( "click", () => {
 $("#submit-guess").on("click", event => {
 	event.preventDefault();
 	let userInput = $("#player-guess").val()
-	console.log("userInput: " + userInput);
-	console.log(a.currentAnswer);
-	a.checkAnswers(userInput, a.currentAnswer);
+	player1.score += (a.checkAnswers(userInput, a.currentAnswer));
+	console.log('player1 score: ' + player1.score);
 });
 
 //after 3 guesses are complete show restart game button
