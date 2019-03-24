@@ -1,3 +1,5 @@
+import domUpdates from "./domUpdates";
+
 class Player {
   constructor(name, answer) {
     this.name = name;

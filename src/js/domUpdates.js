@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import Game from './game';
+import Question from './question';
 
 export default {
   updateQInfo(question) {
@@ -47,7 +48,6 @@ export default {
   },
 
   appendNames() {
-    $('.start-btn').on('click', function() {
       let $p1Name = $('#p1Name-board');
       $p1Name.text($('#p1Name').val());
       let $p2Name = $('#p2Name-board');
@@ -57,15 +57,20 @@ export default {
       $('.splash').hide();
       $('.game-page').show();
       $('.player-section').css('visibility', 'visible');
-      let game = new Game();
-      game.instantiatePlayers();
+  },
+
+  showSolveInput() {
+    $('.btn-solve').on('click', function() {
+      $('.input-solve, .final-solution-btn').show()
     });
   },
 
-  solvePuzzle() {
-    $('.btn-solve').on('click', function() {
-      $('.input-solve').toggle()
-    });
+  getAnswer() {
+    return $('.input-solve').val();
+  },
+
+  getConsonant() {
+    return $('.gues-cons').val();
   }
 
 }
