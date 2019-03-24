@@ -31,6 +31,8 @@ const dataSet = data.surveys.reduce((acc, survey) => {
 
 
 $('#startBtn').on('click', startPlaying);
+$('.resetBtn').on('click', createGame);
+$('.resetBtn').on('click', startPlaying);
 
 function startPlaying() {
 let playerOne = $('.nameOne').val();
@@ -49,8 +51,12 @@ let game;
 
 function createGame(dataset) {
   game = new Game(dataSet);
+
   console.log(game);
 };
+
+
+
 
 
 // $('#submitBtn').on('click', checkAnswer);

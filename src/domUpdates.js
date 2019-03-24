@@ -1,6 +1,9 @@
 import $ from 'jquery';
 import Game from './Game.js';
 
+ // $('.submitBtn').on('click', round.getAnswer());
+
+ 
 
 export default {
 
@@ -17,7 +20,6 @@ export default {
      <button id="startBtn">Start Game</button>
     </section>`
 )
-  console.log('heyyyy')
 },
 
   
