@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import dataSet from './dataSet.js';
 
 export default {
   renderNames (players) {
@@ -18,19 +19,37 @@ export default {
     })
   },
   renderClue(clue, event) {
-   $(event.target).removeClass("val-btn")
-   $(event.target).off("click");
-   // $(`#${clue.categoryId}`).append("<p class='.guess-input'>hey</p>")
+   $(event.target).removeClass("val-btn").off("click").text('');
    $('.clue-card').removeClass("hidden");
    $('.clue-question').text(clue.question)
    $('.game-board, .start-game-form, h1').addClass("opacity");
+   $('.val-btn').off("click");
     console.log('clue', clue)
     console.log('event', event)
-    //display the question with and input to place answer 
-    // hide the btn that was just clicked on 
   },
   disappearClue() {
     $('.clue-card').addClass("hidden");
     $('.game-board, .start-game-form, h1').removeClass("opacity");
+  },
+  // click event for submit button
+  // prevent default etc
+  // grab question text with jquery selector, grab input value
+  // reduce function - go into data.clues reduce all clues.question that matches q we got in card
+  // push out answer - that will be acc. an empty string.
+  // let result = data.clues reduce. get answer in result, if result = input.val then correct, else wrong
+  checkAnswer() {
+    const questionText = $('.clue-question');
+    const guess = $('#guess-input').val();
+    const answer = dataSet.clues.reduce((acc, currClue) => {
+      if (questionText.text() === currClue.question) {
+        acc += currClue.answer;
+      }
+      return acc;
+    }, '')
+    if (answer.toLowerCase() === guess.toLowerCase()) {
+      alert('correct!');
+    } else {
+      alert('incorrect');
+    }
   }
 }

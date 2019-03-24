@@ -38,6 +38,9 @@ $valBtn.on("click", function(event) {
 
 $guessBtn.click(function(event) {
   event.preventDefault();
+  const guess = $('#guess-input').val();
+  console.log(guess);
+  domUpdates.checkAnswer(guess);
   domUpdates.disappearClue();
 })
 
