@@ -32,9 +32,9 @@ html,body{
 }
 
 .player-intro{
-  display: flex;
-  flex-direction: column;
-}
+  display: inline-block;
+/*  flex-direction: column;
+*/}
 
 .continue-button{
   display: block;
@@ -120,6 +120,8 @@ h1 {
   grid-area: wheel;
   background: green;
 }
+
+
 
 /* ///////////////////////// */
 /* PLAYER AREA */
