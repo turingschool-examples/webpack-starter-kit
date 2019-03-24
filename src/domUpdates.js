@@ -91,7 +91,7 @@ export default {
   },
 
    displayCorrectLetter(puzzle, guess) {
-    // we dont currently have the index added to each box when they append
+    // we dont currently have the index added to each box when they append for this to work
     // puzzle.forEach((letter, index) => {
     //   if (letter === guess) {
     //     $(`puz-grid secret ${index}`).removeClass('secret')

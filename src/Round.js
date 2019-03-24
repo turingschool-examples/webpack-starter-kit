@@ -53,7 +53,7 @@ class Round {
       }
     }
 
-    guessLetter(event) {
+  guessLetter(event) {
     domUpdates.displayCorrectLetter(puzzle.splitAnswer, event.currentTarget.innerText);
     if (puzzle.splitAnswer.includes(e.currentTarget.innerText)) {
       puzzle.splitAnswer.forEach(letter => {
@@ -68,10 +68,6 @@ class Round {
       this.changeActivePlayers();
     }
   }
-    
-    
-
-    
 
 }
 

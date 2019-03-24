@@ -34,9 +34,10 @@ class Game {
   createRound () {
     this.roundCount++;
     if (this.roundCount === 4) {
-      // bonuswheel
+        let wheel = new BonusWheel();    
     }
     let round = new Round(this.players);
+    let wheel = new Wheel();
     let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
     domUpdates.appendPuzzle(currentPuzzle, currentPuzzle.splitAnswer);
     domUpdates.setCategoryText(currentPuzzle.category);
