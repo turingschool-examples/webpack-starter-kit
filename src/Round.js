@@ -2,8 +2,7 @@ import domUpdates from "./domUpdates";
 
 class Round {
 
-  constructor(id, survey) {
-    this.id = id;
+  constructor(survey) {
     this.question = survey.question;
     this.responses = survey.responses;
     this.isFinished = false;
@@ -16,7 +15,6 @@ class Round {
         this.responses = this.responses.filter(response => {
           return response.answer.toLowerCase() !== guess
         });
-        // TODO create game over screen
         if (this.responses.length === 0) {
           this.isFinished = true;
         }

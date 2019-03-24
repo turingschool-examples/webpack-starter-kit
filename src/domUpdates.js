@@ -15,7 +15,6 @@ export default {
     const $cards = $('.response-card')
     $responses.each((i, card) => {
       if ($(card).text() === response) {
-        console.log('hello')
         $($cards[i]).hide()
       }
     })
@@ -39,6 +38,11 @@ export default {
   startRound({ question, responses }) {
     $('#current-question').text(question);
     this.loadReaponses(responses);
+    this.hideResponses();
+  },
+
+  hideResponses() {
+    $('.response-card').each((i, card) => $(card).show());
   },
 
   disableStartButton() {

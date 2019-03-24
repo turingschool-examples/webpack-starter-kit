@@ -41,11 +41,15 @@ submitBtn.on('click', (e) => {
   game.currentRound.submitGuess(game.currentPlayer, guess, game);
   domUpdates.clearguess();
   if (game.currentRound.isFinished) {
-    const winner = game.getWinner();
-    console.log('winner: ', winner.name);
-    console.log('game over')
-    // setTimeout(() => {
-    //   game.startNextRound();
-    // }, 5000);
+    setTimeout(() => {
+      if (game.round < 2) {
+        game.startNextRound();
+      } else if (game.round < 3) {
+        console.log('lightning round next');
+      } else {
+        const winner = game.getWinner();
+        console.log(winner);
+      }
+    }, 5000);
   }
 });

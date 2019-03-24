@@ -12,15 +12,19 @@ class Game {
   }
 
   startGame() {
-    console.log(this.currentPlayer);
     this.shuffle(this.surveys);
     this.startNextRound();
   }
 
   startNextRound() {
     this.round++;
-    this.currentRound = new Round(this.round, this.surveys[this.round - 1]);
-    console.log(this);
+    this.currentRound = new Round(this.surveys[this.round - 1]);
+    domUpdates.startRound(this.currentRound);
+  }
+
+  startNextLightningRound() {
+    this.round++;
+    this.currentRound = new LightningRound(this.surveys.slice(3, 5));
     domUpdates.startRound(this.currentRound);
   }
 
@@ -40,7 +44,6 @@ class Game {
       this.currentPlayer = this.players[0];
     }
     domUpdates.displayCurrentPlayer(this.currentPlayer);
-    console.log(this.currentPlayer);
   }
 
   getWinner() {
