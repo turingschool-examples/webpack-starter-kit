@@ -17,10 +17,14 @@ export default {
     },
 
     displayCorrectGuess(guess) {
+        // console.log($(".answer-text"));
+        // $(".answer-text").filter(answer => console.log(answer.text()))
+        //     //.parent().removeClass("hidden");
+
         $.expr[':'].contains = function(a, i, m) {
             return $(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
         };
-        
+
         $(`p:contains(${guess})`).parent().removeClass("hidden");
         $(".guess-input").val("");
     }
