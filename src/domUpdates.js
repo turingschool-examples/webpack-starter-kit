@@ -42,4 +42,3 @@ export default {
   }
 }
 
-    // const showNames = [ 'Food', 'Cable TV'];
