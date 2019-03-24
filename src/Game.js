@@ -4,19 +4,15 @@ import data from './data.js';
 import Puzzle from './Puzzle.js';
 
 class Game {
-  constructor(player) {
+  constructor() {
     this.allPuzzles = [];
     this.players = [];
-    this.rounds = [1, 2, 3, 4, 5];
-    this.currentPlayer = player;
     this.currentPuzzle = null;
   }
 
   beginGame() {
-    // domUpdates.displayQuestion(puzzle.description);
     this.getRandomPuzzle();
-    let puzzle1 = new Puzzle(this.currentPuzzle)
-    // console.log(puzzle1)
+    let puzzle1 = new Puzzle(this.currentPuzzle);
   }
 
   getRandomPuzzle() {
