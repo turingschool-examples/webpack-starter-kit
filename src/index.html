@@ -15,15 +15,15 @@
         <label for="player-1-input">
           Enter Player 1 Name:
         </label>
-        <input id="player-1-input">
+        <input id="player-1-input" class="name-input">
       </div>
       <div class="player-fields">
         <label for="player-2-input">
           Enter Player 2 Name:
         </label>
-        <input id="player-2-input">
+        <input id="player-2-input" class="name-input">
       </div>
-      <button id="submit-names-btn" type="button">Submit</button>
+      <button id="submit-names-btn" type="button" disabled>Start Game</button>
     </form>
   </div>
   <div class="page-background"></div>
@@ -68,12 +68,12 @@
     <section class="guess-area">
       <article class="guess-input-bar">
         <input type="text" class="guess-input" placeholder="Enter Your Guess!">
-        <button id="submit-guess-btn">Submit</button>
+        <button id="submit-guess-btn" type="button" disabled>Submit</button>
       </article>
       <div id="no-match-msg">No matches</div>
     </section>
     <footer class="footer">
-      <button id="start-btn">Start New Game</button>
+      <button id="start-btn" type="button">Start New Game</button>
     </footer>
   </main>
 </body>

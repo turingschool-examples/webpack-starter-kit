@@ -27,7 +27,7 @@ $("#submit-names-btn").on("click", function() {
 
     $(".player-1-name").text(player1Name.toUpperCase());
     $(".player-2-name").text(player2Name.toUpperCase());
-    $(".welcome-screen").addClass("hidden");
+    $(".welcome-screen").addClass("hidden"); 
 
     let startingPlayer = Math.floor(Math.random() * 2) + 1
 
@@ -45,6 +45,14 @@ $("#submit-guess-btn").on("click", function() {
 
 $("#start-btn").on("click", function() {
     $(".welcome-screen").removeClass("hidden");
+});
+
+$(".guess-input").on("keyup", function() {
+    $('#submit-guess-btn').prop('disabled', $(".guess-input").val().length < 3);
+});
+
+$(".name-input").on("keyup", function() {
+    $('#submit-names-btn').prop('disabled', !$("#player-1-input").val() || !$("#player-2-input").val());
 });
 
 // export default window.game;
