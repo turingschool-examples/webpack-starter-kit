@@ -3,8 +3,7 @@ body {
   background-color: burlywood;
 }
 
-.game-area, 
-.player-name {
+.game-area {
   margin: 50px auto;
 }
 
@@ -79,6 +78,7 @@ img {
 
 .player-box {
   width: 80%;
+  padding-top: 180px;
 }
 .player-name {
   position: relative;
@@ -98,7 +98,8 @@ h4,
 h6 {
   color: white;
   text-align: center;
-  margin: 15px auto;
+  margin: 25px auto;
+  font-size: 30px;
 }
 
 .pb-one {
