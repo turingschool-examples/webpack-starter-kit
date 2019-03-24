@@ -8,7 +8,6 @@ export default {
     });
   },
   renderCategories(categories) {
-    console.log('hey')
     categories.forEach((category, index) => {
       $(`.cat-title-${index}`).text(category);
     })
@@ -16,10 +15,5 @@ export default {
 
   // setCategory(ids) {
   //   console.log("hi", ids)
-  //   // ids.forEach((id, index) => {
-  //   //   $(`.val.btn-${index}`).forEach(elem => {	
-  //   //     elem.id = id;	
-  //   //   })
-  //   // })
   // },
 }

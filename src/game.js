@@ -15,8 +15,6 @@ class Game {
     // const round = new Round(categoryIds);
     // this.round = round
     // round.setCategoryIds();
-    // this.grabData();
-
   }
   createPlayers(names) {
     const players = names.map(name => {
@@ -26,15 +24,16 @@ class Game {
     this.players = players;
     domUpdates.renderNames(this.players);
   }
-
   createRound() {
     const round = new Round;
     const categoryIds = this.shuffle(Object.values(dataSet.categories));
     round.categoryIds = categoryIds.slice(0, 4);
-    // console.log(round.categoryIds);
     round.generateCategories();
+    round.generateClues();
+    console.log("clues", round.clues);
     domUpdates.renderCategories(round.categoryNames);
   }
+
 
   shuffle(toSort) {
     return toSort.sort(() => 0.5 - Math.random());

@@ -1,4 +1,5 @@
 import domUpdates from "./domUpdates";
+import dataSet from "./dataSet";
 
 class Round {
   constructor() {
@@ -14,16 +15,22 @@ class Round {
       'American Literature', 'Biographies', 'American Cities', 'Food',
       'CableTV' ];
 
-
     this.categoryNames = this.categoryIds.map(categoryId => {
     //   console.log('randomCatId', categoryId); 
       return generateDomCats.find((idk, index) => {
         return index === categoryId - 1;
       });
     })
+    
     console.log(this.categoryNames);
   }
-
+  generateClues() {
+    this.clues = this.categoryIds.map(categoryId => {
+      return dataSet.clues.filter(clue => { 
+        return categoryId === clue.categoryId;
+      })
+    })
+  }
 //   setCategoryIds() {
 //     domUpdates.setCategory(this.categoryIds);
 //   }
