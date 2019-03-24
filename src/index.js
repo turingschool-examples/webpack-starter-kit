@@ -36,6 +36,8 @@ $("#submit-guess").on("click", event => {
 	event.preventDefault();
 	let userInput = $("#player-guess").val()
 	player1.score += (a.checkAnswers(userInput, a.currentAnswer));
+	$(".player-1-score").html(`Score: ${player1.score}`);
+	$(".player-2-score").html(`Score: ${player2.score}`);
 	console.log('player1 score: ' + player1.score);
 });
 
