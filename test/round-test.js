@@ -68,12 +68,6 @@ describe('Round', ()=>{
     //     round.getCurrentPlayer(game);
     //     expect(round.currentPlayer).to.equal(1);
     // })
-    it('', ()=>{
-        const round = new Round(1);
-        const player = new Player();
-        round.determinePuzzleLength();
-        round.checkPlayerGuess();
-        
-    })
+
 })
 export default Round;

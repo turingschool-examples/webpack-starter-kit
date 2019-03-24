@@ -233,10 +233,17 @@ button.start__start--btn {
 .hint--container {
   position: absolute;
   bottom: 50px;
-  display: flex;
-  justify-content: space-between;
-  width: 150px;
+  display: inline-flex;
+  justify-content: center;
+  width: 1000px;
 }
+.hint__value,
+.hint__title {
+  width: 500px;
+}
+
+
+
 
 .guess--container {
   position: absolute;
