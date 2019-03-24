@@ -20,6 +20,8 @@ import domUpdates from './domUpdates.js'
 domUpdates.popUp()
 
 
+
+
 const dataSet = data.surveys.reduce((acc, survey) => {
     acc.push({
       id: survey.id,
@@ -31,6 +33,9 @@ const dataSet = data.surveys.reduce((acc, survey) => {
 
 
 $('#startBtn').on('click', startPlaying);
+$('#resetBtn').click(() => {
+  location.reload(true);
+});
 
 function startPlaying() {
 let playerOne = $('.nameOne').val();
@@ -51,7 +56,6 @@ function createGame(dataset) {
   game = new Game(dataSet);
   console.log(game);
 };
-
 
 // $('#submitBtn').on('click', checkAnswer);
 
