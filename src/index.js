@@ -17,7 +17,7 @@ import domUpdates from './domUpdates.js'
 // import lightningRound from './LightningRound.js';
 // import domUpdates from './domUpdates.js';
 
-// domUpdates.popUp()
+domUpdates.popUp()
 
 
 const dataSet = data.surveys.reduce((acc, survey) => {
@@ -29,7 +29,6 @@ const dataSet = data.surveys.reduce((acc, survey) => {
      return acc;
 }, [])
 
-// console.log(dataSet);
 
 $('#startBtn').on('click', startPlaying);
 
@@ -38,6 +37,9 @@ let playerOne = $('.nameOne').val();
   $('#nameOne').text(playerOne);
 let playerTwo = $('.nameTwo').val();
   $('#nameTwo').text(playerTwo);
+  $('.wrapper').css('height', '1200px');
+  $('.wrapper').css('grid-template-rows', '0% 50% 25% 25%');
+  $('.gamePopUp').css('visibility', 'hidden');
   createGame(dataSet)
   game.createPlayer(playerOne, playerTwo);
 }

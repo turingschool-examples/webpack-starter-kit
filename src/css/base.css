@@ -10,31 +10,39 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-rows: auto 40% 20% 20%;
-    height: 1500px;
+    grid-template-rows: auto 40% 25% 25%;
+    height: 1400px; /*change to 1200px*/
     font-family: 'Open Sans', sans-serif;
     border: 20px solid goldenrod;
     border-style: ridge;
 }
 
-.startGamePopUp {
-  position: relative;
-  z-index: 10;
-  border: 5px solid goldenrod;
-  border-style: ridge;
+
+.gamePopUp {
+  visibility: visible; /*change to none*/
   color: white;
+  display: block;
+  width: 100%;
+  margin: 0 25%;  
+}
+
+
+.playerNames() {
   display: inline-block;
-  width: 50%;
 }
 
 .nameOne,
 .nameTwo {
-  font-size: 2em;
+  font-size: 1rem;
   font-weight: 800;
+  margin: 0 3%;
+  height: 40px;
 }
 
 #startBtn {
-  background-color: white;
+  background-color: green;
+  color: white;
+  height: 50px;
 }
 
 .gameBoard {
