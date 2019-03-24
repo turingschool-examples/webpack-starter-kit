@@ -31,7 +31,7 @@ class Game {
   startNextRound() {
     this.round++;
     this.currentRound = new Round(this.round, this.surveys[this.round - 1]);
-    console.log(this);
+    // console.log(this);
     domUpdates.displayCurrentQuestion(this.currentRound.question);
   }
 

@@ -7,16 +7,17 @@ import domUpdates from '../src/domUpdates';
 import data from '../src/data';
 
 chai.use(spies);
+chai.spy.on(domUpdates, 'displayCurrentQuestion', () => true);
 const assert = chai.assert;
 
 describe('Game', () => {
 
-  it.skip('should start at round 0', () => {
+  it('should start at round 0', () => {
     const game = new Game();
-    assert.equal(game.currentRound, 0);
+    assert.equal(game.round, 0);
   });
 
-  it.skip('should accept an array of players', () => {
+  it('should accept an array of players', () => {
     const player1 = new Player('Jarrett', 1);
     const player2 = new Player('Brennan', 2);
     const game = new Game(player1, player2);
@@ -25,29 +26,31 @@ describe('Game', () => {
     assert.equal(game.players[1].name, 'Brennan');
   }); 
 
-  it.skip('should start on player 1', () => {
-    const player1 = new player('Brennan');
-    const player2 = new player('Jarrett');
+  it('should start on player 1', () => {
+    const player1 = new Player('Brennan');
+    const player2 = new Player('Jarrett');
     const game = new Game(player1, player2);
     assert.equal(game.currentPlayer, player1);
   });
 
-  it.skip('should start with an empty array of surveys', () => {
-    const game = new Game();
-    assert.equal(game.surveys, []);
+  it('should start with an empty array of surveys', () => {
+    const player1 = new Player('Brennan');
+    const player2 = new Player('Jarrett');
+    const game = new Game(player1, player2);
+    assert.deepEqual(game.surveys, []);
   });
 
-  it.skip('should be able to start the game and grab surveys', () => {
-    const player1 = new player('Brennan');
-    const player2 = new player('Jarrett');
+  it('should be able to start the game and grab surveys', () => {
+    const player1 = new Player('Brennan');
+    const player2 = new Player('Jarrett');
     const game = new Game(player1, player2);
     game.startGame();
     assert.equal(game.surveys.length, 15)
   });
 
-  it.skip('should start increment round upon initiation of game', () => {
-    const player1 = new player('Brennan');
-    const player2 = new player('Jarrett');
+  it('should start increment round upon initiation of game', () => {
+    const player1 = new Player('Brennan');
+    const player2 = new Player('Jarrett');
     const game = new Game(player1, player2);
     game.startGame();
     assert.equal(game.round, 1);
