@@ -1,4 +1,4 @@
-// import Wheel from "./Wheel.js";
+import Wheel from "./Wheel.js";
 import Round from "./Round.js";
 import Player from "./Player.js";
 import Puzzle from "./Puzzle.js";
@@ -16,9 +16,12 @@ class Game {
   }
 
   startGame() {
+    let wheel = new Wheel();
+    wheel.makeWheelVals(data.wheel)
     this.createPlayers(domUpdates.playerNames());
     this.getRandomData();
     this.createRound()
+    
   }
 
   getRandomData () {

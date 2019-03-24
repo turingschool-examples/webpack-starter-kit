@@ -7,15 +7,22 @@
 *:before {
   box-sizing: border-box;
 }
-html,body{         
+html,
+body {         
   position:relative;
   margin:0;
   padding:0;
   color: navy;
   font-family: 'Roboto Mono', monospace;
-  /* font-family: 'Orbitron', sans-serif; */
+  overflow: hidden;
+  background-image: url("../images/star-background.png");
+  background-size: cover;
+  /* height: 90vh; */
 }
 
+body {
+  height: 100%;
+}
 /* ///////////////////////// */
 /* GAME START PAGE */
 /* ///////////////////////// */
@@ -29,6 +36,7 @@ html,body{
   border-radius: 15px;
   padding: 50px;
   text-align: center;
+  background: whitesmoke;
 }
 
 .player-intro{
@@ -60,7 +68,6 @@ html,body{
 .header {
   text-align: center;
   grid-area: heading;
-  background: cyan;
   font-family: 'Orbitron', sans-serif;
 }
 
@@ -77,7 +84,7 @@ h1 {
 .letters {
   grid-area: letters;
   background: magenta;
-
+  margin: 30px;
 }
 
 
@@ -85,10 +92,10 @@ h1 {
 /* GAME AREA */
 /* ///////////////////////// */
 .game-area {
-  height: 90vh;
+  height: 100vh;
   display: grid;
   grid-template-columns: 3fr 5fr;
-  grid-auto-rows: 4fr 1fr 4fr;
+  grid-auto-rows: 1fr 4fr 6fr;
   grid-template-areas: 
     "heading heading heading"
     "letters board board" 
@@ -102,7 +109,7 @@ h1 {
 
 .game-board {
   grid-area: board;
-  background: yellow;
+  /* background: yellow; */
 }
 
 
@@ -118,7 +125,6 @@ h1 {
 /* WHEEL SECTION -- seperate file? */
 .wheel-section {
   grid-area: wheel;
-  background: green;
 }
 
 /* ///////////////////////// */
@@ -126,7 +132,7 @@ h1 {
 /* ///////////////////////// */
 .player-area {
   grid-area: players;
-  background: blue;
+  background: whitesmoke;
   display: grid;
   grid-template-rows: 1fr 5fr;
   grid-template-areas: 
@@ -135,15 +141,15 @@ h1 {
 }
 .player-1 {
   grid-area: player1;
-  background: lightskyblue;
+  /* background: lightskyblue; */
 }
 .player-2 {
   grid-area: player2;
-  background: orangered;
+  /* background: orangered; */
 }
 .player-3 {
   grid-area: player3;
-  background: lightseagreen;
+  /* background: lightseagreen; */
 }
 
 .current-round {
