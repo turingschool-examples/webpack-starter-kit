@@ -16,7 +16,6 @@ class Wheel {
   }
   
   spinWheel(){
-    console.log('hi')
     this.selectedValue = this.wheelValue[Math.floor(Math.random() * 5)]
   console.log(this.selectedValue)
   }

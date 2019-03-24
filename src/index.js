@@ -15,6 +15,7 @@ import './css/base.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import './images/WOF-star-background.jpg'
+import DomUpdates from './DomUpdates';
 
 
 
@@ -43,7 +44,7 @@ $('body').on('click', '.single-letter', (event) =>{
 })
 
 $('body').on('click', '.spinner', () =>{
-  selectingSpinWheel()
+  selectingSpinWheel(game)
 })
 
 /************Functions******* */
@@ -58,10 +59,14 @@ function startGameBtn(event) {
 
 function selectingLetter(event) {
   let selectedLetter = $(event.target).text()
-    console.log(selectedLetter)
-    game.roundInst.checkLetter(selectedLetter, game)
+  console.log(selectedLetter)
+  game.roundInst.checkLetter(selectedLetter, game)
+  DomUpdates.disableLetter(event)
 }
 
-function selectingSpinWheel(event){
+function selectingSpinWheel(game) {
+  // const constants = ["a", "e", "i", "o", "u"]
+  // if (!game.alphabet.includes(vowels)) {
+    $('td.single-letter').removeClass('disable-selected-letter')
   game.roundInst.wheelInst.spinWheel()
 }
