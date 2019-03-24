@@ -10,7 +10,7 @@ class Round {
 
 	setCategories() {
    const categoryData = Object.entries(data.categories);
-   console.log(categoryData);
+   // console.log(categoryData);
 		   Array.prototype.shuffle = function() {
     var input = this;    
     for (var i = input.length-1; i >=0; i--) {
@@ -26,12 +26,12 @@ class Round {
     let shuffledCategories = categoryData.shuffle();
     this.allCategoryNames.push(shuffledCategories);
     let currentCategories = shuffledCategories.splice(6,5);
+    this.currentCategories.push(currentCategories);
 
 
     console.log(currentCategories)
-    console.log(shuffledCategories)
-  
-}
+    // console.log(shuffledCategories)
+	}
 }
 
 export default Round;
