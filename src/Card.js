@@ -7,7 +7,7 @@ class Card {
 		this.answer = answer;
 		this.pointValue = pointValue;
 		this.isDailyDouble = false;
-		this.allCategoryNames = Object.entries(data.categories);
+		this.allCategoryNames = [];
 	}
 
 	settingCategories() {
