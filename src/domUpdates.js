@@ -17,7 +17,7 @@ let domUpdates = {
         )
   },
 
-  displayAnswer(game) {
+  hideAnswer(game) {
     let answer = game.currentPuzzle.correct_answer.split('');
     answer.forEach((letter) => {
       if (letter === ' ' || '-' || '&') {
@@ -52,8 +52,25 @@ let domUpdates = {
       $('.player-name-input').eq(2).val());
     game.beginGame(game);
     wheel.getRandomWheel();
-  }
+  },
 
+  checkUserGuess(game) {
+    let answer = game.currentPuzzle.correct_answer.toUpperCase().split('');
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+    let currentLetter = ($('#js-cons-input').val().toUpperCase());
+    answer.forEach(letter => {
+    // console.log(letter);
+    if(letter === currentLetter) {
+      $('.letter').css('color', 'white' );
+     console.log(currentLetter);
+
+    }
+    //find letter at index of answer array that matches the currentLetter at it's index and then turn it into css property white
+      //if user guesses correct letter it will toggle the letter to display on dom
+      //push the current lettter to the guessed bank within puzzle class
+      //maybe use .each() & .eq() to iterate through the answer and match it with currentLetter
+    })
+  }
 }
 
 export default domUpdates;

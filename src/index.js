@@ -18,8 +18,7 @@ console.log(game);
 $('.start-button').on('click', function() {
   domUpdates.startGame(game, wheel);
   domUpdates.displayCategoryName(game); 
-  domUpdates.displayAnswer(game);
-  // domUpdates.displayBoard(game);
+  domUpdates.hideAnswer(game);
   $('.start-button').hide('slow');
   $('.button').prop('disabled', false).css('color', 'white');
   $('.player-name-input').hide();
@@ -41,3 +40,9 @@ $('#js-solve-button').on('click', function() {
   domUpdates.displayQuestionSolvePopup(game);
   // round.checkPlayerGuess();
 });
+
+$('#js-submit-button').on('click', function(e) {
+  e.preventDefault();
+  domUpdates.checkUserGuess(game);
+})
+
