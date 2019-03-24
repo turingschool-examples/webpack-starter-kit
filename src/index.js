@@ -33,5 +33,11 @@ function startGame() {
   domUpdates.updateNames(p1Name, p2Name);
   domUpdates.revealGame();
   let round = game.startNewRound();
-  console.log(round);
+  console.log(round)
+  startRound(round);
+}
+
+function startRound(round) {
+  domUpdates.populateSurvery(round);
+  domUpdates.populateAnswers(round);
 }
