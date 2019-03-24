@@ -19,6 +19,11 @@ export default {
     let currPlayer = game.currentRound.currentPlayer;
     $(`.player-${currPlayer.playerNum}__name`).toggleClass('big-red-border');
   },
+  updateLettersUsed(game){
+    let lettersRemaining = $('.letters__remaining');
+    console.log(game.currentRound.allRoundGuesses)
+    lettersRemaining.text(game.currentRound.allRoundGuesses);
+  },
   updateRoundHintCategory(game) {
     console.log(game.currentRound.roundPuzzle);
     //category

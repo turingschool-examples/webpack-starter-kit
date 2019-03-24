@@ -47,19 +47,23 @@ $('.start__start--btn').click(() =>{
     if ($('#guess--input').val().length === 1) {
       let ltrGuess = $('#guess--input').val();
       game.currentRound.currentPlayer.ans = ltrGuess.toUpperCase();
+      //TODO: update letters used array
+      
+      
       // player ans
       // console.log(game.currentRound.currentPlayer.ans.toUpperCase());
       // round answer
       // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
       // compare player ans against round answer
       if (game.currentRound.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
-        alert('This letter has already been guessed!')
+        alert('This letter has already been guessed!');
         // todo: add an error message instead of alert
       }
       else if (game.currentRound.answer.map((letter)=> letter.toUpperCase()).includes(game.currentRound.currentPlayer.ans.toUpperCase())) {
         game.currentRound.correctRoundGuesses.push(game.currentRound.currentPlayer.ans);
         game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans);
         DomUpdates.createPuzzleClassArr(ltrGuess);
+        game.currentRound.getCurrentPlayer(game);
         // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         
@@ -67,6 +71,7 @@ $('.start__start--btn').click(() =>{
         // console.log(game.currentRound.allRoundGuesses)
         // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
         game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
+        game.currentRound.getCurrentPlayer(game);
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         // console.log('CurrentPlayer', game.currentRound.currentPlayer);
       }
@@ -74,10 +79,10 @@ $('.start__start--btn').click(() =>{
       // push correct guess letter in there
       // find index of answer array to guess letter array
       // change text of that index to the value of the guess index
-      game.currentRound.getCurrentPlayer(game);
     } else {
       alert('Please Only Choose 1 Letter');
     }
+    DomUpdates.updateLettersUsed(game);
   });
   $('.nav__wheel--button').click(() => {
     const slice = game.currentRound.currWheel.wheelSlices[Math.floor((Math.random() * 7) + 0)];
