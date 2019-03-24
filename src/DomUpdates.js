@@ -270,7 +270,7 @@ export default {
     $('main').append(
       `<section id="player-actions" class="player-actions">
       <div>
-          <button class="player-action-btn">Spin Wheel</button>
+          <button class="player-action-btn spinner">Spin Wheel</button>
       </div>
       <div>
           <button class="player-action-btn">Buy Vowel</button>
@@ -298,7 +298,7 @@ export default {
   },
 
   fillGameBoard(clueAnswer) {
-    console.log(clueAnswer);
+    // console.log(clueAnswer);
     const puzzleCells = $('.puzzle-cell').toArray();
     console.log(puzzleCells);
     const cellMap = {};
@@ -325,4 +325,29 @@ export default {
   createQuitGameBtn() {
     $('main').before(`<div class="quit-btn-container"><button>hello</button></div>`)
   }
+//   createWheel() {
+//       $('main').append(
+//     `<section id="theWheel">
+//     <div>
+//       <h3>${game.wheel[5]}</h3>
+//     </div>
+//     <div>
+//         <h3>${game.wheel[4]}</h3>
+//     </div>
+//     <div>
+//         <h3 class="wheelSelection">${game.wheel[3]}</h3>
+//     </div>
+//     <div>
+//         <h3>${game.wheel[2]}</h3>
+//     </div>
+//     <div>
+//         <h3>${game.wheel[1]}</h3>
+//     </div>
+//     <div>
+//         <h3>${game.wheel[0]}</h3>
+//     </div>
+//     <button class="wheelSpin">Spin Wheel</button>
+//   </section>`
+//       )
+//   }
 }
