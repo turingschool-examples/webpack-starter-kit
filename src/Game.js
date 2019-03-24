@@ -7,7 +7,7 @@ class Game {
     this.usedSurveys = []; //note: will go up to 4 cus each player gets one in round 3
     this.player1 = player1;
     this.player2 = player2;
-    this.activePlayer = 1;
+    this.activePlayer = this.player1;
     this.surveyData = {
       response_code: {
         version: '1.5',
@@ -84,9 +84,14 @@ class Game {
     }
   }
 
-  startNewGame() {
-    //will add reset page defaults here
+  startNewGame(startingPlayer) {
+    // will add reset page defaults here
     this.startNewRound();
+    if (this.player1.player === startingPlayer) {
+      this.activePlayer = this.player1;
+    } else {
+      this.activePlayer = this.player2;
+    }
   }
 
   getRandomSurveyId() {
@@ -116,6 +121,13 @@ class Game {
   toggleActivePlayer() {
     //if active player is p1, active player = p2, else active player is p1.
     //run fn to indicate active player in the dom
+    if (this.activePlayer === this.player1) {
+      this.activePlayer = this.player2;
+      domUpdates.displayPlayer2();
+    } else {
+      this.activePlayer = this.player1;
+      domUpdates.displayPlayer1();
+    }
 }
 
   endGame() {

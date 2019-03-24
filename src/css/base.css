@@ -112,15 +112,19 @@ header h1{
   width: 175px;
 }
 
+.active-player-area {
+  border: 4px solid #b20303;
+}
+
 .player-1-name,
 .player-2-name {
   font-size: 1.3em;
   margin: 0;
 }
 
-.active-player {
+/*.active-player {
   display: inline-block;
-}
+}*/
 
 .player-score {
   font-size: 4em;
