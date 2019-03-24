@@ -10,6 +10,10 @@ const domUpdates = {
     $(".name-input-container").css("display", "none");
     $(".game-area").css("display", "grid");
   }
+
+  // populateSurvery: function(round) {
+
+  // }
 }
 
 export default domUpdates;

@@ -32,4 +32,6 @@ function startGame() {
   const game = new Game(player1, player2);
   domUpdates.updateNames(p1Name, p2Name);
   domUpdates.revealGame();
+  let round = game.startNewRound();
+  console.log(round);
 }
