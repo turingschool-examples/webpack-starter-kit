@@ -20,6 +20,18 @@ let domUpdates = {
     
     changeClue(clue) {
         $('.clue').text(clue)
+    },
+
+    checkLetterGuess(splitAnswer, usedArray) {
+        splitAnswer.forEach((letter, index) => {
+            if(usedArray.includes(letter) && !usedArray.includes('') ) {
+                console.log(usedArray.includes(letter))
+                $('.clueLetter').eq(index).text(letter)
+                $('.clueLetter').eq(index).css("background-color", "green")
+            } else {
+                $('.clueLetter').eq(index).css("background-color", "white")
+            }
+        })
     }
 }
 

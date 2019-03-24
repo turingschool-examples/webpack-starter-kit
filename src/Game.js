@@ -8,17 +8,17 @@ class Game {
         this.players = [];
         this.wheel = new Wheel();
         this.round = new Round();
-        this.useLetters = [];
+        this.usedLetters = [];
     }
     
     fillUseLetters(letter) {
-        this.useLetters.push(letter.target.innerText);
-        console.log(this.useLetters);
+        this.usedLetters.push(letter.target.innerText);
+        console.log(this.usedLetters);
     }
 
     fillVowels(vowel) {
-        this.useLetters.push(vowel.target.innerText);
-        console.log(this.useLetters);
+        this.usedLetters.push(vowel.target.innerText);
+        console.log(this.usedLetters);
     }
 
     startGame(name1, name2, name3) {
