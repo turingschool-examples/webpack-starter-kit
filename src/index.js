@@ -13,6 +13,7 @@ import './css/landingPage.css';
 // let game;
 const $startGameBtn = $(".start-game-btn");
 const $valBtn = $(".val-btn");
+// const $resetBtn = $('.reset-btn');
 let game;
 
 $startGameBtn.click(function(event) {
@@ -24,7 +25,7 @@ $startGameBtn.click(function(event) {
 });
 
 $valBtn.on("click", function(event) {
-  event.preventDefault()
+  event.preventDefault();
   // const event.target = { id: ${8, dynamic}, innerText: ${400: dynamic} }
   const {id, innerText} = event.target
   // const id = event.target.id 
@@ -32,6 +33,10 @@ $valBtn.on("click", function(event) {
   console.log(id, innerText)
   game.round.findClue(id, innerText, event)
 })
+
+// $resetBtn.click(function() {
+
+// })
 
 
 

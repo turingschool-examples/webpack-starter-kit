@@ -7,7 +7,7 @@ export default {
       $(`#input-${index}`).val('')
     });
   },
-  renderCategories(categories) {
+  renderCategories(categories) { // little array of four
     const categoryTitles = [ 'United States History',
       'Life Sciences', 'Public Health', 'Education Jargon', 'Name That Board Game',
       'American Literature', 'Biographies', 'American Cities', 'Food',
@@ -18,9 +18,7 @@ export default {
     })
   },
   renderClue(clue, event) {
-    console.log(clue);
-    //pop up in the dom 
-    // $(`#${clue.categoryId}`)
+    $(`#${clue.categoryId}`);
     //display the question with and input to place answer 
     // hide the btn that was just clicked on 
 
