@@ -1,11 +1,34 @@
 main aside {
   text-align: center;
+
+  div {
+    display: flex;
+    justify-content: center;
+
+    button {
+      background-color: $btn;
+      border-radius: 25px;
+      white-space: nowrap;
+      font-family: $bodyfont;
+      font-size: 2rem;
+      height: 60px;
+      padding: 0 20px;
+      margin: 5px 10px;
+      min-width: 25%;
+      padding: 0 10px;
+      &:hover {
+        background-color: $player;
+        box-shadow: .5rem 1rem 1.5rem .5rem $board;
+      }
+    }
+  }
 }
 
 .wheel-img {
-  width: 300px;
-  &:focus {
-    transform: rotate(180deg);
+  width: 70%;
+  &:hover {
+    transition: 20s;
+    transform: rotate(720deg);
   }
 }
 
@@ -14,52 +37,7 @@ h4 {
   font-size: 3rem;
 }
 
-.btns {
-  text-align: center;
 
-  button {
-    background-color: $btn;
-    border-radius: 25px;
-    font-family: $bodyfont;
-    font-size: 2.5rem;
-    height: 75px;
-    margin: 15px;
-    width: 200px;
-    &:hover {
-      background-color: $player;
-      box-shadow: .5rem 1rem 1.5rem .5rem $board;
-    }
-  }
-
-  .spin-pop-up {
-    color: white;
-    display: inline;
-    display: none;
-  }
-
-  .ltr-input {
-    height: 3rem;
-    font-size: 2rem;
-    padding: 5px;
-    width: 10rem;
-  }
-
-  .vowels-to-buy {
-    display: inline-block;
-    color: $player;
-    font-family: $bodyfont;
-    font-size: 2.5rem;
-    display: none;
-  }
-
-  .input-solve {
-    display: none;
-    font-size: 2rem;
-    height: 4rem;
-    padding: 5px;
-    width: 25rem;
-  }
-}
 
 .slide-in {
   animation: slideInX 2s ease 0s 1 normal; 

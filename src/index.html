@@ -21,32 +21,36 @@
         <h2 class="category">Category:</h2>
         <div class="word-box">
           <!-- words box here-->
+          <p>Letters Used: <span  class="letters-used"></span></p>
         </div>
         <h2 class="description">Description:</h2>
+        <div class="spin-pop-up">
+          <!-- <p>enter letter here:</p> -->
+          <input class="ltr-input gues-cons" type="text" maxlength="1">
+          <button class="check-btn guess-cons">Consonant Guess:</button>
+          <input type="text" class="input-solve" placeholder="Press Enter to Solve">
+          <div class="vowels-to-buy">
+            <span>A</span>
+            <span>E</span>
+            <span>I</span>
+            <span>O</span>
+            <span>U</span>
+          </div>
+        </div>
       </section>
       <aside>
         <img class="wheel-img" src="images/portal.png">
         <h4>YOU GOT: <span class="prize"></span></h4>
+        <div>
+          <button class="btn-solve">SOLVE</button>
+          <button class="btn-spin">SPIN</button>
+          <button class="buy">BUY A VOWEL</button>
+        </div>
         <!-- wheel here -->
       </aside>
     </main>
     <section class="btns game-page">
-      <div class="spin-pop-up">
-        <p>enter letter here:</p>
-        <input class="ltr-input" type="text" maxlength="1">
-      </div>
-        <button class="btn-spin">SPIN</button>
-        <button>CHECK</button>
-      <button class="buy">BUY A VOWEL</button>
-      <section class="vowels-to-buy">
-        <span>A</span>
-        <span>E</span>
-        <span>I</span>
-        <span>O</span>
-        <span>U</span>
-      </section>
-      <button class="btn-solve">SOLVE</button>
-      <input type="text" class="input-solve" placeholder="Press Enter to Solve">
+
       <!-- if we get the animation working for the input to appear we should reuse it for the vowels to appear when buy vowel btn is clicked -->
     </section>
     <section class="player-section game-page">

@@ -3,8 +3,6 @@ section.player-section {
   color: white;
   font-family: $bodyfont;
   font-size: 1.3rem;
-  height: 20vw;
-  padding: 25px;
 
   article {
     background-color: $playerbg;
@@ -14,7 +12,7 @@ section.player-section {
     "avatar bank";
     flex: 1;
     margin: 25px;
-    max-height: 300px;
+    height: 100%;
 
     h3, h4 {
       text-align: center;
