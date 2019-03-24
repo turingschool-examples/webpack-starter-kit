@@ -1,12 +1,15 @@
 import gameData from './data.js';
 import domObject from './DOMupdates.js';
 import Round from './Round.js';
+//import html for whoseturn method
+
 
 let round = new Round;
 
 class Game {
   constructor(){
-    this.currentTurn = 'p1';
+    this.currentTurn = 'player1';
+    this.cycleTurn = true;
     this.currentAnswer = [];
   }
   startGame(){
@@ -19,10 +22,10 @@ class Game {
     let correctAnswersPoints = 0;
     answers.forEach( element => {
       if (element.answer.toLowerCase() === userGuess) {
-        console.log(`ITS A MATCH! Here's ${element.respondents} points!`);
+        // console.log(`ITS A MATCH! Here's ${element.respondents} points!`);
         correctAnswersPoints = element.respondents;
       } else {
-        console.log(`no match`)
+        // console.log(`no match`)
       }
     })
     return correctAnswersPoints;
@@ -39,13 +42,14 @@ class Game {
     //revert back to starting arrays
   }
   whoseTurn(){
-    if (this.currentTurn === 'p2'){
-      //inputs and fields should reflect that it's players X's turn
-      //player Y disabled
+    if (this.cycleTurn) {
+      this.currentTurn = 'player1';
     } else {
-      //inputs and fields should reflect that it's players Y's turn
-      //player X disabled
+      this.currentTurn = 'player2';
     }
+    this.cycleTurn = !this.cycleTurn;
+    // console.log('Game.currentTurn: ' + this.currentTurn);
+    // console.log('Game.cycleTurn: ' + this.cycleTurn);
   }
 };
 
