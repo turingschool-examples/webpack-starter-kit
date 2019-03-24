@@ -18,16 +18,16 @@ export default {
 		$(".answer-3").html(a3);
 		$(".answer-3-pts").html(a3points);
 		// console.log('dom test answers');
-	},
+	}
 
-	listenForGuess() {
-		$("#submit-guess").on("click", event => {
-			event.preventDefault();
-			let userInput = $("#player-guess").val()
-			console.log("userInput: " + userInput);
-		})
+	// listenForGuess() {
+	// 	$("#submit-guess").on("click", event => {
+	// 		event.preventDefault();
+	// 		let userInput = $("#player-guess").val()
+	// 		console.log("userInput: " + userInput);
+	// 	})
 		//when user clicks submit button (#submit-guess) pass the string in the input into an variable
 		//go to Player.js
-	}
+	// }
 
 }
