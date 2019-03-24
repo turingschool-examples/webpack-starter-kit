@@ -47,6 +47,10 @@ h2 {
   text-align: center;
   color: white; 
 }
+
+.player-box {
+  width: 80%;
+}
 .player-name {
   position: relative;
   z-index: 2;
