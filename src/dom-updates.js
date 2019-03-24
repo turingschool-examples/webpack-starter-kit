@@ -21,7 +21,6 @@ export default {
   },
   updateLettersUsed(game){
     let lettersRemaining = $('.letters__remaining');
-    console.log(game.currentRound.allRoundGuesses)
     lettersRemaining.text(game.currentRound.allRoundGuesses);
   },
   updateRoundHintCategory(game) {
@@ -36,7 +35,7 @@ export default {
     const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     // console.log(game.currentRound.answer) puzzle array
     game.currentRound.answer.map((letter, index)=>{
-      console.log(game.currentRound.answer)
+      // console.log(game.currentRound.answer)
       // todo: remove index if it's not used
       if(alphabetArr.includes(letter.toUpperCase())){
         valueBoard.append(`<p class="ans-letter letter-${letter.toUpperCase()}">_</p>`);

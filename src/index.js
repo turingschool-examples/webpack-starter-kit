@@ -64,10 +64,13 @@ $('.start__start--btn').click(() =>{
         game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans);
         DomUpdates.createPuzzleClassArr(ltrGuess);
         game.currentRound.getCurrentPlayer(game);
+        game.currentRound.answer = game.currentRound.answer.filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase())
+        console.log(game.currentRound.answer);
+      }
         // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         
-      } else {
+     else {
         // console.log(game.currentRound.allRoundGuesses)
         // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
         game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
