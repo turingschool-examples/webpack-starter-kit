@@ -115,7 +115,7 @@ nav {
 
 
 .popup {
-  background-image: radial-gradient(grey, black );
+  background-image: radial-gradient(grey, black);
   z-index: 12;
   position: absolute;
   top: 150px;
@@ -282,6 +282,7 @@ footer {
   "avitar name"
   "ltrInp pts";
   border: 1px solid lime;
+  background-image: radial-gradient(grey, black );
   width: 300px;
   padding: 20px;
 }

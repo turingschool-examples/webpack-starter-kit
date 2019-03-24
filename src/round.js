@@ -38,6 +38,9 @@ class Round {
   getPuzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer) {
     this.roundPuzzle = new Puzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer);
     this.answer = this.roundPuzzle.ans.split('')
+    this.answer = this.answer.map(letter=> letter.toUpperCase());
+    this.wholeWord = this.answer;
+    
   }
   getCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
@@ -53,7 +56,6 @@ class Round {
     DomUpdates.updateRoundHintCategory(game);
     DomUpdates.appendPuzzle(game);
   }
-
   checkPlayerGuess() {
     console.log('Array of ans', this.answer);
   
@@ -77,7 +79,6 @@ class Round {
   
   playerBuy() {
     console.log('In buy')
-    
   }
   
   
