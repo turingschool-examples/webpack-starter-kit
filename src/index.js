@@ -6,6 +6,7 @@ import $ from 'jquery';
 import Game from './Game'
 import Data from './Data'
 import Round from './Round'
+import Wheel from './Wheel'
 
 
 // An example of how you tell webpack to apply a CSS file
@@ -18,6 +19,7 @@ import './images/WOF-star-background.jpg'
 
 
 let game = new Game()
+
 
 //********Event Listeners ********/
 $('.begin').on('click', () => {
@@ -35,7 +37,7 @@ $('input.player-names').keyup(function() {
   }
   event.preventDefault(event)
 });
-
+//selects letters from the top//
 $('body').on('click', '.single-letter', (event) =>{
   selectingLetter(event)
 })
@@ -57,9 +59,9 @@ function startGameBtn(event) {
 function selectingLetter(event) {
   let selectedLetter = $(event.target).text()
     console.log(selectedLetter)
-    game.roundInst.checkLetter(selectedLetter)
+    game.roundInst.checkLetter(selectedLetter, game)
 }
 
 function selectingSpinWheel(event){
-  // game.roundInst.createWheel()
+  game.roundInst.wheelInst.spinWheel()
 }
