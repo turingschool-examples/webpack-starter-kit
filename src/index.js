@@ -11,16 +11,27 @@ import './css/base.css';
 import './css/landingPage.css';
 
 // let game;
-const startGameBtn = $(".start-game-btn");
+const $startGameBtn = $(".start-game-btn");
+const $valBtn = $(".val-btn");
+let game;
 
-startGameBtn.click(function(e) {
-  e.preventDefault()
+$startGameBtn.click(function(event) {
+  event.preventDefault()
   const names = [$('#input-0').val(), $('#input-1').val(), $('#input-2').val()]
-  const game = new Game;
+  game = new Game;
   game.createPlayers(names); // deal with this duplication
   game.startGame();
 });
 
+$valBtn.on("click", function(event) {
+  event.preventDefault()
+  // const event.target = { id: ${8, dynamic}, innerText: ${400: dynamic} }
+  const {id, innerText} = event.target
+  // const id = event.target.id 
+  // const innerText = event.target.innerText
+  console.log(id, innerText)
+  game.round.findClue(id, innerText, event)
+})
 
 
 
