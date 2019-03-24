@@ -1,31 +1,24 @@
 import domUpdates from "./domUpdates";
+import dataSet from "./dataSet";
 
 class Round {
-  constructor() {
-    this.clues = []; // work on setting up this datatype
-    this.categoryIds = [];
-    this.categoryNames = [];
+  constructor(ids, clues) {
+    this.clues = clues; 
+    this.categoryIds = ids;
+    // this.categoryNames = [];
     // this.currentPlayer = {}; 
-    //this.promptsLeft = value of prompts
   }
-  generateCategories() {
-    const generateDomCats = [ 'United States History',
-      'Life Sciences', 'Public Health', 'Education Jargon', 'Name That Board Game',
-      'American Literature', 'Biographies', 'American Cities', 'Food',
-      'CableTV' ];
-
-
-    this.categoryNames = this.categoryIds.map(categoryId => {
-    //   console.log('randomCatId', categoryId); 
-      return generateDomCats.find((idk, index) => {
-        return index === categoryId - 1;
-      });
+  renderCategories() {
+    domUpdates.renderCategories(this.categoryIds); 
+    console.log(this.categoryIds);
+  }
+  findClue(id, pointVal, event) {
+    const clueToRender = this.clues.find(clue => {
+      return id == clue.categoryId && pointVal == clue.pointValue; // could be stricly equal if parseInt id and pointVal
     })
-    console.log(this.categoryNames);
+    console.log('id: ', id, 'val: ', pointVal);
+    domUpdates.renderClue(clueToRender, event) // drilling with (event) passing an object around 
   }
-//   setCategoryIds() {
-//     domUpdates.setCategory(this.categoryIds);
-//   }
 }
 
 export default Round; 
