@@ -15,7 +15,8 @@ import './css/landingPage.css';
 const $startGameBtn = $(".start-game-btn");
 const $valBtn = $(".val-btn");
 // const $resetBtn = $('.reset-btn');
-const $guessBtn = $(".guess-btn")
+const $guessBtn = $(".guess-btn");
+const $closeBtn = $(".close");
 let game;
 
 $startGameBtn.click(function(event) {
@@ -44,6 +45,10 @@ $guessBtn.click(function(event) {
   domUpdates.disappearClue();
 })
 
+$closeBtn.click(function(event) {
+  event.preventDefault();
+  $('.clue-card').toggleClass('hidden');
+})
 // $resetBtn.click(function() {
 
 // })

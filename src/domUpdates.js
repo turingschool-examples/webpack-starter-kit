@@ -20,7 +20,7 @@ export default {
   },
   renderClue(clue, event) {
    $(event.target).removeClass("val-btn").off("click").text('');
-   $('.clue-card').removeClass("hidden");
+   $('.clue-card').toggleClass("hidden");
    $('.clue-question').text(clue.question)
    $('.game-board, .start-game-form, h1').addClass("opacity");
    $('.val-btn').off("click");
@@ -28,7 +28,7 @@ export default {
     console.log('event', event)
   },
   disappearClue() {
-    $('.clue-card').addClass("hidden");
+    // $('.clue-card').addClass("hidden");
     $('.game-board, .start-game-form, h1').removeClass("opacity");
   },
   // click event for submit button
@@ -47,9 +47,21 @@ export default {
       return acc;
     }, '')
     if (answer.toLowerCase() === guess.toLowerCase()) {
-      alert('correct!');
+      // this.showCorrect();
+      alert('correct')
     } else {
-      alert('incorrect');
+      // this.showWrong();
+      alert('wrong')
     }
-  }
+  },
+  // showCorrect() {
+  //   $('.answer').removeClass('hidden').text('Correct!');
+  //   $('.guess-btn').addClass('hidden');
+  //   $('.close').removeClass('hidden');
+  // },
+  // showWrong() {
+  //   $('.answer').removeClass('hidden').text('Wrong!');
+  //   $('.guess-btn').addClass('hidden');
+  //   $('.close').removeClass('hidden');
+  // }
 }
