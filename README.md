@@ -26,7 +26,15 @@ This is a two player game modeled after the TV show ‘Family Feud’.  Each gam
 
 ## Getting Started
 
-To clone this repository to your own local machine, run the following command in your terminal:
+### View Live on GitHub
+
+You can view the game live on my GitHub at the following link:
+
+<a href="https://lynnerang.github.io/family-feud/">Family Feud Game App - Live!</a>
+
+### Get Your Own Copy
+
+If you'd like to clone this repository to your own local machine, run the following command in your terminal:
 
 ```shell
 git clone https://github.com/lynnerang/family-feud.git
@@ -37,6 +45,16 @@ Then run the following command to install dependencies:
 ```shell
 npm install
 ```
+
+To view the app in action, run the following command in your terminal:
+
+```bash
+npm start
+```
+
+Then, go to `http://localhost:8080/` in your browser to see the code running in the browser.
+
+---
 
 ## How to Play
 
