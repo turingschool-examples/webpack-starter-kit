@@ -19,6 +19,7 @@ const domUpdates = {
   populateAnswers: function(round) {
     round.answers.forEach((answer, i) => {
       $(`.answer${i}`).text(answer.answer);
+      $(`.answer${i}-num`).text(answer.respondents);
     })
   }
 
