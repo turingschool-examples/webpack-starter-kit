@@ -29,10 +29,10 @@ $("#submit-names").on( "click", () => {
 	if($('#player-1-name').val() == '' || $('#player-2-name').val() == ''){
 		return;
 	} else {
-		player1.name = $('#player-1-name').val();
-		player2.name = $('#player-2-name').val();
-		console.log(player1);
-		console.log(player2);
+		player1.name = $('#player1-name-input').val();
+		player2.name = $('#player2-name-input').val();
+		$('.player-1-name').html(player1.name);
+		$('.player-2-name').html(player2.name);
 		$(".main-content").slideDown();
 		$(".user-inputs").hide();
 	}
