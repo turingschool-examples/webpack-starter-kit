@@ -213,14 +213,6 @@ button.start__start--btn {
   justify-content: center;
   align-items: center;
 }
-.board__tile-hider--container {
-  z-index: 7;
-  border: 1px solid lime;
-}
-.board__tile-value--container {
-  z-index: 5;
-  background-color: black;
-}
 .board__tile-hider--container,
 .board__tile-value--container {
   width: 80%;
@@ -230,6 +222,16 @@ button.start__start--btn {
   align-items: center;
   position: absolute;
 }
+.board__tile-hider--container {
+  z-index: 7;
+  display: none;
+  border: 1px solid lime;
+}
+.board__tile-value--container {
+  z-index: 5;
+  background-color: black;
+}
+
 .hint--container {
   position: absolute;
   bottom: 50px;
@@ -242,6 +244,11 @@ button.start__start--btn {
   width: 500px;
 }
 
+
+.ans-letter { 
+  color: magenta;
+  z-index: 50000;
+}
 
 
 
@@ -297,4 +304,8 @@ footer {
   padding: 10px;
   height: 30px;
   font-size: 30px;
+}
+/* ! red border  for current player */
+.big-red-border {
+  background-color: red;
 }
