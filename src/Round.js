@@ -9,6 +9,7 @@ class Round {
     this.roundClue = {}
     this.roundWheel = []
     this.activePlayer = 0
+    this.letterIndexs = {};
   }
 
   createNewRound(game) {
@@ -40,7 +41,7 @@ class Round {
   }
 
   fillGameBoard() {
-    DomUpdates.fillGameBoard(this.clueAnswer);
+    this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
   }
 
 }
