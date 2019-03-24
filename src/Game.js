@@ -4,6 +4,7 @@ import domUpdates from './domUpdates.js';
 import index from './index.js';
 import Player from './Player.js';
 import Round from './Round.js';
+import Card from './Card.js';
 import $ from 'jquery';
 
 class Game {
@@ -29,15 +30,12 @@ class Game {
   }
 
   setRoundOne() {
-    
     let newRound = new Round(this);
+    let newCard = new Card(this);
     newRound.setCategories(this);
     domUpdates.appendCategoryNames(this);
-    
-    
-
-
-}
+    newCard.createCards(this);
+  }
 
 
     // let shuffledCategories = categoryData.shuffle();
