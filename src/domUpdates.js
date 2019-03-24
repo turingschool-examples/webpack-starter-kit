@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import data from './data-set.js';
 
 export default {
   updateNames(names) {
@@ -27,6 +28,7 @@ export default {
       });
   },
 
+
   showClue(clue, event) {
     const { id, innerText } = event.target;
     // event.innerText(' ');
@@ -35,6 +37,24 @@ export default {
     // $('#1').text(' ');
     console.log(clue);
     console.log(event.target)
+  },
+    
+  answerQuestion(game) {
+    let questionText = $(".question");
+    let answerText = $('#question-input');
+    let result = data.clues.reduce((acc, currentClue) => {
+      if(questionText.text() === currentClue.question) {
+        acc += currentClue.answer;
+      }
+      return acc
+    }, '')
+    if(result.toLowerCase() === answerText.val().toLowerCase()) {
+     questionText.text('Correct Answer');
+    } else {
+     questionText.text('Incorrect Answer');
+     game.changePlayer();
+    }
+
   },
   
   // showQuestion(game, id, text) {
@@ -53,8 +73,10 @@ export default {
   //   }
   // },
 
+
   answerQuestion(game) {
     $('.question-prompt').hide();
     console.log(game.roundOne.clues[0].answer)
   }
+
 }

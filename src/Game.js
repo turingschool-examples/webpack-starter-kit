@@ -21,6 +21,7 @@ class Game {
     domUpdates.updateNames(this.players);
   }
 
+
   startGame() {
     this.clues = this.shuffle(data.clues);
     this.categoryData = this.shuffle(this.categoryData);
@@ -33,9 +34,12 @@ class Game {
     this.round = round;
   }
 
-
   shuffle(clues) {
     return clues.sort(() => 0.5 - Math.random());
+  }
+
+  changePlayer() {
+    
   }
 
 }

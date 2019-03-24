@@ -37,7 +37,7 @@ clueBtn.on('click', function(e) {
   e.preventDefault();
   const {id, innerText} = event.target;
   console.log(id, innerText);
-  game.round.findClue(id, innerText, event);
+  game.round.findClue(id, innerText, event)
 })
 
 // gameBoard.click(function (e) {
