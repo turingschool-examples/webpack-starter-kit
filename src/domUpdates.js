@@ -18,8 +18,18 @@ export default {
     })
   },
   renderClue(clue, event) {
-    $(`#${clue.categoryId}`);
+   $(`#${clue.categoryId}`).removeClass("val-btn")
+   // $(`#${clue.categoryId}`).append("<p class='.guess-input'>hey</p>")
+   $('.clue-card').removeClass("hidden");
+   $('.clue-question').text(clue.question)
+   $('.game-board, .start-game-form, h1').addClass("opacity");
+    console.log('clue', clue)
+    console.log('event', event)
     //display the question with and input to place answer 
     // hide the btn that was just clicked on 
+  },
+  disappearClue() {
+    $('.clue-card').addClass("hidden");
+    $('.game-board, .start-game-form, h1').removeClass("opacity");
   }
 }

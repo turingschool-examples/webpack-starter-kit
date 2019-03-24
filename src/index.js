@@ -4,6 +4,7 @@
 // An example of how you import jQuery into a JS file if you use jQuery in the file
 import $ from 'jquery';
 import Game from './Game.js';
+import domUpdates from './domUpdates.js';
 
 // An example of how you tell webpack to apply a CSS file
 import './css/normalize.css';
@@ -14,6 +15,7 @@ import './css/landingPage.css';
 const $startGameBtn = $(".start-game-btn");
 const $valBtn = $(".val-btn");
 // const $resetBtn = $('.reset-btn');
+const $guessBtn = $(".guess-btn")
 let game;
 
 $startGameBtn.click(function(event) {
@@ -27,11 +29,17 @@ $startGameBtn.click(function(event) {
 $valBtn.on("click", function(event) {
   event.preventDefault();
   // const event.target = { id: ${8, dynamic}, innerText: ${400: dynamic} }
-  const {id, innerText} = event.target
+  const {id, innerText} = event.target;
   // const id = event.target.id 
   // const innerText = event.target.innerText
-  console.log(id, innerText)
+  console.log({id, innerText})
   game.round.findClue(id, innerText, event)
+});
+
+$guessBtn.click(function(event) {
+  event.preventDefault();
+  console.log("click");
+  domUpdates.disappearClue();
 })
 
 // $resetBtn.click(function() {
