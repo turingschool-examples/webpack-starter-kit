@@ -37,6 +37,7 @@ $('#resetBtn').click(() => {
   location.reload(true);
 });
 
+
 function startPlaying() {
 let playerOne = $('.nameOne').val();
   $('#nameOne').text(playerOne);
@@ -54,8 +55,10 @@ let game;
 
 function createGame(dataset) {
   game = new Game(dataSet);
+
   console.log(game);
 };
+
 
 // $('#submitBtn').on('click', checkAnswer);
 

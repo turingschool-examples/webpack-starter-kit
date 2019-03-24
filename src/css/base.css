@@ -41,6 +41,7 @@ body {
   background-color: green;
   color: white;
   height: 50px;
+  outline: none;
 }
 
 .gameBoard {
@@ -84,7 +85,8 @@ body {
     border-bottom: 4px solid #fec55c;
     border-style: ridge;
     height: 50px;
-}
+    outline: none; 
+  }
 
 .scoreBoard,
 .playerControls {
@@ -142,6 +144,7 @@ body {
     border: 5px solid;
     margin-top: 3%;
     font-size: 1rem;
+    outline: none;
 }
 
 #resetBtn {

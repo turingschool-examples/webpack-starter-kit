@@ -10,12 +10,15 @@ class Round {
             // update the DOM - survey
       }
 
-        getAnswer() {
-
-
-        }
+        // getAnswer() {
+        // let guess = $('.answerInput').val();
+        // checkAnswer(guess);
+        // console.log('happy');
+        
+        // }
 
         checkAnswer() {
+            // if(guess === this.surveys.)
         //   if(answer ==== answer) {
         //     update DOM to change answer, correctAnswer ++, player.score ++
         //   } else {
@@ -26,6 +29,11 @@ class Round {
         //for new player
         //keep checking answers
      }
+
+        appendAnswer() {
+//remove 1
+        // $('#responseOne').append();  
+        }
 
      endRound() {
         
