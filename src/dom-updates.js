@@ -11,12 +11,12 @@ export default {
     })
   },
   updatePlayerScore(game) {
-    game.players.map((player, ind) => {
-      $(`.player-${ind + 1}__round-points`).text(player.roundCaps);
-      $(`.player-${ind + 1}__totals-points`).text(player.totalCaps);
-    });
+    let currPlayer = game.currentRound.currentPlayer;
+
+    $(`.player-${currPlayer.playerNum}__current-points`).text(`$ ${currPlayer.roundCaps}`);
+    $(`.player-${currPlayer.playerNum}__totals-points`).text(`$ ${currPlayer.totalCaps}`);
   },
-  updateRoundHintCategory(game){
+  updateRoundHintCategory(game) {
     console.log(game.currentRound.roundPuzzle);
     //category
     $('.hint__title').text(game.currentRound.roundPuzzle.cat);
