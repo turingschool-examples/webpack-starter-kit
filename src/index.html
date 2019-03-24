@@ -788,9 +788,12 @@
     let topicTwo = [];
     let topicThree = [];
     let topicFour = [];
+
+
+
     categoryList.forEach((currentClue) => {
       if (currentClue.categoryId === roundOne[0]) {
-        topicOne.push(currentClue);
+        topicOne.push(currentClue)
       } else if (currentClue.categoryId === roundOne[1]) {
         topicTwo.push(currentClue)
       } else if (currentClue.categoryId === roundOne[2]) {
@@ -798,14 +801,23 @@
       } else if (currentClue.categoryId === roundOne[3]) {
         topicFour.push(currentClue)
       }
-
-
     });
 
-    console.log('Log topicOne', topicOne);
-    console.log('Log topicTwo', topicTwo);
-    console.log('Log topicThree', topicThree);
-    console.log('Log topicFour', topicFour);
+    const finalCatOne = new Set();
+    const newCluesOne = topicOne.filter(clue => {
+        if (finalCatOne.has(clue.pointValue)) {
+            return false;
+        }
+        finalCatOne.add(clue.pointValue);
+        return true;
+    });
+
+    console.log(newCluesOne);
+
+    // console.log('Log topicOne', topicOne);
+    // console.log('Log topicTwo', topicTwo);
+    // console.log('Log topicThree', topicThree);
+    // console.log('Log topicFour', topicFour);
 
 
     </script>
