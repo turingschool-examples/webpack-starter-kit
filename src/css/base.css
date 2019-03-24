@@ -186,6 +186,16 @@ h3 {
   height: 70px;
 }
 
+.puzzle-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}
+
 .puzzle-cell-container {
   background-image: radial-gradient(circle, #c0e4d2, #8bcdac, #68bd93);
 }

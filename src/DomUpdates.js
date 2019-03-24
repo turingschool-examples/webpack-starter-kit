@@ -1,4 +1,4 @@
-import $ from 'jquery'
+import $ from 'jquery';
 
 export default {
   createGameBoard(array) {   
@@ -310,16 +310,16 @@ export default {
             cellMap[letter] = [index];
         }
         if(letter === " ") {
-            console.log('space');
-            $(cell).append(`<p>${letter}</p>`);
+            $(cell).append(`<p class="puzzle-text">${letter}</p>`);
             $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('spaces-not-displayed');
+        } else if(letter === "-" || letter === "'") {
+            $(cell).append(`<p class="puzzle-text">${letter}</p>`);
         } else if(letter !== undefined && letter !== " ") {
-            console.log('letter');
-            $(cell).append(`<p>${letter}</p>`);
+            $(cell).append(`<p class="puzzle-text">${letter}</p>`);
             $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-not-displayed');
         }
     })
-    console.log(cellMap);
+    return (cellMap);
   },
 
   createQuitGameBtn() {

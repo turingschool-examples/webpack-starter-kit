@@ -7,7 +7,7 @@ class Game {
   constructor() {
     this.players = []
     this.wheels = []
-    this.stage = 0
+    this.stage = 3
     this.alphabet = []
     this.roundInst = new Round()
   }
