@@ -4,13 +4,13 @@ import domObject from './DOMupdates.js';
 class Round {
   constructor(){
     this.currentRound = 0;
-    this.currentAnswer = [];
+    this.currentAnswers = [];
   }
 
   generateRound() {
     const currentRoundAnswers = this.generateAnswers();
     this.currentAnswer = currentRoundAnswers;
-    // console.log(this.currentAnswer);
+
     domObject.createAnswers(
       currentRoundAnswers[0].answer, 
       currentRoundAnswers[0].respondents, 
