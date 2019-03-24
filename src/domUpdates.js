@@ -25,7 +25,7 @@ export default {
     $('#guess-input').val('');
   },
 
-  startGame({ players, currentPlayer}) {
+  startGame({ players, currentPlayer }) {
     this.updateNames(players[0].name, players[1].name);
     this.displayCurrentPlayer(currentPlayer);
     this.disableStartButton();
@@ -36,24 +36,23 @@ export default {
     $(".player-two-name").text(p2name);
   },
 
-  startRound(round) {
-    $('#current-question').text(round.question);
-    this.loadReaponses(round.responses);
+  startRound({ question, responses }) {
+    $('#current-question').text(question);
+    this.loadReaponses(responses);
   },
 
   disableStartButton() {
     $("#start-game-btn").attr("disabled", true);
   },
 
-  displayCurrentPlayer(player) {
-    $(".current-player").text(player.name);
-    this.updateScores(player)
+  displayCurrentPlayer({ name, score }) {
+    $(".current-player span").text(name);
+    $("#current-round-total h2").text(score);
   },
 
-  updateScores(player) {
-    const $score = player.name === $('.player-one-name').text() ? $('.player-one-score') : $('.player-two-score'); 
-    $score.text(player.score)
-    $("#current-round-total h2").text(player.score);
+  updateScores({ name, score }) {
+    const $scoreToUpdate = name === $('.player-one-name').text() ? $('.player-one-score') : $('.player-two-score'); 
+    $scoreToUpdate.text(score)
   }
 
 }

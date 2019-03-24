@@ -14,8 +14,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #322742;
+  /* background-color: #322742; */
   font-family: 'Roboto';
+    background: #322742;
+    background-image:
+  /*     radial-gradient(salmon 50%, transparent 0),  */
+      radial-gradient(circle, rgba(255,221,164,1) 0%, rgba(251,162,39,1) 30%
+      30%, transparent 0);
+    background-size: 40px 40px;
+  /*   background-position: 0 0, 15px 15px; */
 }
 
 .wrapper {
@@ -32,6 +39,8 @@ body {
   box-shadow: 0 0 0 3px #B3360E;
   background-color: #524348;
   color: lightgrey;
+  outline: 15px solid #322742;
+  outline-offset: 3px
 }
 
 #user-area {
@@ -55,7 +64,7 @@ body {
   grid-row-end: 2;
 }
 
-#player-1 {
+#player-2 {
   grid-row-start: 2;
   grid-row-end: 3;
 }
@@ -63,7 +72,6 @@ body {
 #button-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   grid-row-start: 4;
   grid-row-end: 5;
   justify-content: space-between;
@@ -106,17 +114,36 @@ button:focus {
   border-radius: 3px;
 }
 
-.player-info>p {
+.player-info > p {
   margin: 0;
   padding: 0;
 }
 
 #current-round {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   flex: 3;
   text-align: center;
   padding: 15px;
   border: 3px solid black;
   border-radius: 25px;
+}
+
+#current-round div {
+  width: 100%;
+}
+
+.current-player {
+  position: absolute;
+  top: 15px;
+  line-height: 100%;
+  margin: 0;
+  left: 15px;
+  font-size: 25px;
+  font-weight: 600;
 }
 
 #question-container {
@@ -158,7 +185,7 @@ h1 {
 }
 
 #logo {
-  height: 150px;
+  height: 250px;
   margin-bottom: 15px;
 }
 
@@ -172,8 +199,7 @@ h1 {
 
 .response-card,
 #current-question,
-button,
-#guess-input {
+button {
   border-radius: 3px;
 }
 
@@ -208,7 +234,6 @@ button,
   text-transform: uppercase;
   font-weight: 700;
   padding: 0 15px;
-  /* justify-content: flex-start; */
 }
 
 .respondents {
@@ -218,8 +243,9 @@ button,
   border-left: 2px solid white;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  justify-content: center;
   height: 100%;
+  min-width: 60px;
 }
 
 h4 {
@@ -229,9 +255,30 @@ h4 {
   background-color: #172655;
 }
 
+form {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  margin: 25px auto 15px auto;
+}
+
 #guess-input {
+  border-style: none;
+  flex: 8;
+  border-radius: 3px 0 0 3px;
   width: 75%;
   height: 50px;
   font-size: 20px;
   padding-left: 15px;
+}
+
+#guess-input:focus {
+  outline: 0;
+}
+
+input[type="submit"] {
+  flex: 2;
+  border-style: none;
+  border-radius: 0 3px 3px 0;
+  font-size: 20px;
 }
