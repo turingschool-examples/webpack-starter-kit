@@ -1,14 +1,23 @@
 
 // ORDER OF EVENTS
-
+// Instantiate a new game (index.js)
 // Player 1 inserts name
 // player 2 inserts name
 // player 3 inserts name
-// start is clicked
+// start is clicked - start game(game.js)
 
-// board randomly generates round 1
-// 	4 categories 100value - 400value
-// 	1 daily double, player chooses value
+//startGame()
+  //grab player names (Game.js)
+  //instantiate new players(Game.js)
+  //create players array (Player.js)
+  //show Player Names() -(domUpdates.js)
+
+  // createRound is called (Game.js)
+  //  Round1 categories array = [] (Round.js)
+  //  array of 
+  // 	4 categories 100value - 400value
+
+  // 	1 daily double, player chooses value
 
 // player one guesses
 // if player guess right score increments

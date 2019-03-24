@@ -1,17 +1,17 @@
 import $ from 'jquery';
+import Game from './Game.js';
 
 export default {
-  getPlayerNames() {
-    $(".start").click(function() {
-      let inputPlayerOne = $(".player-one-input").val();
-      $(".player-one-name").text(inputPlayerOne);
-      let inputPlayerTwo = $(".player-two-input").val();
-      $(".player-two-name").text(inputPlayerTwo);
-      let inputPlayerThree = $(".player-three-input").val();
-      $(".player-three-name").text(inputPlayerThree);
+  updatePlayerNames(names) {
+      $(".player-one-name").text(names[0].name);
+      $(".player-two-name").text(names[1].name);
+      $(".player-three-name").text(names[2].name);
       $("input").remove();
-      game.startGame();
-    });
   }
 
+  // appendCategoryNames() {
+  //   const categoryOne = document.getElementByClassName('category-one');
+  //   console.log(categoryOne)
+  //   categoryOne.innerText = game.roundOneCategories[0];
+  // }
 }
