@@ -59,7 +59,7 @@ function startGameBtn(event) {
 function selectingLetter(event) {
   let selectedLetter = $(event.target).text()
     console.log(selectedLetter)
-    game.roundInst.checkLetter(selectedLetter)
+    game.roundInst.checkLetter(selectedLetter, game)
 }
 
 function selectingSpinWheel(event){

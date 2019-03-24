@@ -298,9 +298,8 @@ export default {
   },
 
   fillGameBoard(clueAnswer) {
-    // console.log(clueAnswer);
+ 
     const puzzleCells = $('.puzzle-cell').toArray();
-    console.log(puzzleCells);
     const cellMap = {};
     puzzleCells.forEach((cell, index) => {
       const letter = clueAnswer[index];
