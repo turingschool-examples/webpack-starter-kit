@@ -19,9 +19,7 @@ class Round {
         this.responses = this.responses.filter(response => {
           return response.answer.toLowerCase() !== guess
         });
-        // this.correctGuesses.push(response);
-        // domUpdates.updateScore(player)
-        // domUpdates.revealAnswer(response);
+        domUpdates.revealResponse(response.answer);
         // TODO create game over screen
         if (this.responses.length === 0) {
           this.isFinished = true;

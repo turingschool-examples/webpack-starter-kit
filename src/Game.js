@@ -30,7 +30,7 @@ class Game {
     this.round++;
     this.currentRound = new Round(this.round, this.surveys[this.round - 1]);
     console.log(this);
-    domUpdates.displayCurrentQuestion(this.currentRound.question);
+    domUpdates.startRound(this.currentRound);
   }
 
   shuffle(array) {
