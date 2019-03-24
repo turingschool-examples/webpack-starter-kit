@@ -1,99 +1,89 @@
-# Gametime Starter Kit
 
-## Fork This Repo
+![Family Feud Game Logo](../src/images/family-feud-logo.png)
 
-Within your group, decide on one person to have the project repository (repo) on their GitHub account. Then, that person should "fork" this repo. On the top right corner of this page, click the **Fork** button.
+## Table of contents
+* [Intro](#Family-Feud-Game-App)
+* [Screenshots](#Screenshots)
+* [Getting Started](#Getting-Started)
+* [How to Play](#How-to-Play)
+* [Project Emphasis](#Project-Emphasis)
+* [License](#License)
 
-## Setup
+# Family Feud Game App
 
-After one person has forked the repo, everyone should clone down the forked repo. Since you don't want to name your project "gametime-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+This project is a Turing front-end evelopment project focused on working with ES6 classes and existing datasets.
 
-```bash
-git clone [remote-address] [what you want to name the repo]
+This is a two player game modeled after the TV show ‘Family Feud’.  Each game has three rounds, and in each round there is a question that has three top survey responses. The two players take turns guessing the answers until they are all guessed and their score increments by the number of respondents who submitted that guess.  The third round is a special round where each player gets their own question and 30 seconds to guess as many times as they like, and the score of correct guesses is doubled for that round.
+
+
+## Screenshots
+
+![Player name entry](/screenshots/familyfeud1.png)
+![Start of game](/screenshots/familyfeud2.png)
+![Correct guess is entered](/screenshots/familyfeud3.png)
+![Fast round with timer](/screenshots/familyfeud4.png)
+
+
+## Getting Started
+
+### View Live on GitHub
+
+You can view the game live on my GitHub at the following link:
+
+<a href="https://lynnerang.github.io/family-feud/">Family Feud Game App - Live!</a>
+
+### Get Your Own Copy
+
+If you'd like to clone this repository to your own local machine, run the following command in your terminal:
+
+```shell
+git clone https://github.com/lynnerang/family-feud.git
 ```
 
-Once you have cloned the repo, install the library dependencies. Run:
+Then run the following command to install dependencies:
 
-```bash
+```shell
 npm install
 ```
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text and a pink background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
-
-## Where to Add Your Code
-
-### JavaScript
-
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
-
-**Create all of your feature code files in the `src` directory.**
-
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
-
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
-
-### HTML
-
-Add your HTML to the `index.html` file in the `./src` directory. There is some boilerplate HTML that exists from the start that you can modify for your game.
-
-### CSS
-
-Add your CSS files in the `src/css` directory. There is a `base.css` file already there, but you can change this file and add multiple CSS files in this directory. Note that this project structure does not support SCSS.
-
-This might sound weird, but you need to `import` your CSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.css` file has already been imported in the JavaScript entry file.
-
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`index.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
+To view the app in action, run the following command in your terminal:
 
 ```bash
 npm start
 ```
 
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
+Then, go to `http://localhost:8080/` in your browser to see the code running in the browser.
 
 ---
 
-## Test Files Organization
+## How to Play
 
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
+1. Both players enter their names and click "Start New Game".
+2. Round 1 begins, and a question is displayed on the board.
+3. Player 1 goes first and the players take turns guessing top survey responses for the question.
+4. If a player answers correctly, they get to guess again.  If not, it's the other player's turn.
+5. When a correct answer is guessed, the player who guessed it has their score increased by the number of respondents for that answer.
+6. When all three answers are guessed, the game moves to the next round.
+7. When the players reach Round 3, a special "Fast Money Round" starts.  They each get a question with 30 seconds to guess as many times as they like.  The scores for correct guesses are doubled for the round.
+8. The game will end after Round 3, and the winner is the player with the highest total score.
 
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
 
-## Running Your Tests
+## Project Emphasis
 
-Run your test suite using the command:
+View the project specification (user stories & other requirements) on the <a href="http://frontend.turing.io/projects/module-2/family-feud">Turing webpage for this project</a>.
 
-```bash
-npm test
-```
+- [x] HTML & CSS 
+- [x] Flex-box
+- [x] UI design
+- [x] jQuery
+- [x] Es6 classes
+- [x] Working with existing datasets
+- [x] Mocha & Chai testing
+- [x] Webpack
+- [x] NPM
+- [x] ESLint
 
-The test results will output to the terminal.
 
----
+## Licensing
 
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your game_, then you can consider deploying your game to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your game to the web. Research deploying a Webpack project to GitHub Pages or ask your instructors about it if you get to that point. (Don't worry about this until your project is free of bugs and well tested!)
+All credit goes to <a href="turing.io">Turing School of Software</a> for providing the project specifications.
