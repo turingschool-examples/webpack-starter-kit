@@ -1,40 +1,62 @@
 body {
-  background-color: #1e52ae;
   font-family: 'Source Sans Pro', sans-serif;
+  background-color: burlywood;
 }
 
 .game-area, 
 .player-name {
-  border-radius: 50%;
   margin: 50px auto;
 }
 
 .game-area {
   width: 95%;
-  height: 600px;
-  border: 15px solid #fff252;
+  height: 90%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr;
+  grid-row-gap: 10px;
+  grid-template-columns: 1fr 2.8fr 1fr;
+  grid-template-rows: 1fr 1fr 500px .8fr;
   grid-template-areas:
-    "survey survey survey"
-    "player-one results player-two";
+    ". logo ."
+    ". survey ."
+    "player-one results player-two"
+    ". input .";
   justify-items: center;
-  background-image: url("../images/light-wall.jpg");
 }
 
+.logo-holder {
+  grid-area: logo;
+}
+img {
+  height: 60px;
+  width: 600px;
+  margin: 20px auto 0;
+}
+
+.survery-box {
+  grid-area: survey;
+  background-image: url("../images/text-banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+}
+
+h2 {
+  margin: 15px auto;
+  text-align: center;
+  color: white; 
+}
 .player-name {
   position: relative;
   z-index: 2;
   width: 130px;
   height: 50px;
-  border: 10px solid #fff252;
   font-weight: 900;
-  margin: 30px auto 0;
+  margin: 200px auto 0;
 }
 
 .score-box {
-  border: 10px solid #fff252;
   width: 50px;
   margin: -20px auto 0;
 }
@@ -48,15 +70,31 @@ h6 {
 
 .pb-one {
   grid-area: player-one;
+  background-image: url("../images/banner1.png");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .pb-two {
   grid-area: player-two;
+  background-image: url("../images/banner2.png");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.result-box {
+.rb-holder {
+  background-image: url("../images/sheild-and-sword.png");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: contain;
   grid-area: results;
-  border: 10px solid #fff252;
+  height: 100%;
+  width: 100%;
+}
+.result-box {
+  background-color: white;
   display: grid;
   grid-template-columns: 1fr 30px;
   grid-template-rows: 1fr 1fr 1fr;
@@ -64,8 +102,9 @@ h6 {
     "result-one result-one-num"
     "result-two result-two-num"
     "result-three result-three-num";
-  width: 80%;
-  height: 80%;
+  margin: 160px auto;
+  width: 260px;
+  height: 40%;
 }
 
 .result-one {
@@ -92,8 +131,7 @@ h6 {
   grid-area: result-three-num;
 }
 
-.player-name,
-.result-box, 
-.score-box {
-  background-color:  #1e52ae;
+.user-input {
+  grid-area: input;
+  margin: 0 auto;
 }

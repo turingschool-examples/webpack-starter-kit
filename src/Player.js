@@ -10,7 +10,9 @@ class Player {
     if (typeof guess !== 'string') {
       return 'Error: Argument Not String';
     } else if (round.answers.map(a=>a.answer.toUpperCase()).includes(guess.toUpperCase())) {
-      this.score += round.answers.find(a => a.answer.toUpperCase() === guess.toUpperCase()).respondents;
+      this.score += round.answers
+        .find(a => a.answer.toUpperCase() === guess.toUpperCase())
+        .respondents;
     } 
     game.toggleIsTurn();
   }

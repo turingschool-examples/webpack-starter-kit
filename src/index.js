@@ -10,7 +10,12 @@ import './css/base.css';
 
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/light-wall.jpg';
+import './images/sheild-and-sword.png';
+import './images/family-feud-logo.png';
+import './images/banner1.png';
+import './images/banner2.png';
+import './images/text-banner.png';
+
 
 import data from './gamedata.js';
 
