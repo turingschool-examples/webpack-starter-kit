@@ -34,6 +34,7 @@ class Game {
 
   let newRound = new Round;
     newRound.setCategories();
+    console.log(newRound);
 
 }
 
