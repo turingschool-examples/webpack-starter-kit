@@ -4,6 +4,7 @@ class Player {
     this.name = name;
     this.number = number;
     this.score = 0;
+    // this.consecutiveGuesses = 0;
   }
 
   updateScore(amount) {

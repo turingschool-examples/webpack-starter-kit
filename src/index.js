@@ -36,6 +36,7 @@ startBtn.on('click', () => {
 submitBtn.on('click', () => {
   const guess = $('#guess-input').val().toLowerCase();
   game.currentRound.submitGuess(game.currentPlayer, guess);
+  game.switchPlayer()
   if (game.currentRound.isFinished) {
     // TODO starts new round after 5 seconds
     setTimeout(() => {

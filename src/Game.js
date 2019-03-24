@@ -8,9 +8,10 @@ import data from './data';
 class Game {
 
   constructor(player1, player2) {
+    this.number = 0;
     this.players = [player1, player2];
     this.round = 0;
-    this.currentPlayer = this.players[0].number;
+    this.currentPlayer = this.players[this.number];
     this.surveys = [];
   }
 
@@ -44,7 +45,9 @@ class Game {
   }
 
   switchPlayer() {
-    // this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
+    this.number = this.number === 0 ? 1 : 0;
+    this.currentPlayer = this.players[this.number]
+    console.log(this.currentPlayer)
   }
 
 }

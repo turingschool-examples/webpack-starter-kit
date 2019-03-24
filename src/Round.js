@@ -23,10 +23,12 @@ class Round {
         // TODO create game over screen
         if (this.responses.length === 0) {
           this.isFinished = true;
-          
         }
         break;
-      } 
+      } else {
+        // player.consecutiveGuesses = 0;
+        // game.switchPlayer();
+      }
     }
   }
 
