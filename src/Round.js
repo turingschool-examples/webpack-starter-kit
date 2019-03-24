@@ -19,7 +19,6 @@ class Round {
     console.log('id: ', id, 'val: ', pointVal);
     domUpdates.renderClue(clueToRender, event) // drilling with (event) passing an object around 
   }
-
 }
 
 export default Round; 

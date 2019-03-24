@@ -21,6 +21,5 @@ export default {
     $(`#${clue.categoryId}`);
     //display the question with and input to place answer 
     // hide the btn that was just clicked on 
-
   }
 }
