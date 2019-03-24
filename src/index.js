@@ -20,6 +20,7 @@ $('.letters').on('click', function(e) {
     e.target.innerText
     game.fillUseLetters(e);
     $('body').find(e.target).off().css("background-color", "grey");
+    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[0], game.usedLetters)
     console.log(e.target.innerText)
 })
 
@@ -27,10 +28,12 @@ $('.vowel').on('click', function (e){
     e.target.innerText;
     game.fillVowels(e);
     $('body').find(e.target).off().css("background-color", "grey");
+    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[0], game.usedLetters)
     console.log(e.target.innerText)
 })
-// $('.spinButton').on('click', function (e) {
-//     e.preventDefault()
-//     game.wheel.spinWheel()
-// });
+
+$('.spinButton').on('click', function (e) {
+    e.preventDefault()
+    game.wheel.spinWheel()
+});
 
