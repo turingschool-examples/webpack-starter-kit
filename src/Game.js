@@ -85,7 +85,7 @@ class Game {
   }
 
   startNewGame(startingPlayer) {
-    // will add reset page defaults here
+    domUpdates.resetPageDefaults();
     this.startNewRound();
     if (this.player1.player === startingPlayer) {
       this.activePlayer = this.player1;
