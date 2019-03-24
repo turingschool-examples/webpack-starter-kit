@@ -26,9 +26,10 @@ $('.start__start--btn').click(() =>{
     DomUpdates.hidePopup(game);
     getCurrPlayer(game);
     game.newRound();
-    console.log(game.currentRound.currWheel);
+    // console.log(game.currentRound.currWheel);
     game.currentRound.determinePuzzleLength();
-    DomUpdates.updateRoundHintCategory(game);
+    // DomUpdates.updateRoundHintCategory(game);
+    game.currentRound.displayDomPuzzle(game);
   });
   
   
@@ -42,6 +43,7 @@ $('.start__start--btn').click(() =>{
     game.currentRound.getCurrentPlayer(game);
   });
   $('.guess__letter--button').click(function () {
+    // !  nested if to separate helper function invoked within first if
     if ($('#guess--input').val().length === 1) {
       let ltrGuess = $('#guess--input').val();
       game.currentRound.currentPlayer.ans = ltrGuess.toUpperCase();
@@ -54,19 +56,19 @@ $('.start__start--btn').click(() =>{
         alert('This letter has already been guessed!')
         // todo: add an error message instead of alert
       }
-      else if (game.currentRound.answer.map((item)=> item.toUpperCase()).includes(game.currentRound.currentPlayer.ans.toUpperCase())) {
-        game.currentRound.correctRoundGuesses.push(game.currentRound.currentPlayer.ans)
-        game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
-// // //
-        console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
-        console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
+      else if (game.currentRound.answer.map((letter)=> letter.toUpperCase()).includes(game.currentRound.currentPlayer.ans.toUpperCase())) {
+        game.currentRound.correctRoundGuesses.push(game.currentRound.currentPlayer.ans);
+        game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans);
+        DomUpdates.createPuzzleClassArr(ltrGuess);
+        // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
+        // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         
       } else {
-        console.log(game.currentRound.allRoundGuesses)
-        console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
+        // console.log(game.currentRound.allRoundGuesses)
+        // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
         game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
-        console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
-        console.log('CurrentPlayer', game.currentRound.currentPlayer)
+        // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
+        // console.log('CurrentPlayer', game.currentRound.currentPlayer);
       }
       // create a new array
       // push correct guess letter in there
@@ -84,44 +86,10 @@ $('.start__start--btn').click(() =>{
     // ! REMOVE CONSOLE: LATER !
     console.log("CurrPlayer: ", game.currentRound.currentPlayer.name)
   });
-  
   let spinNum = (slice) => {
     game.currentRound.currentPlayer.roundCaps += slice;
     DomUpdates.updatePlayerScore(game);
-
-        // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
-        // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
-
-//     } else {
-//         // console.log(game.currentRound.allRoundGuesses)
-//         // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
-//         game.currentRound.allRoundGuesses.push(game.currentRound.currentPlayer.ans)
-//         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
-//         // console.log('CurrentPlayer', game.currentRound.currentPlayer)
-//     }
-//     game.currentRound.getCurrentPlayer(game);
-//   } else {
-//     alert('Please Only Choose 1 Letter');
-//   }
-// });
-// $('.nav__wheel--button').click(() => {
-//   const slice = game.currentRound.currWheel.wheelSlices[2];
-//   $.type(slice) === "number" ? game.currentRound.currentPlayer.roundCaps += slice : spinNotNum(slice);
-//   // ! REMOVE CONSOLE: LATER !
-//   console.log("rndCaps =", game.currentRound.currentPlayer.roundCaps);
-//   console.log("ttlCaps =", game.currentRound.currentPlayer.totalCaps);
-//   console.log("CurrPlayer: ", game.currentRound.currentPlayer.name)
-// });
-
-// let spinNotNum = (slice) => {
-//   if (slice === 'Respawn') {
-//     console.log("respawn")
-//     game.currentRound.currentPlayer.roundCaps = 0;
-//     game.currentRound.currentPlayer.totalCaps = 0;
-//   } else {
-//     console.log("sleep")
-
-//   }
+  }
   
   let spinNotNum = (slice) => {
     if (slice === 'BANKRUPT') {

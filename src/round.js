@@ -42,14 +42,13 @@ class Round {
   getCurrentPlayer(game) {
     this.currentPlayer = game.players[this.counter];
     this.counter < 2 ? this.counter++ : this.counter = 0;    
-    console.log(game.players)
     DomUpdates.updatePlayerScore(game);
   }
-  displayPuzzleHintCat(game){
-    game.currentRound.getPuzzle();
+  displayDomPuzzle(game){
     DomUpdates.updateRoundHintCategory(game);
-    console.log(game.currentRound);
+    DomUpdates.appendPuzzle(game);
   }
+
   checkPlayerGuess() {
     console.log('Array of ans', this.answer);
   
@@ -59,6 +58,9 @@ class Round {
   // create an option method
   // switch statement based on their dom interaction
   // case guess: 
+  appendPuzzleAns(){
+    DomUpdates.appendAns()
+  }
   playerGuessWord() {
     console.log('In guessword')
   }

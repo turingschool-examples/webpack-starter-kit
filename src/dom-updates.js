@@ -22,5 +22,25 @@ export default {
     $('.hint__title').text(`Category: ${game.currentRound.roundPuzzle.cat} | `);
     //hint
     $('.hint__value').text(`Hint: ${game.currentRound.roundPuzzle.description}`);
-  }
+  },
+  appendPuzzle(game){
+    let valueBoard = $('.board__tile-value--container');
+    const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    // console.log(game.currentRound.answer) puzzle array
+    game.currentRound.answer.map((letter, index)=>{
+      console.log(game.currentRound.answer)
+      // todo: remove index if it's not used
+      if(alphabetArr.includes(letter.toUpperCase())){
+        valueBoard.append(`<p class="ans-letter letter-${letter.toUpperCase()}">_</p>`);
+      }
+      else {
+        valueBoard.append(`<p class="ans-letter ${letter}">${letter}</p>`);
+      }
+    })
+  },
+  createPuzzleClassArr(letter){
+    $(`.letter-${letter.toUpperCase()}`).text(letter.toUpperCase());
+    
+		// console.log("TCL: createPuzzleClassArr -> targetClass.text()", targetClass.text())
+    }
 }
