@@ -39,14 +39,31 @@ $('.start__start--btn').click(() =>{
   }
 
   const vowels = ['a','e','i','o','u'];
-
-  $('.guess__word--button').click(function (game) {
+// Conflict Res
+  $('.guess__word--button').click(function () {
+    // ! change the array of array to the globally defined one
+    const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     let wrdGuess = $('#guess--input').val();
-    game.currentRound.currentPlayer.ans = wrdGuess.split();
-    getCurrPlayer(game);
+    let wrdGuessArr = wrdGuess.split('');
+    // * Unfiltered Array
+    // console.log(wrdGuessArr);
+    // * Filtered Array
+    wrdGuessArr = wrdGuessArr.map(letter => letter.toUpperCase());
+    wrdGuessArr = wrdGuessArr.filter(letter => alphabetArr.includes(letter));
+    game.currentRound.wholeWord = game.currentRound.wholeWord.filter(letter => alphabetArr.includes(letter))
+    game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
+    // ! end round here
+    console.log('answer correct') : getCurrPlayer(game);
+    
+    // console.log(game);
+    // game.currentRound.currentPlayer.ans = wrdGuess.split('');
+    
+    // game.currentRound.getCurrentPlayer(game);
   });
 
-  $('.guess__letter--button').click(function () {
+// Conflict-Res
+
+$('.guess__letter--button').click(function () {
     const round = game.currentRound;
     const player = round.currentPlayer;
 
@@ -108,6 +125,8 @@ $('.start__start--btn').click(() =>{
       .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
     console.log(game.currentRound.answer);
   }
+  
+// End Conflict-Res
 
   $('.nav__wheel--button').click(() => {
     toggleButtons();
