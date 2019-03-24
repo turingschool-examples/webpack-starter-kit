@@ -11,13 +11,6 @@ export default {
     $('#player-three-input').hide(500);
   },
 
-  // updateCategories(categories) {
-  //   $('.cat0').text(categories[0]);
-  //   $('.cat1').text(categories[1]);
-  //   $('.cat2').text(categories[2]);
-  //   $('.cat3').text(categories[3])
-  // },
-
   displayCategories(categories) {
     const categoryTitles = [ 'US History', 'Life Sciences', 'Public Health', 'Education Jargon',
       'Name That Board Game', 'American Literature', 'Biographies', 'American Cities',
@@ -28,19 +21,16 @@ export default {
       });
   },
 
-
   showClue(clue, event) {
     const { id, innerText } = event.target;
-    // event.innerText(' ');
-
-    $(`#${id}`, `div:contains('${innerText}')`).text(' ')
-    // $('#1').text(' ');
-    console.log(clue);
-    console.log(event.target)
+    $('.question-prompt').show();
+    $('.question').text(clue.question);
+    
   },
     
   answerQuestion(game) {
     let questionText = $(".question");
+    console.log(questionText)
     let answerText = $('#question-input');
     let result = data.clues.reduce((acc, currentClue) => {
       if(questionText.text() === currentClue.question) {
@@ -50,33 +40,11 @@ export default {
     }, '')
     if(result.toLowerCase() === answerText.val().toLowerCase()) {
      questionText.text('Correct Answer');
+     player.changeScore();
     } else {
      questionText.text('Incorrect Answer');
      game.changePlayer();
     }
-
   },
   
-  // showQuestion(game, id, text) {
-  //   $('.question-prompt').show();
-  //   $('#' + id).text(' '); 
-  //   let column = 0;
-  //   $('.question').text(game.roundOne.clues[column].filter(clue => clue.pointValue === Number(text)).pop().question); 
-  //   if (id <= 3) {
-  //     column = 0;
-  //   } else if (id > 3 && id <= 7) {
-  //     column = 1;
-  //   } else if (id > 7 && id <= 11) {
-  //     column = 2;
-  //   } else if (id > 11) {
-  //     column = 3;
-  //   }
-  // },
-
-
-  answerQuestion(game) {
-    $('.question-prompt').hide();
-    console.log(game.roundOne.clues[0].answer)
-  }
-
 }

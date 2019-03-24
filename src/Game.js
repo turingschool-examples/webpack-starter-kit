@@ -9,7 +9,7 @@ class Game {
     this.clues = [];
     this.round = {};
     this.categories = [];
-    this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] //for keeping track of what we've used already
+    this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
   }
 
   createPlayers(names) {
