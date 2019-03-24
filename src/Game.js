@@ -29,11 +29,10 @@ class Game {
   }
 
   setRoundOne() {
-    // const showNames = ['United States History', 'Life Sciences', 'Public Health', 'Education Jargon', 'Name That Board Game', 'American Literature', 'Biographies', 'American Cities', 'Food', 'Cable TV'];
     
-  let newRound = new Round(this);
+    let newRound = new Round(this);
     newRound.setCategories(this);
-        // console.log(newRound);
+    domUpdates.appendCategoryNames(this);
     
     
 
