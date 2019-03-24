@@ -47,8 +47,6 @@ class Round {
 
   fillGameBoard() {
     this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
-    console.log(this)
-    console.log(this.letterIndexs);
   }
 
 }
