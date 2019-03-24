@@ -41,7 +41,7 @@ export default {
         valueBoard.append(`<p class="ans-letter letter-${letter.toUpperCase()}">_</p>`);
       }
       else {
-        valueBoard.append(`<p class="ans-letter ${letter}">${letter}</p>`);
+        valueBoard.append(`<p class="ans-letter">${letter}</p>`);
       }
     })
   },
