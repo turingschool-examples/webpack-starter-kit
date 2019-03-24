@@ -7,10 +7,38 @@ let round = new Round;
 class Game {
   constructor(){
     this.currentTurn = 'p1';
+    this.currentAnswer = [];
     // this.game = Object.assign(gameData);
   }
   startGame(){
     round.generateRound();
+    this.currentAnswer = round.currentAnswer;
+    // console.log(this.currentAnswer);
+  }
+
+  checkAnswers(guess, answers){
+    // console.log('check answers guess works: ' + guess);
+    // console.log(answers);
+    //pass in string from DOM input --
+
+    let userGuess = guess.toLowerCase();
+
+    answers.forEach( element => {
+      if (element.answer.toLowerCase() === userGuess) {
+        console.log(`ITS A MATCH! Here's ${element.respondents} points!`);
+      } else {
+        console.log(`no match`)
+      }
+    })
+    //check the variable against all three answers. --
+
+
+    //if the variable matches any answer, give player the points and show answer on the DOM. 
+    //move the answer object into the player's correct answer array
+  }
+
+  checkAnswersTimed(answer){
+
   }
   restartGame(){
     //clear all fields
