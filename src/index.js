@@ -8,11 +8,11 @@ import './images/turing-logo.png';
 import Game from './Game.js';
 import Round from './Round.js';
 import Player from './Player.js';
-const a = new Game();
+const game = new Game();
 const player1 = new Player();
 const player2 = new Player();
 //is this right??? i dont think so
-a.startGame();
+game.startGame();
 
 import events from './DOMupdates.js'
 
@@ -34,11 +34,26 @@ $("#submit-names").on( "click", () => {
 //capture value from guess input
 $("#submit-guess").on("click", event => {
 	event.preventDefault();
-	let userInput = $("#player-guess").val()
-	player1.score += (a.checkAnswers(userInput, a.currentAnswer));
-	$(".player-1-score").html(`Score: ${player1.score}`);
-	$(".player-2-score").html(`Score: ${player2.score}`);
-	console.log('player1 score: ' + player1.score);
+
+	game.whoseTurn()
+
+	//let player 1 guess first
+	if (game.currentTurn === 'player1') {
+
+		$('.current-turn').html(`${player2.name}'s Turn`)
+		let userInput = $("#player-guess").val()
+		player1.score += (game.checkAnswers(userInput, game.currentAnswer));
+		$(".player-1-score").html(`Score: ${player1.score}`);
+
+	} else if (game.currentTurn === 'player2') {
+
+		$('.current-turn').html(`${player1.name}'s Turn`)
+		let userInput = $("#player-guess").val()
+		player2.score += (game.checkAnswers(userInput, game.currentAnswer));
+		$(".player-2-score").html(`Score: ${player2.score}`);
+		console.log('player2 score: ' + player1.score);
+	}
+	//let player 2 guess second
 });
 
 //after 3 guesses are complete show restart game button
