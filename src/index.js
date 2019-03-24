@@ -47,6 +47,7 @@ $('.start__start--btn').click(() =>{
     if ($('#guess--input').val().length === 1) {
       let ltrGuess = $('#guess--input').val();
       game.currentRound.currentPlayer.ans = ltrGuess.toUpperCase();
+      game.currentRound.answer = game.currentRound.answer.filter(item => item != `'` && item != `-` )
       //TODO: update letters used array
       
       
