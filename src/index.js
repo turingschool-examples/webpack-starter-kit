@@ -37,10 +37,31 @@ $('.start__start--btn').click(() =>{
     game.currentRound.getCurrentPlayer(game);
   })
   
-  $('.guess__word--button').click(function (game) {
+  $('.guess__word--button').click(function () {
+    // ! change the array of array to the globally defined one
+    const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     let wrdGuess = $('#guess--input').val();
-    game.currentRound.currentPlayer.ans = wrdGuess.split();
-    game.currentRound.getCurrentPlayer(game);
+    let wrdGuessArr = wrdGuess.split('');
+    // * Unfiltered Array
+    // console.log(wrdGuessArr);
+    // * Filtered Array
+    wrdGuessArr = wrdGuessArr.map(letter => letter.toUpperCase());
+    wrdGuessArr = wrdGuessArr.filter(letter => alphabetArr.includes(letter));
+    game.currentRound.wholeWord = game.currentRound.wholeWord.filter(letter => alphabetArr.includes(letter))
+    game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
+    // ! end round here
+    console.log('answer correct') : getCurrPlayer(game);
+    
+
+   
+   
+    
+    
+    
+    // console.log(game);
+    // game.currentRound.currentPlayer.ans = wrdGuess.split('');
+    
+    // game.currentRound.getCurrentPlayer(game);
   });
   $('.guess__letter--button').click(function () {
     // !  nested if to separate helper function invoked within first if
@@ -56,6 +77,10 @@ $('.start__start--btn').click(() =>{
       // round answer
       // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
       // compare player ans against round answer
+      // create a new array
+      // push correct guess letter in there
+      // find index of answer array to guess letter array
+      // change text of that index to the value of the guess index
       if (game.currentRound.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
         alert('This letter has already been guessed!');
         // todo: add an error message instead of alert
@@ -79,10 +104,6 @@ $('.start__start--btn').click(() =>{
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         // console.log('CurrentPlayer', game.currentRound.currentPlayer);
       }
-      // create a new array
-      // push correct guess letter in there
-      // find index of answer array to guess letter array
-      // change text of that index to the value of the guess index
     } else {
       alert('Please Only Choose 1 Letter');
     }
