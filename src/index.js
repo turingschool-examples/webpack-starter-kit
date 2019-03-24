@@ -31,4 +31,5 @@ function startGame() {
   const player2 = new Player(p2Name);
   const game = new Game(player1, player2);
   domUpdates.updateNames(p1Name, p2Name);
+  domUpdates.revealGame();
 }
