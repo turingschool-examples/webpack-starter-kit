@@ -8,8 +8,9 @@ class Round {
   }
 
   generateRound() {
-    let currentRoundAnswers = this.generateAnswers();
-
+    const currentRoundAnswers = this.generateAnswers();
+    this.currentAnswer = currentRoundAnswers;
+    // console.log(this.currentAnswer);
     domObject.createAnswers(
       currentRoundAnswers[0].answer, 
       currentRoundAnswers[0].respondents, 
@@ -25,7 +26,6 @@ class Round {
     const randomNumber = genNumber();
     const questionObject = copiedQuestions.splice(randomNumber, 1);
     const questionString = questionObject[0].question;
-    
     domObject.createQuestion(questionString);
     function genNumber() { return Math.floor(Math.random() * copiedQuestions.length) + 1 };
     return questionObject;
@@ -42,19 +42,6 @@ class Round {
       return b.respondents - a.respondents;
     })
     return sortedAnswers;
-  }
-
-  checkAnswers(answer){
-    console.log('checkanswers works: ' + answer);
-    //pass in string from DOM input --
-    //check the variable against all three answers.
-
-    //if the variable matches any answer, give player the points and show answer on the DOM. 
-    //move the answer object into the player's correct answer array
-  }
-
-  checkAnswersTimed(answer){
-
   }
 
   removeQuestion(){
