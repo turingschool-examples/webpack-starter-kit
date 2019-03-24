@@ -37,7 +37,7 @@ $('input.player-names').keyup(function() {
   }
   event.preventDefault(event)
 });
-
+//selects letters from the top//
 $('body').on('click', '.single-letter', (event) =>{
   selectingLetter(event)
 })
@@ -63,5 +63,5 @@ function selectingLetter(event) {
 }
 
 function selectingSpinWheel(event){
-  // game.roundInst.createWheel()
+  game.roundInst.wheelInst.spinWheel()
 }

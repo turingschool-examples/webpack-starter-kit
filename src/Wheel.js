@@ -4,6 +4,7 @@ import Data from './Data'
 class Wheel {
   constructor() {
     this.wheelValue = []
+    this.selectedValue = 0
   }
 
   createWheel() {
@@ -12,9 +13,13 @@ class Wheel {
       this.wheelValue.push(Data.wheel[Math.floor(Math.random() * 21)])
     }
     console.log(this.wheelValue)
-
   }
   
+  spinWheel(){
+    console.log('hi')
+    this.selectedValue = this.wheelValue[Math.floor(Math.random() * 5)]
+  console.log(this.selectedValue)
+  }
 }
 
 export default Wheel
