@@ -87,6 +87,7 @@ describe('Round', () => {
   });
 
   it('should end the round when there are 3 correct guesses', () => {
+    let round = new Round(survey, surveyAnswers);
 
     expect(game.roundNum).to.equal(1);
 
@@ -99,10 +100,15 @@ describe('Round', () => {
   });
 
   it('should give the losing player a turn for the next round', () => {
+    let round = new Round(survey, surveyAnswers);
 
     game.activePlayer = game.player1;
 
-    
+    round.checkAnswer('bowling ball');
+    round.checkAnswer('donuts');
+    round.checkAnswer('beer');
+
+    expect(game.activePlayer).to.equal(game.player2);
 
   })
 });
