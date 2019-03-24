@@ -1,8 +1,9 @@
 // import Player from './Player.js';
-// import Data from './Game-Data.js';
+import data from './Game-Data.js';
 import domUpdates from './domUpdates.js';
 import index from './index.js';
 import Player from './Player.js';
+import Round from './Round.js';
 import $ from 'jquery';
 
 class Game {
@@ -27,14 +28,22 @@ class Game {
     // });
   }
 
-	// startGame(name1, name2, name3) {
- //    let inputPlayerOne = new Player(name1);
- //    let inputPlayerTwo = new Player(name2);
- //    let inputPlayerThree = new Player(name3);
- //    // domUpdates.getPlayerNames();
- //    console.log(inputPlayerOne);
-	// 	// domUpdates.appendCategoryNames();
-	// }
+  setRoundOne() {
+    // const showNames = ['United States History', 'Life Sciences', 'Public Health', 'Education Jargon', 'Name That Board Game', 'American Literature', 'Biographies', 'American Cities', 'Food', 'Cable TV'];
+    
+
+  let newRound = new Round;
+    newRound.setCategories();
+
+}
+
+
+    // let shuffledCategories = categoryData.shuffle();
+    // round.allCategoryNames.push(shuffledCategories);
+    // currentCategories = shuffledCategories.splice(6,5);
+    // console.log(currentCategories)
+    // console.log(shuffledCategories)
+
 }
 
 export default Game;

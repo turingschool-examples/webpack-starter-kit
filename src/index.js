@@ -20,6 +20,7 @@ startBtn.click(function(e) {
   e.preventDefault();
   const names = [$(".player-one-input").val(), $(".player-two-input").val(), $(".player-three-input").val()];
   game.getPlayerNames(names);
+  game.setRoundOne();
 });
 //instantiate new game()
 
