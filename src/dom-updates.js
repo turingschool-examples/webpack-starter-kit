@@ -12,9 +12,12 @@ export default {
   },
   updatePlayerScore(game) {
     let currPlayer = game.currentRound.currentPlayer;
-
     $(`.player-${currPlayer.playerNum}__current-points`).text(`$ ${currPlayer.roundCaps}`);
     $(`.player-${currPlayer.playerNum}__totals-points`).text(`$ ${currPlayer.totalCaps}`);
+  },
+  showCurrentPlayer(game){
+    let currPlayer = game.currentRound.currentPlayer;
+    $(`.player-${currPlayer.playerNum}__name`).toggleClass('big-red-border');
   },
   updateRoundHintCategory(game) {
     console.log(game.currentRound.roundPuzzle);
@@ -40,7 +43,6 @@ export default {
   },
   createPuzzleClassArr(letter){
     $(`.letter-${letter.toUpperCase()}`).text(letter.toUpperCase());
-    
 		// console.log("TCL: createPuzzleClassArr -> targetClass.text()", targetClass.text())
-    }
+  },
 }

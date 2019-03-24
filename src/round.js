@@ -40,9 +40,14 @@ class Round {
     this.answer = this.roundPuzzle.ans.split('')
   }
   getCurrentPlayer(game) {
+    DomUpdates.showCurrentPlayer(game);
     this.currentPlayer = game.players[this.counter];
-    this.counter < 2 ? this.counter++ : this.counter = 0;    
+    this.counter < 2 ? this.counter++ : this.counter = 0;   
     DomUpdates.updatePlayerScore(game);
+    DomUpdates.showCurrentPlayer(game);
+  }
+  displayCurrentPlayer(game){
+    DomUpdates.showCurrentPlayer(game);
   }
   displayDomPuzzle(game){
     DomUpdates.updateRoundHintCategory(game);

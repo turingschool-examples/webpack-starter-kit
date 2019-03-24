@@ -244,6 +244,7 @@ button.start__start--btn {
   width: 500px;
 }
 
+
 .ans-letter { 
   color: magenta;
   z-index: 50000;
@@ -303,4 +304,8 @@ footer {
   padding: 10px;
   height: 30px;
   font-size: 30px;
+}
+/* ! red border  for current player */
+.big-red-border {
+  background-color: red;
 }
