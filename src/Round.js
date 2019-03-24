@@ -10,7 +10,7 @@ class Round {
   generateRound() {
     const currentRoundAnswers = this.generateAnswers();
     this.currentAnswer = currentRoundAnswers;
-    // console.log(this.currentAnswer);
+
     domObject.createAnswers(
       currentRoundAnswers[0].answer, 
       currentRoundAnswers[0].respondents, 
