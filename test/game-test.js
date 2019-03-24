@@ -29,32 +29,32 @@ describe('Game Class', () => {
   });
   it('should be able to increment the round', function () {
     expect(game.currentRound).to.equal(0);
-    game.startNewRound(game);
+    game.startNewRound();
     expect(game.currentRound).to.equal(1);
-    game.startNewRound(game);
+    game.startNewRound();
     expect(game.currentRound).to.equal(2);
   });
   it('should not be able to go past three rounds', function () {
-    game.startNewRound(game);
-    game.startNewRound(game);
-    game.startNewRound(game);
+    game.startNewRound();
+    game.startNewRound();
+    game.startNewRound();
     expect(game.currentRound).to.equal(3);
-    game.startNewRound(game);
+    game.startNewRound();
     expect(game.currentRound).to.equal(3);
   });
   it('should start with no winner', function () {
     expect(game.winner).to.equal(null);
   });
   it('should create a new instance of Round when a new round is started', function () {
-    let currentRound = game.startNewRound(game)
+    let currentRound = game.startNewRound()
     expect(currentRound).to.be.instanceof(Round);
   });
   it('should create an instance of FinalRound if it is round three', function () {
-    let currentRound = game.startNewRound(game);
+    let currentRound = game.startNewRound();
     expect(currentRound).to.be.instanceof(Round);
-    currentRound = game.startNewRound(game);
+    currentRound = game.startNewRound();
     expect(currentRound).to.be.instanceof(Round);
-    currentRound = game.startNewRound(game);
+    currentRound = game.startNewRound();
     expect(currentRound).to.be.instanceof(FinalRound);
   });
 });

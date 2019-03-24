@@ -18,7 +18,7 @@ class Round {
   getAnswers(answers) {
     return answers.filter(function(answer) {
       return answer.surveyId === this.survey.id;
-    }, this);
+    }, this).sort((a, b) => b.respondents - a.respondents);
   }
 }
 

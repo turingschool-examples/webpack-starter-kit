@@ -27,7 +27,7 @@ const data = {
     },
     { id: 9, question: 'On A Resume, What Might A Person Claim They Can Do Quickly?'
     },
-    { id: 10, question: 'Name A Phrase That Often Appears In Children’S Stories'
+    { id: 10, question: 'Name A Phrase That Often Appears In Children’s Stories'
     },
     { id: 11, question: 'Name Something That Can Be Pumped'
     },

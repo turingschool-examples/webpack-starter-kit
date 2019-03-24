@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import $ from 'jquery';
 
 const domUpdates = {
@@ -9,7 +10,20 @@ const domUpdates = {
   revealGame: function() {
     $(".name-input-container").css("display", "none");
     $(".game-area").css("display", "grid");
+  },
+
+  populateSurvery: function(round) {
+    $(".survey").text(round.survey.question)
+  },
+
+  populateAnswers: function(round) {
+    round.answers.forEach((answer, i) => {
+      $(`.answer${i}`).text(answer.answer);
+      $(`.answer${i}-num`).text(answer.respondents);
+    })
   }
+
+
 }
 
 export default domUpdates;

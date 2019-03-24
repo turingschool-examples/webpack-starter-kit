@@ -11,13 +11,13 @@ class Game {
     this.player1.isTurn = true;
   }
 
-  startNewRound(game) {
+  startNewRound() {
     if (this.currentRound < 2) {
       this.currentRound++;
-      return new Round(game);
+      return new Round(this);
     } else if (this.currentRound === 2) {
       this.currentRound++;
-      return new FinalRound(game); 
+      return new FinalRound(this); 
     }
   }
 
