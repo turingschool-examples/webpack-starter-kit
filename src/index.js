@@ -21,10 +21,9 @@ import Round from './Round.js';
 import Player from './Player.js';
 import domUpdates from './domUpdates';
 
-
 $("#submit-names-btn").on("click", function() { 
-    const player1Name = $('#player-1-input').val();
-    const player2Name = $('#player-2-input').val();
+    const player1Name = $("#player-1-input").val();
+    const player2Name = $("#player-2-input").val();
 
     $(".player-1-name").text(player1Name.toUpperCase());
     $(".player-2-name").text(player2Name.toUpperCase());
@@ -38,10 +37,14 @@ $("#submit-names-btn").on("click", function() {
 });
 
 $("#submit-guess-btn").on("click", function() { 
-    const playerGuess = $('.guess-input').val().toLowerCase();
+    const playerGuess = $(".guess-input").val().toLowerCase();
     window.game.round.saveGuess(playerGuess);
     window.game.round.checkAnswer(playerGuess, window.game);
     $(".guess-input").val('');
+});
+
+$("#start-btn").on("click", function() {
+    $(".welcome-screen").removeClass("hidden");
 });
 
 // export default window.game;
