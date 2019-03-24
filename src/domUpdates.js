@@ -1,3 +1,4 @@
+import Wheel from "./Wheel.js"
 import Puzzle from "./Puzzle.js";
 import Round from "./Round.js";
 
@@ -64,9 +65,27 @@ export default {
 
   setCategoryText(category) {
     $('.clue-container').text(category)
+  },
+
+  spinWheel() {
+    let clicks = 1;
+    let wheel = new Wheel();
+    const winner = Math.round(Math.random() * 22);
+    /*multiply the degree by number of clicks
+    generate random number between 1 - 360, 
+    then add to the new degree*/
+    const extraDegree = (20 - winner) * 36;
+    const spinAgain = (1800 * clicks) + extraDegree;
+    const totalDegree = Math.round(spinAgain / 36) * 360;
+    wheel.spinWinner(winner);
+    clicks++;
+    $('#inner').css({
+      'transform': 'rotate(' + totalDegree + 'deg)'
+    });
+    $('.winner').html(`${wheel.currentSpin}`);
   }
-
-
+  
+  
 
 
 

@@ -41,8 +41,9 @@ $segments: 20;
   position: absolute;
   background: blue;
   border-radius: 50%;
-  border: 5px solid navy;
-  left: 70%;
+  border: 5px solid rgb(3, 145, 150);
+  top: 20%;
+  left: 50%;
   transform: translateX(-50%);//!!
 }
 
@@ -105,12 +106,13 @@ $segments: 20;
   }
   
 }
-
-#winner {
+.winner {
   text-align: center;
   margin: 1rem auto;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 30px;
+  font-family: 'Orbitron', sans-serif; 
+  font-weight: 900;
 }
 
 .blue {

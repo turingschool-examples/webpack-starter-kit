@@ -8,15 +8,19 @@ import data from "./data.js";
 
 class Wheel {
   constructor() {
-  this.values = [];
+  this.values = data.wheel;
   this.currentSpin = null;
   this.currentIndex = null;
-
   }
 
-  makeWheelVals(data) {
+  makeWheelVals() {
     let wheelData = data.wheel;
-    console.log(wheelData)
+    console.log(wheelData);
+  }
+
+  spinWinner(index) {
+    this.currentSpin = this.values[index];
+    console.log(this.currentSpin);
   }
 
 
