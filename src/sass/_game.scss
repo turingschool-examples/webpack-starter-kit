@@ -79,9 +79,17 @@ main {
       }
 
       .input-solve {
-        border-radius: 25px;
-        text-align: center;
+        border-radius: 20px 0 0 20px;
         font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .final-solution-btn {
+        border-radius: 0 20px 20px 0;
+        background-color: $btn;
+        font-size: 1rem;
+        display: none;
+        width: 100px;
       }
 
       .vowels-to-buy {
@@ -100,7 +108,7 @@ main {
         display: none;
       }
     }
-  
+
   }
 
   aside {
@@ -143,6 +151,7 @@ main {
   }
 
   button {
+    border: 3px solid transparent;
     border-radius: 25px;
     font-family: $bodyfont;
     font-size: 2rem;

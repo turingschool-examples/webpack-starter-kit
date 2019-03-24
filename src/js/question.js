@@ -1,3 +1,5 @@
+import domUpdates from './domUpdates';
+
 class Question {
   constructor(answer, ansLength, splitAns, description, category) {
     // this.question = question;
@@ -10,6 +12,17 @@ class Question {
 
   splitAnswer() {
     this.ansSplit = this.answer.split('');
+  }
+
+  static validateAnswer(playerGuess, answer) {
+    if (playerGuess.toUpperCase() === answer.toUpperCase()) {
+      console.log('correct!')
+      // add to players score
+      // alert player was correct
+      // change round, instantiate new round with new question
+    } else {
+      console.log('incorrect!')
+    }
   }
 
 }

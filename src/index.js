@@ -17,9 +17,23 @@ import './images/Pickle_rick.png';
 import Game from './js/game';
 import Wheel from './js/wheel';
 import domUpdates from './js/domUpdates';
+import Question from './js/question'
 
-let game = new Game();
-game.startRound();
+let game;
+let question;
+
+$('.start-btn').on('click', function() {
+  game = new Game()
+  game.startRound();
+  game.instantiatePlayers();
+  domUpdates.appendNames();
+  console.log(game);
+})
+
+$('.final-solution-btn').on('click', function() {
+  Question.validateAnswer($('.input-solve').val(), game.currentQuestion.answer);
+});
+
 
 let wheel = new Wheel();
 wheel.spin();
@@ -27,5 +41,4 @@ wheel.spin();
 
 domUpdates.showInput();
 domUpdates.showVowels();
-domUpdates.appendNames();
-domUpdates.solvePuzzle();
+domUpdates.showSolveInput();

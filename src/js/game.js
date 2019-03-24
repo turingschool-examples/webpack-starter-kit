@@ -45,6 +45,16 @@ class Game {
     });
   }
 
+  changeRound() {
+    this.round++ && this.newQ();
+    if (this.round === 6) {
+      this.round = 1
+    };
+  }
+
+  newQ() {
+    this.currentQuestion = this.allQs.pop();
+  }
 
 }
 
