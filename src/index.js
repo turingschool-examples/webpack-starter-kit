@@ -15,7 +15,6 @@ import './css/base.css';
 import './images/turing-logo.png'
 import './images/WOF-star-background.jpg'
 
-console.log('This is the JavaScript entry file - your code begins here.');
 
 
 let game = new Game()
@@ -41,19 +40,26 @@ $('body').on('click', '.single-letter', (event) =>{
   selectingLetter(event)
 })
 
+$('body').on('click', '.spinner', () =>{
+  selectingSpinWheel()
+})
 
 /************Functions******* */
-function startGameBtn(event, game) {
+function startGameBtn(event) {
   event.preventDefault(event)
   let playerName1 = $('#player1').val();
   let playerName2 = $('#player2').val();
   let playerName3 = $('#player3').val();
   $('section.input-form').remove()
-  game.startGame(playerName1, playerName2, playerName3, game)
+  game.startGame(playerName1, playerName2, playerName3)
 }
 
 function selectingLetter(event) {
   let selectedLetter = $(event.target).text()
     console.log(selectedLetter)
     game.roundInst.checkLetter(selectedLetter)
+}
+
+function selectingSpinWheel(event){
+  // game.roundInst.createWheel()
 }

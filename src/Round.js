@@ -1,48 +1,43 @@
-import Game from './Game'
 import Data from './Data'
 import DomUpdates from './DomUpdates';
+import Wheel from './Wheel';
 
 class Round {
   constructor() {
-    this.activePlayer = 0
-    this.roundsBank = null
-    this.roundCards = []
+    this.allRoundCards = null
     this.clueAnswer = null
     this.roundClue = {}
+    this.roundWheel = []
+    this.activePlayer = 0
   }
 
   createNewRound(game) {
-    this.roundsBank = Object.entries(Data.puzzles)
-    this.roundCards = this.roundsBank[game.stage][1].puzzle_bank
-    game.stage ++
-    this.shuffle(this.roundCards)
-    this.getRandomClue(this.roundCards)
-    
+    this.allRoundCards = game.gameRoundsClueBank[game.stage][1].puzzle_bank
+
+    this.getRandomClue(this.allRoundCards)
+  
   }
-
-
-  shuffle(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var m = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[m];
-      array[m] = temp;
-    }
-  }
-
 
   getRandomClue(cards) {  
-    this.roundClue = cards[Math.floor(Math.random()) * cards.length]
+    this.roundClue = this.randomNumber(cards) 
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('')
     this.fillGameBoard()
-    console.log(this.clueAnswer)
-    console.log(this.roundClue)
+
   }
 
-  checkLetter(userLetter){
-    if(this.clueAnswer.includes(userLetter))
+
+  randomNumber(values) {
+    if (values.length === 24) {
+      return values[Math.floor(Math.random() * values.length)]
+    } 
+  }
+
+  ///checking clicked letter works
+  checkLetter(userLetter) {
+    if (this.clueAnswer.includes(userLetter)) {
       console.log('go to bed')
     }
+  }
 
   fillGameBoard() {
     DomUpdates.fillGameBoard(this.clueAnswer);
