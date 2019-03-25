@@ -18,6 +18,7 @@ import Game from './js/game';
 import Wheel from './js/wheel';
 import domUpdates from './js/domUpdates';
 import Question from './js/question'
+import Player from './js/player';
 
 let game;
 let question;
@@ -32,11 +33,21 @@ $('.start-btn').on('click', function() {
 
 $('.final-solution-btn').on('click', function() {
   Question.validateAnswer($('.input-solve').val(), game.currentQuestion.answer);
+  $('.input-solve, .final-solution-btn').hide();
 });
 
+$('.btn-spin').on('click', function() {
+  let wheel = new Wheel();
+  wheel.spin();
+  console.log(wheel)
+});
 
-let wheel = new Wheel();
-wheel.spin();
+$('.check-btn, .btn-solve, .buy').on('click', function() {
+  $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
+  $('.vowels-to-buy, .ltr-input, .check-btn, .input-solve, .final-solution-btn').hide();
+  game.changeTurn()
+ });
+
 
 
 domUpdates.showInput();

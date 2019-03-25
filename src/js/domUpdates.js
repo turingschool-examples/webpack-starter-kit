@@ -1,8 +1,10 @@
 import $ from 'jquery';
 import Game from './game';
 import Question from './question';
+import Wheel from './wheel';
 
 export default {
+
   updateQInfo(question) {
     $('.category').text(question.category);
     $('.description').text(question.description);
@@ -22,22 +24,16 @@ export default {
 
   showInput() {
     $('.btn-spin').on('click', function() {
-      $('.check-btn').toggle().addClass('slide-in');
-      $('.ltr-input').toggle().addClass('slide-in');
-      $('ltr-input').addClass('slide-in');
+      $('.check-btn, .ltr-input').show().addClass('slide-in');
+      $('.btn-solve, .buy, .btn-spin').attr('disabled', true)
     });
   },
 
   showVowels() {
     $('.buy').on('click', function() {
       $('.vowels-to-buy').toggle().addClass('slide-in');
+      $('.buy, .btn-spin, .btn-solve').attr('disabled', true)
     });
-  },
-
-  hideIt() {
-    // we'll call this when we check the user's answer so we can get rid of the inputs easily
-    $('.vowels-to-buy').hide();
-    $('.ltr-input').hide();
   },
 
   getNames() {
@@ -70,7 +66,7 @@ export default {
   },
 
   getConsonant() {
-    return $('.gues-cons').val();
-  }
+    return $('.ltr-input').val();
+  },
 
 }

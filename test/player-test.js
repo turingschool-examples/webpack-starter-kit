@@ -17,8 +17,8 @@ describe('Player', () => {
   });
 
   it('should have a default answer', () => {
-    let player = new Player('Rick', 'Pickles')
-    expect(player.answer).to.equal('Pickles');
+    let player = new Player('Pickle Rick', 'true')
+    expect(player.answer).to.equal('true');
   });
 
   it('should have a default currentScore of 0', () => {
