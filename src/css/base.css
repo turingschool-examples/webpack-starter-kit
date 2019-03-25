@@ -239,8 +239,12 @@ h3 {
   color: white;
 }
 
+.letters-displayed {
+  background-color: white;
+}
+
 .spaces-not-displayed {
-  background-color: gold;
+  /*background-color: gold;*/
 }
 
 .disable-selected-letters {

@@ -64,6 +64,7 @@ function selectingLetter(event) {
   console.log(selectedLetter)
   game.roundInst.checkLetter(selectedLetter, game)
   DomUpdates.disableLetter(event)
+  game.roundInst.flipCells(selectedLetter)
 }
 
 function playerSpin(game) {

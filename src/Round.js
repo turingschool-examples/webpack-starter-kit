@@ -1,4 +1,5 @@
-import Data from './Data'
+import $ from 'jquery';
+import Data from './Data';
 import DomUpdates from './DomUpdates';
 import Wheel from './Wheel';
 
@@ -56,6 +57,23 @@ class Round {
 
   fillGameBoard() {
     this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
+  }
+
+  flipCells(letter) {
+    const selectedLetter = this.letterIndexs[letter];
+    const puzzleCells = $('.puzzle-cell').toArray();
+    if(selectedLetter) {
+      for(var i = 0; i < selectedLetter.length; i++) {
+        const instance = selectedLetter[i];
+        const puzzleCell = (puzzleCells[instance].parentNode);
+        puzzleCell.classList.remove('letters-not-displayed')
+        puzzleCell.classList.add('letters-displayed');
+      }
+    }
+  }
+
+  checkGameBoard() {
+
   }
 
   playerTurn(game) {
