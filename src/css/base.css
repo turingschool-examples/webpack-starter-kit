@@ -31,15 +31,15 @@ li {
 }
 
 .title {
-  text-align: center;
   color: #cae6df;
+  text-align: center;
 }
 
 .val-btn {
-  text-align: center;
-  margin: 10px;
   background-color: #cae6df; 
   color: #04192e;
+  margin: 10px;
+  text-align: center;
 }
 
 .val-btn:hover {
@@ -48,22 +48,27 @@ li {
   cursor: pointer;
 }
 
+.used {
+  opacity: 0.5;
+  height: 40px;
+}
+
 h1{
-  text-align: center;
   font-family: 'Press Start 2P', cursive;
+  text-align: center;
 }
 
 .player-info {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-column: 1 / span 4;
+    grid-template-columns: repeat(3, 1fr);
     margin: 0 0 0 15%;
 }
 
 .game-board {
+  align-items: center;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: center;
 }
 
 .clue-card {

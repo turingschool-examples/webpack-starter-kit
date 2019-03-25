@@ -19,7 +19,7 @@ export default {
     })
   },
   renderClue(clue, event) {
-   $(event.target).removeClass("val-btn").off("click").text('');
+   $(event.target).addClass("used").off("click").text('');
    $('.clue-card').toggleClass("hidden");
    $('.clue-question').text(clue.question)
    $('.game-board, .start-game-form, h1').addClass("opacity");
@@ -46,12 +46,12 @@ export default {
   },
   showCorrect() {
     $('.answer').removeClass('hidden').text('Correct!');
-    $('.guess-btn').addClass('hidden');
-    $('.close').removeClass('hidden');
+    $('#submit').addClass('hidden');
+    $('#close').removeClass('hidden');
   },
   showWrong() {
     $('.answer').removeClass('hidden').text('Wrong!');
-    $('.guess-btn').addClass('hidden');
-    $('.close').removeClass('hidden');
+    $('#submit').addClass('hidden');
+    $('#close').removeClass('hidden');
   }
 }
