@@ -35,10 +35,11 @@ export default {
     $(".player-two-name").text(p2name);
   },
 
-  startRound({ question, responses }) {
+  startRound({ question, responses }, player) {
     $('#current-question').text(question);
     this.loadReaponses(responses);
     this.hideResponses();
+    this.displayCurrentPlayer(player);
   },
 
   hideResponses() {
@@ -57,6 +58,7 @@ export default {
   updateScores({ name, score }) {
     const $scoreToUpdate = name === $('.player-one-name').text() ? $('.player-one-score') : $('.player-two-score'); 
     $scoreToUpdate.text(score)
+    $('#current-round-total h2').text(score);
   }
 
 }

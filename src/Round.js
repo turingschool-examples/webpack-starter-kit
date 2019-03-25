@@ -27,6 +27,21 @@ class Round {
     }
   }
 
+  // TODO: move to game class?
+  setPlayer(round, players) {
+    switch (round) {
+      case 1:
+        return players[0];
+      case 2:
+        return players[1];
+      case 3:
+        return players[0].score <= players[1].score ? players[0] : players[1]
+      default:
+      console.log('round: ', round);
+        return; // ? return opposite of case 3 how?
+    }
+  }
+
 }
 
 export default Round;

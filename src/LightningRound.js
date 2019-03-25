@@ -1,18 +1,16 @@
 import Round from './Round';
+import domUpdates from './domUpdates';
 
 class LightningRound extends Round {
   
-  constructor(id, surveys, multiplier) {
-    super(id);
-    this.question = [surveys[0].question, surveys[1].question];
-    this.responses = [surveys[0].responses, surveys[1].responses];
-    this.multiplier = multiplier;
+  constructor(id, survey) {
+    super(id, survey);
   }
 
-  submitGuess(player, guess, game) {
+  submitGuess(player, guess) {
     for (let response of this.responses) {
       if (response.answer.toLowerCase() === guess) {
-        player.updateScore(response.respondents);
+        player.updateScore(2 * response.respondents);
         this.responses = this.responses.filter(response => {
           return response.answer.toLowerCase() !== guess
         });
@@ -22,8 +20,8 @@ class LightningRound extends Round {
         domUpdates.revealResponse(response.answer);
         domUpdates.updateScores(player);
         break;
-      } else if (this.responses.indexOf(response) === this.responses.length - 1) {
-        game.switchPlayers();
+      } else {
+        player.updateScore(-25);
       }
     }
   }
