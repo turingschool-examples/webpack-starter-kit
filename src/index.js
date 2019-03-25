@@ -44,6 +44,7 @@ function guess() {
   game.player1.isTurn ? game.player1.makeGuess(guess, game, round) : game.player2.makeGuess(guess, game, round);
   domUpdates.clearInput();
   if (round.answers.length === 0) {
+    
     round = game.startNewRound();
   }
 }
