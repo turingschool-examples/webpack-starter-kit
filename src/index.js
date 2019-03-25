@@ -30,27 +30,24 @@ const newGame = new Game(dataSet.clues);
 let dataCategories = Object.keys(dataSet.categories);
 
 let categoriesToArray = $('.categories').toArray();
+// Hard coded categories in 
+let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()], 
+[dataCategories[2].split(/(?=[A-Z])/).join(' ').toUpperCase()], 
+[dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()], 
+[dataCategories[6].toUpperCase()]];
+// Actual RNG for the categories---
+// for (let i = 0; i < categoriesToArray.length; i++) {
+//   // let randomCategory = dataCategories.splice(Math.floor(Math.random()*dataCategories.length),1).toString();
+//   // categoryArr.push(randomCategory);
 
-let categoryArr = [];
-for (let i = 0; i < categoriesToArray.length; i++) {
-  let randomCategory = dataCategories.splice(Math.floor(Math.random()*dataCategories.length),1).toString();
-  categoryArr.push(randomCategory);
+// }
 
-}
-console.log(categoryArr);
-
-// $(".categories").each(categoryBox => {
-  
-// });
 $('#category-one').text(categoryArr[0]);
 $('#category-two').text(categoryArr[1]);
 $('#category-three').text(categoryArr[2]);
 $('#category-four').text(categoryArr[3]);
-// dataCategories.forEach(currentCategory => {
-//   console.log(currentCategory)
-//   $(".categories").html(currentCategory)
-// })
-$(document).ready(dataCategories);
+
+// $(document).ready(dataCategories);
 
 // newGame.populateQuestions()
 
