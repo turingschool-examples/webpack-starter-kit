@@ -56,7 +56,7 @@ $('body').on('focus', '.guess-submission', () =>{
 })
 
 $('body').on('click', '.vowel', () => {
-  buyVowel(game);
+  playerBuyVowel(game);
 });
 
 /************Functions******* */
@@ -84,7 +84,7 @@ function submitGuess(event){
   let playerGuess = $('.guess-submission').val().toLowerCase().split('');
 }
 
-function buyVowel(game) {
+function playerBuyVowel(game) {
   console.log('buyVowel')
   game.roundInst.buyVowel(game);
 }
