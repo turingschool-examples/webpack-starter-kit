@@ -8,7 +8,7 @@ export default {
       $(`#input-${index}`).val('')
     });
   },
-  renderCategories(categories) { // little array of four
+  displayCategories(categories) { // little array of four
     const categoryTitles = [ 'United States History',
       'Life Sciences', 'Public Health', 'Education Jargon', 'Name That Board Game',
       'American Literature', 'Biographies', 'American Cities', 'Food',
