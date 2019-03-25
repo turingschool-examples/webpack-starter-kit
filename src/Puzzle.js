@@ -10,16 +10,15 @@ class Puzzle {
     this.numWords = puzzle.number_of_words;
   }
 
-  checkUserGuess(game,letterInput) {
-    let answer = game.currentPuzzle.answer.toUpperCase().split('');
-    let vowelKeyCodes = ['a', 'e', 'i', 'o','u'];
+  checkUserGuess(letterInput) {
+    let answer = this.answer.toUpperCase().split('');
+    let vowels = ['a', 'e', 'i', 'o','u'];
     answer.forEach(letter => {
-    if(vowel.includes(letterInput)) {
-      domUpdates.displayVowelMessage();
-      }
     if(letter === letterInput) {
-      domUpdates.displayLetterMatch(puzzle);
-     console.log(currentLetter);
+      domUpdates.displayLetterMatch(letterInput);
+      }
+    if(letterInput === vowels) {
+      domUpdates.displayVowelMessage();
       }
     })
   }

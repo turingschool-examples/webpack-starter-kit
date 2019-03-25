@@ -1,6 +1,7 @@
 import Game from './Game.js';
 import Wheel from './Wheel.js';
 import Puzzle from './Puzzle.js';
+import Player from './Player.js';
 import $ from 'jquery';
 
 let domUpdates = {
@@ -57,23 +58,31 @@ let domUpdates = {
     wheel.getRandomWheel();
   },
 
-displayLetterMatch(puzzle) {
-    $('.letter:contains("'+letter+'")').css('color', 'white' );
-},
+  grabCurrentLetter(puzzle) {
+    let currentLetter = ($('#js-cons-input').val().toUpperCase());
+    console.log('Test current letter', currentLetter);
+    return currentLetter;
+  },
+
+  displayLetterMatch(letter) {
+      $('.letter:contains("'+letter+'")').css('color', 'white' );
+  },
 
   diplayStartMsg() {
     $('.gameplay-message').text('Please spin wheel first before guessing the letter');
   },
 
-  displayVowelMessage() {
-    $('.gameplay-message').text('You haven/t bought a vowel yet. Please enter a non-vowel letter');
+  // displayVowelMessage() {
+  //   $('.gameplay-message').text('You haven/t bought a vowel yet. Please enter a non-vowel letter');
+  // },
+
+  grabVowel() {
+    let currentVowel = ($('#js-vowel-input').val().toUpperCase());
+    console.log('Test current letter', currentVowel);
+    return currentVowel;
   },
 
-grabCurrentLetter() {
-  let currentLetter = ($('#js-cons-input').val().toUpperCase());
-  console.log(currentLetter);
-  return currentLetter;
-}
+
   // displayLoseTurn(wheel) {
   //   $('.gameplay-message').text(`'Your spin is worth ${wheel.random}'`)
   // }

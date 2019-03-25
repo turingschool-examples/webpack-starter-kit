@@ -11,6 +11,7 @@ console.log('This is the JavaScript entry file - your code begins here.');
 let game = new Game();
 let wheel = new Wheel();
 
+
 console.log(game);
 
 $('.start-button').on('click', function() {
@@ -44,7 +45,7 @@ $('#js-solve-button').on('click', function() {
 $('#js-submit-button').on('click', function(e) {
   e.preventDefault();
   let letterInput = domUpdates.grabCurrentLetter();
-  console.log(game.currentPuzzle)
+  game.currentPuzzle.checkUserGuess(letterInput);
   $('.input').val('');
 });
 
@@ -52,6 +53,12 @@ $('#js-vowel-submit').on('keyup', function(e) {
   e.preventDefault();
   domUpdates.checkVowel();
 });
+
+$('#js-vowel-submit-button').on('click', function(){
+  let letterInput = domUpdates.grabVowel();
+  game.currentPuzzle.checkUserGuess();
+})
+
 
 // $(".js-cons-input").on("keydown", function() {
 //   if (!vowelKeyCodes.includes(event.keyCode)) {
