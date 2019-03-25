@@ -1,5 +1,6 @@
 import domUpdates from './domUpdates.js';
 import Round from './Round.js';
+import FastRound from './FastRound.js';
 
 class Game {
   constructor(player1, player2) {
@@ -86,7 +87,7 @@ class Game {
 
   startNewGame(startingPlayer) {
     domUpdates.resetPageDefaults();
-    this.startNewRound();
+    this.triggerNewRound();
     if (this.player1.player === startingPlayer) {
       this.activePlayer = this.player1;
     } else {
@@ -105,26 +106,33 @@ class Game {
     }
   }
 
-  startNewRound() {
-    this.currentRound ++;
+  triggerNewRound() {
+    this.currentRound++;
+    if (this.currentRound > 4) {
+      this.endGame();
+    } else {
+      domUpdates.clearAnswerBoard();
+      this.toggleActivePlayer();
+      this.getSurvey();
+      //show next round start msg in dom for a few seconds
+    } 
+  }
 
+  getSurvey() {
     const randomId = this.getRandomSurveyId();
     const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
     const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
-
-    domUpdates.displayRoundData(question, answers, this.currentRound);
-
-    if (this.currentRound === 3) {
-      this.startFastRound(question, answers);
-    } else if (this.currentRound > 3) {
-      this.endGame();
-    } else {
-      this.round = new Round(question, answers);
-    }
+    this.createRound(question, answers);
   }
 
-  startFastRound() {
-    
+  createRound(question, answers) {
+    domUpdates.displayRoundData(question, answers, this.currentRound);
+    if (this.currentRound < 3) {
+      this.round = new Round(question, answers);
+    } else {
+      this.round = new FastRound(question, answers);
+      domUpdates.displayFastroundDialog(this.activePlayer.name);
+    }
   }
 
   toggleActivePlayer() {

@@ -3,6 +3,10 @@ import $ from 'jquery';
 export default {
 
   displayRoundData(question, answers, roundNum) {
+    if (roundNum > 3) {
+      roundNum = 3;
+    }
+    
     $(".survey-display").text(question);
     $(".round-num-display").text(roundNum);
     answers.sort(function (a, b) {
@@ -78,6 +82,25 @@ export default {
   },
 
   showTieScreen() {
+    
+  },
 
+  displayFastroundDialog(playerName) {
+    $("strong").text(playerName);
+    $(".fastround-ready-screen").removeClass("hidden");
+  },
+
+  displayTimer() {
+    let seconds = 30; //would be ideal to tie this to property value
+    const interval = setInterval(function() {
+      $(".timer").removeClass("hidden");
+      $(".timer").html(--seconds);
+
+      if (seconds <= 0 || window.game.round.surveyAnswers.length === 0) {
+        clearInterval(interval);
+        $(".fastround-ready-screen").removeClass("hidden").delay(1000);
+        window.game.triggerNewRound();
+      } 
+    }, 1000);
   }
 }
