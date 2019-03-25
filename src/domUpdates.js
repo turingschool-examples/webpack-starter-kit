@@ -56,9 +56,13 @@ const domUpdates = {
     $(`.${guessType}-guess`).removeClass("hidden");
   },
 
-  hideGuessMessages: function () {
+  hideGuessMessages: function() {
     $(".correct-guess").addClass("hidden");
     $(".wrong-guess").addClass("hidden");
+  },
+
+  animateKnight: function() {
+    $(".round-banner").css({'left': '1200px; display: block'}).animate({'left' : '-1400px'}, 4000);
   }
 
 }
