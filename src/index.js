@@ -48,7 +48,7 @@ $('.start__start--btn').click(() =>{
     }
   }
 
-  const vowels = ['A','E','I','O','U'];
+  const vowels = ['A', 'E', 'I', 'O', 'U'];
 // Conflict Res
   $('.guess__word--button').click(function () {
     // ! change the array of array to the globally defined one
@@ -73,15 +73,31 @@ $('.start__start--btn').click(() =>{
   });
 
 // Conflict-Res
+$('#vowel').click(function() {
+  const round = game.currentRound;
+  const player = round.currentPlayer;
+  let ltrGuess = $('#guess--input').val();
 
-$('.guess__letter--button').click(function () {
+  if (!vowels.includes(ltrGuess.toUpperCase()) || ltrGuess.length !== 1) {
+    alert('Please Choose 1 Vowel');    
+  } else {
+    console.log("It's a Vowel!")
+    buyVowel(round, player, ltrGuess);
+    player.ans = ltrGuess.toUpperCase();
+    round.answer = round.answer.filter(item => item !== `'` && item !== `-`)
+    conditionalChecking(round, player, ltrGuess);
+    DomUpdates.updateLettersUsed(game);
+  }
+})
+
+$('#consonant').click(function () {
     const round = game.currentRound;
-    const player = round.currentPlayer
+    const player = round.currentPlayer;
     // !  nested if to separate helper function invoked within first if
     if ($('#guess--input').val().length === 1) {
       let ltrGuess = $('#guess--input').val();
       player.ans = ltrGuess.toUpperCase();
-      round.answer = round.answer.filter(item => item != `'` && item != `-` )
+      round.answer = round.answer.filter(item => item !== `'` && item !== `-` )
       //TODO: update letters used array
       // player ans
       // console.log(game.currentRound.currentPlayer.ans.toUpperCase());
@@ -94,7 +110,7 @@ $('.guess__letter--button').click(function () {
       // find index of answer array to guess letter array
       // change text of that index to the value of the guess index
     } else {
-      alert('Please Only Choose 1 Letter');
+      alert('Please Choose 1 Letter');
     }
     DomUpdates.updateLettersUsed(game);
   });
@@ -103,12 +119,7 @@ $('.guess__letter--button').click(function () {
      if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
         alert('This letter has already been guessed!');
         // todo: add an error message instead of alert
-      }
-      else if (vowels.includes(ltrGuess.toUpperCase())) {
-        console.log("It's a Vowel!")
-        buyVowel(round, player, ltrGuess);
-      }
-      else if (compareAns(round, player)) {
+      } else if (compareAns(round, player)) {
         correctAnsFunc(round, player, ltrGuess);
         toggleButtons();
       }
@@ -147,7 +158,6 @@ let buyVowel = (round, player, letter) => {
   } else {
     player.roundCaps -= 100;
     console.log(player.roundCaps)
-    correctAnsFunc(round, player, letter)
   }
 }
   
