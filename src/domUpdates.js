@@ -23,21 +23,13 @@ export default {
    $('.clue-card').toggleClass("hidden");
    $('.clue-question').text(clue.question)
    $('.game-board, .start-game-form, h1').addClass("opacity");
-   $('.val-btn').off("click");
     console.log('clue', clue)
     console.log('event', event)
   },
   disappearClue() {
-    // $('.clue-card').addClass("hidden");
     $('.game-board, .start-game-form, h1').removeClass("opacity");
   },
-  // click event for submit button
-  // prevent default etc
-  // grab question text with jquery selector, grab input value
-  // reduce function - go into data.clues reduce all clues.question that matches q we got in card
-  // push out answer - that will be acc. an empty string.
-  // let result = data.clues reduce. get answer in result, if result = input.val then correct, else wrong
-  checkAnswer() {
+   checkAnswer() {
     const questionText = $('.clue-question');
     const guess = $('#guess-input').val();
     const answer = dataSet.clues.reduce((acc, currClue) => {
@@ -47,21 +39,19 @@ export default {
       return acc;
     }, '')
     if (answer.toLowerCase() === guess.toLowerCase()) {
-      // this.showCorrect();
-      alert('correct')
+      this.showCorrect();
     } else {
-      // this.showWrong();
-      alert('wrong')
+      this.showWrong();
     }
   },
-  // showCorrect() {
-  //   $('.answer').removeClass('hidden').text('Correct!');
-  //   $('.guess-btn').addClass('hidden');
-  //   $('.close').removeClass('hidden');
-  // },
-  // showWrong() {
-  //   $('.answer').removeClass('hidden').text('Wrong!');
-  //   $('.guess-btn').addClass('hidden');
-  //   $('.close').removeClass('hidden');
-  // }
+  showCorrect() {
+    $('.answer').removeClass('hidden').text('Correct!');
+    $('.guess-btn').addClass('hidden');
+    $('.close').removeClass('hidden');
+  },
+  showWrong() {
+    $('.answer').removeClass('hidden').text('Wrong!');
+    $('.guess-btn').addClass('hidden');
+    $('.close').removeClass('hidden');
+  }
 }
