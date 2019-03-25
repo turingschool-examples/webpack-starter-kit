@@ -26,6 +26,7 @@ let round;
 
 $(".submit-btn").on("click", startGame);
 $(".guess-btn").on("click", guess);
+$(".guess-input").on("keydown", domUpdates.hideGuessMessages);
 
 function startGame() {
   const p1Name = $("#p1-name-input").val();

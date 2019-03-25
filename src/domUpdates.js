@@ -38,10 +38,18 @@ const domUpdates = {
     player === 1 ? $(".sb-one > h6").text(score) : $(".sb-two > h6").text(score);
   },
 
-  clearInput() {
+  clearInput: function() {
     $(".guess-input").val('');
-  }
+  },
 
+  showGuessMessage: function(guessType) {
+    $(`.${guessType}-guess`).removeClass("hidden");
+  },
+
+  hideGuessMessages: function () {
+    $(".correct-guess").addClass("hidden");
+    $(".wrong-guess").addClass("hidden");
+  }
 
 }
 
