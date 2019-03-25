@@ -73,13 +73,12 @@ export default {
     const interval = setInterval(function() {
       $(".timer").removeClass("hidden");
       $(".timer").html(--seconds);
-  
+
       if (seconds <= 0 || window.game.round.surveyAnswers.length === 0) {
-          // $(".timer").html("Time's up!").delay(1000).fadeOut();
-          $(".fastround-ready-screen").removeClass("hidden").delay(1000);
-          window.game.triggerNewRound();
-          clearInterval(interval);
-      }
+        clearInterval(interval);
+        $(".fastround-ready-screen").removeClass("hidden").delay(1000);
+        window.game.triggerNewRound();
+      } 
     }, 1000);
   }
 }

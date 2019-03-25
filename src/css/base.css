@@ -27,7 +27,17 @@ body {
   justify-content: center;
 }
 
-.welcome-screen,
+.welcome-screen {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+}
+
 .fastround-ready-screen {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
   height: 100%;
@@ -60,6 +70,16 @@ button:disabled {
 }
 
 .name-form {
+  background: #213b72;
+  border: 5px solid white;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.fastround-dialog {
   width: 45%;
   background: #213b72;
   border: 5px solid white;
