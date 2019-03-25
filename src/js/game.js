@@ -13,16 +13,14 @@ class Game {
     this.playerIndex = 1;
     this.currentPlayer = false;
     this.currentQuestion;
+    this.currentPrize;
   }
 
   startRound() {
     this.populateQuestions();
-    let q = this.allQs.pop()
-    this.currentQuestion = new Question(q.correct_answer, q.total_number_of_letters, [], q.description, q.category);
-    domUpdates.updateQInfo(this.currentQuestion);
-    let wheel = new Wheel();
-    let prize = wheel.spin();
-    domUpdates.revealPrize(prize);
+    this.instantiatePlayers();
+    domUpdates.appendNames();
+    this.newQ();
   }
 
   populateQuestions() {
@@ -30,6 +28,15 @@ class Game {
       p.puzzle_bank.forEach(puz => this.allQs.push(puz))
     });
     this.allQs.sort(() => 0.5 - Math.random());
+  }
+  
+  generatePrize() {
+    let wheel = new Wheel();
+    this.currentPrize = wheel.spin();
+  }
+
+  validateAnswer() {
+    Question.validateAnswer(domUpdates.getAnswer(), this.currentQuestion.answer);
   }
 
   changeTurn() {
@@ -49,11 +56,13 @@ class Game {
     this.round++ && this.newQ();
     if (this.round === 6) {
       this.round = 1
-    };
+    }
   }
 
   newQ() {
-    this.currentQuestion = this.allQs.pop();
+    let q = this.allQs.sort(() => 0.5 - Math.random()).pop();
+    this.currentQuestion = new Question(q.correct_answer, q.total_number_of_letters, [], q.description, q.category);
+    domUpdates.updateQInfo(this.currentQuestion);
   }
 
 }
