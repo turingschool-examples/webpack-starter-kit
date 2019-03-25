@@ -20,6 +20,7 @@ class Player {
     } else {
       domUpdates.showGuessMessage('wrong');
     }
+    domUpdates.animateKnight();
     game.toggleIsTurn();
   }
 

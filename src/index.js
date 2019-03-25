@@ -15,6 +15,8 @@ import './images/family-feud-logo.png';
 import './images/banner1.png';
 import './images/banner2.png';
 import './images/text-banner.png';
+import './images/knight-horse-shield.gif';
+import './images/round-one.png';
 
 import domUpdates from './domUpdates.js';
 import data from './gamedata.js';
