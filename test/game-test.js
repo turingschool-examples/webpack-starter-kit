@@ -21,8 +21,7 @@ describe('Game', () => {
     expect(game.round).to.equal(0);
     expect(game.allRounds).to.have.lengthOf(5);
     expect(game.allQs).to.deep.equal([]);
-    expect(game.playerIndex).to.equal(1);
-    expect(game.currentPlayer).to.equal(false);
+    expect(game.playerIndex).to.equal(0);
     expect(game.currentQuestion).to.equal(undefined);
     expect(game.currentPrize).to.equal(undefined);
   });
@@ -34,13 +33,13 @@ describe('Game', () => {
   });
 
   it('should change player turns', () => {
+    expect(game.playerIndex).to.equal(0);
+    game.changeTurn();
     expect(game.playerIndex).to.equal(1);
     game.changeTurn();
     expect(game.playerIndex).to.equal(2);
     game.changeTurn();
-    expect(game.playerIndex).to.equal(3);
-    game.changeTurn();
-    expect(game.playerIndex).to.equal(1);
+    expect(game.playerIndex).to.equal(0);
   });
 
   it('should generate a random question', () => {

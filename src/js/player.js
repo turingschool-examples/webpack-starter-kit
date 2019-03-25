@@ -5,7 +5,7 @@ class Player {
     this.name = name;
     this.answer = answer;
     this.currentScore = 0;
-    this.totalScore = 1000;
+    this.totalScore = 0;
   }
 
   addScore(prize) {

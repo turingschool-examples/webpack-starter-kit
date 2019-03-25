@@ -11,9 +11,9 @@ class Game {
     this.allQs = [];
     this.allRounds = [1, 2, 3, 4, 5];
     this.playerIndex = 0;
-    // this.currentPlayer = null;
     this.currentQuestion;
     this.currentPrize;
+    this.ltrArr = [];
   }
 
   startRound() {
@@ -33,7 +33,6 @@ class Game {
   generatePrize() {
     let wheel = new Wheel();
     this.currentPrize = wheel.spin();
-    this.currentPrize = 'LOSE A TURN';
     if (this.currentPrize === 'BANKRUPT') {
       this.players[this.playerIndex].totalScore = 0;
       console.log('bankrupt: ', this.players[this.playerIndex]);
@@ -48,8 +47,8 @@ class Game {
   validateAnswer() {
     if (domUpdates.getAnswer().toUpperCase() === this.currentQuestion.answer.toUpperCase()) {
       console.log('correct!')
-      this.players[this.playerIndex];
-      console.log(this.players[this.playerIndex]);
+      this.players[this.playerIndex].totalScore += this.currentPrize
+      console.log(this.players[this.playerIndex].totalScore);
       // alert player was correct
       // change round, instantiate new round with new question
     } else {
@@ -58,7 +57,29 @@ class Game {
       // change player turn
     }
     this.changeTurn();
-    console.log(this.players[this.playerIndex]);
+  }
+
+  checkConsonant() {
+    let elem = domUpdates.getBoard()
+    console.log(Object.values(elem))
+    console.log(this.currentQuestion.answer)
+    Object.values(elem).forEach(e => {
+      console.log(e.textContent)
+      console.log(domUpdates.getConsonant())
+      if (e.textContent === domUpdates.getConsonant()) {
+        this.players[this.playerIndex].currentScore += this.currentPrize
+        domUpdates.clearClass(e)
+        // make letter appear
+        // add currentPrize to player score
+      } else {
+        console.log('sumpin')
+      }
+    })
+    // this.ltrArr.push(domUpdates.getConsonant())
+    // if the user guess is NOT in the guessed array && IS in the answer
+      // call domUpdates method to make the letter appear
+    // if the user guess IS in the guessed array && IN NOT in the answer && NOT a vowel
+      // call the method to switch to next player
   }
 
   changeTurn() {

@@ -1,7 +1,4 @@
 import $ from 'jquery';
-import Game from './game';
-import Question from './question';
-import Wheel from './wheel';
 
 export default {
 
@@ -10,10 +7,11 @@ export default {
     $('.description').text(question.description);
 
     question.answer.split('').forEach(letter => {
+      letter = letter.toUpperCase();
       if (letter === ' ') {
         $('.word-box').append(`<div class="space-box"></div>`);
       } else {
-        $('.word-box').append(`<div class="letter-box"><div class="letter">${letter}</div></div>`);
+        $('.word-box').append(`<div class="letter-box"><div class="letter hidden">${letter}</div></div>`);
       }
     })
   },
@@ -95,7 +93,14 @@ export default {
   },
 
   getConsonant() {
-    return $('.ltr-input').val();
+    return $('.ltr-input').val().toUpperCase();
   },
 
+  getBoard() {
+    return $('.hidden')
+  },
+
+  clearClass(e) {
+    $(e).removeClass('hidden')
+  }
 }
