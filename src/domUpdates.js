@@ -1,6 +1,7 @@
 import Game from './Game.js';
 import Wheel from './Wheel.js';
 import Puzzle from './Puzzle.js';
+import Player from './Player.js';
 import $ from 'jquery';
 
 let domUpdates = {
@@ -13,12 +14,15 @@ let domUpdates = {
             <input class='answer-input' placeholder='Type your answer here'>
             <button class='answer-submit'>Submit</button>
           </form>
+          <button class='exit-solve'>Exit Solve Puzzle</button> 
         </section>`
         )
+     //need a way to get out of solve puzzle in case they decide to put in another letter 
+     //added button above but haven't added an event listener to it yet to remove the .popup
   },
 
   hideAnswer(game) {
-    let answer = game.currentPuzzle.correct_answer.split('');
+    let answer = game.currentPuzzle.answer.split('');
     answer.forEach((letter) => {
       if (letter === ' ' || '-' || '&') {
         $('.answer-display').append(`<p class = 'letter no-border'>${letter.toUpperCase()}</p>`);
@@ -54,23 +58,47 @@ let domUpdates = {
     wheel.getRandomWheel();
   },
 
-  checkUserGuess(game) {
-    let answer = game.currentPuzzle.correct_answer.toUpperCase().split('');
-    let vowels = ['a', 'e', 'i', 'o', 'u'];
+  grabCurrentLetter(puzzle) {
     let currentLetter = ($('#js-cons-input').val().toUpperCase());
-    answer.forEach(letter => {
-    // console.log(letter);
-    if(letter === currentLetter) {
-      $('.letter').css('color', 'white' );
-     console.log(currentLetter);
+    console.log('Test current letter', currentLetter);
+    return currentLetter;
+  },
 
-    }
-    //find letter at index of answer array that matches the currentLetter at it's index and then turn it into css property white
-      //if user guesses correct letter it will toggle the letter to display on dom
-      //push the current lettter to the guessed bank within puzzle class
-      //maybe use .each() & .eq() to iterate through the answer and match it with currentLetter
-    })
-  }
+  displayLetterMatch(letter) {
+      $('.letter:contains("'+letter+'")').css('color', 'white' );
+  },
+
+  diplayStartMsg() {
+    $('.gameplay-message').text('Please spin wheel first before guessing the letter');
+  },
+
+  // displayVowelMessage() {
+  //   $('.gameplay-message').text('You haven/t bought a vowel yet. Please enter a non-vowel letter');
+  // },
+
+  grabVowel() {
+    let currentVowel = ($('#js-vowel-input').val().toUpperCase());
+    console.log('Test current letter', currentVowel);
+    return currentVowel;
+  },
+
+
+  // displayLoseTurn(wheel) {
+  //   $('.gameplay-message').text(`'Your spin is worth ${wheel.random}'`)
+  // }
+
+  // displayWheelValue(wheel) {
+  //   $('.gameplay-message').text('The current value of your wheel spin is`${wheel.values}`)
+  // }
+
+  // displayNeedPlayerName() {
+  //   if('.player-name-input' === '') {
+  //     $('.gameplay-message').text('Please input player name');
+  //   }
+  // }
+
+
+
 }
 
 export default domUpdates;

@@ -5,21 +5,21 @@ import './css/base.css';
 import Game from './Game.js';
 import Wheel from './Wheel.js';
 import Puzzle from './Puzzle.js';
-import Round from './Round.js';
-
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
 let game = new Game();
 let wheel = new Wheel();
-console.log(game);
 
+
+console.log(game);
 
 $('.start-button').on('click', function() {
   domUpdates.startGame(game, wheel);
   domUpdates.displayCategoryName(game); 
   domUpdates.hideAnswer(game);
-  $('.start-button').hide('slow');
+  domUpdates.diplayStartMsg();
+  $('.start-button').hide('');
   $('.button').prop('disabled', false).css('color', 'white');
   $('.player-name-input').hide();
 });
@@ -30,10 +30,11 @@ $('.quit-button').on('click', function() {
 
 $('.quit-button').on('click', function() {
   location.reload(true);
-  });
+});
 
 $('#js-spin-button').on('click', function() {
   wheel.getRandomWheel();
+  // domUpdates.displayWheelValue()
 });
 
 $('#js-solve-button').on('click', function() {
@@ -43,6 +44,24 @@ $('#js-solve-button').on('click', function() {
 
 $('#js-submit-button').on('click', function(e) {
   e.preventDefault();
-  domUpdates.checkUserGuess(game);
+  let letterInput = domUpdates.grabCurrentLetter();
+  game.currentPuzzle.checkUserGuess(letterInput);
+  $('.input').val('');
+});
+
+$('#js-vowel-submit').on('keyup', function(e) {
+  e.preventDefault();
+  domUpdates.checkVowel();
+});
+
+$('#js-vowel-submit-button').on('click', function(){
+  let letterInput = domUpdates.grabVowel();
+  game.currentPuzzle.checkUserGuess();
 })
 
+
+// $(".js-cons-input").on("keydown", function() {
+//   if (!vowelKeyCodes.includes(event.keyCode)) {
+//     event.preventDefault(); 
+//   }
+// });
