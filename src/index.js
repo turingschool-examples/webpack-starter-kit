@@ -21,19 +21,27 @@ import data from './gamedata.js';
 import Game from './Game.js';
 import Player from './Player.js';
 
+let game;
+let round;
 
 $(".submit-btn").on("click", startGame);
+$(".guess-btn").on("click", guess);
 
 function startGame() {
   const p1Name = $("#p1-name-input").val();
   const p2Name = $("#p2-name-input").val();
   const player1 = new Player(p1Name, 1);
   const player2 = new Player(p2Name, 2);
-  const game = new Game(player1, player2);
+  game = new Game(player1, player2);
   domUpdates.updateNames(p1Name, p2Name);
   domUpdates.revealGame();
-  let round = game.startNewRound();
+  round = game.startNewRound();
   startRound(round);
+}
+
+function guess() {
+  const guess = $(".guess-input").val();
+  game.player1.isTurn ? game.player1.makeGuess(guess, game, round) : game.player2.makeGuess(guess, game, round);
 }
 
 function startRound(round) {
