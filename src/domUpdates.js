@@ -83,13 +83,14 @@ let domUpdates = {
   },
 
 
-  // displayLoseTurn(wheel) {
-  //   $('.gameplay-message').text(`'Your spin is worth ${wheel.random}'`)
-  // }
+  displayLoseTurn(wheel) {
+    console.log(`${wheel.currentIndex}`)
+    $('.gameplay-message').text('Your spin was LOSE A TURN, onto the next player');
+  },
 
   // displayWheelValue(wheel) {
-  //   $('.gameplay-message').text('The current value of your wheel spin is`${wheel.values}`)
-  // }
+  //   $('.gameplay-message').text(`The current value of your wheel spin is ${wheel.currentIndex}`)
+  // },
 
   // displayNeedPlayerName() {
   //   if('.player-name-input' === '') {
