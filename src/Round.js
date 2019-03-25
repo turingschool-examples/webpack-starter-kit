@@ -6,7 +6,6 @@ class Round {
     this.survey = survey;
     this.surveyAnswers = surveyAnswers; 
     this.guesses = [];
-    this.correctGuesses = 0;
   }
 
   checkGuess() {
@@ -20,29 +19,41 @@ class Round {
     this.guesses.push(guess);
   }
 
-  checkAnswer(guess, game) {
+  checkAnswer(guess) {
     const match = this.surveyAnswers.find(answerObj => 
-      answerObj.answer.toLowerCase().includes(guess));
-
+      answerObj.answer.toLowerCase().includes(guess.toLowerCase()));
+                                                  
     if (match) {
-      domUpdates.displayCorrectGuess(match.answer);
-      this.correctGuesses++; 
-      game.activePlayer.increaseScore(match.respondents);
-      this.surveyAnswers.splice(this.surveyAnswers.indexOf(match), 1);
+      this.processWin(match);
+      this.checkRoundProgress();
     } else {
       domUpdates.showNoMatch();
-      game.toggleActivePlayer();
+      this.getRoundNextStep();
     }
+  }
 
-    if (this.correctGuesses === 3) {
-      this.endRound(game);
+  processWin(match) {
+    domUpdates.displayCorrectGuess(match.answer); 
+    window.game.activePlayer.increaseScore(match.respondents);
+    this.surveyAnswers.splice(this.surveyAnswers.indexOf(match), 1);
+  }
+
+  getRoundNextStep() {
+    if (window.game.currentRound < 3) {
+      window.game.toggleActivePlayer();
     }
+  }
+
+  checkRoundProgress() {
+    if (this.surveyAnswers.length === 0) { 
+      window.game.triggerNewRound();
+    } 
   }
 
   endRound(game) {
     domUpdates.clearAnswerBoard();
     game.toggleActivePlayer();
-    game.startNewRound();
+    game.triggerNewRound();
   }
 }
 
