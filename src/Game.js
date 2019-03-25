@@ -15,6 +15,7 @@ class Game {
   beginGame() {
     this.getRandomPuzzle();
     let puzzle1 = new Puzzle(this.currentPuzzle);
+    this.currentPuzzle = puzzle1;
   }
 
   getRandomPuzzle() {

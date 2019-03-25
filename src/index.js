@@ -5,15 +5,13 @@ import './css/base.css';
 import Game from './Game.js';
 import Wheel from './Wheel.js';
 import Puzzle from './Puzzle.js';
-import Round from './Round.js';
-
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
 let game = new Game();
 let wheel = new Wheel();
-console.log(game);
 
+console.log(game);
 
 $('.start-button').on('click', function() {
   domUpdates.startGame(game, wheel);
@@ -31,7 +29,7 @@ $('.quit-button').on('click', function() {
 
 $('.quit-button').on('click', function() {
   location.reload(true);
-  });
+});
 
 $('#js-spin-button').on('click', function() {
   wheel.getRandomWheel();
@@ -45,9 +43,18 @@ $('#js-solve-button').on('click', function() {
 
 $('#js-submit-button').on('click', function(e) {
   e.preventDefault();
-  domUpdates.checkUserGuess(game);
+  let letterInput = domUpdates.grabCurrentLetter();
+  console.log(game.currentPuzzle)
   $('.input').val('');
-
-
 });
 
+$('#js-vowel-submit').on('keyup', function(e) {
+  e.preventDefault();
+  domUpdates.checkVowel();
+});
+
+// $(".js-cons-input").on("keydown", function() {
+//   if (!vowelKeyCodes.includes(event.keyCode)) {
+//     event.preventDefault(); 
+//   }
+// });

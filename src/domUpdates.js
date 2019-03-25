@@ -21,7 +21,7 @@ let domUpdates = {
   },
 
   hideAnswer(game) {
-    let answer = game.currentPuzzle.correct_answer.split('');
+    let answer = game.currentPuzzle.answer.split('');
     answer.forEach((letter) => {
       if (letter === ' ' || '-' || '&') {
         $('.answer-display').append(`<p class = 'letter no-border'>${letter.toUpperCase()}</p>`);
@@ -57,23 +57,23 @@ let domUpdates = {
     wheel.getRandomWheel();
   },
 
-  checkUserGuess(game) {
-    let answer = game.currentPuzzle.correct_answer.toUpperCase().split('');
-    let vowels = ['a', 'e', 'i', 'o', 'u'];
-    let currentLetter = ($('#js-cons-input').val().toUpperCase());
-    answer.forEach(letter => {
-    // console.log(letter);
-    if(letter === currentLetter) {
-      $('.letter:contains("'+letter+'")').css('color', 'white' );
-     console.log(currentLetter);
-      }
-    })
-  },
+displayLetterMatch(puzzle) {
+    $('.letter:contains("'+letter+'")').css('color', 'white' );
+},
 
   diplayStartMsg() {
     $('.gameplay-message').text('Please spin wheel first before guessing the letter');
   },
 
+  displayVowelMessage() {
+    $('.gameplay-message').text('You haven/t bought a vowel yet. Please enter a non-vowel letter');
+  },
+
+grabCurrentLetter() {
+  let currentLetter = ($('#js-cons-input').val().toUpperCase());
+  console.log(currentLetter);
+  return currentLetter;
+}
   // displayLoseTurn(wheel) {
   //   $('.gameplay-message').text(`'Your spin is worth ${wheel.random}'`)
   // }
@@ -87,6 +87,8 @@ let domUpdates = {
   //     $('.gameplay-message').text('Please input player name');
   //   }
   // }
+
+
 
 }
 
