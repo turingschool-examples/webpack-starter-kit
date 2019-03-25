@@ -47,12 +47,16 @@ $(document).ready(dataCategories);
 
 // dom manipulation to get values of the three names
 var name1 = 'Erik';
-var name2 = 'Elton';
+var name2 = 'Aidan';
 var name3 = 'Sean';
 
 // var newGame = new Game(name1, name2, name3);
 
 
+// newGame.currentRound.fetchClues;
+// console.log(newGame.currentRound.fetchClues(newGame.round1Categories));
+
+// newGame.nextRound()
 
 
 // const player1 = new Rounds(flatData, 'Erik');
