@@ -20,6 +20,11 @@ describe('Game', () => {
     chai.spy.restore(domUpdates);
   });
 
+  it('should be able to instantiate a new game', () => {
+    let game = new Game({}, {});
+    assert.instanceOf(game, Game);
+  })
+
   it('should start at round 0', () => {
     const game = new Game();
     assert.equal(game.round, 0);
@@ -54,6 +59,15 @@ describe('Game', () => {
     const game = new Game(player1, player2);
     game.startGame();
     assert.equal(game.surveys.length, 15)
+  });
+
+  it('should be able to shuffle surveys', () => {
+    const player1 = new Player('Brennan');
+    const player2 = new Player('Jarrett');
+    let game = new Game(player1, player2);
+    let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    game.shuffle(array);
+    assert.notDeepEqual(array, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
   });
 
   it('should start increment round upon initiation of game', () => {
