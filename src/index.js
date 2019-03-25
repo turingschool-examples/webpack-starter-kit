@@ -20,36 +20,28 @@ import domUpdates from './js/domUpdates';
 import Question from './js/question'
 import Player from './js/player';
 
-let game;
-let question;
+$(document).ready( () => {
+  const game = new Game();
+  $('.start-btn').click( () => {
+    game.startRound();
+  });
+  
+  $('.final-solution-btn').click( () => {
+    game.validateAnswer();
+    $('.input-solve, .final-solution-btn').hide();
+  });
+  
+  $('.btn-spin').click( () => {
+    game.generatePrize();
+    console.log(game.currentPrize);
+  });
 
-$('.start-btn').on('click', function() {
-  game = new Game()
-  game.startRound();
-  game.instantiatePlayers();
-  domUpdates.appendNames();
-  console.log(game);
+  $('.check-btn, .btn-solve, .buy').click( () => {
+    $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
+    $('.vowels-to-buy, .ltr-input, .check-btn, .input-solve, .final-solution-btn').hide();
+    game.changeTurn();
+  });
+
 })
 
-$('.final-solution-btn').on('click', function() {
-  Question.validateAnswer($('.input-solve').val(), game.currentQuestion.answer);
-  $('.input-solve, .final-solution-btn').hide();
-});
 
-$('.btn-spin').on('click', function() {
-  let wheel = new Wheel();
-  wheel.spin();
-  console.log(wheel)
-});
-
-$('.check-btn, .btn-solve, .buy').on('click', function() {
-  $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
-  $('.vowels-to-buy, .ltr-input, .check-btn, .input-solve, .final-solution-btn').hide();
-  game.changeTurn()
- });
-
-
-
-domUpdates.showInput();
-domUpdates.showVowels();
-domUpdates.showSolveInput();

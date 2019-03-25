@@ -18,21 +18,56 @@ export default {
     })
   },
 
+  loadPossiblePrizes(prizes) {
+    $('.possible-prizes').empty();
+    $('.possible-prizes').append('<p>Prizes:</p>');
+    prizes.forEach(prize => {
+      $('.possible-prizes').append(`<span>${prize}</span>`);
+    })
+  },
+
   revealPrize(prize) {
-    $('.prize').text(prize);
+    $('.prize').text('');
+    $('.wheel-img').addClass('spin');
+    $('.prize').parent().removeClass('prize-animation');
+    setTimeout(() => {
+      $('.prize').parent().addClass('prize-animation');
+      $('.prize').text(`You Got: ${prize}`);
+    }, 1000)
+    this.hideInputs();
+    setTimeout(() => {
+      this.showInput();
+      this.showVowels();
+      this.showSolveInput();
+      $('.wheel-img').removeClass('spin');
+    }, 5000);
   },
 
   showInput() {
-    $('.btn-spin').on('click', function() {
-      $('.check-btn, .ltr-input').show().addClass('slide-in');
-      $('.btn-solve, .buy, .btn-spin').attr('disabled', true)
+    $('.check-btn, .ltr-input').show().addClass('slide-in');
+    $('.btn-solve, .buy, .btn-spin').attr('disabled', true)
+  },
+
+  hideInputs: () => {
+    $('.vowels-to-buy').hide();
+    $('.input-solve, .final-solution-btn').hide();
+    $('.check-btn, .ltr-input').hide();
+  },
+
+  showSolveInput: () => {
+    $('.btn-solve').on('click', function() {
+      $('.input-solve, .final-solution-btn').show();
+      $('.vowels-to-buy').hide();
+      $('.check-btn, .ltr-input').hide();
     });
   },
 
-  showVowels() {
+  showVowels: () => {
     $('.buy').on('click', function() {
       $('.vowels-to-buy').toggle().addClass('slide-in');
       $('.buy, .btn-spin, .btn-solve').attr('disabled', true)
+      $('.input-solve, .final-solution-btn').hide();
+      $('.check-btn, .ltr-input').hide();
     });
   },
 
@@ -44,21 +79,15 @@ export default {
   },
 
   appendNames() {
-      let $p1Name = $('#p1Name-board');
-      $p1Name.text($('#p1Name').val());
-      let $p2Name = $('#p2Name-board');
-      $p2Name.text($('#p2Name').val());
-      let $p3Name = $('#p3Name-board');
-      $p3Name.text($('#p3Name').val());
-      $('.splash').hide();
-      $('.game-page').show();
-      $('.player-section').css('visibility', 'visible');
-  },
-
-  showSolveInput() {
-    $('.btn-solve').on('click', function() {
-      $('.input-solve, .final-solution-btn').show()
-    });
+    let $p1Name = $('#p1Name-board');
+    $p1Name.text($('#p1Name').val());
+    let $p2Name = $('#p2Name-board');
+    $p2Name.text($('#p2Name').val());
+    let $p3Name = $('#p3Name-board');
+    $p3Name.text($('#p3Name').val());
+    $('.splash').hide();
+    $('.game-page').show();
+    $('.player-section').css('visibility', 'visible');
   },
 
   getAnswer() {

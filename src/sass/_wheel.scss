@@ -1,5 +1,6 @@
 main aside {
-  text-align: center;
+  text-align: left;
+  position: relative;
 
   div {
     display: flex;
@@ -22,21 +23,56 @@ main aside {
       }
     }
   }
-}
 
-.wheel-img {
-  width: 70%;
-  &:hover {
-    transition: 20s;
-    transform: rotate(720deg);
+  .possible-prizes {
+    position: absolute;
+    word-wrap: break-word;
+    width: 20%;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    
+    p {
+      font-size: 2rem;
+    }
+    span {
+      font-size: 1.5rem;
+      padding: .2rem .5rem;
+    }
   }
 }
 
-h4 {
+.wheel-img {
+  width: 80%;
+  padding: 20px 20px 20px 5px;
+}
+
+.prize-container {
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  width: 300px;
+  top: 35%;
+  left: 10%;
   font-family: $bodyfont;
   font-size: 3rem;
 }
 
+.prize-animation {
+  animation: spin-prize;
+  animation-duration: 3s;
+}
+
+@keyframes spin-prize {
+  0% {opacity: 0;}
+  50% {left: 100px; opacity: .3;}
+  100% {transform: rotate(-720deg);}
+}
+
+.spin {  
+  transition: 5s;
+  transform: rotate(360deg);
+}
 
 .slide-in {
   animation: slideIn 1s ease 0s 1 normal; 

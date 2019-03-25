@@ -1,17 +1,18 @@
 import data from './data';
-import Game from './game';
+import domUpdates from './domUpdates';
 
 class Wheel {
   constructor() {
     this.currentValue = 0;
     this.values = [];
-    this.currentQuestion = {}; // should this be in the game class? // raechel: i don't think we're going to need this, we can instantiate a new wheel with each spin with the logic i'm thinking of and then we can ignore the current question for the wheel since we have it stored on the game
   }
   
-  //should we combine this and generate prizes because we generate new prizes for each spin anyway?
   spin() { 
     this.values.push(...this.randomizeValues(data.wheel).slice(0, 6));
-    return this.currentValue = this.randomizeValues(this.values).pop();
+    domUpdates.loadPossiblePrizes(this.values);
+    this.currentValue = this.randomizeValues(this.values).pop();
+    domUpdates.revealPrize(this.currentValue);
+    return this.currentValue;
   }
 
   randomizeValues(array) {
