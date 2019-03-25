@@ -15,7 +15,7 @@ chai.spy.on(domUpdates, [
   'displayPlayer2',
   'resetPageDefaults',
   'showNoMatch'
-  ], () => true);  
+], () => true);  
 
 describe('Game', () => {
 
