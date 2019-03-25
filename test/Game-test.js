@@ -5,6 +5,7 @@ import spies from 'chai-spies';
 chai.use(spies);
 
 import Game from '../src/Game.js';
+import Round from '../src/Round.js';
 import domUpdates from '../src/domUpdates.js';
 
 chai.spy.on(domUpdates, 'renderNames', () => true);
@@ -18,7 +19,7 @@ describe('Game', function() {
 
   it('should have default properties', function() {
     expect(game.players).to.deep.equal([]);
-    expect(game.round).to.equal(1);
+    expect(game.round).to.deep.equal({});
    
   });
   
@@ -32,4 +33,9 @@ describe('Game', function() {
     expect(game.players[2].name).to.equal('playerThree');
   });
 
-});
+  it('should instantiate new round', function() {
+    game.createRound();
+    expect(game.round.clues).to.deep.equal([]);
+    expect(game.round.categoryIds).to.deep.equal([ 1, 2, 3, 4 ]);
+  });
+})

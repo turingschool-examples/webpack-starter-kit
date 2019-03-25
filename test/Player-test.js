@@ -13,6 +13,6 @@ describe ('Player', function() {
     let player = new Player('Kayla')
     expect(player.name).to.equal('Kayla');
     expect(player.score).to.equal(0);
-    expect(player.playerTurn).to.equal(false);
+    // expect(player.playerTurn).to.equal(false);
   });
 })
