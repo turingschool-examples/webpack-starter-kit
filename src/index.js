@@ -48,7 +48,7 @@ $('.start__start--btn').click(() =>{
     }
   }
 
-  const vowels = ['a','e','i','o','u'];
+  const vowels = ['A','E','I','O','U'];
 // Conflict Res
   $('.guess__word--button').click(function () {
     // ! change the array of array to the globally defined one
@@ -77,7 +77,6 @@ $('.start__start--btn').click(() =>{
 $('.guess__letter--button').click(function () {
     const round = game.currentRound;
     const player = round.currentPlayer;
-
     // !  nested if to separate helper function invoked within first if
     if ($('#guess--input').val().length === 1) {
       let ltrGuess = $('#guess--input').val();
