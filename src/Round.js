@@ -26,6 +26,10 @@ class Round {
     const currentRoundAnswers = this.generateAnswers();
     this.currentAnswer = currentRoundAnswers;
 
+    // player should be given 30 seconds to guess
+    // once the 30 seconds is up, fire Game.whoseTurn();
+    // ^^ this will then switch it to the other player repeating the process;
+
     domObject.createAnswers(
       currentRoundAnswers[0].answer, 
       currentRoundAnswers[0].respondents, 

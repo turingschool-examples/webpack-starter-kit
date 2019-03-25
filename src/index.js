@@ -58,12 +58,17 @@ $("#submit-guess").on("click", event => {
 		console.log('Guess button prepped for round 3');
 
 		// $(".round3").removeClass('hidden')
-		
 		// when this round is entered (round 3) let player choose a multiplier amount;
 		// I should first be able to input a multiplier between 1-5
 		// run round.generateRoundTimed();
 
 	}
+});
+
+$('.multiplier-form').on('click', '.multiplier-radio', (event) => {
+  const radioValue = (parseInt(event.currentTarget.defaultValue));
+  $('.multiplier-form').fadeOut();
+  $('.multiplying-by').html(`Multiplying by: ${radioValue}`);
 });
 
 
