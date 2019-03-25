@@ -1,35 +1,30 @@
 import Round from "./Round";
 import LightningRound from './LightningRound';
-import Player from './Player';
 import domUpdates from './domUpdates'
-
-import data from './data';
 
 class Game {
 
-  constructor(player1, player2) {
+  constructor(player1, player2, data) {
     this.players = [player1, player2];
     this.round = 0;
     this.currentPlayer = this.players[0];
+    this.surveys = data;
   }
 
   startGame() {
-    this.surveys = data.surveys.reduce( (total, { id, question }) => {
-      total.push({
-        id,
-        question,
-        responses: data.answers.filter(({ surveyId }) => id === surveyId).sort((a, b) => b.respondents - a.respondents)
-      })
-      return total
-    }, []);
     this.shuffle(this.surveys);
     this.startNextRound();
   }
 
   startNextRound() {
     this.round++;
-    this.currentRound = new Round(this.round, this.surveys[this.round - 1]);
-    console.log(this);
+    this.currentRound = new Round(this.surveys[this.round - 1]);
+    domUpdates.startRound(this.currentRound);
+  }
+
+  startNextLightningRound() {
+    this.round++;
+    this.currentRound = new LightningRound(this.surveys.slice(3, 5));
     domUpdates.startRound(this.currentRound);
   }
 
@@ -49,7 +44,24 @@ class Game {
       this.currentPlayer = this.players[0];
     }
     domUpdates.displayCurrentPlayer(this.currentPlayer);
-    console.log(this.currentPlayer);
+  }
+
+  getWinner() {
+    let winner;
+    const expr = this.players[0].score - this.players[1].score;
+
+    switch (Math.sign(expr)) {
+      case 1:
+        winner = this.players[0];
+        break;
+      case -1:
+        winner = this.players[1];
+        break;
+      default:
+        winner = 'Draw';
+        break;
+    }
+    return winner;
   }
 
 }
