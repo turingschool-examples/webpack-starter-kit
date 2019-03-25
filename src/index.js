@@ -11,7 +11,7 @@ import Player from './Player.js';
 const game = new Game();
 const player1 = new Player();
 const player2 = new Player();
-//is this right??? i dont think so
+
 game.startGame();
 
 import events from './DOMupdates.js'
@@ -25,6 +25,7 @@ $("#submit-names").on( "click", () => {
 		player2.name = $('#player2-name-input').val();
 		$('.player-1-name').html(player1.name);
 		$('.player-2-name').html(player2.name);
+		$('.current-turn').html(`${player1.name}'s turn!`);
 		$(".main-content").slideDown();
 		$(".user-inputs").hide();
 	}
@@ -40,14 +41,14 @@ $("#submit-guess").on("click", event => {
 	//let player 1 guess first
 	if (game.currentTurn === 'player1') {
 
-		$('.current-turn').html(`${player2.name}'s Turn`)
+		$('.current-turn').html(`${player2.name}'s turn!`)
 		let userInput = $("#player-guess").val()
 		player1.score += (game.checkAnswers(userInput, game.currentAnswer));
 		$(".player-1-score").html(`Score: ${player1.score}`);
 		console.log(game.currentAnswer)
 	} else if (game.currentTurn === 'player2') {
 
-		$('.current-turn').html(`${player1.name}'s Turn`)
+		$('.current-turn').html(`${player1.name}'s turn!`)
 		let userInput = $("#player-guess").val()
 		player2.score += (game.checkAnswers(userInput, game.currentAnswer));
 		$(".player-2-score").html(`Score: ${player2.score}`);
@@ -56,6 +57,8 @@ $("#submit-guess").on("click", event => {
 	}
 	//let player 2 guess second
 });
+
+
 
 //after 3 guesses are complete show restart game button
 $(".player-cards").on("click", () => {
