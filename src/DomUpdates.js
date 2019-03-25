@@ -2,7 +2,6 @@ import $ from 'jquery';
 
 export default {
   activateLetters() {
-    console.log('activate')
     $('td.single-letter').removeClass('disable-selected-letters')
   },
   
@@ -13,27 +12,27 @@ export default {
             <tr>
             </tr>
             <tr>
-                <td role="button" class="single-letter disable-selected-letters">${array[0]}</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">${array[0]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[1]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[2]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[3]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[4]}</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">${array[4]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[5]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[6]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[7]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[8]}</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">${array[8]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[9]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[10]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[11]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[12]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[13]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[14]}</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">${array[14]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[15]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[16]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[17]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[18]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[19]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[20]}</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">${array[20]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[21]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[22]}</td>
                 <td role="button" class="single-letter disable-selected-letters">${array[23]}</td>
@@ -44,6 +43,7 @@ export default {
     </section>
     <section>
         <h3 class="hint" id="hint">Catagory: <span class="hint-text"></span></h3>
+        <h3 class="description" id="description">Description: <span class="description-text"></span></h3>
     </section>
     <section id="puzzle-area" class="puzzle-area">
         <div class="puzzle">
@@ -331,7 +331,7 @@ export default {
   },
 
   createQuitGameBtn() {
-    $('footer').append(`<div class="quit-btn-container"><button>hello</button></div>`)
+    $('main').before(`<div class="quit-btn-container"><button>Quit Game</button></div>`)
   },
 
   disableLetter(event) {
@@ -345,7 +345,9 @@ export default {
 
   displayHint(clue) {
     const hint = clue.category;
+    const description = clue.description;
     $('.hint-text').text(hint);
+    $('.description-text').text(description);
   },
 
 

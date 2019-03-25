@@ -32,6 +32,7 @@ class Game {
   }
   createGameBoard() {
     DomUpdates.createGameBoard(this.alphabet)
+    DomUpdates.createQuitGameBtn();
   }
 
   createPlayerBox() {
