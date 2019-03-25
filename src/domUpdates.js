@@ -32,7 +32,15 @@ let domUpdates = {
                 $('.clueLetter').eq(index).css("background-color", "white")
             }
         })
+    },
+    clearAnswerBoard() {
+        $('.clueLetter').empty().css('background-color', 'white')
+    },
+
+    toggleSpin() {
+        $('.spinButton').attr('disable', '');
     }
+
 }
 
 export default domUpdates;

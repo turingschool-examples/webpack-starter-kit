@@ -1,6 +1,7 @@
 import Player from './Player.js';
 import Wheel from './Wheel.js';
-import Round from './Round.js'
+import Round from './Round.js';
+import domUpdates from './domUpdates.js'
 
 class Game {
     constructor() {
@@ -9,6 +10,9 @@ class Game {
         this.wheel = new Wheel();
         this.round = new Round();
         this.usedLetters = [];
+        this.stage = 0;
+        this.vowels =['a','e','i','o','u'];
+        this.currentPlayer = null;
     }
     
     fillUseLetters(letter) {
@@ -22,7 +26,7 @@ class Game {
     }
 
     startGame(name1, name2, name3) {
-        this.round.createRound()
+        this.round.createRound(this.stage)
         this.wheel.getWheelValues()
         if(this.players.length === 0) {
             let player1 = new Player(name1);
@@ -31,7 +35,24 @@ class Game {
             this.players.push(player1, player2, player3)
         }
     }
-    guessChecker() {}
+    incrementStage() {
+        this.stage++; 
+        domUpdates.clearAnswerBoard();
+        this.usedLetters = [];
+    }
+
+    playerTurns() {
+        if(this.currentPlayer === null) {
+            this.currentPlayer = this.players[0];
+        }else if (this.currentPlayer === this.players[0]){
+            this.currentPlayer = this.players[1];
+        }else if(this.currentPlayer === this.players[1]){
+            this.currentPlayer = this.players[2];
+        }else if(this.currentPlayer === this.players[2]){
+            this.currentPlayer = this.players[0];
+        }
+        console.log(this.currentPlayer)
+    }
 
 }
 

@@ -22,9 +22,9 @@ class Wheel {
         }
     }
 
-    spinWheel() {
-        let randomIndex =  Math.floor(Math.random() * (this.spunValues[0].length-1) + 0)
-        let values = this.spunValues[0].find( (cur, idx) => {
+    spinWheel(stage) {
+        let randomIndex =  Math.floor(Math.random() * (this.spunValues[stage].length-1) + 0)
+        let values = this.spunValues[stage].find( (cur, idx) => {
             return idx === randomIndex
         })
         console.log(values)
