@@ -17,18 +17,19 @@ class Game {
     this.currentAnswer = round.currentAnswer;
   }
   startNextRound() {
-    // console.log('outside:',this.currentRound);
+
     if (this.currentAnswer.length === 0 && this.currentRound < 2) {
       round.generateRound();
       this.currentAnswer = round.currentAnswer;
       this.currentRound++;
     } else if (this.currentAnswer.length === 0 && this.currentRound == 2) {
-      // console.log(this.currentRound, 'inside');
-      // console.log('detects round 3');
+
+      // console.log('Game currentAnswer:', this.currentAnswer);
       $(".round3").removeClass('hidden')
       this.currentRound++;
       round.generateRoundTimed();
       this.currentAnswer = round.currentAnswer;
+
     } else if (this.currentRound === 3) {
       console.log('END OF GAME');
     }
@@ -50,8 +51,20 @@ class Game {
     //move the answer object into the player's correct answer array
   }
 
-  checkAnswersTimed(answer){
-
+  multiplyValues(multiple){
+    console.log('multiple value:', multiple);
+    this.currentAnswer.forEach( answer => {
+      answer.respondents = answer.respondents * multiple;
+    })
+    domObject.createAnswers(
+      this.currentAnswer[0].answer, 
+      this.currentAnswer[0].respondents, 
+      this.currentAnswer[1].answer,
+      this.currentAnswer[1].respondents,
+      this.currentAnswer[2].answer,
+      this.currentAnswer[2].respondents
+    );
+    console.log('Game currentAnswer(post multi):', this.currentAnswer);
   }
   restartGame(){
     //clear all fields

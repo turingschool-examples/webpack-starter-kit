@@ -2,8 +2,7 @@ import gameData from './data.js';
 import domObject from './DOMupdates.js';
 
 class Round {
-  constructor(){
-    this.currentRound = 0;
+  constructor() {
     this.currentAnswers = [];
     this.copiedQuestions = gameData.surveys.slice();
   }
@@ -11,6 +10,7 @@ class Round {
   generateRound() {
     const currentRoundAnswers = this.generateAnswers();
     this.currentAnswer = currentRoundAnswers;
+    console.log('normal round DS', currentRoundAnswers)
 
     domObject.createAnswers(
       currentRoundAnswers[0].answer, 
@@ -25,6 +25,8 @@ class Round {
   generateRoundTimed() {
     const currentRoundAnswers = this.generateAnswers();
     this.currentAnswer = currentRoundAnswers;
+    console.log('timed round DS', currentRoundAnswers)
+    //multiply all the current answer.respondents by the value derived from the radio btn
 
     // player should be given 30 seconds to guess
     // once the 30 seconds is up, fire Game.whoseTurn();

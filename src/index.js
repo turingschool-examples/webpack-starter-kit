@@ -18,7 +18,7 @@ import events from './DOMupdates.js'
 
 //listeners
 $("#submit-names").on( "click", () => {
-	if($('#player-1-name').val() == '' || $('#player-2-name').val() == ''){
+	if($('#player1-name-input').val() === '' || $('#player2-name-input').val() === ''){
 		return;
 	} else {
 		player1.name = $('#player1-name-input').val();
@@ -67,6 +67,7 @@ $("#submit-guess").on("click", event => {
 
 $('.multiplier-form').on('click', '.multiplier-radio', (event) => {
   const radioValue = (parseInt(event.currentTarget.defaultValue));
+  game.multiplyValues(radioValue);
   $('.multiplier-form').fadeOut();
   $('.multiplying-by').html(`Multiplying by: ${radioValue}`);
 });
