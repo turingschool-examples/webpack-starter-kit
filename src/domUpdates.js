@@ -19,20 +19,27 @@ const domUpdates = {
   populateAnswers: function(round) {
     round.answers.forEach((answer, i) => {
       $(`.answer${i}`).text(answer.answer);
+      $(`.answer${i}`).addClass("hidden");
       $(`.answer${i}-num`).text(answer.respondents);
+      $(`.answer${i}-num`).addClass("hidden");
     });
   },
 
   revealCorrectAnswer: function(correctAnswer) {
     $(".answer").each(function() {
       if($(this).text() === correctAnswer.answer) {
-        $(this).css("background-color", "red");
+        $(this).removeClass("hidden");
+        $(this).parent().next().children().removeClass("hidden");
       }
     });
   },
 
   updateScore: function(player, score) {
     player === 1 ? $(".sb-one > h6").text(score) : $(".sb-two > h6").text(score);
+  },
+
+  clearInput() {
+    $(".guess-input").val('');
   }
 
 
