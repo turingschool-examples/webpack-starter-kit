@@ -36,13 +36,12 @@ $('#resetBtn').click(() => {
  $('#submitBtn').on('click', inputValue);
 
 
-
 function startPlaying() {
 let playerOne = $('.nameOne').val();
   $('#nameOne').text(playerOne);
 let playerTwo = $('.nameTwo').val();
   $('#nameTwo').text(playerTwo);
-  $('.wrapper').css('height', '1200px');
+  $('.wrapper').css('height', '1300px');
   $('.wrapper').css('grid-template-rows', '0% 50% 25% 25%');
   $('.gamePopUp').css('visibility', 'hidden');
   createGame(dataSet);
@@ -62,6 +61,9 @@ function createGame(dataset) {
 function inputValue() {
   game.round.getAnswer();
 }
+
+
+
 
 
 export default dataSet;

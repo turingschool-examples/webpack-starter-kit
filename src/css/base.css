@@ -157,15 +157,12 @@ body {
     padding: 10px;
 }
 
-.hidden {
-  display: none;
-}
-
-#answerError {
+.errorMessage {
     font-size: 1em;
     text-align: left;
     color: red;
     margin: 2% 0;
+    visibility: hidden;
 }
 
 #resetBtn,
@@ -188,10 +185,12 @@ body {
   background-color: #dd0808f0;
   color: #FFF;
 }
+
 #submitBtn:hover {
   background-color: #276C0E;
   color: #FFF;
 }
+
 
 #resetBtn,
 #submitBtn {

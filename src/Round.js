@@ -12,20 +12,23 @@ class Round {
         this.checkAnswer(guess);
         }
 
-        checkAnswer() {
-          console.log('hooray!');
-        // if(answerInput != //answer from dataset ) {
+        checkAnswer(guess) {
+        // if(guess != game.surveys['answers'].val(answer)) {
         // $('.answerInput').reset()
         // //wrong answer error message
         // game.switchPlayers()
         // }
 
-        // if(answerInput ==== //answer from dataset ) {
+        // if(guess ==== //answer from dataset ) {
         // $('.answerInput').reset()
         // appendAnswer()
         // game.addScore()
          
         // }
+
+         if(guess == '') {
+           $('.errorMessage').css('visibility', 'visible');
+        }
         }
 
         //appendAnswer() {
