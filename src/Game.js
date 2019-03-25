@@ -14,7 +14,7 @@ class Game {
     // playerTurn will only be only 1, 2, or 3
     this.playerTurn = 1;
 
-    //counter for when to fire nextRound method (after 12, when all clues have been )
+    //counter for when to fire nextRound method (after 16, when all clues have been )
     this.roundTurn = 1;
 
     // Category Numbers for Rounds

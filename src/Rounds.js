@@ -9,8 +9,6 @@ class Rounds {
     this.topicTwo = [];
     this.topicThree = [];
     this.topicFour = [];
-
-
   }
 
   roundTwoPoints() {
@@ -50,7 +48,6 @@ class Rounds {
     this.uniquePoints(this.topicTwo);
     this.uniquePoints(this.topicThree);
     this.uniquePoints(this.topicFour);
-
    }
 }
 

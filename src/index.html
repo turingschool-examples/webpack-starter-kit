@@ -768,20 +768,12 @@
     };
 
     const roundOne = [1,2,4,6];
-
     const clueList = dataSet.clues;
-    // console.log('log 1 ', clueList);
-
-    // const sortedList = clueList.sort((a, b) => {
-    //   return a.pointValue - b.pointValue;
-    // });
-    // // console.log('log sorted: ', sortedList);
 
 
     const categoryList = clueList.filter((currentClue) => {
       return roundOne.indexOf(currentClue.categoryId) !== -1 ;
     });
-    console.log('log filtered', categoryList);
 
     let topicOne = [];
     let topicTwo = [];
@@ -810,14 +802,6 @@
         finalCatOne.add(clue.pointValue);
         return true;
     });
-
-    console.log(newCluesOne);
-
-    // console.log('Log topicOne', topicOne);
-    // console.log('Log topicTwo', topicTwo);
-    // console.log('Log topicThree', topicThree);
-    // console.log('Log topicFour', topicFour);
-
 
     </script>
   </body>
