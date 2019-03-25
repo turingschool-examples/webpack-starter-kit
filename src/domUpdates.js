@@ -69,9 +69,8 @@ const domUpdates = {
       src = "./images/final-round.png";
     }
     $(".round-banner-text").attr("src", src);
-    $(".round-banner").css({'left': '1200px; display: block'}).animate({'left' : '-1400px'}, 4000);
+    $(".round-banner").css({'left': '1200px; display: block'}).animate({'left' : '-1400px'}, 6000);
   }
-
 }
 
 export default domUpdates;
