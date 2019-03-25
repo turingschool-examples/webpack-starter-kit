@@ -2,25 +2,36 @@
 <html lang="en-US">
   <head>
     <title>Jeopardy Game Time</title>
-    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
   </head>
   <body>
-    <header>
-      Jeopardy!
-    </header>
+    <img src="/images/jeopardy-logo.png" alt="Jeopardy Logo">
+    <h1>Welcome to Jeopardy!</h1>
+    <h3>Please enter your names</h3>
+    <form class="player-input">
+      Player One: <br>
+      <input type="text" name="player-one" id="player-one">
+      <br>
+      Player Two: <br>
+      <input type="text" name="player-two" id="player-two">
+      <br>
+      Player Three: <br>
+      <input type="text" name="player-three" id="player-three">
+      <br>
+      <button id="start-game">Start Game!!</button>
+    </form>
     <section class="box-wrapper">
-      <article class="categories">
+      <header class="categories">
         Category 1
-      </article>
-      <article class="categories">
+      </header>
+      <header class="categories">
         Category 2
-      </article>
-      <article class="categories">
+      </header>
+      <header class="categories">
         Category 3
-      </article>
-      <article class="categories">
+      </header>
+      <header class="categories">
         Category 4
-      </article>
+      </header>
     </section>
     <section class="box-wrapper">
       <article class="clues">
@@ -72,10 +83,15 @@
         400
       </article>
     </section>
-    <footer class="players-wrapper">
-      <section class="player"></section>
-      <section class="player"></section>
-      <section class="player"></section>
+    <form class="answer">
+      <!-- <label for="answer">Answer</label> -->
+      <input type="text" name="user-answer" id="answer" class="answer-input">
+      <button class="answer-btn">Submit</button>
+    </form>
+    <footer class="player-wrapper">
+      <section class="players"><span id="player1-name">Player 1</span><br> Score: <span id="player1-score">0</span></section>
+      <section class="players"><span id="player1-name">Player 2</span><br> Score: <span id="player2-score">0</span></section>
+      <section class="players"><span id="player1-name">Player 3</span><br> Score: <span id="player3-score">0</span></section>
     </footer>
   </body>
 </html>

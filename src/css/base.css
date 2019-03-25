@@ -1,8 +1,6 @@
 body {
-  background-color: pink;
+  background-color: #CCCFEE;
   height: 100%;
-  font-family: 'Anonymous Pro', monospace;
-
 }
 
 header {
@@ -15,18 +13,6 @@ header {
   justify-content: space-between;
 }
 
-.points-wrapper {
-
-}
-
-.tv-box-style {
-  border: solid 2px black;
-  display: inline;
-}
-
-.header {
-
-}
 .box-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -53,6 +39,35 @@ header {
   font-weight: 600;
 }
 
-.player-wrapper {
+.answer {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
 
+.answer-input {
+  height: 30px;
+  width: 420px;;
+}
+
+.answer-btn {
+  height: 35px;
+}
+
+.player-wrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.players {
+  background-color: blue;
+  border: #000 solid 3px;
+  color: antiquewhite;
+  display: inline-block;
+  font-size: 2.5rem;
+  height: 100px;
+  text-align: center;
+  width: 33%;
+  align-items: flex-end;
 }
