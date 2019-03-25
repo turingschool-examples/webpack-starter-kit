@@ -16,17 +16,11 @@ class Game {
     this.currentRound++;
     if (this.currentRound < 3) {
       let round = new Round(this);
-<<<<<<< HEAD
-      domUpdates.animateKnight(this.currentRound);
-      domUpdates.populateSurvery(round);
-      domUpdates.populateAnswers(round);
-=======
-      this.updateDOM(round)
+      this.updateDOM(round);
       return round;
     } else if (this.currentRound === 3) {
       let round = new FinalRound(this);
-      this.updateDOM(round)
->>>>>>> master
+      this.updateDOM(round);
       return round;
     }
   }
