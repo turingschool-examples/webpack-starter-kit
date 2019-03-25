@@ -24,7 +24,7 @@ class Game {
     });
     this.currentPlayers = players;
     domUpdates.updatePlayerNames(this.currentPlayers);
-    console.log(players);
+    // console.log(players);
       // startGame(inputPlayerOne, inputPlayerTwo, inputPlayerThree);
     // });
   }
@@ -34,7 +34,7 @@ class Game {
     let newCard = new Card(this);
     newRound.setCategories(this);
     domUpdates.appendCategoryNames(this);
-    newCard.createCards(this);
+    newRound.createCards(this);
   }
 
 

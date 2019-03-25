@@ -1,25 +1,25 @@
 import data from './Game-Data.js';
 import Game from './Game.js';
+import Round from './Round.js';
 
 class Card {
-	constructor(category, question, answer, pointValue) {
-		this.category = category;
-		this.question = question;
+	constructor(answer, categoryID, pointValue, question) {
+		// this.category = category;
 		this.answer = answer;
+		this.categoryID = categoryID;
 		this.pointValue = pointValue;
-		this.isDailyDouble = false;
-		this.allCategoryNames = [];
+		this.question = question;
+		// this.categoryId = categoryId;
+		// this.isDailyDouble = false;
+		// this.column = this.pickColumn();
+		// this.allCategoryNames = [];
+		console.log(this)
 	}
 
-	createCards(game) {
-		console.log(game.roundOneCategories);
-		game.roundOneCategories.forEach(category => {
-			const matchingClues = data.clues.filter(clue => {
-				return clue.categoryId === category[1];
-			})
-			console.log(matchingClues);
-		});
-	}
+	// pickColumn(game) {
+	// 	console.log(card);
+	// }
+
 }
 
 export default Card;

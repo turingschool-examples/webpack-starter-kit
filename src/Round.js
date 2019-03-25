@@ -1,5 +1,6 @@
 import Game from './Game.js';
 import data from './Game-Data.js';
+import Card from './Card.js';
 
 class Round {
 	constructor(game) {
@@ -30,11 +31,32 @@ class Round {
     	game.roundOneCategories.push(category));
     // game.roundOneCategories = this.currentCategories;
      // game.roundOneCategories.push(this.currentCategories);
-console.log(game);
+// console.log(game);
     // console.log(currentCategories)
     // console.log(shuffledCategories)
 	}
+    createCards(game) {
+        console.log(game.roundOneCategories);
+        const roundOneClues = []
+        game.roundOneCategories.forEach(category => {
+            const matchingClues = data.clues.filter(clue => {
+                if (clue.categoryId === category[1]) {
+                   roundOneClues.push(clue);
+                }
+                return roundOneClues;
+            console.log(matchingClues);
+            });
+            roundOneClues.forEach(clue => {
+                let answer = clue.answer;
+                let categoryId = clue.categoryId;
+                let pointValue = clue.pointValue;
+                let question = clue.question
+            return new Card(answer, categoryId, pointValue, question);
+        });
+            console.log(roundOneClues);
+        });
 
+    }
 }
 
 export default Round;
