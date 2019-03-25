@@ -48,7 +48,7 @@ $('.start__start--btn').click(() =>{
     }
   }
 
-  const vowels = ['a','e','i','o','u'];
+  const vowels = ['A','E','I','O','U'];
 // Conflict Res
   $('.guess__word--button').click(function () {
     // ! change the array of array to the globally defined one
@@ -60,6 +60,7 @@ $('.start__start--btn').click(() =>{
     // * Filtered Array
     wrdGuessArr = wrdGuessArr.map(letter => letter.toUpperCase());
     wrdGuessArr = wrdGuessArr.filter(letter => alphabetArr.includes(letter));
+    DomUpdates.updatePlayerScore(game);
     game.currentRound.wholeWord = game.currentRound.wholeWord.filter(letter => alphabetArr.includes(letter))
     game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
     // ! end round here
@@ -76,7 +77,6 @@ $('.start__start--btn').click(() =>{
 $('.guess__letter--button').click(function () {
     const round = game.currentRound;
     const player = round.currentPlayer;
-
     // !  nested if to separate helper function invoked within first if
     if ($('#guess--input').val().length === 1) {
       let ltrGuess = $('#guess--input').val();
@@ -106,6 +106,7 @@ $('.guess__letter--button').click(function () {
       }
       else if (compareAns(round, player)) {
         correctAnsFunc(round, player, ltrGuess);
+        toggleButtons();
       }
         // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
@@ -115,10 +116,10 @@ $('.guess__letter--button').click(function () {
         // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
         round.allRoundGuesses.push(player.ans)
         round.getCurrentPlayer(game);
+        toggleButtons();
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         // console.log('CurrentPlayer', game.currentRound.currentPlayer);
       }
-    toggleButtons();
   }
 
   let compareAns = (round, player) => {
