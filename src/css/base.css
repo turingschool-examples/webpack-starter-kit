@@ -38,8 +38,8 @@ body {
 }
 
 .round-banner {
-  position: relative;
-  top: 50vh;
+  position: fixed;
+  top: 100px;
   display: none;
 }
 

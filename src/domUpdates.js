@@ -62,7 +62,8 @@ const domUpdates = {
   },
 
   animateKnight: function() {
-    $(".round-banner").css({'left': '1200px; display: block'}).animate({'left' : '-1400px'}, 4000);
+
+    $(".round-banner").css({'left': '1200px', 'display': 'block'}).animate({'left' : '-1400px'}, 6000);
   }
 
 }
