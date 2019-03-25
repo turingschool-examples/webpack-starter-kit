@@ -45,7 +45,13 @@ export default {
 
   showNoMatch() {
     $("#no-match-msg").fadeIn("fast", function() {
-      $("#no-match-msg").delay(750).fadeOut(); 
+      $("#no-match-msg").delay(850).fadeOut(); 
+    });
+  },
+
+  showMustEnterGuessMsg() {
+    $("#must-enter-guess-msg").fadeIn("fast", function() {
+      $("#must-enter-guess-msg").delay(850).fadeOut(); 
     });
   },
     

@@ -4,7 +4,7 @@ import Round from './Round.js';
 class Game {
   constructor(player1, player2) {
     this.currentRound = 0; 
-    this.usedSurveys = []; //note: will go up to 4 cus each player gets one in round 3
+    this.usedSurveys = []; 
     this.player1 = player1;
     this.player2 = player2;
     this.activePlayer = this.player1;
