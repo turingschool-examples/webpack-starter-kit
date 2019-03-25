@@ -76,7 +76,7 @@ $('.start__start--btn').click(() =>{
 
 $('.guess__letter--button').click(function () {
     const round = game.currentRound;
-    const player = round.currentPlayer;
+    const player = round.currentPlayer
     // !  nested if to separate helper function invoked within first if
     if ($('#guess--input').val().length === 1) {
       let ltrGuess = $('#guess--input').val();
