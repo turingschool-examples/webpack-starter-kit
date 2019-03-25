@@ -16,17 +16,17 @@ class Game {
     this.currentRound++;
     if (this.currentRound < 3) {
       let round = new Round(this);
-      this.updateDOM(round)
+      this.updateDOM(round);
       return round;
     } else if (this.currentRound === 3) {
       let round = new FinalRound(this);
-      this.updateDOM(round)
+      this.updateDOM(round);
       return round;
     }
   }
 
   updateDOM(round) {
-    domUpdates.animateKnight();
+    domUpdates.animateKnight(this.currentRound);
     setTimeout(function () {
       domUpdates.populateSurvery(round);
       domUpdates.populateAnswers(round)

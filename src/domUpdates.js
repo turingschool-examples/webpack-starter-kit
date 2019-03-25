@@ -61,11 +61,17 @@ const domUpdates = {
     $(".wrong-guess").addClass("hidden");
   },
 
-  animateKnight: function() {
-
+  animateKnight: function(currentRound) {
+    console.log(currentRound);
+    let src = "./images/round-one.png";
+    if(currentRound === 2) {
+      src = "./images/round-two.png";
+    } else if (currentRound === 3) {
+      src = "./images/final-round.png";
+    }
+    $(".round-banner-text").attr("src", src);
     $(".round-banner").css({'left': '1200px', 'display': 'block'}).animate({'left' : '-1400px'}, 6000);
   }
-
 }
 
 export default domUpdates;

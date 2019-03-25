@@ -17,6 +17,8 @@ import './images/banner2.png';
 import './images/text-banner.png';
 import './images/knight-horse-shield.gif';
 import './images/round-one.png';
+import './images/round-two.png';
+import './images/final-round.png';
 
 import domUpdates from './domUpdates.js';
 import data from './gamedata.js';
