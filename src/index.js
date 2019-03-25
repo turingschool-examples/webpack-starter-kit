@@ -10,8 +10,9 @@ import './css/base.css';
 
 
 
+
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import './images/jeopardy-logo.png'
 
 import Rounds from './Rounds.js';
 
@@ -19,14 +20,28 @@ import Game from './Game.js';
 
 import dataSet from './dataSet.js';
 
-$(".categories").click(() => {
-  alert ('im working');
+import domUpdates from './domUpdates.js';
+
+
+
+const newGame = new Game(dataSet.clues);
+
+
+let dataCategories = Object.keys(dataSet.categories);
+
+let categoriesToArray = $('.categories').toArray();
+console.log('log 1: ', categoriesToArray);
+$("categoriesToArray.categories").each(categoryBox => {
+  let randomCategory = dataCategories.splice(Math.floor(Math.random()*dataCategories.length),1)
+  console.log(randomCategory)
+
+  // $(categoryBox).html(randomCategory);
 });
-
-// console.log(dataSet.clues);
-
-
-
+// dataCategories.forEach(currentCategory => {
+//   console.log(currentCategory)
+//   $(".categories").html(currentCategory)
+// })
+$(document).ready(dataCategories);
 
 // newGame.populateQuestions()
 
@@ -35,7 +50,7 @@ var name1 = 'Erik';
 var name2 = 'Aidan';
 var name3 = 'Sean';
 
-var newGame = new Game(name1, name2, name3);
+// var newGame = new Game(name1, name2, name3);
 
 
 // newGame.currentRound.fetchClues;

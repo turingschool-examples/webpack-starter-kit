@@ -1,5 +1,8 @@
 import dataSet from './dataSet.js'
+
 import Game from './Game.js'
+import domUpdates from './domUpdates.js'
+
 
 class Rounds {
   constructor(categoryIds) {
@@ -10,7 +13,9 @@ class Rounds {
     this.topicThree = [];
     this.topicFour = [];
   }
-
+  displayCategories() {
+    domUpdates.displayCategories(dataSet.categories.cableTV)
+  }
   roundTwoPoints() {
     this.pointValue * 2;
   }
@@ -49,6 +54,7 @@ class Rounds {
     this.uniquePoints(this.topicThree);
     this.uniquePoints(this.topicFour);
    }
+
 }
 
 export default Rounds;
