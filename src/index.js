@@ -36,26 +36,39 @@ $("#submit-names").on( "click", () => {
 $("#submit-guess").on("click", event => {
 	event.preventDefault();
 
-	game.whoseTurn()
+	if (game.currentRound !== 3) {
+		game.whoseTurn()
 
-	//let player 1 guess first
-	if (game.currentTurn === 'player1') {
+		//let player 1 guess first
+		if (game.currentTurn === 'player1') {
 
-		$('.current-turn').html(`${player2.name}'s turn!`)
-		let userInput = $("#player-guess").val()
-		player1.score += (game.checkAnswers(userInput, game.currentAnswer));
-		$(".player-1-score").html(`Score: ${player1.score}`);
-		console.log(game.currentAnswer)
-	} else if (game.currentTurn === 'player2') {
+			$('.current-turn').html(`${player2.name}'s turn!`)
+			let userInput = $("#player-guess").val()
+			player1.score += (game.checkAnswers(userInput, game.currentAnswer));
+			$(".player-1-score").html(`Score: ${player1.score}`);
+		} else if (game.currentTurn === 'player2') {
 
-		$('.current-turn').html(`${player1.name}'s turn!`)
-		let userInput = $("#player-guess").val()
-		player2.score += (game.checkAnswers(userInput, game.currentAnswer));
-		$(".player-2-score").html(`Score: ${player2.score}`);
-		console.log(game.currentAnswer)
-		// console.log('player2 score: ' + player2.score);
+			$('.current-turn').html(`${player1.name}'s turn!`)
+			let userInput = $("#player-guess").val()
+			player2.score += (game.checkAnswers(userInput, game.currentAnswer));
+			$(".player-2-score").html(`Score: ${player2.score}`);
+
+		}
+	} else {
+		console.log('Guess button prepped for round 3');
+
+		// $(".round3").removeClass('hidden')
+		// when this round is entered (round 3) let player choose a multiplier amount;
+		// I should first be able to input a multiplier between 1-5
+		// run round.generateRoundTimed();
+
 	}
-	//let player 2 guess second
+});
+
+$('.multiplier-form').on('click', '.multiplier-radio', (event) => {
+  const radioValue = (parseInt(event.currentTarget.defaultValue));
+  $('.multiplier-form').fadeOut();
+  $('.multiplying-by').html(`Multiplying by: ${radioValue}`);
 });
 
 
