@@ -84,6 +84,7 @@ h1 {
   color: #324851;
   display: inline-block;
   margin: 20px;
+  width: 25px;
 }
 
 .player-buttons-container {
@@ -94,6 +95,14 @@ justify-content: center;
 .guess-input-container {
   display: flex;
   justify-content: center;
+  color: #fff;
+  font-size: 24px;
+}
+
+.vowel-container,
+.cons-container {
+    border: solid white 2px;
+    border-radius: 5px;
 }
 
 .input {
@@ -146,7 +155,21 @@ justify-content: center;
  .answer-input {
   color: black;
  }
- 
+
+.message-container {
+  border: #FFF 1.5px solid;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  margin: 15px;
+  padding: 20px;
+  width: 380px;
+  height: 165px
+ }
+
  .player-form {
   display: flex;
   justify-content: center;

@@ -13,8 +13,11 @@ let domUpdates = {
             <input class='answer-input' placeholder='Type your answer here'>
             <button class='answer-submit'>Submit</button>
           </form>
+          <button class='exit-solve'>Exit Solve Puzzle</button> 
         </section>`
         )
+     //need a way to get out of solve puzzle in case they decide to put in another letter 
+     //added button above but haven't added an event listener to it yet to remove the .popup
   },
 
   hideAnswer(game) {
@@ -61,8 +64,9 @@ let domUpdates = {
     answer.forEach(letter => {
     // console.log(letter);
     if(letter === currentLetter) {
-      $('.letter').css('color', 'white' );
+      $('.letter:contains("'+letter+'")').css('color', 'white' );
      console.log(currentLetter);
+     //https://api.jquery.com/contains-selector/
 
     }
     //find letter at index of answer array that matches the currentLetter at it's index and then turn it into css property white
@@ -70,7 +74,26 @@ let domUpdates = {
       //push the current lettter to the guessed bank within puzzle class
       //maybe use .each() & .eq() to iterate through the answer and match it with currentLetter
     })
-  }
+  },
+
+  diplayStartMsg() {
+    $('.gameplay-message').text('Please spin wheel first before guessing the letter');
+  },
+
+  // displayLoseTurn(wheel) {
+  //   $('.gameplay-message').text(`'Your spin is worth ${wheel.random}'`)
+  // }
+
+  // displayWheelValue(wheel) {
+  //   $('.gameplay-message').text('The current value of your wheel spin is`${wheel.values}`)
+  // }
+
+  // displayNeedPlayerName() {
+  //   if('.player-name-input' === '') {
+  //     $('.gameplay-message').text('Please input player name');
+  //   }
+  // }
+
 }
 
 export default domUpdates;

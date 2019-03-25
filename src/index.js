@@ -19,7 +19,8 @@ $('.start-button').on('click', function() {
   domUpdates.startGame(game, wheel);
   domUpdates.displayCategoryName(game); 
   domUpdates.hideAnswer(game);
-  $('.start-button').hide('slow');
+  domUpdates.diplayStartMsg();
+  $('.start-button').hide('');
   $('.button').prop('disabled', false).css('color', 'white');
   $('.player-name-input').hide();
 });
@@ -34,6 +35,7 @@ $('.quit-button').on('click', function() {
 
 $('#js-spin-button').on('click', function() {
   wheel.getRandomWheel();
+  // domUpdates.displayWheelValue()
 });
 
 $('#js-solve-button').on('click', function() {
@@ -44,5 +46,4 @@ $('#js-solve-button').on('click', function() {
 $('#js-submit-button').on('click', function(e) {
   e.preventDefault();
   domUpdates.checkUserGuess(game);
-})
-
+});
