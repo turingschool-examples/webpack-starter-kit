@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import data from './data-set.js';
 import Player from './Player.js';
+// import Game from './Game.js';
 
 export default {
   updateNames(names) {
@@ -10,6 +11,29 @@ export default {
     $('#player-one-input').hide(500);
     $('#player-two-input').hide(500);
     $('#player-three-input').hide(500);
+  },
+
+  notifyPlayerOneTurn(names, game) {
+    if (game.playerTurn === 0) {
+      $('#player-one-name').attr('style', 'color:red;');
+      $('#player-three-name').removeAttr('style', 'color:red;');
+    } 
+  },
+
+  notifyNextTurn(game) {
+    if (game.playerTurn === 0) {
+      $('#player-one-name').attr('style', 'color:red;');
+      $('#player-three-name').removeAttr('style', 'color:red;');
+    } 
+    if (game.playerTurn === 1) {
+      $('#player-two-name').attr('style', 'color:red;');
+      $('#player-one-name').removeAttr('style', 'color:red;');
+    }
+    if (game.playerTurn === 2) {
+      $('#player-three-name').attr('style', 'color:red;');
+      $('#player-one-name').removeAttr('style', 'color:red;');
+      $('#player-two-name').removeAttr('style', 'color:red;');
+    }
   },
 
   displayCategories(categories) {
@@ -25,10 +49,12 @@ export default {
 
 
   showClue(clue, event) {
-    $(event.target).text('');
     $('.question-prompt').show();
+    $('.result-prompt').hide();
     $('.question').text(clue.question);
-    
+    if($(event.target).text('')) {
+      $(event.target).unbind('click');
+    }
   },
     
   answerQuestion(game) {
@@ -42,11 +68,15 @@ export default {
       return acc;
     }, '');
     if (result.toLowerCase() === answerText.val().toLowerCase()) {
-      questionText.text('Correct Answer');
+      $('.question-prompt').hide();
+      $('.result-prompt').show();
+      $('.result').text('Correct Answer');
       currentPlayer.increaseScore(result);
       $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
     } else {
-      questionText.text('Incorrect Answer');
+      $('.question-prompt').hide();
+      $('.result-prompt').show();
+      $('.result').text('Incorrect Answer');
       currentPlayer.decreaseScore(result);
       $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
       game.changePlayerTurn();

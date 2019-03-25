@@ -22,9 +22,10 @@ class Player {
   decreaseScore(result) {
     let points = data.clues.reduce((acc, currentClue) => {
       if (result === currentClue.answer) {
-        acc += currentClue.pointValue;
+         acc += currentClue.pointValue;
       }
       return acc;
+
     }, 0);
     this.score -= points;
   }

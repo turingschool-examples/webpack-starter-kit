@@ -2,8 +2,8 @@ import $ from 'jquery';
 import './css/base.css';
 import data from './data-set.js';
 import './images/turing-logo.png'
-import Game from './Game';
-import domUpdates from './domUpdates';
+import Game from './Game.js';
+import domUpdates from './domUpdates.js';
 
 const startGameBtn = $('#start-game-btn');
 const submitBtn = $('.submit-btn');
@@ -20,6 +20,7 @@ startGameBtn.click(function (e) {
   game = new Game;
   game.createPlayers(names);
   game.startGame();
+  domUpdates.notifyPlayerOneTurn(names, game);
 })
 
 clueBtn.on('click', function(e) {
@@ -32,6 +33,7 @@ clueBtn.on('click', function(e) {
 submitBtn.click(function (e) {
   e.preventDefault();
   domUpdates.answerQuestion(game);  
+  domUpdates.notifyNextTurn(game);
 })
 
 resetBtn.click(function (e) {

@@ -111,7 +111,8 @@ footer {
   justify-content: center;
 }
 
-.question-prompt {
+.question-prompt,
+.result-prompt {
   height: 200px;
   margin-top: 50px;
   width: 400px;
@@ -123,7 +124,8 @@ footer {
   margin: 0, auto;
 }
 
-.question {
+.question,
+.result {
   text-align: center;
   color: white;
   margin-bottom: 20px;
