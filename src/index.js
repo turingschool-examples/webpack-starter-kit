@@ -12,14 +12,10 @@ import Game from './Game.js';
 import Player from './Player.js';
 import Round from './Round.js';
 import domUpdates from './domUpdates.js'
-// import player from './Player.js';
-// import round from './Round.js';
 // import lightningRound from './LightningRound.js';
 // import domUpdates from './domUpdates.js';
 
 domUpdates.popUp()
-
-
 
 
 const dataSet = data.surveys.reduce((acc, survey) => {
@@ -37,38 +33,37 @@ $('#resetBtn').click(() => {
   location.reload(true);
 });
 
+ $('#submitBtn').on('click', inputValue);
+
 
 function startPlaying() {
 let playerOne = $('.nameOne').val();
   $('#nameOne').text(playerOne);
 let playerTwo = $('.nameTwo').val();
   $('#nameTwo').text(playerTwo);
-  $('.wrapper').css('height', '1200px');
+  $('.wrapper').css('height', '1300px');
   $('.wrapper').css('grid-template-rows', '0% 50% 25% 25%');
   $('.gamePopUp').css('visibility', 'hidden');
-  createGame(dataSet)
+  createGame(dataSet);
   game.createPlayer(playerOne, playerTwo);
+  game.createRound();
 }
 
 
 let game;
 
 function createGame(dataset) {
-  game = new Game(dataSet);
-
+  game = new Game(dataset);
+  
   console.log(game);
 };
 
+function inputValue() {
+  game.round.getAnswer();
+}
 
-// $('#submitBtn').on('click', checkAnswer);
 
-// //function submitButton {
-// //   if(wrong answer) {
-// //     alert wrong answer (big X)
-// //     switch player
-// //   } else {
-//   // game.checkAnswers
-// // }
-// // }
+
+
 
 export default dataSet;

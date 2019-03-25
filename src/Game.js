@@ -8,34 +8,35 @@ import domUpdates from './domUpdates.js';
 
 class Game {
   constructor(dataset) {     
-    this.surveys = [];
-    this.roundNumber = 1;
-    this.dataset = dataset;
+    this.surveys = dataset;
+    this.player1 = null;
+    this.player2 = null;
+    this.round = null;
+    this.roundNumber = 0;
     // this.round = [new Round(), new Round(), new LightningRound()];
   };
 
-  getSurveys(dataset) {
-    this.surveys.push(dataSet);
-    console.log(this.dataSet);
-      console.log(this.surveys);
-  };
 
   createPlayer(name1, name2) {
-    let player1 = new Player(name1);
-    let player2 = new Player(name2);
-    console.log(player1);
+    this.player1 = new Player(name1);
+    this.player2 = new Player(name2);
   };
+
+  //functionally scoped players - DNE after this runs
 
 
         // checkPlayer() {
         //   isPlayer = player;
-        // }
+   // }    
+
+  createRound() {
+    const survey = this.surveys[Math.floor(Math.random()* this.surveys.length)];
+    this.round = new Round(survey);
+    console.log(survey);
+    this.roundNumber++; 
+    };
 
 
-        // createRound() {
-        //   var round = new Round;
-        //   round.answers.push //how we push the answers into answers array
-        // }
 
 
 //   switchPlayer() {
@@ -44,6 +45,14 @@ class Game {
    //else player 2
    //switch to player 1
 //   }
+
+ //     switchPlayer()
+        //   }
+        // }
+        //for new player
+        //keep checking answers
+        //player two is default on round 2
+        //lowest scoring player is default on LR
 
         // countRound() {
         //   roundNumber++;

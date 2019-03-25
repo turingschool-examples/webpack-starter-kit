@@ -6,10 +6,14 @@
   </head>
   <body>
     <main class="wrapper">
-
     <section class="gamePopUp"></section>
       
     <section class="gameBoard">
+    <div id="progress">
+    <label class="progressLabel" for="bar">Game Progress:</label> <!-- adjust this by 25% each quarter --> 
+    <progress id="bar" max="100" value="0"> </progress><!-- change inner html -->
+
+  </div>
         <div class="gameQuestion">
           <p id="surveyQuestion">Survey Question 84 char</p>
         </div>
@@ -48,7 +52,7 @@
       </section>
       <section>
         <input class="answerInput" placeholder="Type your guess here"></input>
-        <p id="answerError" class="hidden">Enter a guess!</p>
+        <p class="errorMessage">Enter a Guess!</p>
         <button id="resetBtn">
           <h4>Restart Game</h4>
         </button>

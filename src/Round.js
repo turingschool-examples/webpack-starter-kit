@@ -1,43 +1,44 @@
+import $ from 'jquery';
+
+
 class Round {
-  constructor() {
-         this.surveys = [];
+  constructor(survey) {
+         this.questionSet = survey ;
          this.correctAnswer = 0;
   }
-         getSurvey() {
-
-          // const question = surveys.map.random.splice;
-            // splice returns our one question/answers
-            // update the DOM - survey
-      }
-
-        // getAnswer() {
-        // let guess = $('.answerInput').val();
-        // checkAnswer(guess);
-        // console.log('happy');
-        
-        // }
-
-        checkAnswer() {
-            // if(guess === this.surveys.)
-        //   if(answer ==== answer) {
-        //     update DOM to change answer, correctAnswer ++, player.score ++
-        //   } else {
-        //      wrong answer pop up 
-        //      switchPlayer()
-        //   }
-        // }
-        //for new player
-        //keep checking answers
-     }
-
-        appendAnswer() {
-//remove 1
-        // $('#responseOne').append();  
+      
+        getAnswer() {
+         let guess = $('.answerInput').val();
+        this.checkAnswer(guess);
         }
 
-     endRound() {
+        checkAnswer(guess) {
+        // if(guess != game.surveys['answers'].val(answer)) {
+        // $('.answerInput').reset()
+        // //wrong answer error message
+        // game.switchPlayers()
+        // }
+
+        // if(guess ==== //answer from dataset ) {
+        // $('.answerInput').reset()
+        // appendAnswer()
+        // game.addScore()
+         
+        // }
+
+         if(guess == '') {
+           $('.errorMessage').css('visibility', 'visible');
+        }
+        }
+
+        //appendAnswer() {
+//remove 1
+        // $('#responseOne').append();  
+       // }
+
+    // endRound() {
         
-     }
+    // }
 }
 
 // } when correctAnswer === 3, end round

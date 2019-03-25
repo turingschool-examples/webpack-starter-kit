@@ -6,19 +6,21 @@ body {
   background-image: linear-gradient(0deg, #f5f4f3, #2196F3, #78d7fc, #023a8d);
   padding: 0;
   margin: 0;
+
+  /*increase font size*/
 }
 
 .wrapper {
     display: grid;
     grid-template-rows: auto 40% 25% 25%;
-    height: 1400px; /*change to 1200px*/
+    height: 1800px; /*fix positioning and height*/
     font-family: 'Open Sans', sans-serif;
     border: 20px solid goldenrod;
     border-style: ridge;
 }
 
 .gamePopUp {
-  visibility: visible; /*change to none*/
+  visibility: visible; 
   color: white;
   display: block;
   width: 100%;
@@ -27,21 +29,51 @@ body {
 
 .playerNames() {
   display: inline-block;
+  margin: 2% 0;
+}
+
+.popUpPlayers {
+  display: inline-block;
+  margin: 0 2%;
+}
+
+.popUpPlayers > * {
+  display: block;
 }
 
 .nameOne,
 .nameTwo {
   font-size: 1rem;
   font-weight: 800;
-  margin: 0 3%;
+  margin: 2% 1%;
   height: 40px;
 }
 
 #startBtn {
-  background-color: green;
+  background-color: #0a4696;
   color: white;
+  border: 2px solid #FFF;
   height: 50px;
-  outline: none;
+}
+
+#startBtn:hover {
+  background-color: #276C0E;
+  color: white;
+}
+
+#progress {
+  margin-top: 4%;
+}
+
+.progressLabel {
+  color: white;
+  font-size: 1em;
+  margin: 3% 0;
+}
+
+#bar {
+  width: 100%;
+  margin: 1% 0;
 }
 
 .gameBoard {
@@ -64,7 +96,7 @@ body {
 
 #surveyQuestion {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 6%;
     font-size: 1.5em;
     border: 9px solid goldenrod;
     height: 120px;
@@ -85,7 +117,6 @@ body {
     border-bottom: 4px solid #fec55c;
     border-style: ridge;
     height: 50px;
-    outline: none; 
   }
 
 .scoreBoard,
@@ -126,15 +157,12 @@ body {
     padding: 10px;
 }
 
-.hidden {
-  display: none;
-}
-
-#answerError {
+.errorMessage {
     font-size: 1em;
     text-align: left;
     color: red;
     margin: 2% 0;
+    visibility: hidden;
 }
 
 #resetBtn,
@@ -143,19 +171,32 @@ body {
     margin: 0 3%;
     border: 5px solid;
     margin-top: 3%;
-    font-size: 1rem;
-    outline: none;
+    font-size: 1rem;    
 }
 
-#resetBtn {
+#startBtn:hover,
+#resetBtn:hover,
+#submitBtn:hover {
+  outline: solid 2px goldenrod;
+}
+
+
+#resetBtn:hover {
   background-color: #dd0808f0;
-  color: white;
+  color: #FFF;
 }
 
-#submitBtn {
-  background-color: #54f301;
-  color: #0a4696;
+#submitBtn:hover {
+  background-color: #276C0E;
+  color: #FFF;
+}
 
+
+#resetBtn,
+#submitBtn {
+    background-color: #0a4696;
+    color: white;
+    border: 0px;
 }
 
 .counterOne,
