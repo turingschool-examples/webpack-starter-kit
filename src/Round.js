@@ -63,12 +63,15 @@ class Round {
   }
 
   flipCells(letter) {
+    console.log(this.letterIndexs)
     const selectedLetter = this.letterIndexs[letter];
     const puzzleCells = $('.puzzle-cell').toArray();
     if(selectedLetter) {
       for(var i = 0; i < selectedLetter.length; i++) {
         const instance = selectedLetter[i];
+        console.log('instance',instance)
         const puzzleCell = (puzzleCells[instance].parentNode);
+        console.log('puzzleCell', puzzleCell)
         puzzleCell.classList.remove('letters-not-displayed')
         puzzleCell.classList.add('letters-displayed');
       }
