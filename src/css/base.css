@@ -8,10 +8,13 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background-image: url('../images/nba-wallpaper2.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 header {
-  background-color: #02519F;
+  /*background-color: #02519F;*/
   display: flex;
   justify-content: center;
   /* flex-direction: column; */
@@ -19,7 +22,7 @@ header {
 }
 
 h1 {
-  color: #FFFFFF;
+  color: black;
   margin-top: 25px;
 }
 
