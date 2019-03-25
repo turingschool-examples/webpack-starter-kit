@@ -26,6 +26,9 @@ class Puzzle {
     if (this.numWords === 2) {
       firstLine = words[0];
       secondLine = words[1];
+    } else if (this.numWords === 3) {
+      firstLine = words[0].concat(` ${words[1]}`);
+      secondLine = words[2];
     } else {
       firstLine = words[0].concat(` ${words[1]}`);
       secondLine = words[2].concat(` ${words[3]}`);

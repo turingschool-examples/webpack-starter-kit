@@ -652,14 +652,14 @@ const data = {
           description: 'Location or object(s) found within a typical house.',
           correct_answer: 'Vase Full Of Flowers',
         },
-        {
-          category: 'The 90s',
-          number_of_words: 4,
-          total_number_of_letters: 24,
-          first_word: 6,
-          description: 'Puzzles pertaining to the decade in question.',
-          correct_answer: 'There\'s Something About Mary',
-        },
+        // {
+        //   category: 'The 90s',
+        //   number_of_words: 4,
+        //   total_number_of_letters: 24,
+        //   first_word: 6,
+        //   description: 'Puzzles pertaining to the decade in question.',
+        //   correct_answer: 'There\'s Something About Mary',
+        // },
         {
           category: 'Around The House',
           number_of_words: 4,

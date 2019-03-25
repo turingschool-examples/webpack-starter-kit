@@ -53,7 +53,7 @@ $segments: 20;
   position: relative;
   background-color: lightgray;
   border-radius: 100%;
-  transition: all 2s cubic-bezier(0,.99,.88,.99);
+  transition: all 4s cubic-bezier(0,.99,.88,.99);
   // animation: spin 10s linear infinite;
 }
 
@@ -106,13 +106,14 @@ $segments: 20;
   }
   
 }
-.winner {
+.spin-winner {
   text-align: center;
-  margin: 1rem auto;
+  margin: 50px 0 20px 0;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 60px;
   font-family: 'Orbitron', sans-serif; 
   font-weight: 900;
+  color: white;
 }
 
 .blue {

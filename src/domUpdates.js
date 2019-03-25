@@ -45,7 +45,7 @@ export default {
   appendWords (puzzleLine) {
     let tileClass;
     puzzleLine.forEach(index => {
-      if (index === ' ' || index === '-') {
+      if (index === ' ' || index === '-' || index === '&' ) {
         tileClass = 'space';
       } else {
         tileClass = index;
@@ -75,19 +75,19 @@ export default {
   spinWheel() {
     let clicks = 1;
     let wheel = new Wheel();
-    const winner = Math.round(Math.random() * 22);
+    const winner = Math.round(Math.random() * 21);
     /*multiply the degree by number of clicks
     generate random number between 1 - 360, 
     then add to the new degree*/
-    const extraDegree = (20 - winner) * 36;
+    const extraDegree = 0//(21 - winner) * 36;
     const spinAgain = (1800 * clicks) + extraDegree;
-    const totalDegree = Math.round(spinAgain / 36) * 360;
+    const totalDegree = Math.round(spinAgain / 36) * 100;
     wheel.spinWinner(winner);
     clicks++;
     $('#inner').css({
       'transform': 'rotate(' + totalDegree + 'deg)'
     });
-    $('.winner').html(`${wheel.currentSpin}`);
+    $('.spin-winner').html(`${wheel.currentSpin}`);
   },
 
   turnOrder(oldPlayer, newPlayer) {
