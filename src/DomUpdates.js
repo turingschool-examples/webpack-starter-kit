@@ -42,6 +42,9 @@ export default {
             </tr>
         </table>
     </section>
+    <section>
+        <h3 class="hint" id="hint">Catagory: <span class="hint-text"></span></h3>
+    </section>
     <section id="puzzle-area" class="puzzle-area">
         <div class="puzzle">
             <table class="puzzle-row row1">
@@ -305,7 +308,6 @@ export default {
   },
 
   fillGameBoard(clueAnswer) {
- 
     const puzzleCells = $('.puzzle-cell').toArray();
     const cellMap = {};
     puzzleCells.forEach((cell, index) => {
@@ -339,6 +341,11 @@ export default {
   deactivateLetters() {
     console.log('deactivate')
     $('td.single-letter').addClass('disable-selected-letter')
+  },
+
+  displayHint(clue) {
+    const hint = clue.category;
+    $('.hint-text').text(hint);
   },
 
 

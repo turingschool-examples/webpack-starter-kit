@@ -21,10 +21,10 @@ class Round {
   }
 
   getRandomClue(cards) {  
-    this.roundClue = this.randomNumber(cards) 
-    this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('')
-    this.fillGameBoard()
-    console.log(this.clueAnswer)
+    this.roundClue = this.randomNumber(cards);
+    this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
+    this.fillGameBoard();
+    this.displayHint();
   }
   randomNumber(values) {
     if (values.length === 24) {
@@ -53,13 +53,17 @@ class Round {
       }
       // game.players[this.activePlayer].score += this.wheelInst.selectedValue
       // console.log(game.players)
-      console.log('go to bed')
+    console.log('go to bed')
 
-    }
+  }
   
 
   fillGameBoard() {
     this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
+  }
+
+  displayHint() {
+    DomUpdates.displayHint(this.roundClue);
   }
 
   flipCells(letter) {
@@ -73,10 +77,6 @@ class Round {
         puzzleCell.classList.add('letters-displayed');
       }
     }
-  }
-
-  checkGameBoard() {
-
   }
 
   playerTurn(game) {

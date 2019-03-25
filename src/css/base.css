@@ -292,3 +292,7 @@ h3 {
   width: 30px;
   height: 30px
 }
+
+.hint {
+  width: 110%;
+}
