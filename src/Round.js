@@ -25,6 +25,7 @@ class Round {
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
     this.fillGameBoard();
     this.displayHint();
+    console.log(this.clueAnswer)
   }
   randomNumber(values) {
     if (values.length === 24) {
@@ -104,10 +105,12 @@ class Round {
     console.log('after', this)
   }
 
-  checkValue(wheelValue, game) {   
+  checkValue(wheelValue, game) { 
+    
+    
     if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
-      // DomUpdates.bankrupt()
+      DomUpdates.bankrupt()
       game.players[this.activePlayer].playerBank = 0
       this.switchPlayer();
     } else if (wheelValue === "LOSE A TURN") {
@@ -116,9 +119,12 @@ class Round {
       this.playerTurn(game)
     } else {
       DomUpdates.activateLetters()
-
     }
     
+  }
+
+  checkPlayerSolve(playerSolveInput) {
+    console.log(playerSolveInput)
   }
 
 }

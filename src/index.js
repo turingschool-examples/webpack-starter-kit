@@ -77,7 +77,11 @@ function playerSpin(game) {
   game.roundInst.wheelInst.spinWheel(game)
 }
 
-function submitGuess(event){
-  let playerGuess = $('.guess-submission').val().toLowerCase().split('')
+function submitGuess(event) {
+  let playerGuess = $('.guess-submission').val().toLowerCase()
   console.log(playerGuess)
+  if(playerGuess === ''){
+    DomUpdates.noInput()
+  }
+  game.roundInst.checkPlayerSolve(playerGuess)
 }
