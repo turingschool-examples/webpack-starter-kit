@@ -1,3 +1,7 @@
+*:focus {
+ outline: 1px dashed transparent;
+}
+
 body {
   padding: 0;
   margin: 0 auto;
@@ -5,6 +9,22 @@ body {
   background: #b7dbe1;
   color: #333333;
   font-size: 1.2em;
+}
+
+.timer {
+  background: white;
+  height: 150px;
+  width: 150px;
+  font-size: 75px;
+  color: darkred;
+  border: 3px solid darkred;
+  border-radius: 100%;
+  position: absolute;
+  right: 0;
+  margin: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .welcome-screen {
@@ -16,6 +36,21 @@ body {
   justify-content: center;
   position: absolute;
   z-index: 2;
+}
+
+.fastround-ready-screen {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+}
+
+button:disabled {
+  background: lightgray!important;
 }
 
 .msg {
@@ -44,6 +79,17 @@ body {
   border-radius: 5px;
 }
 
+.fastround-dialog {
+  width: 45%;
+  background: #213b72;
+  border: 5px solid white;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 5px;
+}
+
 .name-form input {
   width: 100%;
 }
@@ -63,7 +109,8 @@ body {
   padding: 20px 0 0 0;
 }
 
-header h1{
+header h1,
+h2 {
   font-size: 4.5em;
   letter-spacing: 3px;
   font-weight: 900;
