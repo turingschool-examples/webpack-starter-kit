@@ -36,14 +36,6 @@ class Game {
       this.round = new Round(this.round3Categories);
     }
   }
-  // nextRound() {
-  //   this.counter++
-  //   if (counter == 2) {
-  //      this.round = new Round(this.round2Categories);
-  //   } else {
-  //     this.round = new Round(this.round3Categories);
-  //   }
-  // }
 
   chooseWager() {
  // player input that is >= 5 && <= playerDollarAmount || <= pointValue

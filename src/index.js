@@ -37,11 +37,13 @@ $("categoriesToArray.categories").each(categoryBox => {
 //   console.log(currentCategory)
 //   $(".categories").html(currentCategory)
 // })
-$(document).ready(dataCategories);
+// $(document).ready(dataCategories);
 
 // newGame.populateQuestions()
 
 // dom manipulation to get values of the three names
+$("#start-game").click();
+
 var name1 = $("#player-one").val;
 var name2 = $("#player-two").val;
 var name3 = $("#player-three").val;
@@ -56,3 +58,58 @@ var newGame = new Game(name1, name2, name3);
 // newGame.nextRound()
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+
+
+function publishRoundClues () {
+  var board = `
+  <article class="clues">
+      100
+    </article>
+    <article class="clues">
+      100
+    </article>
+    <article class="clues">
+      100
+    </article>
+    <article class="clues">
+      100
+    </article>
+    <article class="clues">
+      200
+    </article>
+    <article class="clues">
+      200
+    </article>
+    <article class="clues">
+      200
+    </article>
+    <article class="clues">
+      200
+    </article>
+    <article class="clues">
+      300
+    </article>
+    <article class="clues">
+      300
+    </article>
+    <article class="clues">
+      300
+    </article>
+    <article class="clues">
+      300
+    </article>
+    <article class="clues">
+      400
+    </article>
+    <article class="clues">
+      400
+    </article>
+    <article class="clues">
+      400
+    </article>
+    <article class="clues">
+      400
+    </article>`;
+    // $("#box-wrapper").append(board);
+}
