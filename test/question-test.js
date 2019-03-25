@@ -8,13 +8,10 @@ describe('Question', () => {
   let question;
 
   beforeEach(() => {
-    question = new Question();
+    question = new Question('Hello', 5, [], 'a greeting', 'Salutations');
   });
 
   it('should have a default state question', () => {
-    
-    let question = new Question('Hello', 5, [], 'a greeting', 'Salutations');
-
     expect(question.answer).to.equal('Hello')
     expect(question.ansLength).to.equal(5);
     expect(question.ansSplit).to.deep.equal([]);
