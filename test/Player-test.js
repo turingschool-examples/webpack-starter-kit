@@ -10,6 +10,11 @@ const assert = chai.assert;
 
 describe('Player', () => {
 
+  it('should be able to instantiate a new player', () => {
+    let player = new Player();
+    assert.instanceOf(player, Player);
+  })
+
   it('should have a name', () => {
     const player = new Player('Brennan');
     assert.equal(player.name, 'Brennan');
