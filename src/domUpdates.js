@@ -59,6 +59,8 @@ export default {
       this.fillSpace(splitPuzzle.length, false);
       this.appendWords(splitPuzzle);
       this.fillSpace(splitPuzzle.length, true);
+    } else if (splitPuzzle.length > 14) {
+      
     }
   },
 
