@@ -5,6 +5,7 @@ class Round {
   constructor(ids, clues) {
     this.categoryIds = ids;
     this.clues = clues;
+    this.cluesRemaining = 16;
   }
 
   displayCategories() {
