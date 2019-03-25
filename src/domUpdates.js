@@ -23,8 +23,9 @@ export default {
     });
   },
 
+
   showClue(clue, event) {
-    // const { id, innerText } = event.target;
+    $(event.target).text('');
     $('.question-prompt').show();
     $('.question').text(clue.question);
     
