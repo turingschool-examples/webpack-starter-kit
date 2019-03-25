@@ -1,13 +1,9 @@
 import $ from 'jquery';
 import Game from './Game.js';
-
- // $('.submitBtn').on('click', round.getAnswer());
-
- 
-// $('#submitBtn').on('click', round.checkAnswer);
+import Round from './Round.js';
 
 
- 
+  
 
 export default {
 
@@ -26,11 +22,11 @@ export default {
      </div>
      <button id="startBtn">Start Game</button>
     </section>`
-)
-},
+)},
 
-
-
+  startBtn() {
+ 
+  }
   
 }
 

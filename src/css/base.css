@@ -6,6 +6,8 @@ body {
   background-image: linear-gradient(0deg, #f5f4f3, #2196F3, #78d7fc, #023a8d);
   padding: 0;
   margin: 0;
+
+  /*increase font size*/
 }
 
 .wrapper {
@@ -48,12 +50,15 @@ body {
 }
 
 #startBtn {
-    background-color: #54f301;
+  background-color: #0a4696;
   color: white;
+  border: 2px solid #FFF;
   height: 50px;
-  outline: none;
-  border: white 2px solid;
- /* fix this - do not get ride of this, just adjust*/
+}
+
+#startBtn:hover {
+  background-color: #276C0E;
+  color: white;
 }
 
 #progress {
@@ -112,8 +117,6 @@ body {
     border-bottom: 4px solid #fec55c;
     border-style: ridge;
     height: 50px;
-    outline: none; 
-    /* fix this - do not get ride of this, just adjust*/
   }
 
 .scoreBoard,
@@ -171,20 +174,30 @@ body {
     margin: 0 3%;
     border: 5px solid;
     margin-top: 3%;
-    font-size: 1rem;
-    outline: none;
-    /* fix this - do not get ride of this, just adjust*/
+    font-size: 1rem;    
 }
 
-#resetBtn {
+#startBtn:hover,
+#resetBtn:hover,
+#submitBtn:hover {
+  outline: solid 2px goldenrod;
+}
+
+
+#resetBtn:hover {
   background-color: #dd0808f0;
-  color: white;
+  color: #FFF;
+}
+#submitBtn:hover {
+  background-color: #276C0E;
+  color: #FFF;
 }
 
+#resetBtn,
 #submitBtn {
-  background-color: #54f301;
-  color: white;
-
+    background-color: #0a4696;
+    color: white;
+    border: 0px;
 }
 
 .counterOne,

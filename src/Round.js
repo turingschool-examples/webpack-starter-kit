@@ -1,36 +1,32 @@
+import $ from 'jquery';
+
+
 class Round {
-  constructor() {
-         this.surveys = [];
+  constructor(survey) {
+         this.questionSet = survey ;
          this.correctAnswer = 0;
   }
-         getSurvey() {
-
-          // const question = surveys.map.random.splice;
-            // splice returns our one question/answers
-            // update the DOM - survey
-      }
-
+      
         getAnswer() {
          let guess = $('.answerInput').val();
-        checkAnswer(guess);
-        console.log('happy');
-        
+        this.checkAnswer(guess);
         }
 
-   //  checkAnswer() {
-   //  if(answerInput != //answer from dataset ) {
-   //  $('.answerInput').reset()
-   //  //wrong answer error message
-   //  game.switchPlayers()
-   //  }
+        checkAnswer() {
+          console.log('hooray!');
+        // if(answerInput != //answer from dataset ) {
+        // $('.answerInput').reset()
+        // //wrong answer error message
+        // game.switchPlayers()
+        // }
 
-   // if(answerInput ==== //answer from dataset ) {
-   //  $('.answerInput').reset()
-   //  appendAnswer()
-   //  game.addScore()
-       
-   //   }
-   }
+        // if(answerInput ==== //answer from dataset ) {
+        // $('.answerInput').reset()
+        // appendAnswer()
+        // game.addScore()
+         
+        // }
+        }
 
         //appendAnswer() {
 //remove 1
