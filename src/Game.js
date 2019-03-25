@@ -25,6 +25,7 @@ class Game {
     } else if (this.currentAnswer.length === 0 && this.currentRound == 2) {
       // console.log(this.currentRound, 'inside');
       // console.log('detects round 3');
+      console.log('Game currentAnswer:', this.currentAnswer);
       $(".round3").removeClass('hidden')
       this.currentRound++;
       round.generateRoundTimed();
@@ -50,8 +51,12 @@ class Game {
     //move the answer object into the player's correct answer array
   }
 
-  checkAnswersTimed(answer){
-
+  multiplyValues(multiple){
+    console.log('multiple value:', multiple);
+    this.currentAnswer.forEach( answer => {
+      answer.respondents = answer.respondents * multiple;
+    })
+    console.log('Game currentAnswer(post multi):', this.currentAnswer);
   }
   restartGame(){
     //clear all fields
