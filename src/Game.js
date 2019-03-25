@@ -1,5 +1,6 @@
 import domUpdates from './domUpdates.js';
 import Round from './Round.js';
+import FastRound from './FastRound.js';
 
 class Game {
   constructor(player1, player2) {
@@ -113,9 +114,18 @@ class Game {
       const randomId = this.getRandomSurveyId();
       const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
       const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
-      this.round = new Round(question, answers);
-      domUpdates.displayRoundData(question, answers, this.currentRound); //will move to round class eventually
+      getRound(question, answers);
+      domUpdates.displayRoundData(question, answers, this.currentRound);
     } //will need to add another condition for FastRound
+  }
+
+  getRound(question, answers) {
+    if (this.currentRound < 3) {
+      this.round = new Round(question, answers);
+    } else {
+      this.round = new FastRound(question, answers);
+      //trigger fastround stuff in dom.
+    }
   }
 
   toggleActivePlayer() {

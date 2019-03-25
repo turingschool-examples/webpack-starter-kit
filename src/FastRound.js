@@ -1,17 +1,17 @@
-// class FastRound extends Round {
-//     constructor() {
-//         super(survey, roundNum);
-//         this.timer = 30;
-//         this.multiplier = 1;
-//     }
+class FastRound extends Round {
+    constructor(question, answers) {
+        super(question, answers);
+        this.timer = 30;
+        this.multiplier = 2;
+    }
 
-//     startTimer() {
+    startTimer() {
 
-//     }
+    }
 
-//     setMultiplier(chosenNumber) {
-//         this.multiplier = chosenNumber;
-//     }
-// }
+    setMultiplier(chosenNumber) {
+        this.multiplier = chosenNumber;
+    }
+}
 
-// export default FastRound;
+export default FastRound;

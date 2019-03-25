@@ -28,16 +28,18 @@ class Round {
 
         if (match) {
             domUpdates.displayCorrectGuess(match.answer);
-            this.correctGuesses++; 
             this.getPoints(guess, game);
             this.surveyAnswers.splice(this.surveyAnswers.indexOf(match), 1);
+            this.checkRoundProgress();
         } else {
             domUpdates.showNoMatch();
             game.toggleActivePlayer();
         }
+    }
 
-        if (this.correctGuesses === 3) { //could also use how many guesses are left in the array
-            this.endRound(game);
+    checkRoundProgress() {
+        if (this.surveyAnswers.length === 0) { 
+            game.startNewRound();
         }
     }
 
