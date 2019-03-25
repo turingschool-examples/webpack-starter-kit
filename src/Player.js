@@ -3,18 +3,20 @@ import domUpdates from './domUpdates.js';
 
 
 class Player {
-  constructor(name, score = 0) {
+  constructor(name, roundScore = 0, totalScore = 0) {
     this.name = name;
-    this.score = score;
+    this.roundScore = roundScore;
+    this.totalScore = totalScore;
   }
 
   solvePuzzle() {
 
   }
   
-  getPlayerScore() {
-
-  }
+  // getPlayerScore(wheelVal) {
+    //use this after we create wheel spin method
+  //   this.roundScore += wheelVal;
+  // }
 
   spinWheel() {
     

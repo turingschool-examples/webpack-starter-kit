@@ -54,9 +54,9 @@ $('#js-vowel-submit').on('keyup', function(e) {
   domUpdates.checkVowel();
 });
 
-$('#js-vowel-submit-button').on('click', function(){
-  let letterInput = domUpdates.grabVowel();
-  game.currentPuzzle.checkUserGuess();
+$('#js-vowel-submit-button').on('click', function () {
+  let letterInput = domUpdates.grabVowel ();
+  game.currentPuzzle.checkUserGuess ();
 })
 
 

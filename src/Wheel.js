@@ -1,34 +1,37 @@
 import Game from './Game.js';
 import data from './data.js';
 import domUpdates from './domUpdates.js';
+import Player from './Player.js';
 
 class Wheel {
-  constructor(values, currentIndex) {
+  constructor() {
     this.values = [];
     this.currentIndex = [];
   }
 
   getRandomWheel() {
     let random = data.wheel[Math.floor(Math.random() * data.wheel.length)];
-    console.log('RandomWheelTest: ', random);
-    // if (this.random === 'LOSE A TURN') {
-    //   domUpdates.displayLoseTurn();
-    //iterates to next player
-    // }
-    // if (this.random === 'BANKRUPT') {
-      //iterates to next player
-      // this.player score = 0
-    //   domUpdates.diplayBankrupt()
-    // } else {
-      //display random wheel value
-      //domUpdates.displayWheel
-      //}
+    console.log('randomWheelTest: ', random);
+    if (random === 'LOSE A TURN') {
+      domUpdates.displayLoseTurn(this);
+      // iterates to next player
     }
+    // if (this.currentIndex === 'BANKRUPT') {
+      //   // iterates to next player
+      //   player.roundScore === 0;
+      //   domUpdates.diplayBankrupt()
+      // } 
+      // else {
+        // display currentIndex wheel value
+        // domUpdates.displayWheelValue();
+      }
+      // }
+      
+      // this.currentIndex.push(random);
+  // getWheelValue() {
 
-  getWheelValue() {
-
-    //clean data to grab wheel values
-  }
+  //   //clean data to grab wheel values
+  // }
 
 }
 

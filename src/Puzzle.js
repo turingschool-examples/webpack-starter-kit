@@ -12,13 +12,13 @@ class Puzzle {
 
   checkUserGuess(letterInput) {
     let answer = this.answer.toUpperCase().split('');
-    let vowels = ['a', 'e', 'i', 'o','u'];
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
     answer.forEach(letter => {
-    if(letter === letterInput) {
-      domUpdates.displayLetterMatch(letterInput);
+      if (letter === letterInput) {
+        domUpdates.displayLetterMatch(letterInput);
       }
-    if(letterInput === vowels) {
-      domUpdates.displayVowelMessage();
+      if (letterInput === vowels) {
+        domUpdates.displayVowelMessage();
       }
     })
   }
