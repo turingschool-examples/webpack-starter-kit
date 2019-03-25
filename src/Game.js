@@ -3,10 +3,12 @@ import DomUpdates from './DomUpdates'
 import Round from './Round';
 import Data from './Data'
 
+
+
 class Game {
   constructor() {
     this.players = []
-    this.stage = 0
+    this.stage = 2
     this.alphabet = []
     this.gameRoundsClueBank = null
     this.roundCards = []
@@ -20,7 +22,7 @@ class Game {
     this.createPlayerBox()
     this.createClues()
     this.roundInst.createNewRound(this)
-    console.log(this.players)
+    console.log(this)
   //   console.log(this.roundInst.allRoundCards)
   }
 
@@ -50,10 +52,10 @@ class Game {
   }
 
   ///pass in wheelValue from wheel value function invocation ***********
-  updatePlayerScore(wheelValue) {
-    
-   
-    this.players[this.roundInst.activePlayer].score += this.roundInst.wheelInst.selectedValue
+  updatePlayerBank() {
+    this.players[this.roundInst.activePlayer].playerBank += this.roundInst.wheelInst.selectedValue
+    console.log(this.players[this.roundInst.activePlayer].playerBank)
+    // this.players[this.roundInst.activePlayer].score += this.roundInst.wheelInst.selectedValue
     // return this.players[this.roundInst.activePlayer].score = cool
 console.log(this.players)
     DomUpdates.updateRoundScore(this.players)

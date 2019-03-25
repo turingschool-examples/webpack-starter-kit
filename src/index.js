@@ -59,8 +59,7 @@ function startGameBtn(event) {
 
 function selectingLetter(event) {
   let selectedLetter = $(event.target).text()
-  //event.target.innerHTML .add Class
-  
+
   console.log(selectedLetter)
   game.roundInst.checkLetter(selectedLetter, game)
   DomUpdates.disableLetter(event)

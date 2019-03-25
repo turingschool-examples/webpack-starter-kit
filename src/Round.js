@@ -7,7 +7,6 @@ class Round {
     this.clueAnswer = {}
     this.roundClue = {}
     this.activePlayer = 0
-    this.playerBank = []
     this.letterIndexs = {};
     this.wheelInst = new Wheel()
   }
@@ -46,7 +45,8 @@ class Round {
   checkLetter(userLetter, game) {
    
     if (this.clueAnswer.includes(userLetter)) {
-      game.updatePlayerScore()
+      // console.log(this.clueAnswer)
+      game.updatePlayerBank()
       // game.players[this.activePlayer].score += this.wheelInst.selectedValue
       // console.log(game.players)
       console.log('go to bed')
@@ -60,24 +60,42 @@ class Round {
 
   playerTurn(game) {
     game.players[this.activePlayer]
-
-
-  //   switchPlayer() {
-
-  //     if(this.activePlayer < 2){
-  //       this.activePlayer++
-  //      } else this.activePlayer = 0
-   
-  // }
+    console.log('myTurn:', game.players[this.activePlayer])
   }
-  checkValue(wheelValue) {
+
+  switchPlayer() {
+    switch (this.activePlayer) {
+    case 0:
+      this.activePlayer = 1
+      break;
+    case 1:
+      this.activePlayer = 2
+      break;
+    case 2:
+      this.activePlayer = 0
+      break;
+    default:
+      return;
+    }
+    console.log('after', this)
+  }
+
+  checkValue(wheelValue, game) {
     console.log(wheelValue)
     
-    if (typeof wheelValue === "string") {
+    if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
+      game.players[this.activePlayer].playerBank = 0
+      this.switchPlayer();
+    } else if (wheelValue === "LOSE A TURN") {
+      DomUpdates.deactivateLetters()
+      this.switchPlayer()
+      this.playerTurn(game)
     } else {
       DomUpdates.activateLetters()
+
     }
+    
   }
 
 }

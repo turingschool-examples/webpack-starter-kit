@@ -294,11 +294,11 @@ export default {
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[1].name}</h2>
-            <h2 class="player-2-score" >${player[0].score}</h2>
+            <h2 class="player-2-score" >${player[1].score}</h2>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[2].name}</h2>
-            <h2 class="player-3-score">${player[0].score}</h2>
+            <h2 class="player-3-score">${player[2].score}</h2>
         </div>
     </section>`
     )
