@@ -16,7 +16,7 @@ body {
   background-size: cover;
 }
 header {
-  border: 5px solid limegreen;
+  /* border: 5px solid limegreen; */
   position: relative;
   width: 100%;
   display: flex;
@@ -25,6 +25,7 @@ header {
 }
 header img {
   width: 70%;
+  padding-top: 30px;
 }
 nav {
   position: relative;
@@ -74,34 +75,7 @@ nav {
   background-color: black;
   display: flex;
   word-wrap: break-word;
-}
-header {
-  border: 5px solid limegreen;
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-header img {
-  width: 70%;
-}
-nav {
-  position: relative;
-  width: 100%;
-  border: 2px dotted lime;
-}
-
-.nav__wheel--button {
-  background-color: darkgreen;
-  border-radius: 0 0 100px 100px;
-  width: 150px;
-  height: 50px;
-  font-size: 30px;
-  text-shadow: 2px 2px 2px green;
-  position: absolute;
-  right: 50%;
-  border: 2px inset lime;
+  flex-wrap: wrap;
 }
 
 .shader {
@@ -178,7 +152,7 @@ nav {
   background: black;
 }
 .instructions p {
-  text-align: center;
+  text-align: justify;
   line-height: 25px;
 }
 .start {
@@ -196,6 +170,7 @@ button.start__start--btn {
 .instructions__icon {
   width: 50px;
   height: 50px;
+  padding-right: 40px
 }
 .instructions__head {
   align-items: center;
@@ -207,13 +182,12 @@ button.start__start--btn {
 /* ============== */
 .board__container {
   position: relative;
-  height: 500px;
+  height: 450px;
   /* background-color: magenta; */
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
-.board__tile-hider--container,
 .board__tile-value--container {
   width: 80%;
   height: 50%;
@@ -221,37 +195,50 @@ button.start__start--btn {
   justify-content: center;
   align-items: center;
   position: absolute;
-}
-.board__tile-hider--container {
-  z-index: 7;
-  display: none;
-  border: 1px solid lime;
-}
-.board__tile-value--container {
   z-index: 5;
   background-color: black;
+  top: 65px;
+  flex-wrap: wrap;
+  border: lime inset 3px;
 }
-
+.ans-letter {
+  background-color: lime;
+  height: 40px;
+  width: 35px;
+  color: black;
+  margin: 10px;
+  text-align: center;
+  font-size: 25px;
+  padding: 10px 5px 5px 5px;
+  z-index: 20;
+  font-weight: 900;
+}
 .hint--container {
   position: absolute;
-  bottom: 50px;
+  bottom: 75px;
   display: inline-flex;
   justify-content: center;
   width: 1000px;
 }
-.hint__value,
 .hint__title {
-  width: 500px;
+  text-align: end;
+
 }
-
-
-.ans-letter { 
-  color: magenta;
-  z-index: 50000;
+.hint__value {
+  padding-left: 20px;
+  max-width: 500px;
 }
-
-
-
+.round-info--container {
+  color: white;
+  position: absolute;
+  bottom: -20px;
+  display: flex;
+  left: -200px;
+}
+.round-info__current-round {
+  color: white;
+  padding-right: 10px;
+}
 .guess--container {
   position: absolute;
   bottom: 15px;
@@ -259,10 +246,16 @@ button.start__start--btn {
 
 #guess--input {
   background-color: black;
+  padding: 5px 5px 5px 15px;
 }
 
 .guess--button {
-  background-color: darkgreen;
+  /* background-color: darkgreen; */
+  padding: 5px 10px;
+  height: 35px;
+  color: white;
+  background-color: rgba(20, 100, 20, .9);
+  border: .1px solid lime;
 }
 
 /* ! Footer / Player Navigation ! */
@@ -270,17 +263,16 @@ button.start__start--btn {
 footer {
   position: relative;
   display: flex;
+  justify-content: center;
   margin: 0 10% 0 10%;
   flex-direction: row;
 }
-.round-info--container {
 
-}
 .player--container{
   display: grid;
   grid-template-areas:
   "avitar name"
-  "ltrInp pts";
+  "ptsTitle pts";
   border: 1px solid lime;
   background-image: radial-gradient(grey, black );
   width: 300px;
@@ -292,21 +284,39 @@ footer {
   justify-content: center;
   align-items: center;
 }
-.player__letter--container {
-  grid-area: ltrInp;
+.caps--container {
+  grid-area: ptsTitle;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  flex-direction: column;
+  height: 100px;
+  padding-top: 10px;
 }
-.letter--input {
-  background-color: black;
-  border: .1px solid lime;
-  width: 30px;
-  padding: 10px;
-  height: 30px;
-  font-size: 30px;
+.caps--image {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  padding-left: 15px;
+}
+.player__points--container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-left: 50px;
+  font-size: x-large;
+  padding-top: 25px;
+  height: 100px;
+}
+.player__round--points,
+.player__total--points {
+  margin: 0;
 }
 /* ! red border  for current player */
 .big-red-border {
-  background-color: red;
+  background-color: darkgreen;
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
 }
