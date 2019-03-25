@@ -28,7 +28,7 @@ class Wheel {
             return idx === randomIndex
         })
         console.log(values)
-        return values
+        this.currentSpinValue = values
     }
 
     toggleDisableSpin() {

@@ -22,7 +22,7 @@ let domUpdates = {
         $('.clue').text(clue)
     },
 
-    checkLetterGuess(splitAnswer, usedArray) {
+    checkLetterGuess(splitAnswer, usedArray, game, e) {
         splitAnswer.forEach((letter, index) => {
             if(usedArray.includes(letter) && !usedArray.includes('') ) {
                 console.log(usedArray.includes(letter))
@@ -30,9 +30,11 @@ let domUpdates = {
                 $('.clueLetter').eq(index).css("background-color", "green")
             } else {
                 $('.clueLetter').eq(index).css("background-color", "white")
+                // $('.letters').css("background-color", "red")
             }
         })
     },
+
     clearAnswerBoard() {
         $('.clueLetter').empty().css('background-color', 'white')
     },
