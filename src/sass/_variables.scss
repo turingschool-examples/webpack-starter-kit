@@ -23,5 +23,16 @@ $player: hsla(106, 75%, 85%, .6);
   100% {
     transform: translateX(0px);
   }
-  
+}
+
+@keyframes spin-prize {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .3;
+  }
+  100% {
+    transform: rotate(-720deg);
+  }
 }

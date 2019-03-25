@@ -60,13 +60,7 @@ main aside {
 
 .prize-animation {
   animation: spin-prize;
-  animation-duration: 3s;
-}
-
-@keyframes spin-prize {
-  0% {opacity: 0;}
-  50% {left: 100px; opacity: .3;}
-  100% {transform: rotate(-720deg);}
+  animation-duration: 4s;
 }
 
 .spin {  
