@@ -3,43 +3,50 @@ import $ from 'jquery';
 
 class Round {
   constructor(survey) {
-         this.questionSet = survey ;
-         this.correctAnswer = 0;
+    this.questionSet = survey;
+    this.correctAnswer = 0;
   }
       
-        getAnswer() {
-         let guess = $('.answerInput').val();
+    getAnswer() {
+        let guess = $('.answerInput').val();
         this.checkAnswer(guess);
-        }
+    };
 
-        checkAnswer(guess) {
-        // if(guess != game.surveys['answers'].val(answer)) {
-        // $('.answerInput').reset()
-        // //wrong answer error message
-        // game.switchPlayers()
+    checkAnswer(guess) {
+        let answers = this.questionSet.answers;
+        let answerSet = [];
+        answers.forEach((answer) => {
+            answerSet.push(answer.answer);
+        });
+        $('.answerInput').val('');
+        
+        // if (answerSet.includes(guess)) {
+        //     appendAnswer(); // easy win on the DOM!
+        //     player.addScore(); // method of Player or Game?
+        // } else {
+        //     $('.wrongAnswer').css('visibility', 'visible');
+        //     game.switchPlayers() // method of Game
         // }
+    };
 
-        // if(guess ==== //answer from dataset ) {
-        // $('.answerInput').reset()
-        // appendAnswer()
-        // game.addScore()
-         
-        // }
+    // if(guess == '') {
+    //     $('.errorMessage').css('visibility', 'visible');
+    // };
+}
 
-         if(guess == '') {
-           $('.errorMessage').css('visibility', 'visible');
-        }
-        }
 
-        //appendAnswer() {
+
+
+
+    //appendAnswer() {
+
+
 //remove 1
         // $('#responseOne').append();  
        // }
-
-    // endRound() {
-        
+    // endRound()     
     // }
-}
+// }
 
 // } when correctAnswer === 3, end round
 
