@@ -3,8 +3,8 @@ import Game from './Game.js';
 import Player from './Player.js';
 import Round from './Round.js';
 import domUpdates from './domUpdates.js';
-import p5 from 'p5';
-import sketch from './sketch';
+// import p5 from 'p5';
+// import sketch from './sketch';
 import data from "./data.js";
 import './css/normalize.css';
 import './css/styles.css';
@@ -18,7 +18,7 @@ import './images/player3.svg';
 
 
 
-new p5(sketch);
+// new p5(sketch);
 
 let game;
 
@@ -28,7 +28,7 @@ $('.continue-button').on('click', (e) =>{
   game.startGame();
 })
 
-$('.reset-button').on('click', (e) =>{
+$('#reset-button').on('click', (e) =>{
   domUpdates.resetGame();
 })
 

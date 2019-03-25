@@ -83,33 +83,29 @@ export default {
       'transform': 'rotate(' + totalDegree + 'deg)'
     });
     $('.winner').html(`${wheel.currentSpin}`);
+  },
+
+  turnOrder(oldPlayer, newPlayer) {
+    $(`#player${oldPlayer}-area`).removeClass('active');
+    $(`#player${newPlayer}-area`).addClass('active'); 
+  },
+
+   displayCorrectLetter(puzzle, guess) {
+    // we dont currently have the index added to each box when they append for this to work
+    // puzzle.forEach((letter, index) => {
+    //   if (letter === guess) {
+    //     $(`puz-grid secret ${index}`).removeClass('secret')
+    //   } 
+    // })
+  },
+
+  buyAVowel(){
+
+  },
+  displayScore(player,value){
+
   }
   
   
-
-
-
-
-  // for example:
-  //    var finalWager = `<section class="final-question-display">
-  //       <h1>FINAL JEOPARDY</h1>
-  //       <h4 class="cat-0"></h4>
-  //       <button class="final-wager-button">Place your bets!</button>
-  //       <div class= "final-wager-input">
-  //         <input type="number" class="player 0 wager">
-  //         <input type="number" class="player 1 wager">
-  //         <input type="number" class="player 2 wager">
-  //       </div>
-  //     </section>`;
-  //     $('.question-box-area').html(finalWager);
-
-  //      $('.word-box').append(<div>letter</div>)
-  //     question.answer.split('').forEach(letter => {
-  // $('.word-box').append(<div>letter</div>))
-  // $('.word-box').append(<div>letter</div>)
-
-  // <div class="word-box">
-  // ---new ones here----
-  // </div>
 
 }
