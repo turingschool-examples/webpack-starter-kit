@@ -107,6 +107,7 @@ $('.guess__letter--button').click(function () {
       }
       else if (compareAns(round, player)) {
         correctAnsFunc(round, player, ltrGuess);
+        toggleButtons();
       }
         // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
@@ -116,10 +117,10 @@ $('.guess__letter--button').click(function () {
         // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
         round.allRoundGuesses.push(player.ans)
         round.getCurrentPlayer(game);
+        toggleButtons();
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         // console.log('CurrentPlayer', game.currentRound.currentPlayer);
       }
-    toggleButtons();
   }
 
   let compareAns = (round, player) => {
