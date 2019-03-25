@@ -13,18 +13,26 @@ class Game {
   }
 
   startNewRound(round) {
-    if (this.currentRound < 2) {
-      this.currentRound++;
+    this.currentRound++;
+    if (this.currentRound < 3) {
       let round = new Round(this);
-      domUpdates.populateSurvery(round);
-      domUpdates.populateAnswers(round);
+      this.updateDOM(round)
       return round;
-    } else if (this.currentRound === 2) {
-      this.currentRound++;
-      return new FinalRound(this); 
+    } else if (this.currentRound === 3) {
+      let round = new FinalRound(this);
+      this.updateDOM(round)
+      return round;
     }
   }
 
+  updateDOM(round) {
+    domUpdates.animateKnight();
+    setTimeout(function () {
+      domUpdates.populateSurvery(round);
+      domUpdates.populateAnswers(round)
+    }, 4000);
+  }
+  
   toggleIsTurn() {
     this.player1.isTurn = !this.player1.isTurn;
     this.player2.isTurn = !this.player2.isTurn;
