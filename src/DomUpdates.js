@@ -280,14 +280,14 @@ export default {
     $('main').append(
       `<section id="player-actions" class="player-actions">
       <div>
-          <button class="player-action-btn spinner">Spin Wheel</button>
+          <button class="player-action-btn spinner game-buttons">Spin Wheel</button>
       </div>
       <div>
-          <button class="player-action-btn">Buy Vowel</button>
+          <button class="player-action-btn game-buttons">Buy Vowel</button>
       </div>
       <div>
-          <input type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!">
-          <button class="player-action-btn">Submit Guess</button>
+          <input for="player-guess" type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!">
+          <button id="player-guess" class="player-action-btn game-buttons">Submit Guess</button>
       </div>
         </section>
       <section id="player-score-area" class="player-score-area">
@@ -331,7 +331,7 @@ export default {
   },
 
   createQuitGameBtn() {
-    $('main').before(`<div class="quit-btn-container"><button>Quit Game</button></div>`)
+    $('main').after(`<button class="quit-btn-container game-buttons">New Game</button>`)
   },
 
   disableLetter(event) {
@@ -367,6 +367,7 @@ export default {
     <section class="bankrupt">
       <h1 class="result"><i class="fas fa-exclamation">BANKRUPT</i></h1>
       <p>Next Player Turn</p>
+      <p>That Sucks :(</p>
     </section>
   `).fadeOut(2000, function() {
     $('.bankrupt').remove();
@@ -379,6 +380,7 @@ loseTurn() {
     <section class="lose-turn">
       <h1 class="result"><i class="fas fa-exclamation">LOSE TURN</i></h1>
       <p>Next Player Turn</p>
+      <p>That Sucks :(</p>
     </section>
   `).fadeOut(2000, function() {
     $('.lose-turn').remove();

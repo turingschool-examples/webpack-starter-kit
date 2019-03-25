@@ -54,6 +54,10 @@ $('body').on('focus', '.guess-submission', () =>{
   DomUpdates.deactivateLetters()
 })
 
+$('body').on('click', '.quit-btn-container', () =>{
+  window.location.reload(true)
+})
+
 /************Functions******* */
 function startGameBtn(event) {
   event.preventDefault(event)
