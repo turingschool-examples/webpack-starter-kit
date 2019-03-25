@@ -58,3 +58,16 @@ $('.tester').on('click', function (e){
     }
     $('.spinButton').prop('disabled', false);
 })
+
+$('.reset').on('click', function (e){
+    e.preventDefault();
+    game.resetGame();
+    domUpdates.clearAnswerBoard();
+    $('.letters').removeAttr('disabled').css('background-color', 'white');
+    $('.vowel').removeAttr('disabled').css('background-color', 'white');
+    $('.nameInput').show('slow')
+    $('.nameInput').val('')
+    $('.startGame').show('slow')
+    $('.spinButton').prop('disabled', true)
+    console.log(game);
+})
