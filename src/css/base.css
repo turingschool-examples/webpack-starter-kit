@@ -34,7 +34,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 5;
   background-color: #524348;
   height: 100%;
   width: 100%;
@@ -48,7 +48,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 4;
+  z-index: 3;
   height: 100%;
   width: 100%;
   background-color: #524348;
@@ -215,7 +215,7 @@ h1 {
 }
 
 #logo {
-  height: 250px;
+  height: 150px;
   margin-bottom: 15px;
 }
 

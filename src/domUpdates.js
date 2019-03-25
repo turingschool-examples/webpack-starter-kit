@@ -20,14 +20,44 @@ export default {
     })
   },
 
+  toggleStartPopUp() {
+    $(".start-game-pop-up").toggle();
+  },
+
+  hidePopUps() {
+    $(".next-round-pop-up").hide();
+    $(".lightning-round-pop-up").hide();
+    $('.switch-player-pop-up').hide();
+    $('end-game-pop-up').hide();
+  },
+
+  toggleSwitchPlayerPopUp() {
+    // TODO change to switch player
+    this.toggleLightningRoundPopUp();
+  },
+
+  toggleEndGamePopUp() {
+    // TODO
+  },
+
   clearguess() {
     $('#guess-input').val('');
   },
 
+  toggleNextRoundPopUp() {
+    $(".next-round-pop-up").toggle();
+  },
+
+  toggleLightningRoundPopUp() {
+    $(".lightning-round-pop-up").toggle();
+  },
+
   startGame({ players, currentPlayer }) {
+    this.toggleStartPopUp();
     this.updateNames(players[0].name, players[1].name);
+    this.updateScores(players[0]);
+    this.updateScores(players[1]);
     this.displayCurrentPlayer(currentPlayer);
-    this.disableStartButton();
   },
 
   updateNames(p1name, p2name) {
@@ -44,10 +74,6 @@ export default {
 
   hideResponses() {
     $('.response-card').each((i, card) => $(card).show());
-  },
-
-  disableStartButton() {
-    $("#start-game-btn").attr("disabled", true);
   },
 
   displayCurrentPlayer({ name, score }) {
