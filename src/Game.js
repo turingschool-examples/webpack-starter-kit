@@ -18,11 +18,19 @@ class Game {
     this.currentAnswer = round.currentAnswer;
   }
   startNextRound() {
-    if (this.currentAnswer.length === 0) {
-      round.generateRound()
+    console.log('outside:',this.currentRound);
+    if (this.currentAnswer.length === 0 && this.currentRound < 2) {
+      round.generateRound();
       this.currentAnswer = round.currentAnswer;
       this.currentRound++;
-      console.log(this.currentRound);
+      console.log(this.currentRound, 'inside');
+    } else if (this.currentAnswer.length === 0 && this.currentRound == 2) {
+      console.log('detects round 3');
+      this.currentRound++;
+      round.generateRoundTimed();
+      this.currentAnswer = round.currentAnswer;
+    } else if (this.currentRound === 3) {
+      console.log('END OF GAME');
     }
   }
 
@@ -34,8 +42,6 @@ class Game {
         correctAnswersPoints = element.respondents;
         this.currentAnswer.splice(this.currentAnswer.indexOf(element), 1)
         this.startNextRound();
-      } else {
-        // console.log(`no match`)
       }
     })
     return correctAnswersPoints;
