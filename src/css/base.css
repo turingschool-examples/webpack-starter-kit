@@ -34,7 +34,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 3;
   background-color: #524348;
   height: 100%;
   width: 100%;
@@ -42,6 +42,21 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.next-round-pop-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+  background-color: #524348;
+  border-radius: 2%;
+}
+
+.next-round-btn {
+  background-color: rgb(54, 182, 54);
 }
 
 #game-area {
@@ -241,7 +256,7 @@ button {
 }
 
 .response-card {
-  z-index: 999;
+  z-index: 2;
 }
 
 .revealed-response {

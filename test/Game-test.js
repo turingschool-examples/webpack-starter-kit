@@ -14,7 +14,7 @@ describe('Game', () => {
 
   beforeEach(function() {
     chai.spy.on(domUpdates, 'displayCurrentQuestion', () => true);
-  })
+  });
 
   afterEach(function() {
     chai.spy.restore(domUpdates);
