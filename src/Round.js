@@ -104,6 +104,11 @@ class Round {
     console.log('after', this)
   }
 
+  buyVowel(game) {
+    game.players[this.activePlayer].playerBank -= 100;
+    DomUpdates.activateVowels();
+  }
+
   checkValue(wheelValue, game) {   
     if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()

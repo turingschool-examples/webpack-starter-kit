@@ -4,6 +4,10 @@ export default {
   activateLetters() {
     $('td.single-letter').removeClass('disable-selected-letters')
   },
+
+  activateVowels() {
+    $('td.single-letter-vowel').removeClass('disable-selected-letters');
+  },
   
   createGameBoard(array) {  
     $('main').prepend(
@@ -283,7 +287,7 @@ export default {
           <button class="player-action-btn spinner">Spin Wheel</button>
       </div>
       <div>
-          <button class="player-action-btn">Buy Vowel</button>
+          <button class="player-action-btn vowel">Buy Vowel</button>
       </div>
       <div>
           <input type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!">
@@ -335,12 +339,12 @@ export default {
   },
 
   disableLetter(event) {
-    $(event.target).attr('id', 'disable-selected-letter')
+    $(event.target).removeClass('single-letter-vowel').removeClass('single-letter').addClass('disable-selected-letters')
   },
 
   deactivateLetters() {
-    console.log('deactivate')
-    $('td.single-letter').addClass('disable-selected-letter')
+    console.log('deactivate');
+    $('.single-letter, .single-letter-vowel').addClass('disable-selected-letters')
   },
 
   displayHint(clue) {
