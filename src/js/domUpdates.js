@@ -44,7 +44,7 @@ export default {
   },
 
   showInput() {
-    $('.check-btn, .ltr-input').show().addClass('slide-in');
+    $('.check-btn, .ltr-input').show();
     $('.btn-solve, .buy, .btn-spin').attr('disabled', true)
   },
 

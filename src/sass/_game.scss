@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   &:focus {
-    outline: none;
+    outline: 2px solid $board;
   }
 }
 
@@ -41,7 +41,7 @@ main {
 
     .description {
       font-size: $boardDescription;
-      height: 25%;
+      height: 15%;
     }
 
     .spin-pop-up {
@@ -53,6 +53,10 @@ main {
       height: 60px;
       display: flex;
       bottom: 0;
+
+      button, input {
+        animation: bounce-right 0.8s both;
+      }
         
       .check-btn {
         background-color: $btn;
@@ -65,7 +69,6 @@ main {
         &:hover {
           background-color: $player;
           box-shadow: .5rem 1rem 1.5rem .5rem $board;
-
         }
       }
 
@@ -113,6 +116,12 @@ main {
 
   aside {
     flex: 1;
+
+    div {
+      button {
+        animation: bounce-right 0.8s both;
+      }
+    }
   }
 
 }
