@@ -5,7 +5,7 @@ import FastRound from './FastRound.js';
 class Game {
   constructor(player1, player2) {
     this.currentRound = 0; 
-    this.usedSurveys = []; //note: will go up to 4 cus each player gets one in round 3
+    this.usedSurveys = []; 
     this.player1 = player1;
     this.player2 = player2;
     this.activePlayer = this.player1;
@@ -48,7 +48,7 @@ class Game {
         { answer: 'Change', respondents: 24, surveyId: 8 },
         { answer: 'Chicago', respondents: 18, surveyId: 7 },
         { answer: 'Coffee', respondents: 17, surveyId: 15 },
-        { answer: 'Cold Cereal', respondents: 67, surveyId: 15 },
+        { answer: 'Cereal', respondents: 67, surveyId: 15 },
         { answer: 'Detergent', respondents: 69, surveyId: 8 },
         { answer: 'Donuts', respondents: 24, surveyId: 1 },
         { answer: 'Dryer Sheets', respondents: 6, surveyId: 8 },
@@ -87,7 +87,7 @@ class Game {
 
   startNewGame(startingPlayer) {
     domUpdates.resetPageDefaults();
-    this.startNewRound();
+    this.triggerNewRound();
     if (this.player1.player === startingPlayer) {
       this.activePlayer = this.player1;
     } else {
@@ -106,30 +106,36 @@ class Game {
     }
   }
 
-  startNewRound() {
+  triggerNewRound() {
     this.currentRound++;
-    if (this.currentRound > 3) {
+    if (this.currentRound > 4) {
       this.endGame();
     } else {
-      const randomId = this.getRandomSurveyId();
-      const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
-      const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
-      getRound(question, answers);
-      domUpdates.displayRoundData(question, answers, this.currentRound);
-    } //will need to add another condition for FastRound
+      domUpdates.clearAnswerBoard();
+      this.toggleActivePlayer();
+      this.getSurvey();
+      //show next round start msg in dom for a few seconds
+    } 
   }
 
-  getRound(question, answers) {
+  getSurvey() {
+    const randomId = this.getRandomSurveyId();
+    const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
+    const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
+    this.createRound(question, answers);
+  }
+
+  createRound(question, answers) {
+    domUpdates.displayRoundData(question, answers, this.currentRound);
     if (this.currentRound < 3) {
       this.round = new Round(question, answers);
     } else {
       this.round = new FastRound(question, answers);
-      //trigger fastround stuff in dom.
+      domUpdates.displayFastroundDialog(this.activePlayer.name);
     }
   }
 
   toggleActivePlayer() {
-    //run fn to indicate active player in the dom
     if (this.activePlayer === this.player1) {
       this.activePlayer = this.player2;
       domUpdates.displayPlayer2();
@@ -137,11 +143,13 @@ class Game {
       this.activePlayer = this.player1;
       domUpdates.displayPlayer1();
     }
-}
+  }
 
   endGame() {
-    //show a play again dialog?
-    //if they play again, we should show the enter names dialog again to start fresh
+    alert('poop');
+    // show a play again dialog?
+    // if they play again, 
+    // should show the enter names dialog again to start fresh
   }
 } 
 

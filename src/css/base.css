@@ -1,3 +1,7 @@
+*:focus {
+ outline: 1px dashed transparent;
+}
+
 body {
   padding: 0;
   margin: 0 auto;
@@ -5,10 +9,26 @@ body {
   background: #b7dbe1;
   color: #333333;
   font-size: 1.2em;
-  position: relative;
 }
 
-.welcome-screen {
+.timer {
+  background: white;
+  height: 150px;
+  width: 150px;
+  font-size: 75px;
+  color: darkred;
+  border: 3px solid darkred;
+  border-radius: 100%;
+  position: absolute;
+  right: 0;
+  margin: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-screen,
+.fastround-ready-screen {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
   height: 100%;
   width: 100%;
@@ -23,13 +43,15 @@ button:disabled {
   background: lightgray!important;
 }
 
-#no-match-msg {
+.msg {
   display: none;
-  position: absolute;
-  left: 45%;
   font-size: 1.3em;
-  margin-top: 20px;
-  color: darkred;
+  margin: 20px auto 0;
+  color: #b20303;
+}
+
+.msg-area {
+  text-align: center;
 }
 
 .name-form img {
@@ -38,6 +60,7 @@ button:disabled {
 }
 
 .name-form {
+  width: 45%;
   background: #213b72;
   border: 5px solid white;
   color: white;
@@ -66,7 +89,8 @@ button:disabled {
   padding: 20px 0 0 0;
 }
 
-header h1{
+header h1,
+h2 {
   font-size: 4.5em;
   letter-spacing: 3px;
   font-weight: 900;
@@ -230,7 +254,10 @@ label {
 #start-btn {
   width: 100%;
   border-radius: 0;
-  margin: 92px 0 0 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .hidden {

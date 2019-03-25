@@ -10,9 +10,9 @@ let game = new Game(new Player('Tiff'), new Player('Lynne'));
 let survey = 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?';
 
 let surveyAnswers = [
-{ answer: 'Bowling Ball', respondents: 5 },
-{ answer: 'Donuts', respondents: 24 },
-{ answer: 'Beer', respondents: 67 }
+  { answer: 'Bowling Ball', respondents: 5 },
+  { answer: 'Donuts', respondents: 24 },
+  { answer: 'Beer', respondents: 67 }
 ];
 
 describe('Round', () => {
@@ -29,7 +29,7 @@ describe('Round', () => {
       { answer: 'Bowling Ball', respondents: 5 },
       { answer: 'Donuts', respondents: 24 },
       { answer: 'Beer', respondents: 67 }
-      ]);
+    ]);
   });
 
   it('should start with no guesses', () => {
@@ -72,7 +72,7 @@ describe('Round', () => {
 
     round.checkAnswer(player1Guess);
 
-    expect(player1.score).to.equal(67);
+    expect(game.player1.score).to.equal(67);
   });
 
   it('should switch the active player when a player guesses incorrectly', () => {
@@ -87,6 +87,7 @@ describe('Round', () => {
   });
 
   it('should end the round when there are 3 correct guesses', () => {
+    let round = new Round(survey, surveyAnswers);
 
     expect(game.roundNum).to.equal(1);
 
@@ -99,28 +100,31 @@ describe('Round', () => {
   });
 
   it('should give the losing player a turn for the next round', () => {
+    let round = new Round(survey, surveyAnswers);
 
     game.activePlayer = game.player1;
 
-    
+    round.checkAnswer('bowling ball');
+    round.checkAnswer('donuts');
+    round.checkAnswer('beer');
+
+    expect(game.activePlayer).to.equal(game.player2);
 
   })
 });
 
+// it('Should be able to check if a guess has been guessed before and avoid duplicates.', () => {
+//   let round = new Round(survey, surveyAnswers);
 
+//   round.saveGuess('puppies');
 
-  // it('Should be able to check if a guess has been guessed before and avoid duplicates.', () => {
-  //   let round = new Round(survey, surveyAnswers);
+//   expect(round.guesses).to.deep.equal(['puppies']);
 
-  //   round.saveGuess('puppies');
+//   round.saveGuess('puppies');
 
-  //   expect(round.guesses).to.deep.equal(['puppies']);
+//   expect(round.guesses).to.deep.equal(['puppies']);
+// });
 
-  //   round.saveGuess('puppies');
-
-  //   expect(round.guesses).to.deep.equal(['puppies']);
-  // });
-
-  // it('Should be able to check if a guess is one of the answers.', () => {
-  //   //have fn return true or false?
-  // });
+// it('Should be able to check if a guess is one of the answers.', () => {
+//   //have fn return true or false?
+// });

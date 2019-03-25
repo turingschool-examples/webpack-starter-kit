@@ -10,7 +10,7 @@
   <div class="welcome-screen">
     <form class="name-form">
       <!-- <img src="./images/family-feud-logo.png"> -->
-      <h1>Family Feud</h1>
+      <h2>Family Feud</h2>
       <div class="player-fields">
         <label for="player-1-input">
           Enter Player 1 Name:
@@ -23,46 +23,58 @@
         </label>
         <input id="player-2-input" class="name-input">
       </div>
-      <button id="submit-names-btn" type="button" disabled>Start Game</button>
+      <button id="submit-names-btn" type="button">Start Game</button>
     </form>
   </div>
+  <div class="fastround-ready-screen hidden">
+    <div class="name-form">
+    <h2>Fast Money Round!</h2>
+    <div class="fastround-instructions">
+      <p>This next round will be a special "Fast Money" round!</p>
+      <p>Each player will take turns having 30 seconds to submit as many answers to their question as they want.  There is no penalty for an incorrect guess, and the score is doubled for correct guesses.  The turn will end either when all answers are guessed or the 30 seconds end.</p>
+      <p>It is <strong>Player 1</strong>'s turn.  Click the start button when you're ready.</p>
+    </div>
+    <button id="fastround-start-btn" type="button">Start Round!</button>
+  </div>
+  </div>
+  <div class="timer hidden" aria-live="polite">0</div>
   <div class="page-background"></div>
   <main class="main">
     <header>
       <h1>Family Feud</h1>
     </header>
-    <section class="round-header">
-      <h2 class="round-title">Round <span class="round-num-display">1</span></h2>
-      <p class="survey-display"></p>
+    <section class="round-header" aria-live="polite">
+      <h2 class="round-title" >Round <span class="round-num-display">1</span></h2>
+      <p class="survey-display">How many licks to the center of a Tootsie Pop?</p>
     </section>
     <section class="score-area">
       <article class="player-area player-1-side">
-        <p class="player-1-name">Player 1</p>
-        <p class="player-score player-1-score">0</p>
+        <p class="player-1-name" contenteditable="true">PLAYER 1</p>
+        <p class="player-score player-1-score" aria-live="polite">0</p>
       </article>
-      <article class="answer-area">
+      <article class="answer-area" aria-live="polite">
         <div class="answer-card answer-1-card" class="answer-div">
           <div class="answer-data hidden">
-            <p class="answer-text answer-1-text">Whatevs</p>
-            <p class="answer-score answer-1-score">60</p>
+            <p class="answer-text answer-1-text"> </p>
+            <p class="answer-score answer-1-score">0</p>
           </div>
         </div>
         <div class="answer-card answer-2-card" class="answer-div">
           <div class="answer-data hidden">
-            <p class="answer-text answer-2-text">UR MOM</p>
-            <p class="answer-score answer-2-score">20</p>
+            <p class="answer-text answer-2-text"> </p>
+            <p class="answer-score answer-2-score">0</p>
           </div>
         </div>
         <div class="answer-card answer-3-card" class="answer-div">
           <div class="answer-data hidden">
-            <p class="answer-text answer-3-text">KITTENS!!!</p>
-            <p class="answer-score answer-3-score">20</p>
+            <p class="answer-text answer-3-text"> </p>
+            <p class="answer-score answer-3-score">0</p>
           </div>
         </div>
       </article>
       <article class="player-area player-2-side">
-        <p class="player-2-name">Player 2</p>
-        <p class="player-score player-2-score">0</p>
+        <p class="player-2-name" contenteditable="true">PLAYER 2</p>
+        <p class="player-score player-2-score" aria-live="polite">0</p>
       </article>
     </section>
     <section class="guess-area">
@@ -70,7 +82,12 @@
         <input type="text" class="guess-input" placeholder="Enter Your Guess!">
         <button id="submit-guess-btn" type="button" disabled>Submit</button>
       </article>
-      <div id="no-match-msg">No matches</div>
+      <article class="msg-area" role="alert">
+        <p id="no-match-msg" class="msg">No Match!</p>
+        <p id="must-enter-guess-msg" class="msg">Must Enter a Guess!</p>
+        <p id="already-tried-msg" class="msg">That's Already Been Tried!</p>
+        <p id="round-winner-msg" class="msg">Next Round!</p>
+      </article>
     </section>
     <footer class="footer">
       <button id="start-btn" type="button">Start New Game</button>
