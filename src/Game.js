@@ -15,6 +15,10 @@ class Game {
 		this.cardsClicked = 0;
 		this.roundOneCategories = [];
     this.currentPlayers = [];
+    this.columnOne = [];
+    this.columnTwo = [];
+    this.columnThree = [];
+    this.columnFour = [];
     // this.currentQuestions = [];
 	}
 
@@ -36,6 +40,8 @@ class Game {
     newRound.setCategories(this);
     domUpdates.appendCategoryNames(this);
     newRound.createCards(this);
+    newRound.sortQuestions(this);
+    console.log(this.columnOne);
   }
 }
 

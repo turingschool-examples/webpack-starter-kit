@@ -60,6 +60,21 @@ class Round {
         });
     }
 
+    sortQuestions(game) {
+        console.log(game.roundOneCategories);   
+        this.currentQuestions.forEach(question => {
+            if (question.categoryID === game.roundOneCategories[0][1]) {
+                game.columnOne.push(question);
+            } else if (question.categoryID === game.roundOneCategories[1][1]) {
+                game.columnTwo.push(question);
+            } else if (question.categoryID === game.roundOneCategories[2][1]) {
+                game.columnThree.push(question)
+            } else {
+                game.columnFour.push(question)
+            }
+        });
+    }
+
 
 }
 
