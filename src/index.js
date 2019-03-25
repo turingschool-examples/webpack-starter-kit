@@ -24,6 +24,10 @@ const surveys = data.surveys.reduce( (total, { id, question }) => {
 
 let game;
 
+window.onload = () => {
+  domUpdates.hidePopUps();
+}
+
 startBtn.on('click', (e) => {
   e.preventDefault();
   const p1name = $('#player-one-input').val();
@@ -45,19 +49,49 @@ submitBtn.on('click', (e) => {
 
 function checkRoundStatus(round) {
   if (round.isFinished) {
-    setTimeout(() => { // TODO change round initiation to button listener
-      if (game.round < 2) {
-        game.startNextRound();
-      } else if (game.round < 3) {
-        game.startNextLightningRound();
-        setTimeout(() => { // OR all guesses correct
-          game.switchPlayers();
-          game.startNextLightningRound();
-        }, 30000);
-      } else {
-        const winner = game.getWinner();
-        console.log(winner);
-      }
-    }, 5000);
+    if (game.round < 2) {
+      setTimeout(() => {
+        domUpdates.toggleNextRoundPopUp();
+      }, 3000)
+    } else if (game.round < 3) {
+      setTimeout(() => {
+        domUpdates.toggleLightningRoundPopUp();
+      }, 3000);
+    }
   }
 }
+
+$("#new-game-btn").on('click', (e) => {
+  e.preventDefault();
+  domUpdates.toggleStartPopUp();
+});
+
+$(".next-round-btn").on('click', (e) => {
+  e.preventDefault();
+  domUpdates.toggleNextRoundPopUp();
+  game.startNextRound();
+});
+
+$(".lightning-round-btn").on('click', (e) => {
+  e.preventDefault();
+  domUpdates.toggleLightningRoundPopUp();
+  game.startNextLightningRound();
+  setTimeout(() => { // TODO OR all guesses correct
+    domUpdates.toggleSwitchPlayerPopUp();
+    game.switchPlayers();
+  }, 30000);
+});
+
+$(".continute-round-btn").on('click', (e) => {
+  e.preventDefault();
+  domUpdates.toggleLightningRoundPopUp();
+  game.startNextLightningRound();
+  setTimeout(() => { // OR all guesses correct
+    domUpdates.toggleEndGamePopUp();
+  }, 30000);
+});
+
+// TODO End game popup
+// } else {
+//   const winner = game.getWinner();
+// }
