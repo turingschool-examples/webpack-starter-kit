@@ -60,15 +60,21 @@ function createGame(dataset) {
 };
 
 
-// $('#submitBtn').on('click', checkAnswer);
+$('#submitBtn').on('click', checkAnswer);
 
-// //function submitButton {
-// //   if(wrong answer) {
-// //     alert wrong answer (big X)
-// //     switch player
-// //   } else {
-//   // game.checkAnswers
-// // }
-// // }
+function checkAnswer() {
+  let answerInput = $('.answerInput').val(); 
+  if(answerInput != //answer from dataset ) {
+    $('.answerInput').reset()
+    game.switchPlayers()
+  }
+
+  if(answerInput ==== //answer from dataset ) {
+  $('.answerInput').reset()
+  //change the dom
+  game.addScore()
+  }
+
+
 
 export default dataSet;

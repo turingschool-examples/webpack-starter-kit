@@ -26,6 +26,8 @@ class Game {
     console.log(player1);
   };
 
+  //functionally scoped players - DNE after this runs
+
 
         // checkPlayer() {
         //   isPlayer = player;

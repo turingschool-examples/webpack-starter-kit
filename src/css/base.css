@@ -11,14 +11,14 @@ body {
 .wrapper {
     display: grid;
     grid-template-rows: auto 40% 25% 25%;
-    height: 1400px; /*change to 1200px*/
+    height: 1800px; /*fix positioning and height*/
     font-family: 'Open Sans', sans-serif;
     border: 20px solid goldenrod;
     border-style: ridge;
 }
 
 .gamePopUp {
-  visibility: visible; /*change to none*/
+  visibility: visible; 
   color: white;
   display: block;
   width: 100%;
@@ -27,13 +27,23 @@ body {
 
 .playerNames() {
   display: inline-block;
+  margin: 2% 0;
+}
+
+.popUpPlayers {
+  display: inline-block;
+  margin: 0 2%;
+}
+
+.popUpPlayers > * {
+  display: block;
 }
 
 .nameOne,
 .nameTwo {
   font-size: 1rem;
   font-weight: 800;
-  margin: 0 3%;
+  margin: 2% 1%;
   height: 40px;
 }
 
