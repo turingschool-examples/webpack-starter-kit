@@ -366,25 +366,35 @@ export default {
     }
   },
 
-//   bankrupt() {
-//     $('footer').prepend(`
-//     <section class="bankrupt">
-//       <div class="result"><i class="fas fa-exclamation">BANKRUPT</i></div>
-//     </section>
-//   `).fadeOut(9000, function() {
-//     $('.bankrupt').remove();
-//   })
-// },
+  noInput() {
+      $('.warning').append(
+      `<article class="no-answer">
+          <h1>Enter A Guess Fam</h1>
+        </article>`)
+    }
+  
 
-// loseTurn() {
-//     $('footer').prepend(`
-//     <section class="lose-turn">
-//       <div class="result"><i class="fas fa-exclamation">LOSE TURN</i></div>
-//     </section>
-//   `).fadeOut(2000, function() {
-//     $('lose-turn').remove();
-//   })
-// }
+
+
+  bankrupt() {
+    $('footer').prepend(`
+    <section class="bankrupt">
+      <div class="result"><i class="fas fa-exclamation">BANKRUPT</i></div>
+    </section>
+  `).fadeOut(9000, function() {
+    $('.bankrupt').remove();
+  })
+},
+
+loseTurn() {
+    $('footer').prepend(`
+    <section class="lose-turn">
+      <div class="result"><i class="fas fa-exclamation">LOSE TURN</i></div>
+    </section>
+  `).fadeOut(2000, function() {
+    $('lose-turn').remove();
+  })
+}
 //   createWheel() {
 //       $('main').append(
 //     `<section id="theWheel">
