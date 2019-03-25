@@ -5,6 +5,8 @@ class Player {
     this.name = name || 'Joe';
     this.score = score || 0;
   }
+
+  
 }
 
 export default Player

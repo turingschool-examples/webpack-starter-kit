@@ -1,8 +1,5 @@
 /* Global Styles */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,700');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
-@import url('https://fonts.googleapis.com/css?family=Oswald:200,400,700');
 
 html {
   height: 100%;
@@ -97,10 +94,11 @@ input:focus {
   margin: 45px 0px 0px 22px;
   top: 39%;
   transition: all .5s ease;
+  background-color: #86f50de3;
 }
 
 .start-btn:hover {
-  background-color: #86f50de3;
+  background-color: #6770f8;
 }
 /* End of Input Form */
 
@@ -243,4 +241,22 @@ h3 {
 
 .spaces-not-displayed {
   background-color: gold;
+}
+
+.disable-selected-letters {
+  background: #6d6d6d;
+  box-shadow: none;
+  color: rgba(81, 91, 234, 0.66);
+  cursor: pointer;
+  opacity: .7;
+  pointer-events: none;
+}
+
+#disable-selected-letter {
+  background: #6d6d6d;
+  box-shadow: none;
+  color: rgba(81, 91, 234, 0.66);
+  cursor: pointer;
+  opacity: .7;
+  pointer-events: none;
 }

@@ -6,7 +6,7 @@ import Data from './Data'
 class Game {
   constructor() {
     this.players = []
-    this.stage = 3
+    this.stage = 0
     this.alphabet = []
     this.gameRoundsClueBank = null
     this.roundCards = []
@@ -20,6 +20,7 @@ class Game {
     this.createPlayerBox()
     this.createClues()
     this.roundInst.createNewRound(this)
+    console.log(this.players)
   //   console.log(this.roundInst.allRoundCards)
   }
 
@@ -42,40 +43,21 @@ class Game {
     for (var i = 0; i < allLetters.length; i++) {
       this.alphabet.push(allLetters[i])
     }
-  
   }
-
   createClues() {
     this.gameRoundsClueBank = Object.entries(Data.puzzles)
-   
     // this.roundCards = this.roundsBank[game.stage][1].puzzle_bank
-
   }
 
-  // createWheel() {
-  //   Object.values(Data.wheel).forEach(value => {
-  //     return this.roundWheel.push(value)
-  //   })
+  ///pass in wheelValue from wheel value function invocation ***********
+  updatePlayerScore(wheelValue) {
+    
    
-
-  //   console.log(this.roundWheel)
-  //   this.shuffle(this.roundWheel)
-  //   console.log(this.roundWheel)
-
-  //   let selectedWheels = []
-
-  //   //run a function to get 6 random numbers
-  //   //find the index of the 
-  //   let wheelNumber = this.randomNumber(this.roundWheel)
-  //   console.log('huh', randomSelectedWheel)
-  //   if(wheelNumber >= 17 )
-  //   selectedWheels.push()
-  //   // const weWheels = this.roundWheel.slice()
-  //   // this.roundWheel.sp
-  //   // let number = this.randomNumber(this.roundWheel)
-  //   // console.log(number)
-  // }
-
+    this.players[this.roundInst.activePlayer].score += this.roundInst.wheelInst.selectedValue
+    // return this.players[this.roundInst.activePlayer].score = cool
+console.log(this.players)
+    DomUpdates.updateRoundScore(this.players)
+  }
+  
 }
-
 export default Game

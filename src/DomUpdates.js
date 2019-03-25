@@ -1,37 +1,44 @@
 import $ from 'jquery';
 
 export default {
-  createGameBoard(array) {   
+    activateLetters() {
+        console.log('activate')
+      $('td.single-letter').removeClass('disable-selected-letters')
+    },
+  
+    createGameBoard(array) {  
     $('main').prepend(
       `<section id="letters-selected-area" class="letters-selected-area">
             <table class="letters-selected">
             <tr>
-                <td class="single-letter">${array[0]}</td>
-                <td class="single-letter">${array[1]}</td>
-                <td class="single-letter">${array[2]}</td>
-                <td class="single-letter">${array[3]}</td>
-                <td class="single-letter">${array[4]}</td>
-                <td class="single-letter">${array[5]}</td>
-                <td class="single-letter">${array[6]}</td>
-                <td class="single-letter">${array[7]}</td>
-                <td class="single-letter">${array[8]}</td>
-                <td class="single-letter">${array[9]}</td>
-                <td class="single-letter">${array[10]}</td>
-                <td class="single-letter">${array[11]}</td>
-                <td class="single-letter">${array[12]}</td>
-                <td class="single-letter">${array[13]}</td>
-                <td class="single-letter">${array[14]}</td>
-                <td class="single-letter">${array[15]}</td>
-                <td class="single-letter">${array[16]}</td>
-                <td class="single-letter">${array[17]}</td>
-                <td class="single-letter">${array[18]}</td>
-                <td class="single-letter">${array[19]}</td>
-                <td class="single-letter">${array[20]}</td>
-                <td class="single-letter">${array[21]}</td>
-                <td class="single-letter">${array[22]}</td>
-                <td class="single-letter">${array[23]}</td>
-                <td class="single-letter">${array[24]}</td>
-                <td class="single-letter">${array[25]}</td>
+            </tr>
+            <tr>
+                <td class="single-letter disable-selected-letters">${array[0]}</td>
+                <td class="single-letter disable-selected-letters">${array[1]}</td>
+                <td class="single-letter disable-selected-letters">${array[2]}</td>
+                <td class="single-letter disable-selected-letters">${array[3]}</td>
+                <td class="single-letter disable-selected-letters">${array[4]}</td>
+                <td class="single-letter disable-selected-letters">${array[5]}</td>
+                <td class="single-letter disable-selected-letters">${array[6]}</td>
+                <td class="single-letter disable-selected-letters">${array[7]}</td>
+                <td class="single-letter disable-selected-letters">${array[8]}</td>
+                <td class="single-letter disable-selected-letters">${array[9]}</td>
+                <td class="single-letter disable-selected-letters">${array[10]}</td>
+                <td class="single-letter disable-selected-letters">${array[11]}</td>
+                <td class="single-letter disable-selected-letters">${array[12]}</td>
+                <td class="single-letter disable-selected-letters">${array[13]}</td>
+                <td class="single-letter disable-selected-letters">${array[14]}</td>
+                <td class="single-letter disable-selected-letters">${array[15]}</td>
+                <td class="single-letter disable-selected-letters">${array[16]}</td>
+                <td class="single-letter disable-selected-letters">${array[17]}</td>
+                <td class="single-letter disable-selected-letters">${array[18]}</td>
+                <td class="single-letter disable-selected-letters">${array[19]}</td>
+                <td class="single-letter disable-selected-letters">${array[20]}</td>
+                <td class="single-letter disable-selected-letters">${array[21]}</td>
+                <td class="single-letter disable-selected-letters">${array[22]}</td>
+                <td class="single-letter disable-selected-letters">${array[23]}</td>
+                <td class="single-letter disable-selected-letters">${array[24]}</td>
+                <td class="single-letter disable-selected-letters">${array[25]}</td>
             </tr>
         </table>
     </section>
@@ -283,15 +290,15 @@ export default {
       <section id="player-score-area" class="player-score-area">
         <div id="player-score" class="player-score">
             <h2>${player[0].name}</h2>
-            <h2>${player[0].score}</h2>
+            <h2 class="player-1-score">${player[0].score}</h2>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[1].name}</h2>
-            <h2>${player[0].score}</h2>
+            <h2 class="player-2-score" >${player[0].score}</h2>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[2].name}</h2>
-            <h2>${player[0].score}</h2>
+            <h2 class="player-3-score">${player[0].score}</h2>
         </div>
     </section>`
     )
@@ -323,7 +330,24 @@ export default {
 
   createQuitGameBtn() {
     $('main').before(`<div class="quit-btn-container"><button>hello</button></div>`)
+  },
+
+  disableLetter(event) {
+      $(event.target).attr('id', 'disable-selected-letter')
+  },
+
+  deactivateLetters() {
+      console.log('deactivate')
+      $('td.single-letter').addClass('disable-selected-letter')
+    },
+
+
+  updateRoundScore(players) {
+    //   `.player-${player}-score`
+    $('.player-1-score').text(players[0].score)
+console.log('jquery', $('.player-1-score').text())
   }
+
 //   createWheel() {
 //       $('main').append(
 //     `<section id="theWheel">
