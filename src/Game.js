@@ -9,7 +9,6 @@ import $ from 'jquery';
 
 class Game {
 	constructor(round, dailyDoubles, cardsClicked) {
-    // this.player = getPlayerNames();
 		this.round = 1;
 		this.dailyDoubles = 1;
 		this.cardsClicked = 0;
@@ -19,7 +18,6 @@ class Game {
     this.columnTwo = [];
     this.columnThree = [];
     this.columnFour = [];
-    // this.currentQuestions = [];
 	}
 
   getPlayerNames(names) {
@@ -29,14 +27,11 @@ class Game {
     });
     this.currentPlayers = players;
     domUpdates.updatePlayerNames(this.currentPlayers);
-    // console.log(players);
-      // startGame(inputPlayerOne, inputPlayerTwo, inputPlayerThree);
-    // });
+
   }
 
   setRoundOne() {
     let newRound = new Round(this);
-    // let newCard = new Card(this);
     newRound.setCategories(this);
     domUpdates.appendCategoryNames(this);
     newRound.createCards(this);

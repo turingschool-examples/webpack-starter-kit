@@ -11,11 +11,10 @@ class Round {
         console.log(this.currentQuestions);
 	}
 
-    
+
 
 	setCategories(game) {
    const categoryData = Object.entries(data.categories);
-   // console.log(categoryData);
 		   Array.prototype.shuffle = function() {
     var input = this;    
     for (var i = input.length-1; i >=0; i--) {
