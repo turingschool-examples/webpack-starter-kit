@@ -23,6 +23,20 @@ body {
   margin: auto;
 }
 
+.start-game-pop-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #524348;
+  height: 100%;
+  width: 100%;
+  border-radius: 2%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 #game-area {
   display: flex;
   flex-direction: row;
@@ -32,6 +46,7 @@ body {
   box-shadow: 0 0 0 3px #B3360E;
   background-color: #524348;
   color: lightgrey;
+  position: relative;
 }
 
 #user-area {
