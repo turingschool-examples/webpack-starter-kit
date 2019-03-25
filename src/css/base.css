@@ -337,13 +337,14 @@ footer {
 }
 /* ! red border  for current player */
 .big-red-border {
-  border: 2px solid lime;
+  /* border: 2px solid lime; */
   padding: 10px;
   width:80%;
   color: white;
+  text-decoration: underline;
   border-radius: 20px;
-  animation: fadeIn 1s linear;
-  transform: translate(-9px, -11px);
+  animation: fadeIn 2s linear;
+  transform: translate(-10px, -10px);
 }
 @keyframes fadeIn {
   0% { opacity: 0 }
