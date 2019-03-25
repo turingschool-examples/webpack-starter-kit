@@ -40,5 +40,7 @@ export default {
       $(".category-three").text(fancyCategoryNames[2]);
       $(".category-four").text(fancyCategoryNames[3]);
   }
+
+  
 }
 

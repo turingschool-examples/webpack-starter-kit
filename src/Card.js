@@ -4,17 +4,12 @@ import Round from './Round.js';
 
 class Card {
 	constructor(answer, categoryID, pointValue, question) {
-		// this.category = category;
 		this.answer = answer;
 		this.categoryID = categoryID;
 		this.pointValue = pointValue;
 		this.question = question;
-		// this.categoryId = categoryId;
-		// this.isDailyDouble = false;
-		// this.column = pickColumn(round);
-		// this.allCategoryNames = [];
+		this.isDailyDouble = false;
 		// console.log(this)
-		// game.currentQuestions.push(this);
 	}
 
 	pickColumn(round) {

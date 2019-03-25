@@ -11,6 +11,8 @@ class Round {
         console.log(this.currentQuestions);
 	}
 
+    
+
 	setCategories(game) {
    const categoryData = Object.entries(data.categories);
    // console.log(categoryData);
@@ -61,7 +63,7 @@ class Round {
     }
 
     sortQuestions(game) {
-        console.log(game.roundOneCategories);   
+        // console.log(game.roundOneCategories);   
         this.currentQuestions.forEach(question => {
             if (question.categoryID === game.roundOneCategories[0][1]) {
                 game.columnOne.push(question);
