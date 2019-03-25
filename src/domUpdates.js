@@ -42,9 +42,9 @@ export default {
     }
   },
 
-  appendWords (splitPuzzle) {
+  appendWords (puzzleLine) {
     let tileClass;
-    splitPuzzle.forEach(index => {
+    puzzleLine.forEach(index => {
       if (index === ' ' || index === '-') {
         tileClass = 'space';
       } else {
@@ -54,13 +54,16 @@ export default {
     });
   },
 
-  appendPuzzle (puzzle, splitPuzzle) {
-    if (splitPuzzle.length <= 14 ) {
-      this.fillSpace(splitPuzzle.length, false);
-      this.appendWords(splitPuzzle);
-      this.fillSpace(splitPuzzle.length, true);
-    } else if (splitPuzzle.length > 14) {
-      
+  appendPuzzle (line1, line2) {
+    console.log(line1, line2)
+    this.fillSpace(line1.length, false);
+    this.appendWords(line1);
+    this.fillSpace(line1.length, true);
+    if (line2 !== null) {
+      $(`.puzzle`).addClass('two-line');
+      this.fillSpace(line2.length, false);
+      this.appendWords(line2);
+      this.fillSpace(line2.length, true);
     }
   },
 
