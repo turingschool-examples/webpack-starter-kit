@@ -21,7 +21,7 @@ body {
 .msg {
   display: none;
   font-size: 1.3em;
-  margin: 20px auto 0;
+  margin: 15px auto 0;
   color: #b20303;
 }
 
@@ -111,7 +111,8 @@ header h1{
 }
 
 .player-area {
-  border: 4px solid gray;
+  color: darkgray;
+  border: 5px solid darkgray;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -120,10 +121,12 @@ header h1{
   justify-content: center;
   background: white;
   width: 175px;
+  font-weight: 900;
 }
 
 .active-player-area {
-  border: 4px solid #b20303;
+  border: 5px solid #b20303;
+  color: #333;
 }
 
 .player-1-name,
@@ -131,10 +134,6 @@ header h1{
   font-size: 1.3em;
   margin: 0;
 }
-
-/*.active-player {
-  display: inline-block;
-}*/
 
 .player-score {
   font-size: 4em;

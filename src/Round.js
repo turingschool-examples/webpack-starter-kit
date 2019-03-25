@@ -40,6 +40,7 @@ class Round {
   }
 
   endRound(game) {
+    domUpdates.endOfRoundMsg();
     domUpdates.clearAnswerBoard();
     game.toggleActivePlayer();
     game.startNewRound();

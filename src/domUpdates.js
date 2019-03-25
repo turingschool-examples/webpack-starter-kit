@@ -54,6 +54,12 @@ export default {
       $("#must-enter-guess-msg").delay(850).fadeOut(); 
     });
   },
+
+  endOfRoundMsg() {
+    $("#round-winner-msg").fadeIn("fast", function() {
+      $("#round-winner-msg").delay(850).fadeOut(); 
+    });
+  },
     
   clearAnswerBoard() {
     $(".answer-data").addClass("hidden");
