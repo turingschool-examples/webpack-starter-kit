@@ -6,7 +6,7 @@
   </head>
   <body>
     <header>
-        <img class="header-img" src="https://fontmeme.com/permalink/190321/eac8ea22ca3d6807f5fb76129fd7eb34.png" alt="get-schwifty-font" border="0">
+        <img class="header-img" src="https://fontmeme.com/permalink/190321/eac8ea22ca3d6807f5fb76129fd7eb34.png" alt="Wheel of Mortys image title" border="0">
     </header>
     <section class="splash">
         <h2>Enter Player Names</h2>
@@ -19,23 +19,21 @@
     <main class="game-page">
       <section>
         <h2 class="category">Category:</h2>
-        <div class="word-box">
-          <!-- words box here-->
-          <p>Letters Used: <span  class="letters-used"></span></p>
-        </div>
         <h2 class="description">Description:</h2>
-        <div class="spin-pop-up">
+        <div label="gameboard" class="word-box">
+        </div>
+        <div label="player input field" class="spin-pop-up">
           <!-- <p>enter letter here:</p> -->
           <input class="ltr-input gues-cons" type="text" maxlength="1">
           <button class="check-btn guess-cons">Consonant Guess:</button>
           <input type="text" class="input-solve" placeholder="Solve the Puzzle">
           <button class="final-solution-btn">Solve Puzzle</button>
-          <div class="vowels-to-buy">
-            <span>A</span>
-            <span>E</span>
-            <span>I</span>
-            <span>O</span>
-            <span>U</span>
+          <div label="vowels" class="vowels-to-buy">
+            <button>A</button>
+            <button>E</button>
+            <button>I</button>
+            <button>O</button>
+            <button>U</button>
           </div>
         </div>
       </section>
@@ -43,7 +41,8 @@
         <img class="wheel-img" src="images/portal.png">
         <h4 class="prize-container"><span class="prize"></span></h4>
         <div class="possible-prizes"><p>Prizes:</p></div>
-        <div>
+        <p>Letters Used: <span class="letters-used"></span></p>
+        <div label="gameplay buttons">
           <button class="btn-solve">SOLVE</button>
           <button class="btn-spin">SPIN</button>
           <button class="buy">BUY A VOWEL</button>
@@ -64,13 +63,13 @@
         <h4 class="player-bank-label">Bank:<span class="player-bank">100</span></h4>
       </article>
       <article>
-          <img class="player-image player-two" src="/images/Mr_poopy_butthole.png" alt="player-one">
+        <img class="player-image player-two" src="/images/Mr_poopy_butthole.png" alt="player-one">
         <h3 class="player-name" id="p2Name-board">Player 2</h3>
         <h4 class="player-score-label">Score:<span class="player-score">100</span></h4>
         <h4 class="player-bank-label">Bank:<span class="player-bank">100</span></h4>
       </article>
       <article>
-          <img class="player-image player-three" src="/images/Pickle_rick.png" alt="player-one">
+        <img class="player-image player-three" src="/images/Pickle_rick.png" alt="player-one">
         <h3 class="player-name active" id="p3Name-board">Player 3</h3>
         <h4 class="player-score-label">Score:<span class="player-score">100</span></h4>
         <h4 class="player-bank-label">Bank:<span class="player-bank">100</span></h4>

@@ -36,3 +36,54 @@ $player: hsla(106, 75%, 85%, .6);
     transform: rotate(-720deg);
   }
 }
+
+@keyframes drop-shadow {
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@keyframes bounce-right {
+  0% {
+    transform: translateX(48px);
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(26px);
+    animation-timing-function: ease-in;
+  }
+  65% {
+    transform: translateX(13px);
+    animation-timing-function: ease-in;
+  }
+  82% {
+    transform: translateX(6.5px);
+    animation-timing-function: ease-in;
+  }
+  93% {
+    transform: translateX(4px);
+    animation-timing-function: ease-in;
+  }
+  25%,
+  55%,
+  75%,
+  87%,
+  98% {
+    transform: translateX(0px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateX(0px);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+}
