@@ -15,6 +15,7 @@ class Game {
 		this.cardsClicked = 0;
 		this.roundOneCategories = [];
     this.currentPlayers = [];
+    // this.currentQuestions = [];
 	}
 
   getPlayerNames(names) {
@@ -31,19 +32,11 @@ class Game {
 
   setRoundOne() {
     let newRound = new Round(this);
-    let newCard = new Card(this);
+    // let newCard = new Card(this);
     newRound.setCategories(this);
     domUpdates.appendCategoryNames(this);
     newRound.createCards(this);
   }
-
-
-    // let shuffledCategories = categoryData.shuffle();
-    // round.allCategoryNames.push(shuffledCategories);
-    // currentCategories = shuffledCategories.splice(6,5);
-    // console.log(currentCategories)
-    // console.log(shuffledCategories)
-
 }
 
 export default Game;

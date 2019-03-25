@@ -7,6 +7,8 @@ class Round {
 		this.round = 1;
 		this.allCategoryNames = [];
 		this.currentCategories = [];
+        this.currentQuestions = [];
+        console.log(this.currentQuestions);
 	}
 
 	setCategories(game) {
@@ -51,12 +53,14 @@ class Round {
                 let categoryId = clue.categoryId;
                 let pointValue = clue.pointValue;
                 let question = clue.question
-            return new Card(answer, categoryId, pointValue, question);
+                var newCard = new Card(answer, categoryId, pointValue, question);
+                newCard.pickColumn(this);
+            return newCard
+            });   
         });
-            console.log(roundOneClues);
-        });
-
     }
+
+
 }
 
 export default Round;

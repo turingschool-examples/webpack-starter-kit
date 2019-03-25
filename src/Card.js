@@ -11,14 +11,16 @@ class Card {
 		this.question = question;
 		// this.categoryId = categoryId;
 		// this.isDailyDouble = false;
-		// this.column = this.pickColumn();
+		// this.column = pickColumn(round);
 		// this.allCategoryNames = [];
-		console.log(this)
+		// console.log(this)
+		// game.currentQuestions.push(this);
 	}
 
-	// pickColumn(game) {
-	// 	console.log(card);
-	// }
+	pickColumn(round) {
+		// console.log(this)
+		const usefulQuestions = round.currentQuestions.push(this);
+	}
 
 }
 
