@@ -11,9 +11,14 @@ export default {
     })
   },
   updatePlayerScore(game) {
-    let currPlayer = game.currentRound.currentPlayer;
-    $(`.player-${currPlayer.playerNum}__current-points`).text(`${currPlayer.roundCaps}`);
-    $(`.player-${currPlayer.playerNum}__totals-points`).text(`${currPlayer.totalCaps}`);
+    // !! update all player scores every time this is invoked, not just the current player e.g. use a map or some sort of iteration
+    // let currPlayer = game.currentRound.currentPlayer;
+    // $(`.player-${currPlayer.playerNum}__current-points`).text(`${currPlayer.roundCaps}`);
+    // $(`.player-${currPlayer.playerNum}__totals-points`).text(`${currPlayer.totalCaps}`);
+    game.players.map((player, index) => {
+    $(`.player-${index + 1}__current-points`).text(`${player.roundCaps}`);
+    $(`.player-${index + 1}__total-points`).text(`${player.totalCaps}`);
+    })
   },
   showCurrentPlayer(game){
     let currPlayer = game.currentRound.currentPlayer;

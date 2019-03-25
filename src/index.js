@@ -60,6 +60,7 @@ $('.start__start--btn').click(() =>{
     // * Filtered Array
     wrdGuessArr = wrdGuessArr.map(letter => letter.toUpperCase());
     wrdGuessArr = wrdGuessArr.filter(letter => alphabetArr.includes(letter));
+    DomUpdates.updatePlayerScore(game);
     game.currentRound.wholeWord = game.currentRound.wholeWord.filter(letter => alphabetArr.includes(letter))
     game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
     // ! end round here
