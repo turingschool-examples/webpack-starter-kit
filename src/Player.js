@@ -13,7 +13,7 @@ class Player {
         if(value === 'BANKRUPT') {
             this.bank = 0
         } else if (value === 'LOSE A TURN') {
-            game.playersTurn()
+            game.playerTurns()
         } else {
             this.bank += value
         }

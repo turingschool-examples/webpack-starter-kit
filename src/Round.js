@@ -28,6 +28,11 @@ class Round{
         domUpdates.changeCategory(this.answerCategories[stage]);
         domUpdates.changeClue(this.answerClues[stage]) ; 
     }
+    resetRound () {
+        this.allCorrectAnswers = [];
+        this.answerClues = [];
+        this.answerCategories = [];
+    }
 }
 
 export default Round;

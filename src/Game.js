@@ -61,6 +61,15 @@ class Game {
             console.log(this.currentPlayer)
         }
     }
+    
+    resetGame(){
+        this.usedLetters = [];
+        this.stage = 0;
+        this.players = [];
+        this.currentPlayer = this.players[0];
+        domUpdates.resetNames()
+        this.round.resetRound();
+    }
 
 }
 

@@ -41,8 +41,13 @@ let domUpdates = {
 
     toggleSpin() {
         $('.spinButton').attr('disable', '');
-    }
+    },
 
+    resetNames() {
+        $('.player').eq(0).text('Player 1')
+        $('.player').eq(1).text('Player 2')
+        $('.player').eq(2).text('Player 3')
+    }
 }
 
 export default domUpdates;
