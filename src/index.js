@@ -39,7 +39,7 @@ $(document).ready( () => {
   $('.check-btn, .btn-solve, .buy').click( () => {
     $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
     $('.vowels-to-buy, .ltr-input, .check-btn, .input-solve, .final-solution-btn').hide();
-    game.changeTurn();
+    // game.changeTurn();
   });
 
 })

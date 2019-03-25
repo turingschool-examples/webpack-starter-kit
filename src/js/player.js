@@ -5,16 +5,16 @@ class Player {
     this.name = name;
     this.answer = answer;
     this.currentScore = 0;
-    this.totalScore = 0;
+    this.totalScore = 1000;
   }
 
-  addScore(wheel) {
-    this.currentScore += wheel.currentValue;
+  addScore(prize) {
+    this.currentScore += prize;
   }
 
-  subtractScore(wheel) {
+  buyVowel() {
     console.log(this.currentScore)
-    // this.currentScore -= wheel.currentValue;
+    this.totalScore = this.currentScore - 100;
   }
 }
 
