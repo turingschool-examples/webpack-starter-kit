@@ -61,7 +61,14 @@ const domUpdates = {
     $(".wrong-guess").addClass("hidden");
   },
 
-  animateKnight: function() {
+  animateKnight: function(round) {
+    let src = "./images/round-one.png"
+    if(round === 2) {
+      src = "./images/round-two.png";
+    } else if (round === 3) {
+      src = "./images/final-round.png";
+    }
+    $(".round-banner-text").attr("src", src);
     $(".round-banner").css({'left': '1200px; display: block'}).animate({'left' : '-1400px'}, 4000);
   }
 

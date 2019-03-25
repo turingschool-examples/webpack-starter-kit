@@ -16,6 +16,7 @@ class Game {
     if (this.currentRound < 2) {
       this.currentRound++;
       let round = new Round(this);
+      domUpdates.animateKnight(this.currentRound);
       domUpdates.populateSurvery(round);
       domUpdates.populateAnswers(round);
       return round;
