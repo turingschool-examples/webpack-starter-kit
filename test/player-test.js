@@ -1,11 +1,16 @@
 import chai from 'chai';
 const expect = chai.expect;
 
+import spies from 'chai-spies';
+chai.use(spies);
+
 import Player from '../src/Player.js';
 import Game from '../src/Game.js';
 import Round from '../src/Round.js';
 import data from '../src/gamedata.js';
+import domUpdates from '../src/domUpdates.js';
 
+chai.spy.on(domUpdates, ['revealCorrectAnswer', 'updateScore', 'showGuessMessage', 'toggleActivePlayer'], () => true);
 
 describe('Player', function() {
   let round, game, player1, player2;
@@ -67,7 +72,7 @@ describe('Player', function() {
       let testRound = new Round(game);
       testRound.survey = data.surveys[0];
       testRound.answers = data.answers.filter(answer => answer.surveyId === 1);
-      player1.makeGuess('BEER', game, testRound)
+      player1.makeGuess('BEER', game, testRound);
       expect(player1.score).to.equal(67);
     });
   });
