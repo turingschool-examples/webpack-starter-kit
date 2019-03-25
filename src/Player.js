@@ -6,6 +6,7 @@ class Player {
 
     addScore(num) {
         this.score += num;
+        console.log('updscore', this.score)
     //     game.checkPlayer()
     //     const newScore = game.answers[i].response;
     //     this.score += this.newScore['player1${currentPlayer}']

@@ -25,10 +25,11 @@ export default {
     </section>`
 )},
 
-  startBtn() {
- 
-  }
-  
+  // appendAnswer() {
+  //   $('.class').text('');
+  //   $('class').append(correctGuess);
+  // }
+
 }
 
 

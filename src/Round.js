@@ -16,34 +16,35 @@ class Round {
         let answers = this.questionSet.answers;
         let answerSet = [];
         answers.forEach((answer) => {
-            answerSet.push(answer.answer);
+            answerSet.push(answer.answer, answer.respondents);
         });
+            console.log('ouranswers', answerSet);
         $('.answerInput').val('');
         
-        // if (answerSet.includes(guess)) {
-        //     appendAnswer(); // easy win on the DOM!
-        //     player.addScore(); // method of Player or Game?
+        let correctGuess = [];
+        if (answerSet.find((guess) => {
+            correctGuess.push(answer.answer, answer.respondents);
+            console.log('correct guess', correctGuess);
+            // domUpdates.appendAnswer(correctGuess);
+            player.addScore(answer.respondents);
+        });
+            console.log('respondent value', answer.respondents);
         // } else {
         //     $('.wrongAnswer').css('visibility', 'visible');
         //     game.switchPlayers() // method of Game
         // }
-    };
+    );
+}
+}
+    // getRespondents(guess) {
 
+    // }
     // if(guess == '') {
     //     $('.errorMessage').css('visibility', 'visible');
     // };
-}
 
 
 
-
-
-    //appendAnswer() {
-
-
-//remove 1
-        // $('#responseOne').append();  
-       // }
     // endRound()     
     // }
 // }
