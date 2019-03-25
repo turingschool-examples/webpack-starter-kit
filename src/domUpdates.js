@@ -4,6 +4,10 @@ import Game from './Game.js';
  // $('.submitBtn').on('click', round.getAnswer());
 
  
+// $('#submitBtn').on('click', round.checkAnswer);
+
+
+ 
 
 export default {
 
@@ -25,6 +29,8 @@ export default {
 )
 },
 
+
+
   
 }
 
@@ -32,5 +38,6 @@ export default {
 //update scores
 //update questions
 //update answers
+
 
 

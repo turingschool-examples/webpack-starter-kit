@@ -48,10 +48,11 @@ body {
 }
 
 #startBtn {
-  background-color: green;
+    background-color: #54f301;
   color: white;
   height: 50px;
   outline: none;
+  border: white 2px solid;
  /* fix this - do not get ride of this, just adjust*/
 }
 
@@ -63,7 +64,6 @@ body {
   color: white;
   font-size: 1em;
   margin: 3% 0;
-  margin-top: 20%;
 }
 
 #bar {
@@ -183,7 +183,7 @@ body {
 
 #submitBtn {
   background-color: #54f301;
-  color: #0a4696;
+  color: white;
 
 }
 

@@ -10,34 +10,36 @@ class Round {
             // update the DOM - survey
       }
 
-        // getAnswer() {
-        // let guess = $('.answerInput').val();
-        // checkAnswer(guess);
-        // console.log('happy');
+        getAnswer() {
+         let guess = $('.answerInput').val();
+        checkAnswer(guess);
+        console.log('happy');
         
-        // }
-
-        checkAnswer() {
-            // if(guess === this.surveys.)
-        //   if(answer ==== answer) {
-        //     update DOM to change answer, correctAnswer ++, player.score ++
-        //   } else {
-        //      wrong answer pop up 
-        //      switchPlayer()
-        //   }
-        // }
-        //for new player
-        //keep checking answers
-     }
-
-        appendAnswer() {
-//remove 1
-        // $('#responseOne').append();  
         }
 
-     endRound() {
+   //  checkAnswer() {
+   //  if(answerInput != //answer from dataset ) {
+   //  $('.answerInput').reset()
+   //  //wrong answer error message
+   //  game.switchPlayers()
+   //  }
+
+   // if(answerInput ==== //answer from dataset ) {
+   //  $('.answerInput').reset()
+   //  appendAnswer()
+   //  game.addScore()
+       
+   //   }
+   }
+
+        //appendAnswer() {
+//remove 1
+        // $('#responseOne').append();  
+       // }
+
+    // endRound() {
         
-     }
+    // }
 }
 
 // } when correctAnswer === 3, end round
