@@ -26,7 +26,7 @@ class Game {
   }
 
   updateDOM(round) {
-    domUpdates.animateKnight();
+    domUpdates.animateKnight(this.currentRound);
     setTimeout(function () {
       domUpdates.populateSurvery(round);
       domUpdates.populateAnswers(round)
