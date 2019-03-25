@@ -1,12 +1,12 @@
 import $ from 'jquery';
 
 export default {
-    activateLetters() {
-        console.log('activate')
-      $('td.single-letter').removeClass('disable-selected-letters')
-    },
+  activateLetters() {
+    console.log('activate')
+    $('td.single-letter').removeClass('disable-selected-letters')
+  },
   
-    createGameBoard(array) {  
+  createGameBoard(array) {  
     $('main').prepend(
       `<section id="letters-selected-area" class="letters-selected-area">
             <table class="letters-selected">
@@ -290,15 +290,15 @@ export default {
       <section id="player-score-area" class="player-score-area">
         <div id="player-score" class="player-score">
             <h2>${player[0].name}</h2>
-            <h2 class="player-1-score">${player[0].score}</h2>
+            <h2 class="bank-score player-1">${player[0].playerBank}</h2>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[1].name}</h2>
-            <h2 class="player-2-score" >${player[0].score}</h2>
+            <h2 class="bank-score player-2" >${player[1].playerBank}</h2>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[2].name}</h2>
-            <h2 class="player-3-score">${player[0].score}</h2>
+            <h2 class="bank-score player-3">${player[2].playerBank}</h2>
         </div>
     </section>`
     )
@@ -329,25 +329,49 @@ export default {
   },
 
   createQuitGameBtn() {
-    $('main').before(`<div class="quit-btn-container"><button>hello</button></div>`)
+    $('footer').append(`<div class="quit-btn-container"><button>hello</button></div>`)
   },
 
   disableLetter(event) {
-      $(event.target).attr('id', 'disable-selected-letter')
+    $(event.target).attr('id', 'disable-selected-letter')
   },
 
   deactivateLetters() {
-      console.log('deactivate')
-      $('td.single-letter').addClass('disable-selected-letter')
-    },
+    console.log('deactivate')
+    $('td.single-letter').addClass('disable-selected-letter')
+  },
 
 
-  updateRoundScore(players) {
-    //   `.player-${player}-score`
-    $('.player-1-score').text(players[0].score)
-console.log('jquery', $('.player-1-score').text())
-  }
+  updateRoundScore(playerBankValue, activePlayerValue) {
+    let playerScoreElement = $('.bank-score')
+    if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
+      $('.bank-score.player-1').text(playerBankValue)
+    } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-2') === true) {
+      $('.bank-score.player-2').text(playerBankValue)
+    } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-3') === true) {
+      $('.bank-score.player-3').text(playerBankValue)
+    }
+  },
 
+//   bankrupt() {
+//     $('footer').prepend(`
+//     <section class="bankrupt">
+//       <div class="result"><i class="fas fa-exclamation">BANKRUPT</i></div>
+//     </section>
+//   `).fadeOut(9000, function() {
+//     $('.bankrupt').remove();
+//   })
+// },
+
+// loseTurn() {
+//     $('footer').prepend(`
+//     <section class="lose-turn">
+//       <div class="result"><i class="fas fa-exclamation">LOSE TURN</i></div>
+//     </section>
+//   `).fadeOut(2000, function() {
+//     $('lose-turn').remove();
+//   })
+// }
 //   createWheel() {
 //       $('main').append(
 //     `<section id="theWheel">

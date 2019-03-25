@@ -260,3 +260,31 @@ h3 {
   opacity: .7;
   pointer-events: none;
 }
+.bankrupt {
+  position: fixed;
+  padding-left: 3rem;
+  bottom: 47%;
+  height: 121px;
+  width: 274px;
+  background-color: #00020ec9;
+  z-index: 1;
+  color: yellow;
+  font-size: 50px;
+}
+.lose-turn {
+  position: fixed;
+  padding-left: 3rem;
+  bottom: 47%;
+  height: 121px;
+  width: 274px;
+  background-color: #00020ec9;
+  z-index: 1;
+  color: yellow;
+  font-size: 50px;
+}
+
+.quit-btn-container{
+  background: red;
+  width: 30px;
+  height: 30px
+}
