@@ -13,23 +13,45 @@
   <div class="wrapper">
     <h1><img id="logo" src="images/turing-logo.png" alt="logo"></h1>
     <section id="game-area">
-      <section id="user-area">
-        <div id="player-1" class="player-info">
-          <h3>Player 1</h3>
-          <p><span class="player-one-name">Name</span>: <span class="player-one-score">0</span></p>
-          <label for="player-one-input">Player One Name</label>
-          <input type="text" id="player-one-input">
-        </div>
-        <div id="player-2" class="player-info">
-          <h3>Player 2</h3>
-          <p><span class="player-two-name">Name</span>: <span class="player-two-score">0</span></p>
-          <label for="player-two-input">Player Two Name</label>
-          <input type="text" id="player-two-input">
-        </div>
-        <div id="button-container">
-          <button id="start-game-btn">Start Game</button>
-          <button id="new-game-btn">New Game</button>
-        </div>
+    <section class="start-game-pop-up">
+      <div>
+        <label for="player-one-input">Player One Name</label>
+        <input type="text" id="player-one-input">
+      </div>
+      <div>
+        <label for="player-two-input">Player Two Name</label>
+        <input type="text" id="player-two-input">
+      </div>
+      <div>
+        <button id="start-game-btn">Start Game</button>
+      </div>
+    </section>
+
+    <section class="next-round-pop-up">
+      <h2>ROUND COMPLETE</h2>
+    </section>
+    <section id="user-area">
+      <div id="player-1" class="player-info">
+        <h3>Player 1</h3>
+        <p><span class="player-one-name">Name</span>: <span class="player-one-score">00</span></p>
+        <label for="player-one-input">Player One Name</label>
+        <input type="text" id="player-one-input">
+      </div>
+      <div id="player-2" class="player-info">
+        <h3>Player 2</h3>
+        <p><span class="player-two-name">Name</span>: <span class="player-two-score">00</span></p>
+        <label for="player-two-input">Player Two Name</label>
+        <input type="text" id="player-two-input">
+      </div>
+      <div id="button-container">
+        <button id="start-game-btn">Start Game</button>
+        <button id="new-game-btn">New Game</button>
+      </div>
+    </section>
+    <section id="current-round">
+      <p><span class="current-player">current player</span>'s Turn</p>
+      <section id="current-round-total">
+        <h2>00</h2>
       </section>
       <section id="current-round">
         <p class="current-player"><span>current player</span>'s Turn</p>

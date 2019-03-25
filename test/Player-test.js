@@ -21,14 +21,27 @@ describe('Player', () => {
   });
 
   it('should have a player number', () => {
-    const player1 = new Player('Brennan', 1);
-    assert.equal(player1.number, 1)
+    const player = new Player('Brennan', 1);
+    assert.equal(player.number, 1);
   }); 
 
-  it('should be able to get its name', () => {
-    const player = new Player('Brennan');
-    assert.equal(player.getName(), 'Brennan');
+  it('should be able to update score', () => {
+    const player = new Player('Brennan', 1);
+    player.updateScore(25);
+    assert.equal(player.score, 25);
   });
+
+  it('should be able add score from non zero number', () => {
+    const player = new Player('Brennan', 1);
+    player.updateScore(25);
+    player.updateScore(35);
+    assert.equal(player.score, 60);
+  });
+
+  // it('should be able to get its name', () => {
+  //   const player = new Player('Brennan');
+  //   assert.equal(player.getName(), 'Brennan');
+  // });
 
   // // ! maybe belongs in Game
   // it('should be able to update its score', () => {
