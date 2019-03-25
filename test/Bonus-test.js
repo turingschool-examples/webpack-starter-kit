@@ -1,5 +1,4 @@
-import Bonus from '../src/Bonus.js';
-import Wheel from '../src/Wheel.js';
+import Bonus from '../src/Bonus.js'; import Wheel from '../src/Wheel.js';
 import chai from 'chai';
 const expect = chai.expect;
 

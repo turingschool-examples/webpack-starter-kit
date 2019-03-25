@@ -46,4 +46,8 @@ $('#js-solve-button').on('click', function() {
 $('#js-submit-button').on('click', function(e) {
   e.preventDefault();
   domUpdates.checkUserGuess(game);
+  $('.input').val('');
+
+
 });
+

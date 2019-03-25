@@ -4,9 +4,11 @@ import data from './data.js';
 import Puzzle from './Puzzle.js';
 
 class Game {
-  constructor() {
+  constructor(player) {
     this.allPuzzles = [];
     this.players = [];
+    this.currentPlayer = player;
+    this.currentRound = 0;
     this.currentPuzzle = null;
   }
 

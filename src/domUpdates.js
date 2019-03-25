@@ -66,13 +66,7 @@ let domUpdates = {
     if(letter === currentLetter) {
       $('.letter:contains("'+letter+'")').css('color', 'white' );
      console.log(currentLetter);
-     //https://api.jquery.com/contains-selector/
-
-    }
-    //find letter at index of answer array that matches the currentLetter at it's index and then turn it into css property white
-      //if user guesses correct letter it will toggle the letter to display on dom
-      //push the current lettter to the guessed bank within puzzle class
-      //maybe use .each() & .eq() to iterate through the answer and match it with currentLetter
+      }
     })
   },
 
