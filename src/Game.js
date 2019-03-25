@@ -1,8 +1,7 @@
 import gameData from './data.js';
 import domObject from './DOMupdates.js';
 import Round from './Round.js';
-//import html for whoseturn method
-
+import $ from 'jquery';
 
 let round = new Round;
 
@@ -18,14 +17,15 @@ class Game {
     this.currentAnswer = round.currentAnswer;
   }
   startNextRound() {
-    console.log('outside:',this.currentRound);
+    // console.log('outside:',this.currentRound);
     if (this.currentAnswer.length === 0 && this.currentRound < 2) {
       round.generateRound();
       this.currentAnswer = round.currentAnswer;
       this.currentRound++;
-      console.log(this.currentRound, 'inside');
     } else if (this.currentAnswer.length === 0 && this.currentRound == 2) {
-      console.log('detects round 3');
+      // console.log(this.currentRound, 'inside');
+      // console.log('detects round 3');
+      $(".round3").removeClass('hidden')
       this.currentRound++;
       round.generateRoundTimed();
       this.currentAnswer = round.currentAnswer;

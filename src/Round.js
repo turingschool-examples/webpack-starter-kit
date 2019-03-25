@@ -38,11 +38,11 @@ class Round {
   }
 
   generateQuestion() {
-    console.log('starting length:', this.copiedQuestions.length);
+    // console.log('starting length:', this.copiedQuestions.length);
     const randomNumber = genNumber(this.copiedQuestions);
-    console.log('Random Number:', randomNumber);
+    // console.log('Random Number:', randomNumber);
     const questionObject = this.copiedQuestions.splice(randomNumber, 1);
-    console.log('post-spliced length:', this.copiedQuestions.length);
+    // console.log('post-spliced length:', this.copiedQuestions.length);
     const questionString = questionObject[0].question;
     domObject.createQuestion(questionString);
     function genNumber(shrinkingArray) { 
