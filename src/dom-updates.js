@@ -12,8 +12,8 @@ export default {
   },
   updatePlayerScore(game) {
     let currPlayer = game.currentRound.currentPlayer;
-    $(`.player-${currPlayer.playerNum}__current-points`).text(`$ ${currPlayer.roundCaps}`);
-    $(`.player-${currPlayer.playerNum}__totals-points`).text(`$ ${currPlayer.totalCaps}`);
+    $(`.player-${currPlayer.playerNum}__current-points`).text(`${currPlayer.roundCaps}`);
+    $(`.player-${currPlayer.playerNum}__totals-points`).text(`${currPlayer.totalCaps}`);
   },
   showCurrentPlayer(game){
     let currPlayer = game.currentRound.currentPlayer;
@@ -23,15 +23,24 @@ export default {
     let lettersRemaining = $('.letters__remaining');
     lettersRemaining.text(game.currentRound.allRoundGuesses);
   },
+  updateRoundNumber(game) {
+    $('#rnd-num').text(game.currentRound.roundNumber)
+    console.log("round-num: ", game.currentRound.roundNumber)
+  },
   updateRoundHintCategory(game) {
     // console.log(game.currentRound.roundPuzzle);
     //category
     $('.hint__title').text(`Category: ${game.currentRound.roundPuzzle.cat} | `);
     //hint
     $('.hint__value').text(`Hint: ${game.currentRound.roundPuzzle.description}`);
+    this.updateRoundNumber(game);
   },
   appendPuzzle(game){
+    // ! remove children of board--container
+    // !!!
     let valueBoard = $('.board__tile-value--container');
+    valueBoard.html('');
+    $('.letters__remaining').html('_');
     const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     // console.log(game.currentRound.answer) puzzle array
     game.currentRound.answer.map((letter, index)=>{
