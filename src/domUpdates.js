@@ -43,7 +43,7 @@ export default {
     $(".player-2-score").text("0");
   },
 
-  showNoMatch() {
+  showNoMatchMsg() {
     $("#no-match-msg").fadeIn("fast", function() {
       $("#no-match-msg").delay(850).fadeOut(); 
     });
@@ -55,6 +55,12 @@ export default {
     });
   },
 
+  showAlreadyTriedMsg() {
+    $("#already-tried-msg").fadeIn("fast", function() {
+      $("#already-tried-msg").delay(850).fadeOut(); 
+    });
+  },
+
   endOfRoundMsg() {
     $("#round-winner-msg").fadeIn("fast", function() {
       $("#round-winner-msg").delay(850).fadeOut(); 
@@ -63,5 +69,15 @@ export default {
     
   clearAnswerBoard() {
     $(".answer-data").addClass("hidden");
+  },
+
+  showWinnerScreen(winnerName) {
+    winnerName = winnerName;
+    $(".winner-name").text(winnerName.toUpperCase()+'!');
+    $(".winner-screen").removeClass("hidden");
+  },
+
+  showTieScreen() {
+
   }
 }

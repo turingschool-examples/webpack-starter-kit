@@ -8,13 +8,6 @@ class Round {
     this.guesses = [];
     this.correctGuesses = 0;
   }
-
-  checkGuess() {
-    //check against prev guesses
-    //if a previous guess, say already been guessed and try again.  
-    //clear input.
-    //if not guessed before, saveGuess() and checkAnswer()
-  }
       
   saveGuess(guess) {
     this.guesses.push(guess);
@@ -29,8 +22,10 @@ class Round {
       this.correctGuesses++; 
       game.activePlayer.increaseScore(match.respondents);
       this.surveyAnswers.splice(this.surveyAnswers.indexOf(match), 1);
+    } else if (this.guesses.includes(guess)) {
+      domUpdates.showAlreadyTriedMsg();
     } else {
-      domUpdates.showNoMatch();
+      domUpdates.showNoMatchMsg();
       game.toggleActivePlayer();
     }
 

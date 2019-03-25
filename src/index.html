@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 <body>
-  <div class="welcome-screen">
+  <section class="welcome-screen">
     <form class="name-form">
       <h1>Family Feud</h1>
       <div class="player-fields">
@@ -24,8 +24,13 @@
       </div>
       <button id="submit-names-btn" type="button">Submit</button>
     </form>
-  </div>
-  <div class="page-background"></div>
+  </section>
+  <section class="winner-screen hidden">
+    <article class="winner-popup">
+      <h3>THE WINNER IS<span class="winner-name"></span></h3>
+      <button id="play-again-btn">Play Again?</button>
+    </article>
+  </section>
   <main class="main">
     <header>
       <h1>Family Feud</h1>
@@ -36,7 +41,7 @@
     </section>
     <section class="score-area">
       <article class="player-area player-1-side">
-        <p class="player-1-name" contenteditable="true">PLAYER 1</p>
+        <p class="player-1-name">PLAYER 1</p>
         <p class="player-score player-1-score">0</p>
       </article>
       <article class="answer-area">
@@ -60,7 +65,7 @@
         </div>
       </article>
       <article class="player-area player-2-side">
-        <p class="player-2-name" contenteditable="true">PLAYER 2</p>
+        <p class="player-2-name">PLAYER 2</p>
         <p class="player-score player-2-score">0</p>
       </article>
     </section>

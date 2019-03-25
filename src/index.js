@@ -45,7 +45,7 @@ $("#submit-names-btn").on("click", function() {
 
   let startingPlayer = Math.floor(Math.random() * 2) + 1
 
-  window.game = new Game(new Player(player1Name, 1), new Player(player2Name, 2)); 
+  window.game = new Game(new Player(player1Name || 'Player 1', 1), new Player(player2Name || 'Player 2', 2)); 
   window.game.startNewGame(startingPlayer);
   window.game.toggleActivePlayer();
 });
@@ -70,3 +70,9 @@ $("#submit-guess-btn").on("click", function() {
 $("#start-btn").on("click", function() {
   $(".welcome-screen").removeClass("hidden");
 });
+
+$("#play-again-btn").on("click", function() {
+  domUpdates.resetPageDefaults();
+  $(".winner-screen").addClass("hidden");
+  $(".welcome-screen").removeClass("hidden");
+})

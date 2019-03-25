@@ -127,7 +127,6 @@ class Game {
     
   }
 
-
   toggleActivePlayer() {
     if (this.activePlayer === this.player1) {
       this.activePlayer = this.player2;
@@ -139,9 +138,15 @@ class Game {
   }
 
   endGame() {
-    // show a play again dialog?
-    // if they play again, 
-    // should show the enter names dialog again to start fresh
+    if (this.player1.score === this.player2.score) {
+      domUpdate.showTieScreen();
+    } else if (this.player1.score > this.player2.score) {
+      var winnerName = this.player1.name;
+      domUpdates.showWinnerScreen(winnerName);
+    } else {
+      var winnerName = this.player2.name;
+      domUpdates.showWinnerScreen(winnerName);
+    }
   }
 } 
 

@@ -1,11 +1,16 @@
 import chai from 'chai';
 const expect = chai.expect;
+import spies from 'chai-spies';
+chai.use(spies);
 
 import Round from '../src/Round.js';
-import Game from '../src/Game.js';
 import Player from '../src/Player.js';
+import Game from '../src/Game.js';
+import domUpdates from '../src/domUpdates.js'
 
-let game = new Game(new Player('Tiff'), new Player('Lynne'));
+let player1 = new Player('Tiff', 1);
+let player2 = new Player('Lynne', 2);
+let game = new Game(player1, player2);
 
 let survey = 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?';
 
@@ -14,6 +19,13 @@ let surveyAnswers = [
   { answer: 'Donuts', respondents: 24 },
   { answer: 'Beer', respondents: 67 }
 ];
+
+chai.spy.on(domUpdates, [
+  'displayCorrectGuess',
+  'showNoMatch',
+  'endOfRoundMsg',
+  'clearAnswerBoard'
+], () => true);
 
 describe('Round', () => {
   it('should have a specified survey question', () => {
