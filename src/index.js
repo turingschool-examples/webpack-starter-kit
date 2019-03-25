@@ -16,7 +16,7 @@ const $startGameBtn = $(".start-game-btn");
 const $valBtn = $(".val-btn");
 // const $resetBtn = $('.reset-btn');
 const $guessBtn = $(".guess-btn");
-const $closeBtn = $(".close");
+const $closeBtn = $("#close");
 let game;
 
 $startGameBtn.click(function(event) {
@@ -48,6 +48,10 @@ $guessBtn.click(function(event) {
 $closeBtn.click(function(event) {
   event.preventDefault();
   $('.clue-card').toggleClass('hidden');
+  $('#submit').removeClass('hidden');
+  $('#guess-input').val('');
+  $('.answer').text('Guess below!');
+  $('#close').addClass('hidden');
 })
 // $resetBtn.click(function() {
 
