@@ -8,7 +8,7 @@ import Data from './Data'
 class Game {
   constructor() {
     this.players = []
-    this.stage = 2
+    this.stage = 0
     this.alphabet = []
     this.gameRoundsClueBank = null
     this.roundCards = []
@@ -55,10 +55,12 @@ class Game {
   updatePlayerBank() {
     this.players[this.roundInst.activePlayer].playerBank += this.roundInst.wheelInst.selectedValue
     console.log(this.players[this.roundInst.activePlayer].playerBank)
+    DomUpdates.updateRoundScore(this.players[this.roundInst.activePlayer].playerBank, this.roundInst.activePlayer)
+
+
     // this.players[this.roundInst.activePlayer].score += this.roundInst.wheelInst.selectedValue
     // return this.players[this.roundInst.activePlayer].score = cool
 console.log(this.players)
-    DomUpdates.updateRoundScore(this.players)
   }
   
 }

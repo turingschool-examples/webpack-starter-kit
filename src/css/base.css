@@ -260,3 +260,9 @@ h3 {
   opacity: .7;
   pointer-events: none;
 }
+
+.quit-btn-container{
+  background: red;
+  width: 30px;
+  height: 30px
+}
