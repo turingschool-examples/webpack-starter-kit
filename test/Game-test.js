@@ -9,12 +9,10 @@ import Round from '../src/Round.js';
 import domUpdates from '../src/domUpdates.js'
 
 chai.spy.on(domUpdates, [
-  'displayRoundData', 
-  'displayCorrectGuess', 
-  'displayPlayer1', 
-  'displayPlayer2',
   'resetPageDefaults',
-  'showNoMatch'
+  'displayRoundData', 
+  'displayPlayer1', 
+  'displayPlayer2'
 ], () => true);  
 
 describe('Game', () => {

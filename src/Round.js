@@ -7,13 +7,6 @@ class Round {
     this.surveyAnswers = surveyAnswers; 
     this.guesses = [];
   }
-
-  checkGuess() {
-    //check against prev guesses
-    //if a previous guess, say already been guessed and try again.  
-    //clear input.
-    //if not guessed before, saveGuess() and checkAnswer()
-  }
       
   saveGuess(guess) {
     this.guesses.push(guess);
