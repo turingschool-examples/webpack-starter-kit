@@ -60,20 +60,20 @@ function createGame(dataset) {
 };
 
 
-$('#submitBtn').on('click', checkAnswer);
+// $('#submitBtn').on('click', checkAnswer);
 
-function checkAnswer() {
-  let answerInput = $('.answerInput').val(); 
-  if(answerInput != //answer from dataset ) {
-    $('.answerInput').reset()
-    game.switchPlayers()
-  }
+// function checkAnswer() {
+//   let answerInput = $('.answerInput').val(); 
+//   if(answerInput != //answer from dataset ) {
+//     $('.answerInput').reset()
+//     game.switchPlayers()
+//   }
 
-  if(answerInput ==== //answer from dataset ) {
-  $('.answerInput').reset()
-  //change the dom
-  game.addScore()
-  }
+//   if(answerInput ==== //answer from dataset ) {
+//   $('.answerInput').reset()
+//   //change the dom
+//   game.addScore()
+//   }
 
 
 

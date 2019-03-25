@@ -52,6 +52,23 @@ body {
   color: white;
   height: 50px;
   outline: none;
+ /* fix this - do not get ride of this, just adjust*/
+}
+
+#progress {
+  margin-top: 4%;
+}
+
+.progressLabel {
+  color: white;
+  font-size: 1em;
+  margin: 3% 0;
+  margin-top: 20%;
+}
+
+#bar {
+  width: 100%;
+  margin: 1% 0;
 }
 
 .gameBoard {
@@ -74,7 +91,7 @@ body {
 
 #surveyQuestion {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 6%;
     font-size: 1.5em;
     border: 9px solid goldenrod;
     height: 120px;
@@ -96,6 +113,7 @@ body {
     border-style: ridge;
     height: 50px;
     outline: none; 
+    /* fix this - do not get ride of this, just adjust*/
   }
 
 .scoreBoard,
@@ -155,6 +173,7 @@ body {
     margin-top: 3%;
     font-size: 1rem;
     outline: none;
+    /* fix this - do not get ride of this, just adjust*/
 }
 
 #resetBtn {
