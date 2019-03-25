@@ -11,10 +11,19 @@ class Game {
     this.currentTurn = 'player1';
     this.cycleTurn = true;
     this.currentAnswer = [];
+    this.currentRound = 1;
   }
   startGame(){
     round.generateRound();
     this.currentAnswer = round.currentAnswer;
+  }
+  startNextRound() {
+    if (this.currentAnswer.length === 0) {
+      round.generateRound()
+      this.currentAnswer = round.currentAnswer;
+      this.currentRound++;
+      console.log(this.currentRound);
+    }
   }
 
   checkAnswers(guess, answers){
@@ -22,8 +31,9 @@ class Game {
     let correctAnswersPoints = 0;
     answers.forEach( element => {
       if (element.answer.toLowerCase() === userGuess) {
-        // console.log(`ITS A MATCH! Here's ${element.respondents} points!`);
         correctAnswersPoints = element.respondents;
+        this.currentAnswer.splice(this.currentAnswer.indexOf(element), 1)
+        this.startNextRound();
       } else {
         // console.log(`no match`)
       }
@@ -48,8 +58,6 @@ class Game {
       this.currentTurn = 'player2';
     }
     this.cycleTurn = !this.cycleTurn;
-    // console.log('Game.currentTurn: ' + this.currentTurn);
-    // console.log('Game.cycleTurn: ' + this.cycleTurn);
   }
 };
 

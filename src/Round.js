@@ -43,10 +43,6 @@ class Round {
     })
     return sortedAnswers;
   }
-
-  removeQuestion(){
-
-  }
 };
 
 export default Round;
