@@ -25,8 +25,8 @@ $('.letters').on('click', function(e) {
     e.target.innerText
     game.fillUseLetters(e);
     $('body').find(e.target).attr('disabled', '').css("background-color", "grey");
-    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters)
-    game.playerTurns();
+    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters, game,e)
+    game.checkGuess(e)
     console.log(e.target.innerText)
 })
 
@@ -34,14 +34,15 @@ $('.vowel').on('click', function (e){
     e.target.innerText;
     game.fillVowels(e);
     $('body').find(e.target).attr('disabled', '').css("background-color", "grey");
-    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters)
+    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters, game,e)
+    game.checkGuess(e)
     console.log(e.target.innerText)
-    game.playerTurns()
 })
 
 $('.spinButton').on('click', function (e) {
     e.preventDefault()
     game.wheel.spinWheel(game.stage)
+    game.currentPlayer.calculateBank(game.wheel.currentSpinValue, game)
     $('.spinButton').prop('disabled', true);
 });
 

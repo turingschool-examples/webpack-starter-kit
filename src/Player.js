@@ -1,3 +1,5 @@
+
+
 class Player {
     constructor(name){
         this.name = name;
@@ -7,8 +9,15 @@ class Player {
     calculateScore() {
         
     }
-    calculateBank() {
-        
+    calculateBank(value, game) {
+        if(value === 'BANKRUPT') {
+            this.bank = 0
+        } else if (value === 'LOSE A TURN') {
+            game.playersTurn()
+        } else {
+            this.bank += value
+        }
+        console.log(this.bank)
     }
 }
 

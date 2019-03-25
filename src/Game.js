@@ -34,6 +34,7 @@ class Game {
             let player3 = new Player(name3);
             this.players.push(player1, player2, player3)
         }
+        this.currentPlayer = this.players[0]
     }
     incrementStage() {
         this.stage++; 
@@ -42,9 +43,7 @@ class Game {
     }
 
     playerTurns() {
-        if(this.currentPlayer === null) {
-            this.currentPlayer = this.players[0];
-        }else if (this.currentPlayer === this.players[0]){
+        if (this.currentPlayer === this.players[0]){
             this.currentPlayer = this.players[1];
         }else if(this.currentPlayer === this.players[1]){
             this.currentPlayer = this.players[2];
@@ -52,6 +51,15 @@ class Game {
             this.currentPlayer = this.players[0];
         }
         console.log(this.currentPlayer)
+    }
+
+    checkGuess(e) {
+        if(this.round.allCorrectAnswers[this.stage].includes(e.target.innerText)) {
+            console.log(this.currentPlayer)
+        } else {
+            this.playerTurns();
+            console.log(this.currentPlayer)
+        }
     }
 
 }
