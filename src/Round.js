@@ -13,6 +13,8 @@ class Round {
         }
 
         checkAnswer(guess) {
+          console.log(guess);
+          console.log(this.questionSet);
         // if(guess != game.surveys['answers'].val(answer)) {
         // $('.answerInput').reset()
         // //wrong answer error message
