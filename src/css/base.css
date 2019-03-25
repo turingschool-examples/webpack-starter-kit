@@ -14,8 +14,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #322742;
+  /* background-color: #322742; */
   font-family: 'Roboto';
+    background: #322742;
+    background-image:
+  /*     radial-gradient(salmon 50%, transparent 0),  */
+      radial-gradient(circle, rgba(255,221,164,1) 0%, rgba(251,162,39,1) 30%
+      30%, transparent 0);
+    background-size: 40px 40px;
+  /*   background-position: 0 0, 15px 15px; */
 }
 
 .wrapper {
@@ -47,6 +54,8 @@ body {
   background-color: #524348;
   color: lightgrey;
   position: relative;
+  outline: 15px solid #322742;
+  outline-offset: 3px
 }
 
 #user-area {
@@ -70,7 +79,7 @@ body {
   grid-row-end: 2;
 }
 
-#player-1 {
+#player-2 {
   grid-row-start: 2;
   grid-row-end: 3;
 }
@@ -78,7 +87,6 @@ body {
 #button-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   grid-row-start: 4;
   grid-row-end: 5;
   justify-content: space-between;
@@ -127,6 +135,11 @@ button:focus {
 }
 
 #current-round {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   flex: 3;
   text-align: center;
   padding: 15px;
@@ -134,9 +147,19 @@ button:focus {
   border-radius: 25px;
 }
 
-/* #current-round > * {
-  border: 1px solid red;
-} */
+#current-round div {
+  width: 100%;
+}
+
+.current-player {
+  position: absolute;
+  top: 15px;
+  line-height: 100%;
+  margin: 0;
+  left: 15px;
+  font-size: 25px;
+  font-weight: 600;
+}
 
 #question-container {
   width: 75%;
@@ -166,7 +189,8 @@ button:focus {
   border-radius: 10px;
 }
 
-h2, h1 {
+h2,
+h1 {
   height: 100%;
   margin: 0;
   display: flex;
@@ -176,7 +200,7 @@ h2, h1 {
 }
 
 #logo {
-  height: 150px;
+  height: 250px;
   margin-bottom: 15px;
 }
 
@@ -186,29 +210,57 @@ h2, h1 {
   flex-direction: column;
   width: 75%;
   margin: auto;
-  /* margin: 15px auto; */
 }
 
 .response-card,
 #current-question,
-button,
-#guess-input {
+button {
   border-radius: 3px;
 }
 
-.response-card {
+.response-container {
+  position: relative;
+}
+
+.response-card,
+.revealed-response {
+  position: absolute;
   height: 60px;
   margin: 5px 0;
   text-align: center;
-  background: linear-gradient(0deg, rgba(26,63,149,1) 0%, rgba(105,173,237,1) 100%);
+  background: linear-gradient(0deg, rgba(26, 63, 149, 1) 0%, rgba(105, 173, 237, 1) 100%);
   color: white;
   font-size: 35px;
   display: flex;
   justify-content: center;
   border: 2px solid #D9E6EE;
   outline: 2px solid grey;
-  outline-offset: -6px;
+  outline-offset: -4px;
   align-items: center;
+  width: 100%;
+}
+
+.response-card {
+  z-index: 999;
+}
+
+.revealed-response {
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 15px;
+}
+
+.respondents {
+  position: absolute;
+  right: 0;
+  margin: 0;
+  border-left: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-width: 60px;
 }
 
 h4 {
@@ -218,9 +270,30 @@ h4 {
   background-color: #172655;
 }
 
+form {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  margin: 25px auto 15px auto;
+}
+
 #guess-input {
+  border-style: none;
+  flex: 8;
+  border-radius: 3px 0 0 3px;
   width: 75%;
   height: 50px;
   font-size: 20px;
   padding-left: 15px;
+}
+
+#guess-input:focus {
+  outline: 0;
+}
+
+input[type="submit"] {
+  flex: 2;
+  border-style: none;
+  border-radius: 0 3px 3px 0;
+  font-size: 20px;
 }

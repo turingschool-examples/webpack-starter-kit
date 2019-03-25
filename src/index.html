@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,11 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
   <title>Family Feud</title>
 </head>
+
 <body>
   <div class="wrapper">
     <h1><img id="logo" src="images/turing-logo.png" alt="logo"></h1>
     <section id="game-area">
-
     <section class="start-game-pop-up">
       <div>
         <label for="player-one-input">Player One Name</label>
@@ -52,19 +53,52 @@
       <section id="current-round-total">
         <h2>00</h2>
       </section>
-      <article id="question-container"><h3 id="current-question">What is the current question</h3></article>
-      <section id="response-area">
-        <div class="response-card"><h4>1</h4></div>
-        <div class="revealed-response"><p class="response-text">response</p> <p class="respondents">00</p></div>
-        <div class="response-card"><h4>2</h4></div>
-        <div class="revealed-response"><p class="response-text">response</p> <p class="respondents">00</p></div>
-        <div class="response-card"><h4>3</h4></div>
-        <div class="revealed-response"><p class="response-text">response</p> <p class="respondents">00</p></div>
+      <section id="current-round">
+        <p class="current-player"><span>current player</span>'s Turn</p>
+        <div>
+          <section id="current-round-total">
+            <h2>00</h2>
+          </section>
+          <article id="question-container">
+            <h3 id="current-question">What is the current question</h3>
+          </article>
+          <section id="response-area">
+            <div class="response-container">
+              <div class="response-card">
+                <h4>1</h4>
+              </div>
+              <div class="revealed-response">
+                <p class="response-text">response</p>
+                <p class="respondents">00</p>
+              </div>
+            </div>
+            <div class="response-container">
+              <div class="response-card">
+                <h4>2</h4>
+              </div>
+              <div class="revealed-response">
+                <p class="response-text">response</p>
+                <p class="respondents">00</p>
+              </div>
+            </div>
+            <div class="response-container">
+              <div class="response-card">
+                <h4>3</h4>
+              </div>
+              <div class="revealed-response">
+                <p class="response-text">response</p>
+                <p class="respondents">00</p>
+              </div>
+            </div>
+          </section>
+          <form>
+            <input id="guess-input" type="text" placeholder="Guess a response...">
+            <input class='submit-btn' type="submit">
+          </form>
+        </div>
       </section>
-      <input id="guess-input" type="text" placeholder="Guess a response...">
-      <input class='submit-btn' type="submit">
     </section>
-  </section>
   </div>
-  </body>
+</body>
+
 </html>
