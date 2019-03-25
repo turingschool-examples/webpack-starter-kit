@@ -23,10 +23,6 @@ import dataSet from './dataSet.js';
 import domUpdates from './domUpdates.js';
 
 
-
-const newGame = new Game(dataSet.clues);
-
-
 let dataCategories = Object.keys(dataSet.categories);
 
 let categoriesToArray = $('.categories').toArray();
@@ -46,25 +42,17 @@ $(document).ready(dataCategories);
 // newGame.populateQuestions()
 
 // dom manipulation to get values of the three names
-var name1 = 'Erik';
-var name2 = 'Aidan';
-var name3 = 'Sean';
+var name1 = $("#player-one").val;
+var name2 = $("#player-two").val;
+var name3 = $("#player-three").val;
 
-// var newGame = new Game(name1, name2, name3);
+var newGame = new Game(name1, name2, name3);
+
 
 
 // newGame.currentRound.fetchClues;
 // console.log(newGame.currentRound.fetchClues(newGame.round1Categories));
 
 // newGame.nextRound()
-
-
-// const player1 = new Rounds(flatData, 'Erik');
-// console.log('Log 2: ', player1);
-
-// const player2 = new Rounds(gameStart, 'Aidan');
-// console.log('Log 3: ', player2);
-
-
 
 console.log('This is the JavaScript entry file - your code begins here.');

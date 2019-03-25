@@ -7,29 +7,34 @@ import domUpdates from './domUpdates.js'
 class Rounds {
   constructor(categoryIds) {
     this.categoryIds = categoryIds;
-    console.log('Rounds class Categories ',this.categoryIds);
     this.topicOne = [];
     this.topicTwo = [];
     this.topicThree = [];
     this.topicFour = [];
   }
-  displayCategories() {
-    domUpdates.displayCategories(dataSet.categories.cableTV)
-  }
+
   roundTwoPoints() {
     this.pointValue * 2;
   }
 
   uniquePoints(currentTopic) {
     const finalCat = new Set();
-    const newClues = currentTopic.filter(clue => {
+    currentTopic = currentTopic.filter(clue => {
         if (finalCat.has(clue.pointValue)) {
             return false;
         }
         finalCat.add(clue.pointValue);
         return true;
     });
-    console.log('unique Points ', newClues);
+    if(currentTopic[0].id === this.topicOne[0].id) {
+      this.topicOne = currentTopic;
+    } else if (currentTopic[0].id === this.topicTwo[0].id) {
+      this.topicTwo = currentTopic;
+    } else if (currentTopic[0].id === this.topicThree[0].id) {
+      this.topicThree = currentTopic;
+    } else {
+      this.topicFour = currentTopic;
+    }
   }
 
   fetchClues() {
@@ -54,7 +59,9 @@ class Rounds {
     this.uniquePoints(this.topicThree);
     this.uniquePoints(this.topicFour);
    }
-
+   fetchQuestion() {
+     
+   }
 }
 
 export default Rounds;
