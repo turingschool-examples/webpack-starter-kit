@@ -6,11 +6,19 @@ import Player from '../src/Player';
 import domUpdates from '../src/domUpdates';
 import data from '../src/data';
 
-chai.use(spies);
-chai.spy.on(domUpdates, 'displayCurrentQuestion', () => true);
 const assert = chai.assert;
+const expect = chai.expect;
+chai.use(spies);
 
 describe('Game', () => {
+
+  beforeEach(function() {
+    chai.spy.on(domUpdates, 'displayCurrentQuestion', () => true);
+  })
+
+  afterEach(function() {
+    chai.spy.restore(domUpdates);
+  });
 
   it('should start at round 0', () => {
     const game = new Game();
@@ -54,39 +62,15 @@ describe('Game', () => {
     const game = new Game(player1, player2);
     game.startGame();
     assert.equal(game.round, 1);
+    expect(domUpdates.displayCurrentQuestion).to.have.been.called(1);
   });
 
-  // how to test a randomized current round
-  it.skip('should have a currentRound upon initiation of the game', () => {
-    const player1 = new player('Brennan');
-    const player2 = new player('Jarrett');
-    const game = new Game(player1, player2);
-    game.startGame();
-    assert.equal(game.currentRound, )
-  })
 
-  // move to round-test
-  it.skip('should be able to check a guess', () => {
-    const game = new Game(['Jarrett', 'Brennan']);
-    const player = new Player('Jarrett');
-    const guess = domUpdates.getGuess();
-    game.checkAnswer(player, guess);
-  });
 
-  // move to Round-test
-  // it.skip('should update a player score if their guess is correct', () => {
 
-  // });
 
-  // move to Round-test
-  // it.skip('should switch players if the guess is wrong', () => {
 
-  // });
 
-  // move to round 
-  // it.skip('should check if all responses have been guessed', () => {
-
-  // });
 
 
   // should have round counter, nun, default 0 or 1
