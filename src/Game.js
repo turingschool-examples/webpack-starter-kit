@@ -8,8 +8,8 @@ class Game {
     this.players = [];
     this.clues = [];
     this.round = {};
-    this.categories = [];
-    this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // this.categories = [];
+    this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; //[Object.values(data.categories)]
     this.playerTurn = 0;
   }
 
@@ -32,6 +32,11 @@ class Game {
     const round = new Round(this.categoryData.splice(0, 4), this.clues);
     round.displayCategories();
     this.round = round;
+    // this.createDailyDouble();
+  }
+
+  createDailyDouble() {
+    // let randomCategory = this.shuffle(this.round.categoryIds).pop())
   }
 
   shuffle(clues) {

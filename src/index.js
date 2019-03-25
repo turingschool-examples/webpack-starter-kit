@@ -40,3 +40,7 @@ resetBtn.click(function (e) {
   e.preventDefault();
   location.reload();
 })
+
+//generate a random number 1-4
+//generate a random number 100, 200, 300, 400
+// assign daily double class to that specific clue

@@ -16,7 +16,6 @@ class Player {
       return acc;
     }, 0);
     this.score += points;
-    console.log(this.score);
   }
 
   decreaseScore(result) {

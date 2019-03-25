@@ -61,6 +61,11 @@ export default {
     let questionText = $(".question");
     let answerText = $('#question-input');
     let currentPlayer = game.players[game.playerTurn];
+    game.round.cluesRemaining--;
+    if (game.round.cluesRemaining === 0) {
+      game.createRound();
+    }
+    console.log(game.round.cluesRemaining);
     let result = data.clues.reduce((acc, currentClue) => {
       if (questionText.text() === currentClue.question) {
         acc += currentClue.answer;
