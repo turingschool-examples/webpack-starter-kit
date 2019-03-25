@@ -13,7 +13,7 @@ import './images/turing-logo.png'
 const startBtn = $('#start-game-btn')
 const submitBtn = $('.submit-btn')
 
-const dataset = data.surveys.reduce( (total, { id, question }) => {
+const surveys = data.surveys.reduce( (total, { id, question }) => {
   total.push({
     id,
     question,
@@ -30,7 +30,7 @@ startBtn.on('click', (e) => {
   const p2name = $('#player-two-input').val();
   const player1 = new Player(p1name);
   const player2 = new Player(p2name);
-  game = new Game(player1, player2, dataset);
+  game = new Game(player1, player2, surveys);
   game.startGame();
   domUpdates.startGame(game);
 });
@@ -40,16 +40,24 @@ submitBtn.on('click', (e) => {
   const guess = $('#guess-input').val().toLowerCase();
   game.currentRound.submitGuess(game.currentPlayer, guess, game);
   domUpdates.clearguess();
-  if (game.currentRound.isFinished) {
-    setTimeout(() => {
+  checkRoundStatus(game.currentRound);
+});
+
+function checkRoundStatus(round) {
+  if (round.isFinished) {
+    setTimeout(() => { // TODO change round initiation to button listener
       if (game.round < 2) {
         game.startNextRound();
       } else if (game.round < 3) {
-        console.log('lightning round next');
+        game.startNextLightningRound();
+        setTimeout(() => { // OR all guesses correct
+          game.switchPlayers();
+          game.startNextLightningRound();
+        }, 30000);
       } else {
         const winner = game.getWinner();
         console.log(winner);
       }
     }, 5000);
   }
-});
+}

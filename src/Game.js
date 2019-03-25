@@ -4,11 +4,10 @@ import domUpdates from './domUpdates'
 
 class Game {
 
-  constructor(player1, player2, data) {
+  constructor(player1, player2, surveys) {
     this.players = [player1, player2];
+    this.surveys = surveys;
     this.round = 0;
-    this.currentPlayer = this.players[0];
-    this.surveys = data;
   }
 
   startGame() {
@@ -19,13 +18,15 @@ class Game {
   startNextRound() {
     this.round++;
     this.currentRound = new Round(this.surveys[this.round - 1]);
-    domUpdates.startRound(this.currentRound);
+    this.currentPlayer = this.currentRound.setPlayer(this.round, this.players);
+    domUpdates.startRound(this.currentRound, this.currentPlayer);
   }
 
   startNextLightningRound() {
     this.round++;
-    this.currentRound = new LightningRound(this.surveys.slice(3, 5));
-    domUpdates.startRound(this.currentRound);
+    this.currentRound = new LightningRound(this.surveys[this.round - 1]);
+    this.currentPlayer = this.currentRound.setPlayer(this.round, this.players);
+    domUpdates.startRound(this.currentRound, this.currentPlayer);
   }
 
   shuffle(array) {
