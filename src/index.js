@@ -37,16 +37,13 @@ function startGame() {
   domUpdates.updateNames(p1Name, p2Name);
   domUpdates.revealGame();
   round = game.startNewRound();
-  startRound(round);
 }
 
 function guess() {
   const guess = $(".guess-input").val();
   game.player1.isTurn ? game.player1.makeGuess(guess, game, round) : game.player2.makeGuess(guess, game, round);
   domUpdates.clearInput();
-}
-
-function startRound(round) {
-  domUpdates.populateSurvery(round);
-  domUpdates.populateAnswers(round);
+  if (round.answers.length === 0) {
+    round = game.startNewRound();
+  }
 }

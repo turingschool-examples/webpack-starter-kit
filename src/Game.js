@@ -12,10 +12,13 @@ class Game {
     this.player1.isTurn = true;
   }
 
-  startNewRound() {
+  startNewRound(round) {
     if (this.currentRound < 2) {
       this.currentRound++;
-      return new Round(this);
+      let round = new Round(this);
+      domUpdates.populateSurvery(round);
+      domUpdates.populateAnswers(round);
+      return round;
     } else if (this.currentRound === 2) {
       this.currentRound++;
       return new FinalRound(this); 

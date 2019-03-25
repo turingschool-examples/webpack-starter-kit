@@ -26,6 +26,7 @@ class Player {
   correctGuess(round, guess) {
     const correctAnswer = round.answers.find(a => a.answer.toUpperCase() === guess.toUpperCase());
     this.score += correctAnswer.respondents;
+    round.answers.splice(round.answers.indexOf(correctAnswer), 1);
     domUpdates.revealCorrectAnswer(correctAnswer);
     domUpdates.updateScore(this.playerNum, this.score);
     domUpdates.showGuessMessage('correct');
