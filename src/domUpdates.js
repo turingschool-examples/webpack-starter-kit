@@ -27,6 +27,7 @@ export default {
   showClue(clue, event) {
     $(event.target).text('');
     $('.question-prompt').show();
+    $('.result-prompt').hide();
     $('.question').text(clue.question);
     
   },
@@ -42,11 +43,15 @@ export default {
       return acc;
     }, '');
     if (result.toLowerCase() === answerText.val().toLowerCase()) {
-      questionText.text('Correct Answer');
+      $('.question-prompt').hide();
+      $('.result-prompt').show();
+      $('.result').text('Correct Answer');
       currentPlayer.increaseScore(result);
       $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
     } else {
-      questionText.text('Incorrect Answer');
+      $('.question-prompt').hide();
+      $('.result-prompt').show();
+      $('.result').text('Incorrect Answer');
       currentPlayer.decreaseScore(result);
       $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
       game.changePlayerTurn();
