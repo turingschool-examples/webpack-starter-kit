@@ -104,6 +104,10 @@ $('.guess__letter--button').click(function () {
         alert('This letter has already been guessed!');
         // todo: add an error message instead of alert
       }
+      else if (vowels.includes(ltrGuess.toUpperCase())) {
+        console.log("It's a Vowel!")
+        buyVowel(round, player, ltrGuess);
+      }
       else if (compareAns(round, player)) {
         correctAnsFunc(round, player, ltrGuess);
         toggleButtons();
@@ -136,6 +140,16 @@ $('.guess__letter--button').click(function () {
       .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
     console.log(game.currentRound.answer);
   }
+
+let buyVowel = (round, player, letter) => {
+  if (player.roundCaps < 100) {
+    alert('Insufficient Funds!');
+  } else {
+    player.roundCaps -= 100;
+    console.log(player.roundCaps)
+    correctAnsFunc(round, player, letter)
+  }
+}
   
 // End Conflict-Res
 
