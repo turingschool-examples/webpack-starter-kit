@@ -1,5 +1,6 @@
 import Round from "./Round";
 import FinalRound from "./FinalRound";
+import domUpdates from './domUpdates.js';
 
 class Game {
   constructor(player1, player2) {
@@ -24,6 +25,7 @@ class Game {
   toggleIsTurn() {
     this.player1.isTurn = !this.player1.isTurn;
     this.player2.isTurn = !this.player2.isTurn;
+    domUpdates.toggleActivePlayer(this.player1.isTurn);
   }
 }
 

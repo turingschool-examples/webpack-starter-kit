@@ -33,6 +33,16 @@ const domUpdates = {
 
   updateScore: function(player, score) {
     player === 1 ? $(".sb-one > h6").text(score) : $(".sb-two > h6").text(score);
+  },
+
+  toggleActivePlayer: function(player1Turn) {
+    if(player1Turn) {
+      $(".pb-one").addClass("active");
+      $(".pb-two").removeClass("active");
+    } else {
+      $(".pb-two").addClass("active");
+      $(".pb-one").removeClass("active");
+    }
   }
 
 
