@@ -19,26 +19,21 @@ import Wheel from './js/wheel';
 import domUpdates from './js/domUpdates';
 import Question from './js/question'
 
-let game;
-let question;
-
-$('.start-btn').on('click', function() {
-  game = new Game()
-  game.startRound();
-  game.instantiatePlayers();
-  domUpdates.appendNames();
-  console.log(game);
+$(document).ready( () => {
+  const game = new Game();
+  $('.start-btn').click( () => {
+    game.startRound();
+  });
+  
+  $('.final-solution-btn').click( () => {
+    game.validateAnswer();
+  });
+  
+  $('.btn-spin').click( () => {
+    game.generatePrize();
+  });
 })
 
-$('.final-solution-btn').on('click', function() {
-  Question.validateAnswer($('.input-solve').val(), game.currentQuestion.answer);
-});
 
 
-let wheel = new Wheel();
-wheel.spin();
 
-
-domUpdates.showInput();
-domUpdates.showVowels();
-domUpdates.showSolveInput();
