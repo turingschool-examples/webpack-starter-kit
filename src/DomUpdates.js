@@ -362,25 +362,29 @@ export default {
     }
   },
 
-//   bankrupt() {
-//     $('footer').prepend(`
-//     <section class="bankrupt">
-//       <div class="result"><i class="fas fa-exclamation">BANKRUPT</i></div>
-//     </section>
-//   `).fadeOut(9000, function() {
-//     $('.bankrupt').remove();
-//   })
-// },
+  bankrupt() {
+    $('footer').prepend(`
+    <section class="bankrupt">
+      <h1 class="result"><i class="fas fa-exclamation">BANKRUPT</i></h1>
+      <p>Next Player Turn</p>
+    </section>
+  `).fadeOut(2000, function() {
+    $('.bankrupt').remove();
+    $('footer').removeAttr("style")
+  })
+},
 
-// loseTurn() {
-//     $('footer').prepend(`
-//     <section class="lose-turn">
-//       <div class="result"><i class="fas fa-exclamation">LOSE TURN</i></div>
-//     </section>
-//   `).fadeOut(2000, function() {
-//     $('lose-turn').remove();
-//   })
-// }
+loseTurn() {
+    $('footer').prepend(`
+    <section class="lose-turn">
+      <h1 class="result"><i class="fas fa-exclamation">LOSE TURN</i></h1>
+      <p>Next Player Turn</p>
+    </section>
+  `).fadeOut(2000, function() {
+    $('.lose-turn').remove();
+    $('footer').removeAttr("style")
+  })
+}
 //   createWheel() {
 //       $('main').append(
 //     `<section id="theWheel">

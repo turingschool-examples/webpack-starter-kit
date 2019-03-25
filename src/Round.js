@@ -44,15 +44,15 @@ class Round {
 
   ///checking clicked letter works
   checkLetter(userLetter, game) {
-   console.log(this.clueAnswer)
+    console.log(this.clueAnswer)
     if (this.clueAnswer.includes(userLetter)) {
       game.updatePlayerBank()
-     } else if(!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN'){
-        // this.activePlayer++
-        this.switchPlayer()
-      }
-      // game.players[this.activePlayer].score += this.wheelInst.selectedValue
-      // console.log(game.players)
+    } else if (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
+      // this.activePlayer++
+      this.switchPlayer()
+    }
+    // game.players[this.activePlayer].score += this.wheelInst.selectedValue
+    // console.log(game.players)
     console.log('go to bed')
 
   }
@@ -70,10 +70,10 @@ class Round {
     console.log(this.letterIndexs)
     const selectedLetter = this.letterIndexs[letter];
     const puzzleCells = $('.puzzle-cell').toArray();
-    if(selectedLetter) {
-      for(var i = 0; i < selectedLetter.length; i++) {
+    if (selectedLetter) {
+      for (var i = 0; i < selectedLetter.length; i++) {
         const instance = selectedLetter[i];
-        console.log('instance',instance)
+        console.log('instance', instance)
         const puzzleCell = (puzzleCells[instance].parentNode);
         console.log('puzzleCell', puzzleCell)
         puzzleCell.classList.remove('letters-not-displayed')
@@ -87,16 +87,19 @@ class Round {
     console.log('myTurn:', game.players[this.activePlayer])
   }
 
-  switchPlayer() {
+  switchPlayer(game) {
     switch (this.activePlayer) {
     case 0:
       this.activePlayer = 1
+      this.playerTurn(game)
       break;
     case 1:
       this.activePlayer = 2
+      this.playerTurn(game)
       break;
     case 2:
       this.activePlayer = 0
+      this.playerTurn(game)
       break;
     default:
       return;
@@ -107,12 +110,13 @@ class Round {
   checkValue(wheelValue, game) {   
     if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
-      // DomUpdates.bankrupt()
+      DomUpdates.bankrupt()
       game.players[this.activePlayer].playerBank = 0
-      this.switchPlayer();
+      this.switchPlayer(game);
     } else if (wheelValue === "LOSE A TURN") {
+      DomUpdates.loseTurn()
       DomUpdates.deactivateLetters()
-      this.switchPlayer()
+      this.switchPlayer(game)
       this.playerTurn(game)
     } else {
       DomUpdates.activateLetters()
