@@ -10,7 +10,6 @@ class Wheel {
   }
 
   createWheel() {
-    console.log(Data.wheel)
     for (let i = 0; i < 6; i++) {
       this.wheelValues.push(Data.wheel[Math.floor(Math.random() * 21)])
     }

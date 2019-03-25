@@ -7,15 +7,14 @@ import Game from './Game'
 import Data from './Data'
 import Round from './Round'
 import Wheel from './Wheel'
+import DomUpdates from './DomUpdates';
 
 
 // An example of how you tell webpack to apply a CSS file
 import './css/base.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
 import './images/WOF-star-background.jpg'
-import DomUpdates from './DomUpdates';
 
 
 
@@ -47,6 +46,14 @@ $('body').on('click', '.spinner', () =>{
   playerSpin(game)
 })
 
+$('body').on('click', '.player-action-btn', () =>{
+  submitGuess(game, event)
+})
+
+$('body').on('focus', '.guess-submission', () =>{
+  DomUpdates.deactivateLetters()
+})
+
 /************Functions******* */
 function startGameBtn(event) {
   event.preventDefault(event)
@@ -68,5 +75,9 @@ function selectingLetter(event) {
 
 function playerSpin(game) {
   game.roundInst.wheelInst.spinWheel(game)
+}
 
+function submitGuess(event){
+  let playerGuess = $('.guess-submission').val().toLowerCase().split('')
+  console.log(playerGuess)
 }

@@ -44,7 +44,7 @@ class Round {
 
   ///checking clicked letter works
   checkLetter(userLetter, game) {
-   
+   console.log(this.clueAnswer)
     if (this.clueAnswer.includes(userLetter)) {
       game.updatePlayerBank()
      } else if(!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN'){

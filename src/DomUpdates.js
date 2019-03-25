@@ -13,32 +13,32 @@ export default {
             <tr>
             </tr>
             <tr>
-                <td class="single-letter disable-selected-letters">${array[0]}</td>
-                <td class="single-letter disable-selected-letters">${array[1]}</td>
-                <td class="single-letter disable-selected-letters">${array[2]}</td>
-                <td class="single-letter disable-selected-letters">${array[3]}</td>
-                <td class="single-letter disable-selected-letters">${array[4]}</td>
-                <td class="single-letter disable-selected-letters">${array[5]}</td>
-                <td class="single-letter disable-selected-letters">${array[6]}</td>
-                <td class="single-letter disable-selected-letters">${array[7]}</td>
-                <td class="single-letter disable-selected-letters">${array[8]}</td>
-                <td class="single-letter disable-selected-letters">${array[9]}</td>
-                <td class="single-letter disable-selected-letters">${array[10]}</td>
-                <td class="single-letter disable-selected-letters">${array[11]}</td>
-                <td class="single-letter disable-selected-letters">${array[12]}</td>
-                <td class="single-letter disable-selected-letters">${array[13]}</td>
-                <td class="single-letter disable-selected-letters">${array[14]}</td>
-                <td class="single-letter disable-selected-letters">${array[15]}</td>
-                <td class="single-letter disable-selected-letters">${array[16]}</td>
-                <td class="single-letter disable-selected-letters">${array[17]}</td>
-                <td class="single-letter disable-selected-letters">${array[18]}</td>
-                <td class="single-letter disable-selected-letters">${array[19]}</td>
-                <td class="single-letter disable-selected-letters">${array[20]}</td>
-                <td class="single-letter disable-selected-letters">${array[21]}</td>
-                <td class="single-letter disable-selected-letters">${array[22]}</td>
-                <td class="single-letter disable-selected-letters">${array[23]}</td>
-                <td class="single-letter disable-selected-letters">${array[24]}</td>
-                <td class="single-letter disable-selected-letters">${array[25]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[0]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[1]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[2]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[3]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[4]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[5]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[6]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[7]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[8]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[9]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[10]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[11]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[12]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[13]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[14]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[15]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[16]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[17]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[18]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[19]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[20]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[21]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[22]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[23]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[24]}</td>
+                <td role="button" class="single-letter disable-selected-letters">${array[25]}</td>
             </tr>
         </table>
     </section>
@@ -343,9 +343,9 @@ export default {
 
 
   updateRoundScore(playerBankValue, activePlayerValue) {
-    let playerScoreElement = $('.bank-score')
+    let playerScoreElement = $('h2')
     if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
-      $('.bank-score.player-1').text(playerBankValue)
+      $('.player-1').text(playerBankValue)
     } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-2') === true) {
       $('.bank-score.player-2').text(playerBankValue)
     } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-3') === true) {
