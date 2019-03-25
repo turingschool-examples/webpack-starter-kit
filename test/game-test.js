@@ -4,7 +4,7 @@ import spies from 'chai-spies';
 import domUpdates from '../src/js/domUpdates.js';
 
 chai.use(spies);
-chai.spy.on(domUpdates, ['updateQInfo', 'revealPrize'], () => true);
+chai.spy.on(domUpdates, ['updateQInfo', 'revealPrize', 'loadPossiblePrizes', 'appendNames'], () => true);
 chai.spy.on(domUpdates, 'getNames', () => ['nim', 'rick', 'morty']);
 
 const expect = chai.expect;
@@ -23,6 +23,8 @@ describe('Game', () => {
     expect(game.allQs).to.deep.equal([]);
     expect(game.playerIndex).to.equal(1);
     expect(game.currentPlayer).to.equal(false);
+    expect(game.currentQuestion).to.equal(undefined);
+    expect(game.currentPrize).to.equal(undefined);
   });
 
   it('should populate questions', () => {
@@ -43,7 +45,8 @@ describe('Game', () => {
 
   it('should generate a random question', () => {
     expect(game.currentQuestion).to.equal(undefined);
-    game.startRound();
+    game.populateQuestions();
+    game.newQ();
     expect(game.currentQuestion).to.be.an('object');
   });
 
@@ -54,6 +57,7 @@ describe('Game', () => {
   });
 
   it('should change rounds', () => {
+    game.populateQuestions();
     expect(game.round).to.equal(0);
     game.changeRound();
     expect(game.round).to.equal(1);
@@ -67,13 +71,28 @@ describe('Game', () => {
     expect(game.round).to.equal(5);
     game.changeRound();
     expect(game.round).to.equal(1);
-  })
+  });
 
   it('should generate a new question', () => {
-    game.startRound()
+    game.populateQuestions();
+    game.newQ();
     expect(game.allQs).to.have.lengthOf(95);
+    expect(game.currentQuestion).to.not.equal(undefined);
     game.newQ();
     expect(game.allQs).to.have.lengthOf(94);
+    expect(game.currentQuestion).to.not.equal(undefined);
   });
- 
+
+  it('should generate a prize by spinning the wheel class', () => {
+    game.generatePrize();
+    expect(game.currentPrize).to.not.equal(undefined);
+  });
+
+  it('start a round', () => {
+    game.startRound();
+    expect(game.allQs).to.have.lengthOf(95);
+    expect(game.players).to.have.lengthOf(3);
+    expect(game.currentQuestion).to.not.equal(undefined);
+  });
+
 });
