@@ -45,14 +45,17 @@ class Round {
   checkLetter(userLetter, game) {
    
     if (this.clueAnswer.includes(userLetter)) {
-      // console.log(this.clueAnswer)
       game.updatePlayerBank()
+     } else if(!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN'){
+        // this.activePlayer++
+        this.switchPlayer()
+      }
       // game.players[this.activePlayer].score += this.wheelInst.selectedValue
       // console.log(game.players)
       console.log('go to bed')
 
     }
-  }
+  
 
   fillGameBoard() {
     this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
@@ -80,11 +83,10 @@ class Round {
     console.log('after', this)
   }
 
-  checkValue(wheelValue, game) {
-    console.log(wheelValue)
-    
+  checkValue(wheelValue, game) {   
     if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
+      // DomUpdates.bankrupt()
       game.players[this.activePlayer].playerBank = 0
       this.switchPlayer();
     } else if (wheelValue === "LOSE A TURN") {

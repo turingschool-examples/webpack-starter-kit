@@ -54,7 +54,7 @@ class Game {
   ///pass in wheelValue from wheel value function invocation ***********
   updatePlayerBank() {
     this.players[this.roundInst.activePlayer].playerBank += this.roundInst.wheelInst.selectedValue
-    console.log(this.players[this.roundInst.activePlayer].playerBank)
+  
     DomUpdates.updateRoundScore(this.players[this.roundInst.activePlayer].playerBank, this.roundInst.activePlayer)
 
 

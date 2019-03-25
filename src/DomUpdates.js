@@ -347,12 +347,31 @@ export default {
     if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
       $('.bank-score.player-1').text(playerBankValue)
     } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-2') === true) {
- $('.bank-score.player-2').text(playerBankValue)
-    } else {
-    $('.bank-score.player-3').text(playerBankValue)
- }
-}
+      $('.bank-score.player-2').text(playerBankValue)
+    } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-3') === true) {
+      $('.bank-score.player-3').text(playerBankValue)
+    }
+  },
 
+//   bankrupt() {
+//     $('footer').prepend(`
+//     <section class="bankrupt">
+//       <div class="result"><i class="fas fa-exclamation">BANKRUPT</i></div>
+//     </section>
+//   `).fadeOut(9000, function() {
+//     $('.bankrupt').remove();
+//   })
+// },
+
+// loseTurn() {
+//     $('footer').prepend(`
+//     <section class="lose-turn">
+//       <div class="result"><i class="fas fa-exclamation">LOSE TURN</i></div>
+//     </section>
+//   `).fadeOut(2000, function() {
+//     $('lose-turn').remove();
+//   })
+// }
 //   createWheel() {
 //       $('main').append(
 //     `<section id="theWheel">
