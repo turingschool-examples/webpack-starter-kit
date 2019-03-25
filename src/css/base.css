@@ -287,8 +287,22 @@ h3 {
   font-size: 50px;
 }
 
-.quit-btn-container{
-  background: red;
-  width: 30px;
-  height: 30px
+.quit-btn-container button{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid green;
+}
+
+.quit-btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hint {
+  width: 110%;
+}
+
+.description {
+  width: 110%;
 }
