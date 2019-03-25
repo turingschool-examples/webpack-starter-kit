@@ -38,8 +38,9 @@ class Game {
     }
     let round = new Round(this.players);
     let wheel = new Wheel();
-    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
-    domUpdates.appendPuzzle(currentPuzzle, currentPuzzle.splitAnswer);
+    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount + 2]);
+    currentPuzzle.checkPuzLength();
+    domUpdates.appendPuzzle(currentPuzzle.splitAnswer, currentPuzzle.secondLine);
     domUpdates.setCategoryText(currentPuzzle.category);
 
   }

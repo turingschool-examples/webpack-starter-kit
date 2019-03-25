@@ -37,6 +37,7 @@ body {
   padding: 50px;
   text-align: center;
   background: whitesmoke;
+  color: black;
 }
 
 .player-intro{
@@ -74,15 +75,16 @@ button{
 h1 {
   margin: 10px 0 0 0;
   font-size: 70px;
+  color: white;
 }
 
 #reset-button{
   width: 150px;
-  margin-right: auto;
+  margin-right: 30px;
   margin-left: auto;
   border-radius: 15px;
-  margin-top: -5px;
-
+  padding-top: 10px;
+  font-weight: bold;
 }
 
 
@@ -139,20 +141,20 @@ h1 {
   /* background: yellow; */
 }
 
-.reset-game {
-  float: right;
-}
 
 .clue-container {
   margin: 10px;
   font-size: 30px;
+  color: white;
 }
 
 .solve-puzzle{
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
+  margin: 20px auto;
+}
+
+.solve-input {
+  padding: 1rem;
 }
 
 /* WHEEL SECTION -- seperate file? */
