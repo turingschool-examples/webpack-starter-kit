@@ -16,7 +16,10 @@ class Player {
       this.score += correctAnswer.respondents;
       domUpdates.revealCorrectAnswer(correctAnswer);
       domUpdates.updateScore(this.playerNum, this.score);
-    } 
+      domUpdates.showGuessMessage('correct');
+    } else {
+      domUpdates.showGuessMessage('wrong');
+    }
     game.toggleIsTurn();
   }
 

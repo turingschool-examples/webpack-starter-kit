@@ -26,6 +26,7 @@ let round;
 
 $(".submit-btn").on("click", startGame);
 $(".guess-btn").on("click", guess);
+$(".guess-input").on("keydown", domUpdates.hideGuessMessages);
 
 function startGame() {
   const p1Name = $("#p1-name-input").val();
@@ -42,6 +43,7 @@ function startGame() {
 function guess() {
   const guess = $(".guess-input").val();
   game.player1.isTurn ? game.player1.makeGuess(guess, game, round) : game.player2.makeGuess(guess, game, round);
+  domUpdates.clearInput();
 }
 
 function startRound(round) {
