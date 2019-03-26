@@ -421,7 +421,7 @@ clearGameBoard() {
     $('.puzzle-cell').remove();
 
 
-    }
+},
   
 
 
