@@ -166,6 +166,9 @@ main {
     height: 3.5rem;
     padding-left: 5px;
     width: 15rem;
+    &:focus {
+      box-shadow: 5px 5px 15px 5px hsla(64, 95%, 65%, 0.8);
+    }
   }
 
   button {
@@ -174,6 +177,7 @@ main {
     font-family: $bodyfont;
     font-size: 2rem;
     height: 3rem;
+    margin: 2rem;
     width: 15rem;
     &:hover {
       background-color: $btn;

@@ -6,6 +6,7 @@ section.player-section {
 
   article {
     background-color: $playerbg;
+    box-shadow: 3px 3px 4px black;
     display: grid;
     grid-template-areas: "avatar name"
     "avatar score"

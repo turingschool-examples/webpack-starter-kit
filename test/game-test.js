@@ -4,8 +4,23 @@ import spies from 'chai-spies';
 import domUpdates from '../src/js/domUpdates.js';
 
 chai.use(spies);
-chai.spy.on(domUpdates, ['updateQInfo', 'revealPrize', 'loadPossiblePrizes', 'appendNames'], () => true);
 chai.spy.on(domUpdates, 'getNames', () => ['nim', 'rick', 'morty']);
+chai.spy.on(domUpdates, 'getAnswer', () => 'Answer');
+chai.spy.on(domUpdates, 'getBoard', () => [{textContent: 'A'}]);
+chai.spy.on(domUpdates, 'getConsonant', () => 'A');
+chai.spy.on(domUpdates, [
+  'updateQInfo', 
+  'revealPrize', 
+  'loadPossiblePrizes', 
+  'appendNames',
+  'updateBank',
+  'clearClass',
+  'correctAns',
+  'updateScore',
+  'wrongAns',
+  'appendLetters'
+], () => true);
+
 
 const expect = chai.expect;
 
@@ -93,5 +108,25 @@ describe('Game', () => {
     expect(game.players).to.have.lengthOf(3);
     expect(game.currentQuestion).to.not.equal(undefined);
   });
+
+  it('should validate player solve puzzle guess', () => {
+    game.startRound();
+    game.currentQuestion.answer = 'Answer';
+    game.validateAnswer();
+    expect(domUpdates.getAnswer).to.have.been.called();
+    expect(domUpdates.updateBank).to.have.been.called();
+  });
+
+  it('should validate player consonant guess', () => {
+    game.startRound();
+    game.checkConsonant();
+    game.generatePrize();
+    expect(domUpdates.getBoard).to.have.been.called();
+    expect(domUpdates.getConsonant).to.have.been.called();
+    expect(domUpdates.clearClass).to.have.been.called.with({textContent: 'A'});
+    expect(domUpdates.correctAns).to.have.been.called();
+    expect(domUpdates.updateScore).to.have.been.called();
+  });
+
 
 });
