@@ -49,6 +49,7 @@ class Game {
       console.log('correct!')
       this.players[this.playerIndex].totalScore += this.currentPrize
       console.log(this.players[this.playerIndex].totalScore);
+      domUpdates.updateBank(this.playerIndex, this.players[this.playerIndex].totalScore)
       // alert player was correct
       // change round, instantiate new round with new question
     } else {
@@ -61,18 +62,15 @@ class Game {
 
   checkConsonant() {
     let elem = domUpdates.getBoard()
-    console.log(Object.values(elem))
-    console.log(this.currentQuestion.answer)
     Object.values(elem).forEach(e => {
-      console.log(e.textContent)
-      console.log(domUpdates.getConsonant())
       if (e.textContent === domUpdates.getConsonant()) {
         this.players[this.playerIndex].currentScore += this.currentPrize
         domUpdates.clearClass(e)
-        // make letter appear
-        // add currentPrize to player score
+        domUpdates.updateScore(this.playerIndex, this.currentPrize)
+      } else if (!this.ltrArr.includes(domUpdates.getConsonant())){
+        this.ltrArr.push(domUpdates.getConsonant())
       } else {
-        console.log('sumpin')
+        null
       }
     })
     // this.ltrArr.push(domUpdates.getConsonant())
@@ -106,6 +104,7 @@ class Game {
     let q = this.allQs.sort(() => 0.5 - Math.random()).pop();
     this.currentQuestion = new Question(q.correct_answer, q.total_number_of_letters, [], q.description, q.category);
     domUpdates.updateQInfo(this.currentQuestion);
+    console.log(this.currentQuestion.answer)
   }
 
 }

@@ -102,5 +102,31 @@ export default {
 
   clearClass(e) {
     $(e).removeClass('hidden')
+  },
+
+  updateScore(player, score) {
+    switch (player) {
+      case 0:
+      $('.p1-score').text(score)
+      break;
+      case 1:
+      $('.p2-score').text(score)
+      break;
+      default:
+      $('.p3-score').text(score)
+    }
+  },
+
+  updateBank(player, score) {
+    switch (player) {
+      case 0:
+      $('.p1-bank').text(score)
+      break;
+      case 1:
+      $('.p2-bank').text(score)
+      break;
+      default:
+      $('.p3-bank').text(score)
+    }
   }
 }
