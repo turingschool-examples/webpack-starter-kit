@@ -7,6 +7,39 @@ body {
   display: none;
 }
 
+.start-page {
+  width: 700px;
+  height: 500px;
+  margin: 80px auto 0;
+  background-image: url("../images/name-background.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.input-holder {
+  padding-top: 90px;
+}
+
+.input-holder > * {
+  text-align: center;
+  font-size: 30px;
+  display: block;
+  color: white;
+  margin: 20px auto;
+  width: 250px;
+}
+
+.input-holder input {
+  color: black;
+}
+
+.name-btn {
+  background-color: #B02418;
+  border: none;
+  padding: 10px;
+}
+
 .game-area {
   margin: 50px auto;
 }
@@ -32,6 +65,7 @@ body {
 }
 
 .feud-logo {
+  display: block;
   height: 60px;
   width: 600px;
   margin: 20px auto 0;

@@ -19,6 +19,8 @@ import './images/knight-horse-shield.gif';
 import './images/round-one.png';
 import './images/round-two.png';
 import './images/final-round.png';
+import './images/name-background.png';
+
 
 import domUpdates from './domUpdates.js';
 import data from './gamedata.js';
@@ -28,7 +30,7 @@ import Player from './Player.js';
 let game;
 let round;
 
-$(".submit-btn").on("click", startGame);
+$(".name-btn").on("click", startGame);
 $(".guess-btn").on("click", guess);
 $(".guess-input").on("keydown", domUpdates.hideGuessMessages);
 
