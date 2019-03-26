@@ -21,13 +21,12 @@ startGameBtn.click(function (e) {
   game = new Game;
   game.createPlayers(names);
   game.startGame();
-  domUpdates.notifyPlayerOneTurn(names, game);
+  domUpdates.notifyPlayerOneTurn(game);
 })
 
 clueBtn.on('click', function(e) {
   e.preventDefault();
   const {id, innerText} = event.target;
-  console.log(id, innerText);
   game.round.findClue(game, id, innerText, event)
 })
 
