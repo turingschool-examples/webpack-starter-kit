@@ -6,21 +6,24 @@ class Game {
   constructor(player1, player2) {
     this.player1 = player1;
     this.player2 = player2;
-    this.currentRound = 0;
+    this.currentRound = 1;
     this.usedSurveys = [];
     this.winner = null;
     this.player1.isTurn = true;
   }
 
-  startNewRound(round) {
-    this.currentRound++;
-    if (this.currentRound < 3) {
+  startNewRound() {
+    if (this.currentRound < 2) {
+      this.currentRound++;
       let round = new Round(this);
       this.updateDOM(round);
       return round;
-    } else if (this.currentRound === 3) {
+    } else if (this.currentRound === 2) {
+      this.currentRound++;
       let round = new FinalRound(this);
-      this.updateDOM(round);
+      setTimeout(function () {
+        domUpdates.hideGame();
+      }, 2000);
       return round;
     }
   }
@@ -29,7 +32,7 @@ class Game {
     domUpdates.animateKnight(this.currentRound);
     setTimeout(function () {
       domUpdates.populateSurvery(round);
-      domUpdates.populateAnswers(round)
+      domUpdates.populateAnswers(round);
     }, 4000);
   }
   

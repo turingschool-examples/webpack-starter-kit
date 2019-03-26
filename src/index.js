@@ -33,6 +33,7 @@ let round;
 $(".name-btn").on("click", startGame);
 $(".guess-btn").on("click", guess);
 $(".guess-input").on("keydown", domUpdates.hideGuessMessages);
+$(".multiplier-btn").on("click", startFinalRound);
 
 function startGame() {
   const p1Name = $("#p1-name-input").val();
@@ -50,7 +51,11 @@ function guess() {
   game.player1.isTurn ? game.player1.makeGuess(guess, game, round) : game.player2.makeGuess(guess, game, round);
   domUpdates.clearInput();
   if (round.answers.length === 0) {
-    
     round = game.startNewRound();
   }
+}
+
+function startFinalRound() {
+  domUpdates.revealGame();
+  game.updateDOM(round);
 }
