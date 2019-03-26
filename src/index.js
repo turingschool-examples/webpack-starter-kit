@@ -79,30 +79,6 @@ $('#vowel').click(function() {
   const player = round.currentPlayer;
   let ltrGuess = $('#guess--input').val();
 
-$('.guess__letter--button').click(function () {
-    const round = game.currentRound;
-    const player = round.currentPlayer
-    // !  nested if to separate helper function invoked within first if
-    if ($('#guess--input').val().length === 1) {
-      let ltrGuess = $('#guess--input').val();
-      player.ans = ltrGuess.toUpperCase();
-      round.answer = round.answer.filter(item => item != `'` && item != `-` && item != `&` && item != '')
-      //TODO: update letters used array
-      // player ans
-      // console.log(game.currentRound.currentPlayer.ans.toUpperCase());
-      // round answer
-      // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
-      // compare player ans against round answer
-      conditionalChecking(round, player, ltrGuess);
-      // create a new array
-      // push correct guess letter in there
-      // find index of answer array to guess letter array
-      // change text of that index to the value of the guess index
-      DomUpdates.updateLettersUsed(game);
-    } else {
-      alert('Please Only Choose 1 Letter');
-    }
-  });
   if (!vowels.includes(ltrGuess.toUpperCase()) || ltrGuess.length !== 1) {
     alert('Please Choose 1 Vowel');    
   } else {
@@ -165,21 +141,16 @@ let compareAns = (round, player) => {
     .includes(player.ans.toUpperCase());
 }
 
-  let correctAnsFunc = (round, player, ltrGuess) => {
-    console.log(round.answer.length)
-    if(round.answer.length == 1) {
-      game.newRound(game);
-    }
-    else {
-      round.correctRoundGuesses.push(player.ans);
-      round.allRoundGuesses.push(player.ans);
-      DomUpdates.createPuzzleClassArr(ltrGuess);
-      round.getCurrentPlayer(game);
-      round.answer = round.answer.filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
-      console.log(game.currentRound.answer);
-    }
-  }
-
+let correctAnsFunc = (round, player, ltrGuess) => {
+  round.correctRoundGuesses.push(player.ans);
+  round.allRoundGuesses.push(player.ans);
+  round.allRoundGuesses.sort();
+  DomUpdates.createPuzzleClassArr(ltrGuess);
+  round.getCurrentPlayer(game);
+  round.answer = round.answer
+    .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
+  console.log(game.currentRound.answer);
+}
 
 let buyVowel = (round, player, ltrGuess) => {
   if (player.roundCaps < 100) {
