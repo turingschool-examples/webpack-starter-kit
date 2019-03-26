@@ -7,9 +7,9 @@ let domUpdates = {
     },
 
     changeNames() {
-        $('.player').eq(0).text($('.nameInput').eq(0).val());
-        $('.player').eq(1).text($('.nameInput').eq(1).val());
-        $('.player').eq(2).text($('.nameInput').eq(2).val());
+        $('.player').eq(0).text($('.nameInput').eq(0).val()).css('color', '#00e000');
+        $('.player').eq(1).text($('.nameInput').eq(1).val()).css('color', '#00e000');
+        $('.player').eq(2).text($('.nameInput').eq(2).val()).css('color', '#00e000');
     },
 
     changeCategory(category) {
@@ -20,11 +20,22 @@ let domUpdates = {
         $('.clue').text(clue);
     },
 
+    highlightBoard(splitAnswer) {
+        splitAnswer.forEach((cur, idx) => {
+            if(cur === '-') {
+                $('.clueLetter').eq(idx).text('-')
+            } else {
+                $('.clueLetter').eq(idx).css("background-color", "white")
+                
+            }
+        });
+    },
+
     checkLetterGuess(splitAnswer, usedArray) {
         splitAnswer.forEach((letter, index) => {
             if(usedArray.includes(letter) && !usedArray.includes('') ) {
                 $('.clueLetter').eq(index).text(letter);
-                $('.clueLetter').eq(index).css("background-color", "green");
+                $('.clueLetter').eq(index).css("background-color", "#03a9f4");
             } else {
                 $('.clueLetter').eq(index).css("background-color", "white");
             }

@@ -4,6 +4,8 @@ import domUpdates from './domUpdates.js';
 import './css/base.css';
 import './images/8bit.png';
 import './images/Color_Wheel.png';
+import './images/background.jpg';
+import './images/back.gif'
 
 let game = new Game();
 
@@ -16,19 +18,20 @@ $('.startGame').on('click', function (e) {
     $('.nameInput').hide('slow');
     $('.startGame').hide('slow');
     $('.spinButton').prop('disabled', false);
+    domUpdates.highlightBoard(game.round.allCorrectAnswers[game.stage])
     console.log(game)
 });
 
 $('.letters').on('click', function(e) {
     game.fillUseLetters(e);
-    $('body').find(e.target).attr('disabled', '').css("background-color", "grey");
+    $('body').find(e.target).attr('disabled', '').css("background-color", "#00e000");
     domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters);
     game.checkGuess(e);
 });
 
 $('.vowel').on('click', function (e) {
     game.fillVowels(e);
-    $('body').find(e.target).attr('disabled', '').css("background-color", "grey");
+    $('body').find(e.target).attr('disabled', '').css("background-color", "#00e000");
     domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters);
     game.checkGuess(e);
 });
