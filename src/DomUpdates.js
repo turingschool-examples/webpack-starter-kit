@@ -294,10 +294,7 @@ export default {
     $('main').append(
       `<section id="player-actions" class="player-actions">
       <div>
-        <button class="quit-btn-container game-buttons">New Game</button>
-      </div>
-      <div>
-          <button class="player-action-btn spinner game-buttons">Spin Wheel</button>
+          <button class="player-action-btn spinner game-buttons">Wheel: <span class="wheel-value">Spin me!</span></button>
       </div>
       <div>
           <button class="player-action-btn game-buttons vowel">Buy Vowel</button>
@@ -365,7 +362,7 @@ export default {
 
   displayWheelValue(wheelValue) {
     console.log(wheelValue);
-    $('.wheel-value-text').text(wheelValue);
+    $('.wheel-value').text(wheelValue);
   },
 
 
@@ -395,16 +392,16 @@ export default {
     })
   },
 
-//   bankrupt() {
-//     $('footer').prepend(`
-//     <section class="bankrupt">
-//       <h1 class="result"><i class="fas fa-exclamation">BANKRUPT</i></h1>
-//     </section>
-//   `).fadeOut(2000, function() {
-//       $('.bankrupt').remove();
-//       $('footer').removeAttr("style")
-//     })
-//   },
+  //   bankrupt() {
+  //     $('footer').prepend(`
+  //     <section class="bankrupt">
+  //       <h1 class="result"><i class="fas fa-exclamation">BANKRUPT</i></h1>
+  //     </section>
+  //   `).fadeOut(2000, function() {
+  //       $('.bankrupt').remove();
+  //       $('footer').removeAttr("style")
+  //     })
+  //   },
 
   //   loseTurn() {
   //     $('footer').prepend(`
@@ -422,7 +419,11 @@ export default {
   clearGameBoard() {
     $('.puzzle-cell').remove();
 
-
+  },
+  
+  displayActivePlayer(activePlayer) {
+    console.log("Active Player: ", activePlayer.name)
+    $('.active-player-text').text(activePlayer.name);
   },
 
   correctGuess() {

@@ -96,7 +96,7 @@ function playerBuyVowel(game) {
 }
 
 function submitGuess(event) {
-  let playerEvent = $(event.target).hasClass('.spinner')
+  let playerEvent = $(event.target).hasClass('.player-guess')
   let playerGuess = $('.guess-submission').val().toLowerCase()
   if (playerGuess === '' && playerEvent === true) {
   } else { 

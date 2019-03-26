@@ -20,6 +20,7 @@ class Round {
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
     this.shuffler(allRoundClues)
     this.playerTurn(game)
+    DomUpdates.displayActivePlayer(game.players[this.activePlayer])
     this.getRandomClue(allRoundClues)
     this.wheelInst.createWheel(this)
     game.stage ++
@@ -50,7 +51,20 @@ class Round {
     }
   }
 
-  
+  ///checking clicked letter works
+  checkLetter(userLetter, game) {
+    console.log(this.clueAnswer)
+    if (this.clueAnswer.includes(userLetter)) {
+      game.updatePlayerBank()
+    } else if (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
+      // this.activePlayer++
+      this.switchPlayer(game)
+    }
+    // game.players[this.activePlayer].score += this.wheelInst.selectedValue
+    // console.log(game.players)
+    console.log('go to bed')
+
+  }
   
 
   fillGameBoard() {
@@ -82,16 +96,19 @@ class Round {
     console.log('myTurn:', game.players[this.activePlayer])
   }
 
-  switchPlayer() {
+  switchPlayer(game) {
     switch (this.activePlayer) {
     case 0:
       this.activePlayer = 1
+      DomUpdates.displayActivePlayer(game.players[this.activePlayer])
       break;
     case 1:
       this.activePlayer = 2
+      DomUpdates.displayActivePlayer(game.players[this.activePlayer])
       break;
     case 2:
       this.activePlayer = 0
+      DomUpdates.displayActivePlayer(game.players[this.activePlayer])
       break;
     default:
       return;
@@ -155,10 +172,10 @@ class Round {
     }
 
     
-// (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
-//       // this.activePlayer++
-//       this.switchPlayer()
-//     }
+    // (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
+    //       // this.activePlayer++
+    //       this.switchPlayer()
+    //     }
     console.log('go to bed')
 
   }
