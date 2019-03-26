@@ -6,67 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
   <title>Family Feud</title>
 </head>
 
 <body>
+  <!-- <h1>F<span>amily</span> F<span>eud</span></h1> -->
+  <!-- <h1><img class="logo" src="images/turing-logo.png" alt="logo"></h1> -->
   <div class="wrapper">
-    <h1><img id="logo" src="images/turing-logo.png" alt="logo"></h1>
+    <div id="player-1" class="player-info">
+      <h3 class="player-one-name player-name">Player 1</h3>
+      <p><span class="player-one-score player-score">0</span></p>
+    </div>
     <section id="game-area">
-
-    <section class="start-game-pop-up">
-      <div>
-        <label for="player-one-input">Player One Name</label>
-        <input type="text" id="player-one-input">
-      </div>
-      <div>
-        <label for="player-two-input">Player Two Name</label>
-        <input type="text" id="player-two-input">
-      </div>
-      <div>
-        <button id="start-game-btn">Start Game</button>
-      </div>
-    </section>
-
-    <section class="next-round-pop-up">
-      <h3>ROUND COMPLETE</h3>
-      <h5>Player 1 Score</h5>
-      <p><span class="player-one-score"></span></p>
-      <h5>Player 2 Score</h5>
-      <p><span class="player-two-score"></span></p>
-      <button class="next-round-btn">Start Next Round</button>
-    </section>
-
-    <section class="lightning-round-pop-up">
-      <h3>ROUND COMPLETE</h3>
-      <p>Entering Lightning Round: Each player will be given 30 seconds to enter as many responses to a survey as they can after pressing continue. Every inorrect response will decrease your score by 25 points!</p>
-      <p>Points are doubled for this round Current Player GET READY</p>
-      <h5>Player 1 Score</h5>
-      <p><span class="player-one-score"></span></p>
-      <h5>Player 2 Score</h5>
-      <p><span class="player-two-score"></span></p>
-      <button class="lightning-round-btn">Start Next Round</button>
-    </section>
-
-    <section id="user-area">
-      <div id="player-1" class="player-info">
-        <h3>Player 1</h3>
-        <p><span class="player-one-name">Name</span>: <span class="player-one-score">00</span></p>
-      </div>
-      <div id="player-2" class="player-info">
-        <h3>Player 2</h3>
-        <p><span class="player-two-name">Name</span>: <span class="player-two-score">00</span></p>
-      </div>
-      <div id="button-container">
+      <!-- <div id="button-container">
         <button id="new-game-btn">New Game</button>
-      </div>
-    </section>
-    <section id="current-round">
-        <p class="current-player"><span>current player</span>'s Turn</p>
-        <div>
-          <section id="current-round-total">
-            <h2>00</h2>
-          </section>
+      </div> -->
+      <section id="current-round">
+        <section id="current-round-total">
+          <h2>00</h2>
+        </section>
+              <div>
           <article id="question-container">
             <h3 id="current-question">What is the current question</h3>
           </article>
@@ -99,12 +59,54 @@
               </div>
             </div>
           </section>
-          <form>
+        </div>
+        <form>
             <input id="guess-input" type="text" placeholder="Guess a response...">
             <input class='submit-btn' type="submit">
           </form>
+      </section>
+
+      <section class="start-game-pop-up">
+        <div>
+          <label for="player-one-input">Player One Name</label>
+          <input type="text" id="player-one-input">
+        </div>
+        <div>
+          <label for="player-two-input">Player Two Name</label>
+          <input type="text" id="player-two-input">
+        </div>
+        <div>
+          <button id="start-game-btn">Start Game</button>
         </div>
       </section>
+
+      <section class="next-round-pop-up">
+        <h3>ROUND COMPLETE</h3>
+        <h5>Player 1 Score</h5>
+        <p><span class="player-one-score"></span></p>
+        <h5>Player 2 Score</h5>
+        <p><span class="player-two-score"></span></p>
+        <button class="next-round-btn">Start Next Round</button>
+      </section>
+
+      <section class="lightning-round-pop-up">
+        <h3>ROUND COMPLETE</h3>
+        <p>Entering Lightning Round: Each player will be given 30 seconds to enter as many responses to a survey as they
+          can after pressing continue. Every inorrect response will decrease your score by 25 points!</p>
+        <p>Points are doubled for this round Current Player GET READY</p>
+        <h5>Player 1 Score</h5>
+        <p><span class="player-one-score"></span></p>
+        <h5>Player 2 Score</h5>
+        <p><span class="player-two-score"></span></p>
+        <button class="lightning-round-btn">Start Next Round</button>
+      </section>
+    </section>
+    
+
+    <div id="player-1" class="player-info">
+      <h3 class="player-two-name player-name">Player 2</h3>
+      <p><span class="player-two-score player-score">0</span></p>
+    </div>
   </div>
 </body>
 
