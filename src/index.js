@@ -70,3 +70,65 @@ var name3 = 'Sean';
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+$("#start-game").click(function() {
+  event.preventDefault();
+  publishRoundClues()
+});
+
+
+function publishRoundClues () {
+  console.log('hello')
+  const board = '<article class="clues">' +  
+  100 + 
+  '</article>' +
+  '<article class="clues">' + 
+  100 + 
+  '</article>' +
+  '<article class="clues">' +
+  100 + 
+  '</article>' +
+  '<article class="clues">' +
+  100 +
+  '</article>' +
+  '<article class="clues">' +
+  200 +
+  '</article>' +
+  '<article class="clues">' +
+  200 +
+  '</article>' +
+  '<article class="clues">' +
+  200 +
+  '</article>' +
+  '<article class="clues">' +
+  200 +
+  '</article>' +
+  '<article class="clues">' +
+  300 +
+  '</article>' +
+  '<article class="clues">' +
+  300 +
+  '</article>' +
+  '<article class="clues">' +
+  300 +
+  '</article>' +
+  '<article class="clues">' +
+  300 +
+  '</article>' +
+  '<article class="clues">' +
+  400 +
+  '</article>' +
+  '<article class="clues">' +
+  400 +
+  '</article>' +
+  '<article class="clues">' +
+  400 +
+  '</article>' +
+  '<article class="clues">' +
+  400 +
+  '</article>' 
+  
+  $(".box-wrapper").append(board);
+  console.log(board)
+  
+}
