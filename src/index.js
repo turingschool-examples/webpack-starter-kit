@@ -48,9 +48,6 @@ $('#category-four').text(categoryArr[3]);
 // newGame.populateQuestions()
 
 // dom manipulation to get values of the three names
-var name1 = 'Erik';
-var name2 = 'Elton';
-var name3 = 'Sean';
 
 $("#start-game").click(function() {
   event.preventDefault();
