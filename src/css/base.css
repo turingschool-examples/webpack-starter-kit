@@ -49,16 +49,23 @@ nav {
   border: .1px solid lime;
 }
 .nav__wheel--button {
-  background-color: darkgreen;
-  border-radius: 0 0 100px 100px;
-  width: 150px;
-  height: 50px;
-  font-size: 30px;
-  text-shadow: 2px 2px 2px green;
-  position: absolute;
-  right: 50%;
-  border: 2px inset lime;
+    width: 220px;
+    height: 200px;
+    top: -123px;
+    position: absolute;
+    right: 44%;
+  animation: rotateWheel 5000ms infinite linear;
+
+
 }
+.nav__wheel--button:click {
+  width: 5000px;
+}
+@keyframes rotateWheel {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+
 .letters--container {
   position: absolute;
   top: 25px;
@@ -86,8 +93,36 @@ nav {
   position: absolute;
   z-index: 10;
 }
+.fade-in {
+  animation: fadeIn 1s 1;
+}
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    background-color: black;
+  }
+  to {
+    opacity: 1;
+    background-color: lime;
+  } 
+}
+.fade-in-letter {
+  animation: fadeInLetter 1s 1;
 
+}
+@keyframes fadeInLetter {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  } 
+  100%{
+    opacity: 1;
+  }
+
+}
 .popup {
   background: linear-gradient(to bottom, #45484d 0%,#000000 100%);
   box-shadow: inset 0px 0px 144px 27px rgba(0,0,0,1.3);
