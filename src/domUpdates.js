@@ -67,7 +67,7 @@ export default {
 
   endOfRoundMsg() {
     $("#round-winner-msg").fadeIn("fast", function() {
-      $("#round-winner-msg").delay(850).fadeOut(); 
+      $("#round-winner-msg").delay(2000).fadeOut(); 
     });
   },
     
@@ -93,14 +93,20 @@ export default {
   displayTimer() {
     let seconds = 30; //would be ideal to tie this to property value
     const interval = setInterval(function() {
-      $(".timer").removeClass("hidden");
+      
       $(".timer").html(--seconds);
 
       if (seconds <= 0 && window.game.currentRound === 3) {
         clearInterval(interval);
-        $(".fastround-ready-screen").removeClass("hidden").delay(1000);
+        $(".timer-area").addClass("hidden");
+        $(".fastround-ready-screen").removeClass("hidden");
         window.game.triggerNewRound();
       } 
     }, 1000);
+  },
+
+  removeTimer() {
+    $(".timer-area").addClass("hidden");
   }
+    
 }

@@ -8,8 +8,8 @@ class FastRound extends Round {
         this.multiplier = 2;
     }
 
-    startTimedRound() {
-      domUpdates.displayTimer();
+    startTimedRound(timer) {
+      domUpdates.displayTimer(timer);
     }
 
     setMultiplier(chosenNumber) {

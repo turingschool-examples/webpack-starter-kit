@@ -5,11 +5,6 @@ class Round {
   constructor(survey, surveyAnswers) {
     this.survey = survey;
     this.surveyAnswers = surveyAnswers; 
-    this.guesses = [];
-  }
-      
-  saveGuess(guess) {
-    this.guesses.push(guess);
   }
 
   checkAnswer(guess) {
@@ -39,9 +34,10 @@ class Round {
 
   checkRoundProgress() {
     if (this.surveyAnswers.length === 0) { 
-      setTimeout(function(){ 
-        window.game.triggerNewRound(); 
-      }, 2000);
+      domUpdates.endOfRoundMsg();
+      setTimeout(() => {
+        window.game.triggerNewRound();
+      }, 1000);
     } 
   }
 
