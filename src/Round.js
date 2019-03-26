@@ -5,43 +5,38 @@ import $ from "jquery";
 class Round {
   constructor() {
     this.currentAnswers = [];
-    this.copiedQuestions = gameData.surveys.slice();
+    this.slicedQuestions = gameData.surveys.slice();
   }
 
   generateRound() {
-    const currentRoundAnswers = this.generateAnswers();
-    this.currentAnswers = currentRoundAnswers;
+    this.currentAnswers = this.generateAnswers();
     domObject.createAnswers(this.currentAnswers);
   }
 
+  //Will need to delete this redundancy if no unique alterations made.
   generateRoundTimed() {
-    const currentRoundAnswers = this.generateAnswers();
-    this.currentAnswers = currentRoundAnswers;
+    this.currentAnswers = this.generateAnswers();
     domObject.createAnswers(this.currentAnswers);
-    // console.log(`generateRoundTimed invoked`)
   }
 
   generateQuestion() {
-    // console.log('starting length:', this.copiedQuestions.length);
-    const randomNumber = genNumber(this.copiedQuestions);
-    // console.log('Random Number:', randomNumber);
-    const questionObject = this.copiedQuestions.splice(randomNumber, 1);
-    // console.log('post-spliced length:', this.copiedQuestions.length);
-    const questionString = questionObject[0].question;
+    const randomElement = selectRandomElement(this.slicedQuestions);
+    const splicedQuestionObject = this.slicedQuestions.splice(randomElement, 1);
+    const questionString = splicedQuestionObject[0].question;
     domObject.createQuestion(questionString);
-    function genNumber(shrinkingArray) {
-      return Math.floor(Math.random() * shrinkingArray.length);
+    function selectRandomElement(targetedArray) {
+      return Math.floor(Math.random() * targetedArray.length);
     }
-    return questionObject;
+    return splicedQuestionObject;
   }
 
   generateAnswers() {
     const generatedQuestion = this.generateQuestion();
-    const copiedAnswers = gameData.answers.slice();
-    const sortedAnswers = copiedAnswers
-      .reduce((associatedAnswers, currAnswer) => {
-        if (currAnswer.surveyId === generatedQuestion[0].id) {
-          associatedAnswers.push(currAnswer);
+    const slicedAnswers = gameData.answers.slice();
+    const sortedAnswers = slicedAnswers
+      .reduce((associatedAnswers, currentAnswerObject) => {
+        if (currentAnswerObject.surveyId === generatedQuestion[0].id) {
+          associatedAnswers.push(currentAnswerObject);
         }
         return associatedAnswers;
       }, [])
