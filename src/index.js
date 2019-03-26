@@ -60,7 +60,8 @@ $("#submit-guess-btn").on("click", function() {
   if ($(".guess-input").val() !== '') {
     const playerGuess = $(".guess-input").val().toLowerCase();
     $(".guess-input").val('');
-    window.game.round.checkAnswer(playerGuess);
+
+    window.game.round.checkAnswer(playerGuess); 
   } else {
     domUpdates.showMustEnterGuessMsg();
   }

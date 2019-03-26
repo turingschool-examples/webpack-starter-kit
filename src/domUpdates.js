@@ -96,7 +96,7 @@ export default {
       
       $(".timer").html(--seconds);
 
-      if (seconds <= 0) {
+      if (seconds <= 0 && window.game.currentRound === 3) {
         clearInterval(interval);
         $(".timer-area").addClass("hidden");
         $(".fastround-ready-screen").removeClass("hidden");

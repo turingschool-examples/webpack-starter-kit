@@ -95,17 +95,6 @@ class Game {
     }
   }
 
-  getRandomSurveyId() {
-    const randomId = Math.floor(Math.random() * this.surveyData.surveys.length) + 1;
-
-    if (!this.usedSurveys.includes(randomId)) {
-      this.usedSurveys.push(randomId);
-      return randomId;
-    } else {
-      this.getRandomSurveyId();
-    }
-  }
-
   triggerNewRound() {
     this.currentRound++;
     if (this.currentRound === 5) {
@@ -118,10 +107,11 @@ class Game {
   }
 
   getSurvey() {
-    const randomId = this.getRandomSurveyId();
-    const question = this.surveyData.surveys.find(survey => survey.id === randomId).question;
+    const randomId = Math.floor(Math.random() * this.surveyData.surveys.length) + 1;
+    const question = this.surveyData.surveys.find(survey => survey.id === randomId);
     const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
-    this.createRound(question, answers);
+    this.createRound(question.question, answers);
+    this.surveyData.surveys.splice(this.surveyData.surveys.indexOf(question), 1);
   }
 
   createRound(question, answers) {
@@ -149,7 +139,7 @@ class Game {
 
   endGame() {
     if (this.player1.score === this.player2.score) {
-      domUpdate.showTieScreen();
+      domUpdates.showTieScreen();
     } else if (this.player1.score > this.player2.score) {
       var winnerName = this.player1.name;
       domUpdates.showWinnerScreen(winnerName);
