@@ -204,6 +204,18 @@ button.start__start--btn {
   border: none;
   font-size: 32px;
 }
+.fade-out__animation {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  0%{opacity: 1}
+  100%{
+    opacity: 0;
+  }
+
+}
+
 .fa-hand-holding-usd,
 .fa-dharmachakra,
 .fa-puzzle-piece{
