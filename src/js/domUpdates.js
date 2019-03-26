@@ -32,14 +32,14 @@ export default {
     setTimeout(() => {
       $('.prize').parent().addClass('prize-animation');
       $('.prize').text(`You Got: ${prize}`);
-    }, 1000)
+    }, 1)
     this.hideInputs();
     setTimeout(() => {
       this.showInput();
       this.showVowels();
       this.showSolveInput();
       $('.wheel-img').removeClass('spin');
-    }, 5000);
+    }, 5);
   },
 
   showInput() {

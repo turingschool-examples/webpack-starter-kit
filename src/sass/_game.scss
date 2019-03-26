@@ -17,6 +17,24 @@ header {
   text-align: center;
 }
 
+.new-game-btn {
+  background-color: $board;
+  border: 3px solid transparent;
+  border-radius: 25px;
+  color: white;
+  font-family: $bodyfont;
+  font-size: 1.5rem;
+  height: 2rem;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  width: 9rem;
+  &:hover {
+    background-color: $btn;
+    border: 3px solid white;
+  }
+}
+
 main {
   background-color: $board;
   min-height: 50vh;
@@ -72,15 +90,16 @@ main {
       }
 
       .ltr-input {
-        width: 4rem;
+        border: 2px;
+        border-radius: 20px 0 0 20px;
+        display: none;
         font-size: 1.5rem;
         text-align: center;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        display: none;
+        width: 4rem;
       }
 
       .input-solve {
+        border: 2px;
         border-radius: 20px 0 0 20px;
         font-size: 1.5rem;
         text-align: center;
@@ -183,23 +202,5 @@ main {
       background-color: $btn;
       border: 3px solid white;
     }
-  }
-}
-
-.new-game-btn {
-  background-color: $board;
-  border: 3px solid transparent;
-  border-radius: 25px;
-  color: white;
-  font-family: $bodyfont;
-  font-size: 1.5rem;
-  height: 2rem;
-  position: absolute;
-  right: 2rem;
-  top: 2rem;
-  width: 9rem;
-  &:hover {
-    background-color: $btn;
-    border: 3px solid white;
   }
 }
