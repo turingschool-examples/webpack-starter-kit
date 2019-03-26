@@ -16,7 +16,7 @@ export default {
   },
 
   playerNames () {
-    let players = ([$('#player1-input').val(), $('#player2-input').val(), $('#player3-input').val()]);
+    let players = ([$('#player1-input').val() || "Gorgnax", $('#player2-input').val() || "Flumbib", $('#player3-input').val() || "Xerox"]);
     return players;
   },
 
