@@ -36,17 +36,15 @@ class Rounds {
     } else {
       this.topicFour = finalTopic;
     }
-    // console.log('1', this.topicOne);
-    // console.log('2', this.topicTwo);
-    // console.log('3', this.topicThree);
-    // console.log('4 ', this.topicFour);
   }
 
   fetchClues() {
     const clueList = dataSet.clues;
     const categoryList = clueList.filter((currentClue) => {
-      return this.categoryIds.indexOf(currentClue.categoryId) !== -1 ;
+
+      return  this.categoryIds.indexOf(currentClue.categoryId) !== -1;
     });
+
 
     categoryList.forEach((currentClue) => {
       if (currentClue.categoryId === this.categoryIds[0]) {
@@ -64,6 +62,7 @@ class Rounds {
     this.uniquePoints(this.topicThree, 3);
     this.uniquePoints(this.topicFour, 4);
    }
+
    fetchQuestion() {
 
    }

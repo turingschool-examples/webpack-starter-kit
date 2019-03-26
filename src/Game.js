@@ -24,7 +24,7 @@ class Game {
 
     // Create round 1
     this.currentRound = new Rounds(this.round1Categories);
-    this.currentRound.fetchClues(this.round1Categories);
+    this.currentRound.fetchClues();
 
   }
 
