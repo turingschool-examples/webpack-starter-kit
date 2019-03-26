@@ -13,12 +13,6 @@ class Round {
     domObject.createAnswers(this.currentAnswers);
   }
 
-  //Will need to delete this redundancy if no unique alterations made.
-  generateRoundTimed() {
-    this.currentAnswers = this.generateAnswers();
-    domObject.createAnswers(this.currentAnswers);
-  }
-
   generateQuestion() {
     const randomElement = selectRandomElement(this.slicedQuestions);
     const splicedQuestionObject = this.slicedQuestions.splice(randomElement, 1);
