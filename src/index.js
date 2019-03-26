@@ -18,6 +18,7 @@ $(document).ready( () => {
   $('.final-solution-btn').click( () => {
     game.validateAnswer();
     $('.input-solve, .final-solution-btn').hide();
+    $('.feedback').show();
   });
   
   $('.btn-spin').click( () => {
@@ -31,8 +32,14 @@ $(document).ready( () => {
 
   $('.check-btn, .btn-solve, .buy').click( () => {
     $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
-    $('.vowels-to-buy, .ltr-input, .check-btn, .input-solve, .final-solution-btn').hide();
+    $('.vowels-to-buy, .guess-cons, .input-solve, .final-solution-btn').hide();
+    $('.ltr-input, .input-solve').val('')
+    $('.feedback').show()
   });
+
+  $('.btn-solve, .buy, .btn-spin').click(() => {
+    $('.feedback').hide()
+  })
 
 })
 

@@ -13,7 +13,7 @@ section.player-section {
     flex: 1;
     margin: 25px;
     min-height: 100%;
-
+    text-shadow: 3px 3px 3px black;
     h3, h4 {
       text-align: center;
     }
@@ -54,8 +54,6 @@ section.player-section {
 .active {
   border: 4px solid white;
   background-color: $board;
-  // color: black;
-  // font-size: 32px;
 }
 
 .player-two {

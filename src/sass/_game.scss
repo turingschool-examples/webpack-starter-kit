@@ -40,7 +40,7 @@ main {
 
     .description {
       font-size: $boardDescription;
-      height: 10%;
+      height: 13%;
     }
 
     .spin-pop-up {
@@ -117,13 +117,14 @@ main {
     }
     .feedback {
       display: block;
-      font-size: 2rem;
+      font-size: 4rem;
       margin: 0 auto;
     }
   }
 
   aside {
     flex: 1;
+    max-width: 30%;
 
     div {
       button {
