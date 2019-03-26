@@ -33,7 +33,7 @@ export default {
 
   toggleSwitchPlayerPopUp() {
     // TODO change to switch player
-    this.toggleLightningRoundPopUp();
+    $(".toggleLightningRoundPopUp").toggle();
   },
 
   toggleEndGamePopUp() {
@@ -50,6 +50,10 @@ export default {
 
   toggleLightningRoundPopUp() {
     $(".lightning-round-pop-up").toggle();
+  },
+
+  toggleSwitchPlayerPopUp() {
+    $(".switch-player-pop-up").toggle();
   },
 
   startGame({ players, currentPlayer }) {

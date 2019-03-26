@@ -82,9 +82,9 @@ $(".lightning-round-btn").on('click', (e) => {
   }, 30000);
 });
 
-$(".continute-round-btn").on('click', (e) => {
+$(".continue-btn").on('click', (e) => {
   e.preventDefault();
-  domUpdates.toggleLightningRoundPopUp();
+  domUpdates.toggleSwitchPlayerPopUp();
   game.startNextLightningRound();
   setTimeout(() => { // OR all guesses correct
     domUpdates.toggleEndGamePopUp();
