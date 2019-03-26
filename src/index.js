@@ -50,7 +50,7 @@ $('body').on('click', '.spinner', () =>{
   playerSpin(game)
 })
 
-$('body').on('click', '.player-action-btn', () =>{
+$('body').on('click', '#player-guess', () =>{
   submitGuess(game, event)
 })
 

@@ -16,7 +16,6 @@ class Round {
 
   createNewRound(game) {
     this.roundNumber ++
-    console.log('game', game.gameRoundsClueBank)
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
     this.shuffler(allRoundClues)
     this.playerTurn(game)
@@ -113,7 +112,7 @@ class Round {
     default:
       return;
     }
-    console.log('after', this)
+
   }
 
   buyVowel(game) {
@@ -122,14 +121,17 @@ class Round {
   }
 
   checkValue(wheelValue, game) {   
+    console.log(wheelValue)
     if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
       DomUpdates.gameMessage("bankrupt")
       game.players[this.activePlayer].playerBank = 0
+      console.log('rupt')
       this.switchPlayer(game);
     } else if (wheelValue === "LOSE A TURN") {
       DomUpdates.gameMessage("lose a turn")
       DomUpdates.deactivateLetters()
+      console.log('loseturn')
       this.switchPlayer(game)
     } else {
       DomUpdates.activateLetters()
@@ -167,7 +169,7 @@ class Round {
       }
     } else {
       DomUpdates.gameMessage("next player")
-      this.switchPlayer()
+      this.switchPlayer(game)
 
     }
 
@@ -190,7 +192,7 @@ class Round {
       this.createNewRound(game)
     } else {
       DomUpdates.gameMessage("next player")
-      this.switchPlayer()
+      this.switchPlayer(game)
     }
   }
 
