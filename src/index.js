@@ -81,7 +81,7 @@ $('.guess__letter--button').click(function () {
     if ($('#guess--input').val().length === 1) {
       let ltrGuess = $('#guess--input').val();
       player.ans = ltrGuess.toUpperCase();
-      round.answer = round.answer.filter(item => item != `'` && item != `-` )
+      round.answer = round.answer.filter(item => item != `'` && item != `-` && item != `&` && item != '')
       //TODO: update letters used array
       // player ans
       // console.log(game.currentRound.currentPlayer.ans.toUpperCase());

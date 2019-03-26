@@ -55,9 +55,8 @@ nav {
     position: absolute;
     right: 44%;
   animation: rotateWheel 5000ms infinite linear;
-
-
 }
+
 .nav__wheel--button:click {
   width: 5000px;
 }
@@ -112,12 +111,8 @@ nav {
 
 }
 @keyframes fadeInLetter {
-  0% {
-    opacity: 1;
+  0% { opacity: 0;
   }
-  10% {
-    opacity: 0;
-  } 
   100%{
     opacity: 1;
   }
