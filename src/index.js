@@ -149,7 +149,9 @@ let correctAnsFunc = (round, player, ltrGuess) => {
   round.getCurrentPlayer(game);
   round.answer = round.answer
     .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
-  console.log(game.currentRound.answer);
+  if(game.currentRound.answer == 0){
+    game.newRound(game);
+  }
 }
 
 let buyVowel = (round, player, ltrGuess) => {
