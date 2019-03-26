@@ -10,6 +10,8 @@ export default {
       letter = letter.toUpperCase();
       if (letter === ' ') {
         $('.word-box').append(`<div class="space-box"></div>`);
+      } else if (letter === '&' || letter === '-') {
+        $('.word-box').append(`<div class="special-char-box">${letter}</div>`)
       } else {
         $('.word-box').append(`<div class="letter-box"><div class="letter hidden">${letter}</div></div>`);
       }
