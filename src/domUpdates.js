@@ -2,10 +2,18 @@ import $ from 'jquery';
 import Game from './Game.js';
 import Round from './Round.js';
 
+        
 
   
-
 export default {
+
+ clearInputField() {
+   $('.answerInput').val('')
+},
+
+  errorMessage() {
+  $('.errorMessage').css('visibility', 'visible')
+},
 
   popUp() {
   $('.gamePopUp').append( `<section class="startGamePopUp">
@@ -24,10 +32,11 @@ export default {
     </section>`
 )},
 
-  startBtn() {
- 
-  }
-  
+  // appendAnswer() {
+  //   $('.class').text('');
+  //   $('class').append(correctGuess);
+  // }
+
 }
 
 

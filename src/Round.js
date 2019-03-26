@@ -1,49 +1,37 @@
-import $ from 'jquery';
+import domUpdates from './domUpdates.js';
+import Game from './Game.js';
 
 
 class Round {
   constructor(survey) {
-         this.questionSet = survey ;
-         this.correctAnswer = 0;
+    this.questionSet = survey;
+    this.correctAnswer = 0;
   }
       
-        getAnswer() {
-         let guess = $('.answerInput').val();
-        this.checkAnswer(guess);
-        }
+   
+    checkAnswer(guess, player, game) {
+        let answers = this.questionSet.answers;
+        domUpdates.clearInputField();
+        answers.forEach((answer) => {
+            if(guess.toLowerCase() === answer.answer.toLowerCase()) {
+                player.addScore(answer.respondents);
+                console.log('wow');
+                //takes some answers but not others
+            } else {
+                console.log('heyyy');
+                game.switchPlayer();
+            }
 
-        checkAnswer(guess) {
-          console.log(guess);
-          console.log(this.questionSet);
-        // if(guess != game.surveys['answers'].val(answer)) {
-        // $('.answerInput').reset()
-        // //wrong answer error message
-        // game.switchPlayers()
-        // }
+            if(guess == '') {
+             domUpdates.errorMessage();
+            };
+        })
+    }
 
-        // if(guess ==== //answer from dataset ) {
-        // $('.answerInput').reset()
-        // appendAnswer()
-        // game.addScore()
-         
-        // }
-
-         if(guess == '') {
-           $('.errorMessage').css('visibility', 'visible');
-        }
-        }
-
-        //appendAnswer() {
-//remove 1
-        // $('#responseOne').append();  
-       // }
-
-    // endRound() {
-        
+    // endRound()
+    //when correctAnswer === 3, end round    
     // }
 }
-
-// } when correctAnswer === 3, end round
 
 
 export default Round;

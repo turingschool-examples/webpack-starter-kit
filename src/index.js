@@ -59,7 +59,8 @@ function createGame(dataset) {
 };
 
 function inputValue() {
-  game.round.getAnswer();
+  let guess = $('.answerInput').val();
+  game.getAnswer(guess);
 }
 
 
