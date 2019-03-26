@@ -4,87 +4,89 @@
     <title>Jeopardy Game Time</title>
   </head>
   <body>
-    <img src="/images/jeopardy-logo.png" alt="Jeopardy Logo">
-    <h1>Welcome to Jeopardy!</h1>
-    <h3>Please enter your names</h3>
-    <form class="player-input">
-      Player One: <br>
-      <input type="text" name="player-one" id="player-one">
-      <br>
-      Player Two: <br>
-      <input type="text" name="player-two" id="player-two">
-      <br>
-      Player Three: <br>
-      <input type="text" name="player-three" id="player-three">
-      <br>
-      <button id="start-game">Start Game!!</button>
-    </form>
-    <section class="box-wrapper">
-      <header class="categories">
+    <main class="start-up-screen">
+      <img src="/images/jeopardy-logo.png" alt="Jeopardy Logo" class="logo">
+      <h1 class="welcome-intro">Welcome to Jeopardy!</h1>
+      <h3 class="name-prompt">Please enter your names</h3>
+      <form class="player-input">
+        <label for="player-one">Player One:</label>
+        <input type="text" name="player-one" id="player-one">
+
+        <label for="player-two">Player Two:</label>
+        <input type="text" name="player-two" id="player-two">
+
+        <label for="player-three">Player Three:</label>
+        <input type="text" name="player-three" id="player-three">
+        <br>
+        <button id="start-game">Start Game!!</button>
+      </form>
+    </main>
+    <!-- <section class="box-wrapper">
+      <header class="categories" id="category-one">
         Category 1
       </header>
-      <header class="categories">
+      <header class="categories" id="category-two">
         Category 2
       </header>
-      <header class="categories">
+      <header class="categories" id="category-three">
         Category 3
       </header>
-      <header class="categories">
+      <header class="categories" id="categor">
         Category 4
       </header>
     </section>
-    <section class="box-wrapper">
+     <section class="box-wrapper">
       <article class="clues">
-          100
-        </article>
-        <article class="clues">
-          100
-        </article>
-        <article class="clues">
-          100
-        </article>
-        <article class="clues">
-          100
-        </article>
-        <article class="clues">
-          200
-        </article>
-        <article class="clues">
-          200
-        </article>
-        <article class="clues">
-          200
-        </article>
-        <article class="clues">
-          200
-        </article>
-        <article class="clues">
-          300
-        </article>
-        <article class="clues">
-          300
-        </article>
-        <article class="clues">
-          300
-        </article>
-        <article class="clues">
-          300
-        </article>
-        <article class="clues">
-          400
-        </article>
-        <article class="clues">
-          400
-        </article>
-        <article class="clues">
-          400
-        </article>
-        <article class="clues">
-          400
-        </article>
+        100
+      </article>
+      <article class="clues">
+        100
+      </article>
+      <article class="clues">
+        100
+      </article>
+      <article class="clues">
+        100
+      </article>
+      <article class="clues">
+        200
+      </article>
+      <article class="clues">
+        200
+      </article>
+      <article class="clues">
+        200
+      </article>
+      <article class="clues">
+        200
+      </article>
+      <article class="clues">
+        300
+      </article>
+      <article class="clues">
+        300
+      </article>
+      <article class="clues">
+        300
+      </article>
+      <article class="clues">
+        300
+      </article>
+      <article class="clues">
+        400
+      </article>
+      <article class="clues">
+        400
+      </article>
+      <article class="clues">
+        400
+      </article>
+      <article class="clues">
+        400
+      </article>
     </section>
-    <form class="answer">
-      <!-- <label for="answer">Answer</label> -->
+     <form class="answer">
+      <label for="answer">Answer</label>
       <input type="text" name="user-answer" id="answer" class="answer-input">
       <button class="answer-btn">Submit</button>
     </form>
