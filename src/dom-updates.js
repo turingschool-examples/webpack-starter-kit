@@ -59,10 +59,12 @@ export default {
     game.currentRound.answer.map((letter)=>{
       // console.log(game.currentRound.answer)
       // todo: remove index if it's not used
-      if (alphabetArr.includes(letter.toUpperCase())) {
-        valueBoard.append(`<p class="ans-letter letter-${letter.toUpperCase()}">_</p>`);
-      } else {
-        valueBoard.append(`<p class="ans-letter">${letter}</p>`);
+      if(alphabetArr.includes(letter.toUpperCase())){
+        valueBoard.append(`<p class="ans-letter fade-in letter-${letter.toUpperCase()}">_</p>`);
+      }
+      else {
+        valueBoard.append(`<p class="ans-letter fade-in">${letter}</p>`);
+
       }
     })
   },

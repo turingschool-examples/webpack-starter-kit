@@ -109,15 +109,16 @@ $('#consonant').click(function () {
     // push correct guess letter in there
     // find index of answer array to guess letter array
     // change text of that index to the value of the guess index
+    DomUpdates.updateLettersUsed(game);
   }
-  DomUpdates.updateLettersUsed(game);
 });
 
   let conditionalChecking = (round, player, ltrGuess) => {
      if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
         alert('This letter has already been guessed!');
         // todo: add an error message instead of alert
-      } else if (compareAns(round, player)) {
+      } 
+      else if (compareAns(round, player)) {
         correctAnsFunc(round, player, ltrGuess);
       }
         // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
@@ -157,7 +158,7 @@ let buyVowel = (round, player, ltrGuess) => {
   } else {
     player.roundCaps -= 100;
     player.ans = ltrGuess.toUpperCase();
-    round.answer = round.answer.filter(item => item !== `'` && item !== `-`)
+    round.answer = round.answer.filter(item => item !== `'` && item !== `-` && item !== `&`)
     conditionalChecking(round, player, ltrGuess);
     DomUpdates.updateLettersUsed(game);
   }
