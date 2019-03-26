@@ -18,6 +18,7 @@ $('.startGame').on('click', function (e) {
     $('.nameInput').hide('slow');
     $('.startGame').hide('slow');
     $('.spinButton').prop('disabled', false);
+    domUpdates.highlightBoard(game.round.allCorrectAnswers[game.stage])
     console.log(game)
 });
 

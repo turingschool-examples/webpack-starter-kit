@@ -20,6 +20,17 @@ let domUpdates = {
         $('.clue').text(clue);
     },
 
+    highlightBoard(splitAnswer) {
+        splitAnswer.forEach((cur, idx) => {
+            if(cur === '-') {
+                $('.clueLetter').eq(idx).text('-')
+            } else {
+                $('.clueLetter').eq(idx).css("background-color", "white")
+                
+            }
+        });
+    },
+
     checkLetterGuess(splitAnswer, usedArray) {
         splitAnswer.forEach((letter, index) => {
             if(usedArray.includes(letter) && !usedArray.includes('') ) {
