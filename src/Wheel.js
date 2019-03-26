@@ -4,7 +4,6 @@ class Wheel {
     constructor(){
         this.currentSpinValue = null
         this.spunValues = [];
-        this.disabled = false;
     }
     getWheelValues() {
         if(this.spunValues.length === 0) {
@@ -16,7 +15,7 @@ class Wheel {
                     let newVal = data.wheel.find( (cur, idx) => {
                         return idx === randomIndex
                     });
-                    sixValues.push(newVal)
+                    sixValues.push(newVal);
                 }
             }
         }
@@ -29,10 +28,6 @@ class Wheel {
         })
         console.log(values)
         this.currentSpinValue = values
-    }
-
-    toggleDisableSpin() {
-        this.disabled = !this.disabled
     }
 }
 

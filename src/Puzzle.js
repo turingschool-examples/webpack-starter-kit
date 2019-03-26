@@ -1,8 +1,7 @@
-import data from './data.js'
+import data from './data.js';
 
 class Puzzle {
-    constructor(){
-        
+    constructor(){   
     }
     
     getRandomAnswer(roundData){
@@ -12,12 +11,6 @@ class Puzzle {
         })
         return newAnswer
     }
-
-    // splitAllAnswers(splitAnswers, correctArray) {
-    //     correctArray.forEach(correct => {
-    //         splitAnswers.push(correct.split(''))
-    //     })
-    // }
 }
 
 export default Puzzle;

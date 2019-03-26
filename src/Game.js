@@ -1,11 +1,10 @@
 import Player from './Player.js';
 import Wheel from './Wheel.js';
 import Round from './Round.js';
-import domUpdates from './domUpdates.js'
+import domUpdates from './domUpdates.js';
 
 class Game {
     constructor() {
-        this.turn = 0;
         this.players = [];
         this.wheel = new Wheel();
         this.round = new Round();
