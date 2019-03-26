@@ -71,7 +71,7 @@ h1 {
 .puzzle {
   border: 4px solid #7da3a1;
   border-radius: 5px;
-  box-shadow: 7px 7px 7px #808080;
+  box-shadow: 5px 5px 5px #808080;
   color: #FFF;
   display: flex;
   justify-content: center;
