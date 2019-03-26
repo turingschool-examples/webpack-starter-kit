@@ -30,32 +30,29 @@ body {
   margin: auto;
 }
 
-.start-game-pop-up {
+.start-game-pop-up,
+.next-round-pop-up,
+.lightning-round-pop-up,
+.switch-player-pop-up {
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 5;
   background-color: #524348;
   height: 100%;
   width: 100%;
-  border-radius: 2%;
+  border-radius: 30%;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column;
+  border: 7px solid #F5CE17;
+  text-align: center;
 }
 
-.next-round-pop-up {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  height: 100%;
-  width: 100%;
-  background-color: #524348;
-  border-radius: 2%;
-}
-
-.next-round-btn {
+.next-round-btn,
+.lightning-round-btn,
+.continue-btn {
   background-color: rgb(54, 182, 54);
 }
 
@@ -133,7 +130,7 @@ button:focus {
 #new-game-btn {
   background-color: rgb(179, 49, 49);
 }
-
+next
 #new-game-btn:hover {
   background-color: #E06B75;
 }
