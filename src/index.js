@@ -43,7 +43,7 @@ $('body').on('click', '.single-letter, .single-letter-vowel', (event) =>{
   DomUpdates.deactivateLetters();
 })
 
-$('body').on('click', '.spinner', () =>{
+$('body').on('click', '.spinner-container', () =>{
   playerSpin(game)
 })
 
