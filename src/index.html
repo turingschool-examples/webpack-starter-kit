@@ -16,8 +16,15 @@
     <main>
       <section class="prompt-holder">
         <article class="question-prompt" style="display:none">
+          <div class="style-daily-double" style="display:none;">
+            <p>DAILY DOUBLE!</p>
+            <p>How many of your points will you wager?</p>
+            <label class="daily-double-input" for="daily-double"></label>
+            <input type="text" name="question" id="daily-double" style="color:#888;" placeholder="Enter Answer">
+            <input type="submit" name="submit" class="daily-double-btn">
+          </div>  
           <p class="question"></p>
-          <label class="name-inputs" for="question-input"></label>
+          <label class="name-input" for="question-input"></label>
           <input type="text" name="question" id="question-input" style="color:#888;" placeholder="Enter Answer">
           <input type="submit" name="submit" class="submit-btn">
         </article>
