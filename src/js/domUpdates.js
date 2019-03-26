@@ -31,14 +31,14 @@ export default {
     setTimeout(() => {
       $('.prize').parent().addClass('prize-animation');
       $('.prize').text(`You Got: ${prize}`);
-    }, 10)
+    }, 100)
     this.hideInputs();
     setTimeout(() => {
       this.showInput();
       this.showVowels();
       this.showSolveInput();
       $('.wheel-img').removeClass('spin');
-    }, 100);
+    }, 500);
   },
 
   showInput() {
@@ -128,5 +128,17 @@ export default {
       default:
       $('.p3-bank').text(score)
     }
+  },
+
+  appendLtrs(a) {
+    $('.letters-used').append(a)
+  },
+
+  correctAns() {
+    $('.feedback').text('Finally!')
+  },
+
+  wrongAns() {
+    $('.feedback').text('Morty! No!')
   }
 }

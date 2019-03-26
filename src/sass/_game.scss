@@ -1,5 +1,4 @@
 * {
-  border: 1px dotted black;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -41,7 +40,7 @@ main {
 
     .description {
       font-size: $boardDescription;
-      height: 15%;
+      height: 10%;
     }
 
     .spin-pop-up {
@@ -96,10 +95,15 @@ main {
       }
 
       .vowels-to-buy {
-        border: 2px solid black;
         padding: 0 5px;
-        span {
-          margin: 0 5px;
+        button {
+          background-color: $board;
+          border: 1px solid black;
+          border-radius: 25px;
+          font-family: $bodyfont;
+          font-size: $boardDescription;
+          height: 3rem;
+          width: 5rem;
         }
       }
 
@@ -111,7 +115,11 @@ main {
         display: none;
       }
     }
-
+    .feedback {
+      display: block;
+      font-size: 2rem;
+      margin: 0 auto;
+    }
   }
 
   aside {

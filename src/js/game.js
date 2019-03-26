@@ -66,12 +66,15 @@ class Game {
       if (e.textContent === domUpdates.getConsonant()) {
         this.players[this.playerIndex].currentScore += this.currentPrize
         domUpdates.clearClass(e)
+        domUpdates.correctAns();
         domUpdates.updateScore(this.playerIndex, this.currentPrize)
       } else if (!this.ltrArr.includes(domUpdates.getConsonant())){
+        domUpdates.wrongAns();
         this.ltrArr.push(domUpdates.getConsonant())
       } else {
         null
       }
+      this.appendLetters();
     })
     // this.ltrArr.push(domUpdates.getConsonant())
     // if the user guess is NOT in the guessed array && IS in the answer
@@ -105,6 +108,14 @@ class Game {
     this.currentQuestion = new Question(q.correct_answer, q.total_number_of_letters, [], q.description, q.category);
     domUpdates.updateQInfo(this.currentQuestion);
     console.log(this.currentQuestion.answer)
+  }
+
+  appendLetters() {
+    console.log(this.ltrArr)
+    this.ltrArr.filter(ltr => {
+      domUpdates.appendLtrs(ltr)
+    })
+    // this is kind of ??? working, it's just appending the letter multiple times because of the forEach acting upon the array for each letter
   }
 
 }
