@@ -17,18 +17,22 @@ class Game {
 };
 
 createPlayer(name1, name2) {
-    let player1 = new Player(name1, 1);
-    console.log(player1);
-    let player2 = new Player(name2, 2);
-     console.log(player2); 
-    this.currentPlayer = player1;
+    this.player1 = new Player(name1, 1);
+    console.log(this.player1);
+    this.player2 = new Player(name2, 2);
+     console.log(this.player2); 
+    this.currentPlayer = this.player1;
     console.log(this.currentPlayer);
 };
 
 switchPlayer() {
-   if(this.currentPlayer.playerId = 1 ? 2 : 1);
-   //always goes to player 2 and gives them the score
-   console.log('newplayer',this.currentPlayer);
+    console.log('player', this.currentPlayer);
+    if(this.currentPlayer === this.player1) {
+        this.currentPlayer = this.player2; 
+    } else {
+        this.currentPlayer = this.player1;
+    }
+   console.log('newplayer', this.currentPlayer);
 }; 
 createRound() {
     const survey = this.surveys[Math.floor(Math.random() * this.surveys.length)];
@@ -39,7 +43,7 @@ createRound() {
 
 getAnswer(guess) {
     const score = this.round.checkAnswer(guess, this.currentPlayer);
-    console.log('correct score', round.score);
+    console.log('correct score', score);
     //does not ontain score value from round
     // if(score && this.currentPlayer = 1) {
     //     domUpdates.changeP1Score(score);
@@ -49,7 +53,7 @@ getAnswer(guess) {
     // }
     if (!score) {
         console.log('score', score);
-    this.switchPlayer(this.currentPlayer)
+    this.switchPlayer()
     } 
 
 };
