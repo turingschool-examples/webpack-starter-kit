@@ -9,34 +9,34 @@ class Game {
   constructor() {
     this.currentTurn = "player1";
     this.cycleTurn = true;
-    this.currentAnswer = [];
+    this.currentAnswers = [];
     this.currentRound = 1;
   }
   startGame() {
     round.generateRound();
-    this.currentAnswer = round.currentAnswer;
+    this.currentAnswers = round.currentAnswers;
   }
 
   startNextRound() {
-    if (this.currentAnswer.length === 0 && this.currentRound < 2) {
+    if (this.currentAnswers.length === 0 && this.currentRound < 2) {
       round.generateRound();
-      this.currentAnswer = round.currentAnswer;
+      this.currentAnswers = round.currentAnswers;
       this.currentRound++;
       console.log("not Round 3");
-    } else if (this.currentAnswer.length === 0 && this.currentRound < 4) {
-      // console.log('Game currentAnswer:', this.currentAnswer);
+    } else if (this.currentAnswers.length === 0 && this.currentRound < 4) {
+      // console.log('Game currentAnswers:', this.currentAnswers);
       console.log("// ROUND 3");
       //FOLLOWING THE TIMER WE ENTER HERE
 
       $(".round3").removeClass("hidden");
       this.currentRound++;
       round.generateRoundTimed();
-      this.currentAnswer = round.currentAnswer;
+      this.currentAnswers = round.currentAnswers;
     } else if (this.currentRound === 4) {
       console.log("END OF GAME // ROUND 4");
       this.currentRound++;
       round.generateRoundTimed();
-      this.currentAnswer = round.currentAnswer;
+      this.currentAnswers = round.currentAnswers;
       //FOLLOWING THE TIMER WE ENTER HERE?
     }
   }
@@ -65,7 +65,7 @@ class Game {
     answers.forEach(element => {
       if (element.answer.toLowerCase() === userGuess) {
         correctAnswersPoints = element.respondents;
-        this.currentAnswer.splice(this.currentAnswer.indexOf(element), 1);
+        this.currentAnswers.splice(this.currentAnswers.indexOf(element), 1);
         this.startNextRound();
       }
     });
@@ -77,18 +77,11 @@ class Game {
 
   multiplyValues(multiple) {
     console.log("multiple value:", multiple);
-    this.currentAnswer.forEach(answer => {
+    this.currentAnswers.forEach(answer => {
       answer.respondents = answer.respondents * multiple;
     });
-    domObject.createAnswers(
-      this.currentAnswer[0].answer,
-      this.currentAnswer[0].respondents,
-      this.currentAnswer[1].answer,
-      this.currentAnswer[1].respondents,
-      this.currentAnswer[2].answer,
-      this.currentAnswer[2].respondents
-    );
-    console.log("Game currentAnswer(post multi):", this.currentAnswer);
+    domObject.createAnswers(this.currentAnswers);
+    console.log("Game currentAnswers(post multi):", this.currentAnswers);
   }
   restartGame() {
     //clear all fields
