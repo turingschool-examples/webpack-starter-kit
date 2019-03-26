@@ -18,13 +18,12 @@ checkAnswer(guess, currentPlayer) {
             console.log('guess correct');
             let score = answer.respondents;
             currentPlayer.addScore(score);
-            console.log('bottom of cherckAnswer', score);
-            if(score && this.currentPlayer == 1) {
-                domUpdates.changeP1Score(score);
-            }
-            if(score && this.currentPlayer == 2) {
-                domUpdates.changeP2Score(score);
-            }
+            console.log('score', score);
+            console.log('currentplayer', currentPlayer);
+            console.log('answer', answer.answer);
+            console.log('respondents', answer.respondents);
+           domUpdates.changeScore(score, currentPlayer);
+           // domUpdates.appendAnswer(answer.answer, answer.respondents)
         };
 // runs switch player even with correct answer, dom not updateing
         if(guess == '') {
