@@ -21,6 +21,7 @@ class Game {
     this.instantiatePlayers();
     domUpdates.appendNames();
     this.newQ();
+    domUpdates.updateActivePlayer(this.playerIndex);
   }
 
   populateQuestions() {
@@ -46,11 +47,10 @@ class Game {
 
   validateAnswer() {
     if (domUpdates.getAnswer().toUpperCase() === this.currentQuestion.answer.toUpperCase()) {
-      console.log('correct!')
       domUpdates.showAnser();
       this.players[this.playerIndex].totalScore += this.currentPrize
-      console.log(this.players[this.playerIndex].totalScore);
       domUpdates.updateBank(this.playerIndex, this.players[this.playerIndex].totalScore)
+      setTimeout(()=> this.newQ(), 3000);
       // alert player was correct
       // change round, instantiate new round with new question
     } else {
@@ -90,6 +90,7 @@ class Game {
     this.playerIndex === 2 
       ? this.playerIndex = 0
       : this.playerIndex++;
+    domUpdates.updateActivePlayer(this.playerIndex);
   }
 
   instantiatePlayers() {
@@ -109,6 +110,7 @@ class Game {
   newQ() {
     let q = this.allQs.sort(() => 0.5 - Math.random()).pop();
     this.currentQuestion = new Question(q.correct_answer, q.total_number_of_letters, [], q.description, q.category);
+    domUpdates.clearFields();
     domUpdates.updateQInfo(this.currentQuestion);
     console.log(this.currentQuestion.answer)
   }
