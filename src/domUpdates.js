@@ -32,8 +32,15 @@ let domUpdates = {
     })
   },
 
-  disableQuit() {
-    $('.quit-button').prop('disabled', true);
+  enableButton() {
+    $('#js-solve-button').remove('disabled');
+    $('#js-spin-button').remove('disabled');
+  },
+
+  enableQuit() {
+    $('.quit-button').on('click', function() {
+      location.reload(true);
+    });
   },
 
   displayName() {
