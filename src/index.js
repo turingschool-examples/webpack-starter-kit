@@ -43,7 +43,7 @@ $('body').on('click', '.single-letter, .single-letter-vowel', (event) =>{
   DomUpdates.deactivateLetters();
 })
 
-$('body').on('click', '.spinner-container', () =>{
+$('body').on('click', '.spinner', () =>{
   playerSpin(game)
 })
 
@@ -94,8 +94,7 @@ function playerBuyVowel(game) {
 
 function submitGuess(event) {
   let playerGuess = $('.guess-submission').val().toLowerCase()
-  console.log(playerGuess)
-  if(playerGuess === ''){
+  if(playerGuess === '') {
     DomUpdates.noInput()
   }
   game.roundInst.checkPlayerSolve(playerGuess)

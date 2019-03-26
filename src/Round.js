@@ -19,13 +19,13 @@ class Round {
     game.stage ++
     this.shuffler(allRoundClues)
     this.playerTurn(game)
+    DomUpdates.displayActivePlayer(game.players[this.activePlayer])
     this.getRandomClue(allRoundClues)
     this.wheelInst.createWheel(this)
   }
 
   getRandomClue(cards) {  
     this.roundClue = this.randomNumber(cards);
-
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
     this.fillGameBoard();
     this.displayHint();
@@ -54,7 +54,7 @@ class Round {
       game.updatePlayerBank()
     } else if (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
       // this.activePlayer++
-      this.switchPlayer()
+      this.switchPlayer(game)
     }
     // game.players[this.activePlayer].score += this.wheelInst.selectedValue
     // console.log(game.players)
@@ -92,16 +92,19 @@ class Round {
     console.log('myTurn:', game.players[this.activePlayer])
   }
 
-  switchPlayer() {
+  switchPlayer(game) {
     switch (this.activePlayer) {
     case 0:
       this.activePlayer = 1
+      DomUpdates.displayActivePlayer(game.players[this.activePlayer])
       break;
     case 1:
       this.activePlayer = 2
+      DomUpdates.displayActivePlayer(game.players[this.activePlayer])
       break;
     case 2:
       this.activePlayer = 0
+      DomUpdates.displayActivePlayer(game.players[this.activePlayer])
       break;
     default:
       return;
@@ -139,7 +142,6 @@ class Round {
   }
 
   checkPlayerSolve(playerSolveInput) {
-    console.log(playerSolveInput)
   }
 
 
