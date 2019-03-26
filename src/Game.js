@@ -50,6 +50,10 @@ class Game {
     this.playerTurn === 2 ? this.playerTurn = 0 : this.playerTurn++;
   }
 
+  repopulateCategoryValues() {
+    domUpdates.newCategoryValues();
+  }
+
 }
 
 export default Game;
