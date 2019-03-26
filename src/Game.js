@@ -8,41 +8,53 @@ import domUpdates from './domUpdates.js';
 class Game {
   constructor(dataset) {     
     this.surveys = dataset;
-    this.players = [];
+    this.player1 = null;
+    this.player2 = null;
     this.round = null;
     this.roundNumber = 0;
-    this.currentPlayer = 0;
+    this.currentPlayer = null;
     // this.round = [new Round(), new Round(), new LightningRound()];
-  };
+};
 
-  createPlayer(name1, name2) {
-    let player1 = new Player(name1);
-    let player2 = new Player(name2);
-    this.players.push(player1, player2);
-    //how do we handle players in the array, how do we track them, how do we assign scores to them, how do we switch between them?
-  };
+createPlayer(name1, name2) {
+    let player1 = new Player(name1, 1);
+    console.log(player1);
+    let player2 = new Player(name2, 2);
+     console.log(player2); 
+    this.currentPlayer = player1;
+    console.log(this.currentPlayer);
+};
 
-    switchPlayer() {
-     if(this.currentPlayer === 1) {
-        this.currentPlayer = 0;
-     } else {
-          this.currentPlayer++;
-     }
-    };   //correlate to index of players
-
-  createRound() {
+switchPlayer() {
+   if(this.currentPlayer.playerId = 1 ? 2 : 1);
+   //always goes to player 2 and gives them the score
+   console.log('newplayer',this.currentPlayer);
+}; 
+createRound() {
     const survey = this.surveys[Math.floor(Math.random() * this.surveys.length)];
     this.round = new Round(survey);
     console.log(survey);
     this.roundNumber++; 
-    };
+};
 
-    getAnswer(guess) {
-        console.log(this.players);
-        this.round.checkAnswer(guess, this.players);
-    };
+getAnswer(guess) {
+    const score = this.round.checkAnswer(guess, this.currentPlayer);
+    console.log('correct score', round.score);
+    //does not ontain score value from round
+    // if(score && this.currentPlayer = 1) {
+    //     domUpdates.changeP1Score(score);
+    // }
+    // if(score && this.currentPlayer = 2) {
+    //     domUpdates.changeP2Score(score);
+    // }
+    if (!score) {
+        console.log('score', score);
+    this.switchPlayer(this.currentPlayer)
+    } 
 
+};
 
+//currrent turn tracker, pass in the player who is playing vs array of player or find player who is playing in array
 
         //   }
         // }
