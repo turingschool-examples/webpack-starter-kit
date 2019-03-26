@@ -1,10 +1,10 @@
 // import Player from './Player.js';
-// import Round from './Round.js';
 // import p5 from 'p5';
 // import sketch from './sketch';
 // import data from "./data.js";
 import $ from 'jquery';
 import Game from './Game.js';
+import Round from './Round.js';
 import domUpdates from './domUpdates.js';
 import './css/normalize.css';
 import './css/styles.css';
@@ -34,5 +34,9 @@ $('#reset-button').on('click', (e) =>{
 
 $('#wheel').on('click', () => {
   domUpdates.spinWheel(game);
+})
+
+$('.const-letter').on('click', (e) =>{
+  round.guessLetter(e);
 })
 
