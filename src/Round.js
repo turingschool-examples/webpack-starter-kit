@@ -52,8 +52,7 @@ class Round {
   }
 
   guessLetter(event) {
-    let puzzle = puzzle.splitAnswer
-    domUpdates.displayCorrectLetter(puzzle, event.currentTarget.innerText);
+    domUpdates.displayCorrectLetter(puzzle.splitAnswer, event.currentTarget.innerText);
     if (puzzle.splitAnswer.includes(event.currentTarget.innerText)) {
       puzzle.splitAnswer.forEach(letter => {
         if (letter === event.currentTarget.innerText) {
