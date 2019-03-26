@@ -119,8 +119,8 @@ let domUpdates = {
   // }
 
  changeActivePlayer() {
-    $('.player-box')
-  }
+    // $('.player-box').css('border', '1px solid red');
+  },
 
   removePopup(){
     $('.question-popup').remove();
