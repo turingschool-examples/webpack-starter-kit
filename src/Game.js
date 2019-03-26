@@ -40,6 +40,12 @@ class Game {
     domUpdates.displayName();
   }
 
+  getPlayerTurn() {
+    if (this.players[0]) {
+      
+    }
+  }
+
   // getRound() {
 
   // }

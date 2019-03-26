@@ -19,17 +19,11 @@ $('.start-button').on('click', function() {
   domUpdates.displayCategoryName(game); 
   domUpdates.hideAnswer(game);
   domUpdates.diplayStartMsg();
+  domUpdates.enableQuit();
+  domUpdates.enableButton();
   $('.start-button').hide('');
   $('.button').prop('disabled', false).css('color', 'white');
   $('.player-name-input').hide();
-});
-
-$('.quit-button').on('click', function() {
-  domUpdates.disableQuit();
-});
-
-$('.quit-button').on('click', function() {
-  location.reload(true);
 });
 
 $('#js-spin-button').on('click', function() {
