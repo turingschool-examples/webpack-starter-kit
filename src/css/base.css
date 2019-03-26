@@ -3,6 +3,58 @@ body {
   height: 100%;
 }
 
+.start-up-screen {
+ display: grid;
+ grid-template-columns: 12% 13% 50% 13% 12%;
+ grid-template-rows: 25% 100px auto;
+}
+
+.logo {
+  height: 9rem;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: 10px auto;
+}
+
+.welcome-intro, 
+.name-prompt {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.welcome-intro {
+  margin: 10px auto
+}
+
+.name-prompt {
+  margin: 50px auto;
+}
+
+.player-input {
+  display: flex;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  margin: auto;
+  vertical-align: top;
+}
+
+#player-one {
+  justify-self: start;
+}
+
+#player-two {
+  justify-self: center;
+}
+
+#player-three {
+  justify-self: end;
+}
+
 header {
   font-size: 46px;
   text-align: center;

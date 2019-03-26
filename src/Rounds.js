@@ -7,15 +7,13 @@ import domUpdates from './domUpdates.js'
 class Rounds {
   constructor(categoryIds) {
     this.categoryIds = categoryIds;
-    console.log('Rounds class Categories ',this.categoryIds);
+    // console.log('Rounds class Categories ',this.categoryIds);
     this.topicOne = [];
     this.topicTwo = [];
     this.topicThree = [];
     this.topicFour = [];
   }
-  displayCategories() {
-    domUpdates.displayCategories(dataSet.categories.cableTV)
-  }
+  
   roundTwoPoints() {
     this.pointValue * 2;
   }
@@ -29,7 +27,7 @@ class Rounds {
         finalCat.add(clue.pointValue);
         return true;
     });
-    console.log('unique Points ', newClues);
+    // console.log('unique Points ', newClues);
   }
 
   fetchClues() {
