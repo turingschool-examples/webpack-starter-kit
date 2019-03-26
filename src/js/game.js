@@ -67,10 +67,8 @@ class Game {
     let noMatches = elem.find(el => el.textContent === consonantGuess);
     elem.forEach(e => {
       if (e.textContent === consonantGuess) {
-        this.players[this.playerIndex].currentScore += this.currentPrize;
         domUpdates.clearClass(e);
         domUpdates.correctAns();
-        domUpdates.updateScore(this.playerIndex, this.currentPrize);
       } else if (!this.ltrArr.includes(consonantGuess)) {
         this.ltrArr.push(consonantGuess)
       } 
@@ -78,6 +76,9 @@ class Game {
     domUpdates.appendLetters(this.ltrArr);
     if (noMatches === undefined) {
       domUpdates.wrongAns();
+    } else if (!['BANKRUPT', 'LOSE A TURN'].includes(this.currentPrize)) {
+      this.players[this.playerIndex].currentScore += this.currentPrize;
+      domUpdates.updateScore(this.playerIndex, this.players[this.playerIndex].currentScore);
     }
       // this.ltrArr.push(domUpdates.getConsonant())
     // if the user guess is NOT in the guessed array && IS in the answer
