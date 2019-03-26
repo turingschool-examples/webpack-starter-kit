@@ -48,9 +48,7 @@ export default {
   },
 
   hideInputs: () => {
-    $('.vowels-to-buy').hide();
-    $('.input-solve, .final-solution-btn').hide();
-    $('.check-btn, .ltr-input').hide();
+    $('.vowels-to-buy, .input-solve, .final-solution-btn, .check-btn, .ltr-input').hide();
   },
 
   showSolveInput: () => {
@@ -94,7 +92,13 @@ export default {
   },
 
   getConsonant() {
-    return $('.ltr-input').val().toUpperCase();
+    let vowels = ['A', 'E', 'I', 'O', 'U']
+    if (vowels.includes($('.ltr-input').val().toUpperCase())) {
+      this.hideInputs();
+      console.log('no')
+    } else {
+      return $('.ltr-input').val().toUpperCase();
+    }
   },
 
   getBoard() {
@@ -167,7 +171,6 @@ export default {
   },
   
   clearFields () {
-    console.log('stuff')
     $('.word-box').empty();
     $('.feedback').empty();
     $('.feedback').empty();
