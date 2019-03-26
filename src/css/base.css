@@ -1,5 +1,15 @@
+body {
+  font-family: 'Press Start 2P';
+  background: #5a4271;
+}
+
 h1 {
   text-align: center;
+}
+
+.boardWheel {
+  border: 2px solid;
+  border-radius: 50%;
 }
 
 form {
@@ -65,3 +75,16 @@ footer.scoreSection{
   justify-content: space-between;
 }
 
+.currentPlayer {
+  color: #00e000
+}
+
+.guessCard {
+  background: red;
+  position: absolute;
+  z-index: 1;
+  right: 40%;
+  left: 40%;
+  bottom: 40%;
+  height: 210px;
+}

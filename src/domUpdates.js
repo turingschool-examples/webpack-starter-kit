@@ -1,6 +1,5 @@
 import $ from 'jquery';
 
-
 let domUpdates = {
 
     startGame (game) {
@@ -56,6 +55,23 @@ let domUpdates = {
         $('.nameInput').val('');
         $('.startGame').show('slow');
         $('.spinButton').prop('disabled', true);
+    },
+
+    appendGuessCard() {
+        let newDiv = $(
+            `<div class="guessCard">
+                <h1>Take A Guess</h1>
+                <div>
+                    <input placeholder="Guess..." id="guessInput"/>
+                    <button class="guessSubmit">Submit Guess</button>
+                </div>
+            </div>`
+        )
+        $('.roundSection').append(newDiv)
+    },
+
+    showCurrentPlayer(player) {
+        $('.currentPlayer').text(player)
     }
 }
 
