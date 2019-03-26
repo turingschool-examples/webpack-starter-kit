@@ -18,29 +18,28 @@ class Rounds {
     this.pointValue * 2;
   }
 
-  uniquePoints(currentTopic) {
-    const finalCat = new Set();
-    currentTopic = currentTopic.filter(clue => {
+  uniquePoints(currentTopic, num) {
+    let finalCat = new Set();
+    let finalTopic = currentTopic.filter(clue => {
         if (finalCat.has(clue.pointValue)) {
             return false;
         }
         finalCat.add(clue.pointValue);
         return true;
-    });
-    if(currentTopic[0].categoryId === this.topicOne[0].categoryId) {
-      this.topicOne = currentTopic;
-    } else if (currentTopic[0].categoryId === this.topicTwo[0].categoryId) {
-      this.topicTwo = currentTopic;
-    } else if (currentTopic[0].categoryId === this.topicThree[0].categoryId) {
-      this.topicThree = currentTopic;
+      });
+    if (num === 1) {
+      this.topicOne = finalTopic;
+    } else if (num === 2) {
+      this.topicTwo = finalTopic;
+    } else if (num === 3) {
+      this.topicThree = finalTopic;
     } else {
-      this.topicFour = currentTopic;
+      this.topicFour = finalTopic;
     }
-    console.log('topicOne ', this.topicOne);
-    console.log('topic two ', this.topicTwo);
-    console.log('topic three', this.topicThree);
-    console.log('topic four', this.topicFour);
-
+    // console.log('1', this.topicOne);
+    // console.log('2', this.topicTwo);
+    // console.log('3', this.topicThree);
+    // console.log('4 ', this.topicFour);
   }
 
   fetchClues() {
@@ -60,10 +59,10 @@ class Rounds {
         this.topicFour.push(currentClue)
       }
     });
-    this.uniquePoints(this.topicOne);
-    this.uniquePoints(this.topicTwo);
-    this.uniquePoints(this.topicThree);
-    this.uniquePoints(this.topicFour);
+    this.uniquePoints(this.topicOne, 1);
+    this.uniquePoints(this.topicTwo, 2);
+    this.uniquePoints(this.topicThree, 3);
+    this.uniquePoints(this.topicFour, 4);
    }
    fetchQuestion() {
 
