@@ -19,9 +19,32 @@
       <p><span class="player-one-score player-score">0</span></p>
     </div>
     <section id="game-area">
-      <!-- <div id="button-container">
+    <section class="start-game-pop-up">
+      <div>
+        <label for="player-one-input">Player One Name</label>
+        <input type="text" id="player-one-input">
+      </div>
+      <div>
+        <label for="player-two-input">Player Two Name</label>
+        <input type="text" id="player-two-input">
+      </div>
+      <div>
+        <button id="start-game-btn">Start Game</button>
+      </div>
+    </section>
+
+    <section id="user-area">
+      <div id="player-1" class="player-info">
+        <h3>Player 1</h3>
+        <p><span class="player-one-name">Name</span>: <span class="player-one-score">00</span></p>
+      </div>
+      <div id="player-2" class="player-info">
+        <h3>Player 2</h3>
+        <p><span class="player-two-name">Name</span>: <span class="player-two-score">00</span></p>
+      </div>
+      <div id="button-container">
         <button id="new-game-btn">New Game</button>
-      </div> -->
+      </div>
       <section id="current-round">
         <section id="current-round-total">
           <h2>00</h2>
@@ -64,8 +87,13 @@
             <input id="guess-input" type="text" placeholder="Guess a response...">
             <input class='submit-btn' type="submit">
           </form>
-      </section>
+      </section>    
 
+    <div id="player-2" class="player-info">
+      <h3 class="player-two-name player-name">Player 2</h3>
+      <p><span class="player-two-score player-score">0</span></p>
+    </div>
+      
       <section class="start-game-pop-up">
         <div>
           <label for="player-one-input">Player One Name</label>
@@ -79,34 +107,32 @@
           <button id="start-game-btn">Start Game</button>
         </div>
       </section>
-
-      <section class="next-round-pop-up">
-        <h3>ROUND COMPLETE</h3>
-        <h5>Player 1 Score</h5>
-        <p><span class="player-one-score"></span></p>
-        <h5>Player 2 Score</h5>
-        <p><span class="player-two-score"></span></p>
-        <button class="next-round-btn">Start Next Round</button>
-      </section>
-
-      <section class="lightning-round-pop-up">
-        <h3>ROUND COMPLETE</h3>
-        <p>Entering Lightning Round: Each player will be given 30 seconds to enter as many responses to a survey as they
-          can after pressing continue. Every inorrect response will decrease your score by 25 points!</p>
-        <p>Points are doubled for this round Current Player GET READY</p>
-        <h5>Player 1 Score</h5>
-        <p><span class="player-one-score"></span></p>
-        <h5>Player 2 Score</h5>
-        <p><span class="player-two-score"></span></p>
-        <button class="lightning-round-btn">Start Next Round</button>
-      </section>
+      
+    <section class="next-round-pop-up">
+      <h3>ROUND COMPLETE</h3>
+      <h5><span id="player-one-name-round-pop-up">player 1</span>'s Score</h5>
+      <p><span class="player-one-score">0</span></p>
+      <h5><span id="player-two-name-round-pop-up">Player 2</span>'s Score</h5>
+      <p><span class="player-two-score">0</span></p>
+      <button class="next-round-btn">Start Next Round</button>
     </section>
-    
 
-    <div id="player-1" class="player-info">
-      <h3 class="player-two-name player-name">Player 2</h3>
-      <p><span class="player-two-score player-score">0</span></p>
-    </div>
+    <section class="lightning-round-pop-up">
+      <h3>ROUND COMPLETE</h3>
+      <p>Entering Lightning Round: Each player will be given 30 seconds to enter as many responses to a survey as they can after pressing continue. Every inorrect response will decrease your score by 25 points!</p>
+      <p>Points are doubled for this round Current Player GET READY</p>
+      <h5><span id="player-one-name-lightning-round-pop-up">Player 1</span>'s Score</h5>
+      <p><span class="player-one-score">0</span></p>
+      <h5><span id="player-two-name-lightning-round-pop-up">Player 2</span> Score</h5>
+      <p><span class="player-two-score">0</span></p>
+      <button class="lightning-round-btn">Start Next Round</button>
+    </section>
+
+    <section class="switch-player-pop-up">
+      <h3 class="current-player"><span>CURRENT PLAYER</span> your up!</h3>     
+      <button class="continue-btn">Continue</button> 
+    </section>
+
   </div>
 </body>
 
