@@ -7,7 +7,7 @@ import Player from './player';
 class Game {
   constructor() {
     this.players = [];
-    this.round = 0;
+    this.round = 1;
     this.allQs = [];
     this.allRounds = [1, 2, 3, 4, 5];
     this.playerIndex = 0;
@@ -48,17 +48,22 @@ class Game {
   validateAnswer() {
     if (domUpdates.getAnswer().toUpperCase() === this.currentQuestion.answer.toUpperCase()) {
       domUpdates.showAnser();
-      this.players[this.playerIndex].totalScore += this.currentPrize
+      this.players[this.playerIndex].totalScore += this.players[this.playerIndex].currentScore
       domUpdates.updateBank(this.playerIndex, this.players[this.playerIndex].totalScore)
-      setTimeout(()=> this.newQ(), 3000);
+      this.players.forEach((p, i) => {
+        p.currentScore = 0
+        domUpdates.updateScore(i, p.currentScore)
+      })
+      this.changeRound();
+      setTimeout(()=> this.newQ(), 3);
       // alert player was correct
       // change round, instantiate new round with new question
     } else {
       console.log('incorrect!')
-      // Player.subtractScore();
-      // change player turn
     }
     this.changeTurn();
+    console.log(this.round)
+    console.log(this.currentQuestion)
   }
 
   checkConsonant() {
@@ -69,6 +74,7 @@ class Game {
       if (e.textContent === consonantGuess) {
         domUpdates.clearClass(e);
         domUpdates.correctAns();
+        this.players[this.playerIndex].currentScore += this.currentPrize;
       } else if (!this.ltrArr.includes(consonantGuess)) {
         this.ltrArr.push(consonantGuess)
       }
@@ -76,10 +82,11 @@ class Game {
     domUpdates.appendLetters(this.ltrArr);
     if (noMatches === undefined) {
       domUpdates.wrongAns();
+      this.changeTurn();
     } else if (!['BANKRUPT', 'LOSE A TURN'].includes(this.currentPrize)) {
-      this.players[this.playerIndex].currentScore += this.currentPrize;
       domUpdates.updateScore(this.playerIndex, this.players[this.playerIndex].currentScore);
     }
+    
     // if the user guess is NOT in the guessed array && IS in the answer
       // call domUpdates method to make the letter appear
     // if the user guess IS in the guessed array && IN NOT in the answer && NOT a vowel
