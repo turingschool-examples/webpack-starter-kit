@@ -47,6 +47,7 @@ class Game {
   validateAnswer() {
     if (domUpdates.getAnswer().toUpperCase() === this.currentQuestion.answer.toUpperCase()) {
       console.log('correct!')
+      domUpdates.showAnser();
       this.players[this.playerIndex].totalScore += this.currentPrize
       console.log(this.players[this.playerIndex].totalScore);
       domUpdates.updateBank(this.playerIndex, this.players[this.playerIndex].totalScore)
@@ -65,14 +66,9 @@ class Game {
     let consonantGuess = domUpdates.getConsonant();
     let noMatches = elem.find(el => el.textContent === consonantGuess);
     elem.forEach(e => {
-      let vowels = ['a', 'e', 'i', 'o', 'u']
-      if (vowels.includes(e.textContent)) {
-        console.log('e')
-      } else if (e.textContent === consonantGuess) {
-        this.players[this.playerIndex].currentScore += this.currentPrize;
+      if (e.textContent === consonantGuess) {
         domUpdates.clearClass(e);
         domUpdates.correctAns();
-        domUpdates.updateScore(this.playerIndex, this.currentPrize);
       } else if (!this.ltrArr.includes(consonantGuess)) {
         this.ltrArr.push(consonantGuess)
       }
@@ -80,6 +76,9 @@ class Game {
     domUpdates.appendLetters(this.ltrArr);
     if (noMatches === undefined) {
       domUpdates.wrongAns();
+    } else if (!['BANKRUPT', 'LOSE A TURN'].includes(this.currentPrize)) {
+      this.players[this.playerIndex].currentScore += this.currentPrize;
+      domUpdates.updateScore(this.playerIndex, this.players[this.playerIndex].currentScore);
     }
     // if the user guess is NOT in the guessed array && IS in the answer
       // call domUpdates method to make the letter appear
