@@ -31,8 +31,24 @@ body {
 
 .start-game-form {
   flex-direction: column;
-  height: 100%;
+  text-align: left;
+  width: 300px;
+}
 
+.start-game-pop-up p {
+  width: 60%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+img {
+  height: 150px;
 }
 
 .pop-up {
@@ -45,7 +61,7 @@ body {
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
@@ -121,6 +137,7 @@ button:focus {
 
 #start-game-btn {
   background-color: rgb(54, 182, 54);
+  transform: translate(75%);
 }
 
 #start-game-btn:hover {
