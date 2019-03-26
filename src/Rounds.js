@@ -26,11 +26,11 @@ class Rounds {
         finalCat.add(clue.pointValue);
         return true;
     });
-    if(currentTopic[0].id === this.topicOne[0].id) {
+    if(currentTopic[0].categoryId === this.topicOne[0].categoryId) {
       this.topicOne = currentTopic;
-    } else if (currentTopic[0].id === this.topicTwo[0].id) {
+    } else if (currentTopic[0].categoryId === this.topicTwo[0].categoryId) {
       this.topicTwo = currentTopic;
-    } else if (currentTopic[0].id === this.topicThree[0].id) {
+    } else if (currentTopic[0].categoryId === this.topicThree[0].categoryId) {
       this.topicThree = currentTopic;
     } else {
       this.topicFour = currentTopic;

@@ -64,56 +64,57 @@ var newGame = new Game(name1, name2, name3);
 console.log('This is the JavaScript entry file - your code begins here.');
 
 
-
-function publishRoundClues () {
-
-
-    $("#box-wrapper").append(`<article class="clues">
-        100
-      </article>
-      <article class="clues">
-        100
-      </article>
-      <article class="clues" data-id"2">
-        100
-      </article>
-      <article class="clues">
-        100
-      </article>
-      <article class="clues">
-        200
-      </article>
-      <article class="clues">
-        200
-      </article>
-      <article class="clues">
-        200
-      </article>
-      <article class="clues">
-        200
-      </article>
-      <article class="clues">
-        300
-      </article>
-      <article class="clues">
-        300
-      </article>
-      <article class="clues">
-        300
-      </article>
-      <article class="clues">
-        300
-      </article>
-      <article class="clues">
-        400
-      </article>
-      <article class="clues">
-        400
-      </article>
-      <article class="clues">
-        400
-      </article>
-      <article class="clues">
-        400
-      </article>`);
-}
+//
+// function publishRoundClues () {
+//   const board = '\<article class="clues">
+//       100
+//     </article>
+//     <article class="clues">
+//       100
+//     </article>
+//     <article class="clues" data-id"2">
+//       100
+//     </article>
+//     <article class="clues">
+//       100
+//     </article>
+//     <article class="clues">
+//       200
+//     </article>
+//     <article class="clues">
+//       200
+//     </article>
+//     <article class="clues">
+//       200
+//     </article>
+//     <article class="clues">
+//       200
+//     </article>
+//     <article class="clues">
+//       300
+//     </article>
+//     <article class="clues">
+//       300
+//     </article>
+//     <article class="clues">
+//       300
+//     </article>
+//     <article class="clues">
+//       300
+//     </article>
+//     <article class="clues">
+//       400
+//     </article>
+//     <article class="clues">
+//       400
+//     </article>
+//     <article class="clues">
+//       400
+//     </article>
+//     <article class="clues">
+//       400
+//     </article>';
+//
+//
+//     $("#box-wrapper").append(board);
+// }
