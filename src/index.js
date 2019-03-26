@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 import './css/base.css';
-
+import domObject from './DOMupdates.js';
 import './images/turing-logo.png';
 
 //import objects
@@ -57,9 +57,13 @@ $("#submit-guess").on("click", event => {
 	} else {
 		console.log('Guess button prepped for round 3');
 
-		// $(".round3").removeClass('hidden')
-		// when this round is entered (round 3) let player choose a multiplier amount;
-		// I should first be able to input a multiplier between 1-5
+
+		//PLAYER 1 NEEDS A TIMER, IF ALL ANSWERs MET // TIMER = 0 end round
+		$('.current-turn').html(`${player1.name}'s turn!`)
+		let userInput = $("#player-guess").val()
+		player1.score += (game.checkAnswers(userInput, game.currentAnswer));
+		$(".player-1-score").html(`Score: ${player1.score}`);
+
 		// run round.generateRoundTimed();
 
 	}
@@ -68,8 +72,10 @@ $("#submit-guess").on("click", event => {
 $('.multiplier-form').on('click', '.multiplier-radio', (event) => {
   const radioValue = (parseInt(event.currentTarget.defaultValue));
   game.multiplyValues(radioValue);
+  game.timer(3)
+  $('.countdown-timer').removeClass('hidden');
   $('.multiplier-form').fadeOut();
-  $('.multiplying-by').html(`Multiplying by: ${radioValue}`);
+  $('.multiplying-by').html(`${radioValue}X POINTS`);
 });
 
 

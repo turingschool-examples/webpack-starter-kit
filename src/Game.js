@@ -16,24 +16,53 @@ class Game {
     round.generateRound();
     this.currentAnswer = round.currentAnswer;
   }
+
   startNextRound() {
 
     if (this.currentAnswer.length === 0 && this.currentRound < 2) {
       round.generateRound();
       this.currentAnswer = round.currentAnswer;
       this.currentRound++;
-    } else if (this.currentAnswer.length === 0 && this.currentRound == 2) {
+      console.log('not Round 3')
+    } else if (this.currentAnswer.length === 0 && this.currentRound < 4) {
 
       // console.log('Game currentAnswer:', this.currentAnswer);
+      console.log('// ROUND 3')
+      //FOLLOWING THE TIMER WE ENTER HERE
+
       $(".round3").removeClass('hidden')
       this.currentRound++;
       round.generateRoundTimed();
       this.currentAnswer = round.currentAnswer;
 
-    } else if (this.currentRound === 3) {
-      console.log('END OF GAME');
+    } else if (this.currentRound === 4) {
+      console.log('END OF GAME // ROUND 4');
+      this.currentRound++;
+      round.generateRoundTimed();
+      this.currentAnswer = round.currentAnswer;
+      //FOLLOWING THE TIMER WE ENTER HERE?
     }
   }
+
+  startNextRoundTimed() {
+
+  }
+
+  timer(time) {
+    let duration = time;
+    const timer = setInterval( () => {
+      $('.countdown-timer').html(time);
+      time--;
+      if (time < 0) {
+        // console.log('The current round is ', this.currentRound);
+        this.currentRound++;
+        clearInterval(timer);
+        console.log('The current round is ', this.currentRound);
+        this.startNextRound();
+      }
+    }, 1000);
+  }
+  //SET TIMER TO START NEXT ROUND AND LET PLAYER 2 GO FOR 30 SECONDS WHEN TIMER HITS 0 -- KEEP MULTIPLIER
 
   checkAnswers(guess, answers){
     let userGuess = guess.toLowerCase();
