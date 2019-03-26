@@ -18,7 +18,7 @@ chai.spy.on(domUpdates, [
   'correctAns',
   'updateScore',
   'wrongAns',
-  'appendLtrs'
+  'appendLetters'
 ], () => true);
 
 

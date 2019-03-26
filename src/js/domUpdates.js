@@ -130,8 +130,11 @@ export default {
     }
   },
 
-  appendLtrs(a) {
-    $('.letters-used').append(a)
+  appendLetters(letters) {
+    $('.letters-used').empty();
+    letters.forEach(ltr => {
+      $('.letters-used').append(ltr)
+    })
   },
 
   correctAns() {

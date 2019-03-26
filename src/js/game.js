@@ -61,22 +61,24 @@ class Game {
   }
 
   checkConsonant() {
-    let elem = domUpdates.getBoard()
-    Object.values(elem).forEach(e => {
-      if (e.textContent === domUpdates.getConsonant()) {
-        this.players[this.playerIndex].currentScore += this.currentPrize
-        domUpdates.clearClass(e)
+    let elem = Object.values(domUpdates.getBoard());
+    let consonantGuess = domUpdates.getConsonant();
+    let noMatches = elem.find(el => el.textContent === consonantGuess);
+    elem.forEach(e => {
+      if (e.textContent === consonantGuess) {
+        this.players[this.playerIndex].currentScore += this.currentPrize;
+        domUpdates.clearClass(e);
         domUpdates.correctAns();
-        domUpdates.updateScore(this.playerIndex, this.currentPrize)
-      } else if (!this.ltrArr.includes(domUpdates.getConsonant())){
-        domUpdates.wrongAns();
-        this.ltrArr.push(domUpdates.getConsonant())
-      } else {
-        null
-      }
-      this.appendLetters();
+        domUpdates.updateScore(this.playerIndex, this.currentPrize);
+      } else if (!this.ltrArr.includes(consonantGuess)) {
+        this.ltrArr.push(consonantGuess)
+      } 
     })
-    // this.ltrArr.push(domUpdates.getConsonant())
+    domUpdates.appendLetters(this.ltrArr);
+    if (noMatches === undefined) {
+      domUpdates.wrongAns();
+    }
+      // this.ltrArr.push(domUpdates.getConsonant())
     // if the user guess is NOT in the guessed array && IS in the answer
       // call domUpdates method to make the letter appear
     // if the user guess IS in the guessed array && IN NOT in the answer && NOT a vowel
@@ -110,13 +112,13 @@ class Game {
     console.log(this.currentQuestion.answer)
   }
 
-  appendLetters() {
-    console.log(this.ltrArr)
-    this.ltrArr.filter(ltr => {
-      domUpdates.appendLtrs(ltr)
-    })
+  // appendLetters() {
+  //   console.log(this.ltrArr)
+  //   this.ltrArr.forEach(ltr => {
+  //     domUpdates.appendLtrs(ltr)
+  //   })
     // this is kind of ??? working, it's just appending the letter multiple times because of the forEach acting upon the array for each letter
-  }
+  // }
 
 }
 
