@@ -12,7 +12,7 @@ class Clue {
     //this.playerguess = playerinput.value
     // boolean of this.answer === this.playerguess
   }
-   
+  
 }
 
 export default Clue;

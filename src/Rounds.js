@@ -7,27 +7,39 @@ import domUpdates from './domUpdates.js'
 class Rounds {
   constructor(categoryIds) {
     this.categoryIds = categoryIds;
-    // console.log('Rounds class Categories ',this.categoryIds);
     this.topicOne = [];
     this.topicTwo = [];
     this.topicThree = [];
     this.topicFour = [];
   }
-  
+
   roundTwoPoints() {
     this.pointValue * 2;
   }
 
   uniquePoints(currentTopic) {
     const finalCat = new Set();
-    const newClues = currentTopic.filter(clue => {
+    currentTopic = currentTopic.filter(clue => {
         if (finalCat.has(clue.pointValue)) {
             return false;
         }
         finalCat.add(clue.pointValue);
         return true;
     });
-    // console.log('unique Points ', newClues);
+    if(currentTopic[0].categoryId === this.topicOne[0].categoryId) {
+      this.topicOne = currentTopic;
+    } else if (currentTopic[0].categoryId === this.topicTwo[0].categoryId) {
+      this.topicTwo = currentTopic;
+    } else if (currentTopic[0].categoryId === this.topicThree[0].categoryId) {
+      this.topicThree = currentTopic;
+    } else {
+      this.topicFour = currentTopic;
+    }
+    console.log('topicOne ', this.topicOne);
+    console.log('topic two ', this.topicTwo);
+    console.log('topic three', this.topicThree);
+    console.log('topic four', this.topicFour);
+
   }
 
   fetchClues() {
@@ -52,7 +64,9 @@ class Rounds {
     this.uniquePoints(this.topicThree);
     this.uniquePoints(this.topicFour);
    }
+   fetchQuestion() {
 
+   }
 }
 
 export default Rounds;

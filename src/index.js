@@ -23,17 +23,13 @@ import dataSet from './dataSet.js';
 import domUpdates from './domUpdates.js';
 
 
-
-const newGame = new Game(dataSet.clues);
-
-
 let dataCategories = Object.keys(dataSet.categories);
 
 let categoriesToArray = $('.categories').toArray();
-// Hard coded categories in 
-let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()], 
-[dataCategories[2].split(/(?=[A-Z])/).join(' ').toUpperCase()], 
-[dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()], 
+// Hard coded categories in
+let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()],
+[dataCategories[2].split(/(?=[A-Z])/).join(' ').toUpperCase()],
+[dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[6].toUpperCase()]];
 // Actual RNG for the categories---
 // for (let i = 0; i < categoriesToArray.length; i++) {
@@ -52,21 +48,26 @@ $('#category-four').text(categoryArr[3]);
 // newGame.populateQuestions()
 
 // dom manipulation to get values of the three names
-var name1 = 'Erik';
-var name2 = 'Elton';
-var name3 = 'Sean';
 
-// var newGame = new Game(name1, name2, name3);
+$("#start-game").click(function() {
+  event.preventDefault();
+  publishRoundClues()
+});
+
+var name1 = $("#player-one").val;
+var name2 = $("#player-two").val;
+var name3 = $("#player-three").val;
+
+var newGame = new Game(name1, name2, name3);
 
 
 
+// newGame.currentRound.fetchClues;
+// console.log(newGame.currentRound.fetchClues(newGame.round1Categories));
 
-// const player1 = new Rounds(flatData, 'Erik');
-// console.log('Log 2: ', player1);
+// newGame.nextRound()
 
-// const player2 = new Rounds(gameStart, 'Aidan');
-// console.log('Log 3: ', player2);
-
+console.log('This is the JavaScript entry file - your code begins here.');
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
@@ -79,14 +80,14 @@ $("#start-game").click(function() {
 
 function publishRoundClues () {
   console.log('hello')
-  const board = '<article class="clues">' +  
-  100 + 
-  '</article>' +
-  '<article class="clues">' + 
-  100 + 
+  const board = '<article class="clues">' +
+  100 +
   '</article>' +
   '<article class="clues">' +
-  100 + 
+  100 +
+  '</article>' +
+  '<article class="clues">' +
+  100 +
   '</article>' +
   '<article class="clues">' +
   100 +
@@ -126,9 +127,9 @@ function publishRoundClues () {
   '</article>' +
   '<article class="clues">' +
   400 +
-  '</article>' 
-  
+  '</article>'
+
   $(".box-wrapper").append(board);
   console.log(board)
-  
+
 }
