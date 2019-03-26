@@ -32,25 +32,29 @@ popUp() {
    </section>`
    )},
 
-  // changeP1Score() {
-  //    $('#scoreOne').text(score) 
-  // }
+  // appendQuestion() {
 
-  // changeP2Score() {
-  //    $('#scoreTwo').text(score) 
-  // }
+  // },
 
-  // appendAnswer() {
+  changeScore(score, currentPlayer) {
+     if(score && currentPlayer.playerId === 1) {
+        $('#scoreOne').text(score)   
+        }
+    if(score && currentPlayer.playerId === 2) {
+          $('#scoreTwo').text(score) 
+        }    
+  },
+
+  // appendAnswer(answer, respondents) {
+  //   if()//answer is at index 0
   //   $('.class').text('');
-  //   $('class').append(correctGuess);
-  // }
+  //   $('class').append(`${answer} 
+  // if()//answer is at index 1
+  //   $('.class').text('');
+  //   $('class').append(`${answer} 
+  // if()//answer is at index 2
+  //   $('.class').text('');
+  //   $('class').append(`${answer} ${respondents}`);
+  // },
 
 }
-
-
-//update scores
-//update questions
-//update answers
-
-
-

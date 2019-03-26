@@ -3,10 +3,8 @@ import $ from 'jquery';
 import './css/base.css';
 import './css/normalize.css';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/FFLsm.png';
 
-// imports
 import { data } from './dataset.js';
 import Game from './Game.js';
 import Player from './Player.js';
