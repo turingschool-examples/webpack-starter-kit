@@ -12,20 +12,21 @@ class Wheel {
   getRandomWheel() {
     let random = data.wheel[Math.floor(Math.random() * data.wheel.length)];
     console.log('randomWheelTest: ', random);
+    this.currentIndex = random;
     if (random === 'LOSE A TURN') {
       domUpdates.displayLoseTurn(this);
       // iterates to next player
     }
-    // if (this.currentIndex === 'BANKRUPT') {
-      //   // iterates to next player
-      //   player.roundScore === 0;
-      //   domUpdates.diplayBankrupt()
-      // } 
-      // else {
+    if (this.currentIndex === 'BANKRUPT') {
+        // iterates to next player
+        // player.roundScore === 0;
+        domUpdates.displayBankrupt()
+      } 
+      else {
         // display currentIndex wheel value
-        // domUpdates.displayWheelValue();
+        domUpdates.displayWheelValue(this);
       }
-      // }
+      }
       
       // this.currentIndex.push(random);
   // getWheelValue() {

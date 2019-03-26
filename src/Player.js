@@ -10,22 +10,32 @@ class Player {
   }
 
   solvePuzzle() {
+    // if(player.input === puzzle.answer) {
+      // displayLetterMatch()
+      // getPlayerScore();
+      //switchPlayers();
+      //if(player.input !== puzzle.answer) {
+        //switchPlayers();
+      // }
+    }
 
-  }
-  
-  // getPlayerScore(wheelVal) {
-    //use this after we create wheel spin method
-  //   this.roundScore += wheelVal;
+  //switchPlayers() {
+    //game.currentPlayer ++
+    // }
   // }
 
-  spinWheel() {
-    
-  }
+
+  // getPlayerScore(wheelVal) {
+    //use this after we create wheel spin method
+  //   game.currentPlayer = this.totalScore += wheelVal;
+  // }
+
 
   buyVowel() {
     if(this.score > 100) {
       //buy vowel becomes enabled
       //dom updates to show enabled
+      // game.currentPlayer = this.totalScore - 100
       //when enabled, player can enter in 1 vowel and if it's in the letter if will show up on the puzzle bank
     if(this.score <100) {
       //domUpdates display not enough cash message

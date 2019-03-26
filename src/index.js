@@ -39,6 +39,7 @@ $('#js-spin-button').on('click', function() {
 
 $('#js-solve-button').on('click', function() {
   domUpdates.displayQuestionSolvePopup(game);
+  // player.solvePuzzle();
   // round.checkPlayerGuess();
 });
 
@@ -57,11 +58,8 @@ $('#js-vowel-submit').on('keyup', function(e) {
 $('#js-vowel-submit-button').on('click', function () {
   let letterInput = domUpdates.grabVowel ();
   game.currentPuzzle.checkUserGuess ();
+});
+
+$('.exit-solve').on('click', function() {
+  domUpdates.removePopup();
 })
-
-
-// $(".js-cons-input").on("keydown", function() {
-//   if (!vowelKeyCodes.includes(event.keyCode)) {
-//     event.preventDefault(); 
-//   }
-// });
