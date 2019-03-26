@@ -49,38 +49,39 @@ $('#category-four').text(categoryArr[3]);
 
 // dom manipulation to get values of the three names
 
-$("#start-game").click(function() {
-  event.preventDefault();
-  publishRoundClues()
-});
-
 var name1 = $("#player-one").val;
 var name2 = $("#player-two").val;
 var name3 = $("#player-three").val;
 
 var newGame = new Game(name1, name2, name3);
 
-
-
-// newGame.currentRound.fetchClues;
-// console.log(newGame.currentRound.fetchClues(newGame.round1Categories));
-
-// newGame.nextRound()
-
 console.log('This is the JavaScript entry file - your code begins here.');
 
-
-console.log('This is the JavaScript entry file - your code begins here.');
 
 $("#start-game").click(function() {
   event.preventDefault();
-  publishRoundClues()
+  publishCategories();
+  publishRoundClues();
+  publishScoreBoard();
+  removeMe();
 });
 
+function removeMe() {
+  $(".start-up-screen").remove();
+}
+
+function publishCategories () {
+  const categories = '<header class="categories" id="category-one">' +
+  'Category' + 1 + '</header>' + '<header class="categories" id="category-two">'
+  + 'Category' + 2 + '</header>' + '<header class="categories" id="category-three">'
+  + 'Category' + 3 + '</header>' + '<header class="categories" id="category-four">'
+  + 'Category' + 4 + '</header>';
+
+  $(".category-wrapper").append(categories);
+}
 
 function publishRoundClues () {
-  console.log('hello')
-  const board = '<article class="clues">' +
+  const scoreBoard = '<article class="clues">' +
   100 +
   '</article>' +
   '<article class="clues">' +
@@ -129,7 +130,20 @@ function publishRoundClues () {
   400 +
   '</article>'
 
-  $(".box-wrapper").append(board);
-  console.log(board)
+  $(".box-wrapper").append(scoreBoard);
+}
 
+function publishScoreBoard () {
+  const board = '<form class="answer">' + '<label for="answer">Answer</label>'
+  + '<input type="text" name="user-answer" id="answer" class="answer-input">'
+  + '<button class="answer-btn">Submit</button>' + '</form>' +
+  '<footer class="player-wrapper">' + '<section class="players">' +
+  '<span id="player1-name">' + 'Player' + 1 + '</span>' + '<br>' + 'Score' +
+  '<span id="player1-score">' + 0 + '</span>' + '</section>' +
+  '<section class="players">' + '<span id="player1-name">' + 'Player' + 2 +
+  '</span>' + '<br>' + 'Score' + '<span id="player2-score">' + 0 + '</span>' +
+  '</section>' + '<section class="players">' + '<span id="player1-name">' +
+  'Player' + 3 + '</span>' + '<br>' + 'Score' + '<span id="player3-score">' + 0
+  + '</span>' + '</section>' + '</footer>';
+  $(".answer-wrapper").append(board);
 }

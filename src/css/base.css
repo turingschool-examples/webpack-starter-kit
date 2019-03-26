@@ -18,7 +18,7 @@ body {
   margin: 10px auto;
 }
 
-.welcome-intro, 
+.welcome-intro,
 .name-prompt {
   grid-column-start: 3;
   grid-column-end: 3;
@@ -60,11 +60,7 @@ header {
   text-align: center;
 }
 
-.category-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
+.category-wrapper,
 .box-wrapper {
   display: flex;
   flex-wrap: wrap;
