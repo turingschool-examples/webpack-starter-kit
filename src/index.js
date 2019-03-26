@@ -51,6 +51,7 @@ $('.start__start--btn').click(() =>{
   const vowels = ['A', 'E', 'I', 'O', 'U'];
 // Conflict Res
   $('.guess__word--button').click(function () {
+    console.log(game.currentRound.roundPuzzle);
     // ! change the array of array to the globally defined one
     const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     let wrdGuess = $('#guess--input').val();
@@ -81,39 +82,36 @@ $('#vowel').click(function() {
   if (!vowels.includes(ltrGuess.toUpperCase()) || ltrGuess.length !== 1) {
     alert('Please Choose 1 Vowel');    
   } else {
-    console.log("It's a Vowel!")
     buyVowel(round, player, ltrGuess);
-    player.ans = ltrGuess.toUpperCase();
-    round.answer = round.answer.filter(item => item !== `'` && item !== `-`)
-    conditionalChecking(round, player, ltrGuess);
-    DomUpdates.updateLettersUsed(game);
   }
-})
+});
 
 $('#consonant').click(function () {
-    const round = game.currentRound;
-    const player = round.currentPlayer;
-    // !  nested if to separate helper function invoked within first if
-    if ($('#guess--input').val().length === 1) {
-      let ltrGuess = $('#guess--input').val();
-      player.ans = ltrGuess.toUpperCase();
-      round.answer = round.answer.filter(item => item !== `'` && item !== `-` )
-      //TODO: update letters used array
-      // player ans
-      // console.log(game.currentRound.currentPlayer.ans.toUpperCase());
-      // round answer
-      // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
-      // compare player ans against round answer
-      conditionalChecking(round, player, ltrGuess);
-      // create a new array
-      // push correct guess letter in there
-      // find index of answer array to guess letter array
-      // change text of that index to the value of the guess index
-    } else {
-      alert('Please Choose 1 Letter');
-    }
-    DomUpdates.updateLettersUsed(game);
-  });
+  const round = game.currentRound;
+  const player = round.currentPlayer;
+  let ltrGuess = $('#guess--input').val();
+
+  // !  nested if to separate helper function invoked within first if
+  if (vowels.includes(ltrGuess.toUpperCase()) || ltrGuess.length !== 1) {
+    alert('Please Choose 1 Consonant');
+  } else {
+    player.ans = ltrGuess.toUpperCase();
+    round.answer = round.answer.filter(item => item !== `'` && item !== `-` )
+    //TODO: update letters used array
+    // player ans
+    // console.log(game.currentRound.currentPlayer.ans.toUpperCase());
+    // round answer
+    // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
+    // compare player ans against round answer
+    conditionalChecking(round, player, ltrGuess);
+    toggleButtons();
+    // create a new array
+    // push correct guess letter in there
+    // find index of answer array to guess letter array
+    // change text of that index to the value of the guess index
+  }
+  DomUpdates.updateLettersUsed(game);
+});
 
   let conditionalChecking = (round, player, ltrGuess) => {
      if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
@@ -121,7 +119,6 @@ $('#consonant').click(function () {
         // todo: add an error message instead of alert
       } else if (compareAns(round, player)) {
         correctAnsFunc(round, player, ltrGuess);
-        toggleButtons();
       }
         // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
@@ -131,33 +128,35 @@ $('#consonant').click(function () {
         // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
         round.allRoundGuesses.push(player.ans)
         round.getCurrentPlayer(game);
-        toggleButtons();
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         // console.log('CurrentPlayer', game.currentRound.currentPlayer);
       }
   }
 
-  let compareAns = (round, player) => {
-    return round.answer.map((letter)=> letter.toUpperCase())
+let compareAns = (round, player) => {
+  return round.answer.map((letter)=> letter.toUpperCase())
     .includes(player.ans.toUpperCase());
-  }
+}
 
-  let correctAnsFunc = (round, player, ltrGuess) => {
-    round.correctRoundGuesses.push(player.ans);
-    round.allRoundGuesses.push(player.ans);
-    DomUpdates.createPuzzleClassArr(ltrGuess);
-    round.getCurrentPlayer(game);
-    round.answer = round.answer
-      .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
-    console.log(game.currentRound.answer);
-  }
+let correctAnsFunc = (round, player, ltrGuess) => {
+  round.correctRoundGuesses.push(player.ans);
+  round.allRoundGuesses.push(player.ans);
+  DomUpdates.createPuzzleClassArr(ltrGuess);
+  round.getCurrentPlayer(game);
+  round.answer = round.answer
+    .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
+  console.log(game.currentRound.answer);
+}
 
-let buyVowel = (round, player, letter) => {
+let buyVowel = (round, player, ltrGuess) => {
   if (player.roundCaps < 100) {
     alert('Insufficient Funds!');
   } else {
     player.roundCaps -= 100;
-    console.log(player.roundCaps)
+    player.ans = ltrGuess.toUpperCase();
+    round.answer = round.answer.filter(item => item !== `'` && item !== `-`)
+    conditionalChecking(round, player, ltrGuess);
+    DomUpdates.updateLettersUsed(game);
   }
 }
   
