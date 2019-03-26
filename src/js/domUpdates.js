@@ -145,5 +145,9 @@ export default {
 
   wrongAns() {
     $('.feedback').text('Morty! No!')
+  },
+
+  showAnser() {
+    $('.hidden').removeClass('hidden');
   }
 }

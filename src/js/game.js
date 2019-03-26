@@ -47,6 +47,7 @@ class Game {
   validateAnswer() {
     if (domUpdates.getAnswer().toUpperCase() === this.currentQuestion.answer.toUpperCase()) {
       console.log('correct!')
+      domUpdates.showAnser();
       this.players[this.playerIndex].totalScore += this.currentPrize
       console.log(this.players[this.playerIndex].totalScore);
       domUpdates.updateBank(this.playerIndex, this.players[this.playerIndex].totalScore)
