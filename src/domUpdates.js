@@ -55,7 +55,6 @@ export default {
   },
 
   appendPuzzle (line1, line2) {
-    console.log(line1, line2)
     this.fillSpace(line1.length, false);
     this.appendWords(line1);
     this.fillSpace(line1.length, true);
@@ -88,6 +87,16 @@ export default {
       'transform': 'rotate(' + totalDegree + 'deg)'
     });
     $('.spin-winner').html(`${wheel.currentSpin}`);
+    if (wheel.currentSpin === "BANKRUPT"){
+      console.log("Testing-B")
+      // round.players[round.activePlayer].roundScore = 0;
+      // this.displayScore(round.activePlayer, 0)
+      // round.changeActivePlayers();
+
+    }else if (wheel.currentSpin === "LOSE A TURN"){
+            console.log("Testing-L")
+        // round.changeActivePlayers();
+    }
   },
 
   turnOrder(oldPlayer, newPlayer) {
@@ -95,20 +104,23 @@ export default {
     $(`#player${newPlayer}-area`).addClass('active'); 
   },
 
-   displayCorrectLetter(puzzle, guess) {
-    // we dont currently have the index added to each box when they append for this to work
-    // puzzle.forEach((letter, index) => {
-    //   if (letter === guess) {
-    //     $(`puz-grid secret ${index}`).removeClass('secret')
-    //   } 
-    // })
+  displayCorrectLetter(puzzle, guess) {
+    puzzle.forEach((letter, index) => {
+      if (letter === guess) {
+        $(`puz-grid secret ${letter}`).removeClass('secret')
+      } 
+    })
   },
 
-  buyAVowel(){
+  buyAVowel() {
+    $('.vowels').on('click', (event) => {
+      // round.players[round.activePlayer].roundScore -= 100;
+      round.guessLetter(event);
+
 
   },
-  displayScore(player,value){
-
+  displayScore(player, value) {
+    $(`#player-${player}-round`).text(`Score: ${value}`)
   }
   
   

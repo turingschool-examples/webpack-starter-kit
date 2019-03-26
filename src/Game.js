@@ -28,13 +28,12 @@ class Game {
     puzzlesArr.forEach(puzzleCat =>{
       this.allData.push(data.puzzles[puzzleCat].puzzle_bank)
     })
-    console.log(this.allData)
   }
 
   createRound () {
     this.roundCount++;
     if (this.roundCount === 4) {
-        let wheel = new BonusWheel();    
+      let wheel = new BonusWheel();    
     }
     let round = new Round(this.players);
     let wheel = new Wheel();
