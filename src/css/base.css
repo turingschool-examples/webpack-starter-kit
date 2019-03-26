@@ -106,7 +106,6 @@ body {
     font-weight: 800;
 }
 
-
 .cardOne,
 .cardTwo,
 .cardThree {
@@ -153,7 +152,8 @@ body {
     height: 80px;
     font-size: 1em;
     border: 5px solid goldenrod;
-    margin: 45px 0;
+    margin-top: 5%;
+    margin-bottom: 3%;
     padding: 10px;
 }
 
@@ -169,7 +169,7 @@ body {
     font-size: 2em;
     text-align: center;
     color: red;
-    margin: 2% 0;
+    margin: 1% 0;
     visibility: hidden;
 }
 

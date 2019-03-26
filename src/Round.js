@@ -1,55 +1,41 @@
-import $ from 'jquery';
+import domUpdates from './domUpdates.js';
+
 
 
 class Round {
   constructor(survey) {
     this.questionSet = survey;
     this.correctAnswer = 0;
-  }
-      
-    getAnswer() {
-        let guess = $('.answerInput').val();
-        this.checkAnswer(guess);
-    };
-
-    checkAnswer(guess) {
-        let answers = this.questionSet.answers;
-        let answerSet = [];
-        answers.forEach((answer) => {
-            answerSet.push(answer.answer, answer.respondents);
-        });
-            console.log('ouranswers', answerSet);
-        $('.answerInput').val('');
-        
-        let correctGuess = [];
-        if (answerSet.find((guess) => {
-            correctGuess.push(answer.answer, answer.respondents);
-            console.log('correct guess', correctGuess);
-            // domUpdates.appendAnswer(correctGuess);
-            player.addScore(answer.respondents);
-        });
-            console.log('respondent value', answer.respondents);
-        // } else {
-        //     $('.wrongAnswer').css('visibility', 'visible');
-        //     game.switchPlayers() // method of Game
-        // }
-    );
 }
+
+
+checkAnswer(guess, currentPlayer) {
+    let answers = this.questionSet.answers;
+    let score;
+    domUpdates.clearInputField();
+    answers.forEach((answer) => {
+        if(guess.toLowerCase() === answer.answer.toLowerCase()) {
+            console.log('guess correct');
+            score = currentPlayer.addScore(answer.respondents);
+            console.log(currentPlayer.score); //undefined, why?
+            // domUpdates.changeScore(currentPlayer.score)
+            // domUpdates.appendAnswer(answer.answer, answer.respondents);
+            return score;
+        };
+
+        if(guess == '') {
+            domUpdates.errorMessage();
+        };
+
+        return score;
+
+    })
 }
-    // getRespondents(guess) {
 
+    // endRound()
+    //when correctAnswer === 3, end round    
     // }
-    // if(guess == '') {
-    //     $('.errorMessage').css('visibility', 'visible');
-    // };
-
-
-
-    // endRound()     
-    // }
-// }
-
-// } when correctAnswer === 3, end round
+}
 
 
 export default Round;

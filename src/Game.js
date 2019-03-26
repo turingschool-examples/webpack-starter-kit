@@ -1,4 +1,3 @@
-
 import index from './index.js';
 import Player from './Player.js';
 import Round from './Round.js';
@@ -13,40 +12,49 @@ class Game {
     this.player2 = null;
     this.round = null;
     this.roundNumber = 0;
+    this.currentPlayer = null;
     // this.round = [new Round(), new Round(), new LightningRound()];
-  };
+};
 
+createPlayer(name1, name2) {
+    let player1 = new Player(name1, 1);
+    console.log(player1);
+    let player2 = new Player(name2, 2);
+     console.log(player2); 
+    this.currentPlayer = player1;
+    console.log(this.currentPlayer);
+};
 
-  createPlayer(name1, name2) {
-    this.player1 = new Player(name1);
-    this.player2 = new Player(name2);
-  };
-
-  //functionally scoped players - DNE after this runs
-
-
-        // checkPlayer() {
-        //   isPlayer = player;
-        // }    
-
-  createRound() {
+switchPlayer() {
+   if(this.currentPlayer.playerId = 1 ? 2 : 1);
+   //always goes to player 2 and gives them the score
+   console.log('newplayer',this.currentPlayer);
+}; 
+createRound() {
     const survey = this.surveys[Math.floor(Math.random() * this.surveys.length)];
     this.round = new Round(survey);
     console.log(survey);
     this.roundNumber++; 
-    };
+};
 
-
-
-
-    // switchPlayer() {
-    // if player = player 1
-    // switch to player 2
-    // else player 2
-    // switch to player 1
+getAnswer(guess) {
+    const score = this.round.checkAnswer(guess, this.currentPlayer);
+    console.log('correct score', round.score);
+    //does not ontain score value from round
+    // if(score && this.currentPlayer = 1) {
+    //     domUpdates.changeP1Score(score);
     // }
+    // if(score && this.currentPlayer = 2) {
+    //     domUpdates.changeP2Score(score);
+    // }
+    if (!score) {
+        console.log('score', score);
+    this.switchPlayer(this.currentPlayer)
+    } 
 
+};
 
+//currrent turn tracker, pass in the player who is playing vs array of player or find player who is playing in array
 
         //   }
         // }
