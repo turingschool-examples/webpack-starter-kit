@@ -65,7 +65,7 @@ let domUpdates = {
   },
 
   displayLetterMatch(letter) {
-      $('.letter:contains("'+letter+'")').css('color', 'white' );
+    $('.letter:contains("'+letter+'")').css('color', 'white' );
   },
 
   diplayStartMsg() {
@@ -112,8 +112,8 @@ let domUpdates = {
   //   }
   // }
 
-  removePopup(){
-    $('.question-popup').remove();
+  removePopup() {
+    $ ('.question-popup').remove ();
   }
 
 
