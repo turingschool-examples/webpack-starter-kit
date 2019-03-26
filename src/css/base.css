@@ -352,6 +352,7 @@ h3 {
 
 .round-container {
   grid-area: round;
+}
 
 .description {
   width: 110%;
