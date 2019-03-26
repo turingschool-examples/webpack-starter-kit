@@ -17,14 +17,16 @@ class Player {
       // if(player.input !== puzzle.answer) {
       // }
       // switchPlayers();
+      //add this to puzzle instead
     }
   }
 
 
-  // getPlayerScore(wheelVal) {
-    //use this after we create wheel spin method
-  //   game.currentPlayer = this.totalScore += wheelVal;
-  // }
+  getPlayerScore(wheel, game) {
+    // use this after we create wheel spin method
+    console.log('playerScore:', game.currentPlayer)
+    game.currentPlayer = this.totalScore += wheel.currentIndex;
+  }
 
 
   // buyVowel() {

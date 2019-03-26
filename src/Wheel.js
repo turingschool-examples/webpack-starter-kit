@@ -13,6 +13,7 @@ class Wheel {
     let random = data.wheel[Math.floor(Math.random() * data.wheel.length)];
     console.log('randomWheelTest: ', random);
     this.currentIndex = random;
+    console.log('currInd:', this.currentIndex)
     if (random === 'LOSE A TURN') {
       domUpdates.displayLoseTurn(this);
       // iterates to next player
