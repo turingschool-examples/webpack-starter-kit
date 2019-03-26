@@ -48,6 +48,9 @@ nav {
   background-color: rgba(20, 100, 20, .9);
   border: .1px solid lime;
 }
+.nav__how-to {
+  display: none;
+}
 .nav__wheel--button {
     width: 220px;
     height: 200px;
@@ -66,7 +69,7 @@ nav {
 }
 .letters--container {
   position: absolute;
-  top: 25px;
+  top: 0px;
   left: 25px;
 }
 .letters__title {

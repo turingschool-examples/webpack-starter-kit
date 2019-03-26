@@ -28,19 +28,28 @@ $('.start__start--btn').click(() =>{
   // // game.currentRound.determinePuzzleLength();
   // DomUpdates.updateRoundHintCategory(game);
 });
+
+$('.nav__end-game').click(function () {
+  location.reload();
+});
+$('.nav__end-round').click(function () {
+  if (game.currentRound.roundNumber !== 5) {
+    game.currentRound.roundNumber--;
+    game.newRound(game)
+  }
+});
   
 let getCurrPlayer = (game => {
   game.currentRound.getCurrentPlayer(game);
-})
+});
+
 
 let toggleButtons = () => {
   //Toggle: Consonant & Label
-  if ($('#consonant').attr("disabled")) {
-    $('#consonant').removeAttr('disabled').css('background-color', 'darkgreen');
-    $('#consonant--label').addClass('disable--label');
+  if ($('#consonant').attr('value') == '^ Spin Wheel ^') {
+    $('#consonant').removeAttr('disabled').css('background-color', 'darkgreen').attr('value', 'Guess Consonant');
   } else {
-    $('#consonant').attr('disabled', 'true').css('background-color', 'gray');
-    $('#consonant--label').removeClass('disable--label');
+    $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', '^ Spin Wheel ^');
   }
   //Toggle: Wheel
   $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
@@ -154,8 +163,8 @@ let correctAnsFunc = (round, player, ltrGuess) => {
   DomUpdates.createPuzzleClassArr(ltrGuess);
   round.getCurrentPlayer(game);
   round.answer = round.answer
-    .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
-  if(game.currentRound.answer == 0){
+    .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+  if (game.currentRound.answer.length === 0) {
     game.newRound(game);
   }
 }
