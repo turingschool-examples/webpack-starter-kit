@@ -28,14 +28,25 @@ $('.start__start--btn').click(() =>{
   // // game.currentRound.determinePuzzleLength();
   // DomUpdates.updateRoundHintCategory(game);
 });
+
+$('.nav__end-game').click(function () {
+  location.reload();
+});
+$('.nav__end-round').click(function () {
+  if (game.currentRound.roundNumber !== 5) {
+    game.currentRound.roundNumber--;
+    game.newRound(game)
+  }
+});
   
 let getCurrPlayer = (game => {
   game.currentRound.getCurrentPlayer(game);
-})
+});
+
 
 let toggleButtons = () => {
   //Toggle: Consonant & Label
-  if ($('#consonant').attr("disabled")) {
+  if ($('#consonant').text() == 'Spin Wheel') {
     $('#consonant').removeAttr('disabled').css('background-color', 'darkgreen');
     $('#consonant--label').addClass('disable--label');
   } else {
@@ -154,8 +165,8 @@ let correctAnsFunc = (round, player, ltrGuess) => {
   DomUpdates.createPuzzleClassArr(ltrGuess);
   round.getCurrentPlayer(game);
   round.answer = round.answer
-    .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
-  if(game.currentRound.answer == 0){
+    .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+  if (game.currentRound.answer === 0) {
     game.newRound(game);
   }
 }
