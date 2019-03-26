@@ -71,33 +71,37 @@ export default {
     $('.clue-container').text(category)
   },
 
-  spinWheel() {
+  spinWheel(game) {
     let clicks = 1;
     let wheel = new Wheel();
     const winner = Math.round(Math.random() * 21);
     /*multiply the degree by number of clicks
     generate random number between 1 - 360, 
     then add to the new degree*/
-    const extraDegree = 0//(21 - winner) * 36;
+    const extraDegree = (21 - winner) * 36;
     const spinAgain = (1800 * clicks) + extraDegree;
-    const totalDegree = Math.round(spinAgain / 36) * 100;
+    const totalDegree = Math.round(spinAgain / 36) * 150;
     wheel.spinWinner(winner);
     clicks++;
     $('#inner').css({
       'transform': 'rotate(' + totalDegree + 'deg)'
     });
     $('.spin-winner').html(`${wheel.currentSpin}`);
-    if (wheel.currentSpin === "BANKRUPT"){
+    console.log(game.round)
+    if (wheel.currentSpin === "BANKRUPT") {
       console.log("Testing-B")
       // round.players[round.activePlayer].roundScore = 0;
       // this.displayScore(round.activePlayer, 0)
       // round.changeActivePlayers();
 
-    }else if (wheel.currentSpin === "LOSE A TURN"){
-            console.log("Testing-L")
-        // round.changeActivePlayers();
+    } else if (wheel.currentSpin === "LOSE A TURN") {
+      console.log("Testing-L")
+      // round.changeActivePlayers();
     }
   },
+
+
+
 
   turnOrder(oldPlayer, newPlayer) {
     $(`#player${oldPlayer}-area`).removeClass('active');
@@ -116,8 +120,7 @@ export default {
     $('.vowels').on('click', (event) => {
       // round.players[round.activePlayer].roundScore -= 100;
       round.guessLetter(event);
-
-
+    });
   },
   displayScore(player, value) {
     $(`#player-${player}-round`).text(`Score: ${value}`)

@@ -1,4 +1,5 @@
 import data from "./data.js";
+import round from "./Round.js"
 
 
 class Wheel {
@@ -14,6 +15,7 @@ class Wheel {
 
   spinWinner(index) {
     this.currentSpin = this.values[index];
+    console.log(this.currentSpin);
   }
 
 

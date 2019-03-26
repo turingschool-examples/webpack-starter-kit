@@ -33,7 +33,7 @@ $('#reset-button').on('click', (e) =>{
 })
 
 $('#wheel').on('click', () => {
-  domUpdates.spinWheel();
+  domUpdates.spinWheel(game);
 })
 
 

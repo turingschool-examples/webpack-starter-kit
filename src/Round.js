@@ -5,10 +5,10 @@ import Puzzle from "./Puzzle.js";
 import domUpdates from "./domUpdates.js";
 
 class Round {
-  constructor(players) {
-    this.players = [] || players;
+  constructor(players, wheel) {
+    this.players = players;
+    this.currentWheel = wheel;
     this.activePlayer = 0;
-
   }
 
   getPuzzle(array) {
