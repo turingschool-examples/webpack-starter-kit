@@ -13,7 +13,7 @@ class Game {
     this.alphabet = []
     this.gameRoundsClueBank = null
     this.roundCards = []
-    this.roundInst = new Round()
+    this.roundInst = new Round(0)
   }
 
   startGame(p1, p2, p3) {

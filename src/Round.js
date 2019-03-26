@@ -4,7 +4,8 @@ import DomUpdates from './DomUpdates';
 import Wheel from './Wheel';
 
 class Round {
-  constructor() {
+  constructor(roundNumber) {
+    this.roundNumber = roundNumber
     this.clueAnswer = {}
     this.roundClue = {}
     this.activePlayer = 0
@@ -13,7 +14,9 @@ class Round {
   }
 
   createNewRound(game) {
+    this.roundNumber ++
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
+    game.stage ++
     this.shuffler(allRoundClues)
     this.playerTurn(game)
     this.getRandomClue(allRoundClues)
@@ -22,9 +25,11 @@ class Round {
 
   getRandomClue(cards) {  
     this.roundClue = this.randomNumber(cards);
+
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
     this.fillGameBoard();
     this.displayHint();
+    console.log(this.clueAnswer)
   }
   randomNumber(values) {
     if (values.length === 24) {
@@ -44,15 +49,15 @@ class Round {
 
   ///checking clicked letter works
   checkLetter(userLetter, game) {
-   console.log(this.clueAnswer)
+    console.log(this.clueAnswer)
     if (this.clueAnswer.includes(userLetter)) {
       game.updatePlayerBank()
-     } else if(!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN'){
-        // this.activePlayer++
-        this.switchPlayer()
-      }
-      // game.players[this.activePlayer].score += this.wheelInst.selectedValue
-      // console.log(game.players)
+    } else if (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
+      // this.activePlayer++
+      this.switchPlayer()
+    }
+    // game.players[this.activePlayer].score += this.wheelInst.selectedValue
+    // console.log(game.players)
     console.log('go to bed')
 
   }
@@ -70,10 +75,10 @@ class Round {
     console.log(this.letterIndexs)
     const selectedLetter = this.letterIndexs[letter];
     const puzzleCells = $('.puzzle-cell').toArray();
-    if(selectedLetter) {
-      for(var i = 0; i < selectedLetter.length; i++) {
+    if (selectedLetter) {
+      for (var i = 0; i < selectedLetter.length; i++) {
         const instance = selectedLetter[i];
-        console.log('instance',instance)
+        console.log('instance', instance)
         const puzzleCell = (puzzleCells[instance].parentNode);
         console.log('puzzleCell', puzzleCell)
         puzzleCell.classList.remove('letters-not-displayed')
@@ -112,19 +117,31 @@ class Round {
   checkValue(wheelValue, game) {   
     if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
-      // DomUpdates.bankrupt()
+      DomUpdates.bankrupt()
       game.players[this.activePlayer].playerBank = 0
-      this.switchPlayer();
+      this.switchPlayer(game);
     } else if (wheelValue === "LOSE A TURN") {
+      DomUpdates.loseTurn()
       DomUpdates.deactivateLetters()
-      this.switchPlayer()
-      this.playerTurn(game)
+      this.switchPlayer(game)
     } else {
       DomUpdates.activateLetters()
-
     }
-    
   }
+
+  playerGuessPuzzle(playerGuessInput, game) {
+    let clueAnswer = this.clueAnswer.join('')
+    if (clueAnswer == playerGuessInput) {
+        DomUpdates.clearGameBoard();
+        this.createNewRound(game)
+      console.log(this)
+  }
+  }
+
+  checkPlayerSolve(playerSolveInput) {
+    console.log(playerSolveInput)
+  }
+
 
 }
 

@@ -55,8 +55,14 @@ $('body').on('focus', '.guess-submission', () =>{
   DomUpdates.deactivateLetters()
 })
 
+
+$('body').on('click', '.quit-btn-container', () =>{
+  window.location.reload(true)
+})
+
+
 $('body').on('click', '.vowel', () => {
-  buyVowel(game);
+  playerBuyVowel(game);
 });
 
 /************Functions******* */
@@ -80,11 +86,18 @@ function playerSpin(game) {
   game.roundInst.wheelInst.spinWheel(game);
 }
 
-function submitGuess(event){
-  let playerGuess = $('.guess-submission').val().toLowerCase().split('');
-}
 
-function buyVowel(game) {
+function playerBuyVowel(game) {
   console.log('buyVowel')
   game.roundInst.buyVowel(game);
 }
+
+function submitGuess(event) {
+  let playerGuess = $('.guess-submission').val().toLowerCase()
+  console.log(playerGuess)
+  if(playerGuess === ''){
+    DomUpdates.noInput()
+  }
+  game.roundInst.checkPlayerSolve(playerGuess)
+}
+
