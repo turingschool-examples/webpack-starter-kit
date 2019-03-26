@@ -42,7 +42,7 @@ class Game {
     if (this.currentPlayer === 3) {
       this.currentPlayer = 0;
     }
-    // } else if (this.currentPlayer = player)f
+    // } else if (this.currentPlayer = player)fgegea
     console.log('current player', this.players[this.currentPlayer]);
   }
 }
