@@ -18,9 +18,8 @@ checkAnswer(guess, currentPlayer) {
             console.log('guess correct');
             score = currentPlayer.addScore(answer.respondents);
             console.log(currentPlayer.score); //undefined, why?
-            // domUpdates.changeScore(currentPlayer.score)
-            // domUpdates.appendAnswer(answer.answer, answer.respondents);
-            return score;
+            // domUpdates.appendAnswer(answer.answer, answer.respondents);//needs to be called from game
+            // return score;
         };
 
         if(guess == '') {
