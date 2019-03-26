@@ -38,8 +38,9 @@ $('input.player-names').keyup(function() {
   event.preventDefault(event)
 });
 //selects letters from the top//
-$('body').on('click', '.single-letter', (event) =>{
-  selectingLetter(event)
+$('body').on('click', '.single-letter, .single-letter-vowel', (event) =>{
+  selectingLetter(event);
+  DomUpdates.deactivateLetters();
 })
 
 $('body').on('click', '.spinner', () =>{
@@ -57,6 +58,11 @@ $('body').on('focus', '.guess-submission', () =>{
 $('body').on('click', '.quit-btn-container', () =>{
   window.location.reload(true)
 })
+
+$('body').on('click', '.vowel', () => {
+  console.log('hi')
+  playerBuyVowel(game);
+});
 
 /************Functions******* */
 function startGameBtn(event) {
@@ -81,7 +87,12 @@ function playerSpin(game) {
   game.roundInst.wheelInst.spinWheel(game)
 }
 
-function submitGuess(event){
-  let playerGuess = $('.guess-submission').val().toLowerCase().split('')
-  console.log(playerGuess)
+function playerBuyVowel(game) {
+  console.log('buyVowel')
+  game.roundInst.buyVowel(game);
+
+}
+function submitGuess(game) {
+  let playerGuess = $('.guess-submission').val().toLowerCase()
+  game.roundInst.playerGuessPuzzle(playerGuess, game)
 }

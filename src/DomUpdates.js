@@ -4,6 +4,10 @@ export default {
   activateLetters() {
     $('td.single-letter').removeClass('disable-selected-letters')
   },
+
+  activateVowels() {
+    $('td.single-letter-vowel').removeClass('disable-selected-letters');
+  },
   
   createGameBoard(array) {  
     $('main').prepend(
@@ -283,7 +287,7 @@ export default {
           <button class="player-action-btn spinner game-buttons">Spin Wheel</button>
       </div>
       <div>
-          <button class="player-action-btn game-buttons">Buy Vowel</button>
+          <button class="player-action-btn game-buttons vowel">Buy Vowel</button>
       </div>
       <div>
           <input for="player-guess" type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!">
@@ -335,12 +339,12 @@ export default {
   },
 
   disableLetter(event) {
-    $(event.target).attr('id', 'disable-selected-letter')
+    $(event.target).removeClass('single-letter-vowel').removeClass('single-letter').addClass('disable-selected-letters')
   },
 
   deactivateLetters() {
-    console.log('deactivate')
-    $('td.single-letter').addClass('disable-selected-letter')
+    console.log('deactivate');
+    $('.single-letter, .single-letter-vowel').addClass('disable-selected-letters')
   },
 
   displayHint(clue) {
@@ -355,11 +359,20 @@ export default {
     let playerScoreElement = $('h2')
     if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
       $('.player-1').text(playerBankValue)
-    } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-2') === true) {
+    } else if (activePlayerValue === 1 && playerScoreElement.hasClass('player-2') === true) {
       $('.bank-score.player-2').text(playerBankValue)
-    } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-3') === true) {
+      console.log('else if 2')
+    } else if (activePlayerValue === 2 && playerScoreElement.hasClass('player-3') === true) {
       $('.bank-score.player-3').text(playerBankValue)
+      console.log('else if 3')
     }
+  },
+
+  noInput() {
+    $('.warning').append(
+    `<article class="no-answer">
+        <h1>Enter A Guess Fam</h1>
+      </article>`)
   },
 
   bankrupt() {
@@ -386,6 +399,10 @@ loseTurn() {
     $('.lose-turn').remove();
     $('footer').removeAttr("style")
   })
+},
+
+clearGameBoard() {
+    $('.puzzle-cell').remove();
 }
 //   createWheel() {
 //       $('main').append(

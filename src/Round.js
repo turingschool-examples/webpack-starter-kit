@@ -4,7 +4,8 @@ import DomUpdates from './DomUpdates';
 import Wheel from './Wheel';
 
 class Round {
-  constructor() {
+  constructor(roundNumber) {
+    this.roundNumber = roundNumber
     this.clueAnswer = {}
     this.roundClue = {}
     this.activePlayer = 0
@@ -13,7 +14,9 @@ class Round {
   }
 
   createNewRound(game) {
+    this.roundNumber ++
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
+    game.stage ++
     this.shuffler(allRoundClues)
     this.playerTurn(game)
     this.getRandomClue(allRoundClues)
@@ -22,6 +25,7 @@ class Round {
 
   getRandomClue(cards) {  
     this.roundClue = this.randomNumber(cards);
+
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
     this.fillGameBoard();
     this.displayHint();
@@ -87,24 +91,26 @@ class Round {
     console.log('myTurn:', game.players[this.activePlayer])
   }
 
-  switchPlayer(game) {
+  switchPlayer() {
     switch (this.activePlayer) {
     case 0:
       this.activePlayer = 1
-      this.playerTurn(game)
       break;
     case 1:
       this.activePlayer = 2
-      this.playerTurn(game)
       break;
     case 2:
       this.activePlayer = 0
-      this.playerTurn(game)
       break;
     default:
       return;
     }
     console.log('after', this)
+  }
+
+  buyVowel(game) {
+    game.players[this.activePlayer].playerBank -= 100;
+    DomUpdates.activateVowels();
   }
 
   checkValue(wheelValue, game) {   
@@ -117,13 +123,20 @@ class Round {
       DomUpdates.loseTurn()
       DomUpdates.deactivateLetters()
       this.switchPlayer(game)
-      this.playerTurn(game)
     } else {
       DomUpdates.activateLetters()
-
     }
-    
   }
+
+  playerGuessPuzzle(playerGuessInput, game) {
+    let clueAnswer = this.clueAnswer.join('')
+    if (clueAnswer == playerGuessInput) {
+        DomUpdates.clearGameBoard();
+        this.createNewRound(game)
+      console.log(this)
+  }
+  }
+
 
 }
 
