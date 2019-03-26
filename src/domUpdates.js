@@ -96,7 +96,7 @@ export default {
       $(".timer").removeClass("hidden");
       $(".timer").html(--seconds);
 
-      if (seconds <= 0 || window.game.round.surveyAnswers.length === 0) {
+      if (seconds <= 0 && window.game.currentRound === 3) {
         clearInterval(interval);
         $(".fastround-ready-screen").removeClass("hidden").delay(1000);
         window.game.triggerNewRound();

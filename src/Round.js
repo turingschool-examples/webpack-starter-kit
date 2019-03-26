@@ -20,7 +20,7 @@ class Round {
       this.processWin(match);
       this.checkRoundProgress();
     } else {
-      domUpdates.showNoMatch();
+      domUpdates.showNoMatchMsg();
       this.getRoundNextStep();
     }
   }
@@ -39,7 +39,9 @@ class Round {
 
   checkRoundProgress() {
     if (this.surveyAnswers.length === 0) { 
-      window.game.triggerNewRound();
+      setTimeout(function(){ 
+        window.game.triggerNewRound(); 
+      }, 2000);
     } 
   }
 
