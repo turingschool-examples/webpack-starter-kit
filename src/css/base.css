@@ -7,7 +7,7 @@ body {
   display: none;
 }
 
-.start-page {
+.info-page {
   width: 700px;
   height: 500px;
   margin: 80px auto 0;
@@ -28,6 +28,10 @@ body {
   color: white;
   margin: 20px auto;
   width: 250px;
+}
+
+.multiplier-inputs{
+  display: none;
 }
 
 .input-holder input {

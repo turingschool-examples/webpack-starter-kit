@@ -12,6 +12,13 @@ const domUpdates = {
     $(".game-area").css("display", "grid");
   },
 
+  hideGame: function() {
+    $(".game-area").css("display", "none");
+    $(".name-inputs").css("display", "none");
+    $(".multiplier-inputs").css("display", "block");
+    $(".name-input-container").css("display", "block");
+  },
+
   populateSurvery: function(round) {
     $(".survey").text(round.survey.question);
   },
@@ -72,6 +79,8 @@ const domUpdates = {
     $(".round-banner-text").attr("src", src);
     $(".round-banner").css({'right': '0px', 'display': 'block'}).animate({'left' : '-900px'}, 6000);
   }
+
+
 }
 
 export default domUpdates;
