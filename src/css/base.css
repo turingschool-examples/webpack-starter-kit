@@ -92,6 +92,7 @@ button:disabled {
 .winner-name {
   display: block;
   font-size: 2em;
+}
 
 .fastround-dialog {
   width: 45%;

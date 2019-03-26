@@ -61,7 +61,7 @@ $("#submit-guess-btn").on("click", function() {
     const playerGuess = $(".guess-input").val().toLowerCase();
     $(".guess-input").val('');
     //window.game.round.saveGuess(playerGuess);
-    window.game.round.checkAnswer(playerGuess); //replace with check guess later
+    window.game.round.checkAnswer(playerGuess); 
   } else {
     domUpdates.showMustEnterGuessMsg();
   }
@@ -88,7 +88,6 @@ $(".name-input").on("keyup", function() {
 });
 
 $("#fastround-start-btn").on("click", function() {
-    // alert('poop');
     window.game.round.startTimedRound();
     $(".fastround-ready-screen").addClass("hidden");
 });
