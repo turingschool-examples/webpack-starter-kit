@@ -13,8 +13,8 @@ let domUpdates = {
           <form class='solve-form'> 
             <input class='answer-input' placeholder='Type your answer here'>
             <button class='answer-submit'>Submit</button>
+            <button class='exit-solve'>Exit Solve Puzzle</button> 
           </form>
-          <button class='exit-solve'>Exit Solve Puzzle</button> 
         </section>`
         )
      //need a way to get out of solve puzzle in case they decide to put in another letter 
@@ -88,15 +88,33 @@ let domUpdates = {
     $('.gameplay-message').text('Your spin was LOSE A TURN, onto the next player');
   },
 
-  // displayWheelValue(wheel) {
-  //   $('.gameplay-message').text(`The current value of your wheel spin is ${wheel.currentIndex}`)
-  // },
+  displayBankrupt() {
+    $('.gameplay-message').text('Your spin was BANKRUPT, onto the next player')
+
+  },
+
+  displayWheelValue(wheel) {
+    $('.gameplay-message').text(`The current value of your wheel spin is ${wheel.currentIndex}`)
+  },
+
+  // displayGuessedLetters(puzzle) {
+  //   $('.guessed-letters').append(
+  //     `<section class='question-popup'> 
+  //         <h2 class='card'>Current Guesses: ${puzzle.guessedBank}</h2>
+  //       </section>`
+  // }
+
+//target parent then hide
 
   // displayNeedPlayerName() {
   //   if('.player-name-input' === '') {
   //     $('.gameplay-message').text('Please input player name');
   //   }
   // }
+
+  removePopup(){
+    $('.question-popup').remove();
+  }
 
 
 
