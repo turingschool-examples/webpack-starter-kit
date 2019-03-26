@@ -13,10 +13,6 @@ beforeEach(function() {
 round = new Round();
 });
 
-it('should have a current round of 0 as default', function() {
-  expect(round.currentRound).to.equal(0);
-});
-
 it('should have an array with a length of 0 as default', function(){
   expect(round.currentAnswers.length).to.equal(0);
 })
