@@ -3,17 +3,22 @@
   display: inline-block;
   font-size: 4.5rem;
   height: 100px;
-  width: 55px;
+  width: 5rem;
   margin-bottom: 25px;
 
   &.letter {
     margin: 0;
   }
+
+  .hidden {
+    visibility: hidden;
+  }
 }
 
-.space-box {
+.space-box, .special-char-box {
   display: inline-block;
   font-size: 4.5rem;
   height: 100px;
   width: 55px;
 }
+

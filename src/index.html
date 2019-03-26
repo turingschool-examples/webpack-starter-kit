@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
     <title>Gametime Starter Kit</title>
   </head>
   <body>
     <header>
         <img class="header-img" src="https://fontmeme.com/permalink/190321/eac8ea22ca3d6807f5fb76129fd7eb34.png" alt="Wheel of Mortys image title" border="0">
+        <button class="new-game-btn">New Game</button>
     </header>
     <section class="splash">
         <h2>Enter Player Names</h2>
@@ -22,9 +23,10 @@
         <h2 class="description">Description:</h2>
         <div label="gameboard" class="word-box">
         </div>
+        <h5 class="feedback"></h5>
         <div label="player input field" class="spin-pop-up">
           <!-- <p>enter letter here:</p> -->
-          <input class="ltr-input gues-cons" type="text" maxlength="1">
+          <input class="ltr-input guess-cons" type="text" maxlength="1">
           <button class="check-btn guess-cons">Consonant Guess:</button>
           <input type="text" class="input-solve" placeholder="Solve the Puzzle">
           <button class="final-solution-btn">Solve Puzzle</button>
@@ -41,7 +43,7 @@
         <img class="wheel-img" src="images/portal.png">
         <h4 class="prize-container"><span class="prize"></span></h4>
         <div class="possible-prizes"><p>Prizes:</p></div>
-        <p>Letters Used: <span class="letters-used"></span></p>
+        <p class="used-ltr-container">Letters Used: <span class="letters-used"></span></p>
         <div label="gameplay buttons">
           <button class="btn-solve">SOLVE</button>
           <button class="btn-spin">SPIN</button>
@@ -59,20 +61,20 @@
       <article>
         <img class="player-image player-one" src="/images/Morty.png" alt="player-one">
         <h3 class="player-name" id="p1Name-board">Player 1</h3>
-        <h4 class="player-score-label">Score:<span class="player-score">100</span></h4>
-        <h4 class="player-bank-label">Bank:<span class="player-bank">100</span></h4>
+        <h4 class="player-score-label">Score:<span class="player-score p1-score">0</span></h4>
+        <h4 class="player-bank-label">Bank:<span class="player-bank p1-bank">0</span></h4>
       </article>
       <article>
         <img class="player-image player-two" src="/images/Mr_poopy_butthole.png" alt="player-one">
         <h3 class="player-name" id="p2Name-board">Player 2</h3>
-        <h4 class="player-score-label">Score:<span class="player-score">100</span></h4>
-        <h4 class="player-bank-label">Bank:<span class="player-bank">100</span></h4>
+        <h4 class="player-score-label">Score:<span class="player-score p2-score">0</span></h4>
+        <h4 class="player-bank-label">Bank:<span class="player-bank p2-bank">0</span></h4>
       </article>
-      <article>
+      <article class="active">
         <img class="player-image player-three" src="/images/Pickle_rick.png" alt="player-one">
-        <h3 class="player-name active" id="p3Name-board">Player 3</h3>
-        <h4 class="player-score-label">Score:<span class="player-score">100</span></h4>
-        <h4 class="player-bank-label">Bank:<span class="player-bank">100</span></h4>
+        <h3 class="player-name" id="p3Name-board">Player 3</h3>
+        <h4 class="player-score-label">Score:<span class="player-score p3-score">0</span></h4>
+        <h4 class="player-bank-label">Bank:<span class="player-bank p3-bank">0</span></h4>
       </article>
     </section>
 

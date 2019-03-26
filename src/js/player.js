@@ -8,13 +8,13 @@ class Player {
     this.totalScore = 0;
   }
 
-  addScore(wheel) {
-    this.currentScore += wheel.currentValue;
+  addScore(prize) {
+    this.currentScore += prize;
   }
 
-  subtractScore(wheel) {
+  buyVowel() {
     console.log(this.currentScore)
-    // this.currentScore -= wheel.currentValue;
+    this.totalScore = this.currentScore - 100;
   }
 }
 

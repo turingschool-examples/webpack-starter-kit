@@ -1,7 +1,4 @@
 import $ from 'jquery';
-import Game from './game';
-import Question from './question';
-import Wheel from './wheel';
 
 export default {
 
@@ -10,10 +7,13 @@ export default {
     $('.description').text(question.description);
 
     question.answer.split('').forEach(letter => {
+      letter = letter.toUpperCase();
       if (letter === ' ') {
         $('.word-box').append(`<div class="space-box"></div>`);
+      } else if (letter === '&' || letter === '-' || letter === "'") {
+        $('.word-box').append(`<div class="special-char-box">${letter}</div>`)
       } else {
-        $('.word-box').append(`<div class="letter-box"><div class="letter">${letter}</div></div>`);
+        $('.word-box').append(`<div class="letter-box"><div class="letter hidden">${letter}</div></div>`);
       }
     })
   },
@@ -33,14 +33,14 @@ export default {
     setTimeout(() => {
       $('.prize').parent().addClass('prize-animation');
       $('.prize').text(`You Got: ${prize}`);
-    }, 1000)
+    }, 100)
     this.hideInputs();
     setTimeout(() => {
       this.showInput();
       this.showVowels();
       this.showSolveInput();
       $('.wheel-img').removeClass('spin');
-    }, 5000);
+    }, 500);
   },
 
   showInput() {
@@ -95,7 +95,59 @@ export default {
   },
 
   getConsonant() {
-    return $('.ltr-input').val();
+    return $('.ltr-input').val().toUpperCase();
   },
 
+  getBoard() {
+    return $('.hidden')
+  },
+
+  clearClass(e) {
+    $(e).removeClass('hidden')
+  },
+
+  updateScore(player, score) {
+    switch (player) {
+      case 0:
+      $('.p1-score').text(score)
+      break;
+      case 1:
+      $('.p2-score').text(score)
+      break;
+      default:
+      $('.p3-score').text(score)
+    }
+  },
+
+  updateBank(player, score) {
+    switch (player) {
+      case 0:
+      $('.p1-bank').text(score)
+      break;
+      case 1:
+      $('.p2-bank').text(score)
+      break;
+      default:
+      $('.p3-bank').text(score)
+    }
+  },
+
+  appendLetters(letters) {
+    $('.letters-used').empty();
+    letters.forEach(ltr => {
+      $('.letters-used').append(ltr)
+    })
+  },
+
+  correctAns() {
+    $('.feedback').text('Finally!')
+  },
+
+  wrongAns() {
+    $('.feedback').text('Morty! No!')
+  },
+
+  showAnser() {
+    $('.hidden').removeClass('hidden');
+  }
 }
