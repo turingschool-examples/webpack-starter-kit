@@ -93,18 +93,19 @@ export default {
 
   dailyDouble(game, clue) {
     $('.style-daily-double').show();
-    let dailyDouble = new DailyDouble(clue.question, clue.answer, clue.pointValue)
-    
-    console.log(dailyDouble);
-    dailyDouble.updatePointValue();
-    
-    // dailyDouble.updatePointValue()
-    $('.question-prompt').show();
-    $('.result-prompt').hide();
-    $('.question').text(clue.question);
-    
+    let wagerAmount;
+    let dailyDouble;
+    $('#daily-double').keyup(function () {
+      wagerAmount = $('#daily-double').val();
+    });
+    $('.daily-double-btn').click(function (e) {
+      e.preventDefault();
+      dailyDouble = new DailyDouble(clue.question, clue.answer, clue.pointValue);
+      dailyDouble.updatePointValue(wagerAmount);
+    });
+    // $('.question-prompt').show();
+    // $('.result-prompt').hide();
+    // $('.question').text(clue.question); 
   }
-
-  // changeScore()
   
 }
