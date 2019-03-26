@@ -1,4 +1,4 @@
-![Logo of the project](https://i.imgur.com/XMflluD.png)
+![Logo of the project](https://i.imgur.com/gGRDuXo.png)
 
 # Game-Time: Wheel of Fortune
 #### 2 week paired project for Turing School of Software and Design, Front End Engineering Module 2 (weeks 2-3)
