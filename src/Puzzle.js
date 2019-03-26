@@ -1,8 +1,7 @@
-import data from './data.js'
+import data from './data.js';
 
 class Puzzle {
-    constructor(){
-        
+    constructor(){   
     }
     
     getRandomAnswer(roundData){

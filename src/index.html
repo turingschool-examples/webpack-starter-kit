@@ -5,7 +5,7 @@
   </head>
   <body>
     <header>
-      <h1><img src='/images/wheel.png' width=30%></h1>
+      <h1><img src='/images/wheel.png' alt='Wheel Logo' width=30%></h1>
     </header>
   <main>
     <table class='guessBoard'>
@@ -24,6 +24,7 @@
         <td></td>
       </tr>
       <tr>
+        <td></td>
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
@@ -34,10 +35,10 @@
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
-        <td class='clueLetter'></td>
-        <td class='clueLetter'></td>
+        <td></td>
       </tr>
       <tr>
+        <td></td>
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
@@ -48,10 +49,10 @@
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
-        <td class='clueLetter'></td>
-        <td class='clueLetter'></td>
+        <td></td>
       </tr>
       <tr>
+        <td></td>
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
@@ -62,8 +63,7 @@
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
         <td class='clueLetter'></td>
-        <td class='clueLetter'></td>
-        <td class='clueLetter'></td>
+        <td></td>
       </tr>
       <tr>
         <td></td>
@@ -81,7 +81,7 @@
       </tr>
     </table>
     <section class='roundSection'>
-      <h2>Round <span>1</span></h2>
+      <h2>Round: <span class='roundNumber'>1</span></h2>
       <h3>Category: <span class='category'></span></h3>
       <h3>Description: <span class='clue'></span></h3>
       <form>
@@ -89,6 +89,8 @@
         <input class='nameInput'/>
         <input class='nameInput'/>
         <button class='startGame'>Submit</button>
+        <button class='tester'>Test</button>
+        <button class='reset'>Reset Game</button>
       </form>
       <div class='playerNames'>
         <div class='playerOne'>
@@ -103,48 +105,48 @@
       </div>
     </section>
     <section class='playSection'>
-        <img class='boardWheel' src='/images/Color_Wheel.png'width=300px height=300px>
+        <img class='boardWheel' src='/images/Color_Wheel.png' alt='Wheel' width=300px height=300px>
         <button class='spinButton'>Spin</button>
         <table class='letterBank'>
           <th colspan='5'>Vowels $100</th>
           <tr>
-            <td class='vowel'>A</td>
-            <td class='vowel'>E</td>
-            <td class='vowel'>I</td>
-            <td class='vowel'>O</td>
-            <td class='vowel'>U</td>
+            <td class='vowel' tabindex='0'>A</td>
+            <td class='vowel' tabindex='0'>E</td>
+            <td class='vowel' tabindex='0'>I</td>
+            <td class='vowel' tabindex='0'>O</td>
+            <td class='vowel' tabindex='0'>U</td>
           </tr>
           <th colspan='5'>Consonants</th>
           <tr>
-            <td class='letters'>B</td>
-            <td class='letters'>C</td>
-            <td class='letters'>D</td>
-            <td class='letters'>F</td>
-            <td class='letters'>G</td>
+            <td class='letters' tabindex='0'>B</td>
+            <td class='letters' tabindex='0'>C</td>
+            <td class='letters' tabindex='0'>D</td>
+            <td class='letters' tabindex='0'>F</td>
+            <td class='letters' tabindex='0'>G</td>
           </tr>
           <tr>
-            <td class='letters'>H</td>
-            <td class='letters'>J</td>
-            <td class='letters'>K</td>
-            <td class='letters'>L</td>
-            <td class='letters'>M</td>
+            <td class='letters' tabindex='0'>H</td>
+            <td class='letters' tabindex='0'>J</td>
+            <td class='letters' tabindex='0'>K</td>
+            <td class='letters' tabindex='0'>L</td>
+            <td class='letters' tabindex='0'>M</td>
           </tr>
           <tr>
-            <td class='letters'>N</td>
-            <td class='letters'>P</td>
-            <td class='letters'>Q</td>
-            <td class='letters'>R</td>
-            <td class='letters'>S</td>
+            <td class='letters' tabindex='0'>N</td>
+            <td class='letters' tabindex='0'>P</td>
+            <td class='letters' tabindex='0'>Q</td>
+            <td class='letters' tabindex='0'>R</td>
+            <td class='letters' tabindex='0'>S</td>
           </tr>
           <tr>
-            <td class='letters'>T</td>
-            <td class='letters'>V</td>
-            <td class='letters'>W</td>
-            <td class='letters'>X</td>
-            <td class='letters'>Y</td>
+            <td class='letters' tabindex='0'>T</td>
+            <td class='letters' tabindex='0'>V</td>
+            <td class='letters' tabindex='0'>W</td>
+            <td class='letters' tabindex='0'>X</td>
+            <td class='letters' tabindex='0'>Y</td>
           </tr>
           <tr>
-            <td class='letters'>Z</td>
+            <td class='letters' tabindex='0'>Z</td>
           </tr>
         </table>
     </section>

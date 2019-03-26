@@ -4,7 +4,6 @@ class Wheel {
     constructor(){
         this.currentSpinValue = null
         this.spunValues = [];
-        this.disabled = false;
     }
     getWheelValues() {
         if(this.spunValues.length === 0) {
@@ -16,23 +15,19 @@ class Wheel {
                     let newVal = data.wheel.find( (cur, idx) => {
                         return idx === randomIndex
                     });
-                    sixValues.push(newVal)
+                    sixValues.push(newVal);
                 }
             }
         }
     }
 
-    spinWheel() {
-        let randomIndex =  Math.floor(Math.random() * (this.spunValues[0].length-1) + 0)
-        let values = this.spunValues[0].find( (cur, idx) => {
+    spinWheel(stage) {
+        let randomIndex =  Math.floor(Math.random() * (this.spunValues[stage].length-1) + 0)
+        let values = this.spunValues[stage].find( (cur, idx) => {
             return idx === randomIndex
         })
         console.log(values)
-        return values
-    }
-
-    toggleDisableSpin() {
-        this.disabled = !this.disabled
+        this.currentSpinValue = values
     }
 }
 
