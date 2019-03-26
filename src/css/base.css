@@ -37,10 +37,11 @@ body {
   position: absolute;
   z-index: 5;
   background-color: #524348;
-  height: 80%;
-  width: 60%;
-  transform: translate(25%, 10%);
-  border-radius: 2%;
+  height: 100%;
+  width: 100%;
+  border-radius: 30%;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
