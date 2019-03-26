@@ -140,21 +140,16 @@ let compareAns = (round, player) => {
     .includes(player.ans.toUpperCase());
 }
 
-  let correctAnsFunc = (round, player, ltrGuess) => {
-    console.log(round.answer.length)
-    if(round.answer.length == 1) {
-      game.newRound(game);
-    }
-    else {
-      round.correctRoundGuesses.push(player.ans);
-      round.allRoundGuesses.push(player.ans);
-      DomUpdates.createPuzzleClassArr(ltrGuess);
-      round.getCurrentPlayer(game);
-      round.answer = round.answer.filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
-      console.log(game.currentRound.answer);
-    }
-  }
-
+let correctAnsFunc = (round, player, ltrGuess) => {
+  round.correctRoundGuesses.push(player.ans);
+  round.allRoundGuesses.push(player.ans);
+  round.allRoundGuesses.sort();
+  DomUpdates.createPuzzleClassArr(ltrGuess);
+  round.getCurrentPlayer(game);
+  round.answer = round.answer
+    .filter(letter => letter.toUpperCase() != ltrGuess.toUpperCase());
+  console.log(game.currentRound.answer);
+}
 
 let buyVowel = (round, player, ltrGuess) => {
   if (player.roundCaps < 100) {
