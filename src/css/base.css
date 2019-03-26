@@ -70,7 +70,7 @@ fieldset .player-names{
 
 .player-names:hover {
   background: none;
-  color: #fff;
+  color: #6770f8;
   outline-color: #000;
 }
 
@@ -89,7 +89,7 @@ input:focus {
   border: none;
   border-radius: 8px;
   font-size: 18px;
-  width: 93px;
+  width: 106px;
   height: 38px;
   margin: 45px 0px 0px 22px;
   top: 39%;
@@ -287,16 +287,22 @@ h3 {
   font-size: 50px;
 }
 
-.quit-btn-container button{
+.guess-submission {
+  width: 9rem;
+  height: 2rem;
+  font-size: 1rem;
+  padding-left: 9px;
+}
+/* .quit-btn-container button{
   background-color: black;
   color: white;
   border-radius: 5px;
   border: 1px solid green;
-}
+} */
 
 .quit-btn-container {
-  display: flex;
-  justify-content: flex-end;
+  position: relative;;
+  left: 44%;
 }
 
 .hint {
@@ -305,4 +311,16 @@ h3 {
 
 .description {
   width: 110%;
+}
+
+.game-buttons {
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  width: 128px;
+  height: 38px;
+  margin: 45px 0px 0px 22px;
+  top: 39%;
+  background-image: radial-gradient(circle, #c0e4d2, #8bcdac, #68bd93);
+
 }

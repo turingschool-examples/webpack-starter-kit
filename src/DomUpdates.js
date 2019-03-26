@@ -284,14 +284,14 @@ export default {
     $('main').append(
       `<section id="player-actions" class="player-actions">
       <div>
-          <button class="player-action-btn spinner">Spin Wheel</button>
+          <button class="player-action-btn spinner game-buttons">Spin Wheel</button>
       </div>
       <div>
-          <button class="player-action-btn vowel">Buy Vowel</button>
+          <button class="player-action-btn game-buttons vowel">Buy Vowel</button>
       </div>
       <div>
-          <input type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!">
-          <button class="player-action-btn">Submit Guess</button>
+          <input for="player-guess" type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!">
+          <button id="player-guess" class="player-action-btn game-buttons">Submit Guess</button>
       </div>
         </section>
       <section id="player-score-area" class="player-score-area">
@@ -335,7 +335,7 @@ export default {
   },
 
   createQuitGameBtn() {
-    $('main').before(`<div class="quit-btn-container"><button>Quit Game</button></div>`)
+    $('main').after(`<button class="quit-btn-container game-buttons">New Game</button>`)
   },
 
   disableLetter(event) {
@@ -359,18 +359,53 @@ export default {
     let playerScoreElement = $('h2')
     if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
       $('.player-1').text(playerBankValue)
-    } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-2') === true) {
+    } else if (activePlayerValue === 1 && playerScoreElement.hasClass('player-2') === true) {
       $('.bank-score.player-2').text(playerBankValue)
-    } else if (activePlayerValue === 0 && playerScoreElement.hasClass('player-3') === true) {
+      console.log('else if 2')
+    } else if (activePlayerValue === 2 && playerScoreElement.hasClass('player-3') === true) {
       $('.bank-score.player-3').text(playerBankValue)
+      console.log('else if 3')
     }
   },
 
   noInput() {
-      $('.warning').append(
-      `<article class="no-answer">
-          <h1>Enter A Guess Fam</h1>
-        </article>`)
+
+    $('.warning').append(
+    `<article class="no-answer">
+        <h1>Enter A Guess Fam</h1>
+      </article>`)
+  },
+
+  bankrupt() {
+    $('footer').prepend(`
+    <section class="bankrupt">
+      <h1 class="result"><i class="fas fa-exclamation">BANKRUPT</i></h1>
+      <p>Next Player Turn</p>
+      <p>That Sucks :(</p>
+    </section>
+  `).fadeOut(2000, function() {
+    $('.bankrupt').remove();
+    $('footer').removeAttr("style")
+  })
+},
+
+loseTurn() {
+    $('footer').prepend(`
+    <section class="lose-turn">
+      <h1 class="result"><i class="fas fa-exclamation">LOSE TURN</i></h1>
+      <p>Next Player Turn</p>
+      <p>That Sucks :(</p>
+    </section>
+  `).fadeOut(2000, function() {
+    $('.lose-turn').remove();
+    $('footer').removeAttr("style")
+  })
+},
+
+clearGameBoard() {
+    $('.puzzle-cell').remove();
+
+
     }
   
 
@@ -394,6 +429,7 @@ loseTurn() {
   `).fadeOut(2000, function() {
     $('lose-turn').remove();
   })
+
 }
 //   createWheel() {
 //       $('main').append(
