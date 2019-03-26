@@ -2,7 +2,10 @@ import $ from 'jquery';
 
 export default {
   hidePopup(game) {
-    $('.popup--active').addClass('hidden');
+    $('.popup--active').addClass('fade-out__animation');
+    $('.popup--active').delay(990).queue(function() {
+      $(this).addClass('hidden')
+    });
     this.appendNames(game)
   },
   appendNames(game) {
