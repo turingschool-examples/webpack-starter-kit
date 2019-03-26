@@ -35,6 +35,11 @@ class Rounds {
     } else {
       this.topicFour = currentTopic;
     }
+    console.log('topicOne ', this.topicOne);
+    console.log('topic two ', this.topicTwo);
+    console.log('topic three', this.topicThree);
+    console.log('topic four', this.topicFour);
+
   }
 
   fetchClues() {
@@ -60,7 +65,7 @@ class Rounds {
     this.uniquePoints(this.topicFour);
    }
    fetchQuestion() {
-     
+
    }
 }
 

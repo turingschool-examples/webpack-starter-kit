@@ -27,12 +27,12 @@ let dataCategories = Object.keys(dataSet.categories);
 
 let categoriesToArray = $('.categories').toArray();
 console.log('log 1: ', categoriesToArray);
-$("categoriesToArray.categories").each(categoryBox => {
-  let randomCategory = dataCategories.splice(Math.floor(Math.random()*dataCategories.length),1)
-  console.log(randomCategory)
+// $("categoriesToArray.categories").each(categoryBox => {
+//   let randomCategory = dataCategories.splice(Math.floor(Math.random()*dataCategories.length),1)
+//   console.log(randomCategory)
 
   // $(categoryBox).html(randomCategory);
-});
+// });
 // dataCategories.forEach(currentCategory => {
 //   console.log(currentCategory)
 //   $(".categories").html(currentCategory)
@@ -42,7 +42,11 @@ $("categoriesToArray.categories").each(categoryBox => {
 // newGame.populateQuestions()
 
 // dom manipulation to get values of the three names
-$("#start-game").click();
+
+$("#start-game").click(function() {
+  event.preventDefault();
+  publishRoundClues()
+});
 
 var name1 = $("#player-one").val;
 var name2 = $("#player-two").val;
@@ -62,54 +66,54 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 
 function publishRoundClues () {
-  var board = `
-  <article class="clues">
-      100
-    </article>
-    <article class="clues">
-      100
-    </article>
-    <article class="clues">
-      100
-    </article>
-    <article class="clues">
-      100
-    </article>
-    <article class="clues">
-      200
-    </article>
-    <article class="clues">
-      200
-    </article>
-    <article class="clues">
-      200
-    </article>
-    <article class="clues">
-      200
-    </article>
-    <article class="clues">
-      300
-    </article>
-    <article class="clues">
-      300
-    </article>
-    <article class="clues">
-      300
-    </article>
-    <article class="clues">
-      300
-    </article>
-    <article class="clues">
-      400
-    </article>
-    <article class="clues">
-      400
-    </article>
-    <article class="clues">
-      400
-    </article>
-    <article class="clues">
-      400
-    </article>`;
-    // $("#box-wrapper").append(board);
+
+
+    $("#box-wrapper").append(`<article class="clues">
+        100
+      </article>
+      <article class="clues">
+        100
+      </article>
+      <article class="clues" data-id"2">
+        100
+      </article>
+      <article class="clues">
+        100
+      </article>
+      <article class="clues">
+        200
+      </article>
+      <article class="clues">
+        200
+      </article>
+      <article class="clues">
+        200
+      </article>
+      <article class="clues">
+        200
+      </article>
+      <article class="clues">
+        300
+      </article>
+      <article class="clues">
+        300
+      </article>
+      <article class="clues">
+        300
+      </article>
+      <article class="clues">
+        300
+      </article>
+      <article class="clues">
+        400
+      </article>
+      <article class="clues">
+        400
+      </article>
+      <article class="clues">
+        400
+      </article>
+      <article class="clues">
+        400
+      </article>`);
 }
