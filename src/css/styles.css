@@ -74,7 +74,7 @@ button{
 
 h1 {
   margin: 10px 0 0 0;
-  font-size: 70px;
+  font-size: 50px;
   color: white;
 }
 
@@ -99,23 +99,28 @@ h1 {
   border-radius: 15px;
   margin-right: auto;
   margin-left: auto;
-  width: 500px;
-  height: 400px;
+  width: 80%;
+  height: 280px;
+  text-align: center;
 }
 
 .consonants{
   display: grid;
-  grid-template-columns: repeat(4, 80px);
-  grid-template-rows: repeat(5, 60px);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 50px);
+  padding-top: 15px;
 }
 
 .vowels{
   display: grid;
-  grid-template-columns: repeat(3,80px);
-  grid-template-rows: repeat(2, 50px);
+  grid-template-columns: repeat(6, 1fr);
+  font-size: 40px;
+  padding: 5px;
+  grid-template-rows: 60px;
   border: 2px solid gainsboro;
   border-radius: 0px 0px 15px 15px;
   background-color: gray;
+  align-items: center;
 }
 
 /* ///////////////////////// */
@@ -125,7 +130,7 @@ h1 {
   height: 100vh;
   display: grid;
   grid-template-columns: 3fr 5fr;
-  grid-auto-rows: 1fr 4fr 6fr;
+  /* grid-auto-rows: 1fr 4fr 6fr; */
   grid-template-areas: 
     "heading heading heading"
     "letters board board" 
@@ -149,6 +154,7 @@ h1 {
 }
 
 .solve-puzzle{
+  display: inline block;
   text-align: center;
   margin: 20px auto;
 }
