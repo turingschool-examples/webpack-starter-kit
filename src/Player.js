@@ -1,3 +1,5 @@
+import "./DOMevents.js";
+
 class Player {
   constructor(name) {
     this.name = name || null;

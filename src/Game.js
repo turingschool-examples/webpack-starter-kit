@@ -1,6 +1,7 @@
 import domObject from "./DOMupdates.js";
 import Round from "./Round.js";
 import $ from "jquery";
+import "./DOMevents.js";
 
 let round = new Round();
 
