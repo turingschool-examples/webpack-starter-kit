@@ -7,15 +7,6 @@ class Player {
     this.currentScore = 0;
     this.totalScore = 0;
   }
-
-  addScore(prize) {
-    this.currentScore += prize;
-  }
-
-  buyVowel() {
-    console.log(this.currentScore)
-    this.totalScore = this.currentScore - 100;
-  }
 }
 
 export default Player;

@@ -65,20 +65,22 @@ class Game {
     let consonantGuess = domUpdates.getConsonant();
     let noMatches = elem.find(el => el.textContent === consonantGuess);
     elem.forEach(e => {
-      if (e.textContent === consonantGuess) {
+      let vowels = ['a', 'e', 'i', 'o', 'u']
+      if (vowels.includes(e.textContent)) {
+        console.log('e')
+      } else if (e.textContent === consonantGuess) {
         this.players[this.playerIndex].currentScore += this.currentPrize;
         domUpdates.clearClass(e);
         domUpdates.correctAns();
         domUpdates.updateScore(this.playerIndex, this.currentPrize);
       } else if (!this.ltrArr.includes(consonantGuess)) {
         this.ltrArr.push(consonantGuess)
-      } 
+      }
     })
     domUpdates.appendLetters(this.ltrArr);
     if (noMatches === undefined) {
       domUpdates.wrongAns();
     }
-      // this.ltrArr.push(domUpdates.getConsonant())
     // if the user guess is NOT in the guessed array && IS in the answer
       // call domUpdates method to make the letter appear
     // if the user guess IS in the guessed array && IN NOT in the answer && NOT a vowel
