@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
   <title>Family Feud</title>
 </head>
 
 <body>
+  <!-- <h1>F<span>amily</span> F<span>eud</span></h1> -->
+  <!-- <h1><img class="logo" src="images/turing-logo.png" alt="logo"></h1> -->
   <div class="wrapper">
-    <h1><img id="logo" src="images/turing-logo.png" alt="logo"></h1>
+    <div id="player-1" class="player-info">
+      <h3 class="player-one-name player-name">Player 1</h3>
+      <p><span class="player-one-score player-score">0</span></p>
+    </div>
     <section id="game-area">
-
     <section class="start-game-pop-up">
       <div>
         <label for="player-one-input">Player One Name</label>
@@ -40,13 +45,11 @@
       <div id="button-container">
         <button id="new-game-btn">New Game</button>
       </div>
-    </section>
-    <section id="current-round">
-        <p class="current-player"><span>current player</span>'s Turn</p>
-        <div>
-          <section id="current-round-total">
-            <h2>00</h2>
-          </section>
+      <section id="current-round">
+        <section id="current-round-total">
+          <h2>00</h2>
+        </section>
+              <div>
           <article id="question-container">
             <h3 id="current-question">What is the current question</h3>
           </article>
@@ -79,13 +82,32 @@
               </div>
             </div>
           </section>
-          <form>
+        </div>
+        <form>
             <input id="guess-input" type="text" placeholder="Guess a response...">
             <input class='submit-btn' type="submit">
           </form>
+      </section>    
+
+    <div id="player-2" class="player-info">
+      <h3 class="player-two-name player-name">Player 2</h3>
+      <p><span class="player-two-score player-score">0</span></p>
+    </div>
+      
+      <section class="start-game-pop-up">
+        <div>
+          <label for="player-one-input">Player One Name</label>
+          <input type="text" id="player-one-input">
+        </div>
+        <div>
+          <label for="player-two-input">Player Two Name</label>
+          <input type="text" id="player-two-input">
+        </div>
+        <div>
+          <button id="start-game-btn">Start Game</button>
         </div>
       </section>
-
+      
     <section class="next-round-pop-up">
       <h3>ROUND COMPLETE</h3>
       <h5><span id="player-one-name-round-pop-up">player 1</span>'s Score</h5>

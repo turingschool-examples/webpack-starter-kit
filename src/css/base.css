@@ -10,24 +10,23 @@ body {
   height: 100vh;
   width: 100vw;
   padding: 0;
+  text-align: center;
   margin: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: #322742; */
   font-family: 'Roboto';
-    background: #322742;
-    background-image:
-  /*     radial-gradient(salmon 50%, transparent 0),  */
-      radial-gradient(circle, rgba(255,221,164,1) 0%, rgba(251,162,39,1) 30%
-      30%, transparent 0);
-    background-size: 40px 40px;
-  /*   background-position: 0 0, 15px 15px; */
+  background-color: #4D7CEA;
 }
 
 .wrapper {
-  width: 1200px;
-  margin: auto;
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .start-game-pop-up,
@@ -58,27 +57,21 @@ body {
 
 #game-area {
   display: flex;
+  margin: 0 50px;
   flex-direction: row;
   padding: 15px;
   border: 7px solid #F5CE17;
-  border-radius: 30px;
+  border-radius: 30%;
+  background: #524348;
   box-shadow: 0 0 0 3px #B3360E;
-  background-color: #524348;
   color: lightgrey;
   position: relative;
-  outline: 15px solid #322742;
-  outline-offset: 3px
 }
 
-#user-area {
-  flex: 1;
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
+.player-info {
   padding: 15px;
-  margin-right: 15px;
-  grid-row-gap: 15px;
-  border: 3px solid black;
-  border-radius: 25px;
+  /* border: 1px solid red; */
+  border-radius: 3px;
 }
 
 .player-info h3 {
@@ -86,14 +79,19 @@ body {
   font-size: 25px;
 }
 
-#player-1 {
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#player-2 {
-  grid-row-start: 2;
-  grid-row-end: 3;
+.player-score {
+  font-size: 65px;
+  font-weight: 600;
+  color: white;
+  background-color: #2B57A8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 15px solid #524348;
+  box-shadow: 0 0 0 3px #F5CE17;
+  border-radius: 20px;
+  height: 200px;
+  width: 200px;
 }
 
 #button-container {
@@ -135,12 +133,6 @@ next
   background-color: #E06B75;
 }
 
-.player-info {
-  padding: 15px;
-  background-color: #413538;
-  border-radius: 3px;
-}
-
 .player-info > p {
   margin: 0;
   padding: 0;
@@ -153,28 +145,30 @@ next
   align-items: center;
   flex-direction: column;
   flex: 3;
+  width: 900px;
   text-align: center;
-  padding: 15px;
+  padding: 25px 15px;
   border: 3px solid black;
-  border-radius: 25px;
+  border-radius: 30%;
+  background:  rgba(35,37,66,1) 50%;
 }
 
-#current-round div {
-  width: 100%;
+#current-round > div {
+  width: 500px;
+  /* background-color: black; */
+  border-radius: 10px;
 }
 
-.current-player {
-  position: absolute;
-  top: 15px;
+.player-name {
   line-height: 100%;
   margin: 0;
-  left: 15px;
   font-size: 25px;
   font-weight: 600;
+  color: white;
 }
 
 #question-container {
-  width: 75%;
+  width: 100%;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -189,38 +183,39 @@ next
   width: 100%;
   background-color: #413538;
   font-weight: 400;
+  border-radius: 3px;
+  border: 2px solid white;
 }
 
 #current-round-total {
   height: 100px;
+  color: white;
   width: 100px;
   text-align: center;
   margin: auto;
-  background-color: #213DD8;
+  background-color: #2B57A8;
   border: 5px solid #F5CE17;
   border-radius: 10px;
 }
 
-h2,
-h1 {
-  height: 100%;
+h2 {
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 50px;
+  height: 100%;
 }
 
-#logo {
+.logo {
   height: 150px;
-  margin-bottom: 15px;
 }
 
 #response-area {
   padding: 10px 0;
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 100%;
   margin: auto;
 }
 
@@ -240,7 +235,8 @@ button {
   height: 60px;
   margin: 5px 0;
   text-align: center;
-  background: linear-gradient(0deg, rgba(26, 63, 149, 1) 0%, rgba(105, 173, 237, 1) 100%);
+  background-color: #528ED3;
+  /* background: linear-gradient(0deg, rgba(26, 63, 149, 1) 0%, rgba(105, 173, 237, 1) 100%); */
   color: white;
   font-size: 35px;
   display: flex;
@@ -275,18 +271,12 @@ button {
   min-width: 60px;
 }
 
-h4 {
-  border: 1px solid #87969C;
-  padding: 0 15px;
-  border-radius: 100%;
-  background-color: #172655;
-}
-
 form {
   display: flex;
   flex-direction: row;
-  width: 75%;
-  margin: 25px auto 15px auto;
+  width: 500px;
+  margin: 0 auto;
+  height: 60px;
 }
 
 #guess-input {
@@ -294,9 +284,9 @@ form {
   flex: 8;
   border-radius: 3px 0 0 3px;
   width: 75%;
-  height: 50px;
   font-size: 20px;
   padding-left: 15px;
+  height: 100%;
 }
 
 #guess-input:focus {
@@ -308,4 +298,7 @@ input[type="submit"] {
   border-style: none;
   border-radius: 0 3px 3px 0;
   font-size: 20px;
+  height: 100%;
+  color: white;
+  background-color: #B3360E;
 }
