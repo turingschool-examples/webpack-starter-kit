@@ -34,6 +34,7 @@ class Game {
             this.players.push(player1, player2, player3)
         }
         this.currentPlayer = this.players[0]
+        domUpdates.showCurrentPlayer(this.currentPlayer.name)
     }
     incrementStage() {
         this.stage++; 
@@ -50,6 +51,7 @@ class Game {
             this.currentPlayer = this.players[0];
         }
         console.log(this.currentPlayer)
+        domUpdates.showCurrentPlayer(this.currentPlayer.name)
     }
 
     checkGuess(e) {

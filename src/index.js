@@ -2,10 +2,10 @@ import Game from './Game.js';
 import $ from 'jquery';
 import domUpdates from './domUpdates.js';
 import './css/base.css';
-import './images/wheel.png';
+import './images/8bit.png';
 import './images/Color_Wheel.png';
 
-let game =  new Game();
+let game = new Game();
 
 $('.spinButton').prop('disabled', true);
 
@@ -20,15 +20,13 @@ $('.startGame').on('click', function (e) {
 });
 
 $('.letters').on('click', function(e) {
-    e.target.innerText
     game.fillUseLetters(e);
     $('body').find(e.target).attr('disabled', '').css("background-color", "grey");
-    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters, game,e);
+    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters);
     game.checkGuess(e);
 });
 
-$('.vowel').on('click', function (e){
-    e.target.innerText;
+$('.vowel').on('click', function (e) {
     game.fillVowels(e);
     $('body').find(e.target).attr('disabled', '').css("background-color", "grey");
     domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters);
@@ -42,23 +40,32 @@ $('.spinButton').on('click', function (e) {
     $('.spinButton').prop('disabled', true);
 });
 
-$('.tester').on('click', function (e){
+$('.tester').on('click', function (e) {
     e.preventDefault();
     game.incrementStage();
     domUpdates.resetLetters();
     if(game.stage <= 3) {
-        $('.roundNumber').text(game.stage + 1)
+        $('.roundNumber').text(game.stage + 1);
     } else {
-        $('.roundNumber').text('Bonus!!')
+        $('.roundNumber').text('Bonus!!');
     }
     $('.spinButton').prop('disabled', false);
 });
 
-$('.reset').on('click', function (e){
+$('.reset').on('click', function (e) {
     e.preventDefault();
     game.resetGame();
     domUpdates.clearAnswerBoard();
     domUpdates.resetLetters();
     domUpdates.resetInputs();
     console.log(game);
+});
+
+$('body').on('click', '.guessSubmit', function () {
+    $('.guessCard').remove()
+});
+
+$('.guessPuzzle').on('click', function(e) {
+    e.preventDefault()
+    domUpdates.appendGuessCard()
 });
