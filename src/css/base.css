@@ -1,6 +1,16 @@
 body {
   font-family: 'Press Start 2P';
   background: #5a4271;
+  /* background-image: url("/images/back.gif"); */
+  background: linear-gradient(black, transparent), url("/images/back.gif") no-repeat center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.logo {
+  height: 90px;
+  width: 550px;
 }
 
 h1 {
@@ -8,8 +18,7 @@ h1 {
 }
 
 .boardWheel {
-  border: 2px solid;
-  border-radius: 50%;
+  margin-left: 50px;
 }
 
 form {
@@ -56,17 +65,31 @@ section.playSection{
   margin: 20px;
 }
 
+.roundNumber {
+  color: #00e000
+}
+
 button.spinButton{
   height: 40px;
+  border: 5px solid #ffae00;
   border-radius: 40px;
   width: 80px;
-  margin: 130px 0px 130px 0px;
+  margin: 130px 160px 130px 0px;
+  background: #ffea00;
+  font-size: 22px;
 }
+
+.spinButton:hover{
+  cursor: pointer;
+}
+
 table.letterBank {
-  border: 1px solid black;
+  border: 5px solid black;
   height: 250px;
   width: 50%;
   margin: 20px 0px 20px 0px;
+  padding: 10px;
+  background: #004092;
 }
 
 footer.scoreSection{
@@ -75,8 +98,30 @@ footer.scoreSection{
   justify-content: space-between;
 }
 
-.currentPlayer {
+th {
+  color: black;
+}
+
+.currentPlayer, .clue, .category {
   color: #00e000
+}
+
+.letters:hover,
+.vowel:hover {
+  background: #ffea00;
+  color: grey;
+  cursor: pointer;
+}
+
+.letterBank {
+  background: #004092;
+}
+
+td {
+  border: 4px solid #2b3152;
+  background: #673ab7;
+  width: 40px;
+  height: 40px;
 }
 
 .guessCard {
@@ -88,3 +133,5 @@ footer.scoreSection{
   bottom: 40%;
   height: 210px;
 }
+
+
