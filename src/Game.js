@@ -38,12 +38,27 @@ class Game {
       this.players.push(player1, player2, player3);
     }
     domUpdates.displayName();
+    // setCurrentPlayer();
+
   }
 
-  getPlayerTurn() {
-    if (this.players[0]) {
-      
+  setCurrentPlayer() {
+    this.currentPlayer = this.players[0]
+  }
+
+  switchPlayers() {
+    if(this.currentPlayer === this.players[2]) {
+      this.currentPlayer = this.players[0];
+      return;
+    } else if (this.currentPlayer === this.players[1]) {
+      this.currentPlayer = this.players[2];
+      return;
+    } else if (this.currentPlayer === this.players[0]) {
+      this.currentPlayer = this.players[1];
+      return;
     }
+    domUpdates.changeActivePlayer();
+
   }
 
   // getRound() {

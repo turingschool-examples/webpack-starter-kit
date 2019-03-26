@@ -13,11 +13,10 @@ class Player {
     // if(player.input === puzzle.answer) {
       // displayLetterMatch()
       // getPlayerScore();
-      //switchPlayers();
       //if(player.input !== puzzle.answer) {
-        //switchPlayers();
       // }
-    }
+      // switchPlayers();
+    // }
 
   //switchPlayers() {
     //game.currentPlayer ++

@@ -19,12 +19,22 @@ $('.start-button').on('click', function() {
   domUpdates.displayCategoryName(game); 
   domUpdates.hideAnswer(game);
   domUpdates.diplayStartMsg();
+  game.setCurrentPlayer();
   domUpdates.enableQuit();
   domUpdates.enableButton();
   $('.start-button').hide('');
   $('.button').prop('disabled', false).css('color', 'white');
   $('.player-name-input').hide();
 });
+
+$('.quit-button').on('click', function() {
+  domUpdates.disableQuit();
+});
+
+$('.quit-button').on('click', function() {
+  location.reload(true);
+});
+
 
 $('#js-spin-button').on('click', function() {
   wheel.getRandomWheel();
@@ -40,7 +50,7 @@ $('#js-solve-button').on('click', function() {
 $('#js-submit-button').on('click', function(e) {
   e.preventDefault();
   let letterInput = domUpdates.grabCurrentLetter();
-  game.currentPuzzle.checkUserGuess(letterInput);
+  game.currentPuzzle.checkUserGuess(letterInput, game);
   $('.input').val('');
 });
 
