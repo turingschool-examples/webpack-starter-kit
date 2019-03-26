@@ -16,12 +16,17 @@ checkAnswer(guess, currentPlayer) {
     answers.forEach((answer) => {
         if(guess.toLowerCase() === answer.answer.toLowerCase()) {
             console.log('guess correct');
-            score = currentPlayer.addScore(answer.respondents);
-            console.log(currentPlayer.score); //undefined, why?
-            // domUpdates.appendAnswer(answer.answer, answer.respondents);//needs to be called from game
-            // return score;
+            let score = answer.respondents;
+            currentPlayer.addScore(score);
+            console.log('bottom of cherckAnswer', score);
+            if(score && this.currentPlayer == 1) {
+                domUpdates.changeP1Score(score);
+            }
+            if(score && this.currentPlayer == 2) {
+                domUpdates.changeP2Score(score);
+            }
         };
-
+// runs switch player even with correct answer, dom not updateing
         if(guess == '') {
             domUpdates.errorMessage();
         };
