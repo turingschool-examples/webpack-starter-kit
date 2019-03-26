@@ -10,18 +10,26 @@ class Puzzle {
     this.numWords = puzzle.number_of_words;
   }
 
-  checkUserGuess(letterInput) {
+checkUserGuess(letterInput, game) {
     let answer = this.answer.toUpperCase().split('');
     let vowels = ['a', 'e', 'i', 'o', 'u'];
+    let foundMatch = false;
     answer.forEach(letter => {
       if (letter === letterInput) {
         domUpdates.displayLetterMatch(letterInput);
+        foundMatch = true;
       }
       if (letterInput === vowels) {
         domUpdates.displayVowelMessage();
+        foundMatch = true;
       }
-    })
+    });
+
+    if(!foundMatch) {
+      game.switchPlayers();
+    }
   }
+
 
 }
 

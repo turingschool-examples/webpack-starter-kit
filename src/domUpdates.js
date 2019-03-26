@@ -108,10 +108,9 @@ let domUpdates = {
   //   $('.guessed-letters').append(
   //     `<section class='question-popup'> 
   //         <h2 class='card'>Current Guesses: ${puzzle.guessedBank}</h2>
-  //       </section>`
+  //       </section>`);
   // }
 
-//target parent then hide
 
   // displayNeedPlayerName() {
   //   if('.player-name-input' === '') {
@@ -119,8 +118,16 @@ let domUpdates = {
   //   }
   // }
 
-  removePopup() {
-    $ ('.question-popup').remove ();
+ changeActivePlayer() {
+    $('.player-box')
+  }
+
+  removePopup(){
+    $('.question-popup').remove();
+  },
+
+  displayWrongAnswerMessage() {
+    $('.gameplay-message').text(`Sorry! Wrong Answer! Next player's guess`)
   }
 
 
