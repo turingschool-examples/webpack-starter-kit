@@ -7,7 +7,7 @@ let round = new Round();
 
 class Game {
   constructor() {
-    this.currentTurn = "player1";
+    this.currentPlayerTurn = "player1";
     this.cycleTurn = true;
     this.currentAnswers = [];
     this.currentRound = 1;
@@ -89,9 +89,9 @@ class Game {
   }
   whoseTurn() {
     if (this.cycleTurn) {
-      this.currentTurn = "player1";
+      this.currentPlayerTurn = "player1";
     } else {
-      this.currentTurn = "player2";
+      this.currentPlayerTurn = "player2";
     }
     this.cycleTurn = !this.cycleTurn;
   }
