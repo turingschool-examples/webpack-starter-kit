@@ -36,4 +36,3 @@ $('#wheel').on('click', () => {
   domUpdates.spinWheel(game);
 })
 
-

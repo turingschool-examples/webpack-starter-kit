@@ -44,13 +44,13 @@ export default {
 
   appendWords (puzzleLine) {
     let tileClass;
-    puzzleLine.forEach(index => {
-      if (index === ' ' || index === '-' || index === '&' ) {
+    puzzleLine.forEach(character => {
+      if (character === ' ' || character === '-' || character === '&' ) {
         tileClass = 'space';
       } else {
-        tileClass = index;
+        tileClass = character;
       }
-      $(`.puzzle`).append(`<div class="puz-grid secret ${tileClass}">${index} </div>`);
+      $(`.puzzle`).append(`<div class="puz-grid secret ${tileClass}">${character} </div>`);
     });
   },
 
@@ -73,7 +73,6 @@ export default {
 
   spinWheel(game) {
     let clicks = 1;
-    let wheel = new Wheel();
     const winner = Math.round(Math.random() * 21);
     /*multiply the degree by number of clicks
     generate random number between 1 - 360, 
@@ -81,6 +80,8 @@ export default {
     const extraDegree = (21 - winner) * 36;
     const spinAgain = (1800 * clicks) + extraDegree;
     const totalDegree = Math.round(spinAgain / 36) * 150;
+    let wheel = game.round.currentWheel
+    // debugger
     wheel.spinWinner(winner);
     clicks++;
     $('#inner').css({
@@ -116,12 +117,13 @@ export default {
     })
   },
 
-  buyAVowel() {
+  buyAVowel(game) {
     $('.vowels').on('click', (event) => {
       // round.players[round.activePlayer].roundScore -= 100;
-      round.guessLetter(event);
+      game.round.guessLetter(event);
     });
   },
+
   displayScore(player, value) {
     $(`#player-${player}-round`).text(`Score: ${value}`)
   }

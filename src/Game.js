@@ -7,7 +7,7 @@ import domUpdates from "./domUpdates.js";
 
 class Game {
   constructor() {
-    this.rounds = [];
+    this.round = null;
     this.roundCount  = 0;
     this.players = [];
     this.allData = []
@@ -35,8 +35,10 @@ class Game {
       let wheel = new BonusWheel();    
     }
     let round = new Round(this.players, wheel);
-    this.rounds.push(round);
-    console.log(this.rounds)
+    this.round = round;
+    round.currentWheel = wheel;
+    // this.rounds.push(round);
+    console.log(this.round)
     let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
     currentPuzzle.checkPuzLength();
     domUpdates.appendPuzzle(currentPuzzle.splitAnswer, currentPuzzle.secondLine);

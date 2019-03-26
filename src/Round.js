@@ -45,9 +45,9 @@ class Round {
 
   }
 
-  checkScore() {
+  checkScore(game) {
     if (this.players[this.activePlayer].roundScore >= 100) {
-      domUpdates.buyAVowel();
+      domUpdates.buyAVowel(game);
     }
   }
 
@@ -57,9 +57,9 @@ class Round {
     if (puzzle.splitAnswer.includes(event.currentTarget.innerText)) {
       puzzle.splitAnswer.forEach(letter => {
         if (letter === event.currentTarget.innerText) {
-          this.players[this.activePlayer].roundScore += wheel.currentSpin;
+          this.players[this.activePlayer].roundScore += this.wheel.currentSpin;
         }
-      })
+      });
       domUpdates.displayScore(this.activePlayer, 
         this.players[this.activePlayer].roundScore);
       this.checkScore();
