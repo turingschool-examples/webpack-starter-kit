@@ -44,6 +44,16 @@ export default {
     $('#guess-input').val('');
   },
 
+  updateRoundPopUpNames(players) {
+    $("#player-one-name-round-pop-up").text(players[0].name);
+    $("#player-two-name-round-pop-up").text(players[1].name);
+  },
+
+  updateLightningRoundPopUpNames(players) {
+    $("#player-one-name-lightning-round-pop-up").text(players[0].name);
+    $("#player-two-name-lightning-round-pop-up").text(players[1].name);
+  },
+
   toggleNextRoundPopUp() {
     $(".next-round-pop-up").toggle();
   },

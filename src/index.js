@@ -51,10 +51,12 @@ function checkRoundStatus(round) {
   if (round.isFinished) {
     if (game.round < 2) {
       setTimeout(() => {
+        domUpdates.updateRoundPopUpNames(game.players);
         domUpdates.toggleNextRoundPopUp();
       }, 3000)
     } else if (game.round < 3) {
       setTimeout(() => {
+        domUpdates.updateLightningRoundPopUpNames(game.players);
         domUpdates.toggleLightningRoundPopUp();
       }, 3000);
     }
