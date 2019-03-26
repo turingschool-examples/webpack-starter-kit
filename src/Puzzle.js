@@ -10,7 +10,7 @@ class Puzzle {
     this.numWords = puzzle.number_of_words;
   }
 
-checkUserGuess(letterInput, game) {
+  checkUserGuess(letterInput, game) {
     let answer = this.answer.toUpperCase().split('');
     let vowels = ['a', 'e', 'i', 'o', 'u'];
     let foundMatch = false;
@@ -24,8 +24,7 @@ checkUserGuess(letterInput, game) {
         foundMatch = true;
       }
     });
-
-    if(!foundMatch) {
+    if (!foundMatch) {
       game.switchPlayers();
     }
   }

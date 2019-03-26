@@ -27,7 +27,7 @@ class Game {
       this.allPuzzles.push(randomPuzz);
     });
     const currentPuzzle = this.allPuzzles.pop();
-    this.currentPuzzle = currentPuzzle
+    this.currentPuzzle = currentPuzzle;
   }
 
   createPlayer(name1, name2, name3) {
@@ -38,27 +38,21 @@ class Game {
       this.players.push(player1, player2, player3);
     }
     domUpdates.displayName();
-    // setCurrentPlayer();
-
   }
 
   setCurrentPlayer() {
-    this.currentPlayer = this.players[0]
+    this.currentPlayer = this.players[0];
   }
 
   switchPlayers() {
-    if(this.currentPlayer === this.players[2]) {
-      this.currentPlayer = this.players[0];
-      return;
+    if (this.currentPlayer === this.players[0]) {
+      this.currentPlayer = this.players[1];
     } else if (this.currentPlayer === this.players[1]) {
       this.currentPlayer = this.players[2];
-      return;
-    } else if (this.currentPlayer === this.players[0]) {
-      this.currentPlayer = this.players[1];
-      return;
+    } else if (this.currentPlayer === this.players[2]) {
+      this.currentPlayer = this.players[0];
     }
     domUpdates.changeActivePlayer();
-
   }
 
   // getRound() {
