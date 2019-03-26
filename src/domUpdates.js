@@ -129,6 +129,10 @@ export default {
   removeTimers() {
     $(".timer-area-1").addClass("hidden");
     $(".timer-area-2").addClass("hidden");
+  },
+
+  blurGuessInput() {
+    $(".guess-input").trigger("blur");
   }
     
 }

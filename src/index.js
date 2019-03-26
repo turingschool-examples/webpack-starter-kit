@@ -60,7 +60,6 @@ $("#submit-guess-btn").on("click", function() {
   if ($(".guess-input").val() !== '') {
     const playerGuess = $(".guess-input").val().toLowerCase();
     $(".guess-input").val('');
-
     window.game.round.checkAnswer(playerGuess); 
   } else {
     domUpdates.showMustEnterGuessMsg();
@@ -78,7 +77,7 @@ $("#play-again-btn").on("click", function() {
 });
 
 $(".guess-input").on("keyup", function() {
-    $('#submit-guess-btn').prop('disabled', $(".guess-input").val().length < 3);
+    $("#submit-guess-btn").prop('disabled', $(".guess-input").val().length < 3);
 });
 
 $("#fastround-start-btn").on("click", function() {

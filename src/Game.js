@@ -120,6 +120,7 @@ class Game {
       this.round = new Round(question, answers);
     } else if (this.currentRound < 5) {
       this.round = new FastRound(question, answers);
+      domUpdates.blurGuessInput();
       domUpdates.removeTimers();
       domUpdates.displayFastroundDialog(this.activePlayer.name);
     } else {
@@ -139,6 +140,7 @@ class Game {
 
   endGame() {
     domUpdates.removeTimers();
+    domUpdates.blurGuessInput();
     if (this.player1.score === this.player2.score) {
       domUpdates.showTieScreen();
     } else if (this.player1.score > this.player2.score) {
