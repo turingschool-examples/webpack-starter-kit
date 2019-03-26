@@ -96,6 +96,9 @@ nav {
   z-index: 10;
 }
 
+.fade-in-letter {
+  animation: fadeInLetter 1s linear;
+}
 @keyframes fadeInLetter {
   0% { opacity: 0;
   }

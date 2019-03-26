@@ -70,6 +70,7 @@ export default {
   },
   createPuzzleClassArr(letter) {
     $(`.letter-${letter.toUpperCase()}`).text(letter.toUpperCase());
+    $(`.letter-${letter.toUpperCase()}`).addClass('fade-in-letter')
 		// console.log("TCL: createPuzzleClassArr -> targetClass.text()", targetClass.text())
   },
 }
