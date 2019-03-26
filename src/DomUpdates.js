@@ -45,9 +45,19 @@ export default {
             </tr>
         </table>
     </section>
-    <section>
-        <h3 class="hint" id="hint">Catagory: <span class="hint-text"></span></h3>
-        <h3 class="description" id="description">Description: <span class="description-text"></span></h3>
+    <section class="game-info">
+        <div class="game-info-containers hint-container">
+            <p class="hint-" id="hint">Catagory: <span class="hint-text"></span></p>
+        </div>
+        <div class="game-info-containers description-container">
+            <p class="description" id="description">Description: <span class="description-text"></span></p>
+        </div>
+        <div class="game-info-containers active-player-container">
+            <p class="active-player"><span class="active-player-text">Player 1</span>, you're up!</p>
+        </div>
+        <div class="game-info-containers round-container">
+            <p class="round">Round: <span class="round-text">1</span</p>
+        </div>
     </section>
     <section id="puzzle-area" class="puzzle-area">
         <div class="puzzle">
@@ -352,6 +362,11 @@ export default {
     const description = clue.description;
     $('.hint-text').text(hint);
     $('.description-text').text(description);
+  },
+
+  displayWheelValue(wheelValue) {
+    console.log(wheelValue);
+    $('.wheel-value-text').text(wheelValue);
   },
 
 

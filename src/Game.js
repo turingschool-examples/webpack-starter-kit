@@ -5,6 +5,7 @@ import Data from './Data'
 
 
 
+
 class Game {
   constructor() {
     this.players = []
@@ -46,7 +47,7 @@ class Game {
     }
   }
   createClues() {
-    this.gameRoundsClueBank = Object.entries(Data.puzzles)
+    this.gameRoundsClueBank = Object.entries(Data.puzzles);
     // this.roundCards = this.roundsBank[game.stage][1].puzzle_bank
   }
 

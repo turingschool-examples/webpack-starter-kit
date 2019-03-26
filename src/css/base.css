@@ -234,6 +234,10 @@ h3 {
   color: white;
 }
 
+.spinner-container:hover {
+  background-color: #4c4345;
+}
+
 .letters-not-displayed {
   background-color: white;
   color: white;
@@ -305,9 +309,49 @@ h3 {
   left: 44%;
 }
 
-.hint {
-  width: 110%;
+.game-info {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "hint hint"
+  "description description"
+  "activePlayer round";
+  width: 70%;
+  max-width: 955px;
 }
+
+.game-info-containers {
+  background-color: black;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.game-info-containers p {
+  color: white;
+  text-align: center;
+}
+
+.hint-container {
+  grid-area: hint;
+}
+
+.description-container {
+  grid-area: description;
+}
+
+.active-player-container {
+  grid-area: activePlayer;
+}
+
+.spinner-container {
+  grid-area: spinner;
+}
+
+
+.round-container {
+  grid-area: round;
 
 .description {
   width: 110%;
@@ -322,5 +366,4 @@ h3 {
   margin: 45px 0px 0px 22px;
   top: 39%;
   background-image: radial-gradient(circle, #c0e4d2, #8bcdac, #68bd93);
-
 }
