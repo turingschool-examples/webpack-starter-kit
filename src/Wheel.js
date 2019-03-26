@@ -18,13 +18,8 @@ class Wheel {
   
   spinWheel(game) {
     this.selectedValue = this.wheelValues[Math.floor(Math.random() * 5)]
-    console.log(this.selectedValue);
-    this.displayValue(this.selectedValue);
+    DomUpdates.displayWheelValue(this.selectedValue);
     return game.roundInst.checkValue(this.selectedValue, game)
-  }
-
-  displayValue(wheelValue) {
-    DomUpdates.displayWheelValue(wheelValue);
   }
 }
 

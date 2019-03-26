@@ -294,7 +294,7 @@ export default {
     $('main').append(
       `<section id="player-actions" class="player-actions">
       <div>
-          <button class="player-action-btn spinner game-buttons">Spin Wheel</button>
+          <button class="player-action-btn spinner game-buttons">Wheel: <span class="wheel-value">Spin me!</span></button>
       </div>
       <div>
           <button class="player-action-btn game-buttons vowel">Buy Vowel</button>
@@ -366,7 +366,7 @@ export default {
 
   displayWheelValue(wheelValue) {
     console.log(wheelValue);
-    $('.wheel-value-text').text(wheelValue);
+    $('.wheel-value').text(wheelValue);
   },
 
 
@@ -385,10 +385,10 @@ export default {
 
   noInput() {
 
-    $('.warning').append(
-    `<article class="no-answer">
-        <h1>Enter A Guess Fam</h1>
-      </article>`)
+  //   $('.warning').append(
+  //   `<article class="no-answer">
+  //       <h1>Enter A Guess Fam</h1>
+  //     </article>`)
   },
 
   bankrupt() {
@@ -423,7 +423,10 @@ clearGameBoard() {
 
 },
   
-
+displayActivePlayer(activePlayer) {
+    console.log("Active Player: ", activePlayer.name)
+    $('.active-player-text').text(activePlayer.name);
+},
 
 
   bankrupt() {
