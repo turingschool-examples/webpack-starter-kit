@@ -6,6 +6,7 @@ class Player {
     this.score = 0;
     this.playerNum = num;
     this.isTurn = false;
+    this.multiplier = 1;
   }
 
   makeGuess(guess, game, round) {
@@ -30,6 +31,10 @@ class Player {
     domUpdates.revealCorrectAnswer(correctAnswer);
     domUpdates.updateScore(this.playerNum, this.score);
     domUpdates.showGuessMessage('correct');
+  }
+
+  getMultiplier(n) {
+    this.multiplier = n;
   }
 
 }
