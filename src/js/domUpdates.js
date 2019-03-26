@@ -5,7 +5,6 @@ export default {
   updateQInfo(question) {
     $('.category').text(question.category);
     $('.description').text(question.description);
-
     question.answer.split('').forEach(letter => {
       letter = letter.toUpperCase();
       if (letter === ' ') {
@@ -33,14 +32,14 @@ export default {
     setTimeout(() => {
       $('.prize').parent().addClass('prize-animation');
       $('.prize').text(`You Got: ${prize}`);
-    }, 100)
+    }, 1000)
     this.hideInputs();
     setTimeout(() => {
       this.showInput();
       this.showVowels();
       this.showSolveInput();
       $('.wheel-img').removeClass('spin');
-    }, 500);
+    }, 5000);
   },
 
   showInput() {
@@ -108,27 +107,27 @@ export default {
 
   updateScore(player, score) {
     switch (player) {
-      case 0:
-      $('.p1-score').text(score)
+    case 0:
+      $('.p1-score').text(score);
       break;
-      case 1:
-      $('.p2-score').text(score)
+    case 1:
+      $('.p2-score').text(score);
       break;
-      default:
-      $('.p3-score').text(score)
+    default:
+      $('.p3-score').text(score);
     }
   },
 
   updateBank(player, score) {
     switch (player) {
-      case 0:
-      $('.p1-bank').text(score)
+    case 0:
+      $('.p1-bank').text(score);
       break;
-      case 1:
-      $('.p2-bank').text(score)
+    case 1:
+      $('.p2-bank').text(score);
       break;
-      default:
-      $('.p3-bank').text(score)
+    default:
+      $('.p3-bank').text(score);
     }
   },
 
@@ -140,14 +139,37 @@ export default {
   },
 
   correctAns() {
-    $('.feedback').text('Finally!')
+    $('.feedback').text('Finally!');
   },
 
   wrongAns() {
-    $('.feedback').text('Morty! No!')
+    $('.feedback').text('Morty! No!');
   },
 
   showAnser() {
     $('.hidden').removeClass('hidden');
+  },
+
+  updateActivePlayer(i) {
+    switch (i) {
+    case 0:
+      $('.p1-bank').parent().parent().addClass('active');
+      $('.p2-bank, .p3-bank').parent().parent().removeClass('active');
+      break;
+    case 1:
+      $('.p2-bank').parent().parent().addClass('active');
+      $('.p1-bank, .p3-bank').parent().parent().removeClass('active');
+      break;
+    default:
+      $('.p3-bank').parent().parent().addClass('active');
+      $('.p1-bank, .p2-bank').parent().parent().removeClass('active');
+    }
+  },
+  
+  clearFields () {
+    console.log('stuff')
+    $('.word-box').empty();
+    $('.feedback').empty();
+    $('.feedback').empty();
   }
 }
