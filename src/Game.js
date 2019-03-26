@@ -30,16 +30,14 @@ class Game {
  
   createRound() {
     const round = new Round(this.categoryData.splice(0, 4), this.clues);
-    round.displayCategories();
     this.round = round;
+    round.displayCategories();
     this.createDailyDouble();
   }
 
   createDailyDouble() {
     let randomDailyDoubleClue = Math.floor(Math.random() * (16 - 1) + 1);
     this.round.dailyDoubleClue = randomDailyDoubleClue
-    // if (this.round.cluesRemaining === randomDailyDoubleClue) {
-      // console.log('daily double!')
     }
 
   shuffle(clues) {
@@ -49,7 +47,6 @@ class Game {
   changePlayerTurn() {
     this.playerTurn === 2 ? this.playerTurn = 0 : this.playerTurn++;
   }
-
 }
 
 export default Game;

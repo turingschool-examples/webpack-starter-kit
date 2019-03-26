@@ -8,9 +8,9 @@ class Player {
     // this.iD = 0;
   }
 
-  increaseScore(result) {
+  increaseScore(answer) {
     let points = data.clues.reduce((acc, currentClue) => {
-      if (result === currentClue.answer) {
+      if (answer === currentClue.answer) {
         acc += currentClue.pointValue;
       }
       return acc;
@@ -18,9 +18,9 @@ class Player {
     this.score += points;
   }
 
-  decreaseScore(result) {
+  decreaseScore(answer) {
     let points = data.clues.reduce((acc, currentClue) => {
-      if (result === currentClue.answer) {
+      if (answer === currentClue.answer) {
          acc += currentClue.pointValue;
       }
       return acc;
