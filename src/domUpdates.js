@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import data from './data-set.js';
 import Player from './Player.js';
+import DailyDouble from './DailyDouble.js';
 // import Game from './Game.js';
 
 export default {
@@ -48,12 +49,16 @@ export default {
   },
 
 
-  showClue(clue, event) {
-    $('.question-prompt').show();
-    $('.result-prompt').hide();
-    $('.question').text(clue.question);
-    if($(event.target).text('')) {
-      $(event.target).unbind('click');
+  showClue(game, clue, event) {
+    game.round.cluesRemaining--;
+    console.log(game.round.cluesRemaining);
+    console.log(game.round.dailyDoubleClue);
+    if (game.round.cluesRemaining === game.round.dailyDoubleClue) {
+      this.dailyDouble(game, clue);
+    } else {
+      $('.question-prompt').show();
+      $('.result-prompt').hide();
+      $('.question').text(clue.question);
     }
   },
     
@@ -61,11 +66,9 @@ export default {
     let questionText = $(".question");
     let answerText = $('#question-input');
     let currentPlayer = game.players[game.playerTurn];
-    game.round.cluesRemaining--;
     if (game.round.cluesRemaining === 0) {
       game.createRound();
     }
-    console.log(game.round.cluesRemaining);
     let result = data.clues.reduce((acc, currentClue) => {
       if (questionText.text() === currentClue.question) {
         acc += currentClue.answer;
@@ -88,6 +91,21 @@ export default {
     }
   },
 
-  // changeScore()
+  dailyDouble(game, clue) {
+    $('.style-daily-double').show();
+    let wagerAmount;
+    let dailyDouble;
+    $('#daily-double').keyup(function () {
+      wagerAmount = $('#daily-double').val();
+    });
+    $('.daily-double-btn').click(function (e) {
+      e.preventDefault();
+      dailyDouble = new DailyDouble(clue.question, clue.answer, clue.pointValue);
+      dailyDouble.updatePointValue(wagerAmount);
+    });
+    // $('.question-prompt').show();
+    // $('.result-prompt').hide();
+    // $('.question').text(clue.question); 
+  }
   
 }

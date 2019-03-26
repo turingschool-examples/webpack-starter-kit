@@ -9,6 +9,7 @@ const startGameBtn = $('#start-game-btn');
 const submitBtn = $('.submit-btn');
 const resetBtn = $('#reset-game-btn');
 const clueBtn = $('.col');
+const dailyDoubleBtn = $('.daily-double-btn')
 
 let game;
 
@@ -27,7 +28,7 @@ clueBtn.on('click', function(e) {
   e.preventDefault();
   const {id, innerText} = event.target;
   console.log(id, innerText);
-  game.round.findClue(id, innerText, event)
+  game.round.findClue(game, id, innerText, event)
 })
 
 submitBtn.click(function (e) {
@@ -36,11 +37,15 @@ submitBtn.click(function (e) {
   domUpdates.notifyNextTurn(game);
 })
 
+dailyDoubleBtn.click(function (e) {
+  e.preventDefault();
+  console.log('click');
+  domUpdates.hide
+  // domUpdates.
+  // domUpdates.notifyNextTurn(game)
+})
+
 resetBtn.click(function (e) {
   e.preventDefault();
   location.reload();
 })
-
-//generate a random number 1-4
-//generate a random number 100, 200, 300, 400
-// assign daily double class to that specific clue

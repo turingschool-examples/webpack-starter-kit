@@ -32,23 +32,22 @@ class Game {
     const round = new Round(this.categoryData.splice(0, 4), this.clues);
     round.displayCategories();
     this.round = round;
-    // this.createDailyDouble();
+    this.createDailyDouble();
   }
 
   createDailyDouble() {
-    // let randomCategory = this.shuffle(this.round.categoryIds).pop())
-  }
+    let randomDailyDoubleClue = Math.floor(Math.random() * (16 - 1) + 1);
+    this.round.dailyDoubleClue = randomDailyDoubleClue
+    // if (this.round.cluesRemaining === randomDailyDoubleClue) {
+      // console.log('daily double!')
+    }
 
   shuffle(clues) {
     return clues.sort(() => 0.5 - Math.random());
   }
 
   changePlayerTurn() {
-    if (this.playerTurn === 2) {
-      this.playerTurn = 0;
-    } else {
-      this.playerTurn++;
-    }
+    this.playerTurn === 2 ? this.playerTurn = 0 : this.playerTurn++;
   }
 
 }
