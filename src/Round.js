@@ -42,6 +42,8 @@ class Round {
     //   break;
     // }
     // domUpdates.turnOrder(oldPlayer, newPlayer);
+    // $( '.vowels').addClass( "cost");
+
 
   }
 
