@@ -14,39 +14,45 @@ $('.start__start--btn').click(() =>{
     $('.playerinfo__player-1').val(),
     $('.playerinfo__player-2').val(),
     $('.playerinfo__player-3').val()
-    )
-    // console.log(players)
+  )
+  // console.log(players)
     
-    game = new GameEngine(playersNames);
-    game.revEngine();
-    // console.log(game.players);
+  game = new GameEngine(playersNames);
+  game.revEngine();
+  // console.log(game.players);
     
-    DomUpdates.hidePopup(game);
-    getCurrPlayer(game);
-    game.newRound(game);
-    // console.log(game.currentRound.currWheel);
-    // // game.currentRound.determinePuzzleLength();
-    // DomUpdates.updateRoundHintCategory(game);
-  });
+  DomUpdates.hidePopup(game);
+  getCurrPlayer(game);
+  game.newRound(game);
+  // console.log(game.currentRound.currWheel);
+  // // game.currentRound.determinePuzzleLength();
+  // DomUpdates.updateRoundHintCategory(game);
+});
   
-  let getCurrPlayer = (game => {
-    game.currentRound.getCurrentPlayer(game);
-  })
+let getCurrPlayer = (game => {
+  game.currentRound.getCurrentPlayer(game);
+})
 
-  let toggleButtons = () => {
-    //Toggle: Consonant
-   $('#consonant').attr("disabled") ? $('#consonant').removeAttr("disabled") : $('#consonant').attr("disabled",'true');
-    //Toggle: Wheel
-   $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled",'true');
-    //Toggle: Word & Vowel
-    if ($('.guess__word--button').attr("disabled") && $('#vowel').attr("disabled")) {
-      $('.guess__word--button').removeAttr("disabled");
-      $('#vowel').removeAttr("disabled");
-    } else {
-      $('.guess__word--button').attr("disabled",'true');
-      $('#vowel').attr("disabled",'true');
-    }
+let toggleButtons = () => {
+  //Toggle: Consonant & Label
+  if ($('#consonant').attr("disabled")) {
+    $('#consonant').removeAttr('disabled').css('background-color', 'darkgreen');
+    $('#consonant--label').addClass('disable--label');
+  } else {
+    $('#consonant').attr('disabled', 'true').css('background-color', 'gray');
+    $('#consonant--label').removeClass('disable--label');
   }
+  //Toggle: Wheel
+  $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
+  //Toggle: Word & Vowel
+  if ($('.guess__word--button').attr("disabled") && $('#vowel').attr("disabled")) {
+    $('.guess__word--button').removeAttr("disabled").css("background-color", "darkgreen");
+    $('#vowel').removeAttr("disabled").css("background-color", "darkgreen");
+  } else {
+    $('.guess__word--button').attr("disabled", 'true').css("background-color", "gray");
+    $('#vowel').attr("disabled", 'true').css("background-color", "gray");
+  }
+}
 
   const vowels = ['A', 'E', 'I', 'O', 'U'];
 // Conflict Res

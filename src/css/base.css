@@ -297,6 +297,18 @@ button.start__start--btn {
   border: .1px solid lime;
 }
 
+#consonant {
+  background-color: gray;
+}
+#consonant--label {
+  position: absolute;
+  top: -18px;
+  right: 25px;
+}
+.disable--label {
+  display: none;
+}
+
 /* ! Footer / Player Navigation ! */
 /* ============================== */
 footer {
