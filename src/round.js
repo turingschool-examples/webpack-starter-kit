@@ -2,7 +2,6 @@ import data from './data_wheel-of-fortune';
 import Puzzle from "./puzzle";
 import DomUpdates from './dom-updates';
 import Wheel from './wheel';
-import Player from './player';
 
 /*
 data.wheel => wheel array of values
@@ -20,20 +19,32 @@ class Round {
     this.currWheel = new Wheel()
   }
   determinePuzzleLength() {
+    let random = Math.floor((Math.random() * 23) + 0);
     switch (this.roundNumber) {
-      case 1: this.storePuzzle(data.puzzles.one_word_answers.puzzle_bank[Math.floor((Math.random() * 23) + 0)]);
+    case 1: 
+      this.storePuzzle(data.puzzles.one_word_answers.puzzle_bank[random]);
       break;
-      case 2: this.storePuzzle(data.puzzles.two_word_answers.puzzle_bank[Math.floor((Math.random() * 23) + 0)])
+    case 2: 
+      this.storePuzzle(data.puzzles.two_word_answers.puzzle_bank[random]);
       break;
-      case 3: this.storePuzzle(data.puzzles.three_word_answers.puzzle_bank[Math.floor((Math.random() * 23) + 0)])
+    case 3: 
+      this.storePuzzle(data.puzzles.three_word_answers.puzzle_bank[random]);
       break;
-      case 4: this.storePuzzle(data.puzzles.four_word_answers.puzzle_bank[Math.floor((Math.random() * 23) + 0)])
+    case 4: 
+      this.storePuzzle(data.puzzles.four_word_answers.puzzle_bank[random]);
       break;
-      case 5: this.storePuzzle(data.puzzles.one_word_answers.puzzle_bank[Math.floor((Math.random() * 23) + 0)])
+    case 5: 
+      this.storePuzzle(data.puzzles.one_word_answers.puzzle_bank[random]);
     }
   }
   storePuzzle(puzzle) {
-    this.getPuzzle(puzzle.category, puzzle.number_of_words, puzzle.total_number_of_letters, puzzle.first_word, puzzle.description, puzzle.correct_answer);
+    this.getPuzzle(
+      puzzle.category, 
+      puzzle.number_of_words, 
+      puzzle.total_number_of_letters, 
+      puzzle.first_word, 
+      puzzle.description, 
+      puzzle.correct_answer);
   }
   getPuzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer) {
     this.roundPuzzle = new Puzzle(category, wordNumber, totalLtrs, firstWordLtr, description, answer);
