@@ -159,7 +159,15 @@ body {
 
 .errorMessage {
     font-size: 1em;
-    text-align: left;
+    text-align: center;
+    color: red;
+    margin: 2% 0;
+    visibility: hidden;
+}
+
+.wrongAnswer {
+    font-size: 2em;
+    text-align: center;
     color: red;
     margin: 2% 0;
     visibility: hidden;

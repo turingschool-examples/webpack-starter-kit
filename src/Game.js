@@ -27,10 +27,10 @@ class Game {
 
         // checkPlayer() {
         //   isPlayer = player;
-   // }    
+        // }    
 
   createRound() {
-    const survey = this.surveys[Math.floor(Math.random()* this.surveys.length)];
+    const survey = this.surveys[Math.floor(Math.random() * this.surveys.length)];
     this.round = new Round(survey);
     console.log(survey);
     this.roundNumber++; 
@@ -39,14 +39,15 @@ class Game {
 
 
 
-//   switchPlayer() {
-   //if player = player 1
-   //switch to player 2
-   //else player 2
-   //switch to player 1
-//   }
+    // switchPlayer() {
+    // if player = player 1
+    // switch to player 2
+    // else player 2
+    // switch to player 1
+    // }
 
- //     switchPlayer()
+
+
         //   }
         // }
         //for new player

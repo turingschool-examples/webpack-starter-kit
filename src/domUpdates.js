@@ -2,6 +2,7 @@ import $ from 'jquery';
 import Game from './Game.js';
 import Round from './Round.js';
 
+        
 
   
 
@@ -24,10 +25,11 @@ export default {
     </section>`
 )},
 
-  startBtn() {
- 
-  }
-  
+  // appendAnswer() {
+  //   $('.class').text('');
+  //   $('class').append(correctGuess);
+  // }
+
 }
 
 
