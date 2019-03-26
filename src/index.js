@@ -39,7 +39,11 @@ $(document).ready( () => {
 
   $('.btn-solve, .buy, .btn-spin').click(() => {
     $('.feedback').hide()
-  })
+  });
+
+  $('.new-game-btn').click(() => {
+    location.reload()
+  });
 
 })
 
