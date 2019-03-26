@@ -36,7 +36,6 @@ class Game {
   }
 
   timer(time) {
-    let duration = time;
     const timer = setInterval(() => {
       $(".countdown-timer").html(time);
       time--;
