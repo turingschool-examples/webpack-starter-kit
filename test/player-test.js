@@ -13,6 +13,6 @@ describe('Player', function() {
     it('should have default properties', function (){
         expect(player.name).to.equal(player.name);
         expect(player.score).to.equal(0);
-    })
+    });
 });
 
