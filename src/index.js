@@ -55,12 +55,13 @@ $('body').on('focus', '.guess-submission', () =>{
   DomUpdates.deactivateLetters()
 })
 
+
 $('body').on('click', '.quit-btn-container', () =>{
   window.location.reload(true)
 })
 
+
 $('body').on('click', '.vowel', () => {
-  console.log('hi')
   playerBuyVowel(game);
 });
 
@@ -75,24 +76,28 @@ function startGameBtn(event) {
 }
 
 function selectingLetter(event) {
-  let selectedLetter = $(event.target).text()
-
-  console.log(selectedLetter)
-  game.roundInst.checkLetter(selectedLetter, game)
-  DomUpdates.disableLetter(event)
-  game.roundInst.flipCells(selectedLetter)
+  let selectedLetter = $(event.target).text();
+  game.roundInst.checkLetter(selectedLetter, game);
+  DomUpdates.disableLetter(event);
+  game.roundInst.flipCells(selectedLetter);
 }
 
 function playerSpin(game) {
-  game.roundInst.wheelInst.spinWheel(game)
+  game.roundInst.wheelInst.spinWheel(game);
 }
+
 
 function playerBuyVowel(game) {
   console.log('buyVowel')
   game.roundInst.buyVowel(game);
+}
 
-}
-function submitGuess(game) {
+function submitGuess(event) {
   let playerGuess = $('.guess-submission').val().toLowerCase()
-  game.roundInst.playerGuessPuzzle(playerGuess, game)
+  console.log(playerGuess)
+  if(playerGuess === ''){
+    DomUpdates.noInput()
+  }
+  game.roundInst.checkPlayerSolve(playerGuess)
 }
+

@@ -256,7 +256,7 @@ h3 {
   pointer-events: none;
 }
 
-#disable-selected-letter {
+.disable-selected-letter {
   background: #6d6d6d;
   box-shadow: none;
   color: rgba(81, 91, 234, 0.66);

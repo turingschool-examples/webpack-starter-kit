@@ -29,6 +29,7 @@ class Round {
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
     this.fillGameBoard();
     this.displayHint();
+    console.log(this.clueAnswer)
   }
   randomNumber(values) {
     if (values.length === 24) {
@@ -135,6 +136,10 @@ class Round {
         this.createNewRound(game)
       console.log(this)
   }
+  }
+
+  checkPlayerSolve(playerSolveInput) {
+    console.log(playerSolveInput)
   }
 
 

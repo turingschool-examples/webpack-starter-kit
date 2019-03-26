@@ -53,11 +53,9 @@ class Game {
   ///pass in wheelValue from wheel value function invocation ***********
   updatePlayerBank() {
     this.players[this.roundInst.activePlayer].playerBank += this.roundInst.wheelInst.selectedValue
-  let playerPot = this.players[this.roundInst.activePlayer].playerBank
-  let playerTurn = this.roundInst.activePlayer
+    let playerPot = this.players[this.roundInst.activePlayer].playerBank
+    let playerTurn = this.roundInst.activePlayer
     DomUpdates.updateRoundScore(playerPot, playerTurn)
-console.log(this.players)
   }
-  
 }
 export default Game
