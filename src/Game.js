@@ -121,6 +121,7 @@ class Game {
     } else if (this.currentRound < 5) {
       this.round = new FastRound(question, answers);
       domUpdates.displayFastroundDialog(this.activePlayer.name);
+      domUpdates.removeTimers();
     } else {
       this.endGame;
     }
@@ -137,6 +138,7 @@ class Game {
   }
 
   endGame() {
+    domUpdates.removeTimers();
     if (this.player1.score === this.player2.score) {
       domUpdates.showTieScreen();
     } else if (this.player1.score > this.player2.score) {

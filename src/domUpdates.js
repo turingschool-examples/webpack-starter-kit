@@ -125,5 +125,10 @@ export default {
       }
     }, 1000);
   },
+
+  removeTimers() {
+    $(".timer-area-1").addClass("hidden");
+    $(".timer-area-2").addClass("hidden");
+  }
     
 }
