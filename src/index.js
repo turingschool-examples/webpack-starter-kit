@@ -26,17 +26,23 @@ import domUpdates from './domUpdates.js';
 let dataCategories = Object.keys(dataSet.categories);
 
 let categoriesToArray = $('.categories').toArray();
-console.log('log 1: ', categoriesToArray);
-// $("categoriesToArray.categories").each(categoryBox => {
-//   let randomCategory = dataCategories.splice(Math.floor(Math.random()*dataCategories.length),1)
-//   console.log(randomCategory)
+// Hard coded categories in
+let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()],
+[dataCategories[2].split(/(?=[A-Z])/).join(' ').toUpperCase()],
+[dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()],
+[dataCategories[6].toUpperCase()]];
+// Actual RNG for the categories---
+// for (let i = 0; i < categoriesToArray.length; i++) {
+//   // let randomCategory = dataCategories.splice(Math.floor(Math.random()*dataCategories.length),1).toString();
+//   // categoryArr.push(randomCategory);
 
-  // $(categoryBox).html(randomCategory);
-// });
-// dataCategories.forEach(currentCategory => {
-//   console.log(currentCategory)
-//   $(".categories").html(currentCategory)
-// })
+// }
+
+$('#category-one').text(categoryArr[0]);
+$('#category-two').text(categoryArr[1]);
+$('#category-three').text(categoryArr[2]);
+$('#category-four').text(categoryArr[3]);
+
 // $(document).ready(dataCategories);
 
 // newGame.populateQuestions()
@@ -64,57 +70,66 @@ var newGame = new Game(name1, name2, name3);
 console.log('This is the JavaScript entry file - your code begins here.');
 
 
-//
-// function publishRoundClues () {
-//   const board = '\<article class="clues">
-//       100
-//     </article>
-//     <article class="clues">
-//       100
-//     </article>
-//     <article class="clues" data-id"2">
-//       100
-//     </article>
-//     <article class="clues">
-//       100
-//     </article>
-//     <article class="clues">
-//       200
-//     </article>
-//     <article class="clues">
-//       200
-//     </article>
-//     <article class="clues">
-//       200
-//     </article>
-//     <article class="clues">
-//       200
-//     </article>
-//     <article class="clues">
-//       300
-//     </article>
-//     <article class="clues">
-//       300
-//     </article>
-//     <article class="clues">
-//       300
-//     </article>
-//     <article class="clues">
-//       300
-//     </article>
-//     <article class="clues">
-//       400
-//     </article>
-//     <article class="clues">
-//       400
-//     </article>
-//     <article class="clues">
-//       400
-//     </article>
-//     <article class="clues">
-//       400
-//     </article>';
-//
-//
-//     $("#box-wrapper").append(board);
-// }
+console.log('This is the JavaScript entry file - your code begins here.');
+
+$("#start-game").click(function() {
+  event.preventDefault();
+  publishRoundClues()
+});
+
+
+function publishRoundClues () {
+  console.log('hello')
+  const board = '<article class="clues">' +
+  100 +
+  '</article>' +
+  '<article class="clues">' +
+  100 +
+  '</article>' +
+  '<article class="clues">' +
+  100 +
+  '</article>' +
+  '<article class="clues">' +
+  100 +
+  '</article>' +
+  '<article class="clues">' +
+  200 +
+  '</article>' +
+  '<article class="clues">' +
+  200 +
+  '</article>' +
+  '<article class="clues">' +
+  200 +
+  '</article>' +
+  '<article class="clues">' +
+  200 +
+  '</article>' +
+  '<article class="clues">' +
+  300 +
+  '</article>' +
+  '<article class="clues">' +
+  300 +
+  '</article>' +
+  '<article class="clues">' +
+  300 +
+  '</article>' +
+  '<article class="clues">' +
+  300 +
+  '</article>' +
+  '<article class="clues">' +
+  400 +
+  '</article>' +
+  '<article class="clues">' +
+  400 +
+  '</article>' +
+  '<article class="clues">' +
+  400 +
+  '</article>' +
+  '<article class="clues">' +
+  400 +
+  '</article>'
+
+  $(".box-wrapper").append(board);
+  console.log(board)
+
+}
