@@ -1,4 +1,3 @@
-import gameData from "./data.js";
 import domObject from "./DOMupdates.js";
 import Round from "./Round.js";
 import $ from "jquery";

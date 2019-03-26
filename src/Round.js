@@ -1,6 +1,5 @@
 import gameData from "./data.js";
 import domObject from "./DOMupdates.js";
-import $ from "jquery";
 
 class Round {
   constructor() {
