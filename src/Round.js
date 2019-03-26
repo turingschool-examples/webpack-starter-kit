@@ -6,27 +6,30 @@ import Wheel from './Wheel';
 class Round {
   constructor(roundNumber) {
     this.roundNumber = roundNumber
-    this.clueAnswer = {}
+    this.clueAnswer = null
     this.roundClue = {}
     this.activePlayer = 0
     this.letterIndexs = {};
     this.wheelInst = new Wheel()
+    this.remainingLetters = []
   }
 
   createNewRound(game) {
     this.roundNumber ++
+    console.log('game', game.gameRoundsClueBank)
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
-    game.stage ++
     this.shuffler(allRoundClues)
     this.playerTurn(game)
     this.getRandomClue(allRoundClues)
     this.wheelInst.createWheel(this)
+    game.stage ++
+    console.log(this.letterIndexs)
   }
 
   getRandomClue(cards) {  
     this.roundClue = this.randomNumber(cards);
-
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
+    this.remainingLetters = this.clueAnswer.join('').replace(/[-']/g, '').split('');
     this.fillGameBoard();
     this.displayHint();
     console.log(this.clueAnswer)
@@ -47,20 +50,7 @@ class Round {
     }
   }
 
-  ///checking clicked letter works
-  checkLetter(userLetter, game) {
-    console.log(this.clueAnswer)
-    if (this.clueAnswer.includes(userLetter)) {
-      game.updatePlayerBank()
-    } else if (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
-      // this.activePlayer++
-      this.switchPlayer()
-    }
-    // game.players[this.activePlayer].score += this.wheelInst.selectedValue
-    // console.log(game.players)
-    console.log('go to bed')
-
-  }
+  
   
 
   fillGameBoard() {
@@ -117,11 +107,11 @@ class Round {
   checkValue(wheelValue, game) {   
     if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
-      DomUpdates.bankrupt()
+      DomUpdates.gameMessage("bankrupt")
       game.players[this.activePlayer].playerBank = 0
       this.switchPlayer(game);
     } else if (wheelValue === "LOSE A TURN") {
-      DomUpdates.loseTurn()
+      DomUpdates.gameMessage("lose a turn")
       DomUpdates.deactivateLetters()
       this.switchPlayer(game)
     } else {
@@ -129,17 +119,62 @@ class Round {
     }
   }
 
-  playerGuessPuzzle(playerGuessInput, game) {
-    let clueAnswer = this.clueAnswer.join('')
-    if (clueAnswer == playerGuessInput) {
-        DomUpdates.clearGameBoard();
+  // playerGuessPuzzle(playerGuessInput, game) {
+  //   let clueAnswer = this.clueAnswer.join('')
+  //   if (clueAnswer == playerGuessInput) {
+  //     DomUpdates.clearGameBoard();
+  //     this.createNewRound(game)
+  //     console.log(this)
+  //   }
+  // }
+
+  ///checking clicked letter works
+  checkLetter(userLetter, game) {
+    console.log(this.remainingLetters)
+    let cleanClueAnswer = this.clueAnswer.join('').replace(/[-']/g, '').split('')
+    if (cleanClueAnswer.includes(userLetter)) {
+      this.remainingLetters = this.remainingLetters.filter(letter =>{
+        if (letter !== userLetter) {
+          return letter;
+        }
+      })
+      console.log(this.remainingLetters)
+      if (this.remainingLetters.length === 0) {
+      
+        DomUpdates.gameMessage("round winner")
+        game.updatePlayerScore()
         this.createNewRound(game)
-      console.log(this)
-  }
+      } else {
+        DomUpdates.gameMessage("spin again")
+        game.updatePlayerBank()
+      }
+    } else {
+      DomUpdates.gameMessage("next player")
+      this.switchPlayer()
+
+    }
+
+    
+// (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
+//       // this.activePlayer++
+//       this.switchPlayer()
+//     }
+    console.log('go to bed')
+
   }
 
-  checkPlayerSolve(playerSolveInput) {
-    console.log(playerSolveInput)
+  checkPlayerSolve(playerSolveInput, game) {
+    let playerSolve = playerSolveInput.replace(/[-']/g, '')
+    let gameAnswer = this.clueAnswer.join('').replace(/[-']/g, '')
+    
+    if (playerSolve === gameAnswer) {
+      DomUpdates.gameMessage("round winner")
+      game.updatePlayerScore()
+      this.createNewRound(game)
+    } else {
+      DomUpdates.gameMessage("next player")
+      this.switchPlayer()
+    }
   }
 
 

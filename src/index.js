@@ -37,13 +37,16 @@ $('input.player-names').keyup(function() {
   }
   event.preventDefault(event)
 });
+
+
+
 //selects letters from the top//
 $('body').on('click', '.single-letter, .single-letter-vowel', (event) =>{
   selectingLetter(event);
   DomUpdates.deactivateLetters();
 })
 
-$('body').on('click', '.spinner-container', () =>{
+$('body').on('click', '.spinner', () =>{
   playerSpin(game)
 })
 
@@ -93,11 +96,11 @@ function playerBuyVowel(game) {
 }
 
 function submitGuess(event) {
+  let playerEvent = $(event.target).hasClass('.spinner')
   let playerGuess = $('.guess-submission').val().toLowerCase()
-  console.log(playerGuess)
-  if(playerGuess === ''){
-    DomUpdates.noInput()
+  if (playerGuess === '' && playerEvent === true) {
+  } else { 
+    game.roundInst.checkPlayerSolve(playerGuess, game)
   }
-  game.roundInst.checkPlayerSolve(playerGuess)
 }
 

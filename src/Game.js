@@ -33,7 +33,7 @@ class Game {
   }
   createGameBoard() {
     DomUpdates.createGameBoard(this.alphabet)
-    DomUpdates.createQuitGameBtn();
+
   }
 
   createPlayerBox() {
@@ -57,6 +57,13 @@ class Game {
     let playerPot = this.players[this.roundInst.activePlayer].playerBank
     let playerTurn = this.roundInst.activePlayer
     DomUpdates.updateRoundScore(playerPot, playerTurn)
+  }
+
+  updatePlayerScore() {
+    this.players[this.roundInst.activePlayer].score += this.players[this.roundInst.activePlayer].playerBank
+    this.players.forEach(player => {
+      player.playerBank = 0
+    })
   }
 }
 export default Game

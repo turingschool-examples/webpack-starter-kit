@@ -294,6 +294,9 @@ export default {
     $('main').append(
       `<section id="player-actions" class="player-actions">
       <div>
+        <button class="quit-btn-container game-buttons">New Game</button>
+      </div>
+      <div>
           <button class="player-action-btn spinner game-buttons">Spin Wheel</button>
       </div>
       <div>
@@ -341,11 +344,8 @@ export default {
         $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-not-displayed');
       }
     })
+    console.log(cellMap)
     return (cellMap);
-  },
-
-  createQuitGameBtn() {
-    $('main').after(`<button class="quit-btn-container game-buttons">New Game</button>`)
   },
 
   disableLetter(event) {
@@ -353,7 +353,6 @@ export default {
   },
 
   deactivateLetters() {
-    console.log('deactivate');
     $('.single-letter, .single-letter-vowel').addClass('disable-selected-letters')
   },
 
@@ -383,69 +382,66 @@ export default {
     }
   },
 
-  noInput() {
 
-    $('.warning').append(
-    `<article class="no-answer">
-        <h1>Enter A Guess Fam</h1>
-      </article>`)
+  gameMessage(message) {
+    let className = message.split(' ').join('-');
+    $('footer').prepend(`
+    <section class="${className}">
+      <h1 class="result"><i class="fas fa-exclamation">${message.toUpperCase()}</i></h1>
+    </section>
+  `).fadeOut(2000, function() {
+      $(`.${className}`).remove();
+      $('footer').removeAttr("style")
+    })
   },
 
-  bankrupt() {
-    $('footer').prepend(`
-    <section class="bankrupt">
-      <h1 class="result"><i class="fas fa-exclamation">BANKRUPT</i></h1>
-      <p>Next Player Turn</p>
-      <p>That Sucks :(</p>
-    </section>
-  `).fadeOut(2000, function() {
-    $('.bankrupt').remove();
-    $('footer').removeAttr("style")
-  })
-},
+//   bankrupt() {
+//     $('footer').prepend(`
+//     <section class="bankrupt">
+//       <h1 class="result"><i class="fas fa-exclamation">BANKRUPT</i></h1>
+//     </section>
+//   `).fadeOut(2000, function() {
+//       $('.bankrupt').remove();
+//       $('footer').removeAttr("style")
+//     })
+//   },
 
-loseTurn() {
-    $('footer').prepend(`
-    <section class="lose-turn">
-      <h1 class="result"><i class="fas fa-exclamation">LOSE TURN</i></h1>
-      <p>Next Player Turn</p>
-      <p>That Sucks :(</p>
-    </section>
-  `).fadeOut(2000, function() {
-    $('.lose-turn').remove();
-    $('footer').removeAttr("style")
-  })
-},
+  //   loseTurn() {
+  //     $('footer').prepend(`
+  //     <section class="lose-turn">
+  //       <h1 class="result"><i class="fas fa-exclamation">LOSE TURN</i></h1>
+  //       <p>Next Player Turn</p>
+  //       <p>That Sucks :(</p>
+  //     </section>
+  //   `).fadeOut(2000, function() {
+  //       $('.lose-turn').remove();
+  //       $('footer').removeAttr("style")
+  //     })
+  //   },
 
-clearGameBoard() {
+  clearGameBoard() {
     $('.puzzle-cell').remove();
 
 
-    }
-  
+  },
+
+  correctGuess() {
+    $('footer').append(
+      `<div>
+              <h1 class="correct" >Correct Guess</h1>
+          </div>`
+    )
+  },
+
+  incorrectGuess() {
+    $('footer').append(
+      `<div>
+            <h1 class="incorrect" >Incorrect Guess</h1>
+        </div>`
+    )
+  },
 
 
-
-  bankrupt() {
-    $('footer').prepend(`
-    <section class="bankrupt">
-      <div class="result"><i class="fas fa-exclamation">BANKRUPT</i></div>
-    </section>
-  `).fadeOut(9000, function() {
-    $('.bankrupt').remove();
-  })
-},
-
-loseTurn() {
-    $('footer').prepend(`
-    <section class="lose-turn">
-      <div class="result"><i class="fas fa-exclamation">LOSE TURN</i></div>
-    </section>
-  `).fadeOut(2000, function() {
-    $('lose-turn').remove();
-  })
-
-}
 //   createWheel() {
 //       $('main').append(
 //     `<section id="theWheel">
