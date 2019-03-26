@@ -36,12 +36,9 @@ class Game {
     this.currentPrize = wheel.spin();
     if (this.currentPrize === 'BANKRUPT') {
       this.players[this.playerIndex].totalScore = 0;
-      console.log('bankrupt: ', this.players[this.playerIndex]);
       this.changeTurn();
     } else if (this.currentPrize === 'LOSE A TURN') {
-      console.log('lose a turn: ', this.players[this.playerIndex]);
       this.changeTurn();
-      console.log('lose a turn: ', this.players[this.playerIndex]);
     }
   }
 
@@ -62,13 +59,11 @@ class Game {
       console.log('incorrect!')
     }
     this.changeTurn();
-    console.log(this.round)
-    console.log(this.currentQuestion)
   }
 
-  checkConsonant() {
+  checkConsonant(vowel) {
     let elem = Object.values(domUpdates.getBoard());
-    let consonantGuess = domUpdates.getConsonant();
+    let consonantGuess = domUpdates.getConsonant() || vowel;
     let noMatches = elem.find(el => el.textContent === consonantGuess);
     elem.forEach(e => {
       if (e.textContent === consonantGuess) {
@@ -121,14 +116,6 @@ class Game {
     domUpdates.updateQInfo(this.currentQuestion);
     console.log(this.currentQuestion.answer)
   }
-
-  // appendLetters() {
-  //   console.log(this.ltrArr)
-  //   this.ltrArr.forEach(ltr => {
-  //     domUpdates.appendLtrs(ltr)
-  //   })
-    // this is kind of ??? working, it's just appending the letter multiple times because of the forEach acting upon the array for each letter
-  // }
 
 }
 

@@ -45,6 +45,12 @@ $(document).ready( () => {
     location.reload()
   });
 
+  $('.vowels-to-buy').click((e) => {
+   game.checkConsonant(e.target.textContent);
+   $('.vowels-to-buy').hide()
+   $('.btn-solve, .buy, .btn-spin').attr('disabled', false)
+  });
+
 })
 
 
