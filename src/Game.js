@@ -108,13 +108,12 @@ class Game {
 
   triggerNewRound() {
     this.currentRound++;
-    if (this.currentRound > 4) {
+    if (this.currentRound === 5) {
       this.endGame();
     } else {
       domUpdates.clearAnswerBoard();
       this.toggleActivePlayer();
       this.getSurvey();
-      //show next round start msg in dom for a few seconds
     } 
   }
 
@@ -129,9 +128,12 @@ class Game {
     domUpdates.displayRoundData(question, answers, this.currentRound);
     if (this.currentRound < 3) {
       this.round = new Round(question, answers);
-    } else {
+    } else if (this.currentRound < 5) {
       this.round = new FastRound(question, answers);
+      domUpdates.removeTimer();
       domUpdates.displayFastroundDialog(this.activePlayer.name);
+    } else {
+      this.endGame;
     }
   }
 

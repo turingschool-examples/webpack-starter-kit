@@ -5,11 +5,6 @@ class Round {
   constructor(survey, surveyAnswers) {
     this.survey = survey;
     this.surveyAnswers = surveyAnswers; 
-    this.guesses = [];
-  }
-      
-  saveGuess(guess) {
-    this.guesses.push(guess);
   }
 
   checkAnswer(guess) {
@@ -20,7 +15,7 @@ class Round {
       this.processWin(match);
       this.checkRoundProgress();
     } else {
-      domUpdates.showNoMatch();
+      domUpdates.showNoMatchMsg();
       this.getRoundNextStep();
     }
   }
@@ -39,7 +34,10 @@ class Round {
 
   checkRoundProgress() {
     if (this.surveyAnswers.length === 0) { 
-      window.game.triggerNewRound();
+      domUpdates.endOfRoundMsg();
+      setTimeout(() => {
+        window.game.triggerNewRound();
+      }, 1000);
     } 
   }
 

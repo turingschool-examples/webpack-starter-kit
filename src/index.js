@@ -60,15 +60,13 @@ $("#submit-guess-btn").on("click", function() {
   if ($(".guess-input").val() !== '') {
     const playerGuess = $(".guess-input").val().toLowerCase();
     $(".guess-input").val('');
-    //window.game.round.saveGuess(playerGuess);
-    window.game.round.checkAnswer(playerGuess); //replace with check guess later
+    window.game.round.checkAnswer(playerGuess);
   } else {
     domUpdates.showMustEnterGuessMsg();
   }
 });
 
 $("#start-btn").on("click", function() {
-
   $(".welcome-screen").removeClass("hidden");
 });
 
@@ -82,15 +80,8 @@ $(".guess-input").on("keyup", function() {
     $('#submit-guess-btn').prop('disabled', $(".guess-input").val().length < 3);
 });
 
-$(".name-input").on("keyup", function() {
-    $('#submit-names-btn').prop('disabled', !$("#player-1-input").val() || 
-        !$("#player-2-input").val());
-});
-
 $("#fastround-start-btn").on("click", function() {
-    // alert('poop');
     window.game.round.startTimedRound();
     $(".fastround-ready-screen").addClass("hidden");
+    $(".timer-area").removeClass("hidden");
 });
-
-// export default window.game;

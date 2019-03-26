@@ -1,6 +1,6 @@
-*:focus {
+/**:focus {
  outline: 1px dashed transparent;
-}
+}*/
 
 body {
   padding: 0;
@@ -16,8 +16,8 @@ body {
   height: 150px;
   width: 150px;
   font-size: 75px;
-  color: darkred;
-  border: 3px solid darkred;
+  color: #b20303;
+  border: 4px solid #b20303;
   border-radius: 100%;
   position: absolute;
   right: 0;
@@ -89,11 +89,19 @@ button:disabled {
   margin: 0 0 100px 0;
 }
 
+.fastround-dialog h3 {
+ font-size: 3em;
+ font-weight: 900;
+ margin-top:0;
+}
+
 .winner-name {
   display: block;
   font-size: 2em;
+}
 
 .fastround-dialog {
+  text-align: center;
   width: 45%;
   background: #213b72;
   border: 5px solid white;
@@ -108,12 +116,14 @@ button:disabled {
   width: 100%;
 }
 
+#fastround-start-btn,
 #play-again-btn,
 #submit-names-btn {
   background-color: #FBE065;
   color: #213b72;
 }
 
+#fastround-start-btn:hover,
 #play-again-btn:hover,
 #submit-names-btn:hover {
   background-color: lightgray;
@@ -125,8 +135,7 @@ button:disabled {
   padding: 20px 0 0 0;
 }
 
-header h1,
-h2 {
+header h1 {
   font-size: 4.5em;
   letter-spacing: 3px;
   font-weight: 900;
@@ -135,7 +144,7 @@ h2 {
   font-family: 'Pacifico';
 }
 
-.name-form h1{
+.name-form h2 {
   font-size: 6em;
   letter-spacing: 3px;
   font-weight: 900;
@@ -249,8 +258,12 @@ h2 {
   width: 410px;
 }
 
-.guess-area button {
+#submit-guess-btn {
   border-radius: 0 4px 4px 0;
+}
+
+#submit-guess-btn:hover {
+  color: #fff;
 }
 
 label {
