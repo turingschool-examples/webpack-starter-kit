@@ -15,6 +15,7 @@ class Player {
       domUpdates.displayPlayer2Score(this.score);
     }
   }
+
 }
 
 export default Player;

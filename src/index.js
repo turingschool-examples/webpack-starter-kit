@@ -82,7 +82,13 @@ $(".guess-input").on("keyup", function() {
 });
 
 $("#fastround-start-btn").on("click", function() {
-    window.game.round.startTimedRound();
     $(".fastround-ready-screen").addClass("hidden");
-    $(".timer-area").removeClass("hidden");
+    if (window.game.activePlayer === window.game.player1) {
+      $(".timer-area-1").removeClass("hidden");
+      $(".timer-area-2").addClass("hidden");
+    } else {
+      $(".timer-area-2").removeClass("hidden");
+      $(".timer-area-1").addClass("hidden");
+    }
+    window.game.round.startTimedRound();
 });

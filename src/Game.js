@@ -120,7 +120,6 @@ class Game {
       this.round = new Round(question, answers);
     } else if (this.currentRound < 5) {
       this.round = new FastRound(question, answers);
-      domUpdates.removeTimer();
       domUpdates.displayFastroundDialog(this.activePlayer.name);
     } else {
       this.endGame;

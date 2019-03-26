@@ -90,23 +90,40 @@ export default {
     $(".fastround-ready-screen").removeClass("hidden");
   },
 
-  displayTimer() {
+  displayTimer1() {
     let seconds = 30; //would be ideal to tie this to property value
     const interval = setInterval(function() {
-      
-      $(".timer").html(--seconds);
+
+      $(".timer-1").html(--seconds);
 
       if (seconds <= 0 && window.game.currentRound === 3) {
         clearInterval(interval);
-        $(".timer-area").addClass("hidden");
+        $(".timer-area-1").addClass("hidden");
         $(".fastround-ready-screen").removeClass("hidden");
         window.game.triggerNewRound();
-      } 
+      } else if (seconds <= 0 && window.game.currentRound === 4) {
+        clearInterval(interval);
+        $(".timer-area-1").addClass("hidden");
+      }
     }, 1000);
   },
 
-  removeTimer() {
-    $(".timer-area").addClass("hidden");
-  }
+  displayTimer2() {
+    let seconds = 30; //would be ideal to tie this to property value
+    const interval = setInterval(function() {
+      
+      $(".timer-2").html(--seconds);
+
+      if (seconds <= 0 && window.game.currentRound === 3) {
+        clearInterval(interval);
+        $(".timer-area-2").addClass("hidden");
+        $(".fastround-ready-screen").removeClass("hidden");
+        window.game.triggerNewRound();
+      } else if (seconds <= 0 && window.game.currentRound === 4) {
+        clearInterval(interval);
+        $(".timer-area-2").addClass("hidden");
+      }
+    }, 1000);
+  },
     
 }
