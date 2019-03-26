@@ -20,19 +20,19 @@ createPlayer(name1, name2) {
     this.player1 = new Player(name1, 1);
     console.log(this.player1);
     this.player2 = new Player(name2, 2);
-     console.log(this.player2); 
+    console.log(this.player2); 
     this.currentPlayer = this.player1;
     console.log(this.currentPlayer);
 };
 
-switchPlayer() {  //runs even with correct answer
+switchPlayer() { 
     console.log('player', this.currentPlayer);
     if(this.currentPlayer === this.player1) {
         this.currentPlayer = this.player2; 
     } else {
         this.currentPlayer = this.player1;
     }
-   console.log('newplayer', this.currentPlayer); //but it switches!
+   console.log('newplayer', this.currentPlayer);
 };
 
 createRound() {
@@ -43,14 +43,14 @@ createRound() {
 };
 
 getAnswer(guess) {
-    const score = this.round.checkAnswer(guess, this.currentPlayer);
-    if (!score) {
-    this.switchPlayer()
-    } 
+    this.round.checkAnswer(guess, this.currentPlayer, this);
 
+    };
 };
 
-//currrent turn tracker, pass in the player who is playing vs array of player or find player who is playing in array
+
+
+//current turn tracker, pass in the player who is playing vs array of player or find player who is playing in array
 
         //   }
         // }
@@ -78,6 +78,5 @@ getAnswer(guess) {
 //     change innertext fire popup w/
 //     new game button
 
-}
 
 export default Game;
