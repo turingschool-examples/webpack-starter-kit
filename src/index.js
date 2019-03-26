@@ -126,7 +126,9 @@ $('#consonant').click(function () {
      else {
         // console.log(game.currentRound.allRoundGuesses)
         // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
-        round.allRoundGuesses.push(player.ans)
+        round.allRoundGuesses.push(player.ans);
+        round.allRoundGuesses.sort();
+        console.log("this needs to be sorted:", round.allRoundGuesses)
         round.getCurrentPlayer(game);
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         // console.log('CurrentPlayer', game.currentRound.currentPlayer);
@@ -141,6 +143,7 @@ let compareAns = (round, player) => {
 let correctAnsFunc = (round, player, ltrGuess) => {
   round.correctRoundGuesses.push(player.ans);
   round.allRoundGuesses.push(player.ans);
+  round.allRoundGuesses.sort();
   DomUpdates.createPuzzleClassArr(ltrGuess);
   round.getCurrentPlayer(game);
   round.answer = round.answer

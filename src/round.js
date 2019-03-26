@@ -60,10 +60,10 @@ class Round {
     DomUpdates.updatePlayerScore(game);
     DomUpdates.showCurrentPlayer(game);
   }
-  displayCurrentPlayer(game){
+  displayCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
   }
-  displayDomPuzzle(game){
+  displayDomPuzzle(game) {
     DomUpdates.updateRoundHintCategory(game);
     DomUpdates.appendPuzzle(game);
   }
