@@ -15,6 +15,7 @@ class Puzzle {
     this.splitAnswer = this.correctAnswer.toUpperCase().split('');
     this.secondLine = null || currentPuzzle.secondLine;
   }
+  
   checkPuzLength() {
     return this.splitAnswer.length > 14 ? this.twoLinePuzzle() : this.secondLine = null;
   }

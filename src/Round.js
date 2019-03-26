@@ -1,22 +1,20 @@
-// import Wheel from "./Wheel.js";
+import Wheel from "./Wheel.js";
 import Game from "./Game.js";
 import Player from "./Player.js";
 import Puzzle from "./Puzzle.js";
 import domUpdates from "./domUpdates.js";
 
 class Round {
-  constructor(players) {
-    this.players = [] || players;
+  constructor(players, wheel) {
+    this.players = players;
+    this.currentWheel = wheel;
     this.activePlayer = 0;
-
   }
 
   getPuzzle(array) {
     let randomNum = Math.floor(Math.random() * array.length);
     let randomPuzzle = array.splice(randomNum, 1);
     let puzzle = new Puzzle(randomPuzzle[0]);
-    console.log(puzzle);
-    console.log(puzzle.correctAnswer);
     return puzzle;
   }
   changeActivePlayers() {
@@ -47,20 +45,21 @@ class Round {
 
   }
 
-  checkScore() {
-      if (this.players[this.activePlayer].roundScore >= 100) {
-        domUpdates.buyAVowel();
-      }
+  checkScore(game) {
+    if (this.players[this.activePlayer].roundScore >= 100) {
+      domUpdates.buyAVowel(game);
     }
+  }
 
   guessLetter(event) {
-    domUpdates.displayCorrectLetter(puzzle.splitAnswer, event.currentTarget.innerText);
-    if (puzzle.splitAnswer.includes(e.currentTarget.innerText)) {
+    let puzzle = puzzle.splitAnswer
+    domUpdates.displayCorrectLetter(puzzle, event.currentTarget.innerText);
+    if (puzzle.splitAnswer.includes(event.currentTarget.innerText)) {
       puzzle.splitAnswer.forEach(letter => {
         if (letter === event.currentTarget.innerText) {
-          this.players[this.activePlayer].roundScore += wheel.currentSpin;
+          this.players[this.activePlayer].roundScore += this.wheel.currentSpin;
         }
-      })
+      });
       domUpdates.displayScore(this.activePlayer, 
         this.players[this.activePlayer].roundScore);
       this.checkScore();

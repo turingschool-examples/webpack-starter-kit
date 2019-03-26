@@ -44,18 +44,17 @@ export default {
 
   appendWords (puzzleLine) {
     let tileClass;
-    puzzleLine.forEach(index => {
-      if (index === ' ' || index === '-' || index === '&' ) {
+    puzzleLine.forEach(character => {
+      if (character === ' ' || character === '-' || character === '&' ) {
         tileClass = 'space';
       } else {
-        tileClass = index;
+        tileClass = character;
       }
-      $(`.puzzle`).append(`<div class="puz-grid secret ${tileClass}">${index} </div>`);
+      $(`.puzzle`).append(`<div class="puz-grid secret ${tileClass}">${character} </div>`);
     });
   },
 
   appendPuzzle (line1, line2) {
-    console.log(line1, line2)
     this.fillSpace(line1.length, false);
     this.appendWords(line1);
     this.fillSpace(line1.length, true);
@@ -72,43 +71,61 @@ export default {
     $('.clue-container').text(category)
   },
 
-  spinWheel() {
+  spinWheel(game) {
     let clicks = 1;
-    let wheel = new Wheel();
     const winner = Math.round(Math.random() * 21);
     /*multiply the degree by number of clicks
     generate random number between 1 - 360, 
     then add to the new degree*/
-    const extraDegree = 0//(21 - winner) * 36;
+    const extraDegree = (21 - winner) * 36;
     const spinAgain = (1800 * clicks) + extraDegree;
-    const totalDegree = Math.round(spinAgain / 36) * 100;
+    const totalDegree = Math.round(spinAgain / 36) * 150;
+    let wheel = game.round.currentWheel
+    // debugger
     wheel.spinWinner(winner);
     clicks++;
     $('#inner').css({
       'transform': 'rotate(' + totalDegree + 'deg)'
     });
     $('.spin-winner').html(`${wheel.currentSpin}`);
+    console.log(game.round)
+    if (wheel.currentSpin === "BANKRUPT") {
+      console.log("Testing-B")
+      // round.players[round.activePlayer].roundScore = 0;
+      // this.displayScore(round.activePlayer, 0)
+      // round.changeActivePlayers();
+
+    } else if (wheel.currentSpin === "LOSE A TURN") {
+      console.log("Testing-L")
+      // round.changeActivePlayers();
+    }
   },
+
+
+
 
   turnOrder(oldPlayer, newPlayer) {
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
   },
 
-   displayCorrectLetter(puzzle, guess) {
-    // we dont currently have the index added to each box when they append for this to work
-    // puzzle.forEach((letter, index) => {
-    //   if (letter === guess) {
-    //     $(`puz-grid secret ${index}`).removeClass('secret')
-    //   } 
-    // })
+  displayCorrectLetter(puzzle, guess) {
+    puzzle.forEach((letter, index) => {
+      if (letter === guess) {
+        $(`puz-grid secret ${letter}`).removeClass('secret')
+      } 
+    })
   },
 
-  buyAVowel(){
-
+  buyAVowel(game) {
+    $('.vowels').on('click', (event) => {
+      // round.players[round.activePlayer].roundScore -= 100;
+      game.round.guessLetter(event);
+    });
   },
-  displayScore(player,value){
 
+  displayScore(player, value) {
+    $(`#player-${player}-round`).text(`Score: ${value}`)
   }
   
   

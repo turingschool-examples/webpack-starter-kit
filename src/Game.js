@@ -19,8 +19,7 @@ class Game {
     wheel.makeWheelVals(data.wheel)
     this.createPlayers(domUpdates.playerNames());
     this.getRandomData();
-    this.createRound()
-    
+    this.createRound(wheel)
   }
 
   getRandomData () {
@@ -28,31 +27,29 @@ class Game {
     puzzlesArr.forEach(puzzleCat =>{
       this.allData.push(data.puzzles[puzzleCat].puzzle_bank)
     })
-    console.log(this.allData)
   }
 
-  createRound () {
+  createRound (wheel) {
     this.roundCount++;
     if (this.roundCount === 4) {
-        let wheel = new BonusWheel();    
+      let wheel = new BonusWheel();    
     }
-    let round = new Round(this.players);
-    let wheel = new Wheel();
-    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount + 2]);
+    let round = new Round(this.players, wheel);
+    this.round = round;
+    round.currentWheel = wheel;
+    // this.rounds.push(round);
+    console.log(this.round)
+    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
     currentPuzzle.checkPuzLength();
     domUpdates.appendPuzzle(currentPuzzle.splitAnswer, currentPuzzle.secondLine);
     domUpdates.setCategoryText(currentPuzzle.category);
-
   }
 
   createPlayers(array) {
     this.players = array.map(person => {
       return person = new Player(person);
-
     });
-
     domUpdates.hiddenBoard(this.players);
-
   }
 
 
