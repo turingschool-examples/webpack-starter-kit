@@ -7,7 +7,8 @@
     "start": "webpack-dev-server",
     "build": "webpack",
     "test": "mochapack 'test/**/*.js'",
-    "lint": "eslint --fix \"src/**.js\""
+    "lint": "eslint --fix \"src/**.{js,html}\"",
+    "format": "prettier --write \"src/**.{js,html}\""
   },
   "repository": {
     "type": "git",
