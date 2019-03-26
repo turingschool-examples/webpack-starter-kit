@@ -28,7 +28,6 @@ form {
 
 .playerOne, .playerTwo, .playerThree{
   margin: 0px 40px 0px 40px;
-
 }
 
 table.guessBoard {
@@ -87,4 +86,20 @@ footer.scoreSection{
   left: 40%;
   bottom: 40%;
   height: 210px;
+}
+
+input.nameInput{
+  font-family: 'Press Start 2P';
+  font-size: 15px;
+  height: 30px;
+  margin: 0 10px 0px 10px;
+  width: 200px;
+}
+
+button.startGame, .tester, .reset, .guessPuzzle {
+  margin: 10px;
+  height: 30px;
+  width: 150px;
+  border-radius: 30px;
+  font-family: 'Press Start 2P';
 }
