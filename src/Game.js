@@ -25,15 +25,16 @@ createPlayer(name1, name2) {
     console.log(this.currentPlayer);
 };
 
-switchPlayer() {
+switchPlayer() {  //runs even with correct answer
     console.log('player', this.currentPlayer);
     if(this.currentPlayer === this.player1) {
         this.currentPlayer = this.player2; 
     } else {
         this.currentPlayer = this.player1;
     }
-   console.log('newplayer', this.currentPlayer);
-}; 
+   console.log('newplayer', this.currentPlayer); //but it switches!
+};
+
 createRound() {
     const survey = this.surveys[Math.floor(Math.random() * this.surveys.length)];
     this.round = new Round(survey);
@@ -43,16 +44,7 @@ createRound() {
 
 getAnswer(guess) {
     const score = this.round.checkAnswer(guess, this.currentPlayer);
-    console.log('correct score', score);
-    //does not ontain score value from round
-    // if(score && this.currentPlayer = 1) {
-    //     domUpdates.changeP1Score(score);
-    // }
-    // if(score && this.currentPlayer = 2) {
-    //     domUpdates.changeP2Score(score);
-    // }
     if (!score) {
-        console.log('score', score);
     this.switchPlayer()
     } 
 
