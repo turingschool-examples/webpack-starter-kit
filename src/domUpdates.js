@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import dataSet from './dataSet.js';
+import Game from './Game.js';
 
 export default {
   renderNames (players) {
@@ -24,7 +25,6 @@ export default {
    $('.clue-question').text(clue.question)
    $('.game-board, .start-game-form, h1').addClass("opacity");
     console.log('clue', clue)
-    console.log('event', event)
   },
   disappearClue() {
     $('.game-board, .start-game-form, h1').removeClass("opacity");
@@ -53,5 +53,10 @@ export default {
     $('.answer').removeClass('hidden').text('Wrong!');
     $('#submit').addClass('hidden');
     $('#close').removeClass('hidden');
-  }
+  },
+  changeScore(pointVal) {
+    console.log(pointVal);
+    // if (checkAnswer)
+    // game.players[game.currentPlayer].score += pointVal
+  },
 }

@@ -35,6 +35,7 @@ $valBtn.on("click", function(event) {
   // const innerText = event.target.innerText
   console.log({id, innerText})
   game.round.findClue(id, innerText, event)
+  game.changePlayer();
 });
 
 $guessBtn.click(function(event) {
@@ -52,6 +53,7 @@ $closeBtn.click(function(event) {
   $('#guess-input').val('');
   $('.answer').text('Guess below!');
   $('#close').addClass('hidden');
+  console.log('current player score', game.players[game.currentPlayer].score);
 })
 // $resetBtn.click(function() {
 

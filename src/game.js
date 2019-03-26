@@ -9,13 +9,13 @@ class Game {
     this.clues = []
     this.players = []; 
     this.round = {}; 
-    this.currentPlayer = 0;
+    this.currentPlayer = -1;
   }
   startGame() {
     this.clues = this.shuffle(dataSet.clues)
     this.categoryData = this.shuffle(this.categoryData)
     this.createRound();
-    console.log()
+    console.log(this.players[0])
   }
   createPlayers(names) {
     const players = names.map(name => {
@@ -36,6 +36,14 @@ class Game {
   }
   changeRound() {
     //increment round
+  }
+  changePlayer() {
+    this.currentPlayer++;
+    if (this.currentPlayer === 3) {
+      this.currentPlayer = 0;
+    }
+    // } else if (this.currentPlayer = player)
+    console.log('current player', this.players[this.currentPlayer]);
   }
 }
 
