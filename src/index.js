@@ -45,12 +45,12 @@ $("#submit-guess").on("click", event => {
 		if (game.currentPlayerTurn === "player1") {
 			$(".current-turn").html(`${player2.name}'s turn!`);
 			let userInput = $("#player-guess").val();
-			player1.score += game.checkAnswers(userInput, game.currentAnswers);
+			player1.score += game.checkUserGuess(userInput, game.currentAnswers);
 			$(".player-1-score").html(`Score: ${player1.score}`);
 		} else if (game.currentPlayerTurn === "player2") {
 			$(".current-turn").html(`${player1.name}'s turn!`);
 			let userInput = $("#player-guess").val();
-			player2.score += game.checkAnswers(userInput, game.currentAnswers);
+			player2.score += game.checkUserGuess(userInput, game.currentAnswers);
 			$(".player-2-score").html(`Score: ${player2.score}`);
 		}
 	} else {
@@ -59,7 +59,7 @@ $("#submit-guess").on("click", event => {
 		//PLAYER 1 NEEDS A TIMER, IF ALL ANSWERs MET // TIMER = 0 end round
 		$(".current-turn").html(`${player1.name}'s turn!`);
 		let userInput = $("#player-guess").val();
-		player1.score += game.checkAnswers(userInput, game.currentAnswers);
+		player1.score += game.checkUserGuess(userInput, game.currentAnswers);
 		$(".player-1-score").html(`Score: ${player1.score}`);
 
 		// run round.generateRoundTimed();
