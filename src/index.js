@@ -12,13 +12,19 @@ import Game from './js/game';
 $(document).ready( () => {
   const game = new Game();
   $('.start-btn').click( () => {
-    game.startRound();
+    if ($('#p1Name').val() !== '' && $('#p2Name').val() !== '' && $('#p3Name').val() !== '') {
+      game.startRound();
+    } else {
+      // NAME REQUIRED
+    }
   });
   
   $('.final-solution-btn').click( () => {
-    game.validateAnswer();
-    $('.input-solve, .final-solution-btn').hide();
-    $('.feedback').show();
+    if ($('.input-solve').val() !== '') {
+      game.validateAnswer();
+      $('.input-solve, .final-solution-btn').hide();
+      $('.feedback').show();
+    };
   });
   
   $('.btn-spin').click( () => {
@@ -27,12 +33,18 @@ $(document).ready( () => {
   });
 
   $('.check-btn').on('click', () => {
-    game.checkConsonant();
+    let vowels = ['A', 'E', 'I', 'O', 'U']
+    if (vowels.includes($('.ltr-input').val().toUpperCase())) {
+      console.log('vowels only');
+    } else if ($('.ltr-input').val() !== '') {
+      game.checkConsonant();
+      $('.ltr-input').val('')
+    }
   });
 
-  $('.check-btn, .btn-solve, .buy').click( () => {
+  $('.btn-solve').click( () => {
     $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
-    $('.vowels-to-buy, .guess-cons, .input-solve, .final-solution-btn').hide();
+    $('.guess-cons, .input-solve, .final-solution-btn').hide();
     $('.ltr-input, .input-solve').val('');
     $('.feedback').show();
   });
@@ -46,9 +58,10 @@ $(document).ready( () => {
   });
 
   $('.vowels-to-buy').click((e) => {
-   game.checkConsonant(e.target.textContent);
-   $('.vowels-to-buy').hide()
-   $('.btn-solve, .buy, .btn-spin').attr('disabled', false)
+    game.checkConsonant(e.target.textContent);
+    $(e.target).attr('disabled', true);
+    $('.vowels-to-buy').hide();
+    $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
   });
 
 })
