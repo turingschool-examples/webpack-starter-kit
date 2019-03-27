@@ -17,6 +17,9 @@ class Puzzle {
     answer.forEach(letter => {
       if (letter === letterInput) {
         domUpdates.displayLetterMatch(letterInput);
+        this.guessedBank.push(letterInput);
+        this.guessedBank = [...new Set(this.guessedBank)];
+        domUpdates.displayGuessedLetters(this);
         foundMatch = true;
       }
       if (letterInput === vowels) {

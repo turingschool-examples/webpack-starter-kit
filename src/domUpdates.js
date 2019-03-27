@@ -130,29 +130,18 @@ let domUpdates = {
     $('.gameplay-message').text(`The current value of your wheel spin is ${wheel.currentIndex}`)
   },
 
-  // displayGuessedLetters(puzzle) {
-  //   $('.guessed-letters').append(
-  //     `<section class='question-popup'> 
-  //         <h2 class='card'>Current Guesses: ${puzzle.guessedBank}</h2>
-  //       </section>`);
-  // }
-
-
-  // displayNeedPlayerName() {
-  //   if('.player-name-input' === '') {
-  //     $('.gameplay-message').text('Please input player name');
-  //   }
-  // }
-
  changeActivePlayer() {
     $('.player-box').css('border', '1px solid red');
   },
-  //if template literal added to html, we don't need this function but we will use it instead to replace the hidden class
-  //doing this because it's really difficult to put an event listener on an appended item 
 
   displayWrongAnswerMessage() {
     $('.gameplay-message').text(`Sorry! Wrong Answer! Next player's guess`)
-  }
+  },
+
+  displayGuessedLetters(puzzle) {
+    $('.guessed-letters').text(`${puzzle.guessedBank}`);
+
+  },
 
 
 

@@ -43,16 +43,12 @@ h1 {
   justify-content: center;
 }
 
-.category {
+.category,
+.hint {
   color: #6ab187;
   font-size: 40px;
   margin: 65px;
   text-align: center;
-}
-
-.guessed-letters {
-  font-size: 55px;
-  color: red;
 }
 
 .consonant-letter-bank,
@@ -236,9 +232,7 @@ justify-content: center;
  }
 
  .score-label {
-  color: red;
-  font-size: 32px;
-  margin-top: 10px;
+   margin-top: 10px;
  }
 
  .start-container {
