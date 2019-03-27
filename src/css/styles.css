@@ -14,7 +14,8 @@ body {
   padding:0;
   color: navy;
   font-family: 'Roboto Mono', monospace;
-  background-image: url("../images/star-background.png");
+  /* background: #022835; */
+  background-image: url('../images/star-background.jpg');
   background-size: contain;
   overflow: hidden;
 }
@@ -22,10 +23,15 @@ body {
 body {
   height: 100%;
 }
+canvas {
+  width: 100%;
+  height: 100%;
+}
 /* ///////////////////////// */
 /* GAME START PAGE */
 /* ///////////////////////// */
 .name-entry{
+  position: relative;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -36,7 +42,7 @@ body {
   border-radius: 15px;
   padding: 50px;
   text-align: center;
-  background: whitesmoke;
+  background: rgb(199, 198, 198);
   color: black;
 }
 
@@ -57,6 +63,7 @@ button{
   width: 150px;
   margin: 20px auto;
   border-radius: 15px;
+  cursor: pointer;
 }
 .btn-container {
   width: 100%;
@@ -74,24 +81,30 @@ button{
 .header {
   text-align: center;
   grid-area: heading;
-  font-family: 'Orbitron', sans-serif;
 }
 
 h1 {
+  font-family: 'Orbitron', sans-serif;
+  text-transform: lowercase;
   margin: 10px 0 30px 0;
-  font-size: 50px;
-  color: white;
+  font-size: 60px;
+
+  text-shadow: 0 1px 0px #378ab4, 1px 0 0px #5dabcd, 1px 2px 1px #378ab4, 2px 1px 1px #5dabcd, 2px 3px 2px #378ab4, 3px 2px 2px #5dabcd, 3px 4px 2px #378ab4, 4px 3px 3px #FFF360, 4px 5px 3px #FFF360, 5px 4px 2px #FFF360, 5px 6px 2px #FF927D, 6px 5px 2px #FF927D, 6px 7px 1px #F06F41, 7px 6px 1px #F06F41, 7px 8px 0px #F06F41, 8px 7px 0px #F06F41, 2px 2px 2px rgba(28,161,164,0), 2px 2px 2px rgba(28,161,164,0);
+  color: #FFFFFF;
+  /* text-shadow: 10px 10px rgb(240, 111, 65); */
 }
 
 #reset-button{
-  width: 150px;
+  width: 140px;
   margin: 0 30px 10px 0;
   float: right;
   border-radius: 15px;
-  padding-top: 10px;
+  /* padding-top: 5px; */
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
 }
+
 #reset-button:hover {
   background: rgb(240, 111, 65);
   color: white;
@@ -105,7 +118,7 @@ h1 {
 .letters {
   grid-area: letters;
   font-size: 30px;
-  background: white;
+  background: rgb(199, 198, 198);
   border-radius: 15px;
   margin-right: auto;
   margin-left: auto;
@@ -195,7 +208,7 @@ h1 {
   grid-area: players;
   border-radius: 15px;
   width: 90%;
-  background: whitesmoke;
+  background: rgb(199, 198, 198);
   text-align: center;
   display: grid;
   grid-template-rows: 65px auto;
@@ -219,6 +232,8 @@ h1 {
   background: teal;
   border-radius: 15px 15px 0px 0px;
   font-size: 20px;
+  color: black;
+  text-shadow: 3px 3px rgb(240, 111, 65);
 }
 
 h4{
