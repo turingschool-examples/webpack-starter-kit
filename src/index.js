@@ -33,6 +33,7 @@ let round;
 $(".name-btn").on("click", startGame);
 $(".guess-btn").on("click", guess);
 $(".guess-input").on("keydown", domUpdates.hideGuessMessages);
+$(".start-timer-btn").on("click", runTimer);
 $(".multiplier-btn").on("click", startFinalRound);
 
 function startGame() {
@@ -53,6 +54,10 @@ function guess() {
   if (round.answers.length === 0) {
     round = game.startNewRound();
   }
+}
+
+function runTimer() {
+  round.startTimer($(".timer"));
 }
 
 function startFinalRound() {
