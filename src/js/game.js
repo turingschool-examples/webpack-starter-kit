@@ -36,6 +36,7 @@ class Game {
     this.currentPrize = wheel.spin();
     if (this.currentPrize === 'BANKRUPT') {
       this.players[this.playerIndex].totalScore = 0;
+      domUpdates.updateBank(this.playerIndex, this.players[this.playerIndex].totalScore);
       this.changeTurn();
     } else if (this.currentPrize === 'LOSE A TURN') {
       this.changeTurn();
