@@ -94,7 +94,6 @@ $('#consonant').click(function () {
     // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
     // compare player ans against round answer
     conditionalChecking(round, player, ltrGuess);
-    DomUpdates.toggleButtons();
     // create a new array
     // push correct guess letter in there
     // find index of answer array to guess letter array
@@ -107,8 +106,11 @@ let conditionalChecking = (round, player, ltrGuess) => {
   if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
     alert('This letter has already been guessed!');
     // todo: add an error message instead of alert
-  } else if (compareAns(round, player)) {
+  } else if (compareAns(round, player) && !vowels.includes(ltrGuess.toUpperCase())) {
     correctAnsFunc(round, player, ltrGuess);
+    DomUpdates.toggleButtons();
+  } else if (compareAns(round, player) && vowels.includes(ltrGuess.toUpperCase())) {
+    correctAnsFunc(round, player, ltrGuess)
   } else {
     // console.log(game.currentRound.allRoundGuesses)
     // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
