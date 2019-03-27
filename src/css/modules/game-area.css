@@ -1,0 +1,18 @@
+.game-area {
+  margin: 50px auto;
+}
+
+.game-area {
+  display: none;
+  grid-template-areas:
+    ". logo ."
+    ". survey ."
+    ". input ."
+    "player-one results player-two";
+  grid-template-columns: 1fr 2.8fr 1fr;
+  grid-template-rows: 1.3fr 1.1fr .85fr 470px;
+  height: 90%;
+  justify-items: center;
+  margin: 0 auto;
+  width: 95%;
+}

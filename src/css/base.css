@@ -3,75 +3,11 @@ body {
   background-color: burlywood;
 }
 
-.info-page {
-  width: 700px;
-  height: 500px;
-  margin: 80px auto 0;
-  background-image: url("../images/name-background.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.input-holder {
-  padding-top: 90px;
-}
-
-.input-holder > * {
-  text-align: center;
-  font-size: 30px;
-  display: block;
-  color: white;
-  margin: 20px auto;
-  width: 300px;
-}
-
-.input-holder input {
-  color: black;
-}
-
 button {
   background-color: #B02418;
   border: none;
   padding: 10px;
   color: white;
-}
-
-.final-rules {
-  margin: 0 auto;
-  font-size: 24px;
-  width: 82%;
-}
-
-.game-area {
-  margin: 50px auto;
-}
-
-.game-area {
-  width: 95%;
-  height: 90%;
-  margin: 0 auto;
-  display: none;
-  /* grid-row-gap: 10px; */
-  grid-template-columns: 1fr 2.8fr 1fr;
-  grid-template-rows: 1.3fr 1.1fr .85fr 470px;
-  grid-template-areas:
-    ". logo ."
-    ". survey ."
-    ". input ."
-    "player-one results player-two";
-  justify-items: center;
-}
-
-.logo-holder {
-  grid-area: logo;
-}
-
-.feud-logo {
-  display: block;
-  height: 60px;
-  width: 600px;
-  margin: 20px auto;
 }
 
 h4,
@@ -84,14 +20,6 @@ h6 {
 
 .active {
   background-color: red;
-}
-
-.timer {
-  display: inline-block;
-  font-size: 25px;
-  padding: 5px;
-  text-align: center;
-  margin: 0 10px;
 }
 
 .hidden {
