@@ -61,6 +61,9 @@ function runTimer() {
 }
 
 function startFinalRound() {
+  game.player1.getMultiplier(parseInt($("#p1-multiplier-input").val()));
+  game.player2.getMultiplier(parseInt($("#p2-multiplier-input").val()));
+  console.log(game);
   domUpdates.revealGame();
   game.updateDOM(round);
 }
