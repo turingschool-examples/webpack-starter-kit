@@ -18,12 +18,10 @@ class Round {
     this.roundNumber ++
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
     this.shuffler(allRoundClues)
-    this.playerTurn(game)
     DomUpdates.displayActivePlayer(game.players[this.activePlayer])
     this.getRandomClue(allRoundClues)
     this.wheelInst.createWheel(this)
     game.stage ++
-    console.log(this.letterIndexs)
   }
 
   getRandomClue(cards) {  
@@ -41,21 +39,23 @@ class Round {
     } 
   }
 
-  shuffler(array) {
-    console.log(array)
-    for (var i = array.length - 1; i > 0; i--) {
+  shuffler(gameClues) {
+    for (var i = gameClues.length - 1; i > 0; i--) {
       var m = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[m];
-      array[m] = temp;
+      var temp = gameClues[i];
+      gameClues[i] = gameClues[m];
+      gameClues[m] = temp;
     }
   }
 
   fillGameBoard() {
+    console.log('clueAnsw3r', this.clueAnswer)
     this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
   }
 
   flipCells(letter) {
+    // console.log('asrtdfgv', letter)
+    console.log(this.letterIndexs)
     const selectedLetter = this.letterIndexs[letter];
     const puzzleCells = $('.puzzle-cell').toArray();
     if (selectedLetter) {
@@ -68,11 +68,6 @@ class Round {
         puzzleCell.classList.add('letters-displayed');
       }
     }
-  }
-
-  playerTurn(game) {
-    game.players[this.activePlayer]
-    console.log('myTurn:', game.players[this.activePlayer])
   }
 
   switchPlayer(game) {
@@ -105,7 +100,7 @@ class Round {
     if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
       DomUpdates.gameMessage("bankrupt")
-      game.players[this.activePlayer].playerBank = 0
+      game.bankruptPlayerBank();
       this.switchPlayer(game);
     } else if (wheelValue === "LOSE A TURN") {
       DomUpdates.gameMessage("lose turn")
@@ -117,18 +112,11 @@ class Round {
     }
   }
 
-  // playerGuessPuzzle(playerGuessInput, game) {
-  //   let clueAnswer = this.clueAnswer.join('')
-  //   if (clueAnswer == playerGuessInput) {
-  //     DomUpdates.clearGameBoard();
-  //     this.createNewRound(game)
-  //     console.log(this)
-  //   }
-  // }
 
   ///checking clicked letter works
   checkLetter(userLetter, game) {
-    console.log(this.remainingLetters)
+    // console.log('user', userLetter)
+    // console.log(this.remainingLetters)
     let cleanClueAnswer = this.clueAnswer.join('').replace(/[-']/g, '').split('')
     if (cleanClueAnswer.includes(userLetter)) {
       this.remainingLetters = this.remainingLetters.filter(letter =>{

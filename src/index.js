@@ -79,10 +79,11 @@ function startGameBtn(event) {
 }
 
 function selectingLetter(event) {
-  let selectedLetter = $(event.target).text();
-  game.roundInst.checkLetter(selectedLetter, game);
+  let clickedLetter = $(event.target).text();
+
+  game.roundInst.checkLetter(clickedLetter, game);
   DomUpdates.disableLetter(event);
-  game.roundInst.flipCells(selectedLetter);
+  game.roundInst.flipCells(clickedLetter);
 }
 
 function playerSpin(game) {
@@ -91,7 +92,6 @@ function playerSpin(game) {
 
 
 function playerBuyVowel(game) {
-  console.log('buyVowel')
   game.roundInst.buyVowel(game);
 }
 
