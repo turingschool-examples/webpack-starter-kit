@@ -30,11 +30,17 @@ body {
 .playerNames() {
   display: inline-block;
   margin: 2% 0;
+  font-size: 1rem;
+}
+
+.labelName {
+  font-size: 1rem;
+  margin: 8% 0;
 }
 
 .popUpPlayers {
   display: inline-block;
-  margin: 0 2%;
+  margin-right: 2%;
 }
 
 .popUpPlayers > * {
@@ -82,6 +88,7 @@ body {
     margin: 0px 25%;
 }
 
+
 #responseOne,
 #responseTwo,
 #responseThree {
@@ -102,7 +109,7 @@ body {
     height: 120px;
     background: white;
     border-style: inset;
-    padding: 10px;
+    padding: 35px;
     font-weight: 800;
 }
 

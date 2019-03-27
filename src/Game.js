@@ -40,6 +40,8 @@ createRound() {
     this.round = new Round(survey);
     console.log(survey);
     this.roundNumber++; 
+    const question = survey.question;
+    domUpdates.appendQuestion(question);
 };
 
 getAnswer(guess) {

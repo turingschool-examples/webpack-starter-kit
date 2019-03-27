@@ -12,7 +12,7 @@ class Player {
         let newScore = this.score += scoreAmt;
         domUpdates.changeScore(newScore, this.playerId);
         console.log(newScore);
-    //     game.checkPlayer()
+        
 
 };
 

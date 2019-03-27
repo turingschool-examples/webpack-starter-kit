@@ -23,22 +23,23 @@ popUp() {
   $('.gamePopUp').append( `<section class="startGamePopUp">
    <h2>Welcome to Family Feud!</h2>
    <div class='playerNames'>
-   <p>Please enter player names.</p>
+   <p>Please Enter Player Names.</p>
    <div class='popUpPlayers'>
-   <label for="">Player 1 Name</label>
+   <label class="labelName">Player 1 Name</label>
    <input class="nameOne"></input>
    </div>
    <div class='popUpPlayers'>
-   <label for="">Player 2 Name</label>
+   <label class="labelName">Player 2 Name</label>
    <input class="nameTwo"></input>
    </div>
    <button id="startBtn">Start Game</button>
    </section>`
    )},
 
-  // appendQuestion() {
-
-  // },
+  appendQuestion(question) {
+    console.log(question);
+    $('#surveyQuestion').text(question);
+  },
 
   changeScore(score, playerId) {
      if(playerId === 1) {
