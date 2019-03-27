@@ -32,6 +32,11 @@ let round;
 
 $(".name-btn").on("click", startGame);
 $(".guess-btn").on("click", guess);
+$(".guess-input").on("keypress", function(e) {
+  if (e.keyCode === 13) {
+    guess();
+  }
+});
 $(".guess-input").on("keydown", domUpdates.hideGuessMessages);
 $(".start-timer-btn").on("click", runTimer);
 $(".multiplier-btn").on("click", startFinalRound);
