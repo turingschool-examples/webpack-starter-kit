@@ -115,11 +115,6 @@ h6 {
   background-size: contain;
 }
 
-.user-input {
-  grid-area: input;
-  margin: 0 auto;
-}
-
 .active {
   background-color: red;
 }
