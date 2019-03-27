@@ -6,12 +6,6 @@ class Clue {
     this.pointValue = clue.pointValue;
     this.answer = clue.answer;
   }
-
-  checkAnswer() {
-    //this.playerguess = playerinput.value
-    // boolean of this.answer === this.playerguess
-  }
-
 }
 
 export default Clue;

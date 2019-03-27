@@ -26,8 +26,6 @@ let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()
 [dataCategories[6].toUpperCase()]];
 // $(document).ready(dataCategories);
 
-// newGame.populateQuestions()
-
 // dom manipulation to get values of the three names
 
 var name1 = $("#player-1").val;
@@ -52,4 +50,15 @@ console.log('This is the JavaScript entry file - your code begins here.');
     $('#category-four').text(categoryArr[3]);
   });
 
-  $(".box-wrapper").click()
+
+  $(".box-wrapper").on('click', function (e) {
+    let category = []
+    if ($(e.target).is(".cat-1")) {
+      category = (newGame.currentRound.topicOne);
+  }
+  console.log(category);
+
+  console.log($(e.target).is(".cat-1"));
+
+
+  });

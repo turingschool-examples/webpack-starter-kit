@@ -1,4 +1,5 @@
 import Game from './Game.js'
+import Clue from './Clue.js'
 
 class Player {
   constructor(playerName, playerId) {
@@ -6,8 +7,8 @@ class Player {
     this.playerId = playerId;
     this.playerDollarAmount = 0;
   }
-  updateScore(newScore) {
-    this.playerDollarAmount = newScore;
+  checkAnswer(newScore) {
+        
   }
 }
 

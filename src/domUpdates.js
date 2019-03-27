@@ -19,52 +19,52 @@ export default {
   },
 
   publishRoundClues () {
-    const scoreBoard = '<article class="clues" id="cat-1-ind-0">' +
+    const scoreBoard = '<article class="clues cat-1 ind-0">' +
     100 +
     '</article>' +
-    '<article class="clues" id="cat-2-ind-0">' +
+    '<article class="clues cat-2 ind-0">' +
     100 +
     '</article>' +
-    '<article class="clues" id="cat-3-ind-0">' +
+    '<article class="clues cat-3 ind-0" >' +
     100 +
     '</article>' +
-    '<article class="clues" id="cat-4-ind-0">' +
+    '<article class="clues cat-4 ind-0">' +
     100 +
     '</article>' +
-    '<article class="clues" id="cat-1-ind-1">' +
+    '<article class="clues cat-1 ind-1">' +
     200 +
     '</article>' +
-    '<article class="clues" id="cat-2-ind-1">' +
+    '<article class="clues cat-2 ind-1">' +
     200 +
     '</article>' +
-    '<article class="clues" id="cat-3-ind-1">' +
+    '<article class="clues cat-3 ind-1">' +
     200 +
     '</article>' +
-    '<article class="clues" id="cat-4-ind-1">' +
+    '<article class="clues cat-4 ind-1">' +
     200 +
     '</article>' +
-    '<article class="clues" id="cat-1-ind-2">' +
+    '<article class="clues cat-1 ind-2">' +
     300 +
     '</article>' +
-    '<article class="clues" id="cat-2-ind-2">' +
+    '<article class="clues cat-2 ind-2">' +
     300 +
     '</article>' +
-    '<article class="clues" id="cat-3-ind-2">' +
+    '<article class="clues cat-3 ind-2">' +
     300 +
     '</article>' +
-    '<article class="clues" id="cat-4-ind-2">' +
+    '<article class="clues cat-4 ind-2">' +
     300 +
     '</article>' +
-    '<article class="clues" id="cat-1-ind-3">' +
+    '<article class="clues cat-1 ind-3">' +
     400 +
     '</article>' +
-    '<article class="clues" id="cat-2-ind-3">' +
+    '<article class="clues cat-2 ind-3">' +
     400 +
     '</article>' +
-    '<article class="clues" id="cat-3-ind-3">' +
+    '<article class="clues cat-3 ind-3">' +
     400 +
     '</article>' +
-    '<article class="clues" id="cat-4-ind-3">' +
+    '<article class="clues cat-4 ind-3">' +
     400 +
     '</article>'
 
