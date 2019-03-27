@@ -89,7 +89,9 @@ class Round {
   displayCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
   }
-  
+  compareAns(game) {
+    return game.currentRound.answer.map(letter => letter.toUpperCase()).includes(game.currentRound.currentPlayer.ans.toUpperCase());
+  }
   
   checkPlayerGuess() {
     console.log('Array of ans', this.answer);
