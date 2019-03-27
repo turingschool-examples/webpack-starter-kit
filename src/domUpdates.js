@@ -63,10 +63,10 @@ popUp() {
        $('#round').text("Round 2");
     } else if(roundNumber === 3){
        $('#progress').html('<progress id="bar" max="100" value="=75"> </progress>');
-       $('#round').text("Lightning Round");
+       $('#round').text("Lightning ⚡ Round");
     } else if(roundNumber === 4){
        $('#progress').html('<progress id="bar" max="100" value="100"> </progress>');
-       $('#round').text("Lightning Round");
+       $('#round').text("Lightning ⚡ Round");
     }
   },
 
