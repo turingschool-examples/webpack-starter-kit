@@ -231,7 +231,9 @@ justify-content: center;
  }
 
  .score-label {
-   margin-top: 10px;
+  color: red;
+  font-size: 32px;
+  margin-top: 10px;
  }
 
  .start-container {

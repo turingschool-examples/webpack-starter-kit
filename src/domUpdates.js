@@ -1,4 +1,4 @@
-import Game from './Game.js';
+// import Game from './Game.js';
 import Wheel from './Wheel.js';
 import Puzzle from './Puzzle.js';
 import Player from './Player.js';
@@ -66,10 +66,6 @@ let domUpdates = {
     $('.category').text(game.currentPuzzle.category.toUpperCase());
   },
 
-// displayScore() {
-
-// },
-
   startGame(game) {
     game.createPlayer($('.player-name-input').eq(0).val(), 
       $('.player-name-input').eq(1).val(), 
@@ -86,6 +82,17 @@ let domUpdates = {
   grabAnswerInput(player) {
     let answerInput = ($('.answer-input').val().toUpperCase());
     return answerInput;
+  },
+
+  displayScore(game) {
+    game.players.forEach((player, index) => {
+      console.log('index:', index + 1, 'player.roundScore', player.roundScore)
+      $(`.js-points-${index + 1}`).text(player.roundScore);
+    })
+    //take players array and map over each player and index
+    //change text for each player ` js-points${index + 1} ...taking 0 + 1 and then jspoints will be +1
+    //set text equal to whatever that player.score is
+      // $('.js-points').text(`${score}`);
   },
 
   displayWinMessage() {
@@ -106,13 +113,11 @@ let domUpdates = {
 
   grabVowel() {
     let currentVowel = ($('#js-vowel-input').val().toUpperCase());
-    console.log('Test current letter', currentVowel);
     return currentVowel;
   },
 
 
   displayLoseTurn(wheel) {
-    console.log(`${wheel.currentIndex}`)
     $('.gameplay-message').text('Your spin was LOSE A TURN, onto the next player');
   },
 

@@ -11,12 +11,14 @@ class Game {
     this.currentPlayer = player;
     this.currentRound = 0;
     this.currentPuzzle = null;
-    this.currentPrize;
+    this.currentPrize = 0;
+    this.wheel = null;
   }
 
   getPrize() {
     let wheel = new Wheel();
     this.currentPrize = wheel.getRandomWheel();
+    this.wheel = wheel;
     console.log('prize!', this.currentPrize);
   } 
 
