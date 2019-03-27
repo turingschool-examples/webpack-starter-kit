@@ -11,9 +11,9 @@ class FastRound extends Round {
 
   startTimedRound() {
     if (this.game.activePlayer === this.game.player1) {
-      domUpdates.displayTimer1();
+      domUpdates.displayTimer1(this.game);
     } else {
-      domUpdates.displayTimer2();
+      domUpdates.displayTimer2(this.game);
     }
   }
 

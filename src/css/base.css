@@ -129,15 +129,15 @@ button:disabled {
   width: 100%;
 }
 
-#fastround-start-btn,
 .play-again-btn,
+#fastround-start-btn,
 #submit-names-btn {
   background-color: #FBE065;
   color: #213b72;
 }
 
-#fastround-start-btn:hover,
 .play-again-btn:hover,
+#fastround-start-btn:hover,
 #submit-names-btn:hover {
   background-color: lightgray;
 }
