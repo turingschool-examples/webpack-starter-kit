@@ -1,0 +1,16 @@
+.survery-box {
+  background-image: url("../../images/text-banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  grid-area: survey;
+  width: 100%;
+}
+
+.survey {
+  color: white; 
+  font-size: 22px;
+  margin: 10px auto;
+  text-align: center;
+  width: 440px;
+}

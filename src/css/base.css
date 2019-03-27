@@ -74,23 +74,6 @@ button {
   margin: 20px auto;
 }
 
-.survery-box {
-  grid-area: survey;
-  background-image: url("../images/text-banner.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-}
-
-.survey {
-  text-align: center;
-  color: white; 
-  font-size: 22px;
-  margin: 10px auto;
-  width: 440px;
-}
-
 h4,
 h6 {
   color: white;
