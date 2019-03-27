@@ -20,47 +20,38 @@ class Round {
     return puzzle;
   }
   changeActivePlayers() {
-    // if (this.activePlayer < 3) {
-    //     this.activePlayer++;
-    // }else {
-    //     this.activePlayer = 1;
-    // }
-    // this.checkScore();
-
-    // ///next turn
-
-    // switch (true) {
-    // case (this.activePlayer === 1):
-    //   oldPlayer = 3; newPlayer = 1;
-    //   break;
-    // case(this.activePlayer === 2): 
-    //   oldPlayer = 1; newPlayer = 2
-    //   break;
-    // case (this.activePlayer === 3):
-    //   oldPlayer = 2; newPlayer = 3
-    //   break;
-    // default:
-    //     alert('Something went wrong!');
-    //   break;
-    // }
-    // domUpdates.turnOrder(oldPlayer, newPlayer);
-
+    let oldPlayer, newPlayer;
+    switch (true) {
+      case (this.activePlayer === 1):
+      oldPlayer = 1; newPlayer = 2;
+      break;
+      case (this.activePlayer === 2): 
+      oldPlayer = 2; newPlayer = 3;
+      break;
+      case (this.activePlayer === 3):
+      oldPlayer = 3; newPlayer = 1;
+      break;
+      default:
+      alert('Something went wrong!');
+      break;
+    }
+    domUpdates.turnOrder(oldPlayer, newPlayer);
+    this.activePlayer = newPlayer - 1;
+    this.checkScore();
   }
 
   checkScore(game) {
-    if (this.players[this.activePlayer].roundScore >= 100) {
+    if (this.players[this.activePlayer].roundScore >= 100); {
       domUpdates.buyAVowel(game);
     }
   }
 
-  // TODO: DISPLAY TOTAL SCORE ON DOM
-  // INVESTIGATE: Might not actually be modifying the player score
-  // aka might need a "player.updateScore" method
+
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer]
-    player.roundScore += spinValue
-    console.log('after: ', player.roundScore)
-    domUpdates.displayScore(player, player.roundScore)
+    player.roundScore += spinValue;
+    console.log('after: ', player, player.roundScore)
+    domUpdates.displayScore(player.playerNumber, player.roundScore)
   }
 
   // TODO: DISPLAY REVEALED LETTER

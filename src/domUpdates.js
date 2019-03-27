@@ -3,6 +3,7 @@ import Puzzle from "./Puzzle.js";
 import Round from "./Round.js";
 
 import $ from 'jquery';
+import Player from "./Player.js";
 
 export default {
 
@@ -11,7 +12,7 @@ export default {
     $('.name-entry').addClass("hidden");
     playersArr.forEach((player, ind) => {
       $('#player' + ([ind + 1])).text(player.name);
-    })
+    });
 
   },
 
@@ -82,7 +83,7 @@ export default {
     const totalDegree = Math.round(spinAgain / 36) * 150;
     let wheel = game.round.currentWheel
     // debugger
-    wheel.spinWinner(winner);
+    wheel.spinWinner(winner, game.round);
     clicks++;
     $('#inner').css({
       'transform': 'rotate(' + totalDegree + 'deg)'
@@ -110,11 +111,13 @@ export default {
   },
 
   displayCorrectLetter(puzzle, guess) {
-    puzzle.forEach((letter, index) => {
+    puzzle.forEach((letter) => {
       if (letter === guess) {
-        $(`puz-grid secret ${letter}`).removeClass('secret')
+        // debugger
+        $(`.${letter}`).removeClass('secret');
+        console.log(letter)
       } 
-    })
+    });
   },
 
   buyAVowel(game) {
@@ -125,7 +128,7 @@ export default {
   },
 
   displayScore(player, value) {
-    $(`#player-${player}-round`).text(`Score: ${value}`)
+    $(`#player-${player}-round`).text(`Score: ${value}`);
   }
   
   
