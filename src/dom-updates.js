@@ -35,14 +35,14 @@ export default {
   toggleButtons(game) {
     //Toggle: Consonant & Label
     $('#consonant').attr('value') == 'Spin Wheel' 
-      ? $('#consonant').removeAttr('disabled').css('background-color', 'darkgreen').attr('value', 'Guess Consonant')
+      ? $('#consonant').removeAttr('disabled').css('background-color', '#65AB55').attr('value', 'Guess Consonant')
       : $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', 'Spin Wheel');
     //Toggle: Wheel
     $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
     //Toggle: Word & Vowel
     if ($('.guess__word--button').attr("disabled") && $('#vowel').attr("disabled")) {
-      $('.guess__word--button').removeAttr("disabled").css("background-color", "darkgreen");
-      $('#vowel').removeAttr("disabled").css("background-color", "darkgreen");
+      $('.guess__word--button').removeAttr("disabled").css("background-color", "#65AB55");
+      $('#vowel').removeAttr("disabled").css("background-color", "#65AB55");
     } else {
       $('.guess__word--button').attr("disabled", 'true').css("background-color", "gray");
       $('#vowel').attr("disabled", 'true').css("background-color", "gray");
@@ -97,7 +97,6 @@ export default {
   appendWinner(game) {
     let winner = game.currentRound.currentPlayer.name;
     let winningCaps = game.currentRound.currentPlayer.roundCaps;
-    let answer = game.currentRound.wholeWord.join('');
 
     let body = $('body');
     body.append(`<section class="winner-card fade-in"> The Winner is: ${winner} <br> The Puzzle was: ${answer} <br> ${winner} has won ${winningCaps} caps!<section>`)
