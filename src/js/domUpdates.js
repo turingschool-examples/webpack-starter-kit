@@ -35,16 +35,20 @@ export default {
     }, 1)
     this.hideInputs();
     setTimeout(() => {
-      this.showInput();
+      this.showInput(prize);
       this.showVowels();
       this.showSolveInput();
       $('.wheel-img').removeClass('spin');
     }, 5);
   },
 
-  showInput() {
+  showInput(prize) {
     $('.check-btn, .ltr-input').show();
     $('.btn-solve, .buy, .btn-spin').attr('disabled', true)
+    if (['BANKRUPT', 'LOSE A TURN'].includes(prize)) {
+      $('.check-btn, .ltr-input').hide();
+      $('.btn-spin').attr('disabled', false);
+    };
   },
 
   hideInputs: () => {
@@ -61,8 +65,9 @@ export default {
 
   showVowels: () => {
     $('.buy').on('click', function() {
+      $('.buy, .btn-spin, .btn-solve').attr('disabled', true);
+      $('.vowels-to-buy').show();
       $('.vowels-to-buy').toggle().addClass('slide-in');
-      $('.buy, .btn-spin, .btn-solve').attr('disabled', true)
       $('.input-solve, .final-solution-btn').hide();
       $('.check-btn, .ltr-input').hide();
     });
@@ -92,13 +97,10 @@ export default {
   },
 
   getConsonant() {
-    let vowels = ['A', 'E', 'I', 'O', 'U']
-    if (vowels.includes($('.ltr-input').val().toUpperCase())) {
-      this.hideInputs();
-      console.log('no')
-    } else {
-      return $('.ltr-input').val().toUpperCase();
-    }
+    this.hideInputs();
+    $('.feedback').show();
+    $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
+    return $('.ltr-input').val().toUpperCase();
   },
 
   getBoard() {
@@ -170,9 +172,8 @@ export default {
     }
   },
   
-  clearFields () {
-    $('.word-box').empty();
-    $('.feedback').empty();
-    $('.feedback').empty();
+  clearFields() {
+    $('.word-box, .letters-used, .feedback').empty();
   }
+
 }

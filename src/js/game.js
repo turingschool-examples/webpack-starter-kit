@@ -71,7 +71,7 @@ class Game {
         domUpdates.correctAns();
         this.players[this.playerIndex].currentScore += this.currentPrize;
       } else if (!this.ltrArr.includes(consonantGuess)) {
-        this.ltrArr.push(consonantGuess)
+        this.ltrArr.push(consonantGuess);
       }
     })
     domUpdates.appendLetters(this.ltrArr);
