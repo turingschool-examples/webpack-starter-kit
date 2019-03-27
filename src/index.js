@@ -110,51 +110,48 @@ let conditionalChecking = (round, player, ltrGuess) => {
     alert('This letter has already been guessed!');
     // todo: add an error message instead of alert
   } else if (game.currentRound.compareAns() && !vowels.includes(ltrGuess.toUpperCase())) {
-    correctAnsFunc(round, player, ltrGuess);
+    game.currentRound.correctAnsFunc(game, ltrGuess);
     DomUpdates.toggleButtons();
   } else if (game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
-    correctAnsFunc(round, player, ltrGuess)
+    game.currentRound.correctAnsFunc(game, ltrGuess)
   } else if (!game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
     round.allRoundGuesses.push(player.ans);
     round.allRoundGuesses.sort();
     DomUpdates.appendIncorrect();
     round.getCurrentPlayer(game);
   } else {
-    // console.log(game.currentRound.allRoundGuesses)
-    // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
     round.allRoundGuesses.push(player.ans);
     round.allRoundGuesses.sort();
     DomUpdates.appendIncorrect();
-    console.log("this needs to be sorted:", round.allRoundGuesses)
     round.getCurrentPlayer(game);
     DomUpdates.toggleButtons();
-    // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
-    // console.log('CurrentPlayer', game.currentRound.currentPlayer);
   }
 }
 
+// todo: remove after refactor
 // let compareAns = (game) => {
 //   return round.answer.map((letter)=> letter.toUpperCase())
 //     .includes(player.ans.toUpperCase());
 // }
 
-let correctAnsFunc = (round, player, ltrGuess) => {
-  round.correctRoundGuesses.push(player.ans);
-  round.allRoundGuesses.push(player.ans);
-  round.allRoundGuesses.sort();
-  DomUpdates.createPuzzleClassArr(ltrGuess);
-  DomUpdates.appendCorrect();
-  round.answer = round.answer
-  .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
-  if (game.currentRound.answer.length === 0) {
-    game.currentRound.newRound(game);
-    DomUpdates.appendWinner(game);
-  }
-  round.getCurrentPlayer(game);
-  console.log(game.currentRound.answer)
-  game.currentRound.answer = game.currentRound.answer
-    .filter(char => char !== ' ' ? char : char = '');
-}
+// todo: remove after refactor
+// let correctAnsFunc = (round, player, ltrGuess) => {
+//   round.correctRoundGuesses.push(player.ans);
+//   round.allRoundGuesses.push(player.ans);
+//   round.allRoundGuesses.sort();
+//   DomUpdates.createPuzzleClassArr(ltrGuess);
+//   DomUpdates.appendCorrect();
+//   round.answer = round.answer
+//   .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+//   if (game.currentRound.answer.length === 0) {
+//     game.currentRound.newRound(game);
+//     DomUpdates.appendWinner(game);
+//   }
+//   round.getCurrentPlayer(game);
+//   console.log(game.currentRound.answer)
+//   game.currentRound.answer = game.currentRound.answer
+//     .filter(char => char !== ' ' ? char : char = '');
+// }
 
 let buyVowel = (round, player, ltrGuess) => {
   if (player.roundCaps < 100) {

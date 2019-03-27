@@ -93,6 +93,22 @@ class Round {
     return this.answer.map(letter => letter.toUpperCase())
       .includes(this.currentPlayer.ans.toUpperCase());
   }
+  correctAnsFunc(game, ltrGuess) {
+    this.correctRoundGuesses.push(this.currentPlayer.ans);
+    this.allRoundGuesses.push(this.currentPlayer.ans);
+    this.allRoundGuesses.sort();
+    DomUpdates.createPuzzleClassArr(ltrGuess);
+    DomUpdates.appendCorrect();
+    this.answer = this.answer
+      .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+    if (this.answer.length === 0) {
+      this.newRound(game);
+      DomUpdates.appendWinner(game);
+    }
+    this.getCurrentPlayer(game);
+    console.log(this.answer)
+    this.answer = this.answer.filter(char => char !== ' ' ? char : char = '');
+  }
   
   checkPlayerGuess() {
     console.log('Array of ans', this.answer);
