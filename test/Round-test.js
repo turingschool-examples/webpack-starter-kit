@@ -15,7 +15,9 @@ describe('Round', () => {
   });
 
   it('should have default properties', () => {
-    expect(round.players).to.deep.equal([]);
+    expect(round.activePlayer).to.equal(0);
+    expect(round.roundCountDown).to.equal(0);
+
     
   });
 
