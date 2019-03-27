@@ -1,4 +1,3 @@
-import Game from './Game.js';
 import domUpdates from './domUpdates.js';
 import Puzzle from './Puzzle.js';
 
@@ -11,17 +10,16 @@ class Player {
 
   solvePuzzle(game) {
     let solveInput = domUpdates.grabCurrentLetter();
-    console.log(solveInput);
-    let puzzle = game.currentPuzzle
+    let puzzle = game.currentPuzzle;
     let letters = game.currentPuzzle.answer.split('');
     letters.forEach(letter => {
-      if (solveInput === puzzle.answer) {
+      console.log('letter:', letter)
+      if (solveInput.includes(letter) === puzzle.answer) {
         domUpdates.displayLetterMatch(letter);
-        getPlayerScore();
+        this.getPlayerScore();
         // if(player.input !== puzzle.answer) {
         // }
         // switchPlayers();
-        //add this to puzzle instead
       }
     })
     
@@ -29,7 +27,6 @@ class Player {
 
 
   getPlayerScore(wheel, game) {
-    // use this after we create wheel spin method
     console.log('playerScore:', game.currentPlayer)
     game.currentPlayer.roundScore += wheel.currentIndex;
   }

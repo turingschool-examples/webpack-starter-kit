@@ -11,8 +11,18 @@
     <button class='button quit-button' id='js-quit-button'>Quit Game</button>
   </header>
   <h3 class='round-count' id='js-round-count'> Current Round: <span class='round-num'>1</span></h3>
-  <section class='popup'></section>
+  <section class='popup hidden'>
+ <section class='question-popup'> 
+          <form class='solve-form'> 
+            <input class='answer-input' placeholder='Type your answer here'>
+            <button class='answer-submit'>Submit</button>
+            <button class='exit-solve'>Exit Solve Puzzle</button> 
+          </form>
+        </section>
+  </section>
   <section class='puzzle-container'>
+    <!-- move section chunk below later -->
+     
     <article class='puzzle'>
       <article class='answer-display'></article>
     </article>

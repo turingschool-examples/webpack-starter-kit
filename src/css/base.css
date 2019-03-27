@@ -170,6 +170,10 @@ justify-content: center;
   z-index: 1;
  }
 
+ .hidden {
+  display: none;
+}
+
  .answer-submit {
   background-color: #34675c;
   color: black;

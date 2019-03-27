@@ -45,19 +45,16 @@ $('#js-spin-button').on('click', function() {
 
 $('#js-solve-button').on('click', function(e) {
   e.preventDefault();
-  domUpdates.displayQuestionSolvePopup(game);
-  let solveInput = domUpdates.grabCurrentLetter();
-  console.log("player", game.currentPlayer);
-  game.currentPlayer.solvePuzzle(solveInput, game);
+  domUpdates.showPopup();
+  // let solveInput = domUpdates.grabCurrentLetter();
+  // console.log("player", game.currentPlayer);
+  // game.currentPlayer.solvePuzzle(game);
   console.log(game.currentPlayer);
   // round.checkPlayerGuess();  
 });
 
-$('.answer-submit').on('click', function(e, game) {
+$('.answer-submit').on('click', function(e) {
   e.preventDefault();
-  console.log($('.answer-input').val());
-  console.log("testing ansSubmit");
-  console.log("player", game.currentPlayer);
   game.currentPlayer.solvePuzzle(game);
   console.log(game.currentPlayer);
 });
@@ -80,5 +77,5 @@ $('#js-vowel-submit').on('keyup', function(e) {
 // });
 
 $('.exit-solve').on('click', function() {
-  domUpdates.removePopup();
+  domUpdates.hidePopup();
 })

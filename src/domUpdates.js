@@ -6,17 +6,17 @@ import $ from 'jquery';
 
 let domUpdates = {
 
-  displayQuestionSolvePopup(game) {
-     $('.popup').append(
-      `<section class='question-popup'> 
-          <h2 class='card'>Hint: ${game.currentPuzzle.description}</h2>
-          <form class='solve-form'> 
-            <input class='answer-input' placeholder='Type your answer here'>
-            <button class='answer-submit'>Submit</button>
-            <button class='exit-solve'>Exit Solve Puzzle</button> 
-          </form>
-        </section>`
-        )
+  // displayQuestionSolvePopup(game) {
+  //    $('.popup').append(
+  //     `<section class='question-popup'> 
+  //         <h2 class='card'>Hint: ${game.currentPuzzle.description}</h2>
+  //         <form class='solve-form'> 
+  //           <input class='answer-input' placeholder='Type your answer here'>
+  //           <button class='answer-submit'>Submit</button>
+  //           <button class='exit-solve'>Exit Solve Puzzle</button> 
+  //         </form>
+  //       </section>`
+  //       )
      // to get player input to check against the correct answer this may be the best option
 //copy and past template literal into HTML, give new class, new class has rule of display none
 //when submit solve button is clicked remove css class 
@@ -24,6 +24,14 @@ let domUpdates = {
 
      //need a way to get out of solve puzzle in case they decide to put in another letter 
      //added button above but haven't added an event listener to it yet to remove the .popup
+  // },
+
+  showPopup() {
+    $('.popup').removeClass('hidden');
+  },
+
+  hidePopup() {
+    $('.popup').addClass('hidden');
   },
 
   hideAnswer(game) {
@@ -38,7 +46,7 @@ let domUpdates = {
   },
 
   enableButton() {
-    $('#js-solve-button').remove('disabled');
+    $('#js-e-button').remove('disabled');
     $('#js-spin-button').remove('disabled');
   },
 
@@ -125,10 +133,6 @@ let domUpdates = {
 
  changeActivePlayer() {
     $('.player-box').css('border', '1px solid red');
-  },
-
-  removePopup() {
-    $('.question-popup').remove();
   },
   //if template literal added to html, we don't need this function but we will use it instead to replace the hidden class
   //doing this because it's really difficult to put an event listener on an appended item 
