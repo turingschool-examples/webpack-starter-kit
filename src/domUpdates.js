@@ -126,6 +126,6 @@ export default {
     $(`#player-${player}-round`).text(`Score: ${value}`);
   }
   
-  
+
 
 }

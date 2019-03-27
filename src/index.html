@@ -12,153 +12,147 @@
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </head>
   <body>
-    <section class="hidden game-area">
-    <header class="header">
-      <h1>Wheel of Fortune</h1>
-      <div class="reset-game">
+    <main class="hidden game-area">
+      <header class="header">
+       <h1>Wheel of Fortune</h1>
+       <div class="reset-game">
           <button id="reset-button">RESET GAME</button>
         </div>
-    </header>
-    <section class="letters">
-      <article class="consonants">
-        <div class="consonant letter">B</div>
-        <div class="consonant letter">C</div>
-        <div class="consonant letter">D</div>
-        <div class="consonant letter">F</div>
-        <div class="consonant letter">G</div>
-        <div class="consonant letter">H</div>
-        <div class="consonant letter">J</div>
-        <div class="consonant letter">K</div>
-        <div class="consonant letter">L</div>
-        <div class="consonant letter">M</div>
-        <div class="consonant letter">N</div>
-        <div class="consonant letter">P</div>
-        <div class="consonant letter">Q</div>
-        <div class="consonant letter">R</div>
-        <div class="consonant letter">S</div>
-        <div class="consonant letter">T</div>
-        <div class="consonant letter">V</div>
-        <div class="consonant letter">W</div>
-        <div class="consonant letter">X</div>
-        <div class="consonant letter">Z</div> 
-      </article>
-      <article class="vowels cost">
-        <div class="vowel letter">A</div>
-        <div class="vowel letter">E</div>
-        <div class="vowel letter">I</div>
-        <div class="vowel letter">O</div>
-        <div class="vowel letter">U</div>
-        <div class="vowel letter">Y</div>
-      </article>
-    </section>
-    <section class="game-board">
-      <article class="hint">
-        <div class="clue-container">Around the House</div>
-      </article>
-      <article class="puzzle-grid-container">
-        <div class="grid-container top">
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-          <div class="puz-grid top-row"></div>
-        </div> 
-        <div class="grid-container puzzle"></div>
-        <div class="grid-container bottom">
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-          <div class="puz-grid btm-row"></div>
-        </div> 
-        
-      </article>
-      <article class="solve-puzzle">
-        <form class="player-guess-form">
-          <input type="text" placeholder="Solve the puzzle" class="solve-input">
-          <button class="submit-guess">Submit Guess</button>
-        </form>
-      </article>
-    </section>
-    <section class="player-area">
-      <article class="current-round">
-        <div class="round-heading">
+      </header>
+      <section class="letters">
+        <article class="consonants">
+          <div class="consonant letter">B</div>
+          <div class="consonant letter">C</div>
+          <div class="consonant letter">D</div>
+          <div class="consonant letter">F</div>
+          <div class="consonant letter">G</div>
+          <div class="consonant letter">H</div>
+          <div class="consonant letter">J</div>
+          <div class="consonant letter">K</div>
+          <div class="consonant letter">L</div>
+          <div class="consonant letter">M</div>
+          <div class="consonant letter">N</div>
+          <div class="consonant letter">P</div>
+          <div class="consonant letter">Q</div>
+          <div class="consonant letter">R</div>
+          <div class="consonant letter">S</div>
+          <div class="consonant letter">T</div>
+          <div class="consonant letter">V</div>
+          <div class="consonant letter">W</div>
+          <div class="consonant letter">X</div>
+          <div class="consonant letter">Z</div> 
+        </article>
+        <article class="vowels">
+          <div class="vowel letter">A</div>
+          <div class="vowel letter">E</div>
+          <div class="vowel letter">I</div>
+          <div class="vowel letter">O</div>
+          <div class="vowel letter">U</div>
+          <div class="vowel letter">Y</div>
+        </article>
+      </section>
+      <section class="game-board">
+        <article class="hint">
+          <div class="clue-container">Around the House</div>
+        </article>
+        <article class="puzzle-grid-container">
+          <div class="grid-container top">
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+          </div> 
+          <div class="grid-container puzzle"></div>
+          <div class="grid-container bottom">
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+          </div> 
+        </article>
+        <article class="solve-puzzle">
+          <form class="player-guess-form">
+            <input type="text" placeholder="Solve the puzzle" class="solve-input">
+            <button class="submit-guess">Submit Guess</button>
+          </form>
+        </article>
+      </section>
+      <section class="player-area">
+        <article class="current-round">
           <h4 class="round-number">Round 1</h4>
-        </div>
-      </article>
-      <article id="player1-area" class="player-square 1 active">
-        <h5 class="player-score" id="player-1-round">Score:0</h5>
-        <img class="player-holder" src="/images/player1.svg">
-        <h5 id="player1" class="player-name reset">PLAYER 1 NAME</h5>
-        <h5 class="player-score" id="player-1-total">Total Score:0</h5>
-      </article>
-      <article id="player2-area" class="player-square 2">
-        <h5 class="player-score" id="player-2-round">Score:0</h5>
-        <img class="player-holder" src="/images/player2.svg">
-        <h5 id="player2" class="player-name">PLAYER 2 NAME</h5>
-        <h5 class="player-score" id="player-2total">Total Score:0</h5>
-      </article>
-      <article id="player3-area" class="player-square 3">
-        <h5 class="player-score" id="player-3-round">Score:0</h5>
-        <img class="player-holder" src="/images/player3.svg">
-        <h5 id="player3" class="player-name">PLAYER 3 NAME</h5>
-        <h5 class="player-score" id="player-3-total">Total Score:0</h5>
-      </article>
-      </article>
-    </section>
-    <section class="wheel-section">
-      <article class="spin-winner">Click UFO to Spin</article>
-      <div id="wheel">
-        <div id="inner">
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-          <div class="segment teal"><span> 0 0 0 </span></div>
-          <div class="segment blue"><span> 0 0 0 </span></div>
-        </div>
-      </div>
-      </div>
-      
-    </section>
+        </article>
+        <article id="player1-area" class="player-square 1 active">
+          <h5 class="player-score" id="player-1-round">Score:0</h5>
+          <img class="player-holder" src="/images/player1.svg">
+          <h5 id="player1" class="player-name reset">PLAYER 1 NAME</h5>
+          <h5 class="player-score" id="player-1-total">Total Score:0</h5>
+        </article>
+        <article id="player2-area" class="player-square 2">
+          <h5 class="player-score" id="player-2-round">Score:0</h5>
+          <img class="player-holder" src="/images/player2.svg">
+          <h5 id="player2" class="player-name">PLAYER 2 NAME</h5>
+          <h5 class="player-score" id="player-2total">Total Score:0</h5>
+        </article>
+        <article id="player3-area" class="player-square 3">
+          <h5 class="player-score" id="player-3-round">Score:0</h5>
+          <img class="player-holder" src="/images/player3.svg">
+          <h5 id="player3" class="player-name">PLAYER 3 NAME</h5>
+          <h5 class="player-score" id="player-3-total">Total Score:0</h5>
+        </article>
+      </section>
+      <section class="wheel-section">
+        <article class="spin-winner">Click UFO to Spin</article>
+          <div id="wheel">
+            <div id="inner">
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+              <div class="segment teal"><span> 0 0 0 </span></div>
+              <div class="segment blue"><span> 0 0 0 </span></div>
+            </div>
+          </div>
+        </section>
+      </main>
 <!-- close hidden game area -->
-    </section> 
     <section class="name-entry">
       <article class="player-intro">
         <img class="player-icon" src="/images/player1.svg">
