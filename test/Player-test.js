@@ -28,8 +28,6 @@ describe('Player', () => {
     let player = new Player('Bob', 1);
 
     expect(player.player).to.equal(1);
-
-
   })
 
   it('should be able to increase score based on points being passed in', () => {

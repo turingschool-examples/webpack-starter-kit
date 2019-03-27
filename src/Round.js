@@ -8,8 +8,7 @@ class Round {
     this.game = game; 
   }
 
-  checkAnswer(guess
-     ) {
+  checkAnswer(guess) {
     const match = this.surveyAnswers.find(answerObj => 
       answerObj.answer.toLowerCase().includes(guess.toLowerCase()));
                                                   
@@ -43,6 +42,7 @@ class Round {
     } 
   }
 
+  //are we using this?
   endRound() {
     domUpdates.endOfRoundMsg();
     domUpdates.clearAnswerBoard();
