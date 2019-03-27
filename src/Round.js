@@ -19,23 +19,24 @@ class Round {
     return puzzle;
   }
   changeActivePlayers() {
+    console.log(this.activePlayer)
     let oldPlayer, newPlayer;
     switch (true) {
-      case (this.activePlayer === 1):
+      case (this.activePlayer === 0):
+      oldPlayer = 0; newPlayer = 1;
+      break;
+      case (this.activePlayer === 1): 
       oldPlayer = 1; newPlayer = 2;
       break;
-      case (this.activePlayer === 2): 
-      oldPlayer = 2; newPlayer = 3;
-      break;
-      case (this.activePlayer === 3):
-      oldPlayer = 3; newPlayer = 1;
+      case (this.activePlayer === 2):
+      oldPlayer = 2; newPlayer = 0;
       break;
       default:
       alert('Something went wrong!');
       break;
     }
     domUpdates.turnOrder(oldPlayer, newPlayer);
-    this.activePlayer = newPlayer - 1;
+    this.activePlayer ++;
     this.checkScore();
   }
 
@@ -76,6 +77,7 @@ class Round {
       this.handleCorrectLetterChosen(splitAnswer, chosenLetter)
       this.checkScore();
     } else {
+      console.log('made it')
       this.changeActivePlayers();
     }
   }

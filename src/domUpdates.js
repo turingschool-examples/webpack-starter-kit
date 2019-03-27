@@ -118,11 +118,11 @@ export default {
     });
   },
 
-  buyAVowel(game) {
-    $('.vowels').on('click', (event) => {
+  buyAVowel(event,game) {
+    $('.vowels').on('click', (event, game) => {
       $( '.vowels').removeClass( "cost");
       // round.players[round.activePlayer].roundScore -= 100;
-      game.round.guessLetter(event);
+      game.round.guessLetter(event, game);
     });
   },
 
