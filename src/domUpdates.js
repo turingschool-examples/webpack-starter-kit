@@ -86,52 +86,58 @@ export default {
     $('#inner').css({
       'transform': 'rotate(' + totalDegree + 'deg)'
     });
-    $('.spin-winner').html(`${wheel.currentSpin}`);
-    if (wheel.currentSpin === "BANKRUPT") {
-      if (game.round.activePlayer === 0) {
-        this.displayScore(game.round.activePlayer + 2, 0)
-      } else {
-        this.displayScore(game.round.activePlayer - 1, 0)
-      }
-      game.players[game.round.activePlayer - 1].roundScore = 0;
-      game.round.changeActivePlayers();
+    this.spinResultMessage(wheel.currentSpin);
+    $('#wheel').removeClass('pulse');
 
-    } else if (wheel.currentSpin === "LOSE A TURN") {
-      game.round.changeActivePlayers();
-    }
   },
 
-
-
-
-  turnOrder(oldPlayer, newPlayer) {
+  updateActivePlayer(oldPlayer, newPlayer, player) {
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
+    $('#wheel').addClass('pulse').delay(600);
+    this.yourTurnMessage(player);
   },
+  
+  spinAgainPrompt() {
+    $('.spin-winner').text(`spin again, buy a vowel, or solve the puzzle`).fadeIn(800);
+  },
+  
+  spinResultMessage(spinResult) {
+      $('.spin-winner').html(`You spun ${spinResult}! Choose a letter.`);
+    },
 
+
+  yourTurnMessage(player) {
+    $('.spin-winner').html(`${player.name}'s turn to spin!`);
+  },
+  
+  solvePuzzleMessage(player) {
+    $('.spin-winner').html(`${player.name} solved the puzzle!`);
+    
+  },
   // chooseLetterMessage() {
-
-  // }
-
+    
+    // }
+    
   displayCorrectLetter(puzzle, guess) {
-    puzzle.forEach((letter) => {
-      if (letter === guess) {
-        // debugger
-        $(`.${letter}`).removeClass('secret');
-      } 
-    });
-  },
-
-  buyAVowel() {
-    $('.vowels').on('click', (event) => {
-      $( '.vowels').removeClass( "cost");
-      round.players[round.activePlayer].roundScore -= 100;
-      game.round.guessLetter(event);
-    });
-  },
-
-  displayScore(player, value) {
-    $(`#player-${player}-round`).text(`Score: ${value}`);
+      puzzle.forEach((letter) => {
+        if (letter === guess) {
+          // debugger
+          $(`.${letter}`).removeClass('secret');
+        } 
+      });
+    },
+    
+    buyAVowel(event, game) {
+      $('.vowels').on('click', (event) => {
+        $( '.vowels').removeClass( "cost");
+        // round.players[round.activePlayer].roundScore -= 100;
+        game.round.guessLetter(event, game);
+      });
+    },
+    
+    displayScore(player, total) {
+      $(`#player-${player}-round`).text(`Score: ${total}`);
   },
   
   checkSolution(event, game) {
