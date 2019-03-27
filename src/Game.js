@@ -51,6 +51,7 @@ class Game {
   }
 
   updatePlayerScore() {
+    console.log('Player Scored')
     this.players[this.roundInst.activePlayer].score += this.players[this.roundInst.activePlayer].playerBank
     this.players.forEach(player => {
       player.playerBank = 0
