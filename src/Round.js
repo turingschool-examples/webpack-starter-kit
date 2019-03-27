@@ -35,20 +35,22 @@ class Round {
 
   checkRoundProgress() {
     if (this.surveyAnswers.length === 0) { 
-      domUpdates.endOfRoundMsg();
+      // domUpdates.endOfRoundMsg();
+      this.generateEndRoundMsg();
       setTimeout(() => {
         this.game.triggerNewRound();
-      }, 1000);
+      }, 1500);
     } 
   }
 
-  //are we using this?
-//   endRound() {
-//     domUpdates.endOfRoundMsg();
-//     domUpdates.clearAnswerBoard();
-//     this.game.toggleActivePlayer();
-//     this.game.triggerNewRound();
-//   }
+  generateEndRoundMsg() {
+    if (this.game.player1.score > this.game.player2.score) {
+      var roundWinner = this.game.player1.name;
+    } else {
+      var roundWinner = this.game.player2.name;
+    }
+    domUpdates.endOfRoundMsg(roundWinner);
+  }
 }
 
 export default Round;

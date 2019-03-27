@@ -77,7 +77,8 @@ export default {
     });
   },
 
-  endOfRoundMsg() {
+  endOfRoundMsg(roundWinner) {
+    $("#round-winner-msg").text(roundWinner + ' wins this round!')
     $("#round-winner-msg").fadeIn("fast", function() {
       $("#round-winner-msg").delay(2000).fadeOut(); 
     });
@@ -88,7 +89,6 @@ export default {
   },
 
   showWinnerScreen(winnerName) {
-    winnerName = winnerName;
     $(".winner-name").text(winnerName.toUpperCase()+'!');
     $(".winner-screen").removeClass("hidden");
   },

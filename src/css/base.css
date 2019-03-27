@@ -114,15 +114,15 @@ button:disabled {
 }
 
 .fastround-dialog {
-  text-align: center;
-  width: 45%;
   background: #213b72;
+  border-radius: 5px;
   border: 5px solid white;
   color: white;
   display: flex;
   flex-direction: column;
   padding: 50px;
-  border-radius: 5px;
+  text-align: center;
+  width: 45%;
 }
 
 .name-form input {
