@@ -17,12 +17,11 @@ class Player {
 
 };
 
-lightningScore(num) {
-    this.score += num;
-    //     game.checkPlayer()
-    //     const newScore = game.answers[i].response;
-    //     this.score += (this.newScore['player1${currentPlayer}'] * input)
-};
+lightningScore(scoreAmt, multiplier) {
+    let newScore = this.score += (scoreAmt * multiplier);
+    domUpdates.changeScore(newScore, this.playerId);
+    console.log(newScore);
+    };
 }
 
 export default Player;

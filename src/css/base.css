@@ -179,7 +179,8 @@ body {
     visibility: hidden;
 }
 
-.wrongAnswer {
+.wrongAnswer,
+.tryAgain {
     font-size: 2em;
     text-align: center;
     color: red;
