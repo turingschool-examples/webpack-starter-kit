@@ -20,6 +20,8 @@ import Player from './Player.js';
 // Dom Updates
 import domUpdates from './domUpdates.js';
 
+domUpdates.disableBackgroundTabbing();
+
 $("#player-1-input:text:visible:first").focus();
 
 $("#player-1-input").keypress(function(e) {
@@ -35,19 +37,21 @@ $("#player-2-input").keypress(function (e) {
 }); 
 
 $("#submit-names-btn").on("click", function() { 
+
   const player1Name = $("#player-1-input").val();
   const player2Name = $("#player-2-input").val();
 
-    $(".player-1-name").text(player1Name.toUpperCase() || 'PLAYER 1');
-    $(".player-2-name").text(player2Name.toUpperCase() || 'PLAYER 2');
-    $(".welcome-screen").addClass("hidden"); 
-    $(".guess-input").focus();
+  $(".player-1-name").text(player1Name.toUpperCase() || 'PLAYER 1');
+  $(".player-2-name").text(player2Name.toUpperCase() || 'PLAYER 2');
+  $(".welcome-screen").addClass("hidden"); 
+  $(".guess-input").focus();
 
   let startingPlayer = Math.floor(Math.random() * 2) + 1
 
   window.game = new Game(new Player(player1Name || 'Player 1', 1), new Player(player2Name || 'Player 2', 2)); 
   window.game.startNewGame(startingPlayer);
   window.game.toggleActivePlayer();
+  domUpdates.enableTabbing();
 });
 
 $(".guess-input").keypress(function (e) {

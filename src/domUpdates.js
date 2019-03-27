@@ -2,6 +2,18 @@ import $ from 'jquery';
 
 export default {
 
+  enableTabbing() {
+    $(".guess-input, #submit-guess-btn, #start-btn").each(function () {
+      $(this).attr("tabindex", "0");
+    });
+  },
+
+  disableBackgroundTabbing() {
+    $(".guess-input, #submit-guess-btn, #start-btn").each(function () {
+      $(this).attr("tabindex", "-1");
+    });
+  },
+
   displayRoundData(question, answers, roundNum) {
     if (roundNum > 3) {
       roundNum = 3;
@@ -79,6 +91,9 @@ export default {
     winnerName = winnerName;
     $(".winner-name").text(winnerName.toUpperCase()+'!');
     $(".winner-screen").removeClass("hidden");
+    $("input, a, button, select").each(function () {
+      $(this).attr("tabindex", "-1");
+    });
   },
 
   showTieScreen() {
