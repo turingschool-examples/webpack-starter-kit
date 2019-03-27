@@ -98,7 +98,6 @@ export default {
     let winner = game.currentRound.currentPlayer.name;
     let winningCaps = game.currentRound.currentPlayer.roundCaps;
     let answer = game.currentRound.wholeWord.join('');
-    console.log(game.currentRound.currentPlayer.totalCaps)
 
     let body = $('body');
     body.append(`<section class="winner-card fade-in"> ${winner} has guessed the puzzle ${answer} <br> and won ${winningCaps} caps!<section>`)

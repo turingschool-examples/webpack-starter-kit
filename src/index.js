@@ -141,15 +141,16 @@ let correctAnsFunc = (round, player, ltrGuess) => {
   round.allRoundGuesses.push(player.ans);
   round.allRoundGuesses.sort();
   DomUpdates.createPuzzleClassArr(ltrGuess);
-  round.getCurrentPlayer(game);
   round.answer = round.answer
-    .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+  .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+  if (game.currentRound.answer.length === 0) {
+    game.currentRound.newRound(game);
+    DomUpdates.appendWinner(game);
+  }
+  round.getCurrentPlayer(game);
   console.log(game.currentRound.answer)
   game.currentRound.answer = game.currentRound.answer
     .filter(char => char !== ' ' ? char : char = '');
-  if (game.currentRound.answer.length === 0) {
-    game.currentRound.newRound(game);
-  }
 }
 
 let buyVowel = (round, player, ltrGuess) => {
