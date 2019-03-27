@@ -8,11 +8,12 @@ import GameEngine from './game-engine';
 import DomUpdates from './dom-updates';
 // jQuery selectors
 
-// * Global Variables
+// ** Global Variables ** //
 let game = null;
 const vowels = ['A', 'E', 'I', 'O', 'U'];
 
-// * Event Listeners
+
+// ** Event Listeners ** //
 $('.start__start--btn').click(() =>{
   let playersNames = [];
   playersNames.push(
@@ -20,49 +21,20 @@ $('.start__start--btn').click(() =>{
     $('.playerinfo__player-2').val(),
     $('.playerinfo__player-3').val()
   )
-  // console.log(players)
-    
+
   game = new GameEngine(playersNames);
-  game.revEngine();
-  // console.log(game.players);
-    
+  game.revEngine(game);
+
   DomUpdates.hidePopup(game);
-  game.currentRound.newRound(game);
-  game.currentRound.getCurrentPlayer(game);
-  // game.currentRound.newRound(game);
-  // console.log(game.currentRound.currWheel);
-  // // game.currentRound.determinePuzzleLength();
-  // DomUpdates.updateRoundHintCategory(game);
 });
+
 // * Nav Buttons
-$('.nav__end-game').click(function () {
-  location.reload();
-});
 $('.nav__end-round').click(function () {
   game.currentRound.skipPuzzle(game);
 });
-  
-
-
-
-let toggleButtons = () => {
-  //Toggle: Consonant & Label
-  if ($('#consonant').attr('value') == '^ Spin Wheel ^') {
-    $('#consonant').removeAttr('disabled').css('background-color', 'darkgreen').attr('value', 'Guess Consonant');
-  } else {
-    $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', '^ Spin Wheel ^');
-  }
-  //Toggle: Wheel
-  $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
-  //Toggle: Word & Vowel
-  if ($('.guess__word--button').attr("disabled") && $('#vowel').attr("disabled")) {
-    $('.guess__word--button').removeAttr("disabled").css("background-color", "darkgreen");
-    $('#vowel').removeAttr("disabled").css("background-color", "darkgreen");
-  } else {
-    $('.guess__word--button').attr("disabled", 'true').css("background-color", "gray");
-    $('#vowel').attr("disabled", 'true').css("background-color", "gray");
-  }
-}
+$('.nav__end-game').click(function () {
+  location.reload();
+});  
 
 // Conflict Res
   $('.guess__word--button').click(function () {
@@ -121,7 +93,7 @@ $('#consonant').click(function () {
     // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
     // compare player ans against round answer
     conditionalChecking(round, player, ltrGuess);
-    toggleButtons();
+    DomUpdates.toggleButtons();
     // create a new array
     // push correct guess letter in there
     // find index of answer array to guess letter array
@@ -151,7 +123,6 @@ $('#consonant').click(function () {
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         // console.log('CurrentPlayer', game.currentRound.currentPlayer);
       }
-    $('#guess--input').val('');
   }
 
 let compareAns = (round, player) => {
@@ -190,7 +161,7 @@ let buyVowel = (round, player, ltrGuess) => {
 // End Conflict-Res
 
   $('.nav__wheel--button').click(() => {
-    toggleButtons();
+    DomUpdates.toggleButtons();
     const slice = game.currentRound.currWheel.wheelSlices[Math.floor((Math.random() * 7) + 0)];
     console.log("Slice:", slice)
     $.type(slice) === "number" ? spinNum(slice) : spinNotNum(slice);
@@ -210,7 +181,7 @@ let buyVowel = (round, player, ltrGuess) => {
       DomUpdates.updatePlayerScore(game);
     }
     game.currentRound.getCurrentPlayer(game);
-    toggleButtons();
+    DomUpdates.toggleButtons(game);
   };
   
   // An example of how you tell webpack to apply a CSS file

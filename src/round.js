@@ -30,7 +30,6 @@ class Round {
     this.allRoundGuesses = [];
     this.determinePuzzleLength();
     this.displayDomPuzzle(game);
-
   }
   determinePuzzleLength() {
     let random = Math.floor((Math.random() * 23) + 0);
@@ -75,8 +74,8 @@ class Round {
   }
   skipPuzzle(game) {
     if (game.currentRound.roundNumber !== 5) {
-      game.currentRound.roundNumber--;
-      game.newRound(game)
+      this.roundNumber--;
+      this.newRound(game)
     }
   }
   getCurrentPlayer(game) {
@@ -85,6 +84,7 @@ class Round {
     this.counter < 2 ? this.counter++ : this.counter = 0;   
     DomUpdates.updatePlayerScore(game);
     DomUpdates.showCurrentPlayer(game);
+    DomUpdates.clearInput();
   }
   displayCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
