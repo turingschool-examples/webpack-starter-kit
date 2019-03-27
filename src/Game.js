@@ -35,12 +35,19 @@ class Game {
 
   createClues() {
     this.gameRoundsClueBank = Object.entries(Data.puzzles);
-    // this.roundCards = this.roundsBank[game.stage][1].puzzle_bank
   }
 
-  ///pass in wheelValue from wheel value function invocation ***********
   updatePlayerBank() {
+    console.log(this.players)
     this.players[this.roundInst.activePlayer].playerBank += this.roundInst.wheelInst.selectedValue
+    let playerPot = this.players[this.roundInst.activePlayer].playerBank
+    let playerTurn = this.roundInst.activePlayer
+    console.log(this.players)
+    DomUpdates.updateRoundScore(playerPot, playerTurn)
+  }
+
+  bankruptPlayerBank() {
+    this.players[this.roundInst.activePlayer].playerBank = -100;
     let playerPot = this.players[this.roundInst.activePlayer].playerBank
     let playerTurn = this.roundInst.activePlayer
     DomUpdates.updateRoundScore(playerPot, playerTurn)

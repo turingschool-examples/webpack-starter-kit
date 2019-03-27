@@ -16,32 +16,32 @@ export default {
             <tr>
             </tr>
             <tr>
-                <td role="button" class="single-letter-vowel disable-selected-letters">A</td>
-                <td role="button" class="single-letter disable-selected-letters">B</td>
-                <td role="button" class="single-letter disable-selected-letters">C</td>
-                <td role="button" class="single-letter disable-selected-letters">D</td>
-                <td role="button" class="single-letter-vowel disable-selected-letters">E</td>
-                <td role="button" class="single-letter disable-selected-letters">F</td>
-                <td role="button" class="single-letter disable-selected-letters">G</td>
-                <td role="button" class="single-letter disable-selected-letters">H</td>
-                <td role="button" class="single-letter-vowel disable-selected-letters">I</td>
-                <td role="button" class="single-letter disable-selected-letters">J</td>
-                <td role="button" class="single-letter disable-selected-letters">K</td>
-                <td role="button" class="single-letter disable-selected-letters">L</td>
-                <td role="button" class="single-letter disable-selected-letters">M</td>
-                <td role="button" class="single-letter disable-selected-letters">N</td>
-                <td role="button" class="single-letter-vowel disable-selected-letters">O</td>
-                <td role="button" class="single-letter disable-selected-letters">P</td>
-                <td role="button" class="single-letter disable-selected-letters">Q</td>
-                <td role="button" class="single-letter disable-selected-letters">R</td>
-                <td role="button" class="single-letter disable-selected-letters">S</td>
-                <td role="button" class="single-letter disable-selected-letters">T</td>
-                <td role="button" class="single-letter-vowel disable-selected-letters">U</td>
-                <td role="button" class="single-letter disable-selected-letters">V</td>
-                <td role="button" class="single-letter disable-selected-letters">W</td>
-                <td role="button" class="single-letter disable-selected-letters">X</td>
-                <td role="button" class="single-letter disable-selected-letters">Y</td>
-                <td role="button" class="single-letter disable-selected-letters">Z</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">a</td>
+                <td role="button" class="single-letter disable-selected-letters">b</td>
+                <td role="button" class="single-letter disable-selected-letters">c</td>
+                <td role="button" class="single-letter disable-selected-letters">d</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">e</td>
+                <td role="button" class="single-letter disable-selected-letters">f</td>
+                <td role="button" class="single-letter disable-selected-letters">g</td>
+                <td role="button" class="single-letter disable-selected-letters">h</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">i</td>
+                <td role="button" class="single-letter disable-selected-letters">j</td>
+                <td role="button" class="single-letter disable-selected-letters">k</td>
+                <td role="button" class="single-letter disable-selected-letters">l</td>
+                <td role="button" class="single-letter disable-selected-letters">m</td>
+                <td role="button" class="single-letter disable-selected-letters">n</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">o</td>
+                <td role="button" class="single-letter disable-selected-letters">p</td>
+                <td role="button" class="single-letter disable-selected-letters">q</td>
+                <td role="button" class="single-letter disable-selected-letters">r</td>
+                <td role="button" class="single-letter disable-selected-letters">s</td>
+                <td role="button" class="single-letter disable-selected-letters">t</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">u</td>
+                <td role="button" class="single-letter disable-selected-letters">v</td>
+                <td role="button" class="single-letter disable-selected-letters">w</td>
+                <td role="button" class="single-letter disable-selected-letters">x</td>
+                <td role="button" class="single-letter disable-selected-letters">y</td>
+                <td role="button" class="single-letter disable-selected-letters">z</td>
             </tr>
         </table>
     </section>
@@ -308,25 +308,28 @@ export default {
         <div id="player-score" class="player-score">
             <h2>${player[0].name}</h2>
             <h2 class="bank-score player-1">${player[0].playerBank}</h2>
-            <h4>${player[0].score}</h4>
+            <h2>Score<h2><h4>${player[0].score}</h4>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[1].name}</h2>
             <h2 class="bank-score player-2" >${player[1].playerBank}</h2>
-            <h4>
+            <h2>Score<h2><h4>${player[1].score}</h4>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[2].name}</h2>
             <h2 class="bank-score player-3">${player[2].playerBank}</h2>
+            <h2>Score<h2><h4>${player[2].score}</h4>
         </div>
-    </section>`
+    </section>
+    <div>
+    <button class="quit-btn-container game-buttons">Quit Game<button>
+  </div>`
     )
   },
 
   fillGameBoard(clueAnswer) {
     const puzzleCells = $('.puzzle-cell').toArray();
     const cellMap = {};
-    
     puzzleCells.forEach((cell, index) => {
       const letter = clueAnswer[index];
       if (cellMap[letter]) {
@@ -394,12 +397,6 @@ export default {
     })
   },
 
-  clearGameBoard() {
-    $('.letters-selected-area').remove();
-    $('.game-info').remove();
-    $('.puzzle-area').remove();
-
-  },
   
   displayActivePlayer(activePlayer) {
     console.log("Active Player: ", activePlayer.name)
