@@ -123,6 +123,7 @@ class Game {
       domUpdates.blurGuessInput();
       domUpdates.removeTimers();
       domUpdates.displayFastroundDialog(this.activePlayer.name);
+      domUpdates.disableBackgroundTabbing();
     } else {
       this.endGame;
     }
@@ -149,6 +150,7 @@ class Game {
     } else {
       var winnerName = this.player2.name;
       domUpdates.showWinnerScreen(winnerName);
+      domUpdates.disableBackgroundTabbing();
     }
   }
 } 

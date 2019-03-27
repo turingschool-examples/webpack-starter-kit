@@ -43,12 +43,12 @@ class Round {
   }
 
   //are we using this?
-  endRound() {
-    domUpdates.endOfRoundMsg();
-    domUpdates.clearAnswerBoard();
-    this.game.toggleActivePlayer();
-    this.game.triggerNewRound();
-  }
+//   endRound() {
+//     domUpdates.endOfRoundMsg();
+//     domUpdates.clearAnswerBoard();
+//     this.game.toggleActivePlayer();
+//     this.game.triggerNewRound();
+//   }
 }
 
 export default Round;

@@ -45,7 +45,9 @@ $("#submit-names-btn").on("click", function() {
   $(".player-1-name").text(player1Name.toUpperCase() || 'PLAYER 1');
   $(".player-2-name").text(player2Name.toUpperCase() || 'PLAYER 2');
   $(".welcome-screen").addClass("hidden"); 
-  $(".guess-input").focus();
+  // $(".guess-input").focus();
+
+  domUpdates.enableTabbing();
 
   let startingPlayer = Math.floor(Math.random() * 2) + 1
 
@@ -78,6 +80,7 @@ $("#play-again-btn").on("click", function() {
   domUpdates.resetPageDefaults();
   $(".winner-screen").addClass("hidden");
   $(".welcome-screen").removeClass("hidden");
+  domUpdates.enableTabbing();
 });
 
 $(".guess-input").on("keyup", function() {
@@ -86,6 +89,7 @@ $(".guess-input").on("keyup", function() {
 
 $("#fastround-start-btn").on("click", function() {
     $(".fastround-ready-screen").addClass("hidden");
+    domUpdates.enableTabbing();
     if (game.activePlayer === game.player1) {
       $(".timer-area-1").removeClass("hidden");
       $(".timer-area-2").addClass("hidden");

@@ -91,9 +91,6 @@ export default {
     winnerName = winnerName;
     $(".winner-name").text(winnerName.toUpperCase()+'!');
     $(".winner-screen").removeClass("hidden");
-    $("input, a, button, select").each(function () {
-      $(this).attr("tabindex", "-1");
-    });
   },
 
   showTieScreen() {
