@@ -23,11 +23,13 @@
             <label class="daily-double-input" for="daily-double"></label>
             <input type="text" name="question" id="daily-double" style="color:#888;" placeholder="Enter Answer">
             <input type="submit" name="submit" class="daily-double-btn">
-          </div>  
-          <p class="question"></p>
-          <label class="name-input" for="question-input"></label>
-          <input type="text" name="question" id="question-input" style="color:#888;" placeholder="Enter Answer">
-          <input type="submit" name="submit" class="submit-btn">
+          </div>
+          <div class="question-box"> 
+            <p class="question"></p>
+            <label class="name-input" for="question-input"></label>
+            <input type="text" name="question" id="question-input" style="color:#888;" placeholder="Enter Answer">
+            <input type="submit" name="submit" class="submit-btn">
+          </div> 
         </article>
         <article class="result-prompt" style="display:none" aria-live="polite">
           <p class="result"></p>
@@ -94,7 +96,7 @@
     </main>
     <footer>
       <input type="submit" class="btn" id="start-game-btn" value="START GAME">
-      <input type="submit" class="btn" id="reset-game-btn" value="RESET">
+      <input type="submit" class="btn" id="reset-game-btn" value="RESET" style="display:none">
     </footer>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>

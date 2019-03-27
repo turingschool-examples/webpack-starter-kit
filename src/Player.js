@@ -18,8 +18,8 @@ class Player {
         return acc;
       }, 0);
     this.score += points;
-  }
-  if (game.roundCounter === 2) {
+    }
+    if (game.roundCounter === 2) {
       let points = data.clues.reduce((acc, currentClue) => {
         if (answer === currentClue.answer) {
           acc += currentClue.pointValue;

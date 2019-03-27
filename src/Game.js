@@ -8,8 +8,7 @@ class Game {
     this.players = [];
     this.clues = [];
     this.round = {};
-    // this.categories = [];
-    this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; //[Object.values(data.categories)]
+    this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     this.playerTurn = 0;
     this.roundCounter = 1;
   }

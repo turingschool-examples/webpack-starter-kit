@@ -40,36 +40,33 @@ export default {
 
   showClue(game, clue, event) {
     game.round.cluesRemaining--;
+    console.log(game.round.cluesRemaining);
+    console.log(game.round.dailyDoubleClue);
+    $('.question-prompt').show()
+    $('.question').text(clue.question);
+    $(event.target).text('');
     if (game.round.cluesRemaining === game.round.dailyDoubleClue) {
+      $('.question-box').hide();
       this.dailyDouble(game, clue);
-    } else {
-      $('.question-prompt').show();
-      $('.result-prompt').hide();
-      $('.question').text(clue.question);
-      $(event.target).text('');
-      $('.game-board').hide();
-    }
+    } 
   },
 
   dailyDouble(game, clue) {
+    $('.question-prompt').show();
     $('.style-daily-double').show();
-    let wagerAmount;
     let dailyDouble;
-    $('#daily-double').keyup(function () {
-      wagerAmount = $('#daily-double').val();
-    });
     $('.daily-double-btn').click(function (e) {
       e.preventDefault();
       dailyDouble = new DailyDouble(clue.question, clue.answer, clue.pointValue);
-      dailyDouble.updatePointValue(wagerAmount);
+      dailyDouble.updatePointValue($('#daily-double').val());
+      clue.pointValue = dailyDouble.pointValue;
+      $('.style-daily-double').hide();
+      $('.question-box').show()
+      console.log(dailyDouble);
     });
-    // $('.question-prompt').show();
-    // $('.result-prompt').hide();
-    // $('.question').text(clue.question); 
   },
 
   answerQuestion(game) {
-
     let currentPlayer = game.players[game.playerTurn];
     if (game.round.cluesRemaining === 0) {
       game.roundCounter++;
@@ -92,7 +89,7 @@ export default {
   },
 
   newCategoryValues() {
-    let roundTwoValues = [1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4];
+    let roundTwoValues = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4];
     let result = roundTwoValues.map(number => {
         return number * 200;
       })
@@ -109,6 +106,7 @@ export default {
      currentPlayer.increaseScore(answerMatch, game);
      $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
      $('.result-prompt').hide(3000);
+
   },
 
   wrongAnswer(currentPlayer, answerMatch, game) {
