@@ -6,7 +6,7 @@ class DailyDouble extends Clue {
   }
 
   updatePointValue(newPointValue) {
-    this.pointValue = newPointValue;
+    this.pointValue = Number(newPointValue);
   }
 
 }

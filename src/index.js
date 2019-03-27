@@ -11,6 +11,7 @@ const submitBtn = $('.submit-btn');
 const resetBtn = $('#reset-game-btn');
 const clueBtn = $('.col');
 const dailyDoubleBtn = $('.daily-double-btn')
+const submitWagerBtn = $('#submit-wager-btn')
 
 let game;
 $('.game-board').hide();
@@ -58,5 +59,7 @@ resetBtn.click(function (e) {
   location.reload();
 })
 
-
-
+submitWagerBtn.click(function (e) {
+  e.preventDefault();
+  domUpdates.commenceFinalJeopardy();
+})
