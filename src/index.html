@@ -10,9 +10,10 @@
     <h1 class='main header'>Wheel of Fortune</h1>
     <button class='button quit-button' id='js-quit-button'>Quit Game</button>
   </header>
-  <h3 class='round-count' id='js-round-count'> Current Round: <span class='round-num'>1</span></h3>
+  <h2 class='category'></h2>
+  <h3 class='hint'></h3>
   <section class='popup hidden'>
- <section class='question-popup'> 
+  <section class='question-popup'> 
           <form class='solve-form'> 
             <input class='answer-input' placeholder='Type your answer here'>
             <button class='answer-submit'>Submit</button>
@@ -22,13 +23,11 @@
         </section>
   </section>
   <section class='puzzle-container'>
-    <!-- move section chunk below later -->
-     
     <article class='puzzle'>
       <article class='answer-display'></article>
     </article>
   </section>
-  <h2 class='category'></h2>
+  <h3 class='round-count' id='js-round-count'> Current Round: <span class='round-num'>1</span></h3>
     <section class='guessed-letters'></section>
     <section class='guess-input-container'>
       <section class='vowel-container'>
@@ -44,25 +43,25 @@
       <p class='gameplay-message'></p>
     </section>
    <section class='player-buttons-container' id='js-player-btn-container'>
+     <button class='button spin-button' id='js-spin-button' disabled>Spin Wheel</button>
      <button class='button solve-button' id='js-solve-button' disabled>Solve Puzzle</button>
      <button class='button buy-vowel-button' id='js-buy-vowel-button'>Buy a Vowel</button>
-     <button class='button spin-button' id='js-spin-button' disabled>Spin Wheel</button>
    </section>
    <form class='player-form' id='js-player-form'>
      <div class='player-box player1-info' id='js-player1-info'>
        <label class='player1-label box-name'>Player 1</label>
        <input type= 'text' class='player-name-input' id='js-player1-input' placeholder='Input your name'>
-       <p class='score-label'>Score: <span class='points js-points-1'></span></p>
+       <p class='score-label'>Score: <span class='points js-points'>0</span></p>
      </div>
      <div class='player-box player2-info' id='js-player2-info'>
        <label class='player2-label box-name'>Player 2</label>
        <input type= 'text' class='player-name-input' id='js-player2-input' placeholder='Input your name'>
-       <p class='score-label'>Score: <span class='points js-points-2'></span></p>
+       <p class='score-label'>Score: <span class='points js-points'>0</span></p>
      </div>
      <div class='player-box player3-info' id='js-player3-info'>
        <label class='player3-label box-name'>Player 3</label>
        <input type= 'text' class='player-name-input' id='js-player3-input' placeholder='Input your name'>
-       <p class='score-label'>Score: <span class='points js-points-3'></span></p>
+       <p class='score-label'>Score: <span class='points js-points'>0</span></p>
       </div>
     </form>
     <section class='start-container'>

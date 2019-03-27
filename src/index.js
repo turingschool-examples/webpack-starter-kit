@@ -7,8 +7,6 @@ import Wheel from './Wheel.js';
 import Puzzle from './Puzzle.js';
 
 let game = new Game();
-// let wheel = new Wheel();
-
 
 console.log(game);
 
@@ -36,14 +34,12 @@ $('.quit-button').on('click', function() {
 
 $('#js-spin-button').on('click', function() {
   game.wheel.getRandomWheel();
-  // domUpdates.displayWheelValue()
 });
 
 $('#js-solve-button').on('click', function(e) {
   e.preventDefault();
   domUpdates.showPopup();
   console.log('currentPlayer:', game.currentPlayer);
-  // round.checkPlayerGuess();  
 });
 
 $('.answer-submit').on('click', function(e) {
@@ -56,13 +52,8 @@ $('.answer-submit').on('click', function(e) {
 $('#js-submit-button').on('click', function(e) {
   e.preventDefault();
   let letterInput = domUpdates.grabCurrentLetter();
-  game.currentPuzzle.checkUserGuess(letterInput, game);
+  game.currentPuzzle.checkForVowel(letterInput, game);
   $('.input').val('');
-});
-
-$('#js-vowel-submit').on('keyup', function(e) {
-  e.preventDefault();
-  domUpdates.checkVowel();
 });
 
 // $('#js-vowel-submit-button').on('click', function () {

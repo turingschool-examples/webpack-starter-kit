@@ -10,9 +10,16 @@ class Puzzle {
     this.numWords = puzzle.number_of_words;
   }
 
+  checkForVowel(letterInput, game) {
+    let vowels = 'aeiou'.toUpperCase().split('');
+     if (vowels.includes(letterInput)) {
+        domUpdates.displayVowelMessage();
+      } else {
+      this.checkUserGuess(letterInput, game);      }
+  }
+
   checkUserGuess(letterInput, game) {
     let answer = this.answer.toUpperCase().split('');
-    let vowels = ['a', 'e', 'i', 'o', 'u'];
     let foundMatch = false;
     answer.forEach(letter => {
       if (letter === letterInput) {
@@ -22,16 +29,11 @@ class Puzzle {
         domUpdates.displayGuessedLetters(this);
         foundMatch = true;
       }
-      if (letterInput === vowels) {
-        domUpdates.displayVowelMessage();
-        foundMatch = true;
-      }
     });
     if (!foundMatch) {
       game.switchPlayers();
     }
   }
-
 
 }
 

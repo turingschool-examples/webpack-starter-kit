@@ -6,26 +6,6 @@ import $ from 'jquery';
 
 let domUpdates = {
 
-  // displayQuestionSolvePopup(game) {
-  //    $('.popup').append(
-  //     `<section class='question-popup'> 
-  //         <h2 class='card'>Hint: ${game.currentPuzzle.description}</h2>
-  //         <form class='solve-form'> 
-  //           <input class='answer-input' placeholder='Type your answer here'>
-  //           <button class='answer-submit'>Submit</button>
-  //           <button class='exit-solve'>Exit Solve Puzzle</button> 
-  //         </form>
-  //       </section>`
-  //       )
-     // to get player input to check against the correct answer this may be the best option
-//copy and past template literal into HTML, give new class, new class has rule of display none
-//when submit solve button is clicked remove css class 
-//once done with popup add class back 
-
-     //need a way to get out of solve puzzle in case they decide to put in another letter 
-     //added button above but haven't added an event listener to it yet to remove the .popup
-  // },
-
   showPopup() {
     $('.popup').removeClass('hidden');
   },
@@ -89,10 +69,6 @@ let domUpdates = {
       console.log('index:', index + 1, 'player.roundScore', player.roundScore)
       $(`.js-points-${index + 1}`).text(player.roundScore);
     })
-    //take players array and map over each player and index
-    //change text for each player ` js-points${index + 1} ...taking 0 + 1 and then jspoints will be +1
-    //set text equal to whatever that player.score is
-      // $('.js-points').text(`${score}`);
   },
 
   displayWinMessage() {
@@ -107,9 +83,9 @@ let domUpdates = {
     $('.gameplay-message').text('Please spin wheel first before guessing the letter');
   },
 
-  // displayVowelMessage() {
-  //   $('.gameplay-message').text('You haven/t bought a vowel yet. Please enter a non-vowel letter');
-  // },
+  displayVowelMessage() {
+    $('.gameplay-message').text('You haven/t bought a vowel yet. Please enter a non-vowel letter');
+  },
 
   grabVowel() {
     let currentVowel = ($('#js-vowel-input').val().toUpperCase());
@@ -142,9 +118,6 @@ let domUpdates = {
     $('.guessed-letters').text(`${puzzle.guessedBank}`);
 
   },
-
-
-
 }
 
 export default domUpdates;
