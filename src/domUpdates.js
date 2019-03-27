@@ -82,6 +82,27 @@ const domUpdates = {
   revealTimer: function() {
     $(".timer").removeClass('hidden');
     $(".start-timer-btn").removeClass('hidden');
+  },
+
+  toggleUserInput: function() {
+    $(".user-input").toggleClass('hidden');
+    $(".incorrectGuess-holder").toggleClass('hidden');
+  },
+
+  showIncorrectGuessPoints: function (incorrectGuessText, incorrectGuessPoints) {
+    $("#incGuess-num").text(incorrectGuessText);
+    $("#incGuess-points").text(incorrectGuessPoints)
+  },
+
+  resetTimer: function () {
+    $(".timer").text(30);
+  },
+
+  showWinner: function(winner) {
+    $(".multiplier-inputs").css("display", "none");
+    $(".winner-holder").removeClass("hidden");
+    $("#winner-name").text(winner.name);
+    $("#winner-score").text(winner.score);
   }
 
 }

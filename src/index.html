@@ -39,6 +39,11 @@
           </div>
           <button class="multiplier-btn">Declare Your Bravery</button>
         </div>
+        <section class="winner-holder hidden">
+          <h2>Congratulations</h2>
+          <h2 id="winner-name"></h2>
+          <h2 id="winner-score"></h2>
+        </section>
       </div>
     </section>
     <main class="game-area">
@@ -96,6 +101,9 @@
         <button class="guess-btn">Make Guess</button>
         <p class="wrong-guess hidden" aria-live="polite">'Twas not a worthy answer. Next Player.</p>
         <p class="correct-guess hidden" aria-live="polite">Correct! Honor to your house. Next Player.</p>
+      </section>
+      <section class="incorrectGuess-holder hidden">
+        <p>You made <span id="incGuess-num"></span> incorrect Guesses. You loose <span id="incGuess-points"></span> points.</p>
       </section>
     </main>
 

@@ -28,7 +28,6 @@ import Game from './Game.js';
 import Player from './Player.js';
 
 let game;
-let round;
 
 $(".name-btn").on("click", startGame);
 $(".guess-btn").on("click", guess);
@@ -48,7 +47,7 @@ function startGame() {
   game = new Game(player1, player2);
   domUpdates.updateNames(p1Name, p2Name);
   domUpdates.revealGame();
-  round = game.startNewRound();
+  game.round = game.startNewRound();
 }
 
 function guess() {
@@ -57,21 +56,17 @@ function guess() {
 }
 
 function normalGuess(guess) {
-  game.player1.isTurn ? game.player1.makeGuess(guess, game, round) : game.player2.makeGuess(guess, game, round);
+  game.player1.isTurn ? game.player1.makeGuess(guess, game, game.round) : game.player2.makeGuess(guess, game, game.round);
   domUpdates.clearInput();
-  if (round.answers.length === 0) {
-    round = game.startNewRound();
+  if (game.round.answers.length === 0) {
+    game.round = game.startNewRound();
   }
 }
 
 function finalGuess(guess) {
-  game.player1.isTurn ? game.player1.makeFinalGuess(guess, game, round) : game.player2.makeFinalGuess(guess, game, round);
+  game.player1.isTurn ? game.player1.makeFinalGuess(guess, game, game.round) : game.player2.makeFinalGuess(guess, game, game.round);
   domUpdates.clearInput();
 }
-
-// function runTimer() {
-//   round.startTimer($(".timer"));
-// }
 
 function startFinalRound() {
   game.player1.isTurn = true;
@@ -80,5 +75,5 @@ function startFinalRound() {
   game.player2.getMultiplier(parseInt($("#p2-multiplier-input").val()));
   domUpdates.revealTimer();
   domUpdates.revealGame();
-  game.updateDOM(round);
+  game.updateDOM(game.round);
 }

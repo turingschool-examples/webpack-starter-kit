@@ -135,7 +135,8 @@ button {
 }
 
 .result-box > *,
-.timer {
+.timer,
+.incorrectGuess-holder {
   border: 5px solid #B02418;
   background-color: #2E528E;
   color: white;
@@ -287,6 +288,33 @@ h6 {
   padding: 5px;
   text-align: center;
   margin: 0 10px;
+}
+
+.incorrectGuess-holder {
+  grid-area: input;
+  font-size: 20px;
+  height: 40px;
+}
+
+.incorrectGuess-holder p {
+  margin: 0;
+  padding: 10px;
+}
+
+.winner-holder {
+  padding-top: 100px;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-size: 40px;
+}
+
+#winner-name,
+#winner-score {
+  font-size: 60px;
+  margin: 10px;
 }
 
 .hidden {

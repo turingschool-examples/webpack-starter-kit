@@ -6,6 +6,7 @@ class Game {
   constructor(player1, player2) {
     this.player1 = player1;
     this.player2 = player2;
+    this.round = null;
     this.currentRound = 2;
     this.usedSurveys = [];
     this.winner = null;
@@ -15,16 +16,16 @@ class Game {
   startNewRound() {
     if (this.currentRound < 2) {
       this.currentRound++;
-      let round = new Round(this);
-      this.updateDOM(round);
-      return round;
+      this.round = new Round(this);
+      this.updateDOM(this.round);
+      return this.round;
     } else if (this.currentRound === 2) {
       this.currentRound++;
-      let round = new FinalRound(this);
+      this.round = new FinalRound(this);
       setTimeout(function () {
         domUpdates.hideGame();
       }, 2000);
-      return round;
+      return this.round;
     }
   }
 

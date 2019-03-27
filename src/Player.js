@@ -29,7 +29,6 @@ class Player {
     } else {
       round.incorrectGuesses++;
     }
-    console.log(round);
   }
 
   checkGuess(round, guess) {
