@@ -108,7 +108,7 @@ export default {
      $('.question-prompt').hide();
      $('.result-prompt').show(500);
      $('.result').text('Correct Answer');
-     currentPlayer.increaseScore(answerMatch);
+     currentPlayer.increaseScore(answerMatch, game);
      $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
      $('.result-prompt').hide(5000);
   },
@@ -118,7 +118,7 @@ export default {
     $('.question-prompt').hide();
     $('.result-prompt').show(500);
     $('.result').text('Incorrect Answer.');
-    currentPlayer.decreaseScore(answerMatch);
+    currentPlayer.decreaseScore(answerMatch, game);
     $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
     game.changePlayerTurn();
     $('.result-prompt').hide(5000);
@@ -165,5 +165,4 @@ export default {
       $('.game-board').hide();
     // }
   },
-
 }

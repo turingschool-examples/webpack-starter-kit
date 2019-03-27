@@ -31,7 +31,7 @@ clueBtn.on('click', function(e) {
   e.preventDefault();
   const {id, innerText} = event.target;
   game.round.findClue(game, id, innerText, event);
-  if($('#round').text() === '2') {
+  if ($('#round').text() === '2') {
     console.log('test')
    game.round.findNextRoundClues(game, id, innerText, event);
   }
