@@ -396,17 +396,26 @@ footer {
 .winner-card {
   background: linear-gradient(to bottom, #45484d 0%,#000000 100%);
   box-shadow: inset 0px 0px 144px 27px rgba(0, 0, 0, 1);
-  z-index: 12;
+  z-index: 14;
   position: absolute;
-  top: 150px;
+  top: 191px;
   left: 15%;
-  height: 325px;
+  height: 264px;
   width: 70%;
   border-radius: 10px;
   padding: 40px 25px;
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 40px;
+  align-content: center;
+}
+.prompt-img {
+  z-index: 15;
+  position: absolute;
+  top: 280px;
+  height: 150px;
+  left: 46%;
 }
 .fade-in {
   animation: fadeIn 1s 1;

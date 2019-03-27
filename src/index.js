@@ -117,12 +117,14 @@ let conditionalChecking = (round, player, ltrGuess) => {
   } else if (!compareAns(round, player) && vowels.includes(ltrGuess.toUpperCase())) {
     round.allRoundGuesses.push(player.ans);
     round.allRoundGuesses.sort();
+    DomUpdates.appendIncorrect();
     round.getCurrentPlayer(game);
   } else {
     // console.log(game.currentRound.allRoundGuesses)
     // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
     round.allRoundGuesses.push(player.ans);
     round.allRoundGuesses.sort();
+    DomUpdates.appendIncorrect();
     console.log("this needs to be sorted:", round.allRoundGuesses)
     round.getCurrentPlayer(game);
     DomUpdates.toggleButtons();
@@ -186,7 +188,11 @@ let spinNotNum = (slice) => {
   if (slice === 'BANKRUPT') {
     game.currentRound.currentPlayer.roundCaps = 0;
     game.currentRound.currentPlayer.totalCaps = 0;
+    DomUpdates.appendBankrupt(game);
     DomUpdates.updatePlayerScore(game);
+  }
+  else {
+    DomUpdates.appendLoseTurn(game);
   }
   game.currentRound.getCurrentPlayer(game);
   DomUpdates.toggleButtons(game);
@@ -216,6 +222,9 @@ import './images/yesMan.jpg';
 import './images/bottleCaps.png';
 import './images/deathclaw.jpg';
 import './images/incorrect.png';
+import './images/bankrupt.png';
+import './images/loseTurn.png';
+
 
 // import './css/Overseer.otf'
   
