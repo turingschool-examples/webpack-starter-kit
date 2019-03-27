@@ -10,11 +10,15 @@ Colby Allen
 ## Setup
 Clone down the repo.
 
-```git clone```
+```bash
+git clone
+```
 
 Once you have cloned the repo, install dependencies. Then run:
 
-```NPM install```
+```bash
+NPM install
+```
 
 ### Built With
 - Javascript
