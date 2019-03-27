@@ -11,7 +11,6 @@ class Game {
     this.roundCount  = 0;
     this.players = [];
     this.allData = []
-
   }
 
   startGame() {
@@ -50,6 +49,9 @@ class Game {
     domUpdates.hiddenBoard(this.players);
   }
 
+  // checkSolution(event, game) {
+
+  // }
 
 }
 export default Game;

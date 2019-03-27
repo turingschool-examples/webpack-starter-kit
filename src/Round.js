@@ -8,6 +8,7 @@ class Round {
     this.currentWheel = wheel;
     this.activePlayer = 0;
     this.currentPuzzle = puzzle;
+    this.solutionGuess = null;
   }
 
   getPuzzle(array) {
@@ -39,7 +40,7 @@ class Round {
   }
 
   checkScore(game) {
-    if (this.players[this.activePlayer].roundScore >= 100); {
+    if (this.players[this.activePlayer].roundScore >= 100) {
       domUpdates.buyAVowel(game);
     }
   }
@@ -77,6 +78,11 @@ class Round {
     } else {
       this.changeActivePlayers();
     }
+  }
+
+  handleSolutionGuess(guess) {
+    console.log('puzzle solution: ', this.currentPuzzle.correctAnswer);
+    console.log('guess', guess)
   }
 
 }

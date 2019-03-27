@@ -104,6 +104,10 @@ export default {
     $(`#player${newPlayer}-area`).addClass('active'); 
   },
 
+  // chooseLetterMessage() {
+
+  // }
+
   displayCorrectLetter(puzzle, guess) {
     puzzle.forEach((letter) => {
       if (letter === guess) {
@@ -124,8 +128,17 @@ export default {
 
   displayScore(player, value) {
     $(`#player-${player}-round`).text(`Score: ${value}`);
-  }
+  },
   
+  checkSolution(event, game) {
+    event.preventDefault();
+    let guess = $('.solve-input').val();
+    // console.log(guess);
+    game.round.handleSolutionGuess(guess);
+    guess = '';
+  }
+
+
 
 
 }

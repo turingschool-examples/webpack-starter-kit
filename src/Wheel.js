@@ -12,19 +12,19 @@ class Wheel {
     this.currentIndex = null;
   }
 
+
+  //TODO: CHOOSE A LETTER PROMPT MESSAGE
   spinWinner(index, round) {
     this.currentSpin = this.values[index];
-
     if (this.currentSpin === 'BANKRUPT') {
       round.players[round.activePlayer].roundScore = 0;
       domUpdates.displayScore(round.activePlayer, 0);
       round.changeActivePlayers();
     } else if (this.currentSpin === 'LOSE A TURN') {
       round.changeActivePlayers();
-    }
+    } 
   }
-
-
+    
 }
 
 export default Wheel;
