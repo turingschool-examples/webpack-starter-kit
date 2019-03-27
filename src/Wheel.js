@@ -1,6 +1,6 @@
 import data from "./data.js";
-import round from "./Round.js"
-import Player from "./Player.js";
+// import round from "./Round.js"
+// import Player from "./Player.js";
 import domUpdates from "./domUpdates.js"
 
 

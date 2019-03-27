@@ -1,6 +1,4 @@
-
 import $ from 'jquery';
-import Player from "./Player.js";
 
 export default {
 
@@ -10,7 +8,6 @@ export default {
     playersArr.forEach((player, ind) => {
       $('#player' + ([ind + 1])).text(player.name);
     });
-
   },
 
   playerNames () {
@@ -91,6 +88,7 @@ export default {
     });
     this.spinResultMessage(wheel.currentSpin);
     $('#wheel').removeClass('pulse');
+
   },
 
   updateActivePlayer(oldPlayer, newPlayer, player) {

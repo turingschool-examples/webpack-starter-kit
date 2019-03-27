@@ -19,7 +19,7 @@ describe('Puzzle', () => {
     expect(puzzle.category).to.equal('The 90s');
     expect(puzzle.correctAnswer).to.equal('Tamagotchi');
     expect(puzzle.description).to.equal('Puzzles pertaining to the decade in question.');
-    expect(puzzle.totalLetters).to.equal(10);
+    expect(puzzle.numLetters).to.equal(10);
     expect(puzzle.numWords).to.equal(1);
   });
 
@@ -39,7 +39,7 @@ describe('Puzzle', () => {
     
     longPuzzle.checkPuzLength()
     
-    expect(longPuzzle.splitAnswer).to.deep.equal(['T', 'H', 'E', ' ', 'M', 'I', 'C', 'K', 'E', 'Y']);
+    expect(longPuzzle.firstLine).to.deep.equal(['T', 'H', 'E', ' ', 'M', 'I', 'C', 'K', 'E', 'Y']);
     expect(longPuzzle.secondLine).to.deep.equal(['M', 'O', 'U', 'S', 'E', ' ', 'C', 'L', 'U', 'B']);
   })
 

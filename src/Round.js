@@ -1,6 +1,6 @@
 import Puzzle from "./Puzzle.js";
 import domUpdates from "./domUpdates.js";
-import Game from "./Game.js"
+// import Game from "./Game.js"
 
 class Round {
   constructor(players, wheel, puzzle) {
@@ -9,6 +9,7 @@ class Round {
     this.activePlayer = 0;
     this.currentPuzzle = puzzle;
     this.solutionGuess = null;
+    this.roundCountDown = 0;
   }
 
   getPuzzle(array) {
@@ -16,11 +17,13 @@ class Round {
     let randomPuzzle = array.splice(randomNum, 1);
     let puzzle = new Puzzle(randomPuzzle[0]);
     this.currentPuzzle = puzzle;
+    this.roundCountDown = puzzle.numWords;
     return puzzle;
   }
 
   changeActivePlayers() {
     // console.log(this.activePlayer)
+
     let oldPlayer, newPlayer;
     switch (true) {
     case (this.activePlayer === 0):
@@ -40,7 +43,6 @@ class Round {
       break;
     }
     domUpdates.updateActivePlayer(oldPlayer, newPlayer, this.players[this.activePlayer]);
-
   }
   
   newTurn() {
@@ -71,6 +73,7 @@ class Round {
     const player = this.players[this.activePlayer];
     spinValue === 0 ? player.roundScore = 0 : player.roundScore += spinValue;
     console.log('after: ', player, player.roundScore)
+
     domUpdates.displayScore(player.playerNumber, player.roundScore)
   }
 
@@ -101,7 +104,6 @@ class Round {
 
   handleSolutionGuess(guess) {
     const solution = this.currentPuzzle.correctAnswer.toUpperCase();
-    console.log('guess', guess);
     if (guess.toUpperCase() === solution) {
       // alert('Nailed it!');
       domUpdates.displaySolvedPuzzle();

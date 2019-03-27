@@ -35,7 +35,6 @@ class Game {
     let round = new Round(this.players, wheel);
     this.round = round;
     round.currentWheel = wheel;
-    // this.rounds.push(round);
     let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
     currentPuzzle.checkPuzLength();
     domUpdates.appendPuzzle(currentPuzzle.splitAnswer, currentPuzzle.secondLine);

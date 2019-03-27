@@ -4,16 +4,15 @@ class Puzzle {
     this.correctAnswer = null || currentPuzzle.correct_answer;
     this.description = null || currentPuzzle.description;
     // this.totalLetters = null || currentPuzzle.total_number_of_letters;
+    this.numLetters = currentPuzzle.total_number_of_letters
     this.numWords = null || currentPuzzle.number_of_words;
     this.splitAnswer = this.correctAnswer.toUpperCase().split('');
     this.firstLine = null || currentPuzzle.firstLine;
     this.secondLine = null || currentPuzzle.secondLine;
   }
-  
   checkPuzLength() {
     return this.splitAnswer.length > 14 ? this.twoLinePuzzle() : this.secondLine = null;
   }
-
 
   // TODO: REFACTOR TO SWITCH STATEMENT
   twoLinePuzzle() {
@@ -27,13 +26,12 @@ class Puzzle {
       firstLine = words[0].concat(` ${words[1]}`);
       secondLine = words[2];
     } else {
-      firstLine = words[0].concat(` ${words[1]}`);
-      secondLine = words[2].concat(` ${words[3]}`);
+      firstLine = words[0].concat(`${words[1]}`);
+      secondLine = words[2].concat(`${words[3]}`);
     }
     this.firstLine = firstLine.toUpperCase().split('');
     this.secondLine = secondLine.toUpperCase().split('');
   }
-
 }
 
 
