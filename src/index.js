@@ -8,15 +8,14 @@ import './images/Mr_poopy_butthole.png';
 import './images/Pickle_rick.png';
 
 import Game from './js/game';
+import domUpdates from './js/domUpdates';
 
 $(document).ready( () => {
   const game = new Game();
+  
   $('.start-btn').click( () => {
-    if ($('#p1Name').val() !== '' && $('#p2Name').val() !== '' && $('#p3Name').val() !== '') {
-      game.startRound();
-    } else {
-      // NAME REQUIRED
-    }
+    domUpdates.setDefaultNames();
+    game.startRound();
   });
   
   $('.final-solution-btn').click( () => {
@@ -24,7 +23,7 @@ $(document).ready( () => {
       game.validateAnswer();
       $('.input-solve, .final-solution-btn').hide();
       $('.feedback').show();
-    };
+    }
   });
   
   $('.btn-spin').click( () => {

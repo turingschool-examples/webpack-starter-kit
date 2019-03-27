@@ -64,12 +64,21 @@ export default {
 
   showVowels: () => {
     $('.buy').on('click', function() {
-      $('.vowels-to-buy').removeClass('slide-in');
-      $('.vowels-to-buy').show();
-      $('.vowels-to-buy').addClass('slide-in');
-      $('.buy, .btn-spin, .btn-solve').attr('disabled', true);
-      $('.input-solve, .final-solution-btn').hide();
-      $('.check-btn, .ltr-input').hide();
+      if ($('#a').is(":disabled")
+      && $('#e').is(":disabled")
+      && $('#i').is(":disabled")
+      && $('#o').is(":disabled")
+      && $('#u').is(":disabled")) {
+        $('.buy').attr('disabled', true)
+        $('.vowels-to-buy').hide();
+      } else {
+        $('.vowels-to-buy').removeClass('slide-in');
+        $('.vowels-to-buy').show();
+        $('.vowels-to-buy').addClass('slide-in');
+        $('.buy, .btn-spin, .btn-solve').attr('disabled', true);
+        $('.input-solve, .final-solution-btn').hide();
+        $('.check-btn, .ltr-input').hide();
+      }
     });
   },
 
@@ -186,6 +195,17 @@ export default {
   clearFields() {
     $('.word-box, .letters-used, .feedback').empty();
     $('.vowels-to-buy').children().attr('disabled', false);
-  }
+  },
 
+  setDefaultNames() {
+    if ($('#p1Name').val() === '') {
+      $('#p1Name').val('Morty');
+    } 
+    if ($('#p2Name').val() === '') {
+      $('#p2Name').val('Mr. Poopy Butthole');
+    } 
+    if ($('#p3Name').val() === '') {
+      $('#p3Name').val('Pickle Rick');
+    } 
+  }
 }
