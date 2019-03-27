@@ -18,7 +18,7 @@ describe('BonusWheel', () => {
   it('should update the prizes for the Bonus Round', () => {
     expect(bonusWheel.values).to.deep.equal([]);
     bonusWheel.changePrizes();
-    expect(bonusWheel.values).to.include('trip to anatomy park', 'your own personal morty', 'a broken portal gun', 'butter-serving robot', 'one month interdimensional cable');
+    expect(bonusWheel.values).to.include('trip to anatomy park', 'your own personal morty', 'a broken portal gun', 'butter-serving robot', 'a meeseeks box', 'one month interdimensional cable');
   });
 
 })

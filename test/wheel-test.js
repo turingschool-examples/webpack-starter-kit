@@ -11,9 +11,6 @@ describe('Wheel', () => {
 
   it('should have a default current value of 0', () => {
     expect(wheel.currentValue).to.be.equal(0);
-  });
-
-  it('should have an empty array for its values by default', () => {
     expect(wheel.values).to.be.deep.equal([]);
   });
 
