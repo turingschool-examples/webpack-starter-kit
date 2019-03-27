@@ -1,6 +1,6 @@
 import Puzzle from "./Puzzle.js";
 import domUpdates from "./domUpdates.js";
-import Game from "./Game.js"
+// import Game from "./Game.js"
 
 class Round {
   constructor(players, wheel, puzzle) {
@@ -9,6 +9,7 @@ class Round {
     this.activePlayer = 0;
     this.currentPuzzle = puzzle;
     this.solutionGuess = null;
+    this.roundCountDown = 0;
   }
 
   getPuzzle(array) {
@@ -16,10 +17,10 @@ class Round {
     let randomPuzzle = array.splice(randomNum, 1);
     let puzzle = new Puzzle(randomPuzzle[0]);
     this.currentPuzzle = puzzle;
+    this.roundCountDown = puzzle.numWords;
     return puzzle;
   }
   changeActivePlayers() {
-    console.log(this.activePlayer)
     let oldPlayer, newPlayer;
     switch (true) {
     case (this.activePlayer === 0):
@@ -43,7 +44,6 @@ class Round {
   }
 
   checkScore(e, game) {
-    console.log(this.players[this.activePlayer])
     if (this.players[this.activePlayer].roundScore >= 100) {
       domUpdates.buyAVowel(e, game);
     }
@@ -54,14 +54,13 @@ class Round {
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer]
     player.roundScore += spinValue;
-    console.log('after: ', player, player.roundScore)
     domUpdates.displayScore(player.playerNumber, player.roundScore)
   }
 
   // TODO: DISPLAY REVEALED LETTER
   handleCorrectLetterChosen(splitAnswer, chosenLetter) {
     const spinValue = this.currentWheel.currentSpin
-    const player = this.players[this.activePlayer]
+    // const player = this.players[this.activePlayer]
     splitAnswer.forEach(letter => {
       if (chosenLetter === letter) {
         // console.log('before: ', player.roundScore)
@@ -79,15 +78,17 @@ class Round {
     if (splitAnswer.includes(chosenLetter)) {
       this.handleCorrectLetterChosen(splitAnswer, chosenLetter)
       this.checkScore();
+      // this.roundCountDown--
+      // if(this.roundCountDown == 0){
+      // game.createRound();
+      // }
     } else {
-      console.log('made it')
       this.changeActivePlayers();
     }
   }
 
   handleSolutionGuess(guess) {
     const solution = this.currentPuzzle.correctAnswer.toUpperCase();
-    console.log('guess', guess);
     if (guess.toUpperCase() === solution) {
       // alert('Nailed it!');
       domUpdates.displaySolvedPuzzle();

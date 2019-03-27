@@ -1,6 +1,4 @@
-
 import $ from 'jquery';
-import Player from "./Player.js";
 
 export default {
 
@@ -10,7 +8,6 @@ export default {
     playersArr.forEach((player, ind) => {
       $('#player' + ([ind + 1])).text(player.name);
     });
-
   },
 
   playerNames () {
@@ -91,12 +88,16 @@ export default {
     });
     $('.spin-winner').html(`${wheel.currentSpin}`);
     if (wheel.currentSpin === "BANKRUPT") {
-      this.displayScore(game.round.activePlayer-1, 0)
-      game.players[game.round.activePlayer-1].roundScore = 0;
+      if (game.round.activePlayer === 0) {
+        this.displayScore(game.round.activePlayer + 2, 0)
+      } else {
+        this.displayScore(game.round.activePlayer - 1, 0)
+      }
+      game.players[game.round.activePlayer - 1].roundScore = 0;
       game.round.changeActivePlayers();
 
     } else if (wheel.currentSpin === "LOSE A TURN") {
-      round.changeActivePlayers();
+      game.round.changeActivePlayers();
     }
   },
 
@@ -121,10 +122,10 @@ export default {
     });
   },
 
-  buyAVowel(event) {
+  buyAVowel() {
     $('.vowels').on('click', (event) => {
       $( '.vowels').removeClass( "cost");
-      // round.players[round.activePlayer].roundScore -= 100;
+      round.players[round.activePlayer].roundScore -= 100;
       game.round.guessLetter(event);
     });
   },

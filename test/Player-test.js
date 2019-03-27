@@ -6,7 +6,6 @@ chai.use(spies);
 const expect = chai.expect;
 
 
-
 describe('Player', () => {
   let player;
   beforeEach(() => {
