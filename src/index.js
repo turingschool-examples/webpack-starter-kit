@@ -38,7 +38,6 @@ $(".guess-input").on("keypress", function(e) {
   }
 });
 $(".guess-input").on("keydown", domUpdates.hideGuessMessages);
-$(".start-timer-btn").on("click", runTimer);
 $(".multiplier-btn").on("click", startFinalRound);
 
 function startGame() {
@@ -70,9 +69,9 @@ function finalGuess(guess) {
   domUpdates.clearInput();
 }
 
-function runTimer() {
-  round.startTimer($(".timer"));
-}
+// function runTimer() {
+//   round.startTimer($(".timer"));
+// }
 
 function startFinalRound() {
   game.player1.isTurn = true;

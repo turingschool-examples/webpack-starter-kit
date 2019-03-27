@@ -10,6 +10,7 @@ class FinalRound extends Round {
   }
 
   startTimer(display) {
+    console.log('START TIMER');
     var timer = 30, seconds;
     setInterval(function () {
       seconds = parseInt(timer % 60, 10);
