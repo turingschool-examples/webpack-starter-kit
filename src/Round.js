@@ -15,6 +15,7 @@ class Round {
   }
 
   createNewRound(game) {
+    this.checkRoundNum(this)
     this.roundNumber ++
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
     this.shuffler(allRoundClues)
@@ -23,6 +24,7 @@ class Round {
     DomUpdates.displayRound(this.roundNumber);
     this.wheelInst.createWheel(this)
     game.stage ++
+
   }
 
   getRandomClue(cards) {  
@@ -50,12 +52,10 @@ class Round {
   }
 
   fillGameBoard() {
-    console.log('clueAnsw3r', this.clueAnswer)
     this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
   }
 
   flipCells(letter) {
-    // console.log('asrtdfgv', letter)
     console.log(this.letterIndexs)
     const selectedLetter = this.letterIndexs[letter];
     const puzzleCells = $('.puzzle-cell').toArray();
@@ -114,10 +114,8 @@ class Round {
   }
 
 
-  ///checking clicked letter works
+
   checkLetter(userLetter, game) {
-    // console.log('user', userLetter)
-    // console.log(this.remainingLetters)
     let cleanClueAnswer = this.clueAnswer.join('').replace(/[-']/g, '').split('')
     if (cleanClueAnswer.includes(userLetter)) {
       this.remainingLetters = this.remainingLetters.filter(letter =>{
@@ -125,9 +123,7 @@ class Round {
           return letter;
         }
       })
-      console.log(this.remainingLetters)
       if (this.remainingLetters.length === 0) {
-      
         DomUpdates.gameMessage("round winner")
         game.updatePlayerScore()
         this.wheelInst.selectedValue = 0;
@@ -148,8 +144,9 @@ class Round {
   }
 
   checkPlayerSolve(playerSolveInput, game) {
-    let playerSolve = playerSolveInput.replace(/[-']/g, '')
-    let gameAnswer = this.clueAnswer.join('').replace(/[-']/g, '')
+    let playerSolve = playerSolveInput.replace(/[-' ]/g, '')
+    console.log(playerSolve)
+    let gameAnswer = this.clueAnswer.join('').replace(/[-' ]/g, '')
     
     if (playerSolve === gameAnswer) {
       DomUpdates.gameMessage("round winner")
@@ -161,10 +158,12 @@ class Round {
       this.switchPlayer(game)
     }
   }
-
   
-
-
+  checkRoundNum() {
+    if (this.roundNumber === 5) {
+      this.createBonusWheel()
+    }
+  }
 }
 
 export default Round
