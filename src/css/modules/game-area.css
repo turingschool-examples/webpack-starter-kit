@@ -1,0 +1,11 @@
+.game-area {
+  margin: 50px auto;
+}
+
+.game-area {
+  display: none;
+  height: 90%;
+  justify-items: center;
+  margin: 0 auto;
+  width: 95%;
+}

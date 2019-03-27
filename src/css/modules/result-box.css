@@ -1,0 +1,43 @@
+.rb-holder {
+  background-image: url("../../images/sheild-and-sword.png");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.result-box {
+  background-color: white;
+  height: 40%;
+  margin: 160px auto;
+  width: 260px;
+}
+
+.result-box > *,
+.timer {
+  border: 5px solid #B02418;
+  background-color: #2E528E;
+  color: white;
+}
+
+.result-one,
+.result-two,
+.result-three {
+  padding-left: 10px
+}
+
+
+.result-one-num,
+.result-two-num,
+.result-three-num {
+  border-left: none;
+  text-align: center;
+}
+
+.result-one,
+.result-two,
+.result-one-num,
+.result-two-num {
+  border-bottom: none;
+}
