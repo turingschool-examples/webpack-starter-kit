@@ -27,6 +27,7 @@ const dataSet = data.surveys.reduce((acc, survey) => {
 
 
 $('#startBtn').on('click', startPlaying);
+$('#newGameBtn').on('click', startPlaying);
 $('#resetBtn').click(() => {
   location.reload(true);
 });

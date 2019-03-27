@@ -42,12 +42,6 @@ checkAnswer(guess, currentPlayer, game) {
     
     endRound(game) {
         game.createRound();
-        //create new round
-        //increase round number to 2,3,4
-        //keep player score
-        //keep players
-        //reset answer count to 0
-        //get a new question set
         this.answerCount = 0;
      }
 

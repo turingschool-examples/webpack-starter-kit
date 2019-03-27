@@ -43,9 +43,10 @@ createRound() {
     if(this.roundNumber > 0){
         domUpdates.progressBar(this.roundNumber);
     } 
-    // if(this.roundNumber === 3){
-    //     this.lightningRound()
-    // }
+    if(this.roundNumber >= 4){
+        //play with this number
+       domUpdates.winnerMessage(this.player1, this.player2)
+     }
     const question = survey.question;
     domUpdates.appendQuestion(question);
 };

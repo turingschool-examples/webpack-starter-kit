@@ -55,14 +55,16 @@ body {
   height: 40px;
 }
 
-#startBtn {
+#startBtn,
+#newBtn {
   background-color: #0a4696;
   color: white;
   border: 2px solid #FFF;
   height: 50px;
 }
 
-#startBtn:hover {
+#startBtn:hover,
+#newGameBtn:hover {
   background-color: #276C0E;
   color: white;
 }

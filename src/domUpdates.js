@@ -62,7 +62,8 @@ popUp() {
        $('#progress').html('<progress id="bar" max="100" value="50"> </progress>');
        $('#round').text("Round 2");
     } else if(roundNumber === 3){
-       $('#progress').html('<progress id="bar" max="100" value="=75"> </progress>');
+      console.log('happy');
+       $('#progress').html('<progress id="bar" max="100" value="75"> </progress>');
        $('#round').text("Lightning ⚡ Round");
     } else if(roundNumber === 4){
        $('#progress').html('<progress id="bar" max="100" value="100"> </progress>');
@@ -94,5 +95,24 @@ popUp() {
   }
 
   },
+
+  winnerMessage(player1, player2) {
+    console.log('winner', player1.score);
+    console.log('winner', player2.score);
+
+    if(player1.score > player2.score){
+     let player = player1.name; 
+    } else {
+      let player = player2.name;
+    };
+    
+    $('.winnerMessage').append(`<h1 class="winner">${player}IS THE WINNER!</h1>
+      <h3>Want To Play Again?</h3>
+      <button id="newGameBtn">New Game</button>
+        `);
+
+    //not sure it works
+  },
+
 
 }
