@@ -3,10 +3,6 @@ body {
   background-color: burlywood;
 }
 
-.hidden {
-  display: none;
-}
-
 .info-page {
   width: 700px;
   height: 500px;
@@ -293,4 +289,6 @@ h6 {
   margin: 0 10px;
 }
 
-
+.hidden {
+  display: none;
+}
