@@ -8,13 +8,17 @@ class FastRound extends Round {
         this.multiplier = 2;
     }
 
-    startTimedRound(timer) {
-      domUpdates.displayTimer(timer);
+  startTimedRound() {
+    if (window.game.activePlayer === window.game.player1) {
+      domUpdates.displayTimer1();
+    } else {
+      domUpdates.displayTimer2();
     }
+  }
 
-    setMultiplier(chosenNumber) {
-      this.multiplier = chosenNumber;
-    }
+  setMultiplier(chosenNumber) {
+    this.multiplier = chosenNumber;
+  }
 }
 
 export default FastRound;

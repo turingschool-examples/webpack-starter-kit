@@ -11,25 +11,34 @@ body {
   font-size: 1.2em;
 }
 
-.timer {
-  background: white;
+.timer-1,
+.timer-2 {
+  background: transparent;
+  font-weight: 900;
   height: 150px;
   width: 150px;
   font-size: 75px;
   color: #b20303;
-  border: 4px solid #b20303;
+  border: 4px solid darkgray;
   border-radius: 100%;
   position: absolute;
-  right: 0;
   margin: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.timer-1 {
+  left: 60px;
+}
+
+.timer-2 {
+  right: 60px;
+}
+
 .winner-screen,
 .welcome-screen {
-  background: linear-gradient( rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75) );
+  background: rgba(0, 0, 0, 0.75);
   height: 100%;
   width: 100%;
   display: flex;
@@ -40,7 +49,7 @@ body {
 }
 
 .fastround-ready-screen {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+  background: rgba(0, 0, 0, 0.75);
   height: 100%;
   width: 100%;
   display: flex;
