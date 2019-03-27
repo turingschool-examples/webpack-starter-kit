@@ -27,11 +27,4 @@ describe('Final Round', function () {
     expect(finalRound.answers).to.be.an('array');
     expect(finalRound.answers.length).to.equal(3);
   });
-  it('should start with a multiplier of 1', () => {
-    expect(finalRound.multiplier).to.equal(1);
-  });
-  it('should be able to reassign multiplier with user input', () => {
-    finalRound.getMultiplier(4)
-    expect(finalRound.multiplier).to.equal(4);
-  });
 });
