@@ -110,24 +110,6 @@ button {
   width: 440px;
 }
 
-.player-box {
-  width: 80%;
-  padding-top: 180px;
-}
-.player-name {
-  position: relative;
-  z-index: 2;
-  width: 130px;
-  height: 50px;
-  font-weight: 900;
-  margin: 200px auto 0;
-}
-
-.score-box {
-  width: 50px;
-  margin: -20px auto 0;
-}
-
 h4,
 h6 {
   color: white;
