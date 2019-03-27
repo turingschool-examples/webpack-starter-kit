@@ -74,25 +74,6 @@ button {
   margin: 20px auto;
 }
 
-.round-banner {
-  position: fixed;
-  top: 100px;
-  display: none;
-  z-index: 10;
-}
-
-.round-banner-knight {
-  position: absolute;     
-  height: 266px;
-  width: 222px;
-}
-
-.round-banner-text {
-  position: absolute;
-  left: 230px;
-  top: 80px;
-}
-
 .survery-box {
   grid-area: survey;
   background-image: url("../images/text-banner.png");

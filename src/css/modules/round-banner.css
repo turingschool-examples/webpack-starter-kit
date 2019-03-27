@@ -1,0 +1,18 @@
+.round-banner {
+  display: none;
+  position: fixed;
+  top: 100px;
+  z-index: 10;
+}
+
+.round-banner-knight {
+  height: 266px;
+  position: absolute;     
+  width: 222px;
+}
+
+.round-banner-text {
+  left: 230px;
+  position: absolute;
+  top: 80px;
+}
