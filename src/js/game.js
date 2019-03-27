@@ -106,6 +106,9 @@ class Game {
     if (this.round === 6) {
       this.round = 1
     }
+    if (this.round === 2) {
+      domUpdates.showBonusRound();
+    }
   }
 
   newQ() {

@@ -1,0 +1,24 @@
+.bonus-round {
+  background-color: darkgreen;
+  color: white;
+  font-family: $bodyfont;
+  font-size: $boardDescription;
+  position: absolute;
+  right: 15%;
+  text-align: center;
+  top: 15%;
+  width: 75%;
+  z-index: 5;
+
+  button {
+    background-color: magenta;
+    border-radius: 25px;
+    color: white;
+    font-size: 1rem;
+    padding: 5px;
+  }
+}
+
+.popup {
+  display: none;
+}

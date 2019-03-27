@@ -63,6 +63,10 @@ $(document).ready( () => {
     $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
   });
 
+  $('.btn-popup').on('click', () => {
+    domUpdates.closePopup();
+  });
+
 })
 
 

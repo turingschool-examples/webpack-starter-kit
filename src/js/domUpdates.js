@@ -207,5 +207,15 @@ export default {
     if ($('#p3Name').val() === '') {
       $('#p3Name').val('Pickle Rick');
     } 
+  },
+
+  showBonusRound() {
+    $('.bonus-round').removeClass('popup');
+    $('.game-page').css('opacity', '.5');
+  },
+
+  closePopup() {
+    $('.game-page').css('opacity', '1');
+    $('.bonus-round').hide();
   }
 }
