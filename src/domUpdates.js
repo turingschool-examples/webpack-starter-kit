@@ -45,13 +45,39 @@ popUp() {
     $('#surveyQuestion').text(question);
   },
 
+  highlightPlayer(playerId) {
+    if(playerId === 1) {
+      $('#nameOne').css('width', '300px')
+     $('#nameOne').css('height', '80px')
+     $('#nameOne').css('border-radius', '1%')
+     $('#nameOne').css('box-shadow','inset 0 0 50px #fff, 0 0 50px red, -10px 0 80px blue, 10px 0 80px #fff')
+    }
+
+    if(playerId === 2){
+      $('#nameTwo').css('width', '300px')
+     $('#nameTwo').css('height', '80px')
+     $('#nameTwo').css('border-radius', '1%')
+     $('#nameTwo').css('box-shadow','inset 0 0 50px #fff, 0 0 50px red, -10px 0 80px blue, 10px 0 80px #fff') 
+        } 
+  },
+
+  // unhighlightPlayer(playerId) {
+  //    if(playerId === 1) {
+  //     $('#nameOne').css('');
+  //   }
+  //      if(playerId === 2) {
+  //     $('#nameTwo').css('');
+  //   }
+  // },
+
   changeScore(score, playerId) {
      if(playerId === 1) {
-        $('#scoreOne').text(score)   
-        }
+        $('#scoreOne').text(score);
+    }
+
     if(playerId === 2) {
-          $('#scoreTwo').text(score) 
-        }    
+          $('#scoreTwo').text(score);
+       }  
   },
 
   progressBar(roundNumber) {

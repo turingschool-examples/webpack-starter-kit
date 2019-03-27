@@ -22,7 +22,7 @@ createPlayer(name1, name2) {
     this.player2 = new Player(name2, 2);
     console.log(this.player2); 
     this.currentPlayer = this.player1;
-    console.log(this.currentPlayer);
+       console.log(this.currentPlayer);
 };
 
 switchPlayer() { 
@@ -41,8 +41,14 @@ createRound() {
     console.log(survey);
     this.roundNumber++;
     if(this.roundNumber > 0){
-        domUpdates.progressBar(this.roundNumber);
+        domUpdates.progressBar(this.
+            roundNumber);
     } 
+
+    if(this.roundNumber === 3) {
+        lightningRound();
+    }
+
     if(this.roundNumber === 5){
         //play with this number
        domUpdates.winnerMessage(this.player1, this.player2)
@@ -55,37 +61,16 @@ getAnswer(guess) {
     this.round.checkAnswer(guess, this.currentPlayer, this);
 
     };
-};
+
+lightningRound() {
+const lighteningRound = new LighteningRound();
+//we will have to pass everything into this
+//what is the point of having a new instance?
+//needs to trigger LR popup multiplier box
+ };
 
 
-
-//current turn tracker, pass in the player who is playing vs array of player or find player who is playing in array
-
-        //   }
-        // }
-        //for new player
-        //keep checking answers
-        //player two is default on round 2
-        //lowest scoring player is default on LR
-
-        // countRound() {
-        //   roundNumber++;
-              // createRound();
-        // }
-
-        // fastMoney() {
-        //   if (roundNumber = 3) {
-        //     const fastMoney = new FastMoney;
-        //   }
-        // }
-// }
-
-// declareWinner()
-// player1.score > or < player2.score
-// if player1 is greater, delare p1 winner
-// else player2 winner
-//     change innertext fire popup w/
-//     new game button
+}
 
 
 export default Game;

@@ -5,6 +5,7 @@ class Player {
         this.name = name;
         this.score = 0;
         this.playerId = playerId;
+
     };
 
     addScore(scoreAmt) {
