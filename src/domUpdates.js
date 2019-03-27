@@ -24,6 +24,7 @@ let domUpdates = {
         splitAnswer.forEach((cur, idx) => {
             if(cur === '-') {
                 $('.clueLetter').eq(idx).text('-')
+                $('.clueLetter').eq(idx).css("background-color", "#03a9f4")
             } else {
                 $('.clueLetter').eq(idx).css("background-color", "white")
                 
@@ -36,14 +37,25 @@ let domUpdates = {
             if(usedArray.includes(letter) && !usedArray.includes('') ) {
                 $('.clueLetter').eq(index).text(letter);
                 $('.clueLetter').eq(index).css("background-color", "#03a9f4");
+                $('.spinButton').prop('disabled', true);
             } else {
                 $('.clueLetter').eq(index).css("background-color", "white");
             }
+            splitAnswer.forEach((cur, idx) => {
+                if(cur === '-') {
+                    $('.clueLetter').eq(idx).text('-')
+                    $('.clueLetter').eq(idx).css("background-color", "#03a9f4")
+                }})
         })
     },
 
+    enableButton() {
+        $('.spinButton').prop('disabled', false);
+        $('.instructions').text('Spin the wheel!')
+    },
+
     clearAnswerBoard() {
-        $('.clueLetter').empty().css('background-color', 'white');
+        $('.clueLetter').empty().css('background-color', '#673ab7');
     },
 
     toggleSpin() {
@@ -57,8 +69,8 @@ let domUpdates = {
     },
 
     resetLetters() {
-        $('.letters').removeAttr('disabled').css('background-color', 'white');
-        $('.vowel').removeAttr('disabled').css('background-color', 'white');
+        $('.letters').removeAttr('disabled').css('background-color', '#673ab7');
+        $('.vowel').removeAttr('disabled').css('background-color', '#673ab7');
     },
 
     resetInputs() {
