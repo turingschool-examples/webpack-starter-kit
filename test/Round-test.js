@@ -17,11 +17,13 @@ describe('Round', () => {
     assert.instanceOf(round, Round);
   })
 
+  //fails
   it('should have an id', () => {
     let round = new Round(5, {});
     assert.equal(round.id, 5);
   });
 
+  //fails
   it('should have a question', () => {
     let round = new Round(5, { question: 'this is a question' });
     assert.equal(round.question, 'this is a question');
@@ -33,6 +35,7 @@ describe('Round', () => {
     assert.equal(round.isFinished, false)
   });
 
+  //fails
   it('if guess is correct that response should be filtered from the array', () => {
     let round = new Round(5, {})
     let player = new Player('Brennan')
@@ -41,6 +44,7 @@ describe('Round', () => {
     assert.equal(round.responses.length, 0)
   });
 
+  //fails
   it('should change isFinished to true when entire response array is filtered', () => {
     let round = new Round(5, {})
     let player = new Player('Brennan')
