@@ -32,12 +32,13 @@ let domUpdates = {
         });
     },
 
-    checkLetterGuess(splitAnswer, usedArray) {
+    checkLetterGuess(splitAnswer, usedArray, value, game, player) {
         splitAnswer.forEach((letter, index) => {
             if(usedArray.includes(letter) && !usedArray.includes('') ) {
                 $('.clueLetter').eq(index).text(letter);
                 $('.clueLetter').eq(index).css("background-color", "#03a9f4");
                 $('.spinButton').prop('disabled', true);
+                player.calculateBank(value, game, player);
             } else {
                 $('.clueLetter').eq(index).css("background-color", "white");
             }
@@ -83,7 +84,7 @@ let domUpdates = {
     appendGuessCard() {
         let newDiv = $(
             `<div class="guessCard">
-                <h1>Take A Guess</h1>
+                <h1 class='guessHeading'>Take A Guess</h1>
                 <div>
                     <input placeholder="Guess..." id="guessInput"/>
                     <button class="guessSubmit">Submit Guess</button>
@@ -95,6 +96,14 @@ let domUpdates = {
 
     showCurrentPlayer(player) {
         $('.currentPlayer').text(player)
+    },
+
+    showPlayerScore(id, score) {
+        $('.playerScore').eq(id).text(score)
+    },
+
+    spinMessage(player) {
+        $('.instructions').text(`Lose your turn, ${player} spin the wheel!`)
     }
 }
 
