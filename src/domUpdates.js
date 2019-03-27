@@ -37,7 +37,6 @@ let domUpdates = {
             if(usedArray.includes(letter) && !usedArray.includes('') ) {
                 $('.clueLetter').eq(index).text(letter);
                 $('.clueLetter').eq(index).css("background-color", "#03a9f4");
-                $('.spinButton').prop('disabled', true);
                 player.calculateBank(value, game, player);
             } else {
                 $('.clueLetter').eq(index).css("background-color", "white");
@@ -57,10 +56,6 @@ let domUpdates = {
 
     clearAnswerBoard() {
         $('.clueLetter').empty().css('background-color', '#673ab7');
-    },
-
-    toggleSpin() {
-        $('.spinButton').attr('disable', '');
     },
 
     resetNames() {
@@ -104,6 +99,12 @@ let domUpdates = {
 
     spinMessage(player) {
         $('.instructions').text(`Lose your turn, ${player} spin the wheel!`)
+    },
+
+    disableSpin() {
+        $('.spinButton').prop('disabled', true)
+        $('.instructions').text('Choose a letter!')
+
     }
 }
 

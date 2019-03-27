@@ -24,6 +24,7 @@ class Player {
             domUpdates.spinMessage(player);
         } else {
             this.bank += parseInt(value)
+            domUpdates.disableSpin()
         }
         console.log(value)
     }
