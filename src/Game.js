@@ -35,7 +35,6 @@ class Game {
 
   startNextRoundTimed() {
     if (this.currentRound < 4) {
-      console.log("startNextRoundTimed invoked");
       this.currentRound++;
       this.beginRound();
       this.multiplyValues();
@@ -45,7 +44,7 @@ class Game {
       } else if (this.currentPlayerTurn === "player2") {
         $(".current-turn").html(`${this.player1.name}'s turn!`);
       }
-    } else if (this.currentRound === 5) {
+    } else if (this.currentRound === 4) {
       console.log("game over");
     }
   }
@@ -85,7 +84,6 @@ class Game {
       this.multipleAmount = multiple;
     }
     let amount = multiple || this.multipleAmount;
-    console.log(amount);
     this.currentAnswers.forEach(answer => {
       answer.respondents = answer.respondents * amount;
     });
