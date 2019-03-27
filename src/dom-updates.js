@@ -82,10 +82,10 @@ export default {
     // console.log(game.currentRound.answer) puzzle array
     game.currentRound.answer.map((letter)=>{
       if (alphabetArr.includes(letter.toUpperCase())) {
-        valueBoard.append(`<p class="ans-letter fade-in letter-${letter.toUpperCase()}">_</p>`);
+        valueBoard.append(`<p class="ans-letter letter-${letter.toUpperCase()}">_</p>`);
       }
       else {
-        valueBoard.append(`<p class="ans-letter fade-in nonLetter">${letter}</p>`);
+        valueBoard.append(`<p class="ans-letter nonLetter">${letter}</p>`);
         $('.nonLetter').css('background-color', 'gray')
       }
     })
@@ -94,4 +94,17 @@ export default {
     $(`.letter-${letter.toUpperCase()}`).text(letter.toUpperCase());
     $(`.letter-${letter.toUpperCase()}`).addClass('fade-in-letter')
   },
+  appendWinner(game) {
+    let winner = game.currentRound.currentPlayer.name;
+    let winningCaps = game.currentRound.currentPlayer.roundCaps;
+    let answer = game.currentRound.wholeWord.join('');
+    console.log(game.currentRound.currentPlayer.totalCaps)
+
+    let body = $('body');
+    body.append(`<section class="winner-card fade-in"> ${winner} has guessed the puzzle ${answer} <br> and won ${winningCaps} caps!<section>`)
+    $('.winner-card').delay(3000).queue(function() {
+      $(this).removeClass('fade-in');
+      $(this).addClass('fade-out__animation');
+    });
+  }
 }

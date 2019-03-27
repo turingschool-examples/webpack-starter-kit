@@ -276,8 +276,8 @@ button.start__start--btn {
 }
 .hint__title {
   text-align: end;
-
 }
+
 .hint__value {
   padding-left: 20px;
   max-width: 500px;
@@ -392,6 +392,26 @@ footer {
   animation: fadeIn 2s linear;
   transform: translate(-10px, -10px);
 }
+
+.winner-card {
+  background: linear-gradient(to bottom, #45484d 0%,#000000 100%);
+  box-shadow: inset 0px 0px 144px 27px rgba(0, 0, 0, 1);
+  z-index: 12;
+  position: absolute;
+  top: 150px;
+  left: 15%;
+  height: 325px;
+  width: 70%;
+  border-radius: 10px;
+  padding: 40px 25px;
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+}
+.fade-in {
+  animation: fadeIn 1s 1;
+}
+
 @keyframes fadeIn {
   0% { opacity: 0 }
   100% { opacity: 1}

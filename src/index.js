@@ -52,9 +52,12 @@ $('.guess__word--button').click(function () {
   DomUpdates.updatePlayerScore(game);
   game.currentRound.wholeWord = game.currentRound.wholeWord
     .filter(letter => alphabetArr.includes(letter))
-  game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
-  // ! end round here
-    game.currentRound.newRound(game) : game.currentRound.getCurrentPlayer(game);
+  if (game.currentRound.wholeWord.join('') == wrdGuessArr.join('')) { 
+    DomUpdates.appendWinner(game)
+    game.currentRound.newRound(game)
+  } else {
+     game.currentRound.getCurrentPlayer(game)
+   }
     
   // console.log(game);
   // game.currentRound.currentPlayer.ans = wrdGuess.split('');
