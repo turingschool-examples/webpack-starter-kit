@@ -61,10 +61,6 @@ class Rounds {
     this.uniquePoints(this.topicThree, 3);
     this.uniquePoints(this.topicFour, 4);
    }
-
-   fetchQuestion() {
-
-   }
 }
 
 export default Rounds;

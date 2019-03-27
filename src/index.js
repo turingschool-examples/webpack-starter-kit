@@ -65,23 +65,5 @@ console.log('This is the JavaScript entry file - your code begins here.');
   } else {
     category = (newGame.currentRound.topicFour);
   }
-  findClueIndex(category, e);
-
+  newGame.findClueIndex(category, e);
   });
-
- function findClueIndex (category, e) {
-   if ($(e.target).is(".ind-0")) {
-    let currentClue = new Clue (category[0]);
-    console.log(currentClue);
-  } else if ($(e.target).is(".ind-1")) {
-    let currentClue = new Clue (category[1]);
-    console.log(currentClue);
-  } else if ($(e.target).is(".ind-2")) {
-    let currentClue = new Clue (category[2]);
-    console.log(currentClue);
-  } else {
-    let currentClue = new Clue(category[3]);
-    console.log(currentClue);
-  }
-
- }
