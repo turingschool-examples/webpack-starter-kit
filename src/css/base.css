@@ -19,7 +19,7 @@ h1 {
 
 .boardWheel {
   transition: 3s;
-  margin-left: 50px;
+  margin-left: 120px;
 }
 
 form {
@@ -37,13 +37,19 @@ form {
 }
 
 .playerOne, .playerTwo, .playerThree{
-  margin: 0px 40px 0px 40px;
+  margin: 10px;
+}
+
+section.tables{
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
 }
 
 table.guessBoard {
   border: 1px solid black;
-  height: 200px;
-  margin: auto;
+  height: 230px;
+  margin-right: 20px;
   width: 80%;
 }
 
@@ -54,15 +60,29 @@ tr, td {
   width: 10px;
 }
 
+table.letterBank {
+  border: 5px solid black;
+  height: 230px;
+  width: 30%;
+  background: #004092;
+}
+section.players{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: auto;
+}
 section.roundSection {
   text-align: center;
+  margin: 30px;
+  width: 50%;
 }
 
 section.playSection{
   display: flex;
-  flex-basis: row;
-  justify-content: space-between;
-  margin: 20px;
+  flex-direction: column;
+  margin: 30px;
+  width: 50%;
 }
 
 .roundNumber {
@@ -71,31 +91,24 @@ section.playSection{
 
 button.spinButton{
   height: 40px;
+  margin: 10px;
   border: 5px solid #ffae00;
-  border-radius: 40px;
-  width: 80px;
-  margin: 130px 160px 130px 0px;
+  border-radius: 30px;
+  width: 150px;
   background: #ffea00;
   font-size: 22px;
 }
 
+form.buttons {
+  flex-direction: row;
+}
+
+form.inputs{
+  flex-direction: row;
+}
+
 .spinButton:hover{
   cursor: pointer;
-}
-
-table.letterBank {
-  border: 5px solid black;
-  height: 250px;
-  width: 50%;
-  margin: 20px 0px 20px 0px;
-  padding: 10px;
-  background: #004092;
-}
-
-footer.scoreSection{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 th {
@@ -120,8 +133,8 @@ th {
 td {
   border: 4px solid #2b3152;
   background: #673ab7;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
 }
 
 .guessCard {
@@ -140,7 +153,7 @@ input.nameInput{
   font-size: 20px;
   height: 30px;
   margin: 0 10px 0px 10px;
-  width: 200px;
+  width: 120px;
   border-radius: 25px;
   border: 3px solid #00e000;
   color: white;
@@ -154,7 +167,7 @@ input.nameInput{
 
 button.startGame, .tester, .reset, .guessPuzzle {
   margin: 10px;
-  height: 30px;
+  height: 40px;
   width: 150px;
   border-radius: 30px;
   font-family: 'Press Start 2P';
