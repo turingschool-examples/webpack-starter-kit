@@ -109,12 +109,12 @@ let conditionalChecking = (round, player, ltrGuess) => {
   if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
     alert('This letter has already been guessed!');
     // todo: add an error message instead of alert
-  } else if (compareAns(round, player) && !vowels.includes(ltrGuess.toUpperCase())) {
+  } else if (game.currentRound.compareAns() && !vowels.includes(ltrGuess.toUpperCase())) {
     correctAnsFunc(round, player, ltrGuess);
     DomUpdates.toggleButtons();
-  } else if (compareAns(round, player) && vowels.includes(ltrGuess.toUpperCase())) {
+  } else if (game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
     correctAnsFunc(round, player, ltrGuess)
-  } else if (!compareAns(round, player) && vowels.includes(ltrGuess.toUpperCase())) {
+  } else if (!game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
     round.allRoundGuesses.push(player.ans);
     round.allRoundGuesses.sort();
     DomUpdates.appendIncorrect();
@@ -133,16 +133,17 @@ let conditionalChecking = (round, player, ltrGuess) => {
   }
 }
 
-let compareAns = (round, player) => {
-  return round.answer.map((letter)=> letter.toUpperCase())
-    .includes(player.ans.toUpperCase());
-}
+// let compareAns = (game) => {
+//   return round.answer.map((letter)=> letter.toUpperCase())
+//     .includes(player.ans.toUpperCase());
+// }
 
 let correctAnsFunc = (round, player, ltrGuess) => {
   round.correctRoundGuesses.push(player.ans);
   round.allRoundGuesses.push(player.ans);
   round.allRoundGuesses.sort();
   DomUpdates.createPuzzleClassArr(ltrGuess);
+  DomUpdates.appendCorrect();
   round.answer = round.answer
   .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
   if (game.currentRound.answer.length === 0) {
@@ -173,6 +174,7 @@ $('.nav__wheel--button').click(() => {
   let random = Math.floor((Math.random() * 7) + 0);
   DomUpdates.toggleButtons();
   const slice = game.currentRound.currWheel.wheelSlices[random];
+  DomUpdates.appendWheelValue(slice);
   console.log("Slice:", slice)
   $.type(slice) === "number" ? spinNum(slice) : spinNotNum(slice);
   // ! REMOVE CONSOLE: LATER !

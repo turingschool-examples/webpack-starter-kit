@@ -106,6 +106,22 @@ export default {
       $(this).addClass('fade-out__animation');
     });
   },
+  appendWheelValue(slice) {
+    let animationContainer = $('.animation--container');
+    animationContainer.append(`<h2 class="prompt-img fade-in">${slice}</h2>`)
+    $('.prompt-img').delay(1000).queue(function () {
+      $(this).removeClass('fade-in');
+      $(this).addClass('fade-out__animation');
+    });
+  },
+  appendCorrect() {
+    let animationContainer = $('.animation--container');
+    animationContainer.append(`<image class="prompt-img fade-in" src="./images/smartypants.png">`)
+    $('.prompt-img').delay(1000).queue(function () {
+      $(this).removeClass('fade-in');
+      $(this).addClass('fade-out__animation');
+    });
+  },
   appendIncorrect() {
     let animationContainer = $('.animation--container');
     animationContainer.append(`<image class="prompt-img fade-in" src="./images/incorrect.png">`)
