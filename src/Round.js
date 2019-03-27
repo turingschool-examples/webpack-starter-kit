@@ -18,8 +18,9 @@ class Round {
     this.currentPuzzle = puzzle;
     return puzzle;
   }
+
   changeActivePlayers() {
-    console.log(this.activePlayer)
+    // console.log(this.activePlayer)
     let oldPlayer, newPlayer;
     switch (true) {
     case (this.activePlayer === 0):
@@ -38,35 +39,49 @@ class Round {
       // alert('Something went wrong!');
       break;
     }
-    domUpdates.turnOrder(oldPlayer, newPlayer);
-    this.checkScore();
+    domUpdates.updateActivePlayer(oldPlayer, newPlayer, this.players[this.activePlayer]);
+
+  }
+  
+  newTurn() {
+    const player = this.players[this.activePlayer];
+    this.changeActivePlayers()
+    this.checkScore(player);
+    domUpdates.yourTurnMessage(player);
   }
 
-  checkScore(e, game) {
-    console.log(this.players[this.activePlayer])
-    if (this.players[this.activePlayer].roundScore >= 100) {
-      domUpdates.buyAVowel(e, game);
-    }
-  }
+//NEW TURN
+//change round.active player
+//check active player score
+//--buy vowel ok?
+//update active player on dom
+//ANNOUNCE SPIN
+//clear previous spin on dom
+// pulse wheel on dom
+
+
+
+  // checkScore(player) {
+  //   return player.roundScore >= 100 ? domUpdates.canBuyVowel(true) : domUpdates.canBuyVowel(false);
+  // }
 
 
 
   updatePlayerScore(spinValue) {
-    const player = this.players[this.activePlayer]
-    player.roundScore += spinValue;
+    const player = this.players[this.activePlayer];
+    spinValue === 0 ? player.roundScore = 0 : player.roundScore += spinValue;
     console.log('after: ', player, player.roundScore)
     domUpdates.displayScore(player.playerNumber, player.roundScore)
   }
 
-  // TODO: DISPLAY REVEALED LETTER
   handleCorrectLetterChosen(splitAnswer, chosenLetter) {
     const spinValue = this.currentWheel.currentSpin
-    const player = this.players[this.activePlayer]
+    // const player = this.players[this.activePlayer]
     splitAnswer.forEach(letter => {
       if (chosenLetter === letter) {
-        // console.log('before: ', player.roundScore)
-        this.updatePlayerScore(spinValue)
+        this.updatePlayerScore(spinValue);
         domUpdates.displayCorrectLetter(splitAnswer, chosenLetter);
+        domUpdates.spinAgainPrompt();
       }
     });
   }
@@ -78,10 +93,9 @@ class Round {
     const chosenLetter = event.currentTarget.innerText;
     if (splitAnswer.includes(chosenLetter)) {
       this.handleCorrectLetterChosen(splitAnswer, chosenLetter)
-      this.checkScore();
+      // this.checkScore();
     } else {
-      console.log('made it')
-      this.changeActivePlayers();
+      this.newTurn();
     }
   }
 

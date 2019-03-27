@@ -17,12 +17,15 @@ class Wheel {
   spinWinner(index, round) {
     this.currentSpin = this.values[index];
     if (this.currentSpin === 'BANKRUPT') {
-      round.players[round.activePlayer].roundScore = 0;
+      round.updatePlayerScore(0);
       domUpdates.displayScore(round.activePlayer, 0);
-      round.changeActivePlayers();
+      round.newTurn();
     } else if (this.currentSpin === 'LOSE A TURN') {
-      round.changeActivePlayers();
-    } 
+      alert('You spun LOSE A TURN :(');
+      round.newTurn();
+    } else {
+      domUpdates.spinResultMessage(this.currentSpin);
+    }
   }
     
 }
