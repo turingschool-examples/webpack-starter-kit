@@ -94,7 +94,7 @@ export default {
   },
 
   showTieScreen() {
-    
+    $(".tie-screen").removeClass("hidden");
   },
 
   displayFastroundDialog(playerName) {

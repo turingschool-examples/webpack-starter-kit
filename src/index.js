@@ -76,15 +76,16 @@ $("#start-btn").on("click", function() {
   $(".welcome-screen").removeClass("hidden");
 });
 
-$("#play-again-btn").on("click", function() {
+$(".play-again-btn").on("click", function() {
   domUpdates.resetPageDefaults();
   $(".winner-screen").addClass("hidden");
+  $(".tie-screen").addClass("hidden");
   $(".welcome-screen").removeClass("hidden");
   domUpdates.enableTabbing();
 });
 
 $(".guess-input").on("keyup", function() {
-    $("#submit-guess-btn").prop('disabled', $(".guess-input").val().length < 3);
+  $("#submit-guess-btn").prop('disabled', $(".guess-input").val().length < 3);
 });
 
 $("#fastround-start-btn").on("click", function() {

@@ -37,6 +37,7 @@ body {
 }
 
 .winner-screen,
+.tie-screen,
 .welcome-screen {
   background: rgba(0, 0, 0, 0.75);
   height: 100%;
@@ -75,7 +76,8 @@ button:disabled {
 }
 
 .name-form,
-.winner-popup {
+.winner-popup,
+.tie-screen {
   background: #213b72;
   border: 5px solid white;
   color: white;
@@ -86,13 +88,15 @@ button:disabled {
 }
 
 
-.winner-popup {
+.winner-popup,
+.tie-popup {
   text-align: center;
   height: 300px;
   width: 500px;
 }
 
-.winner-popup h3 {
+.winner-popup h3,
+.tie-popup h3 {
   font-size: 2.2em;
   font-weight: 900;
   margin: 0 0 100px 0;
@@ -126,14 +130,14 @@ button:disabled {
 }
 
 #fastround-start-btn,
-#play-again-btn,
+.play-again-btn,
 #submit-names-btn {
   background-color: #FBE065;
   color: #213b72;
 }
 
 #fastround-start-btn:hover,
-#play-again-btn:hover,
+.play-again-btn:hover,
 #submit-names-btn:hover {
   background-color: lightgray;
 }
