@@ -109,9 +109,9 @@ class Game {
   getNextPlayer() {
     const lowerScore = Math.min(this.player1.score, this.player2.score);
 
-    if (this.currentRound !== 2 
-      && this.player1.score !== this.player2.score
-      && this.activePlayer.score === lowerScore) {
+    if (this.currentRound === 2 && this.activePlayer.score === lowerScore) {
+      this.activePlayer = this.activePlayer;
+    } else {
       this.toggleActivePlayer();
     }
   }
