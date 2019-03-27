@@ -30,12 +30,12 @@ startGameBtn.click(function (e) {
 clueBtn.on('click', function(e) {
   e.preventDefault();
   const {id, innerText} = event.target;
-  game.round.findClue(game, id, innerText, event);
+  if ($('#round').text() === '1') {
+    game.round.findClue(game, id, innerText, event);
+  }
   if ($('#round').text() === '2') {
-    console.log('test')
    game.round.findNextRoundClues(game, id, innerText, event);
   }
-
 })
 
 submitBtn.click(function (e) {
@@ -46,7 +46,6 @@ submitBtn.click(function (e) {
 
 dailyDoubleBtn.click(function (e) {
   e.preventDefault();
-  console.log('click');
   domUpdates.hide
   // domUpdates.
   // domUpdates.notifyNextTurn(game)

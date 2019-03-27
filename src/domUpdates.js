@@ -40,8 +40,6 @@ export default {
 
   showClue(game, clue, event) {
     game.round.cluesRemaining--;
-    console.log(game.round.cluesRemaining);
-    console.log(game.round.dailyDoubleClue);
     if (game.round.cluesRemaining === game.round.dailyDoubleClue) {
       this.dailyDouble(game, clue);
     } else {
@@ -155,14 +153,10 @@ export default {
   showNewClue(game, newClue, event) {
     console.log(newClue)
     game.round.cluesRemaining--;
-    // if (game.round.cluesRemaining === game.round.dailyDoubleClue) {
-    //   this.dailyDouble(game, clue);
-    // } else {
       $('.question-prompt').show();
       $('.result-prompt').hide();
       $('.question').text(newClue.question);
       $(event.target).text('');
       $('.game-board').hide();
-    // }
   },
 }
