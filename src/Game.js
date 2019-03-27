@@ -102,9 +102,17 @@ class Game {
       this.endGame();
     } else {
       domUpdates.clearAnswerBoard();
-      this.toggleActivePlayer();
       this.getSurvey();
+      this.getNextPlayer();
     } 
+  }
+
+  getNextPlayer() {
+    const lowerScore = Math.min(this.player1.score, this.player2.score);
+
+    if (!(this.currentRound === 2 && this.activePlayer.score === lowerScore)) {
+      this.toggleActivePlayer();
+    }
   }
 
   getSurvey() {

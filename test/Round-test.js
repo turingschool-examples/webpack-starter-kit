@@ -126,7 +126,3 @@ describe('Round', () => {
 
   })
 });
-
-// it('Should be able to check if a guess is one of the answers.', () => {
-//   //have fn return true or false?
-// });
