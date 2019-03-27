@@ -398,11 +398,11 @@ export default {
   },
 
     clearGameBoard() {
+      $('.puzzle-cell').remove();     
         $('.letters-selected-area').remove();
         $('.game-info').remove();
         $('.puzzle-area').remove();
-   },
-
+    },
   
   displayActivePlayer(activePlayer) {
     console.log("Active Player: ", activePlayer.name)

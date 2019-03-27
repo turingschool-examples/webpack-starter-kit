@@ -1,4 +1,4 @@
-import Game from './Game'
+
 
 class Puzzle {
   constructor(category, numberOfWords, numLetters, firstWord, correctAnswer) {
@@ -8,8 +8,6 @@ class Puzzle {
     this.firstWord = firstWord;
     this.correctAnswer = correctAnswer
   }
-
-  
 
 }
 

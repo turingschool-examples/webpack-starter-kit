@@ -1,31 +1,30 @@
 import $ from 'jquery';
-import Data from './Data';
 import DomUpdates from './DomUpdates';
 import Wheel from './Wheel';
+import BonusRound from './BonusRound'
+
 
 class Round {
-  constructor(roundNumber) {
-    this.roundNumber = roundNumber
+  constructor() {
     this.clueAnswer = null
     this.roundClue = {}
     this.activePlayer = 0
     this.letterIndexs = {};
     this.wheelInst = new Wheel()
     this.remainingLetters = []
+    this.bonusRound = {}
   }
 
   createNewRound(game) {
-    this.checkRoundNum(this)
-    this.roundNumber ++
+    this.checkRoundNum(game)
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
     this.shuffler(allRoundClues)
     DomUpdates.displayActivePlayer(game.players[this.activePlayer])
     this.getRandomClue(allRoundClues)
-    this.wheelInst.createWheel(this)
-    game.stage ++
+    this.wheelInst.createWheel()
 
   }
-
+  
   getRandomClue(cards) {  
     this.roundClue = this.randomNumber(cards);
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
@@ -40,7 +39,7 @@ class Round {
       return values[Math.floor(Math.random() * values.length)]
     } 
   }
-
+  
   shuffler(gameClues) {
     for (var i = gameClues.length - 1; i > 0; i--) {
       var m = Math.floor(Math.random() * (i + 1));
@@ -49,11 +48,11 @@ class Round {
       gameClues[m] = temp;
     }
   }
-
+  
   fillGameBoard() {
     this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
   }
-
+  
   flipCells(letter) {
     console.log(this.letterIndexs)
     const selectedLetter = this.letterIndexs[letter];
@@ -69,7 +68,7 @@ class Round {
       }
     }
   }
-
+  
   switchPlayer(game) {
     switch (this.activePlayer) {
     case 0:
@@ -87,22 +86,22 @@ class Round {
     default:
       return;
     }
-
+    
   }
-
+  
   buyVowel(game) {
     game.players[this.activePlayer].playerBank -= 100;
     DomUpdates.activateVowels();
   }
-
-  checkValue(wheelValue, game) {   
-
-    if (wheelValue === "BANKRUPT") {
+  
+  checkValue(Wheel, game) {   
+    
+    if (Wheel.wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
       DomUpdates.gameMessage("bankrupt")
       game.bankruptPlayerBank();
       this.switchPlayer(game);
-    } else if (wheelValue === "LOSE A TURN") {
+    } else if (Wheel.wheelValue === "LOSE A TURN") {
       DomUpdates.gameMessage("lose turn")
       DomUpdates.deactivateLetters()
       console.log('loseturn')
@@ -111,9 +110,9 @@ class Round {
       DomUpdates.activateLetters()
     }
   }
-
-
-
+  
+  
+  
   checkLetter(userLetter, game) {
     let cleanClueAnswer = this.clueAnswer.join('').replace(/[-']/g, '').split('')
     if (cleanClueAnswer.includes(userLetter)) {
@@ -125,6 +124,7 @@ class Round {
       if (this.remainingLetters.length === 0) {
         DomUpdates.gameMessage("round winner")
         game.updatePlayerScore()
+        game.stage ++
         this.createNewRound(game)
       } else {
         DomUpdates.gameMessage("spin again")
@@ -146,18 +146,35 @@ class Round {
       DomUpdates.gameMessage("round winner")
       game.updatePlayerScore()
       DomUpdates.clearGameBoard()
+      game.stage ++
       this.createNewRound(game)
+      
+     
     } else {
       DomUpdates.gameMessage("next player")
       this.switchPlayer(game)
     }
   }
 
-  checkRoundNum() {
-    if (this.roundNumber === 5) {
-      this.createBonusWheel()
+  checkRoundNum(game) {
+    
+    
+    // console.log(this, game)
+    if (game.stage === 2)  {
+      game.createBonusRound()
+      // console.log(bonus)
+      // game.roundInst = bonus
+
     }
   }
 }
+
+// class BonusRound extends Round {
+//   constructor(roundNumber) {
+//     super(roundNumber)
+   
+//   }
+// }
+
 
 export default Round
