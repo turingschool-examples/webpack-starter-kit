@@ -10,10 +10,6 @@ class Question {
     this.category = category;
   }
 
-  splitAnswer() {
-    this.ansSplit = this.answer.split('');
-  }
-
 }
 
 export default Question;

@@ -18,5 +18,4 @@ describe('Question', () => {
     expect(question.description).to.equal('a greeting');
     expect(question.category).to.equal('Salutations');
   });
-  
 })

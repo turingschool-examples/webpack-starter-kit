@@ -17,6 +17,7 @@ chai.spy.on(domUpdates, [
   'loadPossiblePrizes', 
   'revealPrize', 
   'showAnser',
+  'showBonusRound',
   'updateActivePlayer',
   'updateBank',
   'updateQInfo', 
@@ -68,7 +69,6 @@ describe('Game', () => {
     game.populateQuestions();
     game.newQ();
     expect(game.currentQuestion).to.be.an('object');
-
   });
 
   it('instantiate new players', () => {
@@ -136,5 +136,14 @@ describe('Game', () => {
     expect(domUpdates.updateScore).to.have.been.called();
   });
 
+  it('should change players', () => {
+    expect(game.playerIndex).to.equal(0);
+    game.changeTurn()
+    expect(game.playerIndex).to.equal(1);
+    game.changeTurn()
+    expect(game.playerIndex).to.equal(2);
+    game.changeTurn()
+    expect(game.playerIndex).to.equal(0);
+  });
 
 });

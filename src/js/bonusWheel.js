@@ -10,7 +10,6 @@ class BonusWheel extends Wheel {
     this.values = ['trip to anatomy park', 'your own personal morty', 'a meeseeks box', 'a broken portal gun', 'butter-serving robot', 'one month interdimensional cable'];
     this.currentValue = super.randomizeValues(this.values).pop()
     domUpdates.revealPrize(this.currentValue);
-    console.log(this.values)
     return this.currentValue;
   }
 }
