@@ -14,8 +14,7 @@ chai.spy.on(domUpdates, [
   'displayRoundData', 
   'displayPlayer1', 
   'displayPlayer2',
-  'blurGuessInput',
-  'removeTimers'
+  'clearAnswerBoard'
 ], () => true);  
 
 describe('Game', () => {
@@ -103,7 +102,4 @@ describe('Game', () => {
     expect(game.currentRound).to.equal(3);
     expect(game.round).to.be.instanceOf(FastRound);
   });
-
-  //not sure how we can test endGame since it's all dom updates
-  
 });

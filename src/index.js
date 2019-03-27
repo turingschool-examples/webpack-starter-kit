@@ -20,7 +20,9 @@ import Player from './Player.js';
 // Dom Updates
 import domUpdates from './domUpdates.js';
 
-let game = new Game()
+let game = new Game();
+
+domUpdates.disableBackgroundTabbing();
 
 $("#player-1-input:text:visible:first").focus();
 
@@ -39,10 +41,12 @@ $("#player-2-input").keypress(function (e) {
 $("#submit-names-btn").on("click", function() { 
   const player1Name = $("#player-1-input").val();
   const player2Name = $("#player-2-input").val();
+  
+  $(".player-1-name").text(player1Name.toUpperCase() || 'PLAYER 1');
+  $(".player-2-name").text(player2Name.toUpperCase() || 'PLAYER 2');
+  $(".welcome-screen").addClass("hidden"); 
 
-    $(".player-1-name").text(player1Name.toUpperCase() || 'PLAYER 1');
-    $(".player-2-name").text(player2Name.toUpperCase() || 'PLAYER 2');
-    $(".welcome-screen").addClass("hidden"); 
+  domUpdates.enableTabbing();
 
   let startingPlayer = Math.floor(Math.random() * 2) + 1
 
@@ -71,24 +75,27 @@ $("#start-btn").on("click", function() {
   $(".welcome-screen").removeClass("hidden");
 });
 
-$("#play-again-btn").on("click", function() {
+$(".play-again-btn").on("click", function() {
   domUpdates.resetPageDefaults();
   $(".winner-screen").addClass("hidden");
+  $(".tie-screen").addClass("hidden");
   $(".welcome-screen").removeClass("hidden");
+  domUpdates.enableTabbing();
 });
 
 $(".guess-input").on("keyup", function() {
-    $("#submit-guess-btn").prop('disabled', $(".guess-input").val().length < 3);
+  $("#submit-guess-btn").prop('disabled', $(".guess-input").val().length < 3);
 });
 
 $("#fastround-start-btn").on("click", function() {
-    $(".fastround-ready-screen").addClass("hidden");
-    if (game.activePlayer === game.player1) {
-      $(".timer-area-1").removeClass("hidden");
-      $(".timer-area-2").addClass("hidden");
-    } else {
-      $(".timer-area-2").removeClass("hidden");
-      $(".timer-area-1").addClass("hidden");
-    }
-    game.round.startTimedRound();
+  $(".fastround-ready-screen").addClass("hidden");
+  domUpdates.enableTabbing();
+  if (game.activePlayer === game.player1) {
+    $(".timer-area-1").removeClass("hidden");
+    $(".timer-area-2").addClass("hidden");
+  } else {
+    $(".timer-area-2").removeClass("hidden");
+    $(".timer-area-1").addClass("hidden");
+  }
+  game.round.startTimedRound();
 });

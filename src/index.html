@@ -28,7 +28,24 @@
   <dialog class="winner-screen hidden" aria-live="polite">
     <article class="winner-popup">
       <h3>THE WINNER IS<span class="winner-name"></span></h3>
-      <button id="play-again-btn">Play Again?</button>
+      <button class="play-again-btn">Play Again?</button>
+    </article>
+  </dialog>
+  <dialog class="tie-screen hidden" aria-live="polite">
+    <article class="tie-popup">
+      <h3 class="tie-header">IT'S A TIE!</h3>
+      <button class="play-again-btn">Play Again?</button>
+    </article>
+  </dialog>
+  <dialog class="fastround-ready-screen hidden" aria-live="polite">
+    <article class="fastround-dialog">
+      <h3>Fast Money Round!</h3>
+      <div class="fastround-instructions">
+        <p>Each player will get their own Fast Money Round!</p>
+        <p><strong>Player 1</strong> you have 30 seconds to submit as many answers as you want! You will receive double the points for each correct guess!</p>
+        <p>Are you ready?</p>
+      </div>
+      <button id="fastround-start-btn" type="button">Let's Start!</button>
     </article>
   </dialog>
   <dialog class="fastround-ready-screen hidden" aria-live="polite">
@@ -94,7 +111,7 @@
       <article class="msg-area" role="alert">
         <p id="no-match-msg" class="msg">No Match!</p>
         <p id="must-enter-guess-msg" class="msg">Must Enter a Guess!</p>
-        <p id="round-winner-msg" class="msg">So and So wins Round so and so!</p>
+        <p id="round-winner-msg" class="msg">NEXT ROUND</p>
       </article>
     </section>
     <footer class="footer">

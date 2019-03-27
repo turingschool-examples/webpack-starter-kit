@@ -1,5 +1,6 @@
-import domUpdates from "./domUpdates";
-import Game from "./Game.js"
+import domUpdates from './domUpdates';
+import Game from './Game.js'
+import Timer from './Timer.js';
 
 class Round {
   constructor(survey, surveyAnswers, game) {
@@ -39,19 +40,20 @@ class Round {
 
   checkRoundProgress() {
     if (this.surveyAnswers.length === 0) { 
-      domUpdates.endOfRoundMsg();
+      this.generateEndRoundMsg();
       setTimeout(() => {
         this.game.triggerNewRound();
-      }, 1000);
+      }, 1500);
     } 
   }
 
-  //are we using this?
-  endRound() {
-    domUpdates.endOfRoundMsg();
-    domUpdates.clearAnswerBoard();
-    this.game.toggleActivePlayer();
-    this.game.triggerNewRound();
+  generateEndRoundMsg() {
+    if (this.game.player1.score > this.game.player2.score) {
+      var roundWinner = this.game.player1.name;
+    } else {
+      var roundWinner = this.game.player2.name;
+    }
+    domUpdates.endOfRoundMsg(roundWinner, this.game);
   }
 }
 

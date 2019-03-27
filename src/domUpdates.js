@@ -2,6 +2,18 @@ import $ from 'jquery';
 
 export default {
 
+  enableTabbing() {
+    $(".guess-input, #submit-guess-btn, #start-btn").each(function () {
+      $(this).attr("tabindex", "0");
+    });
+  },
+
+  disableBackgroundTabbing() {
+    $(".guess-input, #submit-guess-btn, #start-btn").each(function () {
+      $(this).attr("tabindex", "-1");
+    });
+  },
+
   displayRoundData(question, answers, roundNum) {
     if (roundNum > 3) {
       roundNum = 3;
@@ -65,10 +77,13 @@ export default {
     });
   },
 
-  endOfRoundMsg() {
-    $("#round-winner-msg").fadeIn("fast", function() {
-      $("#round-winner-msg").delay(2000).fadeOut(); 
-    });
+  endOfRoundMsg(roundWinner, game) {
+    if (game.currentRound < 3) {
+      $("#round-winner-msg").text(roundWinner + ' wins Round ' + game.currentRound + '!');
+      $("#round-winner-msg").fadeIn("fast", function() {
+        $("#round-winner-msg").delay(2000).fadeOut(); 
+      });
+    }
   },
     
   clearAnswerBoard() {
@@ -76,13 +91,12 @@ export default {
   },
 
   showWinnerScreen(winnerName) {
-    winnerName = winnerName;
-    $(".winner-name").text(winnerName.toUpperCase()+'!');
+    $(".winner-name").text(winnerName.toUpperCase() + '!');
     $(".winner-screen").removeClass("hidden");
   },
 
   showTieScreen() {
-    
+    $(".tie-screen").removeClass("hidden");
   },
 
   displayFastroundDialog(playerName) {
@@ -90,49 +104,62 @@ export default {
     $(".fastround-ready-screen").removeClass("hidden");
   },
 
-  displayTimer1() {
+  decrementTimer(timer, seconds) {
+    $(timer).html(--seconds);
+  },
+
+  displayTimer1(game) {
     let seconds = 30; //would be ideal to tie this to property value
     const interval = setInterval(function() {
 
       $(".timer-1").html(--seconds);
 
-      if (seconds <= 0 && window.game.currentRound === 3) {
+      if ($(".timer-1").is(":hidden")) {
+        clearInterval(interval);
+      } else if (seconds === 0 && game.currentRound === 3) {
         clearInterval(interval);
         $(".timer-area-1").addClass("hidden");
         $(".fastround-ready-screen").removeClass("hidden");
-        window.game.triggerNewRound();
-      } else if (seconds <= 0 && window.game.currentRound === 4) {
+        game.triggerNewRound();
+      } else if ($(".timer-1-area").not(".hidden") && seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
         $(".timer-area-1").addClass("hidden");
+        game.endGame();
       }
     }, 1000);
+
   },
 
-  displayTimer2() {
+  displayTimer2(game) {
     let seconds = 30; //would be ideal to tie this to property value
     const interval = setInterval(function() {
       
       $(".timer-2").html(--seconds);
 
-      if (seconds <= 0 && game.currentRound === 3) {
+      if ($(".timer-2").is(":hidden")) {
+        $(".timer-2").html("-1");
+        clearInterval(interval);
+      } else if (seconds === 0 && game.currentRound === 3) {
         clearInterval(interval);
         $(".timer-area-2").addClass("hidden");
         $(".fastround-ready-screen").removeClass("hidden");
-        window.game.triggerNewRound();
-      } else if (seconds <= 0 && game.currentRound === 4) {
+        game.triggerNewRound();
+      } else if (!$(".timer-2-area").hasClass("hidden") && seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
         $(".timer-area-2").addClass("hidden");
+        game.endGame();
       }
     }, 1000);
   },
 
   removeTimers() {
+    $(".timer-1").html("30");
     $(".timer-area-1").addClass("hidden");
+    $(".timer-2").html("30");
     $(".timer-area-2").addClass("hidden");
   },
 
   blurGuessInput() {
     $(".guess-input").trigger("blur");
   }
-    
 }

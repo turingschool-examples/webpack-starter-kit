@@ -1,6 +1,7 @@
 import domUpdates from './domUpdates.js';
 import Round from './Round.js';
 import FastRound from './FastRound.js';
+import Timer from './Timer.js';
 
 class Game {
   constructor(player1, player2) {
@@ -131,6 +132,7 @@ class Game {
       domUpdates.blurGuessInput();
       domUpdates.removeTimers();
       domUpdates.displayFastroundDialog(this.activePlayer.name);
+      domUpdates.disableBackgroundTabbing();
     } else {
       this.endGame;
     }
@@ -157,6 +159,7 @@ class Game {
     } else {
       var winnerName = this.player2.name;
       domUpdates.showWinnerScreen(winnerName);
+      domUpdates.disableBackgroundTabbing();
     }
   }
 } 
