@@ -8,6 +8,8 @@ class Game {
     this.players = [player1, player2];
     this.surveys = surveys;
     this.round = 0;
+    this.currentRound = null;
+    this.currentPlayer = null;
   }
 
   startGame() {
@@ -19,14 +21,15 @@ class Game {
     this.round++;
     this.currentRound = new Round(this.surveys[this.round - 1]);
     this.currentPlayer = this.currentRound.setPlayer(this.round, this.players);
-    domUpdates.startRound(this.currentRound, this.currentPlayer);
+    console.log(this.currentPlayer);
+    domUpdates.startRound(this.round, this.currentRound);
   }
 
   startNextLightningRound() {
     this.round++;
     this.currentRound = new LightningRound(this.surveys[this.round - 1]);
     this.currentPlayer = this.currentRound.setPlayer(this.round, this.players);
-    domUpdates.startRound(this.currentRound, this.currentPlayer);
+    domUpdates.startRound(this.round, this.currentRound);
   }
 
   shuffle(array) {
@@ -44,7 +47,6 @@ class Game {
     } else {
       this.currentPlayer = this.players[0];
     }
-    domUpdates.displayCurrentPlayer(this.currentPlayer);
   }
 
   getWinner() {

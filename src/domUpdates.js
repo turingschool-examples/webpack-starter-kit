@@ -20,58 +20,52 @@ export default {
     })
   },
 
-  toggleStartPopUp() {
-    $(".start-game-pop-up").toggle();
+  toggleStartModal() {
+    $(".start-game-modal").toggle();
   },
 
-  hidePopUps() {
-    $(".next-round-pop-up").hide();
-    $(".lightning-round-pop-up").hide();
-    $('.switch-player-pop-up').hide();
-    $('.end-game-pop-up').hide();
+  hideModals() {
+    $(".next-round-modal").hide();
+    $(".lightning-round-modal").hide();
+    $('.switch-player-modal').hide();
+    $('.end-game-modal').hide();
   },
 
-  toggleSwitchPlayerPopUp() {
-    // TODO change to switch player
-    $(".toggleLightningRoundPopUp").toggle();
-  },
-
-  toggleEndGamePopUp() {
+  toggleEndGameModal() {
     // TODO
   },
 
-  clearguess() {
+  clearGuess() {
     $('#guess-input').val('');
   },
 
-  updateRoundPopUpNames(players) {
-    $("#player-one-name-round-pop-up").text(players[0].name);
-    $("#player-two-name-round-pop-up").text(players[1].name);
+  updateRoundModalNames(players) {
+    $("#player-one-name-round-modal").text(players[0].name);
+    $("#player-two-name-round-modal").text(players[1].name);
   },
 
-  updateLightningRoundPopUpNames(players) {
-    $("#player-one-name-lightning-round-pop-up").text(players[0].name);
-    $("#player-two-name-lightning-round-pop-up").text(players[1].name);
+  updateLightningRoundModalNames(players) {
+    $("#player-one-name-lightning-round-modal").text(players[0].name);
+    $("#player-two-name-lightning-round-modal").text(players[1].name);
   },
 
-  toggleNextRoundPopUp() {
-    $(".next-round-pop-up").toggle();
+  toggleNextRoundModal() {
+    $(".next-round-modal").toggle();
   },
 
-  toggleLightningRoundPopUp() {
-    $(".lightning-round-pop-up").toggle();
+  toggleLightningRoundModal() {
+    $(".lightning-round-modal").toggle();
   },
 
-  toggleSwitchPlayerPopUp() {
-    $(".switch-player-pop-up").toggle();
+  toggleSwitchPlayerModal() {
+    $(".switch-player-modal").toggle();
   },
 
-  startGame({ players, currentPlayer }) {
-    this.toggleStartPopUp();
+  startGame(players) {
+    this.toggleStartModal();
     this.updateNames(players[0].name, players[1].name);
     this.updateScores(players[0]);
     this.updateScores(players[1]);
-    this.displayCurrentPlayer(currentPlayer);
   },
 
   updateNames(p1name, p2name) {
@@ -79,26 +73,48 @@ export default {
     $(".player-two-name").text(p2name);
   },
 
-  startRound({ question, responses }, player) {
+  startRound(round, { question, responses }) {
     $('#current-question').text(question);
     this.loadReaponses(responses);
     this.hideResponses();
-    this.displayCurrentPlayer(player);
+    this.updateRoundText(round);
   },
 
   hideResponses() {
     $('.response-card').each((i, card) => $(card).show());
   },
 
-  displayCurrentPlayer({ name, score }) {
-    $(".current-player span").text(name);
-    $("#current-round-total h2").text(score);
+  updateScores({ name, score }) {
+    let $scoreToUpdate;
+    if ( name === $('.player-one-name').text()) {
+      $scoreToUpdate = $('.player-one-score');
+    } else {
+      $scoreToUpdate = $('.player-two-score'); 
+    }
+    $scoreToUpdate.text(score)
   },
 
-  updateScores({ name, score }) {
-    const $scoreToUpdate = name === $('.player-one-name').text() ? $('.player-one-score') : $('.player-two-score'); 
-    $scoreToUpdate.text(score)
-    $('#current-round-total h2').text(score);
+  toggleStartBtn(status) {
+    $(".start-game-btn").attr("disabled", status) 
+  },
+
+  updateModal(players) {
+    $('.player-one-name-modal').text(players[0].name);
+    $('.player-two-name-modal').text(players[1].name);
+    $('.player-one-score-modal').text(players[0].score);
+    $('.player-two-score-modal').text(players[1].score);
+  },
+
+  updateRoundText(round) {
+    let value;
+    if (round === 1) {
+      value = 'Round 1';
+    } else if (round === 2) {
+      value = 'Round 2';
+    } else {
+      value = 'Final Round';
+    }
+    $('.current-round-text').text(value);
   }
 
 }

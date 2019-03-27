@@ -11,115 +11,149 @@
 </head>
 
 <body>
-  <!-- <h1>F<span>amily</span> F<span>eud</span></h1> -->
-  <!-- <h1><img class="logo" src="images/turing-logo.png" alt="logo"></h1> -->
-    <div id="player-1" class="player-info">
-      <h3 class="player-one-name player-name">Player 1</h3>
-      <p><span class="player-one-score player-score">0</span></p>
-    </div>
-    <div class="wrapper">
-      <h1>Round <span class="round-number">0</span></h1>
+  <div id="player-1" class="player-info">
+    <h3 class="player-one-name player-name">Player 1</h3>
+    <p><span class="player-one-score player-score">0</span></p>
+  </div>
+  <div class="wrapper">
+    <h1 class="current-round-text"></h1>
     <section id="game-area">
       <section id="current-round">
-        <!-- <section id="current-round-total">
-          <h2>00</h2>
-        </section> -->
-          <article id="question-container">
-            <h3 id="current-question">What is the current question</h3>
-          </article>
-          <section id="response-area">
-            <div class="response-container">
-              <div class="response-card">
-                <h4>1</h4>
-              </div>
-              <div class="revealed-response">
-                <p class="response-text">response</p>
-                <p class="respondents">00</p>
-              </div>
+        <article id="question-container">
+          <h3 id="current-question">What is the current question</h3>
+        </article>
+        <section id="response-area">
+          <div class="response-container">
+            <div class="response-card">
+              <h4>1</h4>
             </div>
-            <div class="response-container">
-              <div class="response-card">
-                <h4>2</h4>
-              </div>
-              <div class="revealed-response">
-                <p class="response-text">response</p>
-                <p class="respondents">00</p>
-              </div>
+            <div class="revealed-response">
+              <p class="response-text">response</p>
+              <p class="respondents">00</p>
             </div>
-            <div class="response-container">
-              <div class="response-card">
-                <h4>3</h4>
-              </div>
-              <div class="revealed-response">
-                <p class="response-text">response</p>
-                <p class="respondents">00</p>
-              </div>
+          </div>
+          <div class="response-container">
+            <div class="response-card">
+              <h4>2</h4>
             </div>
-          </section>
-          <form class="main-form">
-            <input id="guess-input" type="text" placeholder="Guess a response...">
-            <input class='submit-btn' type="submit">
-          </form>
+            <div class="revealed-response">
+              <p class="response-text">response</p>
+              <p class="respondents">00</p>
+            </div>
+          </div>
+          <div class="response-container">
+            <div class="response-card">
+              <h4>3</h4>
+            </div>
+            <div class="revealed-response">
+              <p class="response-text">response</p>
+              <p class="respondents">00</p>
+            </div>
+          </div>
         </section>
-        <button class="new-game-btn">New Game</button>
-      </section>
-      </div>
-      <dialog class="start-game-pop-up pop-up">
-        <p>Welcome to Family Feud. There will be 3 rounds: 2 normal rounds, and one speed roud. Players 1 will start,
-          and will keep guessing until they guess incorrect, or the round ends. Enter your name and press Start Game to
-          play!</p>
-        <form class="start-game-form">
-          <div class="form-container">
-            <label for="player-one-input">Player One Name</label>
-            <input type="text" id="player-one-input">
-          </div>
-          <div class="form-container">
-            <label for="player-two-input">Player Two Name</label>
-            <input type="text" id="player-two-input">
-          </div>
-          <div>
-            <button id="start-game-btn" type="submit">Start Game</button>
-          </div>
+        <form class="main-form">
+          <input id="guess-input" type="text" placeholder="Guess a response...">
+          <input class='submit-btn' type="submit">
         </form>
-      </dialog>
+      </section>
+      <button class="new-game-btn">New Game</button>
+    </section>
+  </div>
 
-      <dialog class="next-round-pop-up pop-up">
-        <h3>ROUND COMPLETE</h3>
-        <p>Player 2 will start the next round. Press Start Next Round when ready.</p>
-        <h5><span id="player-one-name-round-pop-up">player 1</span>'s Score</h5>
-        <p><span class="player-one-score">0</span></p>
-        <h5><span id="player-two-name-round-pop-up">Player 2</span>'s Score</h5>
-        <p><span class="player-two-score">0</span></p>
-        <button class="next-round-btn">Start Next Round</button>
-      </dialog>
-
-      <dialog class="lightning-round-pop-up pop-up">
-        <h3>ROUND COMPLETE</h3>
-        <p>Entering Lightning Round: Each player will be given 30 seconds to enter as many responses to a survey as they
-          can after pressing continue. Every inorrect response will decrease your score by 25 points!</p>
-        <p>Points are doubled for this round Current Player GET READY</p>
-        <h5><span id="player-one-name-lightning-round-pop-up">Player 1</span>'s Score</h5>
-        <p><span class="player-one-score">0</span></p>
-        <h5><span id="player-two-name-lightning-round-pop-up">Player 2</span> Score</h5>
-        <p><span class="player-two-score">0</span></p>
-        <button class="lightning-round-btn">Start Next Round</button>
-      </dialog>
-
-      <dialog class="switch-player-pop-up pop-up">
-        <h3 class="current-player"><span>CURRENT PLAYER</span> your up!</h3>
-        <button class="continue-btn">Continue</button>
-      </dialog>
-
-      <dialog class="end-game-pop-up pop-up">
-        <div class="pop-up-container">
-          <h3 class="current-player"><span>CURRENT PLAYER</span> your up!</h3>
-          <button class="continue-btn">Continue</button>
+  <dialog class="start-game-modal modal">
+    <div class="modal-display-area">
+      <h2 class="modal-header">Welcome</h2>
+      <p class="modal-text">There will be 3 rounds: 2 normal rounds, and one speed roud. Player 1 will start, and will
+        keep guessing until either an incorrect guess is entered, or the round ends. Enter your names and press <span
+          class="modal-btn-name">Start Game</span> to play!</p>
+      <form class="start-game-form">
+        <div class="name-form-container">
+          <label for="player-one-input">Player 1 Name</label>
+          <input type="text" id="player-one-input">
         </div>
-      </dialog>
-    <div id="player-2" class="player-info">
-      <h3 class="player-two-name player-name">Player 2</h3>
-      <p><span class="player-two-score player-score">0</span></p>
+        <div class="name-form-container">
+          <label for="player-two-input">Player 2 Name</label>
+          <input type="text" id="player-two-input">
+        </div>
+        <div>
+          <button class="start-game-btn modal-btn" type="submit">Start Game</button>
+          <!-- <button class="start-game-btn modal-btn" type="submit" disabled>Start Game</button> -->
+        </div>
+      </form>
     </div>
+  </dialog>
+
+  <dialog class="next-round-modal modal">
+    <div class="modal-display-area">
+      <h3 class="modal-header"> Round 2</h3>
+      <p class="modal-text"><span class="player-two-name-modal">Player 2</span> will start the next round. Press <span
+          class="modal-btn-name">Start Round</span> to continue.</p>
+      <h5 class="modal-current-standings">Current Standings</h5>
+      <section class="modal-result-container">
+        <div class="modal-results">
+          <h6 class="player-one-name-modal modal-results-name">player 1</h6>
+          <p span class="player-one-score modal-results-score">0</p>
+        </div>
+        <div class="modal-results">
+          <h6 class="player-two-name-modal modal-results-name">Player 2</h6>
+          <p class="player-two-score modal-results-score">0</p>
+        </div>
+      </section>
+      <button class="next-round-btn modal-btn">Start Round</button>
+    </div>
+  </dialog>
+
+  <dialog class="lightning-round-modal modal">
+    <div class="modal-display-area">
+      <h3 class="modal-header"> Round 3</h3>
+      <p class="modal-text">Entering Lightning Round: Each player will be given 30 seconds to enter as many responses to
+        a survey as they can after pressing continue. Every inorrect response will decrease your score by 25 points.
+        Points are doubled for this round. Press <span class="modal-btn-name">Start Lightning Round</span> to continue.
+      </p>
+      <h5 class="modal-current-standings">Current Standings</h5>
+      <section class="modal-result-container">
+        <div class="modal-results">
+          <h6 class="player-one-name-modal modal-results-name">player 1</h6>
+          <p span class="player-one-score modal-results-score">0</p>
+        </div>
+        <div class="modal-results">
+          <h6 class="player-two-name-modal modal-results-name">Player 2</h6>
+          <p class="player-two-score modal-results-score">0</p>
+        </div>
+      </section>
+      <button class="lightning-round-btn modal-btn">Start Lightning Round</button>
+    </div>
+  </dialog>
+
+  <dialog class="switch-player-modal modal">
+    <div class="modal-display-area">
+      <h3 class="modal-header">Switch Players</h3>
+      <p class="modal-text">Please switch players and press <span class="modal-btn-name">Continue Round</span> to begin.</p>
+      <h5 class="modal-current-standings">Current Standings</h5>
+      <section class="modal-result-container">
+        <div class="modal-results">
+          <h6 class="player-one-name-modal modal-results-name">player 1</h6>
+          <p span class="player-one-score modal-results-score">0</p>
+        </div>
+        <div class="modal-results">
+          <h6 class="player-two-name-modal modal-results-name">Player 2</h6>
+          <p class="player-two-score modal-results-score">0</p>
+        </div>
+      </section>
+      <button class="continue-btn modal-btn">Continue Round</button>
+    </div>
+  </dialog>
+
+  <dialog class="end-game-modal modal">
+    <div class="modal-display-area">
+      <h3 class="current-player"><span>CURRENT PLAYER</span> your up!</h3>
+      <button class="continue-btn modal-btn">Continue</button>
+    </div>
+  </dialog>
+  <div id="player-2" class="player-info">
+    <h3 class="player-two-name player-name">Player 2</h3>
+    <p><span class="player-two-score player-score">0</span></p>
+  </div>
 </body>
 
 </html>
