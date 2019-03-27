@@ -26,15 +26,15 @@ let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()
 [dataCategories[2].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[6].toUpperCase()]];
-// $(document).ready(dataCategories);
 
 // dom manipulation to get values of the three names
 
-var name1 = $("#player-1").val;
-var name2 = $("#player-2").val;
-var name3 = $("#player-3").val;
+const $name1 = $("#player-1").val;
+const $name2 = $("#player-2").val;
+const $name3 = $("#player-3").val;
+const $userAnswer = $("#user-answer").val();
 
-var newGame = new Game(name1, name2, name3);
+var newGame = new Game($name1, $name2, $name3);
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -66,4 +66,10 @@ console.log('This is the JavaScript entry file - your code begins here.');
     category = (newGame.currentRound.topicFour);
   }
   newGame.findClueIndex(category, e);
+  });
+
+  $(document).on('click', ".answer-btn", "#user-answer", function(event) {
+    const $userAnswer = $("#user-answer").val()
+    event.preventDefault();
+    newGame.checkAnswer($userAnswer);
   });

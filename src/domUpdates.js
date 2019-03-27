@@ -72,8 +72,8 @@ export default {
   },
 
   publishScoreBoard () {
-    const board = '<form class="answer">' + '<label for="answer">Answer</label>'
-    + '<input type="text" name="user-answer" id="answer" class="answer-input">'
+    const board = '<form class="answer">' + '<label for="user-answer">Answer</label>'
+    + '<input type="text" name="user-answer" id="user-answer" class="answer-input">'
     + '<button class="answer-btn">Submit</button>' + '</form>' +
     '<footer class="player-wrapper">' + '<section class="players">' +
     '<span id="player1-name">' + 'Player ' + 1 + '</span>' + '<br>' + 'Score ' +

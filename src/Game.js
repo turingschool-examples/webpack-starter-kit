@@ -11,10 +11,12 @@ class Game {
     this.p2 = new Player(name2, 2);
     this.p3 = new Player(name3, 3);
     // playerTurn will only be only 1, 2, or 3
-    this.playerTurn = [];
-    this.playerTurn.push(this.p1, this.p2, this.p3);
+    this.playerList = [];
+    this.playerList.push(this.p1, this.p2, this.p3);
+    this.currentPlayerNumber = 1;
     this.currentClue = null;
-
+    this.cluesClicked = 0;
+    this.playerAnswer = '';
     // Round counter
     this.roundCounter = 1;
     //counter for when to fire nextRound method (after 16, when all clues have been )
@@ -28,36 +30,50 @@ class Game {
     // Create round 1
     this.currentRound = new Rounds(this.round1Categories);
     this.currentRound.fetchClues();
+  }
 
+  checkAnswer(userAnswer) {
+    this.playerAnswer = userAnswer;
+    console.log(this.playerAnswer);
+    // if (this.playerAnswer.toLowerCase() === this.currentClue.answer.toLowerCase()) {
+    //   this.playerList[this.currentPlayerNumber].playerDollarAmount += this.currentClue.pointValue;
+    // } //else {
+    //   (this.playerDollarAmount -= this.pointValue);
+    // }
   }
 
   nextRound() {
-    this.counter++
+    this.roundCounter++
     if (counter == 2) {
        this.round = new Round(this.round2Categories);
     } else {
       this.round = new Round(this.round3Categories);
     }
   }
+
   findClueIndex (category, e) {
+    this.cluesClicked++;
     if ($(e.target).is(".ind-0")) {
       this.currentClue = new Clue (category[0]);
-     console.log(this.currentClue.pointValue);
-
+      console.log(this.currentClue.pointValue);
    } else if ($(e.target).is(".ind-1")) {
-     let currentClue = new Clue (category[1]);
-     console.log(currentClue);
+     this.currentClue = new Clue (category[1]);
+     console.log(this.currentClue);
    } else if ($(e.target).is(".ind-2")) {
-     let currentClue = new Clue (category[2]);
-     console.log(currentClue);
+     this.currentClue = new Clue (category[2]);
+     console.log(this.currentClue);
    } else {
-     let currentClue = new Clue(category[3]);
-
-     console.log(currentClue);
+     this.currentClue = new Clue(category[3]);
+     console.log(this.currentClue);
    }
   }
 
-
+  nextPlayer() {
+    this.currentPlayerNumber++
+    if (this.currentPlayerNumber === 4) {
+      this.currentPlayerNumber = 1;
+    }
+  }
 
   chooseWager() {
  // player input that is >= 5 && <= playerDollarAmount || <= pointValue
