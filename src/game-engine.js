@@ -1,7 +1,6 @@
 
 import Round from './round';
 import Player from './player';
-import DomUpdates from './dom-updates';
 
 
 class GameEngine {

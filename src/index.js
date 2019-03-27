@@ -52,9 +52,12 @@ $('.guess__word--button').click(function () {
   DomUpdates.updatePlayerScore(game);
   game.currentRound.wholeWord = game.currentRound.wholeWord
     .filter(letter => alphabetArr.includes(letter))
-  game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
-  // ! end round here
-    game.currentRound.newRound(game) : game.currentRound.getCurrentPlayer(game);
+  if (game.currentRound.wholeWord.join('') == wrdGuessArr.join('')) { 
+    DomUpdates.appendWinner(game)
+    game.currentRound.newRound(game)
+  } else {
+     game.currentRound.getCurrentPlayer(game)
+   }
     
   // console.log(game);
   // game.currentRound.currentPlayer.ans = wrdGuess.split('');
@@ -111,11 +114,17 @@ let conditionalChecking = (round, player, ltrGuess) => {
     DomUpdates.toggleButtons();
   } else if (compareAns(round, player) && vowels.includes(ltrGuess.toUpperCase())) {
     correctAnsFunc(round, player, ltrGuess)
+  } else if (!compareAns(round, player) && vowels.includes(ltrGuess.toUpperCase())) {
+    round.allRoundGuesses.push(player.ans);
+    round.allRoundGuesses.sort();
+    DomUpdates.appendIncorrect();
+    round.getCurrentPlayer(game);
   } else {
     // console.log(game.currentRound.allRoundGuesses)
     // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
     round.allRoundGuesses.push(player.ans);
     round.allRoundGuesses.sort();
+    DomUpdates.appendIncorrect();
     console.log("this needs to be sorted:", round.allRoundGuesses)
     round.getCurrentPlayer(game);
     DomUpdates.toggleButtons();
@@ -134,15 +143,16 @@ let correctAnsFunc = (round, player, ltrGuess) => {
   round.allRoundGuesses.push(player.ans);
   round.allRoundGuesses.sort();
   DomUpdates.createPuzzleClassArr(ltrGuess);
-  round.getCurrentPlayer(game);
   round.answer = round.answer
-    .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+  .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+  if (game.currentRound.answer.length === 0) {
+    game.currentRound.newRound(game);
+    DomUpdates.appendWinner(game);
+  }
+  round.getCurrentPlayer(game);
   console.log(game.currentRound.answer)
   game.currentRound.answer = game.currentRound.answer
     .filter(char => char !== ' ' ? char : char = '');
-  if (game.currentRound.answer.length === 0) {
-    game.currentRound.newRound(game);
-  }
 }
 
 let buyVowel = (round, player, ltrGuess) => {
@@ -178,7 +188,11 @@ let spinNotNum = (slice) => {
   if (slice === 'BANKRUPT') {
     game.currentRound.currentPlayer.roundCaps = 0;
     game.currentRound.currentPlayer.totalCaps = 0;
+    DomUpdates.appendBankrupt(game);
     DomUpdates.updatePlayerScore(game);
+  }
+  else {
+    DomUpdates.appendLoseTurn(game);
   }
   game.currentRound.getCurrentPlayer(game);
   DomUpdates.toggleButtons(game);
@@ -208,6 +222,9 @@ import './images/yesMan.jpg';
 import './images/bottleCaps.png';
 import './images/deathclaw.jpg';
 import './images/incorrect.png';
+import './images/bankrupt.png';
+import './images/loseTurn.png';
+
 
 // import './css/Overseer.otf'
   

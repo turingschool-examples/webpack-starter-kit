@@ -52,12 +52,11 @@ nav {
   display: none;
 }
 .nav__wheel--button {
-    width: 220px;
-    height: 200px;
-    top: -123px;
-    position: absolute;
-    right: 44%;
-    animation: rotateWheel 5000ms infinite linear;
+  width: 150px;
+  top: -94px;
+  position: absolute;
+  right: -183px;
+  animation: rotateWheel 5000ms infinite linear;
 }
 
 .nav__wheel--button:click {
@@ -251,12 +250,12 @@ button.start__start--btn {
   position: absolute;
   z-index: 5;
   background-color: black;
-  top: 65px;
+  top: 15px;
   flex-wrap: wrap;
-  border: lime inset 3px;
+  border: #65AB55 solid 3px;
 }
 .ans-letter {
-  background-color: lime;
+  background-color: #90D155;;
   height: 40px;
   width: 35px;
   color: black;
@@ -269,31 +268,38 @@ button.start__start--btn {
 }
 .hint--container {
   position: absolute;
-  bottom: 75px;
+  bottom: 115px;
   display: inline-flex;
   justify-content: center;
   width: 1000px;
+  text-shadow: 1.5px 2px black;
 }
 .hint__title {
   text-align: end;
-
+  color: #90D155;
 }
+
 .hint__value {
   padding-left: 20px;
   max-width: 500px;
+  color: #90D155;
 }
 .round-info--container {
-  color: white;
+  text-shadow: 1.5px 2px black;
   position: absolute;
   bottom: -20px;
   display: flex;
-  left: -200px;
+  bottom: 50px;
 }
 .round-info__current-round {
-  color: white;
+  color: #90D155;
   padding-right: 10px;
 }
-.guess--container {
+
+#rnd-num {
+  color: white;
+}
+.guess--container { 
   position: absolute;
   bottom: 15px;
 }
@@ -314,6 +320,7 @@ button.start__start--btn {
 
 #consonant {
   background-color: gray;
+  width: 150px;
 }
 #consonant--label {
   position: absolute;
@@ -339,7 +346,7 @@ footer {
   grid-template-areas:
   "avitar name"
   "ptsTitle pts";
-  border: 1px solid lime;
+  border: 1px solid #65AB55;
   background: black;
   width: 300px;
   padding: 20px;
@@ -392,6 +399,47 @@ footer {
   animation: fadeIn 2s linear;
   transform: translate(-10px, -10px);
 }
+
+.winner-card {
+  background: linear-gradient(to bottom, #45484d 0%,#000000 100%);
+  box-shadow: inset 0px 0px 144px 27px rgba(0, 0, 0, 1);
+  z-index: 14;
+  position: absolute;
+  top: 627px;
+  left: 11%;
+  height: 199px;
+  width: 75%;
+  border-radius: 10px;
+  padding: 40px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  align-content: center;
+}
+.prompt-img {
+  z-index: 15;
+  position: absolute;
+  height: 60px;
+}
+.fade-in {
+  animation: fadeIn 1s 1;
+}
+
+.animation--container {
+  background-color: black;
+  border: 1px #65AB55 solid;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  position: absolute;
+  top: -61px;
+  left: -135px;
+  border-radius: 50%;
+}
+
 @keyframes fadeIn {
   0% { opacity: 0 }
   100% { opacity: 1}

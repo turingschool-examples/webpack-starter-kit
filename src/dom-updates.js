@@ -34,9 +34,9 @@ export default {
   },
   toggleButtons(game) {
     //Toggle: Consonant & Label
-    $('#consonant').attr('value') == '^ Spin Wheel ^' 
+    $('#consonant').attr('value') == 'Spin Wheel' 
       ? $('#consonant').removeAttr('disabled').css('background-color', 'darkgreen').attr('value', 'Guess Consonant')
-      : $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', '^ Spin Wheel ^');
+      : $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', 'Spin Wheel');
     //Toggle: Wheel
     $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
     //Toggle: Word & Vowel
@@ -92,6 +92,43 @@ export default {
   },
   createPuzzleClassArr(letter) {
     $(`.letter-${letter.toUpperCase()}`).text(letter.toUpperCase());
+    $(`.letter-${letter.toUpperCase()}`).removeClass('fade-in')
     $(`.letter-${letter.toUpperCase()}`).addClass('fade-in-letter')
   },
+  appendWinner(game) {
+    let winner = game.currentRound.currentPlayer.name;
+    let winningCaps = game.currentRound.currentPlayer.roundCaps;
+    let answer = game.currentRound.wholeWord.join('');
+
+    let body = $('body');
+    body.append(`<section class="winner-card fade-in"> The Winner is: ${winner} <br> The Puzzle was: ${game.currentRound.answer.join('')} <br> ${winner} has won ${winningCaps} caps!<section>`)
+    $('.winner-card').delay(6000).queue(function() {
+      $(this).removeClass('fade-in');
+      $(this).addClass('fade-out__animation');
+    });
+  },
+  appendIncorrect() {
+    let animationContainer = $('.animation--container');
+    animationContainer.append(`<image class="prompt-img fade-in" src="./images/incorrect.png">`)
+    $('.prompt-img').delay(1000).queue(function() {
+      $(this).removeClass('fade-in');
+      $(this).addClass('fade-out__animation');
+    });
+  },
+  appendBankrupt() {
+    let animationContainer = $('.animation--container');
+    animationContainer.append(`<image class="prompt-img fade-in" src="./images/bankrupt.png">`)
+    $('.prompt-img').delay(1000).queue(function() {
+      $(this).removeClass('fade-in');
+      $(this).addClass('fade-out__animation');
+    });
+  },
+  appendLoseTurn() {
+    let animationContainer = $('.animation--container');
+    animationContainer.append(`<image class="prompt-img fade-in" src="./images/loseTurn.png">`)
+    $('.prompt-img').delay(1000).queue(function() {
+      $(this).removeClass('fade-in');
+      $(this).addClass('fade-out__animation');
+    });
+  }
 }
