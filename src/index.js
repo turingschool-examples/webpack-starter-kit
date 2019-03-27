@@ -17,6 +17,7 @@ $('.game-board').hide();
 
 startGameBtn.click(function (e) {
   $('.game-board').show();
+  $('#reset-game-btn').show();
   e.preventDefault();
   const names = [$('#player-one-input').val(), 
     $('#player-two-input').val(), 
@@ -25,10 +26,12 @@ startGameBtn.click(function (e) {
   game.createPlayers(names);
   game.startGame();
   domUpdates.notifyPlayerOneTurn(game);
+  startGameBtn.hide();
 })
 
 clueBtn.on('click', function(e) {
   e.preventDefault();
+  $('.game-board').hide();
   domUpdates.updateCategory(event);
   const {id, innerText} = event.target;
   if ($('#round').text() === '1') {
@@ -47,9 +50,7 @@ submitBtn.click(function (e) {
 
 dailyDoubleBtn.click(function (e) {
   e.preventDefault();
-  domUpdates.hide
-  // domUpdates.
-  // domUpdates.notifyNextTurn(game)
+  domUpdates.notifyNextTurn(game)
 })
 
 resetBtn.click(function (e) {
