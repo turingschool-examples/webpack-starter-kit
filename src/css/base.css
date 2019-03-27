@@ -82,22 +82,6 @@ h6 {
   font-size: 30px;
 }
 
-.pb-one {
-  grid-area: player-one;
-  background-image: url("../images/banner1.png");
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.pb-two {
-  grid-area: player-two;
-  background-image: url("../images/banner2.png");
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
 .active {
   background-color: red;
 }

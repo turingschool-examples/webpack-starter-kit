@@ -1,3 +1,19 @@
+.pb-one {
+  grid-area: player-one;
+  background-image: url("../../images/banner1.png");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pb-two {
+  grid-area: player-two;
+  background-image: url("../../images/banner2.png");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .player-box {
   width: 80%;
   padding-top: 180px;
