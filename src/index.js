@@ -37,29 +37,30 @@ $('.nav__end-game').click(function () {
 });  
 
 // Conflict Res
-  $('.guess__word--button').click(function () {
-    console.log(game.currentRound.roundPuzzle);
-    // ! change the array of array to the globally defined one
-    const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    let wrdGuess = $('#guess--input').val();
-    let wrdGuessArr = wrdGuess.split('');
-    $('#guess--input').val('');
-    // * Unfiltered Array
-    // console.log(wrdGuessArr);
-    // * Filtered Array
-    wrdGuessArr = wrdGuessArr.map(letter => letter.toUpperCase());
-    wrdGuessArr = wrdGuessArr.filter(letter => alphabetArr.includes(letter));
-    DomUpdates.updatePlayerScore(game);
-    game.currentRound.wholeWord = game.currentRound.wholeWord.filter(letter => alphabetArr.includes(letter))
-    game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
-    // ! end round here
+$('.guess__word--button').click(function () {
+  console.log(game.currentRound.roundPuzzle);
+  // ! change the array of array to the globally defined one
+  const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  let wrdGuess = $('#guess--input').val();
+  let wrdGuessArr = wrdGuess.split('');
+  $('#guess--input').val('');
+  // * Unfiltered Array
+  // console.log(wrdGuessArr);
+  // * Filtered Array
+  wrdGuessArr = wrdGuessArr.map(letter => letter.toUpperCase());
+  wrdGuessArr = wrdGuessArr.filter(letter => alphabetArr.includes(letter));
+  DomUpdates.updatePlayerScore(game);
+  game.currentRound.wholeWord = game.currentRound.wholeWord
+    .filter(letter => alphabetArr.includes(letter))
+  game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
+  // ! end round here
     game.currentRound.newRound(game) : game.currentRound.getCurrentPlayer(game);
     
-    // console.log(game);
-    // game.currentRound.currentPlayer.ans = wrdGuess.split('');
+  // console.log(game);
+  // game.currentRound.currentPlayer.ans = wrdGuess.split('');
     
-    // game.currentRound.getCurrentPlayer(game);
-  });
+  // game.currentRound.getCurrentPlayer(game);
+});
 
 // Conflict-Res
 $('#vowel').click(function() {
@@ -102,28 +103,24 @@ $('#consonant').click(function () {
   }
 });
 
-  let conditionalChecking = (round, player, ltrGuess) => {
-     if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
-        alert('This letter has already been guessed!');
-        // todo: add an error message instead of alert
-      } 
-      else if (compareAns(round, player)) {
-        correctAnsFunc(round, player, ltrGuess);
-      }
-        // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
-        // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
-        
-     else {
-        // console.log(game.currentRound.allRoundGuesses)
-        // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
-        round.allRoundGuesses.push(player.ans);
-        round.allRoundGuesses.sort();
-        console.log("this needs to be sorted:", round.allRoundGuesses)
-        round.getCurrentPlayer(game);
-        // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
-        // console.log('CurrentPlayer', game.currentRound.currentPlayer);
-      }
+let conditionalChecking = (round, player, ltrGuess) => {
+  if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
+    alert('This letter has already been guessed!');
+    // todo: add an error message instead of alert
+  } else if (compareAns(round, player)) {
+    correctAnsFunc(round, player, ltrGuess);
+  } else {
+    // console.log(game.currentRound.allRoundGuesses)
+    // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
+    round.allRoundGuesses.push(player.ans);
+    round.allRoundGuesses.sort();
+    console.log("this needs to be sorted:", round.allRoundGuesses)
+    round.getCurrentPlayer(game);
+    DomUpdates.toggleButtons();
+    // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
+    // console.log('CurrentPlayer', game.currentRound.currentPlayer);
   }
+}
 
 let compareAns = (round, player) => {
   return round.answer.map((letter)=> letter.toUpperCase())
@@ -160,56 +157,57 @@ let buyVowel = (round, player, ltrGuess) => {
   
 // End Conflict-Res
 
-  $('.nav__wheel--button').click(() => {
-    DomUpdates.toggleButtons();
-    const slice = game.currentRound.currWheel.wheelSlices[Math.floor((Math.random() * 7) + 0)];
-    console.log("Slice:", slice)
-    $.type(slice) === "number" ? spinNum(slice) : spinNotNum(slice);
-    // ! REMOVE CONSOLE: LATER !
-    console.log("CurrPlayer: ", game.currentRound.currentPlayer.name)
-  });
+$('.nav__wheel--button').click(() => {
+  let random = Math.floor((Math.random() * 7) + 0);
+  DomUpdates.toggleButtons();
+  const slice = game.currentRound.currWheel.wheelSlices[random];
+  console.log("Slice:", slice)
+  $.type(slice) === "number" ? spinNum(slice) : spinNotNum(slice);
+  // ! REMOVE CONSOLE: LATER !
+  console.log("CurrPlayer: ", game.currentRound.currentPlayer.name)
+});
 
-  let spinNum = (slice) => {
-    game.currentRound.currentPlayer.roundCaps += slice;
+let spinNum = (slice) => {
+  game.currentRound.currentPlayer.roundCaps += slice;
+  DomUpdates.updatePlayerScore(game);
+}
+  
+let spinNotNum = (slice) => {
+  if (slice === 'BANKRUPT') {
+    game.currentRound.currentPlayer.roundCaps = 0;
+    game.currentRound.currentPlayer.totalCaps = 0;
     DomUpdates.updatePlayerScore(game);
   }
-  
-  let spinNotNum = (slice) => {
-    if (slice === 'BANKRUPT') {
-      game.currentRound.currentPlayer.roundCaps = 0;
-      game.currentRound.currentPlayer.totalCaps = 0;
-      DomUpdates.updatePlayerScore(game);
-    }
-    game.currentRound.getCurrentPlayer(game);
-    DomUpdates.toggleButtons(game);
-  };
-  
-  // An example of how you tell webpack to apply a CSS file
-  // import './css/fonts/overseer.css';
-  // import './fonts/Lato-Thin.ttf';
-  
-  import './css/base.css';
-  import './css/normalize.css';
-  // import './css/Lato-Thin.ttf'
-  
-  // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-  import './images/turing-logo.png';
-  import './images/terminal2.jpg';
-  import './images/mad_max-removebg.png';
-  import './images/mysteriousStranger.png';
-  import './images/radroach.png';
-  import './images/raider.png';
-  import './images/smallvaultec.png';
-  import './images/smartypants.png';
-  import './images/thumbs.png';
-  import './images/vaultDoor.png';
-  import './images/vaultTec.jpg';
-  import './images/yesMan.jpg';
-  import './images/bottleCaps.png';
-  import './images/deathclaw.jpg';
-  import './images/incorrect.png';
-  
-  // import './css/Overseer.otf'
+  game.currentRound.getCurrentPlayer(game);
+  DomUpdates.toggleButtons(game);
+};
+
+// An example of how you tell webpack to apply a CSS file
+// import './css/fonts/overseer.css';
+// import './fonts/Lato-Thin.ttf';
+
+import './css/base.css';
+import './css/normalize.css';
+// import './css/Lato-Thin.ttf'
+
+// An example of how you tell webpack to use an image (also need to link to it inthe index.html)
+import './images/turing-logo.png';
+import './images/terminal2.jpg';
+import './images/mad_max-removebg.png';
+import './images/mysteriousStranger.png';
+import './images/radroach.png';
+import './images/raider.png';
+import './images/smallvaultec.png';
+import './images/smartypants.png';
+import './images/thumbs.png';
+import './images/vaultDoor.png';
+import './images/vaultTec.jpg';
+import './images/yesMan.jpg';
+import './images/bottleCaps.png';
+import './images/deathclaw.jpg';
+import './images/incorrect.png';
+
+// import './css/Overseer.otf'
   
   
   
