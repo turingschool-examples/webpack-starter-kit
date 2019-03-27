@@ -1,4 +1,3 @@
-import Round from './Round'
 import Data from './Data'
 import DomUpdates from './DomUpdates';
 

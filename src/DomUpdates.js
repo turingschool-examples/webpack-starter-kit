@@ -389,7 +389,6 @@ export default {
     $('.wheel-value').text('Spin Me!');
   },
 
-
   updateRoundScore(playerBankValue, activePlayerValue) {
     let playerScoreElement = $('.bank-score')
     if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
@@ -419,12 +418,12 @@ export default {
     })
   },
 
-  clearGameBoard() {
+    clearGameBoard() {
+      $('.puzzle-cell').remove();     
         $('.letters-selected-area').remove();
         $('.game-info').remove();
         $('.puzzle-area').remove();
-   },
-
+    },
   
   displayActivePlayer(activePlayer) {
     $('.active-player-text').text(activePlayer.name);
