@@ -159,10 +159,24 @@ h3 {
   border: 1px solid black;
   width: 30%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   background-color: #ffffff;
   padding: 0 10px;
+}
+
+.scoreboard {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-score-area h2 {
+  margin: 0 5px;
+}
+
+.scoreboard h2, h3 {
+  margin: 5px;
 }
 
 .puzzle-area {
@@ -241,14 +255,21 @@ h3 {
 .letters-not-displayed {
   background-color: white;
   color: white;
+  box-shadow: 0 0 8px black;
+  margin: -2px;
 }
 
 .letters-displayed {
   background-color: white;
+  box-shadow: 0 0 8px #8bcdac;
+  margin: -2px;
+
 }
 
 .spaces-not-displayed {
-  background-color: gold;
+  background-image: radial-gradient(circle, #c0e4d2, #8bcdac, #68bd93);
+  margin: -2px;
+
 }
 
 .disable-selected-letters {
@@ -356,7 +377,6 @@ h3 {
   grid-template-rows: auto;
   grid-template-areas: 
   "hint hint"
-  "description description"
   "activePlayer round";
   width: 70%;
   max-width: 955px;
@@ -377,10 +397,6 @@ h3 {
 
 .hint-container {
   grid-area: hint;
-}
-
-.description-container {
-  grid-area: description;
 }
 
 .active-player-container {

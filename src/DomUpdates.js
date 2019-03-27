@@ -47,22 +47,79 @@ export default {
     </section>
     <section class="game-info">
         <div class="game-info-containers hint-container">
-            <p class="hint-" id="hint">Catagory: <span class="hint-text"></span></p>
-        </div>
-        <div class="game-info-containers description-container">
-            <p class="description" id="description">Description: <span class="description-text"></span></p>
+            <p class="hint-" id="hint">Catagory: <span class="hint-text"></span>; <span class="description-text"></span></p>
         </div>
         <div class="game-info-containers active-player-container">
             <p class="active-player"><span class="active-player-text">Player 1</span>, you're up!</p>
         </div>
         <div class="game-info-containers round-container">
-            <p class="round">Round: <span class="round-text">1</span</p>
+            <p class="round">Round: <span class="round-text">null</span</p>
         </div>
     </section>
     <section id="puzzle-area" class="puzzle-area">
         <div class="puzzle">
             <table class="puzzle-row row1">
                 <tr>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table class="puzzle-row">
+                <tr>
+                    <td class="puzzle-cell-container" class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
+                    <td class="puzzle-cell-container">
+                        <div class="puzzle-cell" id="puzzle-cell">
+                        </div>
+                    </td>
                     <td class="puzzle-cell-container">
                         <div class="puzzle-cell" id="puzzle-cell">
                         </div>
@@ -223,66 +280,6 @@ export default {
                         <div class="puzzle-cell" id="puzzle-cell">
                         </div>
                     </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <table class="puzzle-row">
-                <tr>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
-                    <td class="puzzle-cell-container">
-                        <div class="puzzle-cell" id="puzzle-cell">
-                        </div>
-                    </td>
                 </tr>
             </table>
         </div>
@@ -306,19 +303,37 @@ export default {
         </section>
       <section id="player-score-area" class="player-score-area">
         <div id="player-score" class="player-score">
-            <h2>${player[0].name}</h2>
-            <h2 class="bank-score player-1">${player[0].playerBank}</h2>
-            <h2>Score<h2><h4>${player[0].score}</h4>
+            <h2 class="player-score-name">${player[0].name}</h2>
+            <div class="scoreboard">
+                <h2>Score</h2>
+                <h3 class="bank-score player-1">${player[0].playerBank}</h3>
+            </div>
+            <div class="scoreboard">
+                <h2>Total<h2>
+                <h3>${player[0].score}</h3>
+            </div>
         </div>
         <div id="player-score" class="player-score">
-            <h2>${player[1].name}</h2>
-            <h2 class="bank-score player-2" >${player[1].playerBank}</h2>
-            <h2>Score<h2><h4>${player[1].score}</h4>
+            <h2 class="player-score-name">${player[1].name}</h2>
+            <div class="scoreboard">
+                <h2>Score</h2>
+                <h3 class="bank-score player-2">${player[1].playerBank}</h3>
+            </div>
+            <div class="scoreboard">
+                <h2>Total<h2>
+                <h3>${player[1].score}</h3>
+            </div>
         </div>
         <div id="player-score" class="player-score">
-            <h2>${player[2].name}</h2>
-            <h2 class="bank-score player-3">${player[2].playerBank}</h2>
-            <h2>Score<h2><h4>${player[2].score}</h4>
+            <h2 class="player-score-name">${player[2].name}</h2>
+            <div class="scoreboard">
+                <h2>Score</h2>
+                <h3 class="bank-score player-3">${player[2].playerBank}</h3>
+            </div>
+            <div class="scoreboard">
+                <h2>Total<h2>
+                <h3>${player[2].score}</h3>
+            </div>
         </div>
     </section>
     <div>
@@ -342,6 +357,7 @@ export default {
         $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('spaces-not-displayed');
       } else if (letter === "-" || letter === "'") {
         $(cell).append(`<p class="puzzle-text">${letter}</p>`);
+        $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-displayed');
       } else if (letter !== undefined && letter !== " ") {
         $(cell).append(`<p class="puzzle-text">${letter}</p>`);
         $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-not-displayed');
@@ -370,11 +386,18 @@ export default {
     $('.wheel-value').text(wheelValue);
   },
 
+  resetWheelValue() {
+    console.log('reset');
+    $('.wheel-value').text('Spin Me!');
+  },
+
 
   updateRoundScore(playerBankValue, activePlayerValue) {
-    let playerScoreElement = $('h2')
+    let playerScoreElement = $('.bank-score')
+      console.log(playerScoreElement)
     if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
-      $('.player-1').text(playerBankValue)
+      $('.bank-score.player-1').text(playerBankValue)
+      console.log('SCOREEEEE')
     } else if (activePlayerValue === 1 && playerScoreElement.hasClass('player-2') === true) {
       $('.bank-score.player-2').text(playerBankValue)
       console.log('else if 2')
@@ -397,7 +420,7 @@ export default {
     })
   },
 
-    clearGameBoard() {
+  clearGameBoard() {
         $('.letters-selected-area').remove();
         $('.game-info').remove();
         $('.puzzle-area').remove();
@@ -405,7 +428,10 @@ export default {
 
   
   displayActivePlayer(activePlayer) {
-    console.log("Active Player: ", activePlayer.name)
     $('.active-player-text').text(activePlayer.name);
+  },
+
+  displayRound(roundNumber) {
+    $('.round-text').text(roundNumber);
   }
 }
