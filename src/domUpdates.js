@@ -101,17 +101,17 @@ popUp() {
     console.log('winner', player2.score);
 
     if(player1.score > player2.score){
-     let player = player1.name; 
-    } else {
-      let player = player2.name;
-    };
-    
-    $('.winnerMessage').append(`<h1 class="winner">${player}IS THE WINNER!</h1>
+     $('.winnerMessage').append(`<h1 class="winner">${player1.name}IS THE WINNER!</h1>
       <h3>Want To Play Again?</h3>
       <button id="newGameBtn">New Game</button>
         `);
+    } else {
+      $('.winnerMessage').append(`<div id='winner'><h1 class="winner">${player2.name}, you're the WINNER!</h1>
+      <h3>Want To Play Again?</h3>
+      <button id="newGameBtn">New Game</button></div>
+        `);
+    };
 
-    //not sure it works
   },
 
 

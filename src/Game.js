@@ -43,7 +43,7 @@ createRound() {
     if(this.roundNumber > 0){
         domUpdates.progressBar(this.roundNumber);
     } 
-    if(this.roundNumber >= 4){
+    if(this.roundNumber === 5){
         //play with this number
        domUpdates.winnerMessage(this.player1, this.player2)
      }

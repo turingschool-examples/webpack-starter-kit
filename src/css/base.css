@@ -229,6 +229,16 @@ body {
   margin: 0 5%;
 }
 
+#winner {
+  border: 2px solid goldenrod;
+  border-style: ridge;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: #2196F3;
+  display: block;
+  width: 100%;
+}
+
 
 
 
