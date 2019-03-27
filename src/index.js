@@ -12,6 +12,8 @@ import './css/base.css';
 import './images/jeopardy-logo.png'
 import Rounds from './Rounds.js';
 import Game from './Game.js';
+import Clue from './Clue.js'
+import Player from './Player.js'
 import dataSet from './dataSet.js';
 import domUpdates from './domUpdates.js';
 
@@ -52,13 +54,34 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 
   $(".box-wrapper").on('click', function (e) {
-    let category = []
+    let category = [];
     if ($(e.target).is(".cat-1")) {
       category = (newGame.currentRound.topicOne);
+      $(e.target).val()
+  } else if ($(e.target).is(".cat-2")) {
+    category = (newGame.currentRound.topicTwo);
+  } else if ($(e.target).is(".cat-3")) {
+    category = (newGame.currentRound.topicThree);
+  } else {
+    category = (newGame.currentRound.topicFour);
   }
-  console.log(category);
-
-  console.log($(e.target).is(".cat-1"));
-
+  findClueIndex(category, e);
 
   });
+
+ function findClueIndex (category, e) {
+   if ($(e.target).is(".ind-0")) {
+    let currentClue = new Clue (category[0]);
+    console.log(currentClue);
+  } else if ($(e.target).is(".ind-1")) {
+    let currentClue = new Clue (category[1]);
+    console.log(currentClue);
+  } else if ($(e.target).is(".ind-2")) {
+    let currentClue = new Clue (category[2]);
+    console.log(currentClue);
+  } else {
+    let currentClue = new Clue(category[3]);
+    console.log(currentClue);
+  }
+
+ }

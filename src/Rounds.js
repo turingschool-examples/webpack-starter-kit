@@ -7,7 +7,6 @@ import domUpdates from './domUpdates.js'
 class Rounds {
   constructor(categoryIds) {
     this.categoryIds = categoryIds;
-    // console.log('Rounds class Categories ',this.categoryIds);
     this.topicOne = [];
     this.topicTwo = [];
     this.topicThree = [];
