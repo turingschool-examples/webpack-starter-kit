@@ -13,7 +13,7 @@ body {
 .wrapper {
     display: grid;
     grid-template-rows: auto 40% 25% 25%;
-    height: 1800px; /*fix positioning and height*/
+    height: 1800px; 
     font-family: 'Open Sans', sans-serif;
     border: 20px solid goldenrod;
     border-style: ridge;
@@ -91,14 +91,6 @@ body {
 }
 
 
-#responseOne,
-#responseTwo,
-#responseThree {
-  color: #fff;
-  font-size: 1.5rem;
-  margin: 1% 0;
-}
-
 .surveyResponses {
    margin-bottom: 80px;
 }
@@ -118,13 +110,23 @@ body {
 .cardOne,
 .cardTwo,
 .cardThree {
+    display: block;
+    text-align: center;
     width: 100%;
-    padding: 3px;
+    padding: 5px;
     margin: 2% 0;
     background-color: #0a4696;
     border-bottom: 4px solid #fec55c;
     border-style: ridge;
-    height: 50px;
+    height: 75px;
+    color: #FFF;
+    font-size: 1.5em;
+  }
+
+  #responseOne,
+  #responseTwo,
+  #responseThree {
+    font-weight: 800;
   }
 
 .scoreBoard,
@@ -153,7 +155,8 @@ body {
 }
 
 #round {
-    font-size: 1.5em;
+    font-size: 2em;
+    margin-top: 8%;
 }
 
 .answerInput {

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-import './css/base.css';
 import './css/normalize.css';
+import './css/base.css';
 
 import './images/FFLsm.png';
 
@@ -40,7 +40,7 @@ function startPlaying() {
   $('#nameOne').text(playerOne);
   let playerTwo = $('.nameTwo').val();
   $('#nameTwo').text(playerTwo);
-  $('.wrapper').css('height', '1300px');
+  $('.wrapper').css('height', '1450px');
   $('.wrapper').css('grid-template-rows', '0% 50% 25% 25%');
   $('.gamePopUp').css('visibility', 'hidden');
   createGame(dataSet);

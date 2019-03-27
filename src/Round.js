@@ -20,9 +20,7 @@ checkAnswer(guess, currentPlayer, game) {
         let score = correctAnswer.respondents;
         currentPlayer.addScore(score);
         this.answerCount++
-
-        // dom updates append answer (answer.answer, answer.respondents)
-        // if these things happen, we're done here, get out of the loop, return
+        domUpdates.appendAnswer(answers, correctAnswer.answer, correctAnswer.respondents);
     } else {
         console.log('incorrect')
         domUpdates.wrongAnswer();
