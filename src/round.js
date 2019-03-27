@@ -89,6 +89,28 @@ class Round {
   displayCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
   }
+  conditionalChecking(game, ltrGuess, vowels) {
+    if (this.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
+      alert('This letter has already been guessed!');
+      // todo: add an error message instead of alert
+    } else if (this.compareAns() && !vowels.includes(ltrGuess.toUpperCase())) {
+      game.currentRound.correctAnsFunc(game, ltrGuess);
+      DomUpdates.toggleButtons();
+    } else if (game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
+      game.currentRound.correctAnsFunc(game, ltrGuess)
+    } else if (!game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
+      this.allRoundGuesses.push(this.currentPlayer.ans);
+      this.allRoundGuesses.sort();
+      DomUpdates.appendIncorrect();
+      this.getCurrentPlayer(game);
+    } else {
+      this.allRoundGuesses.push(this.currentPlayer.ans);
+      this.allRoundGuesses.sort();
+      DomUpdates.appendIncorrect();
+      this.getCurrentPlayer(game);
+      DomUpdates.toggleButtons();
+    }
+  }
   compareAns() {
     return this.answer.map(letter => letter.toUpperCase())
       .includes(this.currentPlayer.ans.toUpperCase());

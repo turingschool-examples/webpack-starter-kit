@@ -83,50 +83,40 @@ $('#consonant').click(function () {
   const player = round.currentPlayer;
   let ltrGuess = $('#guess--input').val();
 
-
   // !  nested if to separate helper function invoked within first if
   if (vowels.includes(ltrGuess.toUpperCase()) || ltrGuess.length !== 1) {
     alert('Please Choose 1 Consonant');
   } else {
     player.ans = ltrGuess.toUpperCase();
     round.answer = round.answer.filter(item => item !== `'` && item !== `-` )
-    //TODO: update letters used array
-    // player ans
-    // console.log(game.currentRound.currentPlayer.ans.toUpperCase());
-    // round answer
-    // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
-    // compare player ans against round answer
-    conditionalChecking(round, player, ltrGuess);
-    // create a new array
-    // push correct guess letter in there
-    // find index of answer array to guess letter array
-    // change text of that index to the value of the guess index
+    game.currentRound.conditionalChecking(game, ltrGuess, vowels);
     DomUpdates.updateLettersUsed(game);
   }
 });
 
-let conditionalChecking = (round, player, ltrGuess) => {
-  if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
-    alert('This letter has already been guessed!');
-    // todo: add an error message instead of alert
-  } else if (game.currentRound.compareAns() && !vowels.includes(ltrGuess.toUpperCase())) {
-    game.currentRound.correctAnsFunc(game, ltrGuess);
-    DomUpdates.toggleButtons();
-  } else if (game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
-    game.currentRound.correctAnsFunc(game, ltrGuess)
-  } else if (!game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
-    round.allRoundGuesses.push(player.ans);
-    round.allRoundGuesses.sort();
-    DomUpdates.appendIncorrect();
-    round.getCurrentPlayer(game);
-  } else {
-    round.allRoundGuesses.push(player.ans);
-    round.allRoundGuesses.sort();
-    DomUpdates.appendIncorrect();
-    round.getCurrentPlayer(game);
-    DomUpdates.toggleButtons();
-  }
-}
+// todo: remove after refactor
+// let conditionalChecking = (round, player, ltrGuess) => {
+//   if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
+//     alert('This letter has already been guessed!');
+//     // todo: add an error message instead of alert
+//   } else if (game.currentRound.compareAns() && !vowels.includes(ltrGuess.toUpperCase())) {
+//     game.currentRound.correctAnsFunc(game, ltrGuess);
+//     DomUpdates.toggleButtons();
+//   } else if (game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
+//     game.currentRound.correctAnsFunc(game, ltrGuess)
+//   } else if (!game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
+//     round.allRoundGuesses.push(player.ans);
+//     round.allRoundGuesses.sort();
+//     DomUpdates.appendIncorrect();
+//     round.getCurrentPlayer(game);
+//   } else {
+//     round.allRoundGuesses.push(player.ans);
+//     round.allRoundGuesses.sort();
+//     DomUpdates.appendIncorrect();
+//     round.getCurrentPlayer(game);
+//     DomUpdates.toggleButtons();
+//   }
+// }
 
 // todo: remove after refactor
 // let compareAns = (game) => {
@@ -160,7 +150,7 @@ let buyVowel = (round, player, ltrGuess) => {
     player.roundCaps -= 100;
     player.ans = ltrGuess.toUpperCase();
     round.answer = round.answer.filter(item => item !== `'` && item !== `-` && item !== `&`)
-    conditionalChecking(round, player, ltrGuess);
+    game.currentRound.conditionalChecking(game, ltrGuess, vowels);
     DomUpdates.updateLettersUsed(game);
   }
 }
