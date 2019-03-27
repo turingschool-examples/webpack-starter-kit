@@ -34,6 +34,7 @@ $(".name-btn").on("click", startGame);
 $(".guess-btn").on("click", guess);
 $(".guess-input").on("keydown", domUpdates.hideGuessMessages);
 $(".start-timer-btn").on("click", runTimer);
+$(".multiplier-btn").on("click", startFinalRound);
 
 function startGame() {
   const p1Name = $("#p1-name-input").val();
@@ -57,4 +58,9 @@ function guess() {
 
 function runTimer() {
   round.startTimer($(".timer"));
+}
+
+function startFinalRound() {
+  domUpdates.revealGame();
+  game.updateDOM(round);
 }

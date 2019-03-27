@@ -1,11 +1,16 @@
 import chai from 'chai';
 const expect = chai.expect;
 
+import spies from 'chai-spies';
+chai.use(spies);
+
 import Game from '../src/Game.js';
 import Player from '../src/Player.js';
 import Round from '../src/Round.js';
 import FinalRound from '../src/FinalRound.js';
+import domUpdates from '../src/domUpdates.js';
 
+chai.spy.on(domUpdates, ['animateKnight', 'populateSurvery', 'populateAnswers'], () => true);
 
 describe('Game Class', () => {
   let game, player1, player2;
