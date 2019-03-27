@@ -1,20 +1,19 @@
+import domUpdates from './domUpdates.js'
+
 class Player {
     constructor(name, playerId) {
         this.name = name;
         this.score = 0;
         this.playerId = playerId;
-
     };
 
     addScore(scoreAmt) {
         console.log('change score, correct guess')
-        this.score += scoreAmt;
+        this.score =+ scoreAmt;
+        domUpdates.changeScore(this.score, this.playerId);
         console.log(this.score);
-        // domUpdates.changeScore();
-     //change on dom
     //     game.checkPlayer()
-    //     const newScore = game.answers[i].response;
-    //     this.score += this.newScore['player1${currentPlayer}']
+
 };
 
 lightningScore(num) {
