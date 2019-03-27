@@ -16,11 +16,27 @@
           <button class="name-btn">Pledge Your Fealty</button>
         </div>
         <div class="input-holder multiplier-inputs">
-          <p>Final Round Rules</p>
-          <label for="p1-multiplier-input" class="first-label">House One Multiplier</label>
-          <input id="p1-multiplier-input" type="number">
-          <label for="p2-multiplier-input">House Two Multiplier</label>
-          <input id="p2-multiplier-input" type="number">
+          <p class="final-rules">In the final round, you will have 30 seconds to make as many guesses as you like. Below, declare your bravery. Any correct guesses will be multiplied by your bravery, but any incorrect guesses will be subtracted from your final score. The braver you are, the harder you fall.</p>
+          <div class="multi-holder">
+            <label for="p1-multiplier-input" class="first-label">House One</label>
+            <select id="p1-multiplier-input">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="multi-holder">
+            <label for="p2-multiplier-input">House Two</label>
+            <select id="p2-multiplier-input">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
           <button class="multiplier-btn">Declare Your Bravery</button>
         </div>
       </div>

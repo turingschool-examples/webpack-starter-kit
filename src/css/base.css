@@ -27,21 +27,48 @@ body {
   display: block;
   color: white;
   margin: 20px auto;
-  width: 250px;
+  width: 300px;
 }
 
-.multiplier-inputs{
+.multiplier-inputs {
   display: none;
 }
+
+#p1-multiplier-input,
+#p2-multiplier-input {
+  width: 50px;
+}
+
+.multiplier-inputs > *{
+  font-size: 24px;
+}
+
 
 .input-holder input {
   color: black;
 }
 
-.name-btn {
+button {
   background-color: #B02418;
   border: none;
   padding: 10px;
+  color: white;
+}
+
+.final-rules {
+  margin: 0 auto;
+  font-size: 24px;
+  width: 82%;
+}
+
+.multi-holder {
+  display: inline-block;
+  width: 49%;
+}
+
+.multi-holder > * {
+  margin: 10px auto;
+  display: block;
 }
 
 .game-area {
@@ -53,14 +80,14 @@ body {
   height: 90%;
   margin: 0 auto;
   display: none;
-  grid-row-gap: 10px;
+  /* grid-row-gap: 10px; */
   grid-template-columns: 1fr 2.8fr 1fr;
-  grid-template-rows: 1fr 1fr 500px .8fr;
+  grid-template-rows: 1.3fr 1.1fr .85fr 470px;
   grid-template-areas:
     ". logo ."
     ". survey ."
-    "player-one results player-two"
-    ". input .";
+    ". input ."
+    "player-one results player-two";
   justify-items: center;
 }
 
@@ -72,7 +99,7 @@ body {
   display: block;
   height: 60px;
   width: 600px;
-  margin: 20px auto 0;
+  margin: 20px auto;
 }
 
 .round-banner {
@@ -105,9 +132,9 @@ body {
 .survey {
   text-align: center;
   color: white; 
-  font-size: 24px;
-  margin: 7px auto;
-  width: 450px;
+  font-size: 22px;
+  margin: 10px auto;
+  width: 440px;
 }
 
 .result-box > * {
@@ -229,6 +256,27 @@ h6 {
 .user-input {
   grid-area: input;
   margin: 0 auto;
+}
+
+.guess-input {
+  font-size: 20px;
+  padding: 5px;
+  position: relative;
+  top: 1.8px;
+}
+
+.wrong-guess,
+.correct-guess {
+  margin: 10px auto 0;
+  text-align: center;
+}
+
+.wrong-guess{
+  color: #B02418
+}
+
+.correct-guess{
+  color: forestgreen
 }
 
 .active {
