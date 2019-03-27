@@ -18,8 +18,9 @@ class Round {
     this.roundNumber ++
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
     this.shuffler(allRoundClues)
-    DomUpdates.displayActivePlayer(game.players[this.activePlayer])
     this.getRandomClue(allRoundClues)
+    DomUpdates.displayActivePlayer(game.players[this.activePlayer])
+    DomUpdates.displayRound(this.roundNumber);
     this.wheelInst.createWheel(this)
     game.stage ++
   }
@@ -129,13 +130,18 @@ class Round {
       
         DomUpdates.gameMessage("round winner")
         game.updatePlayerScore()
+        this.wheelInst.selectedValue = 0;
         this.createNewRound(game)
       } else {
-        DomUpdates.gameMessage("spin again")
-        game.updatePlayerBank()
+        game.updatePlayerBank();
+        DomUpdates.resetWheelValue();
+        this.wheelInst.selectedValue = 0;
+        DomUpdates.gameMessage("spin again");
       }
     } else {
       DomUpdates.gameMessage("next player")
+      DomUpdates.resetWheelValue();
+      this.wheelInst.selectedValue = 0;
       this.switchPlayer(game)
 
     }
@@ -156,11 +162,8 @@ class Round {
     }
   }
 
-  clearGameBoard() {
-    $('.puzzle-cell').remove();     $('.letters-selected-area').remove();
-    $('.game-info').remove();
-    $('.puzzle-area').remove();
-  }
+  
+
 
 }
 
