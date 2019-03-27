@@ -28,9 +28,9 @@ class Game {
         this.round.createRound(this.stage)
         this.wheel.getWheelValues()
         if(this.players.length === 0) {
-            let player1 = new Player(name1);
-            let player2 = new Player(name2);
-            let player3 = new Player(name3);
+            let player1 = new Player(0, name1);
+            let player2 = new Player(1, name2);
+            let player3 = new Player(2, name3);
             this.players.push(player1, player2, player3)
         }
         this.currentPlayer = this.players[0]
@@ -43,15 +43,13 @@ class Game {
     }
 
     playerTurns() {
+        domUpdates.enableButton()
         if (this.currentPlayer === this.players[0]){
             this.currentPlayer = this.players[1];
-            domUpdates.enableButton()
         }else if(this.currentPlayer === this.players[1]){
             this.currentPlayer = this.players[2];
-            domUpdates.enableButton()
         }else if(this.currentPlayer === this.players[2]){
             this.currentPlayer = this.players[0];
-            domUpdates.enableButton()
         }
         console.log(this.currentPlayer)
         domUpdates.showCurrentPlayer(this.currentPlayer.name)

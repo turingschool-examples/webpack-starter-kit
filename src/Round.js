@@ -6,12 +6,14 @@ class Round{
         this.rounds = ['one', 'two', 'three', 'four', 'four'];
         this.allCorrectAnswers = [];
         this.answerClues = [];
+        this.answers = [];
         this.answerCategories = []
         this.puzzle = new Puzzle();
     }
     createRound(stage) {
         this.rounds.forEach(round => {
             let roundObject = this.puzzle.getRandomAnswer(round)
+            this.answers.push(roundObject.correct_answer.toUpperCase());
             this.allCorrectAnswers.push(roundObject.correct_answer.toUpperCase().split(''))
             this.answerClues.push(roundObject.description)
             this.answerCategories.push(roundObject.category)
