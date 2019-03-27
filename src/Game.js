@@ -2,15 +2,18 @@ import domObject from "./DOMupdates.js";
 import Round from "./Round.js";
 import $ from "jquery";
 import "./DOMevents.js";
+import Player from "./Player.js";
 
 let round = new Round();
 
 class Game {
-  constructor() {
+  constructor(player1, player2) {
     this.currentPlayerTurn = "player1";
     this.cycleTurn = true;
     this.currentAnswers = [];
     this.currentRound = 1;
+    // this.player1 = player1 || 'not yet set';
+    // this.player2 = player2 || 'not yet set';
   }
 
   startGame() {
@@ -26,7 +29,19 @@ class Game {
       this.beginRound();
     } else if (this.currentRound >= 4) {
       this.beginRound();
+      console.log("firing");
     }
+  }
+
+  startNextRoundTimed() {
+    console.log("startNextRoundTimed invoked");
+    this.currentRound++;
+    this.beginRound();
+    // if (this.currentPlayerTurn === "player1") {
+    //   $(".current-turn").html(`${player1.name}'s turn!`);
+    // } else if (this.currentPlayerTurn === "player2") {
+    //   $(".current-turn").html(`${player2.name}'s  damn turn!`);
+    // }
   }
 
   beginRound() {
@@ -41,11 +56,11 @@ class Game {
       time--;
       if (time < 0) {
         clearInterval(timer);
-        this.startNextRound();
+        this.whoseTurn();
+        this.startNextRoundTimed();
       }
     }, 1000);
   }
-  //SET TIMER TO START NEXT ROUND AND LET PLAYER 2 GO FOR 30 SECONDS WHEN TIMER HITS 0 -- KEEP MULTIPLIER
 
   checkUserGuess(userGuess, possibleAnswersArray) {
     let correctAnswersPoints = 0;

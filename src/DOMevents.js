@@ -1,6 +1,7 @@
 import $ from "jquery";
 import Game from "./Game.js";
 import Player from "./Player.js";
+import domObject from "./DOMupdates.js";
 const game = new Game();
 const player1 = new Player();
 const player2 = new Player();
@@ -28,33 +29,55 @@ $("#submit-names").on("click", () => {
 $("#submit-guess").on("click", event => {
   event.preventDefault();
 
-  if (game.currentRound !== 3) {
+  if (game.currentRound < 3) {
     game.whoseTurn();
 
     //let player 1 guess first
     if (game.currentPlayerTurn === "player1") {
-      $(".current-turn").html(`${player2.name}'s turn!`);
-      let userInput = $("#player-guess").val();
-      player1.score += game.checkUserGuess(userInput, game.currentAnswers);
-      $(".player-1-score").html(`Score: ${player1.score}`);
+      rotatePlayer(player2);
+      checkInputOf(player1);
+      updateTheScoreOf(player1, 1);
     } else if (game.currentPlayerTurn === "player2") {
-      $(".current-turn").html(`${player1.name}'s turn!`);
-      let userInput = $("#player-guess").val();
-      player2.score += game.checkUserGuess(userInput, game.currentAnswers);
-      $(".player-2-score").html(`Score: ${player2.score}`);
+      rotatePlayer(player1);
+      checkInputOf(player2);
+      updateTheScoreOf(player2, 2);
+    }
+  } else if (game.currentRound < 5) {
+    // let i = 0;
+    // do {
+    //   rotatePlayer(player2);
+    //   i++;
+    // } while (i < 1);
+    if (game.currentPlayerTurn === "player2") {
+      checkInputOf(player1);
+      updateTheScoreOf(player1, 1);
+    } else if (game.currentPlayerTurn === "player1") {
+      checkInputOf(player2);
+      updateTheScoreOf(player2, 2);
     }
   } else {
-    $(".current-turn").html(`${player1.name}'s turn!`);
+    console.log("|| It's over anakin, i have the high ground! ||");
+  }
+
+  function rotatePlayer(player) {
+    $(".current-turn").html(`${player.name}'s turn!`);
+  }
+
+  function checkInputOf(player) {
     let userInput = $("#player-guess").val();
-    player1.score += game.checkUserGuess(userInput, game.currentAnswers);
-    $(".player-1-score").html(`Score: ${player1.score}`);
+    player.score += game.checkUserGuess(userInput, game.currentAnswers);
+    // updateTheScoreOf(player, domElementId);
+  }
+
+  function updateTheScoreOf(player, domElementId) {
+    $(`.player-${domElementId}-score`).html(`Score: ${player.score}`);
   }
 });
 
 $(".multiplier-form").on("click", ".multiplier-radio", event => {
   const radioValue = parseInt(event.currentTarget.defaultValue);
   game.multiplyValues(radioValue);
-  game.timer(3);
+  game.timer(15);
   $(".countdown-timer").removeClass("hidden");
   $(".multiplier-form").fadeOut();
   $(".multiplying-by").html(`${radioValue}X POINTS`);
