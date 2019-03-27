@@ -41,6 +41,11 @@ describe('Player', function() {
       expect(player1.playerNum).to.equal(1);
       expect(player2.playerNum).to.equal(2);
     });
+    it('Each player should start with a multiplier of 1', () => {
+      expect(player1.multiplier).to.equal(1);
+      expect(player2.multiplier).to.equal(1);
+
+    });
   });
   describe('Methods', function() {
     it('should be able to make a guess', function() {
@@ -74,6 +79,12 @@ describe('Player', function() {
       testRound.answers = data.answers.filter(answer => answer.surveyId === 1);
       player1.makeGuess('BEER', game, testRound);
       expect(player1.score).to.equal(67);
+    });
+    it('Each player should be able to reassign multiplier with user input', () => {
+      player1.getMultiplier(4);
+      expect(player1.multiplier).to.equal(4);
+      player2.getMultiplier(3);
+      expect(player2.multiplier).to.equal(3);
     });
   });
 });
