@@ -20,7 +20,6 @@ $('.start-button').on('click', function() {
   domUpdates.hideAnswer(game);
   domUpdates.diplayStartMsg();
   game.setCurrentPlayer();
-  console.log(game.currentPlayer);
   // console.log('index.js', game.currentPlayer)
   domUpdates.enableQuit();
   domUpdates.enableButton();
@@ -29,6 +28,7 @@ $('.start-button').on('click', function() {
   $('.player-name-input').hide();
 });
 
+//this is not working properly below
 $('.quit-button').on('click', function() {
   domUpdates.disableQuit();
 });
@@ -36,7 +36,6 @@ $('.quit-button').on('click', function() {
 $('.quit-button').on('click', function() {
   location.reload(true);
 });
-
 
 $('#js-spin-button').on('click', function() {
   wheel.getRandomWheel();
@@ -46,7 +45,6 @@ $('#js-spin-button').on('click', function() {
 $('#js-solve-button').on('click', function(e) {
   e.preventDefault();
   domUpdates.showPopup();
-  // let solveInput = domUpdates.grabCurrentLetter();
   // console.log("player", game.currentPlayer);
   // game.currentPlayer.solvePuzzle(game);
   console.log(game.currentPlayer);
@@ -76,6 +74,7 @@ $('#js-vowel-submit').on('keyup', function(e) {
 //   game.currentPuzzle.checkUserGuess ();
 // });
 
-$('.exit-solve').on('click', function() {
+$('.exit-solve').on('click', function(e) {
+  e.preventDefault();
   domUpdates.hidePopup();
 })

@@ -1,6 +1,11 @@
 import Player from '../src/Player.js';
+import domUpdates from '../src/domUpdates.js';
 import chai from 'chai';
 const expect = chai.expect;
+import spies from 'chai-spies';
+chai.use(spies);
+
+chai.spy.on(domUpdates, 'solvePuzzle', () => true);
 
 describe('Player', function() {
   let player;
