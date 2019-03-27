@@ -29,6 +29,7 @@ startGameBtn.click(function (e) {
 
 clueBtn.on('click', function(e) {
   e.preventDefault();
+  domUpdates.updateCategory(event);
   const {id, innerText} = event.target;
   if ($('#round').text() === '1') {
     game.round.findClue(game, id, innerText, event);

@@ -33,8 +33,8 @@ export default {
 
   notifyPlayerOneTurn(game) {
     if (game.playerTurn === 0) {
-      $('#player-one-name').attr('style', 'color:red;');
-      $('#player-three-name').removeAttr('style', 'color:red;');
+      $('#player-one-name').attr('style', 'color:#02F4E5;');
+      $('#player-three-name').removeAttr('style', 'color:#02F4E5;');
     } 
   },
 
@@ -105,36 +105,36 @@ export default {
      $('.game-board').show();
      $('.question-prompt').hide();
      $('.result-prompt').show(500);
-     $('.result').text('Correct Answer');
+     $('.result').text('Correct Answer!');
      currentPlayer.increaseScore(answerMatch, game);
      $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
-     $('.result-prompt').hide(5000);
+     $('.result-prompt').hide(3000);
   },
 
   wrongAnswer(currentPlayer, answerMatch, game) {
     $('.game-board').show();
     $('.question-prompt').hide();
     $('.result-prompt').show(500);
-    $('.result').text('Incorrect Answer.');
+    $('.result').text('Incorrect Answer!');
     currentPlayer.decreaseScore(answerMatch, game);
     $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
     game.changePlayerTurn();
-    $('.result-prompt').hide(5000);
+    $('.result-prompt').hide(3000);
   },
 
   notifyNextTurn(game) {
     if (game.playerTurn === 0) {
-      $('#player-one-name').attr('style', 'color:red;');
-      $('#player-three-name').removeAttr('style', 'color:red;');
+      $('#player-one-name').attr('style', 'color:#02F4E5;');
+      $('#player-three-name').removeAttr('style', 'color:#02F4E5;');
     } 
     if (game.playerTurn === 1) {
-      $('#player-two-name').attr('style', 'color:red;');
-      $('#player-one-name').removeAttr('style', 'color:red;');
+      $('#player-two-name').attr('style', 'color:#02F4E5;');
+      $('#player-one-name').removeAttr('style', 'color:#02F4E5;');
     }
     if (game.playerTurn === 2) {
-      $('#player-three-name').attr('style', 'color:red;');
-      $('#player-one-name').removeAttr('style', 'color:red;');
-      $('#player-two-name').removeAttr('style', 'color:red;');
+      $('#player-three-name').attr('style', 'color:#02F4E5;');
+      $('#player-one-name').removeAttr('style', 'color:#02F4E5;');
+      $('#player-two-name').removeAttr('style', 'color:#02F4E5;');
     }
   },
 
@@ -159,4 +159,14 @@ export default {
       $(event.target).text('');
       $('.game-board').hide();
   },
+
+  updateCategory () {
+    const categoryTitles = [ 'US History', 'Life Sciences', 
+      'Public Health', 'Education Jargon',
+      'Name That Board Game', 'American Literature', 
+      'Biographies', 'American Cities', 'Food', 'Cable TV' ];
+    const {id } = event.target
+    $('#category').text(`${categoryTitles[event.target.id -1]}`)
+  },
+
 }
