@@ -146,8 +146,8 @@ let correctAnsFunc = (round, player, ltrGuess) => {
   round.answer = round.answer
   .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
   if (game.currentRound.answer.length === 0) {
-    game.currentRound.newRound(game);
     DomUpdates.appendWinner(game);
+    game.currentRound.newRound(game);
   }
   round.getCurrentPlayer(game);
   console.log(game.currentRound.answer)
