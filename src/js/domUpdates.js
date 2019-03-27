@@ -52,22 +52,22 @@ export default {
   },
 
   hideInputs: () => {
-    $('.vowels-to-buy, .input-solve, .final-solution-btn, .check-btn, .ltr-input').hide();
+    $('.input-solve, .final-solution-btn, .check-btn, .ltr-input').hide();
   },
 
   showSolveInput: () => {
     $('.btn-solve').on('click', function() {
       $('.input-solve, .final-solution-btn').show();
-      $('.vowels-to-buy').hide();
       $('.check-btn, .ltr-input').hide();
     });
   },
 
   showVowels: () => {
     $('.buy').on('click', function() {
-      $('.buy, .btn-spin, .btn-solve').attr('disabled', true);
+      $('.vowels-to-buy').removeClass('slide-in');
       $('.vowels-to-buy').show();
-      $('.vowels-to-buy').toggle().addClass('slide-in');
+      $('.vowels-to-buy').addClass('slide-in');
+      $('.buy, .btn-spin, .btn-solve').attr('disabled', true);
       $('.input-solve, .final-solution-btn').hide();
       $('.check-btn, .ltr-input').hide();
     });
@@ -174,6 +174,7 @@ export default {
   
   clearFields() {
     $('.word-box, .letters-used, .feedback').empty();
+    $('.vowels-to-buy').children().attr('disabled', false);
   }
 
 }

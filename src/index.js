@@ -59,8 +59,8 @@ $(document).ready( () => {
 
   $('.vowels-to-buy').click((e) => {
     game.checkConsonant(e.target.textContent);
-    $(e.target).attr('disabled', true)
-    $('.vowels-to-buy').hide()
+    $(e.target).attr('disabled', true);
+    $('.vowels-to-buy').hide();
     $('.btn-solve, .buy, .btn-spin').attr('disabled', false);
   });
 
