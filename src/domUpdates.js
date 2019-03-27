@@ -17,6 +17,11 @@ let domUpdates = {
           </form>
         </section>`
         )
+     // to get player input to check against the correct answer this may be the best option
+//copy and past template literal into HTML, give new class, new class has rule of display none
+//when submit solve button is clicked remove css class 
+//once done with popup add class back 
+
      //need a way to get out of solve puzzle in case they decide to put in another letter 
      //added button above but haven't added an event listener to it yet to remove the .popup
   },
@@ -125,6 +130,8 @@ let domUpdates = {
   removePopup() {
     $('.question-popup').remove();
   },
+  //if template literal added to html, we don't need this function but we will use it instead to replace the hidden class
+  //doing this because it's really difficult to put an event listener on an appended item 
 
   displayWrongAnswerMessage() {
     $('.gameplay-message').text(`Sorry! Wrong Answer! Next player's guess`)
