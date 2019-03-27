@@ -35,7 +35,6 @@ class Round {
 
   checkRoundProgress() {
     if (this.surveyAnswers.length === 0) { 
-      // domUpdates.endOfRoundMsg();
       this.generateEndRoundMsg();
       setTimeout(() => {
         this.game.triggerNewRound();
@@ -49,7 +48,7 @@ class Round {
     } else {
       var roundWinner = this.game.player2.name;
     }
-    domUpdates.endOfRoundMsg(roundWinner);
+    domUpdates.endOfRoundMsg(roundWinner, this.game.currentRound);
   }
 }
 

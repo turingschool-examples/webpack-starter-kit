@@ -77,11 +77,13 @@ export default {
     });
   },
 
-  endOfRoundMsg(roundWinner) {
-    $("#round-winner-msg").text(roundWinner + ' wins this round!')
-    $("#round-winner-msg").fadeIn("fast", function() {
-      $("#round-winner-msg").delay(2000).fadeOut(); 
-    });
+  endOfRoundMsg(roundWinner, currentRound) {
+    if (currentRound < 3) {
+      $("#round-winner-msg").text(roundWinner + ' wins this round!');
+      $("#round-winner-msg").fadeIn("fast", function() {
+        $("#round-winner-msg").delay(2000).fadeOut(); 
+      });
+    }
   },
     
   clearAnswerBoard() {
