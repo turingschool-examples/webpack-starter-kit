@@ -1,6 +1,13 @@
 import Wheel from '../src/Wheel.js';
+import domUpdates from '../src/domUpdates.js';
 import chai from 'chai';
+import spies from 'chai-spies';
+chai.use(spies);
 const expect = chai.expect;
+
+chai.spy.on(domUpdates, 'displayLoseTurn', () => true);
+chai.spy.on(domUpdates, 'displayBankrupt', () => true);
+chai.spy.on(domUpdates, 'displayWheelValue', () => true);
 
 describe('Wheel', function() {
   let wheel;

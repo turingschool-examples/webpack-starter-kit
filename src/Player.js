@@ -10,26 +10,23 @@ class Player {
 
   solvePuzzle(game) {
     let solveInput = domUpdates.grabAnswerInput(this);
-    // let puzzle = game.currentPuzzle;
     let answer = game.currentPuzzle.answer.toUpperCase();
     console.log(answer, solveInput)
     if (solveInput === answer) {
-      console.log('SI', solveInput)
+      console.log('SolveInput', solveInput)
       domUpdates.displayWinMessage();
       this.getPlayerScore();
-
-      // if(player.input !== puzzle.answer) {
-      // }
-      // switchPlayers();
+      //below is not moving to the next player, might want to add a message that indicates they got it wrong, too.
+      if (solveInput !== answer) {
+        game.switchPlayers();
+      }
     }
   }
-
 
   getPlayerScore(game, wheel) {
     console.log('playerScore:', game.currentPlayer)
     game.currentPlayer.roundScore += wheel.currentIndex;
   }
-
 
   // buyVowel() {
   //   if(this.score > 100) {
