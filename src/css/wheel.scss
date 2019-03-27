@@ -2,7 +2,7 @@
 $pi: 3.14159265359;
 
 // Size (rem) and number (int)
-$circumference: 40;
+$circumference: 30;
 $segments: 20;
 
 @function getArcLength() {
@@ -117,13 +117,23 @@ $segments: 20;
   color: white;
 }
 
+// .pulse {
+//     // background-color: yellow;
+//     -webkit-animation: blink 1200ms infinite;
+//             animation: blink 1200ms infinite;
+// }
+// @-webkit-keyframes blink { 50% { color: white; }}
+// @keyframes blink { 50% { color: #F06F41; }}
+
+
 .pulse {
     // background-color: yellow;
     -webkit-animation: blink 1200ms infinite;
             animation: blink 1200ms infinite;
 }
-@-webkit-keyframes blink { 50% { color: white; }}
-@keyframes blink { 50% { color: #F06F41; }}
+// @-webkit-keyframes blink { 50% { color: white; }}
+@keyframes blink { 50% { border: 10px solid #F06F41; }}
+
 
 .blue {
   border-right: 5px dotted blue;
