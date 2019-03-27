@@ -19,7 +19,6 @@ checkAnswer(guess, currentPlayer, game) {
         console.log('if correct')
         let score = correctAnswer.respondents;
         currentPlayer.addScore(score);
-        domUpdates.changeScore(score, currentPlayer);
         this.answerCount++
         // dom updates append answer (answer.answer, answer.respondents)
         // if these things happen, we're done here, get out of the loop, return
