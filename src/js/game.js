@@ -33,13 +33,18 @@ class Game {
   }
   
   generatePrize() {
-    let wheel = new Wheel();
-    this.currentPrize = wheel.spin();
-    if (this.currentPrize === 'BANKRUPT') {
-      this.players[this.playerIndex].totalScore = 0;
-      this.changeTurn();
-    } else if (this.currentPrize === 'LOSE A TURN') {
-      this.changeTurn();
+    if (this.round === 2) {
+      let bonusWheel = new BonusWheel();
+      this.currentPrize = bonusWheel.changePrizes();
+    } else {
+      let wheel = new Wheel();
+      this.currentPrize = wheel.spin();
+      if (this.currentPrize === 'BANKRUPT') {
+        this.players[this.playerIndex].totalScore = 0;
+        this.changeTurn();
+      } else if (this.currentPrize === 'LOSE A TURN') {
+        this.changeTurn();
+      }
     }
   }
 
@@ -100,10 +105,6 @@ class Game {
     this.round++ && this.newQ();
     if (this.round === 6) {
       this.round = 1
-    }
-    if (this.round === 2) {
-      let bonusWheel = new BonusWheel();
-      bonusWheel.changePrizes()
     }
   }
 

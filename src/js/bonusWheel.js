@@ -11,6 +11,7 @@ class BonusWheel extends Wheel {
     this.currentValue = super.randomizeValues(this.values).pop()
     domUpdates.revealPrize(this.currentValue);
     console.log(this.values)
+    return this.currentValue;
   }
 }
 

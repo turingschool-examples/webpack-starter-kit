@@ -31,7 +31,7 @@ export default {
     $('.prize').parent().removeClass('prize-animation');
     setTimeout(() => {
       $('.prize').parent().addClass('prize-animation');
-      $('.prize').text(`You Got: ${prize}`);
+      $('.prize').text(`${prize}`);
     }, 1)
     this.hideInputs();
     setTimeout(() => {
