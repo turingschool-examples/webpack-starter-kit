@@ -87,7 +87,6 @@ class Game {
 
   startNewGame(startingPlayer) {
     domUpdates.resetPageDefaults();
-    console.log("startNewGame" + this.surveyData.surveys);
     this.triggerNewRound();
     if (this.player1.player === startingPlayer) {
       this.activePlayer = this.player1;
@@ -108,7 +107,7 @@ class Game {
   }
 
   getSurvey() {
-    const randomIndex = Math.floor(Math.random() * this.surveyData.surveys.length) + 1;
+    const randomIndex = Math.floor(Math.random() * this.surveyData.surveys.length);
     const survey = this.surveyData.surveys[randomIndex];
     const answers = this.surveyData.answers.filter(answer => answer.surveyId === survey.id);
     this.createRound(survey.question, answers);
