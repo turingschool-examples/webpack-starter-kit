@@ -217,5 +217,18 @@ export default {
   closePopup() {
     $('.game-page').css('opacity', '1');
     $('.bonus-round').hide();
+  },
+
+  bonusRound() {
+    $('.used-ltr-container, .game-btns').hide();
+    $('.spin-pop-up').append(`<input class="bonus-input" type="text" maxlength="1">
+    <input class="bonus-input" type="text" maxlength="1">
+    <input class="bonus-input" type="text" maxlength="1">
+    <button class="bonus-vowel" id="bonus-a">A</button>
+    <button class="bonus-vowel" id="bonus-e">E</button>
+    <button class="bonus-vowel" id="bonus-i">I</button>
+    <button class="bonus-vowel" id="bonus-o">O</button>
+    <button class="bonus-vowel" id="bonus-u">U</button>
+    <button class="bonus-submit" >submit choices</button>`)
   }
 }

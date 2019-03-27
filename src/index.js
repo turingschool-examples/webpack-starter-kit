@@ -65,6 +65,7 @@ $(document).ready( () => {
 
   $('.btn-popup').on('click', () => {
     domUpdates.closePopup();
+    domUpdates.bonusRound();
   });
 
 })
