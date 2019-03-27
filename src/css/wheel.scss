@@ -2,7 +2,7 @@
 $pi: 3.14159265359;
 
 // Size (rem) and number (int)
-$circumference: 45;
+$circumference: 40;
 $segments: 20;
 
 @function getArcLength() {
@@ -39,10 +39,11 @@ $segments: 20;
   height: $circumference + rem;
   margin: 1rem auto;
   position: absolute;
+  z-index: 10;
   background: blue;
   border-radius: 50%;
   border: 5px solid rgb(3, 145, 150);
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);//!!
 }
@@ -53,7 +54,7 @@ $segments: 20;
   position: relative;
   background-color: lightgray;
   border-radius: 100%;
-  transition: all 4s cubic-bezier(0,.99,.88,.99);
+  transition: all 3s cubic-bezier(0,.99,.88,.99);
   // animation: spin 10s linear infinite;
 }
 
@@ -108,13 +109,21 @@ $segments: 20;
 }
 .spin-winner {
   text-align: center;
-  margin: 25px 0;
+  margin: 10px 0;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
   font-family: 'Orbitron', sans-serif; 
   font-weight: 900;
   color: white;
 }
+
+.pulse {
+    // background-color: yellow;
+    -webkit-animation: blink 1200ms infinite;
+            animation: blink 1200ms infinite;
+}
+@-webkit-keyframes blink { 50% { color: white; }}
+@keyframes blink { 50% { color: #F06F41; }}
 
 .blue {
   border-right: 5px dotted blue;
