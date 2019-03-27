@@ -58,7 +58,6 @@
     </div>
     <header>
       <nav>
-        <input class="nav__wheel--button" type="image" src="./images/vaultDoor.png">
         <div class="nav__btns--container">
           <button class="nav__how-to nav--btn">How To</button>
           <button class="nav__end-round nav--btn">Skip Puzzle</button>
@@ -81,20 +80,23 @@
       <section class="board__tile-value--container">
         
       </section>
+      <aside class="round-info--container">
+          <h2 class="round-info__current-round">Round:</h2>
+          <h2 id="rnd-num"> 1 </h2>
+        </aside>
       <article class="hint--container">
         <h3 class="hint__title">Category |</h3>
         <h3 class="hint__value">Hint</h3>
       </article>
       <section class="guess--container">
-        <aside class="round-info--container">
-          <h2 class="round-info__current-round">Round:</h2>
-          <h2 id="rnd-num"> 1 </h2>
-        </aside>
         <input id="guess--input" type="text" placeholder="_ Enter Your Guess _" onkeypress="return /[a-z, A-Z, ', -]/i.test(event.key)">
         <input class="guess__word--button guess--button" type="button" value="Guess Word">
         <input id="vowel" class="guess__letter--button guess--button" type="button" value="Buy Vowel">
         <!-- <label id="consonant--label" class="" for="consonant">^Spin Wheel^</label> -->
-        <input id="consonant" class="guess__letter--button guess--button" type="button" value="^ Spin Wheel ^" disabled="true">
+        <input id="consonant" class="guess__letter--button guess--button" type="button" value="Spin Wheel" disabled="true">
+        <input class="nav__wheel--button" type="image" src="./images/vaultDoor.png">
+        <aside class="animation--container">
+        </aside>
       </section>
     </section>
       <footer>
