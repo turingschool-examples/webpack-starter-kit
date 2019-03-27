@@ -39,13 +39,16 @@ describe('Game', () => {
     assert.equal(game.players[1].name, 'Brennan');
   }); 
 
+  //fails
   it('should start on player 1', () => {
     const player1 = new Player('Brennan');
     const player2 = new Player('Jarrett');
     const game = new Game(player1, player2);
+    game.startNextRound();
     assert.equal(game.currentPlayer, player1);
   });
 
+  //fails
   it('should start with an empty array of surveys', () => {
     const player1 = new Player('Brennan');
     const player2 = new Player('Jarrett');
@@ -53,6 +56,7 @@ describe('Game', () => {
     assert.deepEqual(game.surveys, []);
   });
 
+  //fails
   it('should be able to start the game and grab surveys', () => {
     const player1 = new Player('Brennan');
     const player2 = new Player('Jarrett');
@@ -70,6 +74,7 @@ describe('Game', () => {
     assert.notDeepEqual(array, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
   });
 
+  //fails
   it('should start increment round upon initiation of game', () => {
     const player1 = new Player('Brennan');
     const player2 = new Player('Jarrett');
