@@ -31,9 +31,9 @@ describe('Game', function(){
     //     game.incrementStage();
     //     expect(game.stage).to.equal(1);
     // })
-    it('should change players turns', function (){
-        expect(game.currentPlayer).to.equal(null);
-        game.playerTurns();
-        expect(game.currentPlayer.name).to.equal('colby');
-    })
+    // it('should change players turns', function (){
+    //     expect(game.currentPlayer).to.equal(null);
+    //     game.playerTurns();
+    //     expect(game.currentPlayer.name).to.equal('colby');
+    // })
 });
