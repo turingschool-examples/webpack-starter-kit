@@ -45,10 +45,13 @@ class Game {
     playerTurns() {
         if (this.currentPlayer === this.players[0]){
             this.currentPlayer = this.players[1];
+            domUpdates.enableButton()
         }else if(this.currentPlayer === this.players[1]){
             this.currentPlayer = this.players[2];
+            domUpdates.enableButton()
         }else if(this.currentPlayer === this.players[2]){
             this.currentPlayer = this.players[0];
+            domUpdates.enableButton()
         }
         console.log(this.currentPlayer)
         domUpdates.showCurrentPlayer(this.currentPlayer.name)
