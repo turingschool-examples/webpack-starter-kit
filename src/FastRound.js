@@ -9,7 +9,7 @@ class FastRound extends Round {
     }
 
   startTimedRound() {
-    if (window.game.activePlayer === window.game.player1) {
+    if (this.game.activePlayer === this.game.player1) {
       domUpdates.displayTimer1();
     } else {
       domUpdates.displayTimer2();

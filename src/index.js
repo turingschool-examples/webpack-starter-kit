@@ -39,7 +39,6 @@ $("#player-2-input").keypress(function (e) {
 }); 
 
 $("#submit-names-btn").on("click", function() { 
-
   const player1Name = $("#player-1-input").val();
   const player2Name = $("#player-2-input").val();
 
