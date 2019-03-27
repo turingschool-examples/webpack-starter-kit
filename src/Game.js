@@ -40,6 +40,9 @@ createRound() {
     this.round = new Round(survey);
     console.log(survey);
     this.roundNumber++; 
+    // if(this.roundNumber === 3){
+    //     this.lightningRound()
+    // }
     const question = survey.question;
     domUpdates.appendQuestion(question);
 };

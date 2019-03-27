@@ -20,25 +20,38 @@ checkAnswer(guess, currentPlayer, game) {
         let score = correctAnswer.respondents;
         currentPlayer.addScore(score);
         this.answerCount++
+
         // dom updates append answer (answer.answer, answer.respondents)
         // if these things happen, we're done here, get out of the loop, return
     } else {
         console.log('incorrect')
-        game.switchPlayer();
         domUpdates.wrongAnswer();
+        game.switchPlayer();   
     };
+
     console.log(currentPlayer);
+
     if (guess === '') {
         console.log('empty')
         domUpdates.errorMessage();
     };
+
+    if(this.answerCount === 3){
+        this.endRound(game);
+    }
 };
 
     
-
-    // endRound()
-    //when correctAnswer === 3, end round    
-    // }
+    endRound(game) {
+        game.createRound();
+        //create new round
+        //increase round number to 2,3,4
+        //keep player score
+        //keep players
+        //reset answer count to 0
+        //get a new question set
+        this.answerCount = 0;
+     }
 
 }
 

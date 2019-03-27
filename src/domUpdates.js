@@ -19,6 +19,10 @@ export default {
   $('.wrongAnswer').css('visibility', 'visible')
 },
 
+ removeWrongAnswer() {
+  $('.wrongAnswer').css('visibility', 'hidden')
+},
+
 popUp() {
   $('.gamePopUp').append( `<section class="startGamePopUp">
    <h2>Welcome to Family Feud!</h2>

@@ -32,6 +32,8 @@ $('#resetBtn').click(() => {
 });
 $('#submitBtn').on('click', inputValue);
 
+$('.answerInput').on('keyup', removeWrongAnswer);
+
 
 function startPlaying() {
   let playerOne = $('.nameOne').val();
@@ -58,6 +60,10 @@ function createGame(dataset) {
 function inputValue() {
   let guess = $('.answerInput').val();
   game.getAnswer(guess);
+}
+
+function removeWrongAnswer() {
+ domUpdates.removeWrongAnswer();
 }
 
 
