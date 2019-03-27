@@ -31,7 +31,7 @@ export default {
     $('.prize').parent().removeClass('prize-animation');
     setTimeout(() => {
       $('.prize').parent().addClass('prize-animation');
-      $('.prize').text(`${prize}`);
+      $('.prize').text(prize);
     }, 1)
     this.hideInputs();
     setTimeout(() => {
@@ -88,7 +88,7 @@ export default {
     let $p3Name = $('#p3Name-board');
     $p3Name.text($('#p3Name').val());
     $('.splash').hide();
-    $('.game-page').show();
+    $('.game-page, .new-game-btn').show();
     $('.player-section').css('visibility', 'visible');
   },
 

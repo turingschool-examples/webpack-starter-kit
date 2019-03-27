@@ -28,6 +28,7 @@ $player: hsla(106, 75%, 85%, .6);
 @keyframes spin-prize {
   0% {
     opacity: 0;
+    font-size: .2rem;
   }
   50% {
     opacity: .3;
