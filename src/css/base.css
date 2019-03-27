@@ -1,7 +1,3 @@
-/**:focus {
- outline: 1px dashed transparent;
-}*/
-
 body {
   padding: 0;
   margin: 0 auto;
@@ -123,7 +119,7 @@ button:disabled {
   flex-direction: column;
   padding: 50px;
   text-align: center;
-  width: 45%;
+  width: 35%;
 }
 
 .name-form input {

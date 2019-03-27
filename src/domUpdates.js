@@ -104,23 +104,30 @@ export default {
     $(".fastround-ready-screen").removeClass("hidden");
   },
 
+  decrementTimer(timer, seconds) {
+    $(timer).html(--seconds);
+  },
+
   displayTimer1(game) {
     let seconds = 30; //would be ideal to tie this to property value
     const interval = setInterval(function() {
 
       $(".timer-1").html(--seconds);
 
-      if (seconds <= 0 && game.currentRound === 3) {
+      if ($(".timer-1").is(":hidden")) {
+        clearInterval(interval);
+      } else if (seconds === 0 && game.currentRound === 3) {
         clearInterval(interval);
         $(".timer-area-1").addClass("hidden");
         $(".fastround-ready-screen").removeClass("hidden");
         game.triggerNewRound();
-      } else if (seconds <= 0 && game.currentRound === 4) {
+      } else if ($(".timer-1-area").not(".hidden") && seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
         $(".timer-area-1").addClass("hidden");
         game.endGame();
       }
     }, 1000);
+
   },
 
   displayTimer2(game) {
@@ -129,12 +136,15 @@ export default {
       
       $(".timer-2").html(--seconds);
 
-      if (seconds <= 0 && game.currentRound === 3) {
+      if ($(".timer-2").is(":hidden")) {
+        $(".timer-2").html("-1");
+        clearInterval(interval);
+      } else if (seconds === 0 && game.currentRound === 3) {
         clearInterval(interval);
         $(".timer-area-2").addClass("hidden");
         $(".fastround-ready-screen").removeClass("hidden");
         game.triggerNewRound();
-      } else if (seconds <= 0 && game.currentRound === 4) {
+      } else if (!$(".timer-2-area").hasClass("hidden") && seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
         $(".timer-area-2").addClass("hidden");
         game.endGame();
@@ -143,7 +153,9 @@ export default {
   },
 
   removeTimers() {
+    $(".timer-1").html("30");
     $(".timer-area-1").addClass("hidden");
+    $(".timer-2").html("30");
     $(".timer-area-2").addClass("hidden");
   },
 

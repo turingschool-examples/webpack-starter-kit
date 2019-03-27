@@ -1,5 +1,6 @@
-import domUpdates from "./domUpdates";
-import Game from "./Game.js"
+import domUpdates from './domUpdates';
+import Game from './Game.js'
+import Timer from './Timer.js';
 
 class Round {
   constructor(survey, surveyAnswers, game) {

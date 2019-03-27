@@ -1,5 +1,6 @@
 import Game from "./Game.js"
 import Round from './Round.js';
+import Timer from './Timer.js';
 import domUpdates from './domUpdates.js';
 
 class FastRound extends Round {
@@ -12,8 +13,12 @@ class FastRound extends Round {
   startTimedRound() {
     if (this.game.activePlayer === this.game.player1) {
       domUpdates.displayTimer1(this.game);
+      // var timer = new Timer(this.game.activePlayer);
+      // timer.runTimer();
     } else {
       domUpdates.displayTimer2(this.game);
+      // var timer = new Timer(this.game);
+      // timer.runTimer();
     }
   }
 

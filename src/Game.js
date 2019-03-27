@@ -1,6 +1,7 @@
 import domUpdates from './domUpdates.js';
 import Round from './Round.js';
 import FastRound from './FastRound.js';
+import Timer from './Timer.js';
 
 class Game {
   constructor(player1, player2) {
