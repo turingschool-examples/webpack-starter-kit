@@ -38,7 +38,6 @@ $('.start-game-btn').on('click', (e) => {
   game = new Game(player1, player2, surveys);
   game.startGame();
   domUpdates.startGame(game.players);
-  console.log('p1 name: ', $('.player-one-name').text());
 });
 
 $('.submit-btn').on('click', (e) => {

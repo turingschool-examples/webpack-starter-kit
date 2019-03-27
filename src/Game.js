@@ -20,15 +20,14 @@ class Game {
   startNextRound() {
     this.round++;
     this.currentRound = new Round(this.surveys[this.round - 1]);
-    this.currentPlayer = this.currentRound.setPlayer(this.round, this.players);
-    console.log(this.currentPlayer);
+    this.currentPlayer = this.setRoundPlayer();
     domUpdates.startRound(this.round, this.currentRound);
   }
 
   startNextLightningRound() {
     this.round++;
     this.currentRound = new LightningRound(this.surveys[this.round - 1]);
-    this.currentPlayer = this.currentRound.setPlayer(this.round, this.players);
+    this.currentPlayer = this.setLightningRoundPlayer();
     domUpdates.startRound(this.round, this.currentRound);
   }
 
@@ -49,20 +48,25 @@ class Game {
     }
   }
 
+  setRoundPlayer() {
+    return this.round === 1 ? this.players[0] : this.players[1];
+  }
+
+  setLightningRoundPlayer() {
+    if (this.round === 3) {
+      return this.players[0].score >= this.players[1].score ? this.players[1] : this.players[0];
+    }
+  }
+
   getWinner() {
     let winner;
     const expr = this.players[0].score - this.players[1].score;
-
-    switch (Math.sign(expr)) {
-      case 1:
+    if (Math.sign(expr) === 1) {
         winner = this.players[0];
-        break;
-      case -1:
-        winner = this.players[1];
-        break;
-      default:
-        winner = 'Draw';
-        break;
+    } else if (Math.sign(expr) === -1) {
+      winner = this.players[1];
+    } else {
+      winner = 'Draw';
     }
     return winner;
   }

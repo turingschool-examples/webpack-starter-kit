@@ -27,12 +27,12 @@ export default {
   hideModals() {
     $(".next-round-modal").hide();
     $(".lightning-round-modal").hide();
-    $('.switch-player-modal').hide();
-    $('.end-game-modal').hide();
+    $(".switch-player-modal").hide();
+    $(".end-game-modal").hide();
   },
 
   toggleEndGameModal() {
-    // TODO
+    $(".end-game-modal").toggle();
   },
 
   clearGuess() {
