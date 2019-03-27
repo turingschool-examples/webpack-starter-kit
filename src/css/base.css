@@ -26,20 +26,6 @@ body {
   width: 300px;
 }
 
-.multiplier-inputs {
-  display: none;
-}
-
-#p1-multiplier-input,
-#p2-multiplier-input {
-  width: 50px;
-}
-
-.multiplier-inputs > *{
-  font-size: 24px;
-}
-
-
 .input-holder input {
   color: black;
 }
@@ -55,16 +41,6 @@ button {
   margin: 0 auto;
   font-size: 24px;
   width: 82%;
-}
-
-.multi-holder {
-  display: inline-block;
-  width: 49%;
-}
-
-.multi-holder > * {
-  margin: 10px auto;
-  display: block;
 }
 
 .game-area {
