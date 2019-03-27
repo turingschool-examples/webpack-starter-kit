@@ -35,12 +35,13 @@ clueBtn.on('click', function(e) {
   $('.game-board').hide();
   domUpdates.updateCategory(event);
   const {id, innerText} = event.target;
-  if ($('#round').text() === '1') {
-    game.round.findClue(game, id, innerText, event);
-  }
-  if ($('#round').text() === '2') {
-   game.round.findNextRoundClues(game, id, innerText, event);
-  }
+  game.round.findClue(game, id, innerText, event)
+  // if ($('#round').text() === '1') {
+  //   game.round.findClue(game, id, innerText, event);
+  // }
+  // if ($('#round').text() === '2') {
+  //  game.round.findNextRoundClues(game, id, innerText, event);
+  // }
 })
 
 submitBtn.click(function (e) {
