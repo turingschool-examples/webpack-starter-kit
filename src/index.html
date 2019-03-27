@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Gametime Starter Kit</title>
+		<title>Gametime Starter Kit</title>
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
   </head>
   <body>
   	<header>
@@ -10,11 +11,11 @@
 					<div class="user-input">
 						<div>
 							<label for="player-1-name">Player One</label>
-							<input type="input" id="player1-name-input" name="player1-name" placeholder="Enter your name">
+							<input type="input" class="name-input" id="player1-name-input" name="player1-name" placeholder="Enter your name">
 						</div>
 						<div>
 							<label for="player-2-name">Player Two</label>
-							<input type="input" id="player2-name-input" name="player2-name" placeholder="Enter your name">
+							<input type="input" class="name-input" id="player2-name-input" name="player2-name" placeholder="Enter your name">
 						</div>
 					</div>
 						<button type="button" class="btn submit-btn" id="submit-names" name="submit-user-names">Submit</button>
@@ -79,20 +80,20 @@
 	  		<form>
 	  			<p class="current-turn"></p>
 	  			<label for="player-guess">
-	  				<input type="input" id="player-guess" name="player-guess" placeholder="Make a guess!">
+	  				<input type="input" class="player-guess" id="player-guess" name="player-guess" placeholder="Make a guess!">
 	  			</label>
-	  			<button type="submit" class="btn submit-btn" id="submit-guess" name="submit-guess">Guess</button>
+	  			<button type="submit" class="btn submit-answer" id="submit-guess" name="submit-guess">Guess</button>
 	  		</form>
 	  	</section>
 
 	    <section class="player-cards">
 	    	<article class="player-1-card">
 	    		<h2 class="player-1-name">Player 1</h2>
-	    		<p class="player-1-score">Score: 0</p>
+	    		<p class="player-1-score score">Score: 0</p>
 	    	</article>
 	    	<article class="player-2-card">
 	    		<h2 class="player-2-name">Player 2</h2>
-	    		<p class="player-2-score">Score: 0</p>
+	    		<p class="player-2-score score">Score: 0</p>
 	    	</article>
 	    </section>
 		</main>
