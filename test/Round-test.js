@@ -1,14 +1,6 @@
-import Game from "../src/Game";
-import Wheel from "../src/Wheel.js";
 import Round from "../src/Round.js";
-import Player from "../src/Player.js";
-import Puzzle from "../src/Puzzle.js";
-import data from "../src/data.js";
-import domUpdates from "../src/domUpdates.js";
-import $ from 'jquery';
 import chai from 'chai'
 import spies from 'chai-spies';
-import { create } from "domain";
 chai.use(spies);
 const expect = chai.expect;
 

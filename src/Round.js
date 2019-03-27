@@ -1,8 +1,6 @@
-import Wheel from "./Wheel.js";
-import Game from "./Game.js";
-import Player from "./Player.js";
 import Puzzle from "./Puzzle.js";
 import domUpdates from "./domUpdates.js";
+import Game from "./Game.js"
 
 class Round {
   constructor(players, wheel, puzzle) {
@@ -47,6 +45,7 @@ class Round {
   }
 
 
+
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer]
     player.roundScore += spinValue;
@@ -81,5 +80,9 @@ class Round {
   }
 
 }
+
+
+
+
 
 export default Round;

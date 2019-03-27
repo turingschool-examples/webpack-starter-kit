@@ -1,6 +1,3 @@
-import Wheel from "./Wheel.js"
-import Puzzle from "./Puzzle.js";
-import Round from "./Round.js";
 
 import $ from 'jquery';
 import Player from "./Player.js";
@@ -89,15 +86,12 @@ export default {
       'transform': 'rotate(' + totalDegree + 'deg)'
     });
     $('.spin-winner').html(`${wheel.currentSpin}`);
-    console.log(game.round)
     if (wheel.currentSpin === "BANKRUPT") {
-      console.log("Testing-B")
       // round.players[round.activePlayer].roundScore = 0;
       // this.displayScore(round.activePlayer, 0)
       // round.changeActivePlayers();
 
     } else if (wheel.currentSpin === "LOSE A TURN") {
-      console.log("Testing-L")
       // round.changeActivePlayers();
     }
   },
@@ -122,6 +116,7 @@ export default {
 
   buyAVowel(game) {
     $('.vowels').on('click', (event) => {
+      $( '.vowels').removeClass( "cost");
       // round.players[round.activePlayer].roundScore -= 100;
       game.round.guessLetter(event);
     });
