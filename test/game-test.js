@@ -2,6 +2,7 @@ import chai from 'chai';
 import Game from '../src/js/game';
 import spies from 'chai-spies';
 import domUpdates from '../src/js/domUpdates.js';
+import Question from '../src/js/question';
 
 chai.use(spies);
 chai.spy.on(domUpdates, 'getNames', () => ['nim', 'rick', 'morty']);
@@ -69,6 +70,8 @@ describe('Game', () => {
     game.populateQuestions();
     game.newQ();
     expect(game.currentQuestion).to.be.an('object');
+    expect(game.currentQuestion).to.be.an.instanceOf(Question);
+    expect(game.currentQuestion).to.have.all.keys('answer', 'category', 'description', 'ansSplit', 'ansLength');
   });
 
   it('instantiate new players', () => {
