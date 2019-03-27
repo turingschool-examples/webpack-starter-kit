@@ -69,7 +69,6 @@ const domUpdates = {
   },
 
   animateKnight: function(currentRound) {
-    console.log(currentRound);
     let src = "./images/round-one.png";
     if(currentRound === 2) {
       src = "./images/round-two.png";
@@ -81,7 +80,6 @@ const domUpdates = {
   },
 
   revealTimer: function() {
-    console.log('test');
     $(".timer").removeClass('hidden');
     $(".start-timer-btn").removeClass('hidden');
   }

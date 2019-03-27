@@ -1,4 +1,5 @@
 import domUpdates from './domUpdates.js';
+import $ from 'jquery';
 
 class Player {
   constructor(name, num) {
@@ -10,14 +11,25 @@ class Player {
   }
 
   makeGuess(guess, game, round) {
-    if (typeof guess !== 'string') {
-      return 'Error: Argument Not String';
-    } else if (this.checkGuess(round, guess)) {
+    if (this.checkGuess(round, guess)) {
       this.correctGuess(round, guess);
     } else {
       domUpdates.showGuessMessage('wrong');
     }
     game.toggleIsTurn();
+  }
+
+  makeFinalGuess(guess, game, round) {
+    if (round.correctGuesses.length === 0 && round.incorrectGuesses === 0) {
+      round.startTimer($(".timer"), round, game);
+    }
+    if (this.checkGuess(round, guess)) {
+      const correctAnswer = round.answers.find(a => a.answer.toUpperCase() === guess.toUpperCase());
+      round.correctGuesses.push(correctAnswer);
+    } else {
+      round.incorrectGuesses++;
+    }
+    console.log(round);
   }
 
   checkGuess(round, guess) {
