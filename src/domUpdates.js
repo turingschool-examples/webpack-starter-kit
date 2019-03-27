@@ -8,9 +8,9 @@ import Game from './Game.js';
 
 export default {
   updateNames(names) {
-    $('#player-one-name').text(names[0].name).show();
-    $('#player-two-name').text(names[1].name).show();
-    $('#player-three-name').text(names[2].name).show();
+    $('.player-one-name').text(names[0].name).show();
+    $('.player-two-name').text(names[1].name).show();
+    $('.player-three-name').text(names[2].name).show();
     $('#player-one-input').hide(500);
     $('#player-two-input').hide(500);
     $('#player-three-input').hide(500);
@@ -59,10 +59,11 @@ export default {
       e.preventDefault();
       dailyDouble = new DailyDouble(clue.question, clue.answer, clue.pointValue);
       dailyDouble.updatePointValue($('#daily-double').val());
-      clue.pointValue = dailyDouble.pointValue;
+      clue.pointValue = parseInt(dailyDouble.pointValue);
       $('.style-daily-double').hide();
       $('.question-box').show()
       console.log(dailyDouble);
+      console.log(clue.pointValue);
     });
   },
 
@@ -115,7 +116,7 @@ export default {
     $('.result-prompt').show(500);
     $('.result').text('Incorrect Answer!');
     currentPlayer.decreaseScore(answerMatch, game);
-    $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
+    $(`.player-${game.playerTurn}-points`).text(currentPlayer.score);
     game.changePlayerTurn();
     $('.result-prompt').hide(3000);
   },
@@ -166,5 +167,10 @@ export default {
     const {id } = event.target
     $('#category').text(`${categoryTitles[event.target.id -1]}`)
   },
+
+  commenceFinalJeopardy() {
+
+    console.log('test');
+  }
 
 }

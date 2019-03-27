@@ -77,22 +77,48 @@
         <section id="p0-cont-js" class="player">
           <label class="name-inputs" for="player-one-input"></label>
           <input type="text" name="firstname" id="player-one-input" style="color:#888;" value="Player One">
-          <p><span id="player-one-name" class="name-display" style="display:none">Player One</span></p>
-          <h6>Points: <span id="player-0-points">00</span></h6>
+          <p><span id="player-one-name" class="name-display player-one-name" style="display:none">Player One</span></p>
+          <h6>Points: <span class="player-0-points">00</span></h6>
         </section>
         <section id="p1-cont-js" class="player">
           <label class="name-inputs" for="player-two-input"></label>
           <input type="text" name="firstname" id="player-two-input" style="color:#888;" value="Player Two">
-          <p><span id="player-two-name" class="name-display" style="display:none">Player Two</span></p>
-          <h6>Points: <span id="player-1-points">00</span></h6>
+          <p><span id="player-two-name" class="name-display player-two-name" style="display:none">Player Two</span></p>
+          <h6>Points: <span class="player-1-points">00</span></h6>
         </section>
         <section id="p2-cont-js" class="player">
           <label class="name-inputs" for="player-three-input"></label>
           <input type="text" name="firstname" id="player-three-input" style="color:#888;" value="Player Three">
-          <p><span id="player-three-name" class="name-display" style="display:none">Player Three</span></p>
-          <h6>Points: <span id="player-2-points">00</span></h6>
+          <p><span id="player-three-name" class="name-display player-three-name" style="display:none">Player Three</span></p>
+          <h6>Points: <span class="player-2-points">00</span></h6>
         </section>
       </section>
+      <!-- FINAL JEOPARDY CARD -->
+
+      <section class="final-jeopardy">
+        <p>FINAL JEOPARDY!</p>
+        
+        <section id="p0-cont-js" class="player">
+          <p><span id="player-one-name" class="name-display player-one-name">Player One</span></p>
+          <h6>Points: <span class="player-0-points">00</span></h6>
+          <label class="name-inputs" for="player-one-input"></label>
+          <input type="text" name="firstname" id="player-one-input" style="color:#888;" value="Player One Wager">
+        </section>
+        <section id="p1-cont-js" class="player">
+          <p><span id="player-two-name" class="name-display player-two-name">Player Two</span></p>
+          <h6>Points: <span class="player-1-points">00</span></h6>
+          <label class="name-inputs" for="player-two-input"></label>
+          <input type="text" name="firstname" id="player-two-input" style="color:#888;" value="Player Two Wager">
+        </section>
+        <section id="p2-cont-js" class="player">
+          <p><span id="player-three-name" class="name-display player-three-name">Player Three</span></p>
+          <h6>Points: <span class="player-2-points">00</span></h6>
+          <label class="name-inputs" for="player-three-input"></label>
+          <input type="text" name="firstname" id="player-three-input" style="color:#888;" value="Player Three Wager">
+        </section>
+        <input type="submit" class="btn" id="submit-wager-btn" value="SUBMIT WAGER">
+      </section>
+      <!-- FINAL JEOPARDY CARD -->
     </main>
     <footer>
       <input type="submit" class="btn" id="start-game-btn" value="START GAME">

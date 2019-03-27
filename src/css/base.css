@@ -66,6 +66,13 @@ h3 {
   grid-column-gap: 10px;
 }
 
+.final-jeopardy {
+  display: flex;
+  justify-content: space-around;
+  text-align: right;
+  border: 2px solid black;
+}
+
 .col {
   display: flex;
   justify-content: center;
