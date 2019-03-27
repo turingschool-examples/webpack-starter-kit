@@ -5,16 +5,18 @@ import Puzzle from "./Puzzle.js";
 import domUpdates from "./domUpdates.js";
 
 class Round {
-  constructor(players, wheel) {
+  constructor(players, wheel, puzzle) {
     this.players = players;
     this.currentWheel = wheel;
     this.activePlayer = 0;
+    this.currentPuzzle = puzzle;
   }
 
   getPuzzle(array) {
     let randomNum = Math.floor(Math.random() * array.length);
     let randomPuzzle = array.splice(randomNum, 1);
     let puzzle = new Puzzle(randomPuzzle[0]);
+    this.currentPuzzle = puzzle;
     return puzzle;
   }
   changeActivePlayers() {
@@ -51,16 +53,36 @@ class Round {
     }
   }
 
-  guessLetter(event) {
-    domUpdates.displayCorrectLetter(puzzle.splitAnswer, event.currentTarget.innerText);
-    if (puzzle.splitAnswer.includes(event.currentTarget.innerText)) {
-      puzzle.splitAnswer.forEach(letter => {
-        if (letter === event.currentTarget.innerText) {
-          this.players[this.activePlayer].roundScore += this.wheel.currentSpin;
-        }
-      });
-      domUpdates.displayScore(this.activePlayer, 
-        this.players[this.activePlayer].roundScore);
+  // TODO: DISPLAY TOTAL SCORE ON DOM
+  // INVESTIGATE: Might not actually be modifying the player score
+  // aka might need a "player.updateScore" method
+  updatePlayerScore(spinValue) {
+    const player = this.players[this.activePlayer]
+    player.roundScore += spinValue
+    console.log('after: ', player.roundScore)
+    domUpdates.displayScore(player, player.roundScore)
+  }
+
+  // TODO: DISPLAY REVEALED LETTER
+  handleCorrectLetterChosen(splitAnswer, chosenLetter) {
+    const spinValue = this.currentWheel.currentSpin
+    const player = this.players[this.activePlayer]
+    splitAnswer.forEach(letter => {
+      if (chosenLetter === letter) {
+        console.log('before: ', player.roundScore)
+        this.updatePlayerScore(spinValue)
+        domUpdates.displayCorrectLetter(splitAnswer, chosenLetter);
+      }
+    });
+  }
+
+  // TODO: Refactor to use entire solution
+  // INVESTIGATE: Consider creating a Tile class
+  guessLetter(event, game) {
+    const splitAnswer = game.round.currentPuzzle.splitAnswer;
+    const chosenLetter = event.currentTarget.innerText;
+    if (splitAnswer.includes(chosenLetter)) {
+      this.handleCorrectLetterChosen(splitAnswer, chosenLetter)
       this.checkScore();
     } else {
       this.changeActivePlayers();

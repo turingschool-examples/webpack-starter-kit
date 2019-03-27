@@ -37,6 +37,6 @@ $('#wheel').on('click', () => {
 })
 
 $('.const-letter').on('click', (e) =>{
-  game.round.guessLetter(e);
+  game.round.guessLetter(e, game);
 })
 
