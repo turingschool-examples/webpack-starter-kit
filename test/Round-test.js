@@ -22,14 +22,20 @@ let surveyAnswers = [
 
 chai.spy.on(domUpdates, [
   'displayCorrectGuess',
-  'showNoMatch',
+  'showNoMatchMsg',
   'endOfRoundMsg',
-  'clearAnswerBoard'
+  'clearAnswerBoard',
+  'removeTimer',
+  'displayTimer',
+  'displayFastroundDialog',
+  'showWinnerScreen',
+  'showAlreadyTriedMsg',
+  'showMustEnterGuessMsg'
 ], () => true);
 
 describe('Round', () => {
   it('should have a specified survey question', () => {
-    let round = new Round(survey);
+    let round = new Round(survey, surveyAnswers);
 
     expect(round.survey).to.equal('If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?');
   });
@@ -37,45 +43,27 @@ describe('Round', () => {
   it('should have answers corresponding to the survey question', () => {
     let round = new Round(survey, surveyAnswers);
 
-    expect(round.surveyAnswers).to.deep.equal([
+  expect(round.surveyAnswers).to.deep.equal([
       { answer: 'Bowling Ball', respondents: 5 },
       { answer: 'Donuts', respondents: 24 },
       { answer: 'Beer', respondents: 67 }
     ]);
   });
 
-  it('should start with no guesses', () => {
-    let round = new Round(survey, surveyAnswers);
-
-    expect(round.guesses).to.deep.equal([]);
-  });
-
-  it('should have used guesses populate into the guesses property', () => {
+  it('should remove an answer from the answers array if player guessed correctly', () => {
     let round = new Round(survey, surveyAnswers);
     let player1Guess = 'shirt';
     let player2Guess = 'beer';
 
-    round.saveGuess(player1Guess);
-
-    expect(round.guesses).to.deep.equal(['shirt']);
-
-    round.saveGuess(player2Guess);
-
-    expect(round.guesses).to.deep.equal(['shirt', 'beer']);
-  });
-
-  it('should add guess to correctGuesses if player guessed correctly', () => {
-    let round = new Round(survey, surveyAnswers);
-    let player1Guess = 'shirt';
-    let player2Guess = 'beer';
+    expect(round.surveyAnswers.length).to.equal(3);
 
     round.checkAnswer(player1Guess);
 
-    expect(round.correctGuesses).to.deep.equal([]);
+    expect(round.surveyAnswers.length).to.equal(3);
 
     round.checkAnswer(player2Guess);
 
-    expect(round.correctGuesses).to.deep.equal(['beer']);
+    expect(round.surveyAnswers.length).to.equal(2);
   });
 
   it('should increment player score when they guess correctly', () => {
@@ -101,14 +89,13 @@ describe('Round', () => {
   it('should end the round when there are 3 correct guesses', () => {
     let round = new Round(survey, surveyAnswers);
 
-    expect(game.roundNum).to.equal(1);
+    expect(round.surveyAnswers.length).to.equal(3);
 
     round.checkAnswer('bowling ball');
     round.checkAnswer('donuts');
     round.checkAnswer('beer');
 
-    expect(game.roundNum).to.equal(2);
-
+    expect(round.surveyAnswers.length).to.equal(0); 
   });
 
   it('should give the losing player a turn for the next round', () => {

@@ -20,6 +20,8 @@ import Player from './Player.js';
 // Dom Updates
 import domUpdates from './domUpdates.js';
 
+let game = new Game()
+
 $("#player-1-input:text:visible:first").focus();
 
 $("#player-1-input").keypress(function(e) {
@@ -45,9 +47,9 @@ $("#submit-names-btn").on("click", function() {
 
   let startingPlayer = Math.floor(Math.random() * 2) + 1
 
-  window.game = new Game(new Player(player1Name || 'Player 1', 1), new Player(player2Name || 'Player 2', 2)); 
-  window.game.startNewGame(startingPlayer);
-  window.game.toggleActivePlayer();
+  game = new Game(new Player(player1Name || 'Player 1', 1), new Player(player2Name || 'Player 2', 2)); 
+  game.startNewGame(startingPlayer);
+  game.toggleActivePlayer();
 });
 
 $(".guess-input").keypress(function (e) {
@@ -61,7 +63,7 @@ $("#submit-guess-btn").on("click", function() {
     const playerGuess = $(".guess-input").val().toLowerCase();
     $(".guess-input").val('');
 
-    window.game.round.checkAnswer(playerGuess); 
+    game.round.checkAnswer(playerGuess); 
   } else {
     domUpdates.showMustEnterGuessMsg();
   }
@@ -82,7 +84,7 @@ $(".guess-input").on("keyup", function() {
 });
 
 $("#fastround-start-btn").on("click", function() {
-    window.game.round.startTimedRound();
+    game.round.startTimedRound();
     $(".fastround-ready-screen").addClass("hidden");
     $(".timer-area").removeClass("hidden");
 });
