@@ -19,16 +19,14 @@ class Round {
     this.currWheel = new Wheel()
   }
   newRound(game) {
-    let roundCaps = this.currentPlayer.roundCaps;
-    let totalCaps = this.currentPlayer.totalCaps;
-
-    this.getCurrentPlayer(game);
     this.roundNumber++;
-    totalCaps = totalCaps += roundCaps;
+    if (game.currentRound.currentPlayer != 0) {
+      game.currentRound.currentPlayer.totalCaps += game.currentRound.currentPlayer.roundCaps
+    }
+    this.getCurrentPlayer(game);
     game.players.map(player => player.roundCaps = 0);
     DomUpdates.updatePlayerScore(game);
     this.allRoundGuesses = [];
-    console.log(this.allRoundGuesses);
     this.determinePuzzleLength();
     this.displayDomPuzzle(game);
   }
@@ -83,6 +81,7 @@ class Round {
     DomUpdates.showCurrentPlayer(game);
     this.currentPlayer = game.players[this.counter];
     this.counter < 2 ? this.counter++ : this.counter = 0;   
+    console.log(this.currentPlayer);
     DomUpdates.updatePlayerScore(game);
     DomUpdates.showCurrentPlayer(game);
     DomUpdates.clearInput();
