@@ -109,12 +109,12 @@ let conditionalChecking = (round, player, ltrGuess) => {
   if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
     alert('This letter has already been guessed!');
     // todo: add an error message instead of alert
-  } else if (game.currentRound.compareAns(game) && !vowels.includes(ltrGuess.toUpperCase())) {
+  } else if (game.currentRound.compareAns() && !vowels.includes(ltrGuess.toUpperCase())) {
     correctAnsFunc(round, player, ltrGuess);
     DomUpdates.toggleButtons();
-  } else if (game.currentRound.compareAns(game) && vowels.includes(ltrGuess.toUpperCase())) {
+  } else if (game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
     correctAnsFunc(round, player, ltrGuess)
-  } else if (!game.currentRound.compareAns(game) && vowels.includes(ltrGuess.toUpperCase())) {
+  } else if (!game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
     round.allRoundGuesses.push(player.ans);
     round.allRoundGuesses.sort();
     DomUpdates.appendIncorrect();
