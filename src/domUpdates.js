@@ -70,12 +70,12 @@ let domUpdates = {
 
 // },
 
-  startGame(game, wheel) {
+  startGame(game) {
     game.createPlayer($('.player-name-input').eq(0).val(), 
       $('.player-name-input').eq(1).val(), 
       $('.player-name-input').eq(2).val());
     game.beginGame(game);
-    wheel.getRandomWheel();
+    game.getPrize();
   },
 
   grabCurrentLetter(puzzle) {

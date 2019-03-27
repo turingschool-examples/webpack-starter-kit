@@ -9,13 +9,13 @@ import Puzzle from './Puzzle.js';
 console.log('This is the JavaScript entry file - your code begins here.');
 
 let game = new Game();
-let wheel = new Wheel();
+// let wheel = new Wheel();
 
 
 console.log(game);
 
 $('.start-button').on('click', function() {
-  domUpdates.startGame(game, wheel);
+  domUpdates.startGame(game);
   domUpdates.displayCategoryName(game); 
   domUpdates.hideAnswer(game);
   domUpdates.diplayStartMsg();

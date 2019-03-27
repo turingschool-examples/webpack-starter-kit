@@ -27,7 +27,10 @@ class Wheel {
         // display currentIndex wheel value
         domUpdates.displayWheelValue(this);
       }
+      return this.currentIndex;
       }
+
+
       
       // this.currentIndex.push(random);
   // getWheelValue() {

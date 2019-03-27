@@ -2,6 +2,7 @@ import domUpdates from './domUpdates.js';
 import Player from './Player.js';
 import data from './data.js';
 import Puzzle from './Puzzle.js';
+import Wheel from './Wheel.js';
 
 class Game {
   constructor(player) {
@@ -10,7 +11,14 @@ class Game {
     this.currentPlayer = player;
     this.currentRound = 0;
     this.currentPuzzle = null;
+    this.currentPrize;
   }
+
+  getPrize() {
+    let wheel = new Wheel();
+    this.currentPrize = wheel.getRandomWheel();
+    console.log('prize!', this.currentPrize);
+  } 
 
   beginGame() {
     this.getRandomPuzzle();

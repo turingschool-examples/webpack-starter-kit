@@ -1,5 +1,6 @@
 import domUpdates from './domUpdates.js';
 import Puzzle from './Puzzle.js';
+import Wheel from './Wheel.js';
 
 class Player {
   constructor(name, roundScore = 0, totalScore = 0) {
@@ -15,17 +16,16 @@ class Player {
     if (solveInput === answer) {
       console.log('SolveInput', solveInput)
       domUpdates.displayWinMessage();
-      this.getPlayerScore();
+      this.getPlayerScore(game, Wheel);
+    } else {
       //below is not moving to the next player, might want to add a message that indicates they got it wrong, too.
-      if (solveInput !== answer) {
         game.switchPlayers();
       }
-    }
   }
 
-  getPlayerScore(game, wheel) {
-    console.log('playerScore:', game.currentPlayer)
-    game.currentPlayer.roundScore += wheel.currentIndex;
+  getPlayerScore(game) {
+    console.log('player:prize:', game.currentPrize)
+    game.currentPlayer.roundScore += game.currentPrize;
   }
 
   // buyVowel() {
