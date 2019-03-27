@@ -11,5 +11,10 @@ export default {
       $(`.answer-${indexPlusOne}`).html(solution.answer);
       $(`.answer-${indexPlusOne}-pts`).html(solution.respondents);
     });
+  },
+  postGame() {
+    console.log("hello? Postgame is here.");
+    $(".main-content").addClass("hidden");
+    $(".restart-game").removeClass("hidden");
   }
 };
