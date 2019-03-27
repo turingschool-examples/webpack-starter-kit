@@ -29,6 +29,7 @@ class Game {
   }
 
   updateDOM(round) {
+    domUpdates.hideGuessMessages();
     domUpdates.animateKnight(this.currentRound);
     setTimeout(function () {
       domUpdates.populateSurvery(round);
