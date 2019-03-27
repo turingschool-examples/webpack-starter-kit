@@ -112,6 +112,11 @@ export default {
   yourTurnMessage(player) {
     $('.spin-winner').html(`${player.name}'s turn to spin!`);
   },
+  
+  solvePuzzleMessage(player) {
+    $('.spin-winner').html(`${player.name} solved the puzzle!`);
+    
+  }
   // chooseLetterMessage() {
     
     // }
