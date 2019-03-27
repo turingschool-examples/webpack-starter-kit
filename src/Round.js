@@ -27,24 +27,6 @@ class Round {
     }
   }
 
-  // TODO: move to game class?
-  setPlayer(round, players) {
-    // TODO how to do opposite of case 3'
-    const p2Winning = players[0].score <= players[1].score
-    switch (round) {
-      case 1:
-        return players[0];
-      case 2:
-        return players[1];
-      case 3:
-        return p2Winning ? players[0] : players[1];
-      case 4:
-        return !p2Winning ? players[1] : players[0];
-      default:
-        break;
-    }
-  }
-
 }
 
 export default Round;

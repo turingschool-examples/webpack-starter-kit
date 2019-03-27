@@ -2,7 +2,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  /* border: 1px solid grey; */
 }
 
 html,
@@ -176,7 +175,6 @@ h1 {
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  /* border: 1px solid red; */
   border-radius: 3px;
 }
 
@@ -189,7 +187,6 @@ h1 {
   justify-content: center;
   align-items: center;
   border: 5px solid white;
-  /* box-shadow: 0 0 0 3px #B3360E; */
   border-radius: 5px;
   height: 200px;
   width: 200px;
@@ -245,7 +242,6 @@ button:focus {
   flex: 3;
   text-align: center;
   padding: 25px;
-  /* border: 3px solid black; */
   background:  rgba(35,37,66,1);
   border: 7px solid #F5CE17;
   box-shadow: 0 0 0 3px #B3360E;
@@ -268,7 +264,6 @@ button:focus {
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  /* margin-top: 15px; */
 }
 
 #current-question {
@@ -326,7 +321,6 @@ button {
   margin: 5px 0;
   text-align: center;
   background-color: #4D7CEA;
-  /* background: linear-gradient(0deg, rgba(26, 63, 149, 1) 0%, rgba(105, 173, 237, 1) 100%); */
   color: white;
   font-size: 35px;
   display: flex;

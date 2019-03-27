@@ -10,7 +10,7 @@ class LightningRound extends Round {
   submitGuess(player, guess) {
     for (let response of this.responses) {
       if (response.answer.toLowerCase() === guess) {
-        player.updateScore(1.5 * response.respondents);
+        player.updateScore(2 * response.respondents);
         this.responses = this.responses.filter(response => {
           return response.answer.toLowerCase() !== guess
         });
