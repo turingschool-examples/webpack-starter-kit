@@ -1,10 +1,7 @@
-import Player from "./Player";
 import DomUpdates from './DomUpdates'
 import Round from './Round';
 import Data from './Data'
-
-
-
+import Player from './Player'
 
 class Game {
   constructor() {
@@ -59,6 +56,17 @@ class Game {
     this.players.forEach(player => {
       player.playerBank = 0
     })
+  }
+
+  createBonusRound() {
+    let winner = this.players.sort((playerA, playerB)=>{
+      console.log(this.players)
+      return playerA.score - playerB.score
+    })
+    
+    console.log(winner.pop())
+
+    let bonus = new BonusRound()
   }
 }
 export default Game
