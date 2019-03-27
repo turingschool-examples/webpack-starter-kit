@@ -5,6 +5,7 @@ body {
   background: #b7dbe1;
   color: #333333;
   font-size: 1.2em;
+  min-width: 768px;
 }
 
 .timer-1,
