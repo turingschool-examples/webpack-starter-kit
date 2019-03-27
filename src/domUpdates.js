@@ -91,12 +91,12 @@ export default {
     });
     $('.spin-winner').html(`${wheel.currentSpin}`);
     if (wheel.currentSpin === "BANKRUPT") {
-      // round.players[round.activePlayer].roundScore = 0;
-      // this.displayScore(round.activePlayer, 0)
-      // round.changeActivePlayers();
+      this.displayScore(game.round.activePlayer-1, 0)
+      game.players[game.round.activePlayer-1].roundScore = 0;
+      game.round.changeActivePlayers();
 
     } else if (wheel.currentSpin === "LOSE A TURN") {
-      // round.changeActivePlayers();
+      round.changeActivePlayers();
     }
   },
 
@@ -117,16 +117,15 @@ export default {
       if (letter === guess) {
         // debugger
         $(`.${letter}`).removeClass('secret');
-        console.log(letter)
       } 
     });
   },
 
-  buyAVowel(event,game) {
-    $('.vowels').on('click', (event, game) => {
+  buyAVowel(event) {
+    $('.vowels').on('click', (event) => {
       $( '.vowels').removeClass( "cost");
       // round.players[round.activePlayer].roundScore -= 100;
-      game.round.guessLetter(event, game);
+      game.round.guessLetter(event);
     });
   },
 
@@ -139,7 +138,6 @@ export default {
     let guess = $('.solve-input').val();
     // console.log(guess);
     game.round.handleSolutionGuess(guess);
-
     guess = $('.solve-input').val('');
   }
 
