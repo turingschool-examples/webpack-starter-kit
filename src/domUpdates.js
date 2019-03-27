@@ -41,10 +41,10 @@ popUp() {
   // },
 
   changeScore(score, playerId) {
-     if(score && playerId === 1) {
+     if(playerId === 1) {
         $('#scoreOne').text(score)   
         }
-    if(score && playerId === 2) {
+    if(playerId === 2) {
           $('#scoreTwo').text(score) 
         }    
   },

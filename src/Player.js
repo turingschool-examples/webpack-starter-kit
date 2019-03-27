@@ -9,9 +9,9 @@ class Player {
 
     addScore(scoreAmt) {
         console.log('change score, correct guess')
-        this.score =+ scoreAmt;
-        domUpdates.changeScore(this.score, this.playerId);
-        console.log(this.score);
+        let newScore = this.score += scoreAmt;
+        domUpdates.changeScore(newScore, this.playerId);
+        console.log(newScore);
     //     game.checkPlayer()
 
 };
