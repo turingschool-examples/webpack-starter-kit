@@ -310,7 +310,7 @@ export default {
             </div>
             <div class="scoreboard">
                 <h2>Total<h2>
-                <h3>${player[0].score}</h3>
+                <h3 class="score-total">${player[0].score}</h3>
             </div>
         </div>
         <div id="player-score" class="player-score">
@@ -321,7 +321,7 @@ export default {
             </div>
             <div class="scoreboard">
                 <h2>Total<h2>
-                <h3>${player[1].score}</h3>
+                <h3 class="score-total">${player[1].score}</h3>
             </div>
         </div>
         <div id="player-score" class="player-score">
@@ -332,7 +332,7 @@ export default {
             </div>
             <div class="scoreboard">
                 <h2>Total<h2>
-                <h3>${player[2].score}</h3>
+                <h3 class="score-total">${player[2].score}</h3>
             </div>
         </div>
     </section>
@@ -382,29 +382,28 @@ export default {
   },
 
   displayWheelValue(wheelValue) {
-    console.log(wheelValue);
     $('.wheel-value').text(wheelValue);
   },
 
   resetWheelValue() {
-    console.log('reset');
     $('.wheel-value').text('Spin Me!');
   },
 
   updateRoundScore(playerBankValue, activePlayerValue) {
     let playerScoreElement = $('.bank-score')
-      console.log(playerScoreElement)
     if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
       $('.bank-score.player-1').text(playerBankValue)
-      console.log('SCOREEEEE')
     } else if (activePlayerValue === 1 && playerScoreElement.hasClass('player-2') === true) {
       $('.bank-score.player-2').text(playerBankValue)
-      console.log('else if 2')
     } else if (activePlayerValue === 2 && playerScoreElement.hasClass('player-3') === true) {
       $('.bank-score.player-3').text(playerBankValue)
-      console.log('else if 3')
     }
   },
+
+  updateGameScore(activePlayerValue) {
+    $('.score-total').text(activePlayerValue);
+
+    },
 
 
   gameMessage(message) {
