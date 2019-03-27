@@ -27,7 +27,9 @@ class Game {
   startNextLightningRound() {
     this.round++;
     this.currentRound = new LightningRound(this.surveys[this.round - 1]);
-    this.currentPlayer = this.setLightningRoundPlayer();
+    if (this.round === 3) {
+      this.currentPlayer = this.setLightningRoundPlayer();
+    }
     domUpdates.startRound(this.round, this.currentRound);
   }
 
@@ -53,16 +55,14 @@ class Game {
   }
 
   setLightningRoundPlayer() {
-    if (this.round === 3) {
-      return this.players[0].score >= this.players[1].score ? this.players[1] : this.players[0];
-    }
+    return this.players[0].score >= this.players[1].score ? this.players[1] : this.players[0];
   }
 
   getWinner() {
     let winner;
     const expr = this.players[0].score - this.players[1].score;
     if (Math.sign(expr) === 1) {
-        winner = this.players[0];
+      winner = this.players[0];
     } else if (Math.sign(expr) === -1) {
       winner = this.players[1];
     } else {
