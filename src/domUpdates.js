@@ -84,6 +84,8 @@ export default {
     'Player ' + 3 + '</span>' + '<br>' + 'Score' + '<span id="player3-score"> ' + 0
     + '</span>' + '</section>' + '</footer>';
     $(".answer-wrapper").append(board);
-  }
+  },
+  
+
 
 }

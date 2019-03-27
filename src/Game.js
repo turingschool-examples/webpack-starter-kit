@@ -38,7 +38,8 @@ class Game {
       this.playerList[this.currentPlayerNumber].playerDollarAmount += this.currentClue.pointValue;
       console.log('true', this.playerList[this.currentPlayerNumber].playerDollarAmount); ;
     } else {
-      console.log('false', this.playerList[this.currentPlayerNumber].playerDollarAmount -= this.currentClue.pointValue); this.playerList[this.currentPlayerNumber].playerDollarAmount -= this.currentClue.pointValue;    }
+      console.log('false', this.playerList[this.currentPlayerNumber].playerDollarAmount -= this.currentClue.pointValue); this.playerList[this.currentPlayerNumber].playerDollarAmount -= this.currentClue.pointValue;
+    }
   }
 
   nextRound() {

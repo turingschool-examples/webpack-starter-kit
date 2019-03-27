@@ -32,7 +32,6 @@ let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()
 const $name1 = $("#player-1").val;
 const $name2 = $("#player-2").val;
 const $name3 = $("#player-3").val;
-const $userAnswer = $("#user-answer").val();
 
 var newGame = new Game($name1, $name2, $name3);
 
