@@ -51,7 +51,19 @@ class Round {
     this.answer = this.roundPuzzle.ans.split('')
     this.answer = this.answer.map(letter=> letter.toUpperCase());
     this.wholeWord = this.answer;
-    
+  }
+  appendPuzzleAns() {
+    DomUpdates.appendAns()
+  }
+  displayDomPuzzle(game) {
+    DomUpdates.updateRoundHintCategory(game);
+    DomUpdates.appendPuzzle(game);
+  }
+  skipPuzzle(game) {
+    if (game.currentRound.roundNumber !== 5) {
+      game.currentRound.roundNumber--;
+      game.newRound(game)
+    }
   }
   getCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
@@ -63,10 +75,8 @@ class Round {
   displayCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
   }
-  displayDomPuzzle(game) {
-    DomUpdates.updateRoundHintCategory(game);
-    DomUpdates.appendPuzzle(game);
-  }
+  
+  
   checkPlayerGuess() {
     console.log('Array of ans', this.answer);
   
@@ -76,9 +86,7 @@ class Round {
   // create an option method
   // switch statement based on their dom interaction
   // case guess: 
-  appendPuzzleAns(){
-    DomUpdates.appendAns()
-  }
+  
   playerGuessWord() {
     console.log('In guessword')
   }

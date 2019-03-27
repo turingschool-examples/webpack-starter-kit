@@ -7,9 +7,14 @@ import $ from 'jquery';
 import GameEngine from './game-engine';
 import DomUpdates from './dom-updates';
 // jQuery selectors
+
+// * Global Variables
 let game = null;
-let playersNames = [];
+const vowels = ['A', 'E', 'I', 'O', 'U'];
+
+// * Event Listeners
 $('.start__start--btn').click(() =>{
+  let playersNames = [];
   playersNames.push(
     $('.playerinfo__player-1').val(),
     $('.playerinfo__player-2').val(),
@@ -22,26 +27,21 @@ $('.start__start--btn').click(() =>{
   // console.log(game.players);
     
   DomUpdates.hidePopup(game);
-  getCurrPlayer(game);
+  game.currentRound.getCurrentPlayer(game);
   game.newRound(game);
   // console.log(game.currentRound.currWheel);
   // // game.currentRound.determinePuzzleLength();
   // DomUpdates.updateRoundHintCategory(game);
 });
-
+// * Nav Buttons
 $('.nav__end-game').click(function () {
   location.reload();
 });
 $('.nav__end-round').click(function () {
-  if (game.currentRound.roundNumber !== 5) {
-    game.currentRound.roundNumber--;
-    game.newRound(game)
-  }
+  game.currentRound.skipPuzzle(game);
 });
   
-let getCurrPlayer = (game => {
-  game.currentRound.getCurrentPlayer(game);
-});
+
 
 
 let toggleButtons = () => {
@@ -63,7 +63,6 @@ let toggleButtons = () => {
   }
 }
 
-  const vowels = ['A', 'E', 'I', 'O', 'U'];
 // Conflict Res
   $('.guess__word--button').click(function () {
     console.log(game.currentRound.roundPuzzle);
@@ -71,6 +70,7 @@ let toggleButtons = () => {
     const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     let wrdGuess = $('#guess--input').val();
     let wrdGuessArr = wrdGuess.split('');
+    $('#guess--input').val('');
     // * Unfiltered Array
     // console.log(wrdGuessArr);
     // * Filtered Array
@@ -80,7 +80,7 @@ let toggleButtons = () => {
     game.currentRound.wholeWord = game.currentRound.wholeWord.filter(letter => alphabetArr.includes(letter))
     game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
     // ! end round here
-    game.newRound(game) : getCurrPlayer(game);
+    game.newRound(game) : game.currentRound.getCurrentPlayer(game);
     
     // console.log(game);
     // game.currentRound.currentPlayer.ans = wrdGuess.split('');
@@ -105,6 +105,7 @@ $('#consonant').click(function () {
   const round = game.currentRound;
   const player = round.currentPlayer;
   let ltrGuess = $('#guess--input').val();
+
 
   // !  nested if to separate helper function invoked within first if
   if (vowels.includes(ltrGuess.toUpperCase()) || ltrGuess.length !== 1) {
@@ -149,6 +150,7 @@ $('#consonant').click(function () {
         // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
         // console.log('CurrentPlayer', game.currentRound.currentPlayer);
       }
+    $('#guess--input').val('');
   }
 
 let compareAns = (round, player) => {
@@ -164,6 +166,9 @@ let correctAnsFunc = (round, player, ltrGuess) => {
   round.getCurrentPlayer(game);
   round.answer = round.answer
     .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+  console.log(game.currentRound.answer)
+  game.currentRound.answer = game.currentRound.answer
+    .filter(char => char !== ' ' ? char : char = '');
   if (game.currentRound.answer.length === 0) {
     game.newRound(game);
   }
@@ -203,7 +208,7 @@ let buyVowel = (round, player, ltrGuess) => {
       game.currentRound.currentPlayer.totalCaps = 0;
       DomUpdates.updatePlayerScore(game);
     }
-    getCurrPlayer(game);
+    game.currentRound.getCurrentPlayer(game);
     toggleButtons();
   };
   
