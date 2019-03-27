@@ -13,17 +13,17 @@
 <body>
   <!-- <h1>F<span>amily</span> F<span>eud</span></h1> -->
   <!-- <h1><img class="logo" src="images/turing-logo.png" alt="logo"></h1> -->
-  <div class="wrapper">
     <div id="player-1" class="player-info">
       <h3 class="player-one-name player-name">Player 1</h3>
       <p><span class="player-one-score player-score">0</span></p>
     </div>
+    <div class="wrapper">
+      <h1>Round <span class="round-number">0</span></h1>
     <section id="game-area">
       <section id="current-round">
-        <section id="current-round-total">
+        <!-- <section id="current-round-total">
           <h2>00</h2>
-        </section>
-              <div>
+        </section> -->
           <article id="question-container">
             <h3 id="current-question">What is the current question</h3>
           </article>
@@ -56,14 +56,18 @@
               </div>
             </div>
           </section>
-        </div>
-        <form>
+          <form class="main-form">
             <input id="guess-input" type="text" placeholder="Guess a response...">
             <input class='submit-btn' type="submit">
           </form>
-      </section>    
+        </section>
+        <button class="new-game-btn">New Game</button>
+      </section>
+      </div>
       <dialog class="start-game-pop-up pop-up">
-        <p>Welcome to Family Feud. There will be 3 rounds: 2 normal rounds, and one speed roud. Players 1 will start, and will keep guessing until they guess incorrect, or the round ends. Enter your name and press Start Game to play!</p>
+        <p>Welcome to Family Feud. There will be 3 rounds: 2 normal rounds, and one speed roud. Players 1 will start,
+          and will keep guessing until they guess incorrect, or the round ends. Enter your name and press Start Game to
+          play!</p>
         <form class="start-game-form">
           <div class="form-container">
             <label for="player-one-input">Player One Name</label>
@@ -78,39 +82,44 @@
           </div>
         </form>
       </dialog>
-      
-    <dialog class="next-round-pop-up pop-up">
-      <h3>ROUND COMPLETE</h3>
-      <p>Player 2 will start the next round. Press Start Next Round when ready.</p>
-      <h5><span id="player-one-name-round-pop-up">player 1</span>'s Score</h5>
-      <p><span class="player-one-score">0</span></p>
-      <h5><span id="player-two-name-round-pop-up">Player 2</span>'s Score</h5>
-      <p><span class="player-two-score">0</span></p>
-      <button class="next-round-btn">Start Next Round</button>
-    </dialog>
 
-    <dialog class="lightning-round-pop-up pop-up">
-      <h3>ROUND COMPLETE</h3>
-      <p>Entering Lightning Round: Each player will be given 30 seconds to enter as many responses to a survey as they can after pressing continue. Every inorrect response will decrease your score by 25 points!</p>
-      <p>Points are doubled for this round Current Player GET READY</p>
-      <h5><span id="player-one-name-lightning-round-pop-up">Player 1</span>'s Score</h5>
-      <p><span class="player-one-score">0</span></p>
-      <h5><span id="player-two-name-lightning-round-pop-up">Player 2</span> Score</h5>
-      <p><span class="player-two-score">0</span></p>
-      <button class="lightning-round-btn">Start Next Round</button>
-    </dialog>
+      <dialog class="next-round-pop-up pop-up">
+        <h3>ROUND COMPLETE</h3>
+        <p>Player 2 will start the next round. Press Start Next Round when ready.</p>
+        <h5><span id="player-one-name-round-pop-up">player 1</span>'s Score</h5>
+        <p><span class="player-one-score">0</span></p>
+        <h5><span id="player-two-name-round-pop-up">Player 2</span>'s Score</h5>
+        <p><span class="player-two-score">0</span></p>
+        <button class="next-round-btn">Start Next Round</button>
+      </dialog>
 
-    <dialog class="switch-player-pop-up pop-up">
-      <h3 class="current-player"><span>CURRENT PLAYER</span> your up!</h3>     
-      <button class="continue-btn">Continue</button> 
-    </dialog>
-  </section>
-      
+      <dialog class="lightning-round-pop-up pop-up">
+        <h3>ROUND COMPLETE</h3>
+        <p>Entering Lightning Round: Each player will be given 30 seconds to enter as many responses to a survey as they
+          can after pressing continue. Every inorrect response will decrease your score by 25 points!</p>
+        <p>Points are doubled for this round Current Player GET READY</p>
+        <h5><span id="player-one-name-lightning-round-pop-up">Player 1</span>'s Score</h5>
+        <p><span class="player-one-score">0</span></p>
+        <h5><span id="player-two-name-lightning-round-pop-up">Player 2</span> Score</h5>
+        <p><span class="player-two-score">0</span></p>
+        <button class="lightning-round-btn">Start Next Round</button>
+      </dialog>
+
+      <dialog class="switch-player-pop-up pop-up">
+        <h3 class="current-player"><span>CURRENT PLAYER</span> your up!</h3>
+        <button class="continue-btn">Continue</button>
+      </dialog>
+
+      <dialog class="end-game-pop-up pop-up">
+        <div class="pop-up-container">
+          <h3 class="current-player"><span>CURRENT PLAYER</span> your up!</h3>
+          <button class="continue-btn">Continue</button>
+        </div>
+      </dialog>
     <div id="player-2" class="player-info">
       <h3 class="player-two-name player-name">Player 2</h3>
       <p><span class="player-two-score player-score">0</span></p>
     </div>
-  </div>
 </body>
 
 </html>

@@ -28,7 +28,7 @@ export default {
     $(".next-round-pop-up").hide();
     $(".lightning-round-pop-up").hide();
     $('.switch-player-pop-up').hide();
-    $('end-game-pop-up').hide();
+    $('.end-game-pop-up').hide();
   },
 
   toggleSwitchPlayerPopUp() {

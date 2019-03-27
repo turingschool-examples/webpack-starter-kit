@@ -62,7 +62,7 @@ function checkRoundStatus(round) {
   }
 }
 
-$("#new-game-btn").on('click', (e) => {
+$(".new-game-btn").on('click', (e) => {
   e.preventDefault();
   domUpdates.toggleStartPopUp();
 });
@@ -87,12 +87,9 @@ $(".continue-btn").on('click', (e) => {
   e.preventDefault();
   domUpdates.toggleSwitchPlayerPopUp();
   game.startNextLightningRound();
-  setTimeout(() => { // OR all guesses correct
+  setTimeout(() => { // TODO OR all guesses correct
     domUpdates.toggleEndGamePopUp();
   }, 30000);
 });
 
 // TODO End game popup
-// } else {
-//   const winner = game.getWinner();
-// }
