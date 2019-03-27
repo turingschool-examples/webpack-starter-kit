@@ -116,7 +116,7 @@ export default {
   solvePuzzleMessage(player) {
     $('.spin-winner').html(`${player.name} solved the puzzle!`);
     
-  }
+  },
   // chooseLetterMessage() {
     
     // }
