@@ -31,7 +31,7 @@ class Round {
       oldPlayer = 3; newPlayer = 1;
       break;
       default:
-      alert('Something went wrong!');
+      // alert('Something went wrong!');
       break;
     }
     domUpdates.turnOrder(oldPlayer, newPlayer);
@@ -81,8 +81,12 @@ class Round {
   }
 
   handleSolutionGuess(guess) {
-    console.log('puzzle solution: ', this.currentPuzzle.correctAnswer);
-    console.log('guess', guess)
+    const solution = this.currentPuzzle.correctAnswer.toUpperCase();
+    console.log('guess', guess);
+    if (guess.toUpperCase() === solution) {
+      // alert('Nailed it!');
+      domUpdates.displaySolvedPuzzle();
+    }
   }
 
 }

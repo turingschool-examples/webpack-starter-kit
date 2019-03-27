@@ -64,6 +64,10 @@ export default {
     }
   },
 
+  displaySolvedPuzzle() {
+    $('.secret').removeClass('secret');
+  },
+
 
   setCategoryText(category) {
     $('.clue-container').text(category)
@@ -135,7 +139,8 @@ export default {
     let guess = $('.solve-input').val();
     // console.log(guess);
     game.round.handleSolutionGuess(guess);
-    guess = '';
+
+    guess = $('.solve-input').val('');
   }
 
 
