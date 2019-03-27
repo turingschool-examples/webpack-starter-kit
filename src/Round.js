@@ -53,10 +53,8 @@ class Round {
 
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer]
-    if(!spinValue === "BANKRUPT"){
     player.roundScore += spinValue;
-    domUpdates.displayScore(player.playerNumber, player.roundScore) 
-    }
+    domUpdates.displayScore(player.playerNumber, player.roundScore)
   }
 
   // TODO: DISPLAY REVEALED LETTER
