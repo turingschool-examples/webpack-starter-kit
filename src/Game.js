@@ -107,11 +107,11 @@ class Game {
   }
 
   getSurvey() {
-    const randomId = Math.floor(Math.random() * this.surveyData.surveys.length) + 1;
-    const question = this.surveyData.surveys.find(survey => survey.id === randomId);
-    const answers = this.surveyData.answers.filter(answer => answer.surveyId === randomId);
-    this.createRound(question.question, answers);
-    this.surveyData.surveys.splice(this.surveyData.surveys.indexOf(question), 1);
+    const randomIndex = Math.floor(Math.random() * this.surveyData.surveys.length);
+    const survey = this.surveyData.surveys[randomIndex];
+    const answers = this.surveyData.answers.filter(answer => answer.surveyId === survey.id);
+    this.createRound(survey.question, answers);
+    this.surveyData.surveys.splice(randomIndex, 1);
   }
 
   createRound(question, answers) {
