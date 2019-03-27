@@ -77,9 +77,14 @@ const domUpdates = {
       src = "./images/final-round.png";
     }
     $(".round-banner-text").attr("src", src);
-    $(".round-banner").css({'right': '0px', 'display': 'block'}).animate({'left' : '-900px'}, 6000);
-  }
+    $(".round-banner").css({'right': '0px', 'display': 'block'}).animate({'right' : '3000px'}, 6000);
+  },
 
+  revealTimer: function() {
+    console.log('test');
+    $(".timer").removeClass('hidden');
+    $(".start-timer-btn").removeClass('hidden');
+  }
 
 }
 
