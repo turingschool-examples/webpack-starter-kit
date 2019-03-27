@@ -6,21 +6,18 @@ import Game from './Game.js';
 import Wheel from './Wheel.js';
 import Puzzle from './Puzzle.js';
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
 let game = new Game();
-let wheel = new Wheel();
+// let wheel = new Wheel();
 
 
 console.log(game);
 
 $('.start-button').on('click', function() {
-  domUpdates.startGame(game, wheel);
+  domUpdates.startGame(game);
   domUpdates.displayCategoryName(game); 
   domUpdates.hideAnswer(game);
   domUpdates.diplayStartMsg();
   game.setCurrentPlayer();
-  // console.log('index.js', game.currentPlayer)
   domUpdates.enableQuit();
   domUpdates.enableButton();
   $('.start-button').hide('');
@@ -38,23 +35,22 @@ $('.quit-button').on('click', function() {
 });
 
 $('#js-spin-button').on('click', function() {
-  wheel.getRandomWheel();
+  game.wheel.getRandomWheel();
   // domUpdates.displayWheelValue()
 });
 
 $('#js-solve-button').on('click', function(e) {
   e.preventDefault();
   domUpdates.showPopup();
-  // console.log("player", game.currentPlayer);
-  // game.currentPlayer.solvePuzzle(game);
-  console.log(game.currentPlayer);
+  console.log('currentPlayer:', game.currentPlayer);
   // round.checkPlayerGuess();  
 });
 
 $('.answer-submit').on('click', function(e) {
   e.preventDefault();
   game.currentPlayer.solvePuzzle(game);
-  console.log(game.currentPlayer);
+  domUpdates.displayScore(game);
+  console.log('winner current player', game.currentPlayer);
 });
 
 $('#js-submit-button').on('click', function(e) {
