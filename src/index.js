@@ -36,3 +36,6 @@ $('.consonant ').on('click', (e) =>{
   game.round.guessLetter(e, game);
 })
 
+$('.submit-guess').on('click', (e) => {
+  domUpdates.checkSolution(e, game);
+});
