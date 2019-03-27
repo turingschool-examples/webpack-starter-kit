@@ -34,20 +34,19 @@ class Game {
 
   checkAnswer(userAnswer) {
     this.playerAnswer = userAnswer;
-    console.log(this.playerAnswer);
-    // if (this.playerAnswer.toLowerCase() === this.currentClue.answer.toLowerCase()) {
-    //   this.playerList[this.currentPlayerNumber].playerDollarAmount += this.currentClue.pointValue;
-    // } //else {
-    //   (this.playerDollarAmount -= this.pointValue);
-    // }
+    if (this.playerAnswer.toLowerCase() === this.currentClue.answer.toLowerCase()) {
+      this.playerList[this.currentPlayerNumber].playerDollarAmount += this.currentClue.pointValue;
+      console.log('true', this.playerList[this.currentPlayerNumber].playerDollarAmount); ;
+    } else {
+      console.log('false', this.playerList[this.currentPlayerNumber].playerDollarAmount -= this.currentClue.pointValue); this.playerList[this.currentPlayerNumber].playerDollarAmount -= this.currentClue.pointValue;    }
   }
 
   nextRound() {
-    this.roundCounter++
-    if (counter == 2) {
-       this.round = new Round(this.round2Categories);
+    this.roundCounter++;
+    if (this.roundCounter === 2) {
+       this.roundCounter = new Round(this.round2Categories);
     } else {
-      this.round = new Round(this.round3Categories);
+      this.roundCounter = new Round(this.round3Categories);
     }
   }
 
@@ -55,7 +54,7 @@ class Game {
     this.cluesClicked++;
     if ($(e.target).is(".ind-0")) {
       this.currentClue = new Clue (category[0]);
-      console.log(this.currentClue.pointValue);
+      console.log(this.currentClue);
    } else if ($(e.target).is(".ind-1")) {
      this.currentClue = new Clue (category[1]);
      console.log(this.currentClue);
