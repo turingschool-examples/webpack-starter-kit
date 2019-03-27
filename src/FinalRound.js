@@ -5,6 +5,8 @@ class FinalRound extends Round {
   constructor(survey, answers) {
     super(survey, answers);
     this.timer = 0;
+    this.correctGuesses = []
+    this.incorrectGuesses = 0
   }
 
   startTimer(display) {

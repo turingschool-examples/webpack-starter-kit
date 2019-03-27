@@ -20,6 +20,16 @@ class Player {
     game.toggleIsTurn();
   }
 
+  makeFinalGuess(guess, game, round) {
+    if (this.checkGuess(round, guess)) {
+      const correctAnswer = round.answers.find(a => a.answer.toUpperCase() === guess.toUpperCase());
+      round.correctGuesses.push(correctAnswer);
+    } else {
+      round.incorrectGuesses++;
+    }
+    console.log(round);
+  }
+
   checkGuess(round, guess) {
     return round.answers.map(a => a.answer.toUpperCase()).includes(guess.toUpperCase());
   }

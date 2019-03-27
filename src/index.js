@@ -54,6 +54,10 @@ function startGame() {
 
 function guess() {
   const guess = $(".guess-input").val();
+  game.currentRound < 3 ? normalGuess(guess) : finalGuess(guess);
+}
+
+function normalGuess(guess) {
   game.player1.isTurn ? game.player1.makeGuess(guess, game, round) : game.player2.makeGuess(guess, game, round);
   domUpdates.clearInput();
   if (round.answers.length === 0) {
@@ -61,11 +65,18 @@ function guess() {
   }
 }
 
+function finalGuess(guess) {
+  game.player1.isTurn ? game.player1.makeFinalGuess(guess, game, round) : game.player2.makeFinalGuess(guess, game, round);
+  domUpdates.clearInput();
+}
+
 function runTimer() {
   round.startTimer($(".timer"));
 }
 
 function startFinalRound() {
+  game.player1.isTurn = true;
+  game.player2.isTurn = false;
   game.player1.getMultiplier(parseInt($("#p1-multiplier-input").val()));
   game.player2.getMultiplier(parseInt($("#p2-multiplier-input").val()));
   domUpdates.revealTimer();
