@@ -77,9 +77,9 @@ export default {
     });
   },
 
-  endOfRoundMsg(roundWinner, currentRound) {
-    if (currentRound < 3) {
-      $("#round-winner-msg").text(roundWinner + ' wins this round!');
+  endOfRoundMsg(roundWinner, game) {
+    if (game.currentRound < 3) {
+      $("#round-winner-msg").text(roundWinner + ' wins Round ' + game.currentRound + '!');
       $("#round-winner-msg").fadeIn("fast", function() {
         $("#round-winner-msg").delay(2000).fadeOut(); 
       });
@@ -91,7 +91,7 @@ export default {
   },
 
   showWinnerScreen(winnerName) {
-    $(".winner-name").text(winnerName.toUpperCase()+'!');
+    $(".winner-name").text(winnerName.toUpperCase() + '!');
     $(".winner-screen").removeClass("hidden");
   },
 

@@ -48,7 +48,7 @@ class Round {
     } else {
       var roundWinner = this.game.player2.name;
     }
-    domUpdates.endOfRoundMsg(roundWinner, this.game.currentRound);
+    domUpdates.endOfRoundMsg(roundWinner, this.game);
   }
 }
 

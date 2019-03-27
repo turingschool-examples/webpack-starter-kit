@@ -108,6 +108,7 @@ button:disabled {
  margin-top:0;
 }
 
+.tie-header,
 .winner-name {
   display: block;
   font-size: 2em;
