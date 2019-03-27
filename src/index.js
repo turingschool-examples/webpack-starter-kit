@@ -74,7 +74,7 @@ $('#vowel').click(function() {
   if (!vowels.includes(ltrGuess.toUpperCase()) || ltrGuess.length !== 1) {
     alert('Please Choose 1 Vowel');    
   } else {
-    buyVowel(round, player, ltrGuess);
+    player.buyVowel(game, round, player, ltrGuess, vowels);
   }
 });
 
@@ -143,17 +143,17 @@ $('#consonant').click(function () {
 //     .filter(char => char !== ' ' ? char : char = '');
 // }
 
-let buyVowel = (round, player, ltrGuess) => {
-  if (player.roundCaps < 100) {
-    alert('Insufficient Funds!');
-  } else {
-    player.roundCaps -= 100;
-    player.ans = ltrGuess.toUpperCase();
-    round.answer = round.answer.filter(item => item !== `'` && item !== `-` && item !== `&`)
-    game.currentRound.conditionalChecking(game, ltrGuess, vowels);
-    DomUpdates.updateLettersUsed(game);
-  }
-}
+// let buyVowel = (round, player, ltrGuess) => {
+//   if (player.roundCaps < 100) {
+//     alert('Insufficient Funds!');
+//   } else {
+//     player.roundCaps -= 100;
+//     player.ans = ltrGuess.toUpperCase();
+//     round.answer = round.answer.filter(item => item !== `'` && item !== `-` && item !== `&`)
+//     game.currentRound.conditionalChecking(game, ltrGuess, vowels);
+//     DomUpdates.updateLettersUsed(game);
+//   }
+// }
   
 // End Conflict-Res
 

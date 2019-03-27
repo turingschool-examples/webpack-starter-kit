@@ -95,7 +95,7 @@ class Round {
       alert('This letter has already been guessed!');
       // todo: add an error message instead of alert
     } else if (this.compareAns() && !vowels.includes(ltrGuess.toUpperCase())) {
-      game.currentRound.correctAnsFunc(game, ltrGuess);
+      this.correctAnsFunc(game, ltrGuess);
       DomUpdates.toggleButtons();
     } else if (game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
       game.currentRound.correctAnsFunc(game, ltrGuess)
