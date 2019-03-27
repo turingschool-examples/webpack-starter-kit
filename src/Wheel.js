@@ -4,6 +4,7 @@ import Player from "./Player.js";
 import domUpdates from "./domUpdates.js"
 
 
+
 class Wheel {
   constructor() {
     this.values = data.wheel;
@@ -13,6 +14,7 @@ class Wheel {
 
   spinWinner(index, round) {
     this.currentSpin = this.values[index];
+
     if (this.currentSpin === 'BANKRUPT') {
       round.players[round.activePlayer].roundScore = 0;
       domUpdates.displayScore(round.activePlayer, 0);
