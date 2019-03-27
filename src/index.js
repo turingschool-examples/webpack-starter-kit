@@ -7,86 +7,60 @@ import $ from 'jquery';
 import GameEngine from './game-engine';
 import DomUpdates from './dom-updates';
 // jQuery selectors
+
+// ** Global Variables ** //
 let game = null;
-let playersNames = [];
+const vowels = ['A', 'E', 'I', 'O', 'U'];
+
+
+// ** Event Listeners ** //
 $('.start__start--btn').click(() =>{
+  let playersNames = [];
   playersNames.push(
     $('.playerinfo__player-1').val(),
     $('.playerinfo__player-2').val(),
     $('.playerinfo__player-3').val()
   )
-  // console.log(players)
-    
+
   game = new GameEngine(playersNames);
-  game.revEngine();
-  // console.log(game.players);
-    
+  game.revEngine(game);
+
   DomUpdates.hidePopup(game);
-  getCurrPlayer(game);
-  game.newRound(game);
-  // console.log(game.currentRound.currWheel);
-  // // game.currentRound.determinePuzzleLength();
-  // DomUpdates.updateRoundHintCategory(game);
 });
 
+// * Nav Buttons
+$('.nav__end-round').click(function () {
+  game.currentRound.skipPuzzle(game);
+});
 $('.nav__end-game').click(function () {
   location.reload();
-});
-$('.nav__end-round').click(function () {
-  if (game.currentRound.roundNumber !== 5) {
-    game.currentRound.roundNumber--;
-    game.newRound(game)
-  }
-});
-  
-let getCurrPlayer = (game => {
-  game.currentRound.getCurrentPlayer(game);
-});
+});  
 
-
-let toggleButtons = () => {
-  //Toggle: Consonant & Label
-  if ($('#consonant').attr('value') == '^ Spin Wheel ^') {
-    $('#consonant').removeAttr('disabled').css('background-color', 'darkgreen').attr('value', 'Guess Consonant');
-  } else {
-    $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', '^ Spin Wheel ^');
-  }
-  //Toggle: Wheel
-  $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
-  //Toggle: Word & Vowel
-  if ($('.guess__word--button').attr("disabled") && $('#vowel').attr("disabled")) {
-    $('.guess__word--button').removeAttr("disabled").css("background-color", "darkgreen");
-    $('#vowel').removeAttr("disabled").css("background-color", "darkgreen");
-  } else {
-    $('.guess__word--button').attr("disabled", 'true').css("background-color", "gray");
-    $('#vowel').attr("disabled", 'true').css("background-color", "gray");
-  }
-}
-
-  const vowels = ['A', 'E', 'I', 'O', 'U'];
 // Conflict Res
-  $('.guess__word--button').click(function () {
-    console.log(game.currentRound.roundPuzzle);
-    // ! change the array of array to the globally defined one
-    const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    let wrdGuess = $('#guess--input').val();
-    let wrdGuessArr = wrdGuess.split('');
-    // * Unfiltered Array
-    // console.log(wrdGuessArr);
-    // * Filtered Array
-    wrdGuessArr = wrdGuessArr.map(letter => letter.toUpperCase());
-    wrdGuessArr = wrdGuessArr.filter(letter => alphabetArr.includes(letter));
-    DomUpdates.updatePlayerScore(game);
-    game.currentRound.wholeWord = game.currentRound.wholeWord.filter(letter => alphabetArr.includes(letter))
-    game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
-    // ! end round here
-    game.newRound(game) : getCurrPlayer(game);
+$('.guess__word--button').click(function () {
+  console.log(game.currentRound.roundPuzzle);
+  // ! change the array of array to the globally defined one
+  const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  let wrdGuess = $('#guess--input').val();
+  let wrdGuessArr = wrdGuess.split('');
+  $('#guess--input').val('');
+  // * Unfiltered Array
+  // console.log(wrdGuessArr);
+  // * Filtered Array
+  wrdGuessArr = wrdGuessArr.map(letter => letter.toUpperCase());
+  wrdGuessArr = wrdGuessArr.filter(letter => alphabetArr.includes(letter));
+  DomUpdates.updatePlayerScore(game);
+  game.currentRound.wholeWord = game.currentRound.wholeWord
+    .filter(letter => alphabetArr.includes(letter))
+  game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
+  // ! end round here
+    game.currentRound.newRound(game) : game.currentRound.getCurrentPlayer(game);
     
-    // console.log(game);
-    // game.currentRound.currentPlayer.ans = wrdGuess.split('');
+  // console.log(game);
+  // game.currentRound.currentPlayer.ans = wrdGuess.split('');
     
-    // game.currentRound.getCurrentPlayer(game);
-  });
+  // game.currentRound.getCurrentPlayer(game);
+});
 
 // Conflict-Res
 $('#vowel').click(function() {
@@ -106,6 +80,7 @@ $('#consonant').click(function () {
   const player = round.currentPlayer;
   let ltrGuess = $('#guess--input').val();
 
+
   // !  nested if to separate helper function invoked within first if
   if (vowels.includes(ltrGuess.toUpperCase()) || ltrGuess.length !== 1) {
     alert('Please Choose 1 Consonant');
@@ -119,7 +94,6 @@ $('#consonant').click(function () {
     // console.log(game.currentRound.answer.map((item)=> item.toUpperCase()));
     // compare player ans against round answer
     conditionalChecking(round, player, ltrGuess);
-    toggleButtons();
     // create a new array
     // push correct guess letter in there
     // find index of answer array to guess letter array
@@ -128,28 +102,27 @@ $('#consonant').click(function () {
   }
 });
 
-  let conditionalChecking = (round, player, ltrGuess) => {
-     if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
-        alert('This letter has already been guessed!');
-        // todo: add an error message instead of alert
-      } 
-      else if (compareAns(round, player)) {
-        correctAnsFunc(round, player, ltrGuess);
-      }
-        // console.log('CORRECT ARRAY', game.currentRound.correctRoundGuesses);
-        // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
-        
-     else {
-        // console.log(game.currentRound.allRoundGuesses)
-        // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
-        round.allRoundGuesses.push(player.ans);
-        round.allRoundGuesses.sort();
-        console.log("this needs to be sorted:", round.allRoundGuesses)
-        round.getCurrentPlayer(game);
-        // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
-        // console.log('CurrentPlayer', game.currentRound.currentPlayer);
-      }
+let conditionalChecking = (round, player, ltrGuess) => {
+  if (round.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
+    alert('This letter has already been guessed!');
+    // todo: add an error message instead of alert
+  } else if (compareAns(round, player) && !vowels.includes(ltrGuess.toUpperCase())) {
+    correctAnsFunc(round, player, ltrGuess);
+    DomUpdates.toggleButtons();
+  } else if (compareAns(round, player) && vowels.includes(ltrGuess.toUpperCase())) {
+    correctAnsFunc(round, player, ltrGuess)
+  } else {
+    // console.log(game.currentRound.allRoundGuesses)
+    // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))
+    round.allRoundGuesses.push(player.ans);
+    round.allRoundGuesses.sort();
+    console.log("this needs to be sorted:", round.allRoundGuesses)
+    round.getCurrentPlayer(game);
+    DomUpdates.toggleButtons();
+    // console.log('ALL ARRAY', game.currentRound.allRoundGuesses);
+    // console.log('CurrentPlayer', game.currentRound.currentPlayer);
   }
+}
 
 let compareAns = (round, player) => {
   return round.answer.map((letter)=> letter.toUpperCase())
@@ -164,8 +137,11 @@ let correctAnsFunc = (round, player, ltrGuess) => {
   round.getCurrentPlayer(game);
   round.answer = round.answer
     .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
+  console.log(game.currentRound.answer)
+  game.currentRound.answer = game.currentRound.answer
+    .filter(char => char !== ' ' ? char : char = '');
   if (game.currentRound.answer.length === 0) {
-    game.newRound(game);
+    game.currentRound.newRound(game);
   }
 }
 
@@ -183,56 +159,57 @@ let buyVowel = (round, player, ltrGuess) => {
   
 // End Conflict-Res
 
-  $('.nav__wheel--button').click(() => {
-    toggleButtons();
-    const slice = game.currentRound.currWheel.wheelSlices[Math.floor((Math.random() * 7) + 0)];
-    console.log("Slice:", slice)
-    $.type(slice) === "number" ? spinNum(slice) : spinNotNum(slice);
-    // ! REMOVE CONSOLE: LATER !
-    console.log("CurrPlayer: ", game.currentRound.currentPlayer.name)
-  });
+$('.nav__wheel--button').click(() => {
+  let random = Math.floor((Math.random() * 7) + 0);
+  DomUpdates.toggleButtons();
+  const slice = game.currentRound.currWheel.wheelSlices[random];
+  console.log("Slice:", slice)
+  $.type(slice) === "number" ? spinNum(slice) : spinNotNum(slice);
+  // ! REMOVE CONSOLE: LATER !
+  console.log("CurrPlayer: ", game.currentRound.currentPlayer.name)
+});
 
-  let spinNum = (slice) => {
-    game.currentRound.currentPlayer.roundCaps += slice;
+let spinNum = (slice) => {
+  game.currentRound.currentPlayer.roundCaps += slice;
+  DomUpdates.updatePlayerScore(game);
+}
+  
+let spinNotNum = (slice) => {
+  if (slice === 'BANKRUPT') {
+    game.currentRound.currentPlayer.roundCaps = 0;
+    game.currentRound.currentPlayer.totalCaps = 0;
     DomUpdates.updatePlayerScore(game);
   }
-  
-  let spinNotNum = (slice) => {
-    if (slice === 'BANKRUPT') {
-      game.currentRound.currentPlayer.roundCaps = 0;
-      game.currentRound.currentPlayer.totalCaps = 0;
-      DomUpdates.updatePlayerScore(game);
-    }
-    getCurrPlayer(game);
-    toggleButtons();
-  };
-  
-  // An example of how you tell webpack to apply a CSS file
-  // import './css/fonts/overseer.css';
-  // import './fonts/Lato-Thin.ttf';
-  
-  import './css/base.css';
-  import './css/normalize.css';
-  // import './css/Lato-Thin.ttf'
-  
-  // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-  import './images/turing-logo.png';
-  import './images/terminal2.jpg';
-  import './images/mad_max-removebg.png';
-  import './images/mysteriousStranger.png';
-  import './images/radroach.png';
-  import './images/raider.png';
-  import './images/smallvaultec.png';
-  import './images/smartypants.png';
-  import './images/thumbs.png';
-  import './images/vaultDoor.png';
-  import './images/vaultTec.jpg';
-  import './images/yesMan.jpg';
-  import './images/bottleCaps.png';
-  import './images/deathclaw.jpg';
-  import './images/incorrect.png';
-  
-  // import './css/Overseer.otf'
+  game.currentRound.getCurrentPlayer(game);
+  DomUpdates.toggleButtons(game);
+};
+
+// An example of how you tell webpack to apply a CSS file
+// import './css/fonts/overseer.css';
+// import './fonts/Lato-Thin.ttf';
+
+import './css/base.css';
+import './css/normalize.css';
+// import './css/Lato-Thin.ttf'
+
+// An example of how you tell webpack to use an image (also need to link to it inthe index.html)
+import './images/turing-logo.png';
+import './images/terminal2.jpg';
+import './images/mad_max-removebg.png';
+import './images/mysteriousStranger.png';
+import './images/radroach.png';
+import './images/raider.png';
+import './images/smallvaultec.png';
+import './images/smartypants.png';
+import './images/thumbs.png';
+import './images/vaultDoor.png';
+import './images/vaultTec.jpg';
+import './images/yesMan.jpg';
+import './images/bottleCaps.png';
+import './images/deathclaw.jpg';
+import './images/incorrect.png';
+
+// import './css/Overseer.otf'
   
   
   

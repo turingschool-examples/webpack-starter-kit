@@ -1,6 +1,8 @@
 import $ from 'jquery';
 
 export default {
+// ** Start of Game ** //
+// ====================//
   hidePopup(game) {
     $('.popup--active').addClass('fade-out__animation');
     $('.popup--active').delay(990).queue(function() {
@@ -13,11 +15,9 @@ export default {
       $(`.player-${index + 1}__name`).text(player.name)
     })
   },
+// ** Player Based ** //
+// ===================//
   updatePlayerScore(game) {
-    // !! update all player scores every time this is invoked, not just the current player e.g. use a map or some sort of iteration
-    // let currPlayer = game.currentRound.currentPlayer;
-    // $(`.player-${currPlayer.playerNum}__current-points`).text(`${currPlayer.roundCaps}`);
-    // $(`.player-${currPlayer.playerNum}__totals-points`).text(`${currPlayer.totalCaps}`);
     game.players.map((player, index) => {
       $(`.player-${index + 1}__current-points`).text(`${player.roundCaps}`);
       $(`.player-${index + 1}__total-points`).text(`${player.totalCaps}`);
@@ -26,6 +26,27 @@ export default {
   showCurrentPlayer(game) {
     let currPlayer = game.currentRound.currentPlayer;
     $(`.player-${currPlayer.playerNum}__name`).toggleClass('big-red-border');
+  },
+// **   UI Based   ** //
+// ===================//
+  clearInput() {
+    $('#guess--input').val('');
+  },
+  toggleButtons(game) {
+    //Toggle: Consonant & Label
+    $('#consonant').attr('value') == '^ Spin Wheel ^' 
+      ? $('#consonant').removeAttr('disabled').css('background-color', 'darkgreen').attr('value', 'Guess Consonant')
+      : $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', '^ Spin Wheel ^');
+    //Toggle: Wheel
+    $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
+    //Toggle: Word & Vowel
+    if ($('.guess__word--button').attr("disabled") && $('#vowel').attr("disabled")) {
+      $('.guess__word--button').removeAttr("disabled").css("background-color", "darkgreen");
+      $('#vowel').removeAttr("disabled").css("background-color", "darkgreen");
+    } else {
+      $('.guess__word--button').attr("disabled", 'true').css("background-color", "gray");
+      $('#vowel').attr("disabled", 'true').css("background-color", "gray");
+    }
   },
   updateLettersUsed(game) {
     // TODO: Refactor
@@ -51,29 +72,26 @@ export default {
     $('.hint__value').text(`Hint: ${game.currentRound.roundPuzzle.description}`);
     this.updateRoundNumber(game);
   },
+// ** Puzzle Board Based ** //
+// =========================//
   appendPuzzle(game) {
-    // ! remove children of board--container
-    // !!!
     let valueBoard = $('.board__tile-value--container');
     valueBoard.html('');
     $('.letters__remaining').html('_');
     const alphabetArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     // console.log(game.currentRound.answer) puzzle array
     game.currentRound.answer.map((letter)=>{
-      // console.log(game.currentRound.answer)
-      // todo: remove index if it's not used
-      if(alphabetArr.includes(letter.toUpperCase())){
+      if (alphabetArr.includes(letter.toUpperCase())) {
         valueBoard.append(`<p class="ans-letter fade-in letter-${letter.toUpperCase()}">_</p>`);
       }
       else {
-        valueBoard.append(`<p class="ans-letter fade-in">${letter}</p>`);
-
+        valueBoard.append(`<p class="ans-letter fade-in nonLetter">${letter}</p>`);
+        $('.nonLetter').css('background-color', 'gray')
       }
     })
   },
   createPuzzleClassArr(letter) {
     $(`.letter-${letter.toUpperCase()}`).text(letter.toUpperCase());
     $(`.letter-${letter.toUpperCase()}`).addClass('fade-in-letter')
-		// console.log("TCL: createPuzzleClassArr -> targetClass.text()", targetClass.text())
   },
 }

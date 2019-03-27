@@ -18,6 +18,19 @@ class Round {
     this.counter = 0,
     this.currWheel = new Wheel()
   }
+  newRound(game) {
+    let roundCaps = this.currentPlayer.roundCaps;
+    let totalCaps = this.currentPlayer.totalCaps;
+
+    this.getCurrentPlayer(game);
+    this.roundNumber++;
+    totalCaps = totalCaps += roundCaps;
+    game.players.map(player => player.roundCaps = 0);
+    DomUpdates.updatePlayerScore(game);
+    this.allRoundGuesses = [];
+    this.determinePuzzleLength();
+    this.displayDomPuzzle(game);
+  }
   determinePuzzleLength() {
     let random = Math.floor((Math.random() * 23) + 0);
     switch (this.roundNumber) {
@@ -51,7 +64,19 @@ class Round {
     this.answer = this.roundPuzzle.ans.split('')
     this.answer = this.answer.map(letter=> letter.toUpperCase());
     this.wholeWord = this.answer;
-    
+  }
+  appendPuzzleAns() {
+    DomUpdates.appendAns()
+  }
+  displayDomPuzzle(game) {
+    DomUpdates.updateRoundHintCategory(game);
+    DomUpdates.appendPuzzle(game);
+  }
+  skipPuzzle(game) {
+    if (game.currentRound.roundNumber !== 5) {
+      this.roundNumber--;
+      this.newRound(game)
+    }
   }
   getCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
@@ -59,14 +84,13 @@ class Round {
     this.counter < 2 ? this.counter++ : this.counter = 0;   
     DomUpdates.updatePlayerScore(game);
     DomUpdates.showCurrentPlayer(game);
+    DomUpdates.clearInput();
   }
   displayCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
   }
-  displayDomPuzzle(game) {
-    DomUpdates.updateRoundHintCategory(game);
-    DomUpdates.appendPuzzle(game);
-  }
+  
+  
   checkPlayerGuess() {
     console.log('Array of ans', this.answer);
   
@@ -76,9 +100,7 @@ class Round {
   // create an option method
   // switch statement based on their dom interaction
   // case guess: 
-  appendPuzzleAns(){
-    DomUpdates.appendAns()
-  }
+  
   playerGuessWord() {
     console.log('In guessword')
   }
