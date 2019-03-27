@@ -18,6 +18,20 @@ class Round {
     this.counter = 0,
     this.currWheel = new Wheel()
   }
+  newRound(game) {
+    let roundCaps = this.currentPlayer.roundCaps;
+    let totalCaps = this.currentPlayer.totalCaps;
+
+    this.getCurrentPlayer(game);
+    this.roundNumber++;
+    totalCaps = totalCaps += roundCaps;
+    game.players.map(player => player.roundCaps = 0);
+    DomUpdates.updatePlayerScore(game);
+    this.allRoundGuesses = [];
+    this.determinePuzzleLength();
+    this.displayDomPuzzle(game);
+
+  }
   determinePuzzleLength() {
     let random = Math.floor((Math.random() * 23) + 0);
     switch (this.roundNumber) {

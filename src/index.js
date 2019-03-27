@@ -27,8 +27,9 @@ $('.start__start--btn').click(() =>{
   // console.log(game.players);
     
   DomUpdates.hidePopup(game);
+  game.currentRound.newRound(game);
   game.currentRound.getCurrentPlayer(game);
-  game.newRound(game);
+  // game.currentRound.newRound(game);
   // console.log(game.currentRound.currWheel);
   // // game.currentRound.determinePuzzleLength();
   // DomUpdates.updateRoundHintCategory(game);
@@ -80,7 +81,7 @@ let toggleButtons = () => {
     game.currentRound.wholeWord = game.currentRound.wholeWord.filter(letter => alphabetArr.includes(letter))
     game.currentRound.wholeWord.join('') == wrdGuessArr.join('') ? 
     // ! end round here
-    game.newRound(game) : game.currentRound.getCurrentPlayer(game);
+    game.currentRound.newRound(game) : game.currentRound.getCurrentPlayer(game);
     
     // console.log(game);
     // game.currentRound.currentPlayer.ans = wrdGuess.split('');
@@ -170,7 +171,7 @@ let correctAnsFunc = (round, player, ltrGuess) => {
   game.currentRound.answer = game.currentRound.answer
     .filter(char => char !== ' ' ? char : char = '');
   if (game.currentRound.answer.length === 0) {
-    game.newRound(game);
+    game.currentRound.newRound(game);
   }
 }
 
