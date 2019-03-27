@@ -43,7 +43,6 @@ $("#submit-names-btn").on("click", function() {
     $(".player-1-name").text(player1Name.toUpperCase() || 'PLAYER 1');
     $(".player-2-name").text(player2Name.toUpperCase() || 'PLAYER 2');
     $(".welcome-screen").addClass("hidden"); 
-    $(".guess-input").focus();
 
   let startingPlayer = Math.floor(Math.random() * 2) + 1
 
