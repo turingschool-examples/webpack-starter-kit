@@ -9,23 +9,29 @@ class Player {
     this.totalScore = totalScore;
   }
 
-  solvePuzzle(solveInput, letter, puzzle) {
+  solvePuzzle(game) {
+    let solveInput = domUpdates.grabCurrentLetter();
     console.log(solveInput);
-    if (solveInput === puzzle.answer) {
-      domUpdates.displayLetterMatch(letter);
-      // getPlayerScore();
-      // if(player.input !== puzzle.answer) {
-      // }
-      // switchPlayers();
-      //add this to puzzle instead
-    }
+    let puzzle = game.currentPuzzle
+    let letters = game.currentPuzzle.answer.split('');
+    letters.forEach(letter => {
+      if (solveInput === puzzle.answer) {
+        domUpdates.displayLetterMatch(letter);
+        getPlayerScore();
+        // if(player.input !== puzzle.answer) {
+        // }
+        // switchPlayers();
+        //add this to puzzle instead
+      }
+    })
+    
   }
 
 
   getPlayerScore(wheel, game) {
     // use this after we create wheel spin method
     console.log('playerScore:', game.currentPlayer)
-    game.currentPlayer = this.totalScore += wheel.currentIndex;
+    game.currentPlayer.roundScore += wheel.currentIndex;
   }
 
 

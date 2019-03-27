@@ -20,6 +20,7 @@ $('.start-button').on('click', function() {
   domUpdates.hideAnswer(game);
   domUpdates.diplayStartMsg();
   game.setCurrentPlayer();
+  console.log(game.currentPlayer);
   // console.log('index.js', game.currentPlayer)
   domUpdates.enableQuit();
   domUpdates.enableButton();
@@ -42,11 +43,23 @@ $('#js-spin-button').on('click', function() {
   // domUpdates.displayWheelValue()
 });
 
-$('#js-solve-button').on('click', function(player) {
+$('#js-solve-button').on('click', function(e) {
+  e.preventDefault();
   domUpdates.displayQuestionSolvePopup(game);
   let solveInput = domUpdates.grabCurrentLetter();
-  player.solvePuzzle(solveInput, letter, puzzle);
-  // round.checkPlayerGuess();
+  console.log("player", game.currentPlayer);
+  game.currentPlayer.solvePuzzle(solveInput, game);
+  console.log(game.currentPlayer);
+  // round.checkPlayerGuess();  
+});
+
+$('.answer-submit').on('click', function(e, game) {
+  e.preventDefault();
+  console.log($('.answer-input').val());
+  console.log("testing ansSubmit");
+  console.log("player", game.currentPlayer);
+  game.currentPlayer.solvePuzzle(game);
+  console.log(game.currentPlayer);
 });
 
 $('#js-submit-button').on('click', function(e) {
