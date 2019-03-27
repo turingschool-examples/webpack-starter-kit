@@ -9,16 +9,19 @@ chai.spy.on(domUpdates, 'getAnswer', () => 'Answer');
 chai.spy.on(domUpdates, 'getBoard', () => [{textContent: 'A'}]);
 chai.spy.on(domUpdates, 'getConsonant', () => 'A');
 chai.spy.on(domUpdates, [
-  'updateQInfo', 
-  'revealPrize', 
-  'loadPossiblePrizes', 
+  'appendLetters',
   'appendNames',
-  'updateBank',
   'clearClass',
+  'clearFields',
   'correctAns',
+  'loadPossiblePrizes', 
+  'revealPrize', 
+  'showAnser',
+  'updateActivePlayer',
+  'updateBank',
+  'updateQInfo', 
   'updateScore',
-  'wrongAns',
-  'appendLetters'
+  'wrongAns'
 ], () => true);
 
 
@@ -33,7 +36,7 @@ describe('Game', () => {
 
   it('should have a default state', () => {
     expect(game.players).to.deep.equal([]);
-    expect(game.round).to.equal(0);
+    expect(game.round).to.equal(1);
     expect(game.allRounds).to.have.lengthOf(5);
     expect(game.allQs).to.deep.equal([]);
     expect(game.playerIndex).to.equal(0);
@@ -50,10 +53,13 @@ describe('Game', () => {
   it('should change player turns', () => {
     expect(game.playerIndex).to.equal(0);
     game.changeTurn();
+    expect(domUpdates.updateActivePlayer).to.have.been.called();
     expect(game.playerIndex).to.equal(1);
     game.changeTurn();
+    expect(domUpdates.updateActivePlayer).to.have.been.called();
     expect(game.playerIndex).to.equal(2);
     game.changeTurn();
+    expect(domUpdates.updateActivePlayer).to.have.been.called();
     expect(game.playerIndex).to.equal(0);
   });
 
@@ -62,6 +68,7 @@ describe('Game', () => {
     game.populateQuestions();
     game.newQ();
     expect(game.currentQuestion).to.be.an('object');
+
   });
 
   it('instantiate new players', () => {
@@ -72,8 +79,6 @@ describe('Game', () => {
 
   it('should change rounds', () => {
     game.populateQuestions();
-    expect(game.round).to.equal(0);
-    game.changeRound();
     expect(game.round).to.equal(1);
     game.changeRound();
     expect(game.round).to.equal(2);
@@ -85,6 +90,8 @@ describe('Game', () => {
     expect(game.round).to.equal(5);
     game.changeRound();
     expect(game.round).to.equal(1);
+    game.changeRound();
+    expect(game.round).to.equal(2);
   });
 
   it('should generate a new question', () => {
@@ -115,6 +122,7 @@ describe('Game', () => {
     game.validateAnswer();
     expect(domUpdates.getAnswer).to.have.been.called();
     expect(domUpdates.updateBank).to.have.been.called();
+    expect(domUpdates.updateScore).to.have.been.called();
   });
 
   it('should validate player consonant guess', () => {
