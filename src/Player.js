@@ -10,7 +10,7 @@ class Player {
   }
 
   increaseScore(answer, game) {
-    if (game.roundCounter === 1) {
+    // if (game.roundCounter === 1) {
       let points = data.clues.reduce((acc, currentClue) => {
         if (answer === currentClue.answer) {
           acc += currentClue.pointValue;
@@ -19,19 +19,18 @@ class Player {
       }, 0);
     this.score += points;
     }
-    if (game.roundCounter === 2) {
-      let points = data.clues.reduce((acc, currentClue) => {
-        if (answer === currentClue.answer) {
-          acc += currentClue.pointValue;
-        }
-        return acc;
-      }, 0);
-    this.score += points * 2;
-  }
-}
+    // if (game.roundCounter === 2) {
+    //   let points = data.clues.reduce((acc, currentClue) => {
+    //     if (answer === currentClue.answer) {
+    //       acc += currentClue.pointValue;
+    //     }
+    //     return acc;
+    //   }, 0);
+    // this.score += points * 2;
+
 
   decreaseScore(answer, game) {
-    if (game.roundCounter === 1) {
+    // if (game.roundCounter === 1) {
       let points = data.clues.reduce((acc, currentClue) => {
         if (answer === currentClue.answer) {
           acc += currentClue.pointValue;
@@ -39,16 +38,16 @@ class Player {
         return acc;
       }, 0);
     this.score -= points;
-    }
-    if (game.roundCounter === 2) {
-      let points = data.clues.reduce((acc, currentClue) => {
-        if (answer === currentClue.answer) {
-          acc += currentClue.pointValue;
-        }
-        return acc;
-      }, 0);
-    this.score -= points * 2;
-    }
+    // }
+    // if (game.roundCounter === 2) {
+    //   let points = data.clues.reduce((acc, currentClue) => {
+    //     if (answer === currentClue.answer) {
+    //       acc += currentClue.pointValue;
+    //     }
+    //     return acc;
+    //   }, 0);
+    // this.score -= points * 2;
+    // }
   }
 }
 

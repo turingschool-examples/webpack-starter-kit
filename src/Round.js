@@ -17,22 +17,10 @@ class Round {
     const clueToShow = this.clues.find(clue => {
       return id == clue.categoryId && pointValue == clue.pointValue;
     });
+    console.log(id, pointValue);
     domUpdates.showClue(game, clueToShow, event)
-  }
-
-  findNextRoundClues(game, id, innerText, event) {
-    domUpdates.newCluePoints(game, id, innerText,event);
-  }
-
-  displayNextRoundClues(game, id, pointValue, newClues, event) {
-    const newClueToShow = newClues.find(clue => {
-      return id == clue.categoryId && pointValue == clue.pointValue;
-    });
-    domUpdates.showNewClue(game, newClueToShow, event)
-  }
-
+  }  
   
-
 }
 
 export default Round;

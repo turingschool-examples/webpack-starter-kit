@@ -71,6 +71,7 @@ export default {
     let currentPlayer = game.players[game.playerTurn];
     if (game.round.cluesRemaining === 0) {
       game.roundCounter++;
+      this.newCluePoints(game);
       this.displayRound(game.roundCounter);
       this.newCategoryValues();
       game.createRound();
@@ -106,7 +107,7 @@ export default {
      $('.result').text('Correct Answer!');
      currentPlayer.increaseScore(answerMatch, game);
      $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
-     $('.result-prompt').hide(3000);
+     $('.result-prompt').hide(100);
 
   },
 
@@ -118,7 +119,7 @@ export default {
     currentPlayer.decreaseScore(answerMatch, game);
     $(`.player-${game.playerTurn}-points`).text(currentPlayer.score);
     game.changePlayerTurn();
-    $('.result-prompt').hide(3000);
+    $('.result-prompt').hide(100);
   },
 
   notifyNextTurn(game) {
@@ -137,8 +138,8 @@ export default {
     }
   },
 
-  newCluePoints(game, id, innerText, event) {
-    let round2Clues = data.clues.map(clue => {
+  newCluePoints(game) {
+    let doubleValueClues = data.clues.map(clue => {
      return {
              question: clue.question,
              pointValue: clue.pointValue * 2,
@@ -146,17 +147,8 @@ export default {
              categoryId: clue.categoryId
            }
     });
-    game.round.displayNextRoundClues(game, id, innerText,round2Clues, event);
-  },
-
-  showNewClue(game, newClue, event) {
-    console.log(newClue)
-    game.round.cluesRemaining--;
-      $('.question-prompt').show();
-      $('.result-prompt').hide();
-      $('.question').text(newClue.question);
-      $(event.target).text('');
-      $('.game-board').hide();
+    game.clues = doubleValueClues;
+    // game.round.displayNextRoundClues(game, id, innerText,round2Clues, event);
   },
 
   updateCategory () {
