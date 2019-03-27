@@ -5,6 +5,7 @@ class Player {
         this.name = name;
         this.score = 0;
         this.playerId = playerId;
+
     };
 
     addScore(scoreAmt) {
@@ -12,7 +13,7 @@ class Player {
         let newScore = this.score += scoreAmt;
         domUpdates.changeScore(newScore, this.playerId);
         console.log(newScore);
-    //     game.checkPlayer()
+        
 
 };
 

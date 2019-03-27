@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-import './css/base.css';
 import './css/normalize.css';
+import './css/base.css';
 
 import './images/FFLsm.png';
 
@@ -27,10 +27,19 @@ const dataSet = data.surveys.reduce((acc, survey) => {
 
 
 $('#startBtn').on('click', startPlaying);
+
+$('#newGameBtn').click(() => {
+  location.reload(true);
+  });
+
+$('#newGameBtn').on('click', startPlaying);
+
 $('#resetBtn').click(() => {
   location.reload(true);
 });
+
 $('#submitBtn').on('click', inputValue);
+$('.answerInput').on('keyup', removeWrongAnswer);
 
 
 function startPlaying() {
@@ -38,7 +47,7 @@ function startPlaying() {
   $('#nameOne').text(playerOne);
   let playerTwo = $('.nameTwo').val();
   $('#nameTwo').text(playerTwo);
-  $('.wrapper').css('height', '1300px');
+  $('.wrapper').css('height', '1450px');
   $('.wrapper').css('grid-template-rows', '0% 50% 25% 25%');
   $('.gamePopUp').css('visibility', 'hidden');
   createGame(dataSet);
@@ -58,10 +67,11 @@ function createGame(dataset) {
 function inputValue() {
   let guess = $('.answerInput').val();
   game.getAnswer(guess);
-}
+};
 
-
-
+function removeWrongAnswer() {
+ domUpdates.removeWrongAnswer();
+};
 
 
 export default dataSet;

@@ -14,31 +14,39 @@ checkAnswer(guess, currentPlayer, game) {
     let score;
     domUpdates.clearInputField();
     let correctAnswer = answers.find(answer => (guess.toLowerCase() === answer.answer.toLowerCase())); 
+    domUpdates.highlightPlayer(currentPlayer.playerId);
+    //needs to iluminate upon game creation for player 1 and should be removed when player switches
     console.log(correctAnswer);
     if (correctAnswer) {
         console.log('if correct')
         let score = correctAnswer.respondents;
         currentPlayer.addScore(score);
         this.answerCount++
-        // dom updates append answer (answer.answer, answer.respondents)
-        // if these things happen, we're done here, get out of the loop, return
+        domUpdates.appendAnswer(answers, correctAnswer.answer, correctAnswer.respondents);
     } else {
         console.log('incorrect')
-        game.switchPlayer();
         domUpdates.wrongAnswer();
+        // domupdates.unhighlightPlayer(currentPlayer.playerId);
+        game.switchPlayer();   
     };
+
     console.log(currentPlayer);
+
     if (guess === '') {
         console.log('empty')
         domUpdates.errorMessage();
     };
+
+    if(this.answerCount === 3){
+        this.endRound(game);
+    }
 };
 
     
-
-    // endRound()
-    //when correctAnswer === 3, end round    
-    // }
+    endRound(game) {
+        game.createRound();
+        this.answerCount = 0;
+     }
 
 }
 

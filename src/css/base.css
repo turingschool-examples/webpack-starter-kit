@@ -13,7 +13,7 @@ body {
 .wrapper {
     display: grid;
     grid-template-rows: auto 40% 25% 25%;
-    height: 1800px; /*fix positioning and height*/
+    height: 1800px; 
     font-family: 'Open Sans', sans-serif;
     border: 20px solid goldenrod;
     border-style: ridge;
@@ -30,11 +30,17 @@ body {
 .playerNames() {
   display: inline-block;
   margin: 2% 0;
+  font-size: 1rem;
+}
+
+.labelName {
+  font-size: 1rem;
+  margin: 8% 0;
 }
 
 .popUpPlayers {
   display: inline-block;
-  margin: 0 2%;
+  margin-right: 2%;
 }
 
 .popUpPlayers > * {
@@ -49,26 +55,30 @@ body {
   height: 40px;
 }
 
-#startBtn {
+#startBtn,
+#newBtn {
   background-color: #0a4696;
   color: white;
   border: 2px solid #FFF;
   height: 50px;
 }
 
-#startBtn:hover {
+#startBtn:hover,
+#newGameBtn:hover {
   background-color: #276C0E;
   color: white;
 }
 
 #progress {
   margin-top: 4%;
+  text-align: center;
 }
 
 .progressLabel {
   color: white;
-  font-size: 1em;
+  font-size: 1.5em;
   margin: 3% 0;
+
 }
 
 #bar {
@@ -82,13 +92,6 @@ body {
     margin: 0px 25%;
 }
 
-#responseOne,
-#responseTwo,
-#responseThree {
-  color: #fff;
-  font-size: 1.5rem;
-  margin: 1% 0;
-}
 
 .surveyResponses {
    margin-bottom: 80px;
@@ -102,20 +105,30 @@ body {
     height: 120px;
     background: white;
     border-style: inset;
-    padding: 10px;
+    padding: 35px;
     font-weight: 800;
 }
 
 .cardOne,
 .cardTwo,
 .cardThree {
+    display: block;
+    text-align: center;
     width: 100%;
-    padding: 3px;
+    padding: 5px;
     margin: 2% 0;
     background-color: #0a4696;
     border-bottom: 4px solid #fec55c;
     border-style: ridge;
-    height: 50px;
+    height: 75px;
+    color: #FFF;
+    font-size: 1.5em;
+  }
+
+  #responseOne,
+  #responseTwo,
+  #responseThree {
+    font-weight: 800;
   }
 
 .scoreBoard,
@@ -144,7 +157,8 @@ body {
 }
 
 #round {
-    font-size: 1.5em;
+    font-size: 2em;
+    margin-top: 8%;
 }
 
 .answerInput {
@@ -213,6 +227,16 @@ body {
   font-size: 1.5em;
   border: 5px solid gold;
   margin: 0 5%;
+}
+
+#winner {
+  border: 2px solid goldenrod;
+  border-style: ridge;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: #2196F3;
+  display: block;
+  width: 100%;
 }
 
 
