@@ -33,15 +33,9 @@ startGameBtn.click(function (e) {
 clueBtn.on('click', function(e) {
   e.preventDefault();
   $('.game-board').hide();
-  domUpdates.updateCategory(event);
   const {id, innerText} = event.target;
   game.round.findClue(game, id, innerText, event)
-  // if ($('#round').text() === '1') {
-  //   game.round.findClue(game, id, innerText, event);
-  // }
-  // if ($('#round').text() === '2') {
-  //  game.round.findNextRoundClues(game, id, innerText, event);
-  // }
+  game.createFinalRound();
 })
 
 submitBtn.click(function (e) {
