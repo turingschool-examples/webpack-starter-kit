@@ -12,8 +12,8 @@ class Game {
     this.cycleTurn = true;
     this.currentAnswers = [];
     this.currentRound = 1;
-    // this.player1 = player1 || 'not yet set';
-    // this.player2 = player2 || 'not yet set';
+    this.multipleAmount = this.player1 = player1 || "not yet set";
+    this.player2 = player2 || "not yet set";
   }
 
   startGame() {
@@ -34,14 +34,20 @@ class Game {
   }
 
   startNextRoundTimed() {
-    console.log("startNextRoundTimed invoked");
-    this.currentRound++;
-    this.beginRound();
-    // if (this.currentPlayerTurn === "player1") {
-    //   $(".current-turn").html(`${player1.name}'s turn!`);
-    // } else if (this.currentPlayerTurn === "player2") {
-    //   $(".current-turn").html(`${player2.name}'s  damn turn!`);
-    // }
+    if (this.currentRound < 4) {
+      console.log("startNextRoundTimed invoked");
+      this.currentRound++;
+      this.beginRound();
+      this.multiplyValues();
+      this.timer(10);
+      if (this.currentPlayerTurn === "player1") {
+        $(".current-turn").html(`${this.player2.name}'s turn!`);
+      } else if (this.currentPlayerTurn === "player2") {
+        $(".current-turn").html(`${this.player1.name}'s turn!`);
+      }
+    } else if (this.currentRound === 5) {
+      console.log("game over");
+    }
   }
 
   beginRound() {
@@ -75,8 +81,13 @@ class Game {
   }
 
   multiplyValues(multiple) {
+    if (multiple !== undefined) {
+      this.multipleAmount = multiple;
+    }
+    let amount = multiple || this.multipleAmount;
+    console.log(amount);
     this.currentAnswers.forEach(answer => {
-      answer.respondents = answer.respondents * multiple;
+      answer.respondents = answer.respondents * amount;
     });
     domObject.createAnswers(this.currentAnswers);
   }

@@ -2,9 +2,9 @@ import $ from "jquery";
 import Game from "./Game.js";
 import Player from "./Player.js";
 import domObject from "./DOMupdates.js";
-const game = new Game();
 const player1 = new Player();
 const player2 = new Player();
+const game = new Game(player1, player2);
 
 game.startGame();
 
@@ -15,8 +15,8 @@ $("#submit-names").on("click", () => {
   ) {
     return;
   } else {
-    player1.name = $("#player1-name-input").val();
-    player2.name = $("#player2-name-input").val();
+    game.player1.name = $("#player1-name-input").val();
+    game.player2.name = $("#player2-name-input").val();
     $(".player-1-name").html(player1.name);
     $(".player-2-name").html(player2.name);
     $(".current-turn").html(`${player1.name}'s turn!`);
@@ -43,11 +43,6 @@ $("#submit-guess").on("click", event => {
       updateTheScoreOf(player2, 2);
     }
   } else if (game.currentRound < 5) {
-    // let i = 0;
-    // do {
-    //   rotatePlayer(player2);
-    //   i++;
-    // } while (i < 1);
     if (game.currentPlayerTurn === "player2") {
       checkInputOf(player1);
       updateTheScoreOf(player1, 1);
@@ -77,7 +72,7 @@ $("#submit-guess").on("click", event => {
 $(".multiplier-form").on("click", ".multiplier-radio", event => {
   const radioValue = parseInt(event.currentTarget.defaultValue);
   game.multiplyValues(radioValue);
-  game.timer(15);
+  game.timer(10);
   $(".countdown-timer").removeClass("hidden");
   $(".multiplier-form").fadeOut();
   $(".multiplying-by").html(`${radioValue}X POINTS`);
