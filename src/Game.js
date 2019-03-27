@@ -10,7 +10,6 @@ class Game {
   constructor() {
     this.players = []
     this.stage = 0
-    this.alphabet = []
     this.gameRoundsClueBank = null
     this.roundCards = []
     this.roundInst = new Round(0)
@@ -18,8 +17,6 @@ class Game {
 
   startGame(p1, p2, p3) {
     this.createPlayers(p1, p2, p3)
-    this.createLetters()
-    this.createGameBoard(this.alphabet)
     this.createPlayerBox()
     this.createClues()
     this.roundInst.createNewRound(this)
@@ -31,21 +28,11 @@ class Game {
     let player3 = new Player(p3)
     this.players.push(player1, player2, player3)
   }
-  createGameBoard() {
-    DomUpdates.createGameBoard(this.alphabet)
-
-  }
 
   createPlayerBox() {
     DomUpdates.createPlayerBox(this.players)
   }
 
-  createLetters() {
-    let allLetters = 'abcdefghijklmnopqrstuvwxyz'.toLowerCase().split('')
-    for (var i = 0; i < allLetters.length; i++) {
-      this.alphabet.push(allLetters[i])
-    }
-  }
   createClues() {
     this.gameRoundsClueBank = Object.entries(Data.puzzles);
     // this.roundCards = this.roundsBank[game.stage][1].puzzle_bank

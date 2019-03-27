@@ -248,7 +248,7 @@ h3 {
 }
 
 .spaces-not-displayed {
-  /*background-color: gold;*/
+  background-color: gold;
 }
 
 .disable-selected-letters {
@@ -273,7 +273,7 @@ h3 {
   padding-left: 3rem;
   bottom: 47%;
   height: 121px;
-  width: 274px;
+  width: 350px;
   background-color: #00020ec9;
   z-index: 1;
   color: yellow;
@@ -284,12 +284,50 @@ h3 {
   padding-left: 3rem;
   bottom: 47%;
   height: 121px;
-  width: 274px;
+  width: 350px;
   background-color: #00020ec9;
   z-index: 1;
   color: yellow;
   font-size: 50px;
 }
+
+
+.round-winner {
+  position: fixed;
+  padding-left: 3rem;
+  bottom: 47%;
+  height: 121px;
+  width: 350px;
+  background-color: #00020ec9;
+  z-index: 1;
+  color: yellow;
+  font-size: 50px;
+}
+
+.spin-again {
+  position: fixed;
+  padding-left: 3rem;
+  bottom: 47%;
+  height: 121px;
+  width: 350px;
+  background-color: #00020ec9;
+  z-index: 1;
+  color: yellow;
+  font-size: 50px;
+}
+
+.next-player {
+  position: fixed;
+  padding-left: 3rem;
+  bottom: 47%;
+  height: 121px;
+  width: 350px;
+  background-color: #00020ec9;
+  z-index: 1;
+  color: yellow;
+  font-size: 50px;
+}
+
 
 .guess-submission {
   width: 9rem;

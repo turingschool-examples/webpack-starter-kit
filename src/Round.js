@@ -30,8 +30,9 @@ class Round {
     this.roundClue = this.randomNumber(cards);
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
     this.remainingLetters = this.clueAnswer.join('').replace(/[-']/g, '').split('');
+    DomUpdates.createGameBoard();
     this.fillGameBoard();
-    this.displayHint();
+    DomUpdates.displayHint(this.roundClue);
     console.log(this.clueAnswer)
   }
   randomNumber(values) {
@@ -50,32 +51,11 @@ class Round {
     }
   }
 
-  ///checking clicked letter works
-  checkLetter(userLetter, game) {
-    console.log(this.clueAnswer)
-    if (this.clueAnswer.includes(userLetter)) {
-      game.updatePlayerBank()
-    } else if (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
-      // this.activePlayer++
-      this.switchPlayer(game)
-    }
-    // game.players[this.activePlayer].score += this.wheelInst.selectedValue
-    // console.log(game.players)
-    console.log('go to bed')
-
-  }
-  
-
   fillGameBoard() {
     this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
   }
 
-  displayHint() {
-    DomUpdates.displayHint(this.roundClue);
-  }
-
   flipCells(letter) {
-    console.log(this.letterIndexs)
     const selectedLetter = this.letterIndexs[letter];
     const puzzleCells = $('.puzzle-cell').toArray();
     if (selectedLetter) {
@@ -121,15 +101,14 @@ class Round {
   }
 
   checkValue(wheelValue, game) {   
-    console.log(wheelValue)
+
     if (wheelValue === "BANKRUPT") {
       DomUpdates.deactivateLetters()
       DomUpdates.gameMessage("bankrupt")
       game.players[this.activePlayer].playerBank = 0
-      console.log('rupt')
       this.switchPlayer(game);
     } else if (wheelValue === "LOSE A TURN") {
-      DomUpdates.gameMessage("lose a turn")
+      DomUpdates.gameMessage("lose turn")
       DomUpdates.deactivateLetters()
       console.log('loseturn')
       this.switchPlayer(game)
@@ -172,14 +151,6 @@ class Round {
       this.switchPlayer(game)
 
     }
-
-    
-    // (!this.clueAnswer.includes(userLetter) && userLetter !== 'LOSE A TURN') {
-    //       // this.activePlayer++
-    //       this.switchPlayer()
-    //     }
-    console.log('go to bed')
-
   }
 
   checkPlayerSolve(playerSolveInput, game) {
@@ -189,6 +160,7 @@ class Round {
     if (playerSolve === gameAnswer) {
       DomUpdates.gameMessage("round winner")
       game.updatePlayerScore()
+      DomUpdates.clearGameBoard()
       this.createNewRound(game)
     } else {
       DomUpdates.gameMessage("next player")

@@ -9,39 +9,39 @@ export default {
     $('td.single-letter-vowel').removeClass('disable-selected-letters');
   },
   
-  createGameBoard(array) {  
+  createGameBoard() {  
     $('main').prepend(
       `<section id="letters-selected-area" class="letters-selected-area">
             <table class="letters-selected">
             <tr>
             </tr>
             <tr>
-                <td role="button" class="single-letter-vowel disable-selected-letters">${array[0]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[1]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[2]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[3]}</td>
-                <td role="button" class="single-letter-vowel disable-selected-letters">${array[4]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[5]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[6]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[7]}</td>
-                <td role="button" class="single-letter-vowel disable-selected-letters">${array[8]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[9]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[10]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[11]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[12]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[13]}</td>
-                <td role="button" class="single-letter-vowel disable-selected-letters">${array[14]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[15]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[16]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[17]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[18]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[19]}</td>
-                <td role="button" class="single-letter-vowel disable-selected-letters">${array[20]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[21]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[22]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[23]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[24]}</td>
-                <td role="button" class="single-letter disable-selected-letters">${array[25]}</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">A</td>
+                <td role="button" class="single-letter disable-selected-letters">B</td>
+                <td role="button" class="single-letter disable-selected-letters">C</td>
+                <td role="button" class="single-letter disable-selected-letters">D</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">E</td>
+                <td role="button" class="single-letter disable-selected-letters">F</td>
+                <td role="button" class="single-letter disable-selected-letters">G</td>
+                <td role="button" class="single-letter disable-selected-letters">H</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">I</td>
+                <td role="button" class="single-letter disable-selected-letters">J</td>
+                <td role="button" class="single-letter disable-selected-letters">K</td>
+                <td role="button" class="single-letter disable-selected-letters">L</td>
+                <td role="button" class="single-letter disable-selected-letters">M</td>
+                <td role="button" class="single-letter disable-selected-letters">N</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">O</td>
+                <td role="button" class="single-letter disable-selected-letters">P</td>
+                <td role="button" class="single-letter disable-selected-letters">Q</td>
+                <td role="button" class="single-letter disable-selected-letters">R</td>
+                <td role="button" class="single-letter disable-selected-letters">S</td>
+                <td role="button" class="single-letter disable-selected-letters">T</td>
+                <td role="button" class="single-letter-vowel disable-selected-letters">U</td>
+                <td role="button" class="single-letter disable-selected-letters">V</td>
+                <td role="button" class="single-letter disable-selected-letters">W</td>
+                <td role="button" class="single-letter disable-selected-letters">X</td>
+                <td role="button" class="single-letter disable-selected-letters">Y</td>
+                <td role="button" class="single-letter disable-selected-letters">Z</td>
             </tr>
         </table>
     </section>
@@ -308,10 +308,12 @@ export default {
         <div id="player-score" class="player-score">
             <h2>${player[0].name}</h2>
             <h2 class="bank-score player-1">${player[0].playerBank}</h2>
+            <h4>${player[0].score}</h4>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[1].name}</h2>
             <h2 class="bank-score player-2" >${player[1].playerBank}</h2>
+            <h4>
         </div>
         <div id="player-score" class="player-score">
             <h2>${player[2].name}</h2>
@@ -324,6 +326,7 @@ export default {
   fillGameBoard(clueAnswer) {
     const puzzleCells = $('.puzzle-cell').toArray();
     const cellMap = {};
+    
     puzzleCells.forEach((cell, index) => {
       const letter = clueAnswer[index];
       if (cellMap[letter]) {
@@ -341,7 +344,6 @@ export default {
         $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-not-displayed');
       }
     })
-    console.log(cellMap)
     return (cellMap);
   },
 
@@ -392,80 +394,15 @@ export default {
     })
   },
 
-  //   bankrupt() {
-  //     $('footer').prepend(`
-  //     <section class="bankrupt">
-  //       <h1 class="result"><i class="fas fa-exclamation">BANKRUPT</i></h1>
-  //     </section>
-  //   `).fadeOut(2000, function() {
-  //       $('.bankrupt').remove();
-  //       $('footer').removeAttr("style")
-  //     })
-  //   },
-
-  //   loseTurn() {
-  //     $('footer').prepend(`
-  //     <section class="lose-turn">
-  //       <h1 class="result"><i class="fas fa-exclamation">LOSE TURN</i></h1>
-  //       <p>Next Player Turn</p>
-  //       <p>That Sucks :(</p>
-  //     </section>
-  //   `).fadeOut(2000, function() {
-  //       $('.lose-turn').remove();
-  //       $('footer').removeAttr("style")
-  //     })
-  //   },
-
   clearGameBoard() {
-    $('.puzzle-cell').remove();
+    $('.letters-selected-area').remove();
+    $('.game-info').remove();
+    $('.puzzle-area').remove();
 
   },
   
   displayActivePlayer(activePlayer) {
     console.log("Active Player: ", activePlayer.name)
     $('.active-player-text').text(activePlayer.name);
-  },
-
-  correctGuess() {
-    $('footer').append(
-      `<div>
-              <h1 class="correct" >Correct Guess</h1>
-          </div>`
-    )
-  },
-
-  incorrectGuess() {
-    $('footer').append(
-      `<div>
-            <h1 class="incorrect" >Incorrect Guess</h1>
-        </div>`
-    )
-  },
-
-
-//   createWheel() {
-//       $('main').append(
-//     `<section id="theWheel">
-//     <div>
-//       <h3>${game.wheel[5]}</h3>
-//     </div>
-//     <div>
-//         <h3>${game.wheel[4]}</h3>
-//     </div>
-//     <div>
-//         <h3 class="wheelSelection">${game.wheel[3]}</h3>
-//     </div>
-//     <div>
-//         <h3>${game.wheel[2]}</h3>
-//     </div>
-//     <div>
-//         <h3>${game.wheel[1]}</h3>
-//     </div>
-//     <div>
-//         <h3>${game.wheel[0]}</h3>
-//     </div>
-//     <button class="wheelSpin">Spin Wheel</button>
-//   </section>`
-//       )
-//   }
+  }
 }
