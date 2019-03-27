@@ -5,6 +5,7 @@ This was a two week project at Turing School of Software & Design, and was made 
 
 ## Authors
 Duy Thanh
+
 Colby Allen
 
 ## Setup
