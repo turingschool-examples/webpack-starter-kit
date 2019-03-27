@@ -204,53 +204,6 @@ h6 {
   background-size: contain;
 }
 
-.rb-holder {
-  background-image: url("../images/sheild-and-sword.png");
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  grid-area: results;
-  height: 100%;
-  width: 100%;
-}
-.result-box {
-  background-color: white;
-  display: grid;
-  grid-template-columns: 1fr 30px;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: 
-    "result-one result-one-num"
-    "result-two result-two-num"
-    "result-three result-three-num";
-  margin: 160px auto;
-  width: 260px;
-  height: 40%;
-}
-
-.result-one {
-  grid-area: result-one;
-}
-
-.result-one-num {
-  grid-area: result-one-num;
-}
-
-.result-two {
-  grid-area: result-two;
-}
-
-.result-two-num {
-  grid-area: result-two-num;
-}
-
-.result-three {
-  grid-area: result-three;
-}
-
-.result-three-num {
-  grid-area: result-three-num;
-}
-
 .user-input {
   grid-area: input;
   margin: 0 auto;
