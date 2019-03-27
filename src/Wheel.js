@@ -7,13 +7,20 @@ class Wheel {
   constructor() {
     this.wheelValues = []
     this.selectedValue = 0
+
   }
 
   createWheel() {
+    console.log('myWheel', this.wheelValues.length)
+    if(this.wheelValues.length === 6){
+      this.wheelValues.splice(0,6)
+      console.log('myWheel', this.wheelValues.length)
+
+    }
     for (let i = 0; i < 6; i++) {
       this.wheelValues.push(Data.wheel[Math.floor(Math.random() * 21)])
     }
-    console.log(this.wheelValues)
+    console.log(this)
   }
   
   spinWheel(game) {
