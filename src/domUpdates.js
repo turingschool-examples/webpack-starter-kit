@@ -66,6 +66,8 @@ export default {
     this.updateNames(players[0].name, players[1].name);
     this.updateScores(players[0]);
     this.updateScores(players[1]);
+    $('#player-one-input').val('');
+    $('#player-two-input').val('');
   },
 
   updateNames(p1name, p2name) {
@@ -73,11 +75,12 @@ export default {
     $(".player-two-name").text(p2name);
   },
 
-  startRound(round, { question, responses }) {
+  startRound(round, { question, responses }, player) {
     $('#current-question').text(question);
     this.loadReaponses(responses);
     this.hideResponses();
     this.updateRoundText(round);
+    this.toggleInitialPlayer(round, player);
   },
 
   hideResponses() {
@@ -87,9 +90,9 @@ export default {
   updateScores({ name, score }) {
     let $scoreToUpdate;
     if ( name === $('.player-one-name').text()) {
-      $scoreToUpdate = $('.player-one-score');
+      $scoreToUpdate = $('.player-one-display-score');
     } else {
-      $scoreToUpdate = $('.player-two-score'); 
+      $scoreToUpdate = $('.player-two-display-score'); 
     }
     $scoreToUpdate.text(score)
   },
@@ -115,6 +118,29 @@ export default {
       value = 'Final Round';
     }
     $('.current-round-text').text(value);
+  },
+
+  toggleInitialPlayer(round, { name }) {
+    if (round === 1) {
+      $('.player-one-display-score').addClass('active');
+      $('.player-two-display-score').removeClass('active');
+    } else if (round === 2) {
+      $('.player-one-display-score').removeClass('active');
+      $('.player-two-display-score').addClass('active');
+    } else if (round === 3) {
+      if (name === $('.player-one-name').text()) {
+        $('.player-one-display-score').addClass('active');
+        $('.player-two-display-score').removeClass('active');
+      } else {
+        $('.player-one-display-score').removeClass('active');
+        $('.player-two-display-score').addClass('active');
+      }
+    }
+  },
+
+  switchPlayer() {
+    $('.player-one-display-score').toggleClass('active');
+    $('.player-two-display-score').toggleClass('active');
   }
 
 }

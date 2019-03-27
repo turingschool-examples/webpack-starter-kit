@@ -13,7 +13,7 @@
 <body>
   <div id="player-1" class="player-info">
     <h3 class="player-one-name player-name">Player 1</h3>
-    <p><span class="player-one-score player-score">0</span></p>
+    <p><span class="player-one-display-score player-score">0</span></p>
   </div>
   <div class="wrapper">
     <h1 class="current-round-text"></h1>
@@ -62,9 +62,8 @@
 
   <dialog class="start-game-modal modal">
     <div class="modal-display-area">
-      <h2 class="modal-header">Welcome</h2>
-      <p class="modal-text">There will be 3 rounds: 2 normal rounds, and one speed roud. Player 1 will start, and will
-        keep guessing until either an incorrect guess is entered, or the round ends. Enter your names and press <span
+      <h2 class="modal-header">Greetins</h2>
+      <p class="modal-text">Welcome to Family Feud! There will be 3 rounds: 2 normal rounds, and 1 speed roud. Player 1 will start, and will keep guessing until either an incorrect guess is entered, or the round ends. Enter your names and press <span
           class="modal-btn-name">Start Game</span> to play!</p>
       <form class="start-game-form">
         <div class="name-form-container">
@@ -77,7 +76,6 @@
         </div>
         <div>
           <button class="start-game-btn modal-btn" type="submit">Start Game</button>
-          <!-- <button class="start-game-btn modal-btn" type="submit" disabled>Start Game</button> -->
         </div>
       </form>
     </div>
@@ -92,11 +90,11 @@
       <section class="modal-result-container">
         <div class="modal-results">
           <h6 class="player-one-name-modal modal-results-name">player 1</h6>
-          <p span class="player-one-score modal-results-score">0</p>
+          <p span class="player-one-score-modal modal-results-score">0</p>
         </div>
         <div class="modal-results">
           <h6 class="player-two-name-modal modal-results-name">Player 2</h6>
-          <p class="player-two-score modal-results-score">0</p>
+          <p class="player-two-score-modal modal-results-score">0</p>
         </div>
       </section>
       <button class="next-round-btn modal-btn">Start Round</button>
@@ -114,11 +112,11 @@
       <section class="modal-result-container">
         <div class="modal-results">
           <h6 class="player-one-name-modal modal-results-name">player 1</h6>
-          <p span class="player-one-score modal-results-score">0</p>
+          <p span class="player-one-score-modal modal-results-score">0</p>
         </div>
         <div class="modal-results">
           <h6 class="player-two-name-modal modal-results-name">Player 2</h6>
-          <p class="player-two-score modal-results-score">0</p>
+          <p class="player-two-score-modal modal-results-score">0</p>
         </div>
       </section>
       <button class="lightning-round-btn modal-btn">Start Lightning Round</button>
@@ -133,11 +131,11 @@
       <section class="modal-result-container">
         <div class="modal-results">
           <h6 class="player-one-name-modal modal-results-name">player 1</h6>
-          <p span class="player-one-score modal-results-score">0</p>
+          <p span class="player-one-score-modal modal-results-score">0</p>
         </div>
         <div class="modal-results">
           <h6 class="player-two-name-modal modal-results-name">Player 2</h6>
-          <p class="player-two-score modal-results-score">0</p>
+          <p class="player-two-score-modal modal-results-score">0</p>
         </div>
       </section>
       <button class="continue-btn modal-btn">Continue Round</button>
@@ -145,14 +143,27 @@
   </dialog>
 
   <dialog class="end-game-modal modal">
-    <div class="modal-display-area">
-      <h3 class="current-player"><span>CURRENT PLAYER</span> your up!</h3>
-      <button class="continue-btn modal-btn">Continue</button>
-    </div>
-  </dialog>
+      <div class="modal-display-area">
+        <h3 class="modal-header">Game Over</h3>
+        <p class="modal-text">Thank you for playing! If you would like to start a new came, click <span class="modal-btn-name">New Game</span> to begin!</p>
+        <h5 class="modal-current-standings">Results</h5>
+        <section class="modal-result-container">
+            <div class="modal-results">
+              <h6 class="player-one-name-modal modal-results-name">Player 1</h6>
+              <p span class="player-one-score-modal modal-results-score">0</p>
+            </div>
+            <div class="modal-results">
+              <h6 class="player-two-name-modal modal-results-name">Player 2</h6>
+              <p class="player-two-score-modal modal-results-score">0</p>
+            </div>
+          </section>
+        <button class="end-game-btn modal-btn">New Game</button>
+      </div>
+    </dialog>
+    
   <div id="player-2" class="player-info">
     <h3 class="player-two-name player-name">Player 2</h3>
-    <p><span class="player-two-score player-score">0</span></p>
+    <p><span class="player-two-display-score player-score">0</span></p>
   </div>
 </body>
 

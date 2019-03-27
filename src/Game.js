@@ -21,7 +21,7 @@ class Game {
     this.round++;
     this.currentRound = new Round(this.surveys[this.round - 1]);
     this.currentPlayer = this.setRoundPlayer();
-    domUpdates.startRound(this.round, this.currentRound);
+    domUpdates.startRound(this.round, this.currentRound, this.currentPlayer);
   }
 
   startNextLightningRound() {
@@ -30,7 +30,7 @@ class Game {
     if (this.round === 3) {
       this.currentPlayer = this.setLightningRoundPlayer();
     }
-    domUpdates.startRound(this.round, this.currentRound);
+    domUpdates.startRound(this.round, this.currentRound, this.currentPlayer);
   }
 
   shuffle(array) {
@@ -48,6 +48,7 @@ class Game {
     } else {
       this.currentPlayer = this.players[0];
     }
+    domUpdates.switchPlayer();
   }
 
   setRoundPlayer() {
