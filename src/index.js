@@ -114,6 +114,10 @@ let conditionalChecking = (round, player, ltrGuess) => {
     DomUpdates.toggleButtons();
   } else if (compareAns(round, player) && vowels.includes(ltrGuess.toUpperCase())) {
     correctAnsFunc(round, player, ltrGuess)
+  } else if (!compareAns(round, player) && vowels.includes(ltrGuess.toUpperCase())) {
+    round.allRoundGuesses.push(player.ans);
+    round.allRoundGuesses.sort();
+    round.getCurrentPlayer(game);
   } else {
     // console.log(game.currentRound.allRoundGuesses)
     // console.log(game.currentRound.allRoundGuesses.includes(ltrGuess))

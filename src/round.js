@@ -28,6 +28,7 @@ class Round {
     game.players.map(player => player.roundCaps = 0);
     DomUpdates.updatePlayerScore(game);
     this.allRoundGuesses = [];
+    console.log(this.allRoundGuesses);
     this.determinePuzzleLength();
     this.displayDomPuzzle(game);
   }
