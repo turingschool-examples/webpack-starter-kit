@@ -105,6 +105,7 @@ class Round {
     if (guess.toUpperCase() === solution) {
       // alert('Nailed it!');
       domUpdates.displaySolvedPuzzle();
+      domUpdates.solvePuzzleMessage(this.players[this.activePlayer]);
     }
   }
 
