@@ -17,10 +17,9 @@ class Round {
     const clueToShow = this.clues.find(clue => {
       return id == clue.categoryId && pointValue == clue.pointValue;
     });
-    console.log(id, pointValue);
     domUpdates.showClue(game, clueToShow, event)
   }  
-  
+
 }
 
 export default Round;

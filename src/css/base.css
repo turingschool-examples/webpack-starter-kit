@@ -170,7 +170,9 @@ footer {
 }
 
 .question,
-.result {
+.result,
+.daily-double,
+.daily-double-prompt {
   text-align: center;
   color: white;
   margin-bottom: 20px;
@@ -183,7 +185,8 @@ input {
  margin: 10px 0 10px 125px;
 }
 
-.submit-btn {
+.submit-btn,
+.daily-double-btn {
   height: 10%;
   width: 35%;
   cursor: pointer;
@@ -200,7 +203,12 @@ input {
   background-color: #A6D2F3;
 }
 
-#question-input {
+.daily-double-btn:hover {
+  background-color: #A6D2F3;
+}
+
+#question-input,
+.daily-double-input {
   height: 10%;
   width: 35%;
   margin-top: 25px;

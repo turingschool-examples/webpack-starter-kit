@@ -106,7 +106,7 @@ export default {
      $('.result-prompt').show(500);
      $('.result').text('Correct Answer!');
      currentPlayer.increaseScore(answerMatch, game);
-     $(`#player-${game.playerTurn}-points`).text(currentPlayer.score);
+     $(`.player-${game.playerTurn}-points`).text(currentPlayer.score);
      $('.result-prompt').hide(100);
 
   },
