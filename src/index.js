@@ -62,7 +62,6 @@ $("#submit-guess-btn").on("click", function() {
   if ($(".guess-input").val() !== '') {
     const playerGuess = $(".guess-input").val().toLowerCase();
     $(".guess-input").val('');
-
     game.round.checkAnswer(playerGuess); 
   } else {
     domUpdates.showMustEnterGuessMsg();
@@ -80,11 +79,17 @@ $("#play-again-btn").on("click", function() {
 });
 
 $(".guess-input").on("keyup", function() {
-    $('#submit-guess-btn').prop('disabled', $(".guess-input").val().length < 3);
+    $("#submit-guess-btn").prop('disabled', $(".guess-input").val().length < 3);
 });
 
 $("#fastround-start-btn").on("click", function() {
-    game.round.startTimedRound();
     $(".fastround-ready-screen").addClass("hidden");
-    $(".timer-area").removeClass("hidden");
+    if (game.activePlayer === game.player1) {
+      $(".timer-area-1").removeClass("hidden");
+      $(".timer-area-2").addClass("hidden");
+    } else {
+      $(".timer-area-2").removeClass("hidden");
+      $(".timer-area-1").addClass("hidden");
+    }
+    game.round.startTimedRound();
 });
