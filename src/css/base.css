@@ -18,11 +18,18 @@ header {
   display: flex;
   justify-content: center;
   height: 150px;
+  align-items: center;
+}
+
+.round-counter {
+  color: red;
+  font-weight: bold;
 }
 
 h1 {
   color: black;
-  margin-top: 25px;
+  margin: 25px 250px 0 275px;
+ 
 }
 
 h2 {

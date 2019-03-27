@@ -4,6 +4,7 @@ import data from './data-set.js';
 import './images/turing-logo.png'
 import Game from './Game.js';
 import domUpdates from './domUpdates.js';
+import Round from './Round.js';
 
 const startGameBtn = $('#start-game-btn');
 const submitBtn = $('.submit-btn');
@@ -12,8 +13,10 @@ const clueBtn = $('.col');
 const dailyDoubleBtn = $('.daily-double-btn')
 
 let game;
+$('.game-board').hide();
 
 startGameBtn.click(function (e) {
+  $('.game-board').show();
   e.preventDefault();
   const names = [$('#player-one-input').val(), 
     $('#player-two-input').val(), 
@@ -27,7 +30,12 @@ startGameBtn.click(function (e) {
 clueBtn.on('click', function(e) {
   e.preventDefault();
   const {id, innerText} = event.target;
-  game.round.findClue(game, id, innerText, event)
+  game.round.findClue(game, id, innerText, event);
+  if($('#round').text() === '2') {
+    console.log('test')
+   game.round.findNextRoundClues(game, id, innerText, event);
+  }
+
 })
 
 submitBtn.click(function (e) {
@@ -48,3 +56,6 @@ resetBtn.click(function (e) {
   e.preventDefault();
   location.reload();
 })
+
+
+

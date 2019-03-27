@@ -27,6 +27,10 @@ export default {
     });
   },
 
+  displayRound(currentRound) {
+    $('#round').text(currentRound);
+  },
+
   notifyPlayerOneTurn(game) {
     if (game.playerTurn === 0) {
       $('#player-one-name').attr('style', 'color:red;');
@@ -67,8 +71,11 @@ export default {
   },
 
   answerQuestion(game) {
+
     let currentPlayer = game.players[game.playerTurn];
     if (game.round.cluesRemaining === 0) {
+      game.roundCounter++;
+      this.displayRound(game.roundCounter);
       this.newCategoryValues();
       game.createRound();
     }
@@ -83,6 +90,7 @@ export default {
     } else {
       this.wrongAnswer(currentPlayer, answerMatch, game);
     }
+    $('#question-input').val('');
   },
 
   newCategoryValues() {
@@ -130,6 +138,32 @@ export default {
       $('#player-one-name').removeAttr('style', 'color:red;');
       $('#player-two-name').removeAttr('style', 'color:red;');
     }
-  }
+  },
+
+  newCluePoints(game, id, innerText, event) {
+    let round2Clues = data.clues.map(clue => {
+     return {
+             question: clue.question,
+             pointValue: clue.pointValue * 2,
+             answer: clue.answer,
+             categoryId: clue.categoryId
+           }
+    });
+    game.round.displayNextRoundClues(game, id, innerText,round2Clues, event);
+  },
+
+  showNewClue(game, newClue, event) {
+    console.log(newClue)
+    game.round.cluesRemaining--;
+    // if (game.round.cluesRemaining === game.round.dailyDoubleClue) {
+    //   this.dailyDouble(game, clue);
+    // } else {
+      $('.question-prompt').show();
+      $('.result-prompt').hide();
+      $('.question').text(newClue.question);
+      $(event.target).text('');
+      $('.game-board').hide();
+    // }
+  },
 
 }

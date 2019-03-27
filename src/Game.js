@@ -11,6 +11,7 @@ class Game {
     // this.categories = [];
     this.categoryData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; //[Object.values(data.categories)]
     this.playerTurn = 0;
+    this.roundCounter = 1;
   }
 
   createPlayers(names) {
@@ -26,6 +27,7 @@ class Game {
     this.clues = this.shuffle(data.clues);
     this.categoryData = this.shuffle(this.categoryData);
     this.createRound();
+    domUpdates.displayRound(this.roundCounter);
   }
  
   createRound() {

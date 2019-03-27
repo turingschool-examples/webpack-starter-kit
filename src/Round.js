@@ -20,6 +20,17 @@ class Round {
     domUpdates.showClue(game, clueToShow, event)
   }
 
+  findNextRoundClues(game, id, innerText, event) {
+    domUpdates.newCluePoints(game, id, innerText,event);
+  }
+
+  displayNextRoundClues(game, id, pointValue, newClues, event) {
+    const newClueToShow = newClues.find(clue => {
+      return id == clue.categoryId && pointValue == clue.pointValue;
+    });
+    domUpdates.showNewClue(game, newClueToShow, event)
+  }
+
   
 
 }
