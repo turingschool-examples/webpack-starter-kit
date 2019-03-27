@@ -26,27 +26,28 @@ $('.startGame').on('click', function (e) {
 
 $('.letters').on('click', function(e) {
     game.fillUseLetters(e);
-    $('body').find(e.target).attr('disabled', '').css("background-color", "#00e000");
+    $('body').find(e.target).prop('disabled', true).css("background-color", "#00e000");
     domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters, game.wheel.currentSpinValue, game, game.currentPlayer);
     game.checkGuess(e);
-    // game.currentPlayer.calculateBank(gamewheel.currentSpinValue, game, game.currentPlayer.name)
 });
 
 $('.vowel').on('click', function (e) {
-    game.fillVowels(e);
-    $('body').find(e.target).attr('disabled', '').css("background-color", "#00e000");
-    domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters, game.wheel.currentSpinValue, game, game.currentPlayer);
-    game.checkGuess(e);
-    // game.currentPlayer.calculateBank(game.wheel.currentSpinValue, game, game.currentPlayer.name)
+    if(game.currentPlayer.score > 99) {
+        game.fillVowels(e);
+        $('body').find(e.target).prop('disabled', true)
+        $('body').find(e.target).css("background-color", "#00e000");
+        domUpdates.checkLetterGuess(game.round.allCorrectAnswers[game.stage], game.usedLetters, game.wheel.currentSpinValue, game, game.currentPlayer);
+        game.checkGuess(e);
+    } else {
+        $('.instructions').text('Not enough moneys/cheddar...Choose a letter')
+    }
 });
 
 $('.spinButton').on('click', function (e) {
     e.preventDefault();
     game.wheel.spinWheel(game.stage);
-    $('.spinButton').prop('disabled', true);
-    game.currentPlayer.calculateBank(game.wheel.currentSpinValue, game, game.currentPlayer.name);
+    game.currentPlayer.calculateBank(game.wheel.currentSpinValue, game, game.currentPlayer)
     $('.spunValue').text(game.wheel.currentSpinValue)
-    $('.instructions').text('Choose a letter!')
     spin += 1000
     $('.boardWheel').css('transform', `rotate(${spin}deg)`)
     console.log(game)
@@ -54,26 +55,12 @@ $('.spinButton').on('click', function (e) {
     console.log('is this a number? ' + typeof game.wheel.currentSpinValue)
 });
 
-// $('.tester').on('click', function (e) {
-//     e.preventDefault();
-//     game.incrementStage();
-//     domUpdates.resetLetters();
-//     domUpdates.highlightBoard(game.round.allCorrectAnswers[game.stage]);
-//     if(game.stage <= 3) {
-//         $('.roundNumber').text(game.stage + 1);
-//     } else {
-//         $('.roundNumber').text('Bonus!!');
-//     }
-//     $('.spinButton').prop('disabled', false);
-// });
-
 $('.reset').on('click', function (e) {
     e.preventDefault();
     game.resetGame();
     domUpdates.clearAnswerBoard();
     domUpdates.resetLetters();
     domUpdates.resetInputs();
-    console.log(game);
 });
 
 $('body').on('click', '.guessSubmit', function (e) {
@@ -92,6 +79,7 @@ $('body').on('click', '.guessSubmit', function (e) {
         }
     }
     console.log(game)
+    $('.instructions').text('Spin the wheel!')
     $('.spinButton').prop('disabled', false)
     $('.guessCard').remove()
 });

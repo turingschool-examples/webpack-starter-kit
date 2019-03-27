@@ -19,7 +19,7 @@ h1 {
 
 .boardWheel {
   transition: 3s;
-  margin-left: 120px;
+  margin-left: 215px;
 }
 
 form {
@@ -166,7 +166,7 @@ input.nameInput{
 }
 
 button.startGame, .tester, .reset, .guessPuzzle {
-  margin: 10px;
+  margin: 0px 0px 10px 10px;
   height: 40px;
   width: 150px;
   border-radius: 30px;
