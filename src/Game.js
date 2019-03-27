@@ -12,8 +12,9 @@ class Game {
     this.cycleTurn = true;
     this.currentAnswers = [];
     this.currentRound = 1;
-    // this.player1 = player1 || 'not yet set';
-    // this.player2 = player2 || 'not yet set';
+    this.multipleAmount = 0;
+    this.player1 = player1 || "not yet set";
+    this.player2 = player2 || "not yet set";
   }
 
   startGame() {
@@ -34,18 +35,35 @@ class Game {
   }
 
   startNextRoundTimed() {
-    console.log("startNextRoundTimed invoked");
-    this.currentRound++;
-    this.beginRound();
-    // if (this.currentPlayerTurn === "player1") {
-    //   $(".current-turn").html(`${player1.name}'s turn!`);
-    // } else if (this.currentPlayerTurn === "player2") {
-    //   $(".current-turn").html(`${player2.name}'s  damn turn!`);
-    // }
+    if (this.currentRound < 4) {
+      this.currentRound++;
+      this.beginRound();
+      this.multiplyValues();
+      this.timer(10);
+      if (this.currentPlayerTurn === "player1") {
+        $(".current-turn").html(`${this.player2.name}'s turn!`);
+      } else if (this.currentPlayerTurn === "player2") {
+        $(".current-turn").html(`${this.player1.name}'s turn!`);
+      }
+    } else if (this.currentRound === 4) {
+      if (this.player1.score > this.player2.score) {
+        $(".display-winner").html(`${this.player1.name}`);
+        $(".display-loser").html(`${this.player2.name}`);
+        $(".main-content").toggle("hidden");
+        $(".post-game").toggle("hidden");
+      } else {
+        $(".display-winner").html(`${this.player2.name}`);
+        $(".display-loser").html(`${this.player1.name}`);
+        $(".main-content").toggle("hidden");
+        $(".post-game").toggle("hidden");
+      }
+      console.log("game over");
+    }
   }
 
   beginRound() {
     round.generateRound();
+    console.log(this.player1);
     this.currentAnswers = round.currentAnswers;
     console.log("currentRound: ", this.currentRound);
   }
@@ -75,8 +93,12 @@ class Game {
   }
 
   multiplyValues(multiple) {
+    if (multiple !== undefined) {
+      this.multipleAmount = multiple;
+    }
+    let amount = multiple || this.multipleAmount;
     this.currentAnswers.forEach(answer => {
-      answer.respondents = answer.respondents * multiple;
+      answer.respondents = answer.respondents * amount;
     });
     domObject.createAnswers(this.currentAnswers);
   }

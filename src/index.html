@@ -23,7 +23,6 @@
   	</header>
 
   	<main class="main-content">
-
 			<section class="round3 hidden">
 				<h2>ROUND 3</h2>
 			</section>
@@ -98,8 +97,19 @@
 		</main>
 		
 		<footer>
-				<form class="restart-game">
-	    		<button>Play Again?</button>
+				<form class="post-game hidden">
+					<div>
+						<h1>Winner:</h1>
+						<p class="display-winner"></p>					
+					</div>
+					<div>
+						<h1>loser:</h1>
+						<p class="display-loser"></p>					
+					</div>
+					<button>Play Again?</button>
+				</form>
+				<form class="restart-game hidden">
+	    		<button>Restart Game</button>
 	    	</form>
 		</footer>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
