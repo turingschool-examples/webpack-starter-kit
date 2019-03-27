@@ -14,6 +14,7 @@ describe('Game', () => {
 
   beforeEach(function() {
     chai.spy.on(domUpdates, 'displayCurrentQuestion', () => true);
+    chai.spy.on(domUpdates, 'startGame', () => true);
   });
 
   afterEach(function() {
@@ -40,20 +41,21 @@ describe('Game', () => {
   }); 
 
   //fails
-  it('should start on player 1', () => {
+  it('should start on player 1 when starting first round', () => {
     const player1 = new Player('Brennan');
     const player2 = new Player('Jarrett');
-    const game = new Game(player1, player2);
+    const game = new Game(player1, player2, [1]);
+    console.log(game.surveys);
     game.startNextRound();
     assert.equal(game.currentPlayer, player1);
   });
 
   //fails
-  it('should start with an empty array of surveys', () => {
+  it('should accept an argument of an array', () => {
     const player1 = new Player('Brennan');
     const player2 = new Player('Jarrett');
-    const game = new Game(player1, player2);
-    assert.deepEqual(game.surveys, []);
+    const game = new Game(player1, player2, [1, 2, 3]);
+    assert.deepEqual(game.surveys, [1, 2, 3]);
   });
 
   //fails
