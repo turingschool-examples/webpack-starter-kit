@@ -75,6 +75,7 @@ class Round {
     if (game.currentRound.roundNumber !== 5) {
       this.roundNumber--;
       this.newRound(game)
+      console.log(game.currentRound.currWheel)
     }
   }
   getCurrentPlayer(game) {
