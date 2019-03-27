@@ -162,5 +162,4 @@ export default {
   blurGuessInput() {
     $(".guess-input").trigger("blur");
   }
-    
 }

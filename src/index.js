@@ -88,14 +88,14 @@ $(".guess-input").on("keyup", function() {
 });
 
 $("#fastround-start-btn").on("click", function() {
-    $(".fastround-ready-screen").addClass("hidden");
-    domUpdates.enableTabbing();
-    if (game.activePlayer === game.player1) {
-      $(".timer-area-1").removeClass("hidden");
-      $(".timer-area-2").addClass("hidden");
-    } else {
-      $(".timer-area-2").removeClass("hidden");
-      $(".timer-area-1").addClass("hidden");
-    }
-    game.round.startTimedRound();
+  $(".fastround-ready-screen").addClass("hidden");
+  domUpdates.enableTabbing();
+  if (game.activePlayer === game.player1) {
+    $(".timer-area-1").removeClass("hidden");
+    $(".timer-area-2").addClass("hidden");
+  } else {
+    $(".timer-area-2").removeClass("hidden");
+    $(".timer-area-1").addClass("hidden");
+  }
+  game.round.startTimedRound();
 });
