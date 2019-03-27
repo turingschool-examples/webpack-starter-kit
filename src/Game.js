@@ -1,7 +1,7 @@
 import Wheel from "./Wheel.js";
 import Round from "./Round.js";
 import Player from "./Player.js";
-import Puzzle from "./Puzzle.js";
+import BonusWheel from "./BonusWheel.js"
 import data from "./data.js";
 import domUpdates from "./domUpdates.js";
 
@@ -38,7 +38,6 @@ class Game {
     this.round = round;
     round.currentWheel = wheel;
     // this.rounds.push(round);
-    console.log(this.round)
     let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
     currentPuzzle.checkPuzLength();
     domUpdates.appendPuzzle(currentPuzzle.splitAnswer, currentPuzzle.secondLine);

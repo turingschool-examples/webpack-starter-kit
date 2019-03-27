@@ -1,10 +1,6 @@
-// import Player from './Player.js';
-// import p5 from 'p5';
-// import sketch from './sketch';
-// import data from "./data.js";
+
 import $ from 'jquery';
 import Game from './Game.js';
-import Round from './Round.js';
 import domUpdates from './domUpdates.js';
 import './css/normalize.css';
 import './css/styles.css';
@@ -28,7 +24,7 @@ $('.continue-button').on('click', (e) =>{
   game.startGame();
 })
 
-$('#reset-button').on('click', (e) =>{
+$('#reset-button').on('click', () =>{
   domUpdates.resetGame();
 })
 

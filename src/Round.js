@@ -1,8 +1,6 @@
-import Wheel from "./Wheel.js";
-import Game from "./Game.js";
-import Player from "./Player.js";
 import Puzzle from "./Puzzle.js";
 import domUpdates from "./domUpdates.js";
+import Game from "./Game.js"
 
 class Round {
   constructor(players, wheel) {
@@ -54,9 +52,9 @@ class Round {
   }
 
   guessLetter(event) {
-    domUpdates.displayCorrectLetter(puzzle.splitAnswer, event.currentTarget.innerText);
-    if (puzzle.splitAnswer.includes(event.currentTarget.innerText)) {
-      puzzle.splitAnswer.forEach(letter => {
+    domUpdates.displayCorrectLetter(game.round.puzzle.splitAnswer, event.currentTarget.innerText);
+    if (game.round.puzzle.splitAnswer.includes(event.currentTarget.innerText)) {
+      game.round.puzzle.splitAnswer.forEach(letter => {
         if (letter === event.currentTarget.innerText) {
           this.players[this.activePlayer].roundScore += this.wheel.currentSpin;
         }
@@ -70,5 +68,9 @@ class Round {
   }
 
 }
+
+
+
+
 
 export default Round;

@@ -1,10 +1,3 @@
-// import Wheel from "./Wheel.js";
-import Game from "./Game.js";
-import Round from "./Round.js";
-import Player from "./Player.js";
-import data from "./data.js";
-// import domUpdates from "./domUpdates.js";
-
 class Puzzle {
   constructor(currentPuzzle) {
     this.category = null || currentPuzzle.category;
@@ -36,7 +29,6 @@ class Puzzle {
     }
     this.splitAnswer = firstLine.toUpperCase().split('');
     this.secondLine = secondLine.toUpperCase().split('');
-    // console.log('1st', this.splitAnswer, '2nd', this.secondLine);
   }
 
 }

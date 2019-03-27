@@ -1,6 +1,3 @@
-import Wheel from "./Wheel.js"
-import Puzzle from "./Puzzle.js";
-import Round from "./Round.js";
 
 import $ from 'jquery';
 
@@ -88,15 +85,12 @@ export default {
       'transform': 'rotate(' + totalDegree + 'deg)'
     });
     $('.spin-winner').html(`${wheel.currentSpin}`);
-    console.log(game.round)
     if (wheel.currentSpin === "BANKRUPT") {
-      console.log("Testing-B")
       // round.players[round.activePlayer].roundScore = 0;
       // this.displayScore(round.activePlayer, 0)
       // round.changeActivePlayers();
 
     } else if (wheel.currentSpin === "LOSE A TURN") {
-      console.log("Testing-L")
       // round.changeActivePlayers();
     }
   },
@@ -110,7 +104,7 @@ export default {
   },
 
   displayCorrectLetter(puzzle, guess) {
-    puzzle.forEach((letter, index) => {
+    puzzle.forEach((letter) => {
       if (letter === guess) {
         $(`puz-grid secret ${letter}`).removeClass('secret')
       } 
