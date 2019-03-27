@@ -114,12 +114,12 @@ export default {
       
       $(".timer-2").html(--seconds);
 
-      if (seconds <= 0 && window.game.currentRound === 3) {
+      if (seconds <= 0 && game.currentRound === 3) {
         clearInterval(interval);
         $(".timer-area-2").addClass("hidden");
         $(".fastround-ready-screen").removeClass("hidden");
         window.game.triggerNewRound();
-      } else if (seconds <= 0 && window.game.currentRound === 4) {
+      } else if (seconds <= 0 && game.currentRound === 4) {
         clearInterval(interval);
         $(".timer-area-2").addClass("hidden");
       }

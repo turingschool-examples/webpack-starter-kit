@@ -2,9 +2,10 @@ import domUpdates from "./domUpdates";
 import Game from "./Game.js"
 
 class Round {
-  constructor(survey, surveyAnswers) {
+  constructor(survey, surveyAnswers, game) {
     this.survey = survey;
-    this.surveyAnswers = surveyAnswers; 
+    this.surveyAnswers = surveyAnswers;
+    this.game = game; 
   }
 
   checkAnswer(guess) {
@@ -22,13 +23,13 @@ class Round {
 
   processWin(match) {
     domUpdates.displayCorrectGuess(match.answer); 
-    window.game.activePlayer.increaseScore(match.respondents);
+    this.game.activePlayer.increaseScore(match.respondents);
     this.surveyAnswers.splice(this.surveyAnswers.indexOf(match), 1);
   }
 
   getRoundNextStep() {
-    if (window.game.currentRound < 3) {
-      window.game.toggleActivePlayer();
+    if (this.game.currentRound < 3) {
+      this.game.toggleActivePlayer();
     }
   }
 
@@ -36,16 +37,17 @@ class Round {
     if (this.surveyAnswers.length === 0) { 
       domUpdates.endOfRoundMsg();
       setTimeout(() => {
-        window.game.triggerNewRound();
+        this.game.triggerNewRound();
       }, 1000);
     } 
   }
 
-  endRound(game) {
+  //are we using this?
+  endRound() {
     domUpdates.endOfRoundMsg();
     domUpdates.clearAnswerBoard();
-    game.toggleActivePlayer();
-    game.triggerNewRound();
+    this.game.toggleActivePlayer();
+    this.game.triggerNewRound();
   }
 }
 

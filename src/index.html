@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 <body>
-  <section class="welcome-screen">
+  <section class="welcome-screen" aria-live="polite">
     <form class="name-form">
       <h2>Family Feud</h2>
       <div class="player-fields">
@@ -25,13 +25,13 @@
       <button id="submit-names-btn" type="button">Start Game</button>
     </form>
   </section>
-  <section class="winner-screen hidden">
+  <section class="winner-screen hidden" aria-live="polite">
     <article class="winner-popup">
       <h3>THE WINNER IS<span class="winner-name"></span></h3>
       <button id="play-again-btn">Play Again?</button>
     </article>
   </section>
-  <div class="fastround-ready-screen hidden">
+  <div class="fastround-ready-screen hidden" aria-live="polite">
     <div class="fastround-dialog">
     <h3>Fast Money Round!</h3>
     <div class="fastround-instructions">
@@ -57,9 +57,9 @@
       <p class="survey-display">How many licks to the center of a Tootsie Pop?</p>
     </section>
     <section class="score-area">
-      <article class="player-area player-1-side">
+      <article class="player-area player-1-side" aria-live="polite">
         <p class="player-1-name">PLAYER 1</p>
-        <p class="player-score player-1-score" aria-live="polite">0</p>
+        <p class="player-score player-1-score">0</p>
       </article>
       <article class="answer-area" aria-live="polite">
         <div class="answer-card answer-1-card" class="answer-div">
@@ -81,9 +81,9 @@
           </div>
         </div>
       </article>
-      <article class="player-area player-2-side">
+      <article class="player-area player-2-side" aria-live="polite">
         <p class="player-2-name">PLAYER 2</p>
-        <p class="player-score player-2-score" aria-live="polite">0</p>
+        <p class="player-score player-2-score">0</p>
       </article>
     </section>
     <section class="guess-area">
