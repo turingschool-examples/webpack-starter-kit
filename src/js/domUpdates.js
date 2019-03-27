@@ -145,15 +145,26 @@ export default {
   },
 
   correctAns() {
+    $('.word-box').hide();
     $('.feedback').text('Finally!');
+    $('.feedback').append(`<img class="gif" src="https://media.giphy.com/media/liBsVeLILcyaY/giphy.gif">`)
+    setTimeout(() => this.hideGifs(), 2500)
   },
 
   wrongAns() {
+    $('.word-box').hide();
     $('.feedback').text('Morty! No!');
+    $('.feedback').append(`<img class="gif" src="https://media.giphy.com/media/3oEdv8roQZywBIT7mE/giphy.gif" >`)
+    setTimeout(() => this.hideGifs(), 2500)
   },
 
   showAnser() {
     $('.hidden').removeClass('hidden');
+  },
+
+  hideGifs() {
+    $('.word-box').show()
+    $('.feedback').hide()
   },
 
   updateActivePlayer(i) {
