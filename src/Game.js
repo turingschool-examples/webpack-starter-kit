@@ -30,7 +30,6 @@ class Game {
       this.beginRound();
     } else if (this.currentRound >= 4) {
       this.beginRound();
-      console.log("firing");
     }
   }
 
@@ -63,7 +62,6 @@ class Game {
 
   beginRound() {
     round.generateRound();
-    console.log(this.player1);
     this.currentAnswers = round.currentAnswers;
     console.log("currentRound: ", this.currentRound);
   }
@@ -102,8 +100,6 @@ class Game {
     });
     domObject.createAnswers(this.currentAnswers);
   }
-
-  restartGame() {}
 
   whoseTurn() {
     this.cycleTurn

@@ -79,5 +79,11 @@ $(".multiplier-form").on("click", ".multiplier-radio", event => {
 });
 
 $(".player-cards").on("click", () => {
-  $(".restart-game").removeClass("hidden");
+  $(".restart-game-btn").removeClass("hidden");
 });
+
+// $(".play-again-btn").on("click", () => {
+//   console.log("guess this is all i needed");
+//   // $(".main-content").toggle("hidden");
+//   // $(".post-game").toggle("hidden");
+// });
