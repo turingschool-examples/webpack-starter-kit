@@ -21,35 +21,34 @@
     </header>
     <section class="letters">
       <article class="consonants">
-        <div class="const-letter">B</div>
-        <div class="const-letter">C</div>
-        <div class="const-letter">D</div>
-        <div class="const-letter">F</div>
-        <div class="const-letter">G</div>
-        <div class="const-letter">H</div>
-        <div class="const-letter">J</div>
-        <div class="const-letter">K</div>
-        <div class="const-letter">L</div>
-        <div class="const-letter">M</div>
-        <div class="const-letter">N</div>
-        <div class="const-letter">P</div>
-        <div class="const-letter">Q</div>
-        <div class="const-letter">R</div>
-        <div class="const-letter">S</div>
-        <div class="const-letter">T</div>
-        <div class="const-letter">V</div>
-        <div class="const-letter">W</div>
-        <div class="const-letter">X</div>
-        <div class="const-letter">Z</div>
-        
+        <div class="consonant letter">B</div>
+        <div class="consonant letter">C</div>
+        <div class="consonant letter">D</div>
+        <div class="consonant letter">F</div>
+        <div class="consonant letter">G</div>
+        <div class="consonant letter">H</div>
+        <div class="consonant letter">J</div>
+        <div class="consonant letter">K</div>
+        <div class="consonant letter">L</div>
+        <div class="consonant letter">M</div>
+        <div class="consonant letter">N</div>
+        <div class="consonant letter">P</div>
+        <div class="consonant letter">Q</div>
+        <div class="consonant letter">R</div>
+        <div class="consonant letter">S</div>
+        <div class="consonant letter">T</div>
+        <div class="consonant letter">V</div>
+        <div class="consonant letter">W</div>
+        <div class="consonant letter">X</div>
+        <div class="consonant letter">Z</div> 
       </article>
       <article class="vowels cost">
-        <div>A</div>
-        <div>E</div>
-        <div>I</div>
-        <div>O</div>
-        <div>U</div>
-        <div>Y</div>
+        <div class="vowel letter">A</div>
+        <div class="vowel letter">E</div>
+        <div class="vowel letter">I</div>
+        <div class="vowel letter">O</div>
+        <div class="vowel letter">U</div>
+        <div class="vowel letter">Y</div>
       </article>
     </section>
     <section class="game-board">
@@ -110,22 +109,22 @@
         </div>
       </article>
       <article id="player1-area" class="player-square 1 active">
-        <h4 class="player-score" id="player-1-round">Score: 0 </h4>
+        <h5 class="player-score" id="player-1-round">Score:0</h5>
         <img class="player-holder" src="/images/player1.svg">
-        <h4 id="player1" class="player-name reset">PLAYER 1 NAME</h4>
-        <h4 class="player-score" id="player-1-total">Total Score: 0 </h4>
+        <h5 id="player1" class="player-name reset">PLAYER 1 NAME</h5>
+        <h5 class="player-score" id="player-1-total">Total Score:0</h5>
       </article>
       <article id="player2-area" class="player-square 2">
-        <h4 class="player-score" id="player-2-round">Score: 0 </h4>
+        <h5 class="player-score" id="player-2-round">Score:0</h5>
         <img class="player-holder" src="/images/player2.svg">
-        <h4 id="player2" class="player-name">PLAYER 2 NAME</h4>
-        <h4 class="player-score" id="player-2total">Total Score: 0 </h4>
+        <h5 id="player2" class="player-name">PLAYER 2 NAME</h5>
+        <h5 class="player-score" id="player-2total">Total Score:0</h5>
       </article>
       <article id="player3-area" class="player-square 3">
-        <h4 class="player-score" id="player-3-round">Score: 0 </h4>
+        <h5 class="player-score" id="player-3-round">Score:0</h5>
         <img class="player-holder" src="/images/player3.svg">
-        <h4 id="player3" class="player-name">PLAYER 3 NAME</h4>
-        <h4 class="player-score" id="player-3-total">Total Score: 0 </h4>
+        <h5 id="player3" class="player-name">PLAYER 3 NAME</h5>
+        <h5 class="player-score" id="player-3-total">Total Score:0</h5>
       </article>
       </article>
     </section>
@@ -161,29 +160,25 @@
 <!-- close hidden game area -->
     </section> 
     <section class="name-entry">
-      <section class="player-intro">
+      <article class="player-intro">
         <img class="player-icon" src="/images/player1.svg">
-        <br>
-        <label>Player 1</label>
-        <br>
-      <input id="player1-input" type="text" name="player1" placeholder="Gorgnak">
-      </section>
-      <section class="player-intro">
+        <label for="player1-input">Player 1</label>
+        <input id="player1-input" type="text" name="player1" placeholder="Gorgnak">
+      </article>
+      <article class="player-intro">
         <img class="player-icon" src="/images/player2.svg">
-        <br>
-        <label>Player 2</label>
-        <br>
-      <input id="player2-input" type="text" name="player2" placeholder="Flumbib">
-      </section>
-      <section class="player-intro">
+        <label for="player2-input">Player 2</label>
+        <input id="player2-input" type="text" name="player2" placeholder="Flumbib">
+      </article>
+      <article class="player-intro">
         <img class="player-icon" src="/images/player3.svg">
-        <br>
-        <label>Player 3</label>
-        <br>
-      <input id="player3-input" type="text" name="player3" placeholder="Xerox">
-      </section>
-      <button class="continue-button">Continue</button>
-    </section>
+        <label for="player3-input">Player 3</label>
+        <input id="player3-input" type="text" name="player3" placeholder="Xerox">
+      </article>
+      <div class="btn-container">  
+        <button class="continue-button">Continue</button>
+      </div>
+    </article>
 
   </body>
 </html>

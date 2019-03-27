@@ -16,7 +16,6 @@ class Game {
 
   startGame() {
     let wheel = new Wheel();
-    wheel.makeWheelVals(data.wheel)
     this.createPlayers(domUpdates.playerNames());
     this.getRandomData();
     this.createRound(wheel)
@@ -45,8 +44,8 @@ class Game {
   }
 
   createPlayers(array) {
-    this.players = array.map(person => {
-      return person = new Player(person);
+    this.players = array.map((person, ind) => {
+      return person = new Player(person, (ind + 1));
     });
     domUpdates.hiddenBoard(this.players);
   }

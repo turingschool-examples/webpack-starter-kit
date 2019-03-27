@@ -32,7 +32,7 @@ $('#wheel').on('click', () => {
   domUpdates.spinWheel(game);
 })
 
-$('.const-letter').on('click', (e) =>{
-  game.round.guessLetter(e);
+$('.consonant ').on('click', (e) =>{
+  game.round.guessLetter(e, game);
 })
 
