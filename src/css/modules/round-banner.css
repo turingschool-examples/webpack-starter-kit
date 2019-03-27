@@ -17,10 +17,6 @@
   top: 80px;
 }
 
-.logo-holder {
-  grid-area: logo;
-}
-
 .feud-logo {
   display: block;
   height: 60px;

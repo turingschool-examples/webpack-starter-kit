@@ -1,27 +1,19 @@
 body {
-  font-family: 'Source Sans Pro', sans-serif;
   background-color: burlywood;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 button {
   background-color: #B02418;
   border: none;
-  padding: 10px;
   color: white;
+  padding: 10px;
 }
 
 h4,
 h6 {
   color: white;
-  text-align: center;
-  margin: 25px auto;
   font-size: 30px;
-}
-
-.active {
-  background-color: red;
-}
-
-.hidden {
-  display: none;
+  margin: 25px auto;
+  text-align: center;
 }
