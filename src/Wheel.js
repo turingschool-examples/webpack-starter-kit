@@ -18,7 +18,7 @@ class Wheel {
 
     }
     for (let i = 0; i < 6; i++) {
-      this.wheelValues.push(Data.wheel[Math.floor(Math.random() * 21)])
+      this.wheelValues.unshift(Data.wheel[Math.floor(Math.random() * 21)])
     }
     console.log(this)
   }

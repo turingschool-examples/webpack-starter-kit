@@ -138,8 +138,9 @@ class Round {
   }
 
   checkPlayerSolve(playerSolveInput, game) {
-    let playerSolve = playerSolveInput.replace(/[-']/g, '')
-    let gameAnswer = this.clueAnswer.join('').replace(/[-']/g, '')
+    let playerSolve = playerSolveInput.replace(/[-' ]/g, '')
+    console.log(playerSolve)
+    let gameAnswer = this.clueAnswer.join('').replace(/[-' ]/g, '')
     
     if (playerSolve === gameAnswer) {
       DomUpdates.gameMessage("round winner")
@@ -150,13 +151,6 @@ class Round {
       DomUpdates.gameMessage("next player")
       this.switchPlayer(game)
     }
-  }
-
-  clearGameBoard() {
-    $('.puzzle-cell').remove();    
-    $('.letters-selected-area').remove();
-    $('.game-info').remove();
-    $('.puzzle-area').remove();
   }
 
   checkRoundNum() {
