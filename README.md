@@ -1,7 +1,12 @@
 # Wheel of !Fortune
 
-## Setup
+## Authors
+Duy Thanh
+Colby Allen
 
+## Setup
+Clone down the repo.
+```git clone```
 NPM install
 
 NPM start
