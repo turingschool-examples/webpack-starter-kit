@@ -9,24 +9,23 @@ class Player {
   }
 
   solvePuzzle(game) {
-    let solveInput = domUpdates.grabCurrentLetter();
-    let puzzle = game.currentPuzzle;
-    let letters = game.currentPuzzle.answer.split('');
-    letters.forEach(letter => {
-      console.log('letter:', letter)
-      if (solveInput.includes(letter) === puzzle.answer) {
-        domUpdates.displayLetterMatch(letter);
-        this.getPlayerScore();
-        // if(player.input !== puzzle.answer) {
-        // }
-        // switchPlayers();
-      }
-    })
-    
+    let solveInput = domUpdates.grabAnswerInput(this);
+    // let puzzle = game.currentPuzzle;
+    let answer = game.currentPuzzle.answer.toUpperCase();
+    console.log(answer, solveInput)
+    if (solveInput === answer) {
+      console.log('SI', solveInput)
+      domUpdates.displayWinMessage();
+      this.getPlayerScore();
+
+      // if(player.input !== puzzle.answer) {
+      // }
+      // switchPlayers();
+    }
   }
 
 
-  getPlayerScore(wheel, game) {
+  getPlayerScore(game, wheel) {
     console.log('playerScore:', game.currentPlayer)
     game.currentPlayer.roundScore += wheel.currentIndex;
   }
@@ -43,7 +42,7 @@ class Player {
   //     buy vowel is still disabled
   //   }
   //   }
-  }
+}
 
 
 export default Player;

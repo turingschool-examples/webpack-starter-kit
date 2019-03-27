@@ -80,8 +80,16 @@ let domUpdates = {
 
   grabCurrentLetter(puzzle) {
     let currentLetter = ($('#js-cons-input').val().toUpperCase());
-    console.log('Test current letter', currentLetter);
     return currentLetter;
+  },
+
+  grabAnswerInput(player) {
+    let answerInput = ($('.answer-input').val().toUpperCase());
+    return answerInput;
+  },
+
+  displayWinMessage() {
+    $('.answer-message').text('Great job! You won the round!')
   },
 
   displayLetterMatch(letter) {
