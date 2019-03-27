@@ -15,6 +15,8 @@ class Round {
   }
 
   createNewRound(game) {
+    DomUpdates.clearGameBoard();
+    DomUpdates.updateGameScore(this.activePlayer.score);
     this.checkRoundNum(this)
     this.roundNumber ++
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
@@ -34,7 +36,6 @@ class Round {
     DomUpdates.createGameBoard();
     this.fillGameBoard();
     DomUpdates.displayHint(this.roundClue);
-    console.log(this.clueAnswer)
   }
   randomNumber(values) {
     if (values.length === 24) {
@@ -56,15 +57,12 @@ class Round {
   }
 
   flipCells(letter) {
-    console.log(this.letterIndexs)
     const selectedLetter = this.letterIndexs[letter];
     const puzzleCells = $('.puzzle-cell').toArray();
     if (selectedLetter) {
       for (var i = 0; i < selectedLetter.length; i++) {
         const instance = selectedLetter[i];
-        console.log('instance', instance)
         const puzzleCell = (puzzleCells[instance].parentNode);
-        console.log('puzzleCell', puzzleCell)
         puzzleCell.classList.remove('letters-not-displayed')
         puzzleCell.classList.add('letters-displayed');
       }
@@ -106,7 +104,6 @@ class Round {
     } else if (wheelValue === "LOSE A TURN") {
       DomUpdates.gameMessage("lose turn")
       DomUpdates.deactivateLetters()
-      console.log('loseturn')
       this.switchPlayer(game)
     } else {
       DomUpdates.activateLetters()
@@ -124,10 +121,10 @@ class Round {
         }
       })
       if (this.remainingLetters.length === 0) {
-        DomUpdates.gameMessage("round winner")
-        game.updatePlayerScore()
+        DomUpdates.gameMessage("round winner");
+        game.updatePlayerScore();
         this.wheelInst.selectedValue = 0;
-        this.createNewRound(game)
+        this.createNewRound(game);
       } else {
         game.updatePlayerBank();
         DomUpdates.resetWheelValue();
@@ -145,7 +142,6 @@ class Round {
 
   checkPlayerSolve(playerSolveInput, game) {
     let playerSolve = playerSolveInput.replace(/[-' ]/g, '')
-    console.log(playerSolve)
     let gameAnswer = this.clueAnswer.join('').replace(/[-' ]/g, '')
     
     if (playerSolve === gameAnswer) {

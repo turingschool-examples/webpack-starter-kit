@@ -38,27 +38,25 @@ class Game {
   }
 
   updatePlayerBank() {
-    console.log(this.players)
     this.players[this.roundInst.activePlayer].playerBank += this.roundInst.wheelInst.selectedValue
     let playerPot = this.players[this.roundInst.activePlayer].playerBank
     let playerTurn = this.roundInst.activePlayer
-    console.log(this.players)
     DomUpdates.updateRoundScore(playerPot, playerTurn)
   }
 
   bankruptPlayerBank() {
-    this.players[this.roundInst.activePlayer].playerBank = -100;
+    this.players[this.roundInst.activePlayer].playerBank = 0;
     let playerPot = this.players[this.roundInst.activePlayer].playerBank
     let playerTurn = this.roundInst.activePlayer
     DomUpdates.updateRoundScore(playerPot, playerTurn)
   }
 
   updatePlayerScore() {
-    console.log('Player Scored')
     this.players[this.roundInst.activePlayer].score += this.players[this.roundInst.activePlayer].playerBank
     this.players.forEach(player => {
       player.playerBank = 0
     })
+    console.log(this.players);
   }
 }
 export default Game

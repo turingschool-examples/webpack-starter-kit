@@ -11,16 +11,13 @@ class Wheel {
   }
 
   createWheel() {
-    console.log('myWheel', this.wheelValues.length)
     if(this.wheelValues.length === 6){
       this.wheelValues.splice(0,6)
-      console.log('myWheel', this.wheelValues.length)
 
     }
     for (let i = 0; i < 6; i++) {
       this.wheelValues.unshift(Data.wheel[Math.floor(Math.random() * 21)])
     }
-    console.log(this)
   }
   
   spinWheel(game) {
