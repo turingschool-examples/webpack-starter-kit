@@ -39,7 +39,10 @@ createRound() {
     const survey = this.surveys[Math.floor(Math.random() * this.surveys.length)];
     this.round = new Round(survey);
     console.log(survey);
-    this.roundNumber++; 
+    this.roundNumber++;
+    if(this.roundNumber > 0){
+        domUpdates.progressBar(this.roundNumber);
+    } 
     // if(this.roundNumber === 3){
     //     this.lightningRound()
     // }
