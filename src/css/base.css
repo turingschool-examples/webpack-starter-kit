@@ -33,6 +33,12 @@ h2 {
 	font-family: 'Righteous', cursive;
 }
 
+footer {
+	width: 28%;
+	text-align: center;
+	font-family: 'Righteous', cursive;
+}
+
 .hidden {
 	display: none;
 }
@@ -148,6 +154,13 @@ header {
 /*=====restart-game====*/
 .restart-game {
 	display: none;
+}
+
+.post-game {
+	background-color: rgb(39, 118, 221);
+	border: 3px solid rgb(208, 211, 40);
+	border-radius: 25px;
+	height: 275px;
 }
 
 
