@@ -170,6 +170,15 @@ justify-content: center;
   z-index: 1;
  }
 
+ .hidden {
+  display: none;
+}
+
+.answer-message {
+  font-size: 30px;
+  color: black;
+}
+
  .answer-submit {
   background-color: #34675c;
   color: black;
