@@ -36,7 +36,7 @@ class Round {
       this.activePlayer = 0;
       break;
     default:
-      // alert('Something went wrong!');
+      alert('Something went wrong!');
       break;
     }
     domUpdates.turnOrder(oldPlayer, newPlayer);

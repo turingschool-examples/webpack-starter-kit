@@ -1,8 +1,12 @@
-import Game from "../src/Game";
+import Game from "../src/Game.js";
 import chai from 'chai'
 import spies from 'chai-spies';
+import domUpdates from "../src/domUpdates.js"
 chai.use(spies);
 const expect = chai.expect;
+
+// chai.spy.on(domUpdates, '',  () => [{},{},{}]);
+chai.spy.on(domUpdates, ['appendPuzzle', 'setCategoryText', 'hiddenBoard'], () => true);
 
 
 describe('Game', () => {
@@ -24,12 +28,22 @@ describe('Game', () => {
   it('should be able to get a random puzzle', ()=> {
     expect(game.startGame).to.be.a('function');
     expect(game.getRandomData).to.be.a('function');
-    expect(game.getRandomData).to.be.a('function');
   });
 
   it('should be able to start a new round', () => {
     expect(game.createRound).to.be.a('function');
     expect(game.createPlayers).to.be.a('function');
   })
+
+  it('should increase rounds by one', () =>{
+    expect(game.roundCount).to.equal(0);
+    game.createRound(true);
+    expect(game.roundCount).to.equal(1);
+    expect(game.checkPuzLength).to.have.been.called();
+    expect(domUpdates.appendPuzzle).to.have.been.called();
+    expect(domUpdates.setCategoryText).to.have.been.called();
+
+  })
+
 });
 
