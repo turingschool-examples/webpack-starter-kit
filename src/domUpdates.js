@@ -16,12 +16,8 @@ export default {
     $('#player-three-input').hide(500);
   },
 
-  displayCategories(categories) {
-    const categoryTitles = [ 'US History', 'Life Sciences', 
-      'Public Health', 'Education Jargon',
-      'Name That Board Game', 'American Literature', 
-      'Biographies', 'American Cities', 'Food', 'Cable TV' ];
-    categories.forEach((category, index) => {
+  displayCategories(categoryIds, categoryTitles) {
+    categoryIds.forEach((category, index) => {
       $(`.cat-title-${index}`).text(`${categoryTitles[category - 1]}`);
       $(`.col.${index}`).attr('id', category);
     });
@@ -38,13 +34,14 @@ export default {
     } 
   },
 
-  showClue(game, clue, event) {
+  showClue(game, clue, event, categoryTitles) {
     game.round.cluesRemaining--;
     console.log(game.round.cluesRemaining);
     console.log(game.round.dailyDoubleClue);
     $('.question-prompt').show()
     $('.question').text(clue.question);
     $(event.target).text('');
+    $('#category').text(`${categoryTitles[event.target.id - 1]}`)
     if (game.round.cluesRemaining === game.round.dailyDoubleClue) {
       $('.question-box').hide();
       this.dailyDouble(game, clue);
@@ -69,12 +66,14 @@ export default {
 
   answerQuestion(game) {
     let currentPlayer = game.players[game.playerTurn];
-    if (game.round.cluesRemaining === 0) {
+    if (game.round.cluesRemaining === 0 && game.roundCounter < 2) {
       game.roundCounter++;
       this.newCluePoints(game);
       this.displayRound(game.roundCounter);
       this.newCategoryValues();
       game.createRound();
+    } else {
+      game.createFinalRound();
     }
     let answerMatch = data.clues.reduce((acc, currentClue) => {
       if ($(".question").text() === currentClue.question) {
@@ -148,20 +147,11 @@ export default {
            }
     });
     game.clues = doubleValueClues;
-    // game.round.displayNextRoundClues(game, id, innerText,round2Clues, event);
   },
 
-  updateCategory () {
-    const categoryTitles = [ 'US History', 'Life Sciences', 
-      'Public Health', 'Education Jargon',
-      'Name That Board Game', 'American Literature', 
-      'Biographies', 'American Cities', 'Food', 'Cable TV' ];
-    const {id } = event.target
-    $('#category').text(`${categoryTitles[event.target.id -1]}`)
-  },
-
-  commenceFinalJeopardy() {
-
+  displayFinalClue(finalClue, categoryTitles) {
+    $('.display-final-clue-category').text(`${categoryTitles[finalClue.categoryId - 1]}`)
+    console.log(finalClue)
     console.log('test');
   }
 

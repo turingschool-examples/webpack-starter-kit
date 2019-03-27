@@ -39,7 +39,15 @@ class Game {
   createDailyDouble() {
     let randomDailyDoubleClue = Math.floor(Math.random() * (16 - 1) + 1);
     this.round.dailyDoubleClue = randomDailyDoubleClue
-    }
+  }
+
+  createFinalRound() {
+    let finalRoundCategory = this.categoryData.pop()
+    const finalClues = this.clues.filter(clue => clue.categoryId === finalRoundCategory)
+    const finalClue = this.shuffle(finalClues).pop();
+    domUpdates.displayFinalClue(finalClue, this.round.categoryTitles);
+    // console.log(finalClue)
+  }
 
   shuffle(clues) {
     return clues.sort(() => 0.5 - Math.random());
