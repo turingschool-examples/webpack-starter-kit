@@ -10,15 +10,15 @@
 .result-box {
   background-color: white;
   display: grid;
-  grid-template-columns: 1fr 30px;
-  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: 
     "result-one result-one-num"
     "result-two result-two-num"
     "result-three result-three-num";
+  grid-template-columns: 1fr 30px;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 40%;
   margin: 160px auto;
   width: 260px;
-  height: 40%;
 }
 
 .result-one {

@@ -8,6 +8,7 @@ import $ from 'jquery';
 import './css/normalize.css';
 import './css/base.css';
 import './css/modules/result-box.css';
+import './css/modules/guess-input.css';
 
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
