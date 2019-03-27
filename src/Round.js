@@ -22,30 +22,30 @@ class Round {
     console.log(this.activePlayer)
     let oldPlayer, newPlayer;
     switch (true) {
-      case (this.activePlayer === 0):
+    case (this.activePlayer === 0):
       oldPlayer = 0; newPlayer = 1;
       this.activePlayer = 1;
       break;
-      case (this.activePlayer === 1): 
+    case (this.activePlayer === 1): 
       oldPlayer = 1; newPlayer = 2;
       this.activePlayer = 2;
       break;
-      case (this.activePlayer === 2):
+    case (this.activePlayer === 2):
       oldPlayer = 2; newPlayer = 0;
       this.activePlayer = 0;
       break;
-      default:
+    default:
       // alert('Something went wrong!');
       break;
     }
     domUpdates.turnOrder(oldPlayer, newPlayer);
-    this.checkScore(e);
+    this.checkScore();
   }
 
-  checkScore(e,game) {
+  checkScore(e, game) {
     console.log(this.players[this.activePlayer])
     if (this.players[this.activePlayer].roundScore >= 100) {
-      domUpdates.buyAVowel(e,game);
+      domUpdates.buyAVowel(e, game);
     }
   }
 
