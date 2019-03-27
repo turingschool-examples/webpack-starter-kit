@@ -3,6 +3,7 @@ import Wheel from './wheel';
 import Question from './question';
 import domUpdates from './domUpdates';
 import Player from './player';
+import BonusWheel from './bonusWheel';
 
 class Game {
   constructor() {
@@ -54,8 +55,6 @@ class Game {
       })
       this.changeRound();
       setTimeout(()=> this.newQ(), 3);
-      // alert player was correct
-      // change round, instantiate new round with new question
     } else {
       console.log('incorrect!')
     }
@@ -82,11 +81,6 @@ class Game {
     } else if (!['BANKRUPT', 'LOSE A TURN'].includes(this.currentPrize)) {
       domUpdates.updateScore(this.playerIndex, this.players[this.playerIndex].currentScore);
     }
-    
-    // if the user guess is NOT in the guessed array && IS in the answer
-      // call domUpdates method to make the letter appear
-    // if the user guess IS in the guessed array && IN NOT in the answer && NOT a vowel
-      // call the method to switch to next player
   }
 
   changeTurn() {
@@ -108,6 +102,10 @@ class Game {
     if (this.round === 6) {
       this.round = 1
     }
+    if (this.round === 2) {
+      let bonusWheel = new BonusWheel();
+      bonusWheel.changePrizes()
+    }
   }
 
   newQ() {
@@ -117,7 +115,6 @@ class Game {
     domUpdates.updateQInfo(this.currentQuestion);
     console.log(this.currentQuestion.answer)
   }
-
 }
 
 export default Game;
