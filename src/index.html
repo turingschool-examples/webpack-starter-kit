@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 <body>
-  <section class="welcome-screen" aria-live="polite">
+  <dialog class="welcome-screen" aria-live="polite">
     <form class="name-form">
       <h2>Family Feud</h2>
       <div class="player-fields">
@@ -24,24 +24,24 @@
       </div>
       <button id="submit-names-btn" type="button">Start Game</button>
     </form>
-  </section>
-  <section class="winner-screen hidden" aria-live="polite">
+  </dialog>
+  <dialog class="winner-screen hidden" aria-live="polite">
     <article class="winner-popup">
       <h3>THE WINNER IS<span class="winner-name"></span></h3>
       <button id="play-again-btn">Play Again?</button>
     </article>
-  </section>
-  <div class="fastround-ready-screen hidden" aria-live="polite">
+  </dialog>
+  <dialog class="fastround-ready-screen hidden" aria-live="polite">
     <div class="fastround-dialog">
-    <h3>Fast Money Round!</h3>
-    <div class="fastround-instructions">
-      <p>Each player will get their own Fast Money Round!</p>
-      <p><strong>Player 1</strong> you have 30 seconds to submit as many answers as you want! You will receive double the points for each correct guess!</p>
-      <p>Are you ready?</p>
-    </div>
+      <h3>Fast Money Round!</h3>
+      <div class="fastround-instructions">
+        <p>Each player will get their own Fast Money Round!</p>
+        <p><strong>Player 1</strong> you have 30 seconds to submit as many answers as you want! You will receive double the points for each correct guess!</p>
+        <p>Are you ready?</p>
+      </div>
     <button id="fastround-start-btn" type="button">Let's Start!</button>
-  </div>
-  </div>
+    </div>
+  </dialog>
   <div class="timer-area-1 hidden">
     <div class="timer-1" aria-live="polite">30</div>
   </div>
@@ -52,30 +52,30 @@
     <header>
       <h1>Family Feud</h1>
     </header>
-    <section class="round-header" aria-live="polite">
-      <h3 class="round-title" >Round <span class="round-num-display">1</span></h2>
-      <p class="survey-display">How many licks to the center of a Tootsie Pop?</p>
+    <section class="round-header">
+      <h3 class="round-title" aria-live="polite">Round <span class="round-num-display">1</span></h2>
+      <p class="survey-display" aria-live="polite">How many licks to the center of a Tootsie Pop?</p>
     </section>
     <section class="score-area">
       <article class="player-area player-1-side" aria-live="polite">
         <p class="player-1-name">PLAYER 1</p>
         <p class="player-score player-1-score">0</p>
       </article>
-      <article class="answer-area" aria-live="polite">
+      <article class="answer-area">
         <div class="answer-card answer-1-card" class="answer-div">
-          <div class="answer-data hidden">
+          <div class="answer-data hidden" aria-live="polite">
             <p class="answer-text answer-1-text"> </p>
             <p class="answer-score answer-1-score">0</p>
           </div>
         </div>
         <div class="answer-card answer-2-card" class="answer-div">
-          <div class="answer-data hidden">
+          <div class="answer-data hidden" aria-live="polite">
             <p class="answer-text answer-2-text"> </p>
             <p class="answer-score answer-2-score">0</p>
           </div>
         </div>
         <div class="answer-card answer-3-card" class="answer-div">
-          <div class="answer-data hidden">
+          <div class="answer-data hidden" aria-live="polite">
             <p class="answer-text answer-3-text"> </p>
             <p class="answer-score answer-3-score">0</p>
           </div>

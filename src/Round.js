@@ -22,8 +22,12 @@ class Round {
   }
 
   processWin(match) {
+    if (this.game.currentRound > 2) {
+      this.game.activePlayer.increaseScore(match.respondents, this.multiplier);
+    } else {
+      this.game.activePlayer.increaseScore(match.respondents);
+    }
     domUpdates.displayCorrectGuess(match.answer); 
-    this.game.activePlayer.increaseScore(match.respondents);
     this.surveyAnswers.splice(this.surveyAnswers.indexOf(match), 1);
   }
 

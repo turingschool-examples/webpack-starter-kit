@@ -25,9 +25,9 @@ chai.spy.on(domUpdates, [
   'showNoMatchMsg',
   'endOfRoundMsg',
   'clearAnswerBoard',
-  'removeTimer',
-  'displayTimer',
-  'displayFastroundDialog',
+  // 'removeTimer',
+  // 'displayTimer',
+  // 'displayFastroundDialog',
   'showWinnerScreen',
   'showAlreadyTriedMsg',
   'showMustEnterGuessMsg'
