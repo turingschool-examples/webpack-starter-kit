@@ -36,7 +36,8 @@ $('#resetBtn').click(() => {
 });
 $('#submitBtn').on('click', inputValue);
 $('.answerInput').on('keyup', removeWrongAnswer);
-// $('.answerInput').on('keyup', removeTryAgain);
+$('.answerInput').on('keyup', removeErrorMessage);
+$('.answerInput').on('keyup', removeTryAgain);
 
 function startPlaying() {
   let playerOne = $('.nameOne').val();
@@ -68,9 +69,13 @@ function removeWrongAnswer() {
  domUpdates.removeWrongAnswer();
 };
 
-// function removeTryAgain() {
-//  domUpdates.removeTryAgain();
-// };
+function removeTryAgain() {
+ domUpdates.removeTryAgain();
+};
+
+function removeErrorMessage() {
+ domUpdates.removeErrorMessage();
+};
 
 
 export default dataSet;
