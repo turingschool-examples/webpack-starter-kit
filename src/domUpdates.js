@@ -131,7 +131,7 @@ export default {
   },
 
   displayTimer2(game) {
-    let seconds = 30; //would be ideal to tie this to property value
+    let seconds = 30; 
     const interval = setInterval(function() {
       
       $(".timer-2").html(--seconds);
