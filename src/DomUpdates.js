@@ -339,7 +339,9 @@ export default {
         </div>
     </section>
     <div>
-    <button class="quit-btn-container game-buttons">Quit Game<button>
+    <div class="quit-container">
+        <div class="quit-btn game-buttons" role="button">Quit Game<div>
+    </div>
   </div>`
     )
   },
@@ -414,21 +416,16 @@ export default {
 
   updateGameScore(activePlayerValue) {
     $('.score-total').text(activePlayerValue);
-
   },
 
-
   gameMessage(message) {
-    let className = message.split(' ').join('-');
     $('footer').prepend(`
-    <section class="${className}">
-      <h1 class="result">
-        <i class="fas fa-exclamation">${message.toUpperCase()}</i>
-      </h1>
-    </section>`
-    ).fadeOut(2000, function() {
-      $(`.${className}`).remove();
-      $('footer').removeAttr("style")
+    <section class="game-message">
+      <h1 class="result">${message.toUpperCase()}</h1>
+    </section>
+  `).fadeOut(2000, function() {
+      $('.game-message').remove();
+      $('footer').removeAttr("style");
     })
   },
 
@@ -437,7 +434,7 @@ export default {
     $('.letters-selected-area').remove();
     $('.game-info').remove();
     $('.puzzle-area').remove();
-  },
+    },
   
   displayActivePlayer(activePlayer) {
     $('.active-player-text').text(activePlayer.name);
