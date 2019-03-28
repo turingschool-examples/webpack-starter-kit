@@ -90,11 +90,10 @@ export default {
 
   },
 
-  updateActivePlayer(oldPlayer, newPlayer,player) {
+  updateActivePlayer(oldPlayer, newPlayer, player) {
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
     $('#wheel').addClass('pulse').delay(600);
-    console.log(newPlayer)
     this.yourTurnMessage(player);
   },
   
@@ -122,13 +121,7 @@ export default {
     alert(`${player.name} solved the puzzle!`);
   },
   
-  spinAgainPrompt() {
-    $('.spin-winner').text(`spin again, buy a vowel, or solve the puzzle`).fadeIn(800);
-  },
   
-  spinResultMessage(spinResult) {
-      $('.spin-winner').html(`You spun ${spinResult}! Choose a letter.`);
-    },
 
   updateRoundText(round) {
     $('.round-number').text(`Round ${round}`)
