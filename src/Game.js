@@ -48,32 +48,32 @@ class Game {
     if(this.roundNumber > 0){
       domUpdates.progressBar(this.
         roundNumber);
-    } 
+    } ;
     
     if(this.roundNumber === 2) {
        this.switchPlayer();
-    }
+    };
     
-    if(this.roundNumber === 3 ) {
-      // if(this.player1.score < this.player2.score) {
-      //   this.currentPlayer ==== this.player1; 
-      // } else {
-      //   this.currentPlayer === this.player2;
-      // } 
+    if(this.roundNumber === 3) {
+       this.currentPlayer === this.player1;
+        domUpdates.highlightPlayer(this.currentPlayer.playerId);  
+        domUpdates.unhighlightPlayer(!this.currentPlayer.playerId); 
+        this.lightningRound = new LightningRound(survey, this.currentPlayer);   
+      } ;
+     
+     if(this.roundNumber === 4) {
+        this.switchPlayer();
+        domUpdates.highlightPlayer(this.currentPlayer.playerId);  
+        domUpdates.unhighlightPlayer(!this.currentPlayer.playerId); 
         this.lightningRound = new LightningRound(survey, this.currentPlayer);  
     };
 
-     if(this.roundNumber === 4) {
-      this.currentPlayer = !this.currentPlayer;
-      this.lightningRound = new LightningRound(survey, this.currentPlayer);
-    };
+      if(this.roundNumber === 5) {
+        domUpdates.winnerMessage(this.player1, this.player2)
+      };
 
-    if(this.roundNumber === 5) {
-      domUpdates.winnerMessage(this.player1, this.player2)
-    };
-
-   const question = survey.question;
-   domUpdates.appendQuestion(question);
+    const question = survey.question;
+    domUpdates.appendQuestion(question);
  };
 
  getAnswer(guess) {

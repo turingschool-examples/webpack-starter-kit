@@ -142,16 +142,6 @@ export default {
   //         <progress id="bar2" max="100" value="0"> </progress>`);
   // },
 
-  // multiplierMessage(player1, player2) {
-  //   console.log('lower score1', player1.score);
-  //   console.log('lower score2', player2.score);
-  //   let player;
-  //   if(player1.score < player2.score) {
-  //     player = player1;
-  //   } else {
-  //     player = player2;
-  //   }
-
 
   winnerMessage(player1, player2) {
     console.log('winner', player1.score);

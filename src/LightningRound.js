@@ -23,8 +23,7 @@ class LightningRound {
       domUpdates.appendAnswer(answers, correctAnswer.answer, correctAnswer.respondents);
     } else {
       console.log('incorrect')
-      domUpdates.tryAgain();
-        // domupdates.unhighlightPlayer(currentPlayer.playerId);  
+      domUpdates.tryAgain(); 
       };
 
       console.log(currentPlayer);
