@@ -14,36 +14,36 @@ class Game {
     this.lightningRound = null;
     this.roundNumber = 0;
     this.currentPlayer = null;
-};
+  };
 
-createPlayer(name1, name2) {
+  createPlayer(name1, name2) {
     this.player1 = new Player(name1, 1);
     console.log(this.player1);
     this.player2 = new Player(name2, 2);
     console.log(this.player2); 
     this.currentPlayer = this.player1;
-       console.log(this.currentPlayer);
-};
+    console.log(this.currentPlayer);
+  };
 
-switchPlayer() { 
-      console.log('player', this.currentPlayer);
+  switchPlayer() { 
+    console.log('player', this.currentPlayer);
     if(this.currentPlayer === this.player1) {
       // domUpdates.unhighlightPlayer()
-        this.currentPlayer = this.player2; 
+      this.currentPlayer = this.player2; 
     } else {
-        this.currentPlayer = this.player1;
+      this.currentPlayer = this.player1;
     }
-      console.log('newplayer', this.currentPlayer);
-};
+    console.log('newplayer', this.currentPlayer);
+  };
 
-createRound() {
+  createRound() {
     const survey = this.surveys[Math.floor(Math.random() * this.surveys.length)];
     this.round = new Round(survey);
     console.log(survey);
     this.roundNumber++;
     if(this.roundNumber > 0){
-        domUpdates.progressBar(this.
-            roundNumber);
+      domUpdates.progressBar(this.
+        roundNumber);
     } 
 
     // if(this.roundNumber === 3 ) {
@@ -61,28 +61,27 @@ createRound() {
     // }
 
     if(this.roundNumber === 5){
-       domUpdates.winnerMessage(this.player1, this.player2)
-     }
+     domUpdates.winnerMessage(this.player1, this.player2)
+   }
 
-    const question = survey.question;
-    domUpdates.appendQuestion(question);
+   const question = survey.question;
+   domUpdates.appendQuestion(question);
+ };
+
+ getAnswer(guess) {
+  if(this.roundNumber < 3) {
+    console.log("round number less than three")
+    this.round.checkAnswer(guess, this.currentPlayer, this);
+  } else {
+    console.log("round number three or more")
+    this.lightningRound.checkLrAnswer(guess, this);
+  }
 };
-
-getAnswer(guess) {
-    if(this.roundNumber < 3) {
-      console.log("round number less than three")
-      this.round.checkAnswer(guess, this.currentPlayer, this);
-    } else {
-          console.log("round number three or more")
-      this.lightningRound.checkLrAnswer(guess, this);
-    }
-    
-  };
 
 // lightningRound() {
 //     console.log('inside create lightning round');
 //     // domUpdates.multiplierMessage(this.player1, this.player2);
-    
+
 //     console.log(this.lightningRound);
 // //we will have to pass everything into this
 // //what is the point of having a new instance?

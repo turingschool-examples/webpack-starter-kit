@@ -1,15 +1,13 @@
 import domUpdates from './domUpdates.js';
 
-
-
 class Round {
   constructor(survey) {
     this.questionSet = survey;
     this.answerCount = 0;
-};
+  };
 
 
-checkAnswer(guess, currentPlayer, game) {
+  checkAnswer(guess, currentPlayer, game) {
     let answers = this.questionSet.answers;
     let score;
     domUpdates.clearInputField();
@@ -40,15 +38,13 @@ checkAnswer(guess, currentPlayer, game) {
     if(this.answerCount === 3){
         this.endRound(game);
     }
-};
+  };
 
-    
-    endRound(game) {
-        game.createRound();
-        this.answerCount = 0;
-    }
-    
+  endRound(game) {
+    game.createRound();
+    this.answerCount = 0;
+  };
+
 }
-
 
 export default Round;

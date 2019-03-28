@@ -4,33 +4,32 @@
 
 body {
   background-image: linear-gradient(0deg, #f5f4f3, #2196F3, #78d7fc, #023a8d);
-  padding: 0;
+  font-size: 1em;
   margin: 0;
-
-  /*increase font size*/
+  padding: 0;
 }
 
 .wrapper {
-    display: grid;
-    grid-template-rows: auto 40% 25% 25%;
-    height: 1800px; 
-    font-family: 'Open Sans', sans-serif;
-    border: 20px solid goldenrod;
-    border-style: ridge;
+  border-style: ridge;
+  border: 20px solid goldenrod;
+  display: grid;
+  font-family: 'Open Sans', sans-serif;
+  grid-template-rows: auto 40% 25% 25%;
+  height: 1800px; 
 }
 
 .gamePopUp {
-  visibility: visible; 
   color: white;
   display: block;
-  width: 100%;
   margin: 0 25%;  
+  visibility: visible; 
+  width: 100%;
 }
 
-.playerNames() {
+.playerNames{
   display: inline-block;
-  margin: 2% 0;
   font-size: 1rem;
+  margin: 2% 0;
 }
 
 .labelName {
@@ -51,15 +50,15 @@ body {
 .nameTwo {
   font-size: 1rem;
   font-weight: 800;
-  margin: 2% 1%;
   height: 40px;
+  margin: 2% 1%;
 }
 
 #startBtn,
 #newBtn {
   background-color: #0a4696;
-  color: white;
   border: 2px solid #FFF;
+  color: white;
   height: 50px;
 }
 
@@ -78,123 +77,121 @@ body {
   color: white;
   font-size: 1.5em;
   margin: 3% 0;
-
 }
 
 #bar {
-  width: 100%;
   margin: 1% 0;
+  width: 100%;
 }
 
 .gameBoard {
-    display: block;
-    width: 50%;
-    margin: 0px 25%;
+  display: block;
+  margin: 0px 25%;
+  width: 50%;
 }
 
-
 .surveyResponses {
-   margin-bottom: 80px;
+ margin-bottom: 80px;
 }
 
 #surveyQuestion {
-    text-align: center;
-    margin-top: 6%;
-    font-size: 1.5em;
-    border: 9px solid goldenrod;
-    height: 120px;
-    background: white;
-    border-style: inset;
-    padding: 35px;
-    font-weight: 800;
+  background: white;
+  border-style: inset;
+  border: 9px solid goldenrod;
+  font-size: 1.5em;
+  font-weight: 800;
+  height: 120px;
+  margin-top: 6%;
+  padding: 35px;
+  text-align: center;
 }
 
 .cardOne,
 .cardTwo,
 .cardThree {
-    display: block;
-    text-align: center;
-    width: 100%;
-    padding: 5px;
-    margin: 2% 0;
-    background-color: #0a4696;
-    border-bottom: 4px solid #fec55c;
-    border-style: ridge;
-    height: 75px;
-    color: #FFF;
-    font-size: 1.5em;
-  }
+  background-color: #0a4696;
+  border-bottom: 4px solid #fec55c;
+  border-style: ridge;
+  color: #FFF;
+  display: block;
+  font-size: 1.5em;
+  height: 75px;
+  margin: 2% 0;
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+}
 
-  #responseOne,
-  #responseTwo,
-  #responseThree {
-    font-weight: 800;
-  }
+#responseOne,
+#responseTwo,
+#responseThree {
+  font-weight: 800;
+}
 
 .scoreBoard,
 .playerControls {
-    display: grid;
-    grid-template-columns: 30% auto 30%;
-    text-align: center;
-    color: #fff;
-    font-size: 1.5em;
+  color: #fff;
+  display: grid;
+  font-size: 1.5em;
+  grid-template-columns: 30% auto 30%;
+  text-align: center;
 }
 
 #nameOne, 
 #nameTwo {
-    border: goldenrod solid 5px;
-    width: 80%;
-    margin: 0 10%;
-    background: #0a4696;
-    height: 70px;
-    padding: 10px;
+  background: #0a4696;
+  border: goldenrod solid 5px;
+  height: 70px;
+  margin: 0 10%;
+  padding: 10px;
+  width: 80%;
 }
 
 #scoreOne,
 #scoreTwo {
-    font-size: 4em;
-    font-weight: 900;
+  font-size: 4em;
+  font-weight: 900;
 }
 
 #round {
-    font-size: 2em;
-    margin-top: 8%;
+  font-size: 2em;
+  margin-top: 8%;
 }
 
 .answerInput {
-    width: 100%;
-    height: 80px;
-    font-size: 1em;
-    border: 5px solid goldenrod;
-    margin-top: 5%;
-    margin-bottom: 3%;
-    padding: 10px;
+  border: 5px solid goldenrod;
+  font-size: 1em;
+  height: 80px;
+  margin-bottom: 3%;
+  margin-top: 5%;
+  padding: 10px;
+  width: 100%;
 }
 
 .errorMessage {
-    font-size: 1em;
-    text-align: center;
-    color: red;
-    margin: 2% 0;
-    visibility: hidden;
+  color: red;
+  font-size: 1em;
+  margin: 2% 0;
+  text-align: center;
+  visibility: hidden;
 }
 
 .wrongAnswer,
 .tryAgain {
-    font-size: 2em;
-    text-align: center;
-    color: red;
-    margin: 1% 0;
-    visibility: hidden;
+  color: red;
+  font-size: 2em;
+  margin: 1% 0;
+  text-align: center;
+  visibility: hidden;
 }
 
 #resetBtn,
 #submitBtn {
-    width: 40%;
-    margin: 0 3%;
-    border: 5px solid;
-    margin-top: 3%;
-    font-size: 1rem;    
+  border: 5px solid;
+  font-size: 1rem;    
+  margin-top: 3%;
+  margin: 0 3%;
+  width: 40%;
 }
 
 #startBtn:hover,
@@ -202,7 +199,6 @@ body {
 #submitBtn:hover {
   outline: solid 2px goldenrod;
 }
-
 
 #resetBtn:hover {
   background-color: #dd0808f0;
@@ -214,42 +210,27 @@ body {
   color: #FFF;
 }
 
-
 #resetBtn,
 #submitBtn {
-    background-color: #0a4696;
-    color: white;
-    border: 0px;
+  background-color: #0a4696;
+  border: 0px;
+  color: white;
 }
 
 .counterOne,
 .counterTwo {
+  border: 5px solid gold;
   color: white;
   font-size: 1.5em;
-  border: 5px solid gold;
   margin: 0 5%;
 }
 
 #winner {
-  border: 2px solid goldenrod;
-  border-style: ridge;
-  font-size: 1.5em;
-  color: #fff;
   background-color: #2196F3;
+  border-style: ridge;
+  border: 2px solid goldenrod;
+  color: #fff;
   display: block;
+  font-size: 1.5em;
   width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

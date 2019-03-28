@@ -5,7 +5,6 @@ class Player {
         this.name = name;
         this.score = 0;
         this.playerId = playerId;
-
     };
 
     addScore(scoreAmt) {
@@ -13,14 +12,12 @@ class Player {
         let newScore = this.score += scoreAmt;
         domUpdates.changeScore(newScore, this.playerId);
         console.log(newScore);
-        
+    };
 
-};
-
-lightningScore(scoreAmt, multiplier) {
-    let newScore = this.score += (scoreAmt * multiplier);
-    domUpdates.changeScore(newScore, this.playerId);
-    console.log(newScore);
+    lightningScore(scoreAmt, multiplier) {
+        let newScore = this.score += (scoreAmt * multiplier);
+        domUpdates.changeScore(newScore, this.playerId);
+        console.log(newScore);
     };
 }
 
