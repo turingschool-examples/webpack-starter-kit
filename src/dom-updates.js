@@ -36,10 +36,10 @@ export default {
     //Toggle: Consonant & Label
     if ($('#consonant').attr('value') === 'Spin Wheel' ) {
       $('#consonant').removeAttr('disabled').css('background-color', '#65AB55').attr('value', 'Guess Consonant')
-      $('#guess--input').css('border', '3px inset yellow');
+      $('#guess--input').css('outline', 'yellow 3px solid');
     } else {
       $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', 'Spin Wheel');
-      $('#guess--input').css('border', 'none');
+      $('#guess--input').css('outline', 'none');
     }
     //Toggle: Wheel
     $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
@@ -114,7 +114,7 @@ export default {
     let animationContainer = $('.animation--container');
     if (Number.isInteger(slice)) {
       animationContainer.append(`<h2 class="prompt-img fade-in">${slice}</h2>`)
-      $('.prompt-img').delay(1000).queue(function () {
+      $('.prompt-img').delay(2000).queue(function () {
         $(this).removeClass('fade-in');
         $(this).addClass('fade-out__animation');
       });
@@ -123,7 +123,7 @@ export default {
   appendCorrect() {
     let animationContainer = $('.animation--container');
     animationContainer.append(`<image class="prompt-img fade-in" src="./images/smartypants.png">`)
-    $('.prompt-img').delay(1000).queue(function () {
+    $('.prompt-img').delay(2000).queue(function () {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
     });
@@ -131,7 +131,7 @@ export default {
   appendIncorrect() {
     let animationContainer = $('.animation--container');
     animationContainer.append(`<image class="prompt-img fade-in" src="./images/incorrect.png">`)
-    $('.prompt-img').delay(1000).queue(function() {
+    $('.prompt-img').delay(2000).queue(function() {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
     });
@@ -139,7 +139,7 @@ export default {
   appendBankrupt() {
     let animationContainer = $('.animation--container');
     animationContainer.append(`<image class="prompt-img fade-in" src="./images/bankrupt.png">`)
-    $('.prompt-img').delay(1000).queue(function() {
+    $('.prompt-img').delay(2000).queue(function() {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
     });
@@ -147,7 +147,7 @@ export default {
   appendLoseTurn() {
     let animationContainer = $('.animation--container');
     animationContainer.append(`<image class="prompt-img fade-in" src="./images/loseTurn.png">`)
-    $('.prompt-img').delay(1000).queue(function() {
+    $('.prompt-img').delay(2000).queue(function() {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
     });

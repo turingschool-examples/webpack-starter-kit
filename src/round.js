@@ -3,12 +3,6 @@ import Puzzle from "./puzzle";
 import DomUpdates from './dom-updates';
 import Wheel from './wheel';
 
-/*
-data.wheel => wheel array of values
-data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects 
-! goes up to four_word_answers !
-*/
-
 class Round {
   constructor(currentRound) {
     this.roundNumber = currentRound,
@@ -20,7 +14,7 @@ class Round {
   }
   newRound(game) {
     this.roundNumber++;
-    if (game.currentRound.currentPlayer != 0) {
+    if (game.currentRound.currentPlayer !== 0) {
       game.currentRound.currentPlayer.totalCaps += game.currentRound.currentPlayer.roundCaps
     }
     this.getCurrentPlayer(game);
@@ -75,7 +69,6 @@ class Round {
     if (game.currentRound.roundNumber !== 5) {
       this.roundNumber--;
       this.newRound(game)
-      console.log(game.currentRound.currWheel)
     }
   }
   getCurrentPlayer(game) {
@@ -132,31 +125,5 @@ class Round {
     console.log(this.answer)
     this.answer = this.answer.filter(char => char !== ' ' ? char : char = '');
   }
-  
-  checkPlayerGuess() {
-    console.log('Array of ans', this.answer);
-  
-    //get player guess array
-    // check player guess array against current array
-  }
-  // create an option method
-  // switch statement based on their dom interaction
-  // case guess: 
-  
-  playerGuessWord() {
-    console.log('In guessword')
-  }
-  // ? Insert input & 2 buttons to tag event listeners on
-  playerSpin() {
-    console.log('In spin')
-    
-  }
-  
-  playerBuy() {
-    console.log('In buy')
-  }
-  
-  
-  
 }
 export default Round;
