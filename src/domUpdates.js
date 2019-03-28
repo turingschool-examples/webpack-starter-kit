@@ -129,9 +129,10 @@ export default {
     },
     
     buyAVowel(event, game) {
+      console.log("vowels");
       $('.vowels').on('click', (event) => {
         $( '.vowels').removeClass( "cost");
-        // round.players[round.activePlayer].roundScore -= 100;
+        round.players[round.activePlayer].roundScore -= 100;
         game.round.guessLetter(event, game);
       });
     },

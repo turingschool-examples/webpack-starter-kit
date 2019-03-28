@@ -38,4 +38,7 @@ $('.consonant ').on('click', (e) =>{
 
 $('.submit-guess').on('click', (e) => {
   domUpdates.checkSolution(e, game);
-});
+})
+$('.vowel').on('click', (e) => {
+    game.round.guessLetter(e, game);
+  });

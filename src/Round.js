@@ -10,6 +10,7 @@ class Round {
     this.currentPuzzle = puzzle;
     this.solutionGuess = null;
     this.roundCountDown = 0;
+    this.vowels = ['A','E', 'I', 'O', 'U','Y'];
   }
 
   getPuzzle(array) {
@@ -46,9 +47,8 @@ class Round {
   }
   
   newTurn() {
-    const player = this.players[this.activePlayer];
+    const player = this.players[this.activePlayer-1];
     this.changeActivePlayers()
-    this.checkScore(player);
     domUpdates.yourTurnMessage(player);
   }
 
@@ -63,17 +63,14 @@ class Round {
 
 
 
-  // checkScore(player) {
-  //   return player.roundScore >= 100 ? domUpdates.canBuyVowel(true) : domUpdates.canBuyVowel(false);
-  // }
+
 
 
 
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer];
-    spinValue === 0 ? player.roundScore = 0 : player.roundScore += spinValue;
+    spinValue === 0 ? player._roundScore = 0 : player.roundScore += spinValue;
     console.log('after: ', player, player.roundScore)
-
     domUpdates.displayScore(player.playerNumber, player.roundScore)
   }
 
@@ -94,10 +91,44 @@ class Round {
   guessLetter(event, game) {
     const splitAnswer = game.round.currentPuzzle.splitAnswer;
     const chosenLetter = event.currentTarget.innerText;
+    if(!this.vowels.includes(event.currentTarget.innerText)){
+    this.letterOK(splitAnswer, chosenLetter)
+    }else{
+      console.log("includes vowel")
+    if(this.players[this.activePlayer]._roundScore >= 100){
+      console.log("has money")
+      this.vowelGuess(splitAnswer, chosenLetter);
+      }else{
+        alert("You dont have enough money to do that!");
+      }
+    }
+  }
+
+  vowelGuess(splitAnswer, chosenLetter){
+    console.log("in vowelGuess");
+    console.log(this.players[this.activePlayer])
+    console.log(this.players[this.activePlayer]._roundScore)
+    this.players[this.activePlayer]._roundScore -= 100;
+    domUpdates.displayScore(this.players[this.activePlayer].playerNumber, this.players[this.activePlayer]._roundScore)
+    console.log(this.players[this.activePlayer]._roundScore)
+    if (splitAnswer.includes(chosenLetter)) {
+        splitAnswer.forEach(letter => {
+          if (chosenLetter === letter) {
+            domUpdates.displayCorrectLetter(splitAnswer, chosenLetter);
+            domUpdates.spinAgainPrompt();
+          }
+        })
+
+    }else {
+      this.newTurn();
+    }
+  }
+  
+  letterOK(splitAnswer, chosenLetter){
     if (splitAnswer.includes(chosenLetter)) {
       this.handleCorrectLetterChosen(splitAnswer, chosenLetter)
       // this.checkScore();
-    } else {
+    }else {
       this.newTurn();
     }
   }
