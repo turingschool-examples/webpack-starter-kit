@@ -27,7 +27,12 @@ let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()
 [dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[6].toUpperCase()]];
 // $(document).ready(dataCategories);
+// Actual RNG for the categories---
+// for (let i = 0; i < categoriesToArray.length; i++) {
+//   // let randomCategory = dataCategories.splice(Math.floor(Math.random()*dataCategories.length),1).toString();
+//   // categoryArr.push(randomCategory);
 
+// }
 // dom manipulation to get values of the three names
 
 var name1 = $("#player-1").val;
@@ -46,10 +51,10 @@ console.log('This is the JavaScript entry file - your code begins here.');
     domUpdates.publishRoundClues();
     domUpdates.publishScoreBoard();
     domUpdates.removeMe();
-    $('#category-one').text(categoryArr[0]);
-    $('#category-two').text(categoryArr[1]);
-    $('#category-three').text(categoryArr[2]);
-    $('#category-four').text(categoryArr[3]);
+    $('#category-one').text(newGame.round1Categories[0]);
+    $('#category-two').text(newGame.round1Categories[1]);
+    $('#category-three').text(newGame.round1Categories[2]);
+    $('#category-four').text(newGame.round1Categories[3]);
   });
 
 
@@ -84,4 +89,15 @@ console.log('This is the JavaScript entry file - your code begins here.');
     console.log(currentClue);
   }
 
- }
+}
+
+$(document).on('click', 'article', function() {
+  domUpdates.publishClueCard();
+  $('.close').on('click', function() {
+    $('aside').remove();
+  });
+  });
+
+
+    
+ 

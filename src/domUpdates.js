@@ -84,6 +84,12 @@ export default {
     'Player ' + 3 + '</span>' + '<br>' + 'Score' + '<span id="player3-score"> ' + 0
     + '</span>' + '</section>' + '</footer>';
     $(".answer-wrapper").append(board);
-  }
+  },
 
+  publishClueCard () {
+    const clueCard = '<aside class="modal">' + '<h2>' + 'category/pointValue' + '</h2>' + '<p>' + 'changing clue' +
+    '</p>' + '<button class="close">' + 'Close' + '</button>' + '</aside>' ;
+     
+    $(".box-wrapper").append(clueCard);
+  }
 }

@@ -3,7 +3,8 @@ body {
   height: 100%;
 }
 
-.start-up-screen {
+.start-up-screen, 
+.logo-wrapper {
  display: grid;
  grid-template-columns: 12% 13% 50% 13% 12%;
  grid-template-rows: 25% 100px auto;
@@ -22,8 +23,8 @@ body {
 .name-prompt {
   grid-column-start: 3;
   grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 
 .welcome-intro {
@@ -36,8 +37,8 @@ body {
 
 .player-input {
   display: flex;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
   grid-row-start: 4;
   margin: auto;
   vertical-align: top;
@@ -55,6 +56,12 @@ body {
   justify-self: end;
 }
 
+
+#start-game {
+  display: block;
+  width: 40px;
+}
+
 header {
   font-size: 46px;
   text-align: center;
@@ -64,6 +71,7 @@ header {
 .box-wrapper {
   display: flex;
   flex-wrap: wrap;
+  z-index: -1;
 }
 
 .categories,
@@ -118,4 +126,46 @@ header {
   text-align: center;
   width: 33%;
   align-items: flex-end;
+}
+
+
+.modal {
+	max-height: calc(100% - 100px);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	max-width: 450px;
+	min-width: 450px;
+	transform: translate(-50%, -50%);
+	color: #4a5666;
+	background: white;
+	z-index: 3;
+	transition: .5s ease;
+}
+
+.modal h2 {
+	margin: 0;
+	font-weight: 400;
+	padding: 1rem;
+	border-bottom: 1px solid #DDE0E7;
+}
+
+.modal p {
+	padding: 1rem;
+}
+
+.modal.hidden {
+	visibility: hidden;
+	opacity: 0;
+}
+
+button.close {
+	margin: 0 0 1rem;
+	background: blue;
+}
+
+button.close:hover {
+	border: 1px solid grey;
+	color: blue;
+	background: transparent;
 }
