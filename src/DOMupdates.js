@@ -11,10 +11,9 @@ export default {
       $(`.answer-${indexPlusOne}`).html(solution.answer);
       $(`.answer-${indexPlusOne}-pts`).html(solution.respondents);
     });
+  },
+
+  clearInput() {
+    $("#player-guess").val("");
   }
-  // postGame() {
-  //   console.log("hello? Postgame is here.");
-  //   $(".main-content").addClass("hidden");
-  //   $(".restart-game").removeClass("hidden");
-  // }
 };

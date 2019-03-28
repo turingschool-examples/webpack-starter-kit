@@ -83,6 +83,7 @@ class Game {
     let correctAnswersPoints = 0;
     possibleAnswersArray.forEach(element => {
       if (element.answer.toLowerCase() === userGuess.toLowerCase()) {
+        domObject.clearInput();
         correctAnswersPoints = element.respondents;
         this.currentAnswers.splice(this.currentAnswers.indexOf(element), 1);
       }
