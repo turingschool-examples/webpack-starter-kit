@@ -5,19 +5,19 @@
 }
 
 body {
-	display: flex;
-	justify-content: center;
 	align-items: center;
-	flex-direction: column;
-	padding: 0;
-	margin: 0;
-	height: 100vh;
 	background-color: #dbd6ce;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
 }
 
 input {
-	padding: 5px 0 5px 5px;
 	margin: 0.8rem;
+	padding: 5px 0 5px 5px;
 }
 
 html,
@@ -40,43 +40,43 @@ input {
 /*=====user-inputs=====*/
 
 .user-inputs-section {
-	display: flex;
-	border: 1px solid #918c88;
 	background-color: #ede9e1;
+	border-radius: 12px;
+	border: 1px solid #918c88;
 	box-shadow: -4px 3px 0px 2px #474441;
-	width: 520px;
+	display: flex;
 	height: 175px;
 	justify-content: center;
-	border-radius: 12px;
+	width: 520px;
 }
 
 .user-inputs {
-	display: flex;
-	justify-content: space-around;
 	align-items: center;
+	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
 }
 
 .user-input-group {
 	display: flex;
+	justify-content: space-around;
 	padding: 15px;
 	width: 520px;
-	justify-content: space-around;
 }
 
 .user-input {
-	text-align: center;
 	border: 1px solid #918c88;
-	width: 230px;
 	box-shadow: -2px 1px 0px 2px #474441;
 	padding: 0.8rem 0 0.4rem 0;
+	text-align: center;
+	width: 230px;
 }
 
 .btn {
-	transition: box-shadow 0.5s ease, transform 0.5s ease;
 	border: none;
-	padding: 10px;
 	font-size: 20px;
+	padding: 10px;
+	transition: box-shadow 0.5s ease, transform 0.5s ease;
 }
 
 .btn:active {
@@ -86,22 +86,22 @@ input {
 
 .btn:enabled {
 	border: 1px solid #918c88;
-	transform: translate(5px);
 	box-shadow: -2px 1px 0px 2px #474441;
+	transform: translate(5px);
 }
 
 /* MAIN CONTENT */
 
 .main-section {
+	align-items: center;
+	background-color: #ede9e1;
+	border-radius: 12px;
+	border: 1px solid #918c88;
+	box-shadow: -4px 3px 0px 2px #474441;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	border: 1px solid #918c88;
-	background-color: #ede9e1;
-	box-shadow: -4px 3px 0px 2px #474441;
-	border-radius: 12px;
-	width: 520px;
 	margin: 1rem auto;
+	width: 520px;
 }
 
 .current-player-score {
@@ -109,41 +109,41 @@ input {
 }
 
 .question-section {
-	display: flex;
-	margin-top: 1rem;
-	letter-spacing: 0.1rem;
 	/*	justify-content: center;*/
 	align-items: center;
-	text-align: center;
-	line-height: 2rem;
-	height: 100px;
-	border: 1px solid #918c88;
 	background-color: #ede9e1;
+	border: 1px solid #918c88;
 	box-shadow: -2px 1px 0px 2px #474441;
-	width: 95%;
+	display: flex;
+	height: 100px;
+	letter-spacing: 0.1rem;
+	line-height: 2rem;
+	margin-top: 1rem;
 	padding: 0.4rem 0.8rem;
+	text-align: center;
+	width: 95%;
 }
 
 .answers-section {
-	margin: 1rem;
-	display: flex;
-	flex-direction: column;
 	align-content: center;
-	border: 1px solid #474441;
-	box-shadow: -2px 1px 0px 2px #474441;
-	width: 95%;
 	background-color: #918c88;
 	border-right: none;
+	border: 1px solid #474441;
+	box-shadow: -2px 1px 0px 2px #474441;
+	display: flex;
+	flex-direction: column;
+	margin: 1rem;
+	width: 95%;
 }
 
 .answer-section {
-	font-size: 16px;
-	padding-left: 1rem;
-	display: flex;
-	justify-content: space-between;
-	border: 1px solid #474441;
-	border-bottom: 2px solid #474441;
 	background-color: #ede9e1;
+	border-bottom: 2px solid #474441;
+	border: 1px solid #474441;
+	display: flex;
+	font-size: 16px;
+	justify-content: space-between;
+	padding-left: 1rem;
 }
 
 .answer-section:nth-child(2) {
@@ -151,10 +151,10 @@ input {
 }
 
 .pts-section {
-	display: flex;
 	align-items: center;
-	width: 8rem;
 	border-left: 1px solid #474441;
+	display: flex;
+	width: 8rem;
 }
 
 .pts-section p {
@@ -169,11 +169,11 @@ input {
 
 .whose-turn-form {
 	border: 1px solid #474441;
-	box-shadow: -2px 1px 0px 2px #474441;
-	padding: 2rem 0;
-	display: flex;
 	align-items: center;
+	box-shadow: -2px 1px 0px 2px #474441;
+	display: flex;
 	flex-direction: column;
+	padding: 2rem 0;
 }
 
 .whose-turn-form p {
@@ -181,16 +181,16 @@ input {
 }
 
 .whose-turn-form input {
+	font-size: 18px;
 	text-align: center;
 	width: 350px;
-	font-size: 18px;
 }
 
 .player-cards {
 	border-style: double;
-	margin: 1rem 0;
 	display: flex;
 	justify-content: space-around;
+	margin: 1rem 0;
 	width: 95%;
 }
 
@@ -198,13 +198,14 @@ input {
 .countdown-timer {
 	font-size: 18px;
 	margin: 0.5rem;
+	padding: 0.1rem;
 }
 
 /* multiplier section */
 .multiplier-styling {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	text-align: center;
 }
 
