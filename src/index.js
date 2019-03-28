@@ -11,12 +11,10 @@ const submitBtn = $('.submit-btn');
 const resetBtn = $('#reset-game-btn');
 const clueBtn = $('.col');
 const dailyDoubleBtn = $('.daily-double-btn')
-// const submitWagerBtn = $('#submit-wager-btn')
-
 let game;
 $('.game-board').hide();
 
-startGameBtn.click(function (e) {
+startGameBtn.click(function(e) {
   $('.game-board').show();
   $('#reset-game-btn').show();
   e.preventDefault();
@@ -35,27 +33,38 @@ clueBtn.on('click', function(e) {
   $('.game-board').hide();
   const {id, innerText} = event.target;
   game.round.findClue(game, id, innerText, event)
-  game.createFinalRound();
 })
 
-submitBtn.click(function (e) {
+submitBtn.click(function(e) {
   e.preventDefault();
   domUpdates.answerQuestion(game);  
   domUpdates.notifyNextTurn(game);
 })
 
-dailyDoubleBtn.click(function (e) {
+dailyDoubleBtn.click(function(e) {
   e.preventDefault();
   domUpdates.notifyNextTurn(game)
 })
 
-resetBtn.click(function (e) {
+resetBtn.click(function(e) {
   e.preventDefault();
   location.reload();
 })
 
-// $('#submit-wager-btn').click(function (e) {
-//   e.preventDefault();
-//   $('.wager-inputs').hide();
-//   $('.final-jeopardy-input-styles').show()
-// });
+$('#submit-wager-btn').click(function(e) {
+  e.preventDefault();
+  let wagers = [($('#player-one-wager-input').val()),
+    $('#player-two-wager-input').val(),
+    $('#player-three-wager-input').val()];
+  $('.wager-inputs').hide();
+  $('#submit-wager-btn').hide();
+  $('.final-jeopardy-input-styles').show();
+  $('.display-final-clue-question').show();
+  $('#submit-final-btn').show();
+})
+
+$('#submit-final-btn').click(function(e) {
+  e.preventDefault();
+  let champion = game.players.sort((a, b) => a.score - b.score).pop();
+})
+

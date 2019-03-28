@@ -36,8 +36,6 @@ export default {
 
   showClue(game, clue, event, categoryTitles) {
     game.round.cluesRemaining--;
-    console.log(game.round.cluesRemaining);
-    console.log(game.round.dailyDoubleClue);
     $('.question-prompt').show()
     $('.question').text(clue.question);
     $(event.target).text('');
@@ -59,8 +57,6 @@ export default {
       clue.pointValue = parseInt(dailyDouble.pointValue);
       $('.style-daily-double').hide();
       $('.question-box').show()
-      console.log(dailyDouble);
-      console.log(clue.pointValue);
     });
   },
 
@@ -72,9 +68,8 @@ export default {
       this.displayRound(game.roundCounter);
       this.newCategoryValues();
       game.createRound();
-    } else {
-      game.createFinalRound();
     }
+      // game.createFinalRound();
     let answerMatch = data.clues.reduce((acc, currentClue) => {
       if ($(".question").text() === currentClue.question) {
         acc += currentClue.answer;
@@ -106,8 +101,7 @@ export default {
      $('.result').text('Correct Answer!');
      currentPlayer.increaseScore(answerMatch, game);
      $(`.player-${game.playerTurn}-points`).text(currentPlayer.score);
-     $('.result-prompt').hide(100);
-
+     $('.result-prompt').hide(2500);
   },
 
   wrongAnswer(currentPlayer, answerMatch, game) {
@@ -118,7 +112,7 @@ export default {
     currentPlayer.decreaseScore(answerMatch, game);
     $(`.player-${game.playerTurn}-points`).text(currentPlayer.score);
     game.changePlayerTurn();
-    $('.result-prompt').hide(100);
+    $('.result-prompt').hide(2500);
   },
 
   notifyNextTurn(game) {
@@ -149,14 +143,11 @@ export default {
     game.clues = doubleValueClues;
   },
 
-  displayFinalClue(finalClue, categoryTitles) {
-    console.log(finalClue.categoryId)
+  executeFinalClue(finalClue, categoryTitles) {
+    $('.game-board').hide();
+    $('.final-jeopardy').show();
     $('.display-final-clue-category').text(`${categoryTitles[finalClue.categoryId - 1]}`)
-    $('#submit-wager-btn').click(function (e) {
-      e.preventDefault();
-      $('.wager-inputs').hide();
-      $('.final-jeopardy-input-styles').show()
-    });
+    $('.display-final-clue-question').text(`${finalClue.question}`);
   }   
 
 }

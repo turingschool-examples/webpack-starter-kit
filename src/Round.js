@@ -23,14 +23,6 @@ class Round {
     });
     domUpdates.showClue(game, clueToShow, event, this.categoryTitles)
   }
-  
-  // getFinalClue(game) {
-  //   let finalRoundCategory = game.categoryData.pop()
-  //   const finalClueToShow = this.clues.find(clue => {
-  //     return id == finalRoundCategory
-  //   })
-  //   console.log(finalRoundCategory);
-  // }
 
 }
 
