@@ -337,7 +337,9 @@ export default {
         </div>
     </section>
     <div>
-    <button class="quit-btn-container game-buttons">Quit Game<button>
+    <div class="quit-container">
+        <div class="quit-btn game-buttons" role="button">Quit Game<div>
+    </div>
   </div>`
     )
   },
@@ -389,53 +391,39 @@ export default {
     $('.wheel-value').text('Spin Me!');
   },
 
-  // updateRoundScore(playerBankValue, activePlayerValue) {
-  //   let playerScoreElement = $('.bank-score')
-  //   if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
-  //     $('.bank-score.player-1').text(playerBankValue)
-  //   } else if (activePlayerValue === 1 && playerScoreElement.hasClass('player-2') === true) {
-  //     $('.bank-score.player-2').text(playerBankValue)
-  //   } else if (activePlayerValue === 2 && playerScoreElement.hasClass('player-3') === true) {
-  //     $('.bank-score.player-3').text(playerBankValue)
-  //   }
-  // },
-
   updateRoundScore(players) {
-        console.log(players)
-      $('.bank-score.player-1').text(players[0].playerBank)
-      $('.score-total.player-1').text(players[0].score)
+    $('.bank-score.player-1').text(players[0].playerBank)
+    $('.score-total.player-1').text(players[0].score)
 
-      $('.bank-score.player-2').text(players[1].playerBank)
-      $('.score-total.player-2').text(players[1].score)
+    $('.bank-score.player-2').text(players[1].playerBank)
+    $('.score-total.player-2').text(players[1].score)
 
-      $('.bank-score.player-3').text(players[2].playerBank)
-      $('.score-total.player-3').text(players[2].score)
+    $('.bank-score.player-3').text(players[2].playerBank)
+    $('.score-total.player-3').text(players[2].score)
 
   },
 
   updateGameScore(activePlayerValue) {
     $('.score-total').text(activePlayerValue);
-
-    },
+  },
 
 
   gameMessage(message) {
-    let className = message.split(' ').join('-');
     $('footer').prepend(`
-    <section class="${className}">
-      <h1 class="result"><i class="fas fa-exclamation">${message.toUpperCase()}</i></h1>
+    <section class="game-message">
+      <h1 class="result">${message.toUpperCase()}</h1>
     </section>
   `).fadeOut(2000, function() {
-      $(`.${className}`).remove();
-      $('footer').removeAttr("style")
+      $('.game-message').remove();
+      $('footer').removeAttr("style");
     })
   },
 
-    clearGameBoard() {
-      $('.puzzle-cell').remove();     
-        $('.letters-selected-area').remove();
-        $('.game-info').remove();
-        $('.puzzle-area').remove();
+  clearGameBoard() {
+    $('.puzzle-cell').remove();     
+    $('.letters-selected-area').remove();
+    $('.game-info').remove();
+    $('.puzzle-area').remove();
     },
   
   displayActivePlayer(activePlayer) {
