@@ -11,7 +11,7 @@ class Round {
     this.solutionGuess = null;
     this.roundCountDown = 0;
     this.roundCount = 1;
-    this.vowels = ['A','E', 'I', 'O', 'U','Y'];
+    this.vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
   }
 
   getPuzzle(array) {
@@ -48,19 +48,19 @@ class Round {
   }
   
   newTurn() {
-    const player = this.players[this.activePlayer-1];
+    const player = this.players[this.activePlayer - 1];
     this.changeActivePlayers()
     domUpdates.yourTurnMessage(player);
   }
 
-//NEW TURN
-//change round.active player
-//check active player score
-//--buy vowel ok?
-//update active player on dom
-//ANNOUNCE SPIN
-//clear previous spin on dom
-// pulse wheel on dom
+  //NEW TURN
+  //change round.active player
+  //check active player score
+  //--buy vowel ok?
+  //update active player on dom
+  //ANNOUNCE SPIN
+  //clear previous spin on dom
+  // pulse wheel on dom
 
 
   updatePlayerScore(spinValue) {
@@ -85,40 +85,38 @@ class Round {
   guessLetter(event, game) {
     const splitAnswer = game.round.currentPuzzle.splitAnswer;
     const chosenLetter = event.currentTarget.innerText;
-    if(!this.vowels.includes(event.currentTarget.innerText)){
-    this.letterOK(splitAnswer, chosenLetter)
-    }else{
-    if(this.players[this.activePlayer]._roundScore >= 100){
-      this.vowelGuess(splitAnswer, chosenLetter);
-      }else{
+    if (!this.vowels.includes(event.currentTarget.innerText)) {
+      this.letterOK(splitAnswer, chosenLetter)
+    } else {
+      if (this.players[this.activePlayer]._roundScore >= 100) {
+        this.vowelGuess(splitAnswer, chosenLetter);
+      } else {
         alert("You dont have enough money to buy a vowel!");
       }
     }
   }
 
-  vowelGuess(splitAnswer, chosenLetter){
+  vowelGuess(splitAnswer, chosenLetter) {
     this.players[this.activePlayer]._roundScore -= 100;
     domUpdates.displayScore(this.players[this.activePlayer].playerNumber, this.players[this.activePlayer]._roundScore)
-    console.log(this.players[this.activePlayer]._roundScore)
     if (splitAnswer.includes(chosenLetter)) {
-        splitAnswer.forEach(letter => {
-          this.roundCountDown--;
-          if (chosenLetter === letter) {
-            domUpdates.displayCorrectLetter(splitAnswer, chosenLetter);
-            domUpdates.spinAgainPrompt();
-          }
-        })
+      splitAnswer.forEach(letter => {
+        this.roundCountDown--;
+        if (chosenLetter === letter) {
+          domUpdates.displayCorrectLetter(splitAnswer, chosenLetter);
+          domUpdates.spinAgainPrompt();
+        }
+      })
 
-    }else {
+    } else {
       this.newTurn();
     }
   }
   
-  letterOK(splitAnswer, chosenLetter){
+  letterOK(splitAnswer, chosenLetter) {
     if (splitAnswer.includes(chosenLetter)) {
       this.handleCorrectLetterChosen(splitAnswer, chosenLetter)
-      // this.checkScore();
-    }else {
+    } else {
       this.newTurn();
     }
   }
@@ -126,7 +124,6 @@ class Round {
   handleSolutionGuess(guess) {
     const solution = this.currentPuzzle.correctAnswer.toUpperCase();
     if (guess.toUpperCase() === solution) {
-      console.log('Nailed it!');
       domUpdates.displaySolvedPuzzle();
       this.roundCount++;
       domUpdates.solvePuzzleMessage(this.players[this.activePlayer]);
@@ -135,11 +132,11 @@ class Round {
     }
   }
 
-  updateTotalScore(){
+  updateTotalScore() {
     let player = this.players[this.activePlayer]
     player.totalScore += player._roundScore;
     player._roundScore = 0;
-    // domUpdates.displayTotalScore(player, player._roundScore)
+    // domUpdates.displayTotalScore(player, player.totalScore)
   }
 
   
