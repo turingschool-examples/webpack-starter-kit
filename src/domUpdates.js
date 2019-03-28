@@ -99,6 +99,7 @@ export default {
     $(`#player${newPlayer}-area`).addClass('active'); 
     $('#wheel').addClass('pulse').delay(600);
     this.yourTurnMessage(player);
+
   },
   
   spinAgainPrompt() {
@@ -124,7 +125,16 @@ export default {
     alert(`${player.name} solved the puzzle!`)
     // $('.round-number').html(`${player.name} solved the puzzle!`);
     
+
   },
+  
+  spinAgainPrompt() {
+    $('.spin-winner').text(`spin again, buy a vowel, or solve the puzzle`).fadeIn(800);
+  },
+  
+  spinResultMessage(spinResult) {
+      $('.spin-winner').html(`You spun ${spinResult}! Choose a letter.`);
+    },
 
   updateRoundText(round) {
     $('.round-number').text(`Round ${round}`)
@@ -156,6 +166,7 @@ export default {
     
   displayScore(player, total) {
     $(`#player-${player}-round`).text(`Score: ${total}`);
+
   },
   
   checkSolution(event, game) {
