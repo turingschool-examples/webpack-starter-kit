@@ -95,6 +95,7 @@ export default {
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
     $('#wheel').addClass('pulse').delay(600);
+
     this.yourTurnMessage(player);
   },
   
@@ -119,12 +120,16 @@ export default {
 
   
   solvePuzzleMessage(player) {
-    $('.spin-winner').html(`${player.name} solved the puzzle!`);
+    alert(`${player.name} solved the puzzle!`)
+    // $('.round-number').html(`${player.name} solved the puzzle!`);
     
   },
-  // chooseLetterMessage() {
-    
-    // }
+
+  updateRoundText(round){
+    console.log(round)
+    $('.round-number').text(`Round ${round}`)
+  },
+
     
   displayCorrectLetter(puzzle, guess) {
       puzzle.forEach((letter) => {
@@ -135,26 +140,72 @@ export default {
       });
     },
     
-    buyAVowel(event, game) {
+  buyAVowel(event, game) {
       console.log("vowels");
       $('.vowels').on('click', (event) => {
         $( '.vowels').removeClass( "cost");
         round.players[round.activePlayer].roundScore -= 100;
-
         game.round.guessLetter(event, game);
       });
-    },
+  },
+// this being commented in gives strange errors...
+  // displayTotalScore(player, total){
+  //     $(`#player-${player}-total`).text(`Total Score: ${total}`);
+  // },
     
-    displayScore(player, total) {
+  displayScore(player, total) {
+
       $(`#player-${player}-round`).text(`Score: ${total}`);
   },
   
   checkSolution(event, game) {
     event.preventDefault();
     let guess = $('.solve-input').val();
-    // console.log(guess);
-    game.round.handleSolutionGuess(guess);
-    guess = $('.solve-input').val('');
+    let variable = game.round.handleSolutionGuess(guess);
+    if(variable){
+      game.round.updateTotalScore();
+      let gridContainer = `<div class="grid-container top">
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+            <div class="puz-grid top-row"></div>
+          </div> 
+          <div class="grid-container puzzle"></div>
+          <div class="grid-container bottom">
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+            <div class="puz-grid btm-row"></div>
+          </div> `;
+      $('.puzzle-grid-container').html(gridContainer);
+      game.createRound()
+    }else{
+      console.log("nope")
+    }
   }
 
 

@@ -13,9 +13,6 @@ import './images/player3.svg';
 
 
 
-
-// new p5(sketch);
-
 let game;
 
 $('.continue-button').on('click', (e) =>{
@@ -42,3 +39,4 @@ $('.submit-guess').on('click', (e) => {
 $('.vowel').on('click', (e) => {
     game.round.guessLetter(e, game);
   });
+

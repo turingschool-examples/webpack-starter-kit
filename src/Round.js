@@ -10,6 +10,7 @@ class Round {
     this.currentPuzzle = puzzle;
     this.solutionGuess = null;
     this.roundCountDown = 0;
+    this.roundCount = 1;
     this.vowels = ['A','E', 'I', 'O', 'U','Y'];
   }
 
@@ -18,7 +19,7 @@ class Round {
     let randomPuzzle = array.splice(randomNum, 1);
     let puzzle = new Puzzle(randomPuzzle[0]);
     this.currentPuzzle = puzzle;
-    this.roundCountDown = puzzle.numWords;
+    this.roundCountDown = this.currentPuzzle.numLetters;
     return puzzle;
   }
 
@@ -62,7 +63,6 @@ class Round {
 //clear previous spin on dom
 // pulse wheel on dom
 
-
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer];
     spinValue === 0 ? player._roundScore = 0 : player.roundScore += spinValue;
@@ -92,7 +92,7 @@ class Round {
     if(this.players[this.activePlayer]._roundScore >= 100){
       this.vowelGuess(splitAnswer, chosenLetter);
       }else{
-        alert("You dont have enough money to do that!");
+        alert("You dont have enough money to buy a vowel!");
       }
     }
   }
@@ -103,6 +103,7 @@ class Round {
     console.log(this.players[this.activePlayer]._roundScore)
     if (splitAnswer.includes(chosenLetter)) {
         splitAnswer.forEach(letter => {
+          this.roundCountDown--;
           if (chosenLetter === letter) {
             domUpdates.displayCorrectLetter(splitAnswer, chosenLetter);
             domUpdates.spinAgainPrompt();
@@ -127,10 +128,20 @@ class Round {
   handleSolutionGuess(guess) {
     const solution = this.currentPuzzle.correctAnswer.toUpperCase();
     if (guess.toUpperCase() === solution) {
-      // alert('Nailed it!');
+      console.log('Nailed it!');
       domUpdates.displaySolvedPuzzle();
+      this.roundCount++;
       domUpdates.solvePuzzleMessage(this.players[this.activePlayer]);
+      domUpdates.updateRoundText(this.roundCount)
+      return true;
     }
+  }
+
+  updateTotalScore(){
+    let player = this.players[this.activePlayer]
+    player.totalScore += player._roundScore;
+    player._roundScore = 0;
+    // domUpdates.displayTotalScore(player, player._roundScore)
   }
 
 }
