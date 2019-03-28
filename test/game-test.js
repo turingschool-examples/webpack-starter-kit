@@ -36,4 +36,5 @@ describe('Game', function(){
         game.playerTurns();
         expect(game.currentPlayer.name).to.equal('colby');
     })
+
 });
