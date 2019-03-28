@@ -3,8 +3,6 @@ import spies from 'chai-spies';
 chai.use(spies);
 
 import LightningRound from '../src/LightningRound.js';
-import domUpdates from '../src/domUpdates.js';
-// chai.spy.on(domUpdates, 'functionName', () => );
 
 const assert = chai.assert;
 

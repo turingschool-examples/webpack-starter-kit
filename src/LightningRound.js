@@ -6,7 +6,7 @@ class LightningRound {
     this.multiplier = 2;
     this.questionSet = survey;
     this.answerCount = 0;
-  };
+  }
 
   checkLrAnswer(guess, currentPlayer, game) {
     let answers = this.questionSet.answers;
@@ -16,27 +16,27 @@ class LightningRound {
     domUpdates.highlightPlayer(currentPlayer.playerId);
     console.log(correctAnswer);
     if (correctAnswer) {
-      let score = correctAnswer.respondents;
+      score = correctAnswer.respondents;
       let mult = score * this.multiplier;
       currentPlayer.addScore(mult);
       this.answerCount++
       domUpdates.appendAnswer(answers, correctAnswer.answer, correctAnswer.respondents);
     } else {
       domUpdates.tryAgain(); 
-      };
+      }
     if (guess === '') {
       domUpdates.errorMessage();
-    };
+    }
 
-    if(this.answerCount === 3){
+    if (this.answerCount === 3) {
       this.endRound(game);
     }
-  };
+  }
 
   endRound(game) {
     game.createRound();
     this.answerCount = 0;
-  };
+  }
 }
 
 

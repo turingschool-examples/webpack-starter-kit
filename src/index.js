@@ -8,8 +8,6 @@ import './images/FFLsm.png';
 import { data } from './dataset.js';
 
 import Game from './Game.js';
-import Player from './Player.js';
-import Round from './Round.js';
 import domUpdates from './domUpdates.js'
 // import lightningRound from './LightningRound.js';
 // import domUpdates from './domUpdates.js';
@@ -58,24 +56,24 @@ let game;
 function createGame(dataset) {
   game = new Game(dataset);
   console.log(game);
-};
+}
 
 function inputValue() {
   let guess = $('.answerInput').val();
   game.getAnswer(guess);
-};
+}
 
 function removeWrongAnswer() {
  domUpdates.removeWrongAnswer();
-};
+}
 
 function removeTryAgain() {
  domUpdates.removeTryAgain();
-};
+}
 
 function removeErrorMessage() {
  domUpdates.removeErrorMessage();
-};
+}
 
 
 export default dataSet;

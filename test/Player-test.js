@@ -3,7 +3,6 @@ import spies from 'chai-spies';
 chai.use(spies);
 
 import Player from '../src/Player.js';
-import domUpdates from '../src/domUpdates.js';
 
 
 const assert = chai.assert;
