@@ -2,6 +2,7 @@ import $ from 'jquery';
 import DomUpdates from './DomUpdates';
 import Wheel from './Wheel';
 
+
 class Round {
   constructor() {
     this.clueAnswer = null
@@ -15,14 +16,14 @@ class Round {
   createNewRound(game) {
     DomUpdates.clearGameBoard();
     DomUpdates.updateGameScore(this.activePlayer.score);
-    let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
+    let allRoundClues = game.gameRoundsClueBank[game.roundNumber][1].puzzle_bank
     this.shuffler(allRoundClues)
     this.getRandomClue(allRoundClues)
 
     this.wheelInst.createWheel()
 
     DomUpdates.displayActivePlayer(game.players[this.activePlayer])
-    DomUpdates.displayRound(game.stage);
+    DomUpdates.displayRound(game.roundNumber);
   }
   
   getRandomClue(cards) {  
@@ -50,19 +51,6 @@ class Round {
   
   fillGameBoard() {
     this.letterIndexs = DomUpdates.fillGameBoard(this.clueAnswer);
-  }
-  
-  flipCells(letter) {
-    const selectedLetter = this.letterIndexs[letter];
-    const puzzleCells = $('.puzzle-cell').toArray();
-    if (selectedLetter) {
-      for (var i = 0; i < selectedLetter.length; i++) {
-        const instance = selectedLetter[i];
-        const puzzleCell = (puzzleCells[instance].parentNode);
-        puzzleCell.classList.remove('letters-not-displayed')
-        puzzleCell.classList.add('letters-displayed');
-      }
-    }
   }
   
   switchPlayer(game) {
@@ -118,7 +106,7 @@ class Round {
         DomUpdates.gameMessage("round winner")
         game.updatePlayerScore()
         this.checkRoundNum(game)
-        game.stage ++
+        game.roundNumber ++
         this.wheelInst.selectedValue = 0;
         this.createNewRound(game);
       } else {
@@ -144,7 +132,8 @@ class Round {
       DomUpdates.gameMessage("round winner")
       game.updatePlayerScore()
       DomUpdates.clearGameBoard()
-      game.stage ++
+      game.roundNumber ++
+      this.checkRoundNum(game)
       this.createNewRound(game)
       
      
@@ -155,7 +144,7 @@ class Round {
   }
 
   checkRoundNum(game) { 
-    if (game.stage === 5)  {
+    if (game.roundNumber === 2)  {
       game.createBonusRound()
     }
   }

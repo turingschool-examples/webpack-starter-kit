@@ -6,6 +6,7 @@ class Player {
     this.playerBank = 0
   }
 
+
 }
 
 export default Player

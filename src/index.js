@@ -75,7 +75,7 @@ function selectingLetter(event) {
 
   game.roundInst.checkLetter(clickedLetter, game);
   DomUpdates.disableLetter(event);
-  game.roundInst.flipCells(clickedLetter);
+  flipCells(clickedLetter, game);
 }
 
 function playerSpin(game) {
@@ -95,4 +95,18 @@ function submitGuess(game, event) {
     game.roundInst.checkPlayerSolve(playerGuess, game)
   }
 }
+    
+function flipCells(letter, game) {
+  const selectedLetter = game.roundInst.letterIndexs[letter];
+  const puzzleCells = $('.puzzle-cell').toArray();
+  if (selectedLetter) {
+    for (var i = 0; i < selectedLetter.length; i++) {
+      const instance = selectedLetter[i];
+      const puzzleCell = (puzzleCells[instance].parentNode);
+      puzzleCell.classList.remove('letters-not-displayed')
+      puzzleCell.classList.add('letters-displayed');
+    }
+  }
+}
+
 

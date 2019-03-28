@@ -6,13 +6,12 @@ import BonusRound from './BonusRound'
 
 
 class Game {
-  constructor(stage, roundCards) {
+  constructor(roundNumber, roundCards) {
     this.players = []
-    this.stage = stage || 0
+    this.roundNumber = roundNumber || 0
     this.gameRoundsClueBank = null
     this.roundCards = roundCards || []
     this.roundInst = new Round(0)
-    this.bonus = new BonusRound()
   }
 
   startGame(p1, p2, p3) {
@@ -56,10 +55,13 @@ class Game {
   }
 
   createBonusRound() {
-    let winner = this.players.sort((playerA, playerB)=>{
-      return playerA.score - playerB.score
-    }).pop();
-    
-  }
+    const bonus = new BonusRound()
+    this.roundInst = bonus
+    console.log(this.roundInst)
+  // let winner = this.players.sort((playerA, playerB)=>{
+  //   return playerA.score - playerB.score
+  // }).pop();
+  
+}
 }
 export default Game
