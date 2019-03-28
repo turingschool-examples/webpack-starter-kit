@@ -278,63 +278,15 @@ h3 {
   opacity: .7;
   pointer-events: none;
 }
-.bankrupt {
-  background-color: #00020ec9;
+.game-message {
+  background-color: rgba(211,211,211, 0.3);
   bottom: 47%;
-  color: yellow;
-  font-size: 50px;
-  height: 121px;
-  padding-left: 3rem;
+  border-radius: 10px;
+  color: rgba(81, 91, 234, 0.8);
+  font-size: 30px;
+  margin: 0;
+  padding: 15px 5px;
   position: fixed;
-  width: 350px;
-  z-index: 1;
-}
-.lose-turn {
-  background-color: #00020ec9;
-  bottom: 47%;
-  color: yellow;
-  font-size: 50px;
-  height: 121px;
-  padding-left: 3rem;
-  position: fixed;
-  width: 350px;
-  z-index: 1;
-}
-
-
-.round-winner {
-  background-color: #00020ec9;
-  bottom: 47%;
-  color: yellow;
-  font-size: 50px;
-  height: 121px;
-  padding-left: 3rem;
-  position: fixed;
-  width: 350px;
-  z-index: 1;
-}
-
-.spin-again {
-  background-color: #00020ec9;
-  bottom: 47%;
-  color: yellow;
-  font-size: 50px;
-  height: 121px;
-  padding-left: 3rem;
-  position: fixed;
-  width: 350px;
-  z-index: 1;
-}
-
-.next-player {
-  background-color: #00020ec9;
-  bottom: 47%;
-  color: yellow;
-  font-size: 50px;
-  height: 121px;
-  padding-left: 3rem;
-  position: fixed;
-  width: 350px;
   z-index: 1;
 }
 
@@ -348,9 +300,19 @@ h3 {
   width: 9rem;
 }
 
-.quit-btn-container {
-  left: 44%;
-  position: relative;
+.quit-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.quit-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /*left: 44%;*/
+  /*position: relative;*/
 }
 
 .game-info {
@@ -399,4 +361,8 @@ h3 {
   height: 38px;
   top: 39%;
   width: 200px;
+}
+
+.game-buttons:hover {
+  color: white;
 }
