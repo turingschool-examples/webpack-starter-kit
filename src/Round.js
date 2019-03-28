@@ -62,21 +62,14 @@ class Round {
 // pulse wheel on dom
 
 
-
-
-
-
-
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer];
     spinValue === 0 ? player._roundScore = 0 : player.roundScore += spinValue;
-    console.log('after: ', player, player.roundScore)
     domUpdates.displayScore(player.playerNumber, player.roundScore)
   }
 
   handleCorrectLetterChosen(splitAnswer, chosenLetter) {
     const spinValue = this.currentWheel.currentSpin
-    // const player = this.players[this.activePlayer]
     splitAnswer.forEach(letter => {
       if (chosenLetter === letter) {
         this.updatePlayerScore(spinValue);
@@ -94,9 +87,7 @@ class Round {
     if(!this.vowels.includes(event.currentTarget.innerText)){
     this.letterOK(splitAnswer, chosenLetter)
     }else{
-      console.log("includes vowel")
     if(this.players[this.activePlayer]._roundScore >= 100){
-      console.log("has money")
       this.vowelGuess(splitAnswer, chosenLetter);
       }else{
         alert("You dont have enough money to do that!");
@@ -105,9 +96,6 @@ class Round {
   }
 
   vowelGuess(splitAnswer, chosenLetter){
-    console.log("in vowelGuess");
-    console.log(this.players[this.activePlayer])
-    console.log(this.players[this.activePlayer]._roundScore)
     this.players[this.activePlayer]._roundScore -= 100;
     domUpdates.displayScore(this.players[this.activePlayer].playerNumber, this.players[this.activePlayer]._roundScore)
     console.log(this.players[this.activePlayer]._roundScore)
