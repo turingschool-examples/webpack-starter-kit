@@ -24,8 +24,6 @@ class Round {
   }
 
   changeActivePlayers() {
-    // console.log(this.activePlayer)
-
     let oldPlayer, newPlayer;
     switch (true) {
     case (this.activePlayer === 0):
@@ -50,18 +48,8 @@ class Round {
   newTurn() {
     const player = this.players[this.activePlayer - 1];
     this.changeActivePlayers()
-
     domUpdates.yourTurnMessage(player);
   }
-
-  //NEW TURN
-  //change round.active player
-  //check active player score
-  //--buy vowel ok?
-  //update active player on dom
-  //ANNOUNCE SPIN
-  //clear previous spin on dom
-  // pulse wheel on dom
 
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer];
@@ -81,8 +69,6 @@ class Round {
     });
   }
 
-  // TODO: Refactor to use entire solution
-  // INVESTIGATE: Consider creating a Tile class
   guessLetter(event, game) {
     const splitAnswer = game.round.currentPuzzle.splitAnswer;
     const chosenLetter = event.currentTarget.innerText;
@@ -130,7 +116,6 @@ class Round {
       domUpdates.solvePuzzleMessage(this.players[this.activePlayer]);
       domUpdates.updateRoundText(this.roundCount)
       return true;
-
     }
   }
 
@@ -140,6 +125,7 @@ class Round {
     player._roundScore = 0;
     // domUpdates.displayTotalScore(player, player.totalScore)
   }
+
 
 }
 

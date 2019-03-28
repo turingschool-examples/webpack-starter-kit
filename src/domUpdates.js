@@ -1,6 +1,5 @@
 import $ from 'jquery';
 
-
 export default {
 
   hiddenBoard(playersArr) {
@@ -119,9 +118,7 @@ export default {
 
   
   solvePuzzleMessage(player) {
-    alert(`${player.name} solved the puzzle!`)
-    // $('.round-number').html(`${player.name} solved the puzzle!`);
-    
+    alert(`${player.name} solved the puzzle!`);
   },
   
   spinAgainPrompt() {
@@ -152,6 +149,7 @@ export default {
       game.round.guessLetter(event, game);
     });
   },
+
     
   displayScore(player, total) {
     $(`#player-${player}-round`).text(`Score: ${total}`);
