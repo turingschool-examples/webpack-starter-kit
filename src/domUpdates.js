@@ -150,9 +150,13 @@ export default {
   },
 
   displayFinalClue(finalClue, categoryTitles) {
+    console.log(finalClue.categoryId)
     $('.display-final-clue-category').text(`${categoryTitles[finalClue.categoryId - 1]}`)
-    console.log(finalClue)
-    console.log('test');
-  }
+    $('#submit-wager-btn').click(function (e) {
+      e.preventDefault();
+      $('.wager-inputs').hide();
+      $('.final-jeopardy-input-styles').show()
+    });
+  }   
 
 }

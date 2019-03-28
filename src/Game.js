@@ -46,7 +46,6 @@ class Game {
     const finalClues = this.clues.filter(clue => clue.categoryId === finalRoundCategory)
     const finalClue = this.shuffle(finalClues).pop();
     domUpdates.displayFinalClue(finalClue, this.round.categoryTitles);
-    // console.log(finalClue)
   }
 
   shuffle(clues) {
