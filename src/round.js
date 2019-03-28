@@ -27,10 +27,10 @@ class Round {
     game.players.map(player => player.roundCaps = 0);
     DomUpdates.updatePlayerScore(game);
     this.allRoundGuesses = [];
-    this.determinePuzzleLength();
+    this.determinePuzzleLength(game);
     this.displayDomPuzzle(game);
   }
-  determinePuzzleLength() {
+  determinePuzzleLength(game) {
     let random = Math.floor((Math.random() * 23) + 0);
     switch (this.roundNumber) {
     case 1: 
@@ -47,6 +47,7 @@ class Round {
       break;
     case 5: 
       this.storePuzzle(data.puzzles.one_word_answers.puzzle_bank[random]);
+      this.makeBonusRound(game);
     }
   }
   storePuzzle(puzzle) {
@@ -77,6 +78,9 @@ class Round {
       this.newRound(game)
       console.log(game.currentRound.currWheel)
     }
+  }
+  makeBonusRound(game) {
+    game.bonusRound(this.roundNumber)
   }
   getCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
@@ -132,31 +136,5 @@ class Round {
     console.log(this.answer)
     this.answer = this.answer.filter(char => char !== ' ' ? char : char = '');
   }
-  
-  checkPlayerGuess() {
-    console.log('Array of ans', this.answer);
-  
-    //get player guess array
-    // check player guess array against current array
-  }
-  // create an option method
-  // switch statement based on their dom interaction
-  // case guess: 
-  
-  playerGuessWord() {
-    console.log('In guessword')
-  }
-  // ? Insert input & 2 buttons to tag event listeners on
-  playerSpin() {
-    console.log('In spin')
-    
-  }
-  
-  playerBuy() {
-    console.log('In buy')
-  }
-  
-  
-  
 }
 export default Round;

@@ -27,7 +27,7 @@ export default {
     let currPlayer = game.currentRound.currentPlayer;
     $(`.player-${currPlayer.playerNum}__name`).toggleClass('big-red-border');
   },
-// **   UI Based   ** //
+// **   Input Based   ** //
 // ===================//
   clearInput() {
     $('#guess--input').val('');
@@ -66,7 +66,7 @@ export default {
     // lettersRemaining.text(game.currentRound.allRoundGuesses);
   },
   updateRoundNumber(game) {
-    $('#rnd-num').text(game.currentRound.roundNumber)
+    game.currentRound.roundNumber === 5 ? $('#rnd-num').text("Bonus") : $('#rnd-num').text(game.currentRound.roundNumber)
   },
   updateRoundHintCategory(game) {
     // console.log(game.currentRound.roundPuzzle);
@@ -151,5 +151,10 @@ export default {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
     });
+  },
+  displayPrize(prize) {
+    $('.animation--container').prepend(`<h4 class="prize--label">Guess Correct You'll Win:</h4>`)
+    $('.animation--container').prepend(`<p class="prize-title">${prize}</p>`)
+    $('.animation--container').append(`<img class="prize-img" src="./images/${prize}.png" />`)
   }
 }
