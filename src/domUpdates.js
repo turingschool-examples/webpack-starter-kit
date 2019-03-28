@@ -1,5 +1,6 @@
 import $ from 'jquery';
 
+
 export default {
 
   hiddenBoard(playersArr) {
@@ -22,7 +23,6 @@ export default {
   fillSpace(puzzleLength, end) {
     const extraSpace = 14 - puzzleLength;
     const fill = extraSpace / 2;
-    // debugger
     if (extraSpace % 2 === 0) {
       this.appendFill(fill + 1);
     } else {
@@ -70,7 +70,7 @@ export default {
     $('.clue-container').text(category)
   },
 
-  spinWheel(game) {
+  spinWheel(game, wheel) {
     let clicks = 1;
     const winner = Math.round(Math.random() * 21);
     /*multiply the degree by number of clicks
@@ -79,7 +79,7 @@ export default {
     const extraDegree = (21 - winner) * 36;
     const spinAgain = (1800 * clicks) + extraDegree;
     const totalDegree = Math.round(spinAgain / 36) * 150;
-    let wheel = game.round.currentWheel
+    wheel = game.round.currentWheel
     // debugger
     wheel.spinWinner(winner, game.round);
     clicks++;
@@ -91,12 +91,11 @@ export default {
 
   },
 
-  updateActivePlayer(oldPlayer, newPlayer, player) {
+  updateActivePlayer(oldPlayer, newPlayer) {
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
     $('#wheel').addClass('pulse').delay(600);
-
-    this.yourTurnMessage(player);
+    this.yourTurnMessage(newPlayer);
   },
   
   spinAgainPrompt() {
@@ -104,10 +103,10 @@ export default {
   },
   
   spinResultMessage(spinResult) {
-    if(spinResult === "BANKRUPT" || spinResult === "LOSE A TURN"){
+    if (spinResult === "BANKRUPT" || spinResult === "LOSE A TURN") {
       $('.spin-winner').html(`Sorry, you spun ${spinResult}! Next Player Spins!`)
 
-    }else{
+    } else {
       $('.spin-winner').html(`You spun ${spinResult}! Choose a letter.`);
 
     }
@@ -124,45 +123,45 @@ export default {
     // $('.round-number').html(`${player.name} solved the puzzle!`);
     
   },
+  
+  spinAgainPrompt() {
+    $('.spin-winner').text(`spin again, buy a vowel, or solve the puzzle`).fadeIn(800);
+  },
+  
+  spinResultMessage(spinResult) {
+      $('.spin-winner').html(`You spun ${spinResult}! Choose a letter.`);
+    },
 
-  updateRoundText(round){
-    console.log(round)
+  updateRoundText(round) {
     $('.round-number').text(`Round ${round}`)
   },
-
     
   displayCorrectLetter(puzzle, guess) {
-      puzzle.forEach((letter) => {
-        if (letter === guess) {
-          // debugger
-          $(`.${letter}`).removeClass('secret');
-        } 
-      });
-    },
+    puzzle.forEach((letter) => {
+      if (letter === guess) {
+        // debugger
+        $(`.${letter}`).removeClass('secret');
+      } 
+    });
+  },
     
   buyAVowel(event, game) {
-      console.log("vowels");
-      $('.vowels').on('click', (event) => {
-        $( '.vowels').removeClass( "cost");
-        round.players[round.activePlayer].roundScore -= 100;
-        game.round.guessLetter(event, game);
-      });
+    $('.vowels').on('click', (event) => {
+      $( '.vowels').removeClass( "cost");
+      game.round.players[game.round.activePlayer].roundScore -= 100;
+      game.round.guessLetter(event, game);
+    });
   },
-// this being commented in gives strange errors...
-  // displayTotalScore(player, total){
-  //     $(`#player-${player}-total`).text(`Total Score: ${total}`);
-  // },
     
   displayScore(player, total) {
-
-      $(`#player-${player}-round`).text(`Score: ${total}`);
+    $(`#player-${player}-round`).text(`Score: ${total}`);
   },
   
   checkSolution(event, game) {
     event.preventDefault();
     let guess = $('.solve-input').val();
     let variable = game.round.handleSolutionGuess(guess);
-    if(variable){
+    if (variable) {
       game.round.updateTotalScore();
       let gridContainer = `<div class="grid-container top">
             <div class="puz-grid top-row"></div>
@@ -202,9 +201,11 @@ export default {
             <div class="puz-grid btm-row"></div>
           </div> `;
       $('.puzzle-grid-container').html(gridContainer);
+      game.roundCount++;
+      // wheel = new Wheel(game, data.wheel)
       game.createRound()
-    }else{
-      console.log("nope")
+    } else {
+      alert('You guess incorrectly!')
     }
   }
 

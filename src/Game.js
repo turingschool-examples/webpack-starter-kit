@@ -1,7 +1,7 @@
 import Wheel from "./Wheel.js";
 import Round from "./Round.js";
 import Player from "./Player.js";
-import BonusWheel from "./BonusWheel.js"
+// import BonusWheel from "./BonusWheel.js"
 import data from "./data.js";
 import domUpdates from "./domUpdates.js";
 
@@ -31,13 +31,12 @@ class Game {
   createRound (wheel) {
     this.roundCount++;
     if (this.roundCount === 4) {
-      let wheel = new BonusWheel();    
+      // let wheel = new BonusWheel();    
     }
     let round = new Round(this.players, wheel);
     this.round = round;
     round.currentWheel = wheel;
     this.currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
-    console.log(this.currentPuzzle);
     this.currentPuzzle.checkPuzLength();
     domUpdates.appendPuzzle(this.currentPuzzle.splitAnswer, this.currentPuzzle.secondLine);
     domUpdates.setCategoryText(this.currentPuzzle.category);
