@@ -49,7 +49,11 @@ class Game {
       domUpdates.progressBar(this.
         roundNumber);
     } 
-
+    
+    if(this.roundNumber === 2) {
+       this.switchPlayer();
+    }
+    
     if(this.roundNumber === 3 ) {
       // if(this.player1.score < this.player2.score) {
       //   this.currentPlayer ==== this.player1; 
