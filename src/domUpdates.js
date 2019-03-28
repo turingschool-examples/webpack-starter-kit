@@ -74,10 +74,10 @@ export default {
 
   unhighlightPlayer(playerId) {
      if(playerId === 1) {
-      $('#nameOne').css('');
+      $('#nameOne').css('box-shadow', 'none');
     }
-       if(playerId === 2) {
-      $('#nameTwo').css('');
+    if(playerId === 2) {
+      $('#nameTwo').css('box-shadow', 'none');
     }
   },
 
