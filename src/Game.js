@@ -11,6 +11,7 @@ class Game {
     this.roundCount  = 0;
     this.players = [];
     this.allData = []
+    this.currentPuzzle = null;
   }
 
   startGame() {
@@ -35,10 +36,11 @@ class Game {
     let round = new Round(this.players, wheel);
     this.round = round;
     round.currentWheel = wheel;
-    let currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
-    currentPuzzle.checkPuzLength();
-    domUpdates.appendPuzzle(currentPuzzle.splitAnswer, currentPuzzle.secondLine);
-    domUpdates.setCategoryText(currentPuzzle.category);
+    this.currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
+    console.log(this.currentPuzzle);
+    this.currentPuzzle.checkPuzLength();
+    domUpdates.appendPuzzle(this.currentPuzzle.splitAnswer, this.currentPuzzle.secondLine);
+    domUpdates.setCategoryText(this.currentPuzzle.category);
   }
 
   createPlayers(array) {

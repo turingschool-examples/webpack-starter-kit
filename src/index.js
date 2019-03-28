@@ -42,3 +42,4 @@ $('.submit-guess').on('click', (e) => {
 $('.vowel').on('click', (e) => {
     game.round.guessLetter(e, game);
   });
+
