@@ -50,6 +50,10 @@ class Game {
         roundNumber);
     } 
 
+    if(this.roundNumber === 2) {
+       this.switchPlayer();
+    }
+
     // if(this.roundNumber === 3 ) {
     //   if(this.player1.score < this.player2.score) {
     //     this.currentPlayer ==== this.player1; 
@@ -59,7 +63,7 @@ class Game {
     //   this.lightningRound = new LightningRound(this.currentPlayer);  
     // }
 
-     // if(this.roundNumber === 4) {
+    //  if(this.roundNumber === 4) {
     //   this.currentPlayer = !this.currentPlayer;
     //   this.lightningRound = new LightningRound(this.currentPlayer);
     // }

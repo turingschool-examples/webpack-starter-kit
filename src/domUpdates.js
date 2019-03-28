@@ -12,6 +12,10 @@ export default {
     $('.errorMessage').css('visibility', 'visible');
   },
 
+  removeErrorMessage() {
+    $('.errorMessage').css('visibility', 'hidden');
+  },
+
   wrongAnswer() {
     $('.wrongAnswer').css('visibility', 'visible');
   },
