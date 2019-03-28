@@ -62,9 +62,7 @@ class Game {
     const bonus = new BonusRound(game)
     this.roundInst = bonus
     console.log(this.roundInst)
-  // let winner = this.players.sort((playerA, playerB)=>{
-  //   return playerA.score - playerB.score
-  // }).pop();
+
   
 }
 }
