@@ -90,11 +90,12 @@ export default {
 
   },
 
-  updateActivePlayer(oldPlayer, newPlayer) {
+  updateActivePlayer(oldPlayer, newPlayer,player) {
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
     $('#wheel').addClass('pulse').delay(600);
-    this.yourTurnMessage(newPlayer);
+    console.log(newPlayer)
+    this.yourTurnMessage(player);
   },
   
   spinAgainPrompt() {
