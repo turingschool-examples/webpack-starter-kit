@@ -26,9 +26,6 @@ On start players will be prompted to choose their names. Each of the three playe
 - [VSCode](https://code.visualstudio.com/)
 - [jQuery](https://jquery.com/)
 
-## Member Documentation
-
-[User Feedback]
 
 ## Contact Info
 Credit for the project goes to team members:
