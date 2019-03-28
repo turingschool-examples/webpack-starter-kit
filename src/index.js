@@ -1,8 +1,12 @@
 import $ from 'jquery';
+
 import './css/normalize.css';
 import './css/base.css';
+
 import './images/FFLsm.png';
+
 import { data } from './dataset.js';
+
 import Game from './Game.js';
 import Player from './Player.js';
 import Round from './Round.js';
