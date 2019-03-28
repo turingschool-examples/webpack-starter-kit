@@ -30,7 +30,12 @@ $('.start__start--btn').click(() =>{
 
 // * Nav Buttons
 $('.nav__end-round').click(function () {
-  game.currentRound.skipPuzzle(game);
+  if ($('#guess--input').val() == 'levelUP') {
+    game.currentRound.newRound(game);
+    console.log(game.currentRound)
+  } else {
+    game.currentRound.skipPuzzle(game);
+  }
 });
 $('.nav__end-game').click(function () {
   location.reload();
@@ -196,23 +201,33 @@ import './css/normalize.css';
 // import './css/Lato-Thin.ttf'
 
 // An example of how you tell webpack to use an image (also need to link to it inthe index.html)
-import './images/turing-logo.png';
+//* Background
 import './images/terminal2.jpg';
-import './images/mad_max-removebg.png';
-import './images/mysteriousStranger.png';
-import './images/radroach.png';
-import './images/raider.png';
-import './images/smallvaultec.png';
-import './images/smartypants.png';
-import './images/thumbs.png';
-import './images/vaultDoor.png';
-import './images/vaultTec.jpg';
-import './images/yesMan.jpg';
-import './images/bottleCaps.png';
-import './images/deathclaw.jpg';
-import './images/incorrect.png';
-import './images/bankrupt.png';
-import './images/loseTurn.png';
+//* Characters
+import './images/characters/mad_max-removebg.png';
+import './images/characters/radroach.png';
+import './images/characters/thumbs.png';
+//* Dom Resources
+import './images/Dom_Resources/smallvaultec.png';
+import './images/Dom_Resources/smartypants.png';
+import './images/Dom_Resources/vaultDoor.png';
+import './images/Dom_Resources/yesMan.jpg';
+import './images/Dom_Resources/bottleCaps.png';
+import './images/Dom_Resources/incorrect.png';
+import './images/Dom_Resources/bankrupt.png';
+import './images/Dom_Resources/loseTurn.png';
+//* Prizes
+import './images/Prizes/BB_gun.png';
+import './images/Prizes/Fat_Man.png';
+import './images/Prizes/laser_rifle.png';
+import './images/Prizes/lunchbox.png';
+import './images/Prizes/Mister_Handy.png';
+import './images/Prizes/nightwear.png';
+import './images/Prizes/power_armor.png';
+import './images/Prizes/RadAway.png';
+import './images/Prizes/radiation_suit.png';
+import './images/Prizes/stimpak.png';
+import './images/Prizes/teddy_bear.png';
 
 
 // import './css/Overseer.otf'

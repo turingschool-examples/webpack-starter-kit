@@ -27,7 +27,7 @@ export default {
     let currPlayer = game.currentRound.currentPlayer;
     $(`.player-${currPlayer.playerNum}__name`).toggleClass('big-red-border');
   },
-// **   UI Based   ** //
+// **   Input Based   ** //
 // ===================//
   clearInput() {
     $('#guess--input').val('');
@@ -62,7 +62,7 @@ export default {
     // lettersRemaining.text(game.currentRound.allRoundGuesses);
   },
   updateRoundNumber(game) {
-    $('#rnd-num').text(game.currentRound.roundNumber)
+    game.currentRound.roundNumber === 5 ? $('#rnd-num').text("Bonus") : $('#rnd-num').text(game.currentRound.roundNumber)
   },
   updateRoundHintCategory(game) {
     // console.log(game.currentRound.roundPuzzle);
@@ -97,6 +97,8 @@ export default {
   appendWinner(game) {
     let winner = game.currentRound.currentPlayer.name;
     let winningCaps = game.currentRound.currentPlayer.roundCaps;
+    console.log(game.currentRound.answer)
+    let answer = game.currentRound.answer.join('');
 
     let body = $('body');
     body.append(`<section class="winner-card fade-in"> The Winner is: ${winner} <br> The Puzzle was: ${answer} <br> ${winner} has won ${winningCaps} caps!<section>`)
@@ -144,5 +146,10 @@ export default {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
     });
+  },
+  displayPrize(prize) {
+    $('.animation--container').prepend(`<h4 class="prize--label">Guess Correct You'll Win:</h4>`)
+    $('.animation--container').prepend(`<p class="prize-title">${prize}</p>`)
+    $('.animation--container').append(`<img class="prize-img" src="./images/${prize}.png" />`)
   }
 }

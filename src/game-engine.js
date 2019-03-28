@@ -1,6 +1,7 @@
 
 import Round from './round';
 import Player from './player';
+import BonusRound from './bonus-round'
 
 
 class GameEngine {
@@ -8,6 +9,7 @@ class GameEngine {
     this.playersNames = playersNames || [],
     this.players = [],
     this.currentRound = new Round(0);
+    this.bonus = null
   }
   revEngine(game) {
     this.loadPlayers();
@@ -18,6 +20,10 @@ class GameEngine {
     this.players = this.playersNames.map((player, ind) => {
       return this.players[ind] = new Player(player, (ind + 1));
     });
+  }
+  bonusRound (rndNum) {
+    this.bonus = new BonusRound(rndNum);
+    console.log(this.bonus)
   }
 }
 
