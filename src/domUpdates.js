@@ -122,6 +122,11 @@ export default {
     // $('.round-number').html(`${player.name} solved the puzzle!`);
     
   },
+
+  updateRoundText(round){
+    console.log(round)
+    $('.round-number').text(`Round ${round}`)
+  },
   // chooseLetterMessage() {
     
     // }

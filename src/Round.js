@@ -10,6 +10,7 @@ class Round {
     this.currentPuzzle = puzzle;
     this.solutionGuess = null;
     this.roundCountDown = 0;
+    this.roundCount = 1;
     this.vowels = ['A','E', 'I', 'O', 'U','Y'];
   }
 
@@ -127,8 +128,9 @@ class Round {
     if (guess.toUpperCase() === solution) {
       console.log('Nailed it!');
       domUpdates.displaySolvedPuzzle();
-      game.round.rounCount++;
-      domUpdates.solvePuzzleMessage(this.players[this.activePlayer], game.round.roundCount);
+      this.roundCount++;
+      domUpdates.solvePuzzleMessage(this.players[this.activePlayer]);
+      domUpdates.updateRoundText(this.roundCount)
       return true;
     }
   }
