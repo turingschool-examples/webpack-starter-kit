@@ -29,11 +29,11 @@ let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()
 
 // dom manipulation to get values of the three names
 
-const $name1 = $("#player-1").val;
-const $name2 = $("#player-2").val;
-const $name3 = $("#player-3").val;
+const $name1 = $("#player-1").val();
+const $name2 = $("#player-2").val();
+const $name3 = $("#player-3").val();
 
-var newGame = new Game($name1, $name2, $name3);
+const newGame = new Game($name1, $name2, $name3);
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -44,16 +44,23 @@ console.log('This is the JavaScript entry file - your code begins here.');
     domUpdates.publishCategories();
     domUpdates.publishRoundClues();
     domUpdates.publishScoreBoard();
+    let $p1Name = $("#player1-name");
+    $p1Name.html($('#player-1').val());
+    let $p2Name = $("#player2-name");
+    $p2Name.html($('#player-2').val());
+    let $p3Name = $("#player3-name");
+    $p3Name.html($('#player-3').val());
+    $("#category-one").text(categoryArr[0]);
+    $("#category-two").text(categoryArr[1]);
+    $("#category-three").text(categoryArr[2]);
+    $("#category-four").text(categoryArr[3]);
     domUpdates.removeMe();
-    $('#category-one').text(categoryArr[0]);
-    $('#category-two').text(categoryArr[1]);
-    $('#category-three').text(categoryArr[2]);
-    $('#category-four').text(categoryArr[3]);
   });
 
 
   $(document).on('click', '.clues', function (e) {
     newGame.cluesRemaining--;
+    console.log(newGame.cluesRemaining);
     $(e.target).css('visibility', 'hidden');
     let category = [];
     if ($(e.target).is(".cat-1")) {
@@ -70,7 +77,7 @@ console.log('This is the JavaScript entry file - your code begins here.');
   });
 
   $(document).on('click', ".answer-btn", "#user-answer", function(event) {
-    const $userAnswer = $("#user-answer").val()
+    const $userAnswer = $("#user-answer").val();
     event.preventDefault();
     newGame.checkAnswer($userAnswer);
   });

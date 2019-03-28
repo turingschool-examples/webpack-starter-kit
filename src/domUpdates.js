@@ -76,16 +76,16 @@ export default {
     + '<input type="text" name="user-answer" id="user-answer" class="answer-input">'
     + '<button class="answer-btn">Submit</button>' + '</form>' +
     '<footer class="player-wrapper">' + '<section class="players">' +
-    '<span id="player1-name">' + 'Player ' + 1 + '</span>' + '<br>' + 'Score ' +
+    '<span id="player1-name">' + 'Player ' + '1' + '</span>' + '<br>' + 'Score ' +
     '<span id="player1-score">' + 0 + '</span>' + '</section>' +
-    '<section class="players">' + '<span id="player1-name">' + 'Player ' + 2 +
+    '<section class="players">' + '<span id="player2-name">' + 'Player ' + 2 +
     '</span>' + '<br>' + 'Score' + '<span id="player2-score"> ' + 0 + '</span>' +
-    '</section>' + '<section class="players">' + '<span id="player1-name"> ' +
+    '</section>' + '<section class="players">' + '<span id="player3-name"> ' +
     'Player ' + 3 + '</span>' + '<br>' + 'Score' + '<span id="player3-score"> ' + 0
     + '</span>' + '</section>' + '</footer>';
     $(".answer-wrapper").append(board);
   },
-  
+
 
 
 }
