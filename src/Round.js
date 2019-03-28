@@ -1,20 +1,17 @@
 import domUpdates from './domUpdates.js';
 
-
-
 class Round {
   constructor(survey) {
     this.questionSet = survey;
     this.answerCount = 0;
-};
+  };
 
 
-checkAnswer(guess, currentPlayer, game) {
+  checkAnswer(guess, currentPlayer, game) {
     let answers = this.questionSet.answers;
     let score;
     domUpdates.clearInputField();
     let correctAnswer = answers.find(answer => (guess.toLowerCase() === answer.answer.toLowerCase())); 
-    domUpdates.highlightPlayer(currentPlayer.playerId);
     //needs to iluminate upon game creation for player 1 and should be removed when player switches
     console.log(correctAnswer);
     if (correctAnswer) {
@@ -26,8 +23,7 @@ checkAnswer(guess, currentPlayer, game) {
     } else {
         console.log('incorrect')
         domUpdates.wrongAnswer();
-        // domupdates.unhighlightPlayer(currentPlayer.playerId);
-        game.switchPlayer();   
+        game.switchPlayer();  
     };
 
     console.log(currentPlayer);
@@ -40,24 +36,13 @@ checkAnswer(guess, currentPlayer, game) {
     if(this.answerCount === 3){
         this.endRound(game);
     }
-};
+  };
 
-    
-    endRound(game) {
-        game.createRound();
-        this.answerCount = 0;
-    }
+  endRound(game) {
+    game.createRound();
+    this.answerCount = 0;
+  };
 
-
-//     lightningRound(currentPlayer) {
-//     console.log('inside create lightning round');
-//     // domUpdates.multiplierMessage(this.player1, this.player2);
-//     this.lightningRound = new LightningRound(this.questionSet, currentPlayer);
-//     console.log(this.lightningRound);
-// //we will have to pass everything into this
-// //what is the point of having a new instance?
-//     };
 }
-
 
 export default Round;

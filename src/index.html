@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <title>Family Feud Live!</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  </head>
-  <body>
-    <main class="wrapper">
+<head>
+  <title>Family Feud Live!</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+  <main class="wrapper">
     <section class="gamePopUp"></section>
-      
     <section class="gameBoard">
-    <div id="progress">
-    <label class="progressLabel" for="bar">Game Progress:</label> 
-    <progress id="bar" max="100" value="0"> </progress>
-  </div>
-        <div class="gameQuestion">
-          <p id="surveyQuestion">Your Question Will Appear Here Upon Game Start</p>
-        </div>
-        <div class="surveyResponses">
-          <div class="cardOne">
+      <div id="progress">
+        <label class="progressLabel" for="bar">Game Progress:</label> 
+        <progress id="bar" max="100" value="0"> </progress>
+      </div>
+      <div class="gameQuestion">
+        <p id="surveyQuestion">Your Question Will Appear Here Upon Game Start</p>
+      </div>
+      <div class="surveyResponses">
+        <div class="cardOne">
           <p id="responseOne">1</p>
-          </div>
-          <div class="cardTwo">
-          <p id="responseTwo">2</p>
-          </div>
-          <div class="cardThree">
-          <p id="responseThree">3</p>
-          </div>
-          <p class="wrongAnswer">Wrong Answer - Switch Player!</p>
-          <p class="tryAgain">Try Again!</p>
         </div>
+        <div class="cardTwo">
+          <p id="responseTwo">2</p>
+        </div>
+        <div class="cardThree">
+          <p id="responseThree">3</p>
+        </div>
+        <p class="wrongAnswer">Wrong Answer - Switch Player!</p>
+        <p class="tryAgain">Try Again!</p>
+      </div>
     </section>
-
-
     <section class="scoreBoard show">
       <article class="playerOne">
         <h3 id="nameOne">Player 1</h3>
@@ -46,30 +43,30 @@
         <h1 id="scoreTwo">0</h1>
       </article>
     </section>
-
     <footer class="playerControls">
       <section class="playerOneCounter">
-        <div id="counterOne"></div>
+        <div id="counterOne">
+        </div>
       </section>
       <section>
         <input class="answerInput" placeholder="Type your guess here"></input>
         <p class="errorMessage">Enter a Guess!</p>
-        <button id="submitBtn">
-          <h4>Submit Answer</h4>
-        </button>
-        <button id="resetBtn">
-          <h4>Restart Game</h4>
-        </button>
+        <div id="subRstBtn">
+          <button id="submitBtn">
+            <h4>Submit Answer</h4>
+          </button>
+          <button id="resetBtn">
+            <h4>Restart Game</h4>
+          </button>
+        </div>
       </section>
       <section class="playerTwoCounter">
-        <div id="counterTwo"></div>
+        <div id="counterTwo">
+        </div>
       </section>
       <!-- use z index to make this appear as a pop up -->
       <div class="winnerMessage"></div>
     </footer>
-    </main>
-
-
-    
-  </body>
+  </main>
+</body>
 </html>

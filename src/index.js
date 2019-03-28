@@ -6,6 +6,7 @@ import './css/base.css';
 import './images/FFLsm.png';
 
 import { data } from './dataset.js';
+
 import Game from './Game.js';
 import Player from './Player.js';
 import Round from './Round.js';
@@ -14,7 +15,6 @@ import domUpdates from './domUpdates.js'
 // import domUpdates from './domUpdates.js';
 
 domUpdates.popUp()
-
 
 const dataSet = data.surveys.reduce((acc, survey) => {
   acc.push({
@@ -27,20 +27,16 @@ const dataSet = data.surveys.reduce((acc, survey) => {
 
 
 $('#startBtn').on('click', startPlaying);
-
 $('#newGameBtn').click(() => {
   location.reload(true);
-  });
-
+});
 $('#newGameBtn').on('click', startPlaying);
-
 $('#resetBtn').click(() => {
   location.reload(true);
 });
-
 $('#submitBtn').on('click', inputValue);
 $('.answerInput').on('keyup', removeWrongAnswer);
-
+// $('.answerInput').on('keyup', removeTryAgain);
 
 function startPlaying() {
   let playerOne = $('.nameOne').val();
@@ -60,7 +56,6 @@ let game;
 
 function createGame(dataset) {
   game = new Game(dataset);
-  
   console.log(game);
 };
 
@@ -72,6 +67,10 @@ function inputValue() {
 function removeWrongAnswer() {
  domUpdates.removeWrongAnswer();
 };
+
+// function removeTryAgain() {
+//  domUpdates.removeTryAgain();
+// };
 
 
 export default dataSet;
