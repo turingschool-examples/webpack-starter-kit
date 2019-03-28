@@ -50,6 +50,7 @@ class Round {
   newTurn() {
     const player = this.players[this.activePlayer - 1];
     this.changeActivePlayers()
+
     domUpdates.yourTurnMessage(player);
   }
 
@@ -61,7 +62,6 @@ class Round {
   //ANNOUNCE SPIN
   //clear previous spin on dom
   // pulse wheel on dom
-
 
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer];
@@ -117,7 +117,6 @@ class Round {
   letterOK(splitAnswer, chosenLetter) {
     if (splitAnswer.includes(chosenLetter)) {
       this.handleCorrectLetterChosen(splitAnswer, chosenLetter)
-
     } else {
       this.newTurn();
     }
@@ -141,8 +140,6 @@ class Round {
     player._roundScore = 0;
     // domUpdates.displayTotalScore(player, player.totalScore)
   }
-
-  
 
 }
 

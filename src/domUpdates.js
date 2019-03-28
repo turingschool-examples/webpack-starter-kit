@@ -1,7 +1,4 @@
 import $ from 'jquery';
-// import Wheel from "./Wheel.js";
-// import data from "./data.js";
-
 
 
 export default {
@@ -119,6 +116,7 @@ export default {
   yourTurnMessage(player) {
     $('.spin-winner').html(`${player.name}'s turn to spin!`);
   },
+
   
   solvePuzzleMessage(player) {
     alert(`${player.name} solved the puzzle!`)
@@ -137,9 +135,6 @@ export default {
   updateRoundText(round) {
     $('.round-number').text(`Round ${round}`)
   },
-  // chooseLetterMessage() {
-    
-  // }
     
   displayCorrectLetter(puzzle, guess) {
     puzzle.forEach((letter) => {
@@ -157,14 +152,9 @@ export default {
       game.round.guessLetter(event, game);
     });
   },
-  // this being commented in gives strange errors...
-  // displayTotalScore(player, total){
-  //     $(`#player-${player}-total`).text(`Total Score: ${total}`);
-  // },
     
   displayScore(player, total) {
     $(`#player-${player}-round`).text(`Score: ${total}`);
-
   },
   
   checkSolution(event, game) {

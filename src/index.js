@@ -13,9 +13,6 @@ import './images/player3.svg';
 
 
 
-
-// new p5(sketch);
-
 let game;
 
 $('.continue-button').on('click', (e) =>{
