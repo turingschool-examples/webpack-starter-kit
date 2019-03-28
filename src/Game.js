@@ -18,6 +18,7 @@ class Game {
 
   createPlayer(name1, name2) {
     this.player1 = new Player(name1, 1);
+    domUpdates.highlightPlayer(this.player1.playerId);
     console.log(this.player1);
     this.player2 = new Player(name2, 2);
     console.log(this.player2); 
@@ -28,10 +29,13 @@ class Game {
   switchPlayer() { 
     console.log('player', this.currentPlayer);
     if(this.currentPlayer === this.player1) {
-      // domUpdates.unhighlightPlayer()
+      domUpdates.unhighlightPlayer(this.player1.playerId)
+      domUpdates.highlightPlayer(this.player2.playerId);
       this.currentPlayer = this.player2; 
     } else {
       this.currentPlayer = this.player1;
+      domUpdates.unhighlightPlayer(this.player2.playerId)
+      domUpdates.highlightPlayer(this.player1.playerId);
     }
     console.log('newplayer', this.currentPlayer);
   };

@@ -72,14 +72,14 @@ export default {
     } 
   },
 
-  // unhighlightPlayer(playerId) {
-  //    if(playerId === 1) {
-  //     $('#nameOne').css('');
-  //   }
-  //      if(playerId === 2) {
-  //     $('#nameTwo').css('');
-  //   }
-  // },
+  unhighlightPlayer(playerId) {
+     if(playerId === 1) {
+      $('#nameOne').css('');
+    }
+       if(playerId === 2) {
+      $('#nameTwo').css('');
+    }
+  },
 
   changeScore(score, playerId) {
     if(playerId === 1) {
@@ -128,6 +128,16 @@ export default {
     }
   },
 
+  // counterOne() {
+  //   $('#counterOne').append(`<label class="progressLabel" for="bar">Player 1 Counter:</label> 
+  //         <progress id="bar1" max="100" value="0"> </progress>`);
+  // },
+
+  //  counterTwo() {
+  //   $('#counterTwo').append(`<label class="progressLabel" for="bar">Player 2 Counter:</label> 
+  //         <progress id="bar2" max="100" value="0"> </progress>`);
+  // },
+
   // multiplierMessage(player1, player2) {
   //   console.log('lower score1', player1.score);
   //   console.log('lower score2', player2.score);
@@ -138,24 +148,6 @@ export default {
   //     player = player2;
   //   }
 
-  //   $('.gamePopUp').append(`<section class="selectMultiplier">
-  //     <h2 class="currentPlayer"></h2>
-  //     <p class="chooseMultiplier">${player}, choose your point multiplier!</p>
-  //     <div>
-  //       <input type="radio" name="1" value="1">
-  //       <label for="1">1</label>
-  //       <input type="radio" name="2" value="2">
-  //       <label for="2">2</label>
-  //       <input type="radio" name="3" value="3">
-  //       <label for="3">3</label>
-  //       <input type="radio" name="4" value="4">
-  //       <label for="4">4</label>
-  //       <input type="radio" name="5" value="5">
-  //       <label for="5">5</label>
-  //     </div>
-  //     <button id="submitMultiplier">Start Lightning Round!</button>
-  //   </section>`)
-  // },
 
   winnerMessage(player1, player2) {
     console.log('winner', player1.score);
