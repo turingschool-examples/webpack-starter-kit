@@ -66,10 +66,23 @@ class Game {
       winner = this.players[0];
     } else if (Math.sign(expr) === -1) {
       winner = this.players[1];
-    } else {
-      winner = 'Draw';
     }
     return winner;
+  }
+
+  checkRoundStatus(round) {
+    if (round.isFinished) {
+      if (this.round < 2) {
+        setTimeout(() => {
+          domUpdates.toggleNextRoundModal();
+        }, 3000)
+      } else if (this.round < 3) {
+        setTimeout(() => {
+          domUpdates.toggleLightningRoundModal();
+        }, 3000);
+      }
+      domUpdates.updateModal(this.players);
+    }
   }
 
 }

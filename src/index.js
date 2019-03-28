@@ -45,25 +45,9 @@ $('.submit-btn').on('click', (e) => {
   const guess = $('#guess-input').val().toLowerCase();
   game.currentRound.submitGuess(game.currentPlayer, guess, game);
   domUpdates.clearGuess();
-  checkRoundStatus(game.currentRound);
+  game.checkRoundStatus(game.currentRound);
 });
 
-function checkRoundStatus(round) {
-  if (round.isFinished) {
-    if (game.round < 2) {
-      setTimeout(() => {
-        domUpdates.toggleNextRoundModal();
-      }, 3000)
-    } else if (game.round < 3) {
-      setTimeout(() => {
-        domUpdates.toggleLightningRoundModal();
-      }, 3000);
-    }
-    domUpdates.updateModal(game.players);
-  }
-}
-
-// TODO input validtion for both inputs at same time
 $('.start-game-form input:text').on('input', () => {
   if ($(this).val() === '') {
     domUpdates.toggleStartBtn(true);
@@ -88,7 +72,8 @@ $(".lightning-round-btn").on('click', (e) => {
   domUpdates.toggleLightningRoundModal();
   game.startNextLightningRound();
   setTimeout(() => { // TODO OR all guesses correct
-    domUpdates.toggleSwitchPlayerModal();
+    domUpdates.toggleSwitchPlayerModal(game.players);
+    domUpdates.updateModal(game.players);
     game.switchPlayers();
   }, 30000);
 });
@@ -98,7 +83,10 @@ $(".continue-btn").on('click', (e) => {
   domUpdates.toggleSwitchPlayerModal();
   game.startNextLightningRound();
   setTimeout(() => { // TODO OR all guesses correct
-    domUpdates.toggleEndGameModal();
+    const winner = game.getWinner();
+    domUpdates.toggleEndGameModal(game.players);
+    domUpdates.updateModal(game.players);
+    domUpdates.toggleWinner(winner, game.players)
   }, 30000);
 });
 
@@ -107,5 +95,3 @@ $(".end-game-btn").on('click', (e) => {
   domUpdates.toggleEndGameModal();
   domUpdates.toggleStartModal();
 });
-
-// TODO End game Modal

@@ -31,8 +31,18 @@ export default {
     $(".end-game-modal").hide();
   },
 
-  toggleEndGameModal() {
+  toggleEndGameModal(winner) {
     $(".end-game-modal").toggle();
+  },
+
+  toggleWinner(winner, players) {
+    if (winner.name === players[0].name) {
+      $('.p1-winner').addClass('winner');
+      $('.p2-winner').removeClass('winner');
+    } else {
+      $('.p2-winner').addClass('winner');
+      $('.p1-winner').removeClass('winner');
+    }
   },
 
   clearGuess() {
