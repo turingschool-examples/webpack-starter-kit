@@ -22,15 +22,9 @@ class BonusRound extends Round {
     // player can guess bonus puzzle
   }
   pullPrize() {
-    console.log("win prize")
     let prize = this.prizes[Math.floor((Math.random() * 10) + 0)];
-    console.log("prize = ", prize);
     domUpdates.displayPrize(prize);
     return prize;
-    // if player guesses word correctly
-      // randomly select prize
-    // if player guesses word incorrectly
-      // no prize, but keeps total score
   }
 }
 
