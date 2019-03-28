@@ -4,7 +4,7 @@ A site designed to recreate the classic family-fun game of Family Feud.
 
 ## Background/About
 
-The intention of this project is to create an interactive and responsive game where players attempt to guess the top three most common answers to a generated question.
+The intention of this project is to create an interactive and responsive game where players attempt to guess the top three most common answers to a generated question. During the first prompt, players will enter their names, then the game will begin and be composed of two untimed rounds, followed by one timed bonus round with a point multiplier for each player.
 
 ### Screenshots
 
