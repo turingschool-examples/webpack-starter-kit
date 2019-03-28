@@ -125,9 +125,7 @@ class Round {
     const solution = this.currentPuzzle.correctAnswer.toUpperCase();
     if (guess.toUpperCase() === solution) {
       domUpdates.displaySolvedPuzzle();
-      this.roundCount++;
       domUpdates.solvePuzzleMessage(this.players[this.activePlayer]);
-      domUpdates.updateRoundText(this.roundCount)
       return true;
     }
   }

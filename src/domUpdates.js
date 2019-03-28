@@ -202,9 +202,10 @@ export default {
             <div class="puz-grid btm-row"></div>
           </div> `;
       $('.puzzle-grid-container').html(gridContainer);
-      game.roundCount++;
       // wheel = new Wheel(game, data.wheel)
       game.createRound()
+      this.updateRoundText(this.roundCount)
+
     } else {
       alert('You guess incorrectly!')
     }
