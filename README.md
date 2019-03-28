@@ -27,11 +27,11 @@ On start players will be prompted to choose their names. Each of the three playe
 
 
 ## Tools Used to Build Project
-- [Sublime Text Editor](https://www.sublimetext.com/)
+- [jQuery](https://jquery.com/)
+- [Mocha](https://mochajs.org/api/mocha)
+- [Chai](https://www.chaijs.com/api/)
 - [WebPack](https://webpack.js.org/)
 - [VSCode](https://code.visualstudio.com/)
-- [jQuery](https://jquery.com/)
-
 
 ## Contact Info
 Credit for the project goes to team members:
