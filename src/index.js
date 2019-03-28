@@ -31,7 +31,7 @@ $('.start__start--btn').click(() =>{
 
 // * Nav Buttons
 $('.nav__end-round').click(function () {
-  if ($('#guess--input').val() == 'levelUP') {
+  if ($('#guess--input').val() === 'levelUP') {
     game.currentRound.newRound(game);
   } else {
     game.currentRound.skipPuzzle(game);
@@ -81,12 +81,10 @@ $('#consonant').click(function () {
 });
 
 //* An example of how you tell webpack to apply a CSS file
-// import './css/fonts/overseer.css';
 import './css/base.css';
 import './css/normalize.css';
 
 //* An example of how you tell webpack to use an image 
-// (also need to link to it inthe index.html)
 //* Background
 import './images/terminal2.jpg';
 //* Characters

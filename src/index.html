@@ -4,13 +4,10 @@
     <title>Wheel of Fortune</title>
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="/css/fonts/overseer.css" type="text/css" charset="utf-8" /> -->
-    <!-- <link rel="stylesheet" src="css/base.css" type="text/css"/> -->
   </head>
   <body>
     <div class="shader popup--active">
       <section class="popup popup--active">
-        <!-- input for all three players, instructions, avatars next to name inputs -->
         <section class="instructions">
           <article class="instructions__solve instructions--column">
             <div class="instructions--column-header">
@@ -66,13 +63,11 @@
           <button class="nav__end-game nav--btn">Restart Game</button>
         </div>
       </nav>
-      <!-- https://fontmeme.com/fallout-font/ -->
       <img src="https://fontmeme.com/permalink/190321/ce6a55d835663d3834cdf839f9ccfe02.png">
     </header>
     <div class="letters--container">
       <h4 class="letters__title">Letters Used:</h4>
       <aside class="letters__remaining">
-        
       </aside>
     </div>
     <section class="board__container">
@@ -94,7 +89,6 @@
         <input id="guess--input" type="text" placeholder="_ Enter Your Guess _" onkeypress="return /[a-z, A-Z, ', -]/i.test(event.key)">
         <input class="guess__word--button guess--button" type="button" value="Guess Word">
         <input id="vowel" class="guess__letter--button guess--button" type="button" value="Buy Vowel">
-        <!-- <label id="consonant--label" class="" for="consonant">^Spin Wheel^</label> -->
         <input id="consonant" class="guess__letter--button guess--button" type="button" value="Spin Wheel" disabled="true">
         <input class="nav__wheel--button" type="image" src="./images/vaultDoor.png">
         <aside class="animation--container">
@@ -146,6 +140,5 @@
           </section>
       </footer>
     </section>
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>

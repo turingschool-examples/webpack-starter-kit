@@ -28,13 +28,16 @@ nav {
 }
 .nav__btns--container {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  top: 17px;
+  position: absolute;
+
 }
 .nav--btn {
   background-color: #65AB55;
   border: 1px solid black;
   color: black;
-  height: 35px;
+  height: 43px;
   max-width: 200px;
   padding: 5px 10px;
 }
@@ -45,7 +48,7 @@ nav {
   animation: rotateWheel 5000ms infinite linear;
   position: absolute;
   right: -183px;
-  top: -94px;
+  top: -125px;
   width: 150px;
 }
 .nav__wheel--button:click {
@@ -70,7 +73,8 @@ nav {
   flex-wrap: wrap;
   max-height: 120px;
   padding: 10px;
-  width: 100px;
+  font-size: 20px;
+  width: 600px;
   word-wrap: break-word;
 }
 .used-letter {
@@ -362,7 +366,7 @@ footer {
 .big-red-border {
   animation: fadeIn 2s linear;
   border-radius: 20px;
-  color: white;
+  color: yellow;
   padding: 10px;
   text-decoration: underline;
   transform: translate(-10px, -10px);
@@ -386,9 +390,10 @@ footer {
   z-index: 14;
 }
 .prompt-img {
-  height: 60px;
+  height: 100px;
   position: absolute;
   z-index: 15;
+  font-size: 39px;
 }
 .fade-in {
   animation: fadeIn 1s 1;
@@ -399,12 +404,12 @@ footer {
   border-radius: 50%;
   border: 1px #65AB55 solid;
   display: flex;
-  height: 100px;
+  height: 130px;
   justify-content: center;
-  left: -135px;
+  left: -175px;
   position: absolute;
-  top: -61px;
-  width: 100px;
+  top: -120px;
+  width: 130px;
 }
 @keyframes fadeIn {
   0% { opacity: 0 }

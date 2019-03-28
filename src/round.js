@@ -3,12 +3,6 @@ import Puzzle from "./puzzle";
 import DomUpdates from './dom-updates';
 import Wheel from './wheel';
 
-/*
-data.wheel => wheel array of values
-data.puzzles.one_word_answers.puzzle_bank => array of puzzle objects 
-! goes up to four_word_answers !
-*/
-
 class Round {
   constructor(currentRound) {
     this.roundNumber = currentRound,
@@ -20,7 +14,7 @@ class Round {
   }
   newRound(game) {
     this.roundNumber++;
-    if (game.currentRound.currentPlayer != 0) {
+    if (game.currentRound.currentPlayer !== 0) {
       game.currentRound.currentPlayer.totalCaps += game.currentRound.currentPlayer.roundCaps
     }
     this.getCurrentPlayer(game);
@@ -80,7 +74,6 @@ class Round {
     if (game.currentRound.roundNumber !== 5) {
       this.roundNumber--;
       this.newRound(game)
-      console.log(game.currentRound.currWheel)
     }
   }
   makeBonusRound(game) {
