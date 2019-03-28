@@ -39,7 +39,7 @@ class Game {
       this.currentRound++;
       this.beginRound();
       this.multiplyValues();
-      this.timer(10);
+      this.timer(30);
       if (this.currentPlayerTurn === "player1") {
         $(".current-turn").html(`${this.player2.name}'s turn!`);
       } else if (this.currentPlayerTurn === "player2") {
@@ -91,7 +91,11 @@ class Game {
         this.currentAnswers.splice(this.currentAnswers.indexOf(element), 1);
       }
       if (this.currentRound < 3) {
-        this.currentAnswers.length === 0 ? this.startNextRound() : null;
+        if (this.currentAnswers.length === 0) {
+          setTimeout(() => {
+            this.startNextRound();
+          }, 1500);
+        }
       }
     });
     return correctAnswersPoints;

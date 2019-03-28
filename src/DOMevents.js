@@ -31,9 +31,7 @@ $(".user-input").on("keyup", () => {
     $("#player1-name-input").val() === "" ||
     $("#player2-name-input").val() === ""
   ) {
-    console.log("at least one empty");
   } else {
-    console.log("both full");
     $("#submit-names").prop("disabled", false);
   }
 });
@@ -82,7 +80,7 @@ $(".main-section").on("submit", "form", event => {
 $(".multiplier-form").on("click", ".multiplier-radio", event => {
   const radioValue = parseInt(event.currentTarget.defaultValue);
   game.multiplyValues(radioValue);
-  game.timer(10);
+  game.timer(30);
   $("#submit-guess").prop("disabled", false);
   $(".countdown-timer").removeClass("hidden");
   $(".multiplier-form").fadeOut();
@@ -94,7 +92,6 @@ $(".player-cards").on("click", () => {
 });
 
 $(".whose-turn-form").on("submit", "form", function(e) {
-  console.log($(this).data("clicked"));
   return false;
 });
 $(".whose-turn-form").on("click", "button[type='submit']", function(e) {
