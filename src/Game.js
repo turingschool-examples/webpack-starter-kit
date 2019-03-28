@@ -3,7 +3,6 @@ import $ from 'jquery'
 import Player from './Player.js'
 import Rounds from  './Rounds.js'
 import Clue from './Clue.js'
-import index from './index.js'
 
 class Game {
   constructor(name1, name2, name3) {
@@ -14,8 +13,9 @@ class Game {
     this.playerList = [];
     this.playerList.push(this.p1, this.p2, this.p3);
     this.currentPlayerNumber = 1;
+    this.activePlayer = this.playerList[0];
     this.currentClue = null;
-    this.cluesClicked = 0;
+    this.cluesRemaining = 16;
     this.playerAnswer = '';
     // Round counter
     this.roundCounter = 1;
@@ -73,6 +73,7 @@ class Game {
     if (this.currentPlayerNumber === 4) {
       this.currentPlayerNumber = 1;
     }
+    this.activePlayer = this.playerList[this.currentPlayerNumber];
   }
 
   chooseWager() {

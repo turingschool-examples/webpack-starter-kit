@@ -52,7 +52,9 @@ console.log('This is the JavaScript entry file - your code begins here.');
   });
 
 
-  $(".box-wrapper").on('click', function (e) {
+  $(document).on('click', '.clues', function (e) {
+    newGame.cluesRemaining--;
+    $(e.target).css('visibility', 'hidden');
     let category = [];
     if ($(e.target).is(".cat-1")) {
       category = (newGame.currentRound.topicOne);
