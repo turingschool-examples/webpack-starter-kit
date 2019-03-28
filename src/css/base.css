@@ -322,3 +322,7 @@ label {
 .hidden {
   display: none;
 }
+
+.unguessed {
+  color: red;
+}

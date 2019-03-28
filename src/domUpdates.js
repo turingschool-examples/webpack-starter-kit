@@ -126,7 +126,12 @@ export default {
         }, 1500);
       } else if (seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
-        $(".answer-data").removeClass("hidden");
+
+        if ($(".answer-data").is(":hidden")) {
+          $(".answer-data:hidden").find("p").addClass("unguessed");
+          $(".answer-data").removeClass("hidden");
+        }
+        
         $(".timer-area-1").addClass("hidden");
         setTimeout(() => {
           game.endGame();
@@ -155,7 +160,12 @@ export default {
         }, 1500);
       } else if (seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
-        $(".answer-data").removeClass("hidden");
+
+        if ($(".answer-data").is(":hidden")) {
+          $(".answer-data:hidden").find("p").addClass("unguessed");
+          $(".answer-data").removeClass("hidden");
+        }
+
         $(".timer-area-2").addClass("hidden");
         setTimeout(() => {
           game.endGame();

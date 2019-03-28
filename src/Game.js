@@ -130,7 +130,12 @@ class Game {
       this.round = new FastRound(question, answers, this);
       domUpdates.blurGuessInput();
       domUpdates.removeTimers();
-      domUpdates.displayFastroundDialog(this.activePlayer.name);
+      if (this.activePlayer === this.player1) {
+        domUpdates.displayFastroundDialog(this.player2.name);
+      } else {
+        domUpdates.displayFastroundDialog(this.player1.name);
+      }
+      
       domUpdates.disableBackgroundTabbing();
     } else {
       this.endGame;
