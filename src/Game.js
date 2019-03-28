@@ -1,7 +1,7 @@
 import Wheel from "./Wheel.js";
 import Round from "./Round.js";
 import Player from "./Player.js";
-import Puzzle from "./Puzzle.js"
+// import Puzzle from "./Puzzle.js"
 // import BonusWheel from "./BonusWheel.js"
 import data from "./data.js";
 import domUpdates from "./domUpdates.js";
@@ -39,7 +39,7 @@ class Game {
     round.currentWheel = wheel;
 
     // vvv instance of puzzle?
-    this.currentPuzzle = round.getPuzzle(this.allData[this.roundCount + 2]);
+    this.currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
 
     this.currentPuzzle.checkPuzLength();
     domUpdates.setCategoryText(this.currentPuzzle.category);

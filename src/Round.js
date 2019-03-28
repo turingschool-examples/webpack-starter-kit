@@ -19,7 +19,6 @@ class Round {
     let randomPuzzle = array.splice(randomNum, 1);
     let puzzle = new Puzzle(randomPuzzle[0]);
     this.currentPuzzle = puzzle;
-    this.roundCountDown = this.currentPuzzle.numLetters;
     return puzzle;
   }
 
@@ -46,7 +45,7 @@ class Round {
   }
   
   newTurn() {
-    const player = this.players[this.activePlayer - 1];
+    const player = this.players[this.activePlayer-1];
     this.changeActivePlayers()
     domUpdates.yourTurnMessage(player);
   }
