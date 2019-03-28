@@ -73,7 +73,7 @@ class Round {
     const splitAnswer = game.round.currentPuzzle.splitAnswer;
     const chosenLetter = event.currentTarget.innerText;
     if (!this.vowels.includes(event.currentTarget.innerText)) {
-      this.letterOK(splitAnswer, chosenLetter)
+      this.letterIsConsonant(splitAnswer, chosenLetter)
     } else {
       if (this.players[this.activePlayer]._roundScore >= 100) {
         this.vowelGuess(splitAnswer, chosenLetter);
@@ -100,7 +100,7 @@ class Round {
     }
   }
   
-  letterOK(splitAnswer, chosenLetter) {
+  letterIsConsonant(splitAnswer, chosenLetter) {
     if (splitAnswer.includes(chosenLetter)) {
       this.handleCorrectLetterChosen(splitAnswer, chosenLetter)
     } else {
