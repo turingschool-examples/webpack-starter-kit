@@ -291,13 +291,15 @@ export default {
     $('main').append(
       `<section id="player-actions" class="player-actions">
       <div>
-          <button class="player-action-btn spinner game-buttons">Wheel: <span class="wheel-value">Spin me!</span></button>
+          <button class="player-action-btn spinner game-buttons">
+            Wheel: <span class="wheel-value">Spin me!</span>
+          </button>
       </div>
       <div>
           <button class="player-action-btn game-buttons vowel">Buy Vowel</button>
       </div>
       <div>
-          <input for="player-guess" type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!">
+          <input for="player-guess" type="text" class="guess-submission" placeholder="Guess!">
           <button id="player-guess" class="player-action-btn game-buttons">Submit Guess</button>
       </div>
         </section>
@@ -354,24 +356,33 @@ export default {
       }
       if (letter === " ") {
         $(cell).append(`<p class="puzzle-text">${letter}</p>`);
-        $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('spaces-not-displayed');
+        $(cell).parent().
+          has('p').removeClass('puzzle-cell-container').
+          addClass('spaces-not-displayed');
       } else if (letter === "-" || letter === "'") {
         $(cell).append(`<p class="puzzle-text">${letter}</p>`);
-        $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-displayed');
+        $(cell).parent().
+          has('p').removeClass('puzzle-cell-container').
+          addClass('letters-displayed');
       } else if (letter !== undefined && letter !== " ") {
         $(cell).append(`<p class="puzzle-text">${letter}</p>`);
-        $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-not-displayed');
+        $(cell).parent().
+          has('p').removeClass('puzzle-cell-container').
+          addClass('letters-not-displayed');
       }
     })
     return (cellMap);
   },
 
   disableLetter(event) {
-    $(event.target).removeClass('single-letter-vowel').removeClass('single-letter').addClass('disable-selected-letters')
+    $(event.target).removeClass('single-letter-vowel').
+      removeClass('single-letter').
+      addClass('disable-selected-letters')
   },
 
   deactivateLetters() {
-    $('.single-letter, .single-letter-vowel').addClass('disable-selected-letters')
+    $('.single-letter, .single-letter-vowel').
+      addClass('disable-selected-letters')
   },
 
   displayHint(clue) {
@@ -389,54 +400,44 @@ export default {
     $('.wheel-value').text('Spin Me!');
   },
 
-  // updateRoundScore(playerBankValue, activePlayerValue) {
-  //   let playerScoreElement = $('.bank-score')
-  //   if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
-  //     $('.bank-score.player-1').text(playerBankValue)
-  //   } else if (activePlayerValue === 1 && playerScoreElement.hasClass('player-2') === true) {
-  //     $('.bank-score.player-2').text(playerBankValue)
-  //   } else if (activePlayerValue === 2 && playerScoreElement.hasClass('player-3') === true) {
-  //     $('.bank-score.player-3').text(playerBankValue)
-  //   }
-  // },
-
   updateRoundScore(players) {
-        console.log(players)
-      $('.bank-score.player-1').text(players[0].playerBank)
-      $('.score-total.player-1').text(players[0].score)
+    $('.bank-score.player-1').text(players[0].playerBank)
+    $('.score-total.player-1').text(players[0].score)
 
-      $('.bank-score.player-2').text(players[1].playerBank)
-      $('.score-total.player-2').text(players[1].score)
+    $('.bank-score.player-2').text(players[1].playerBank)
+    $('.score-total.player-2').text(players[1].score)
 
-      $('.bank-score.player-3').text(players[2].playerBank)
-      $('.score-total.player-3').text(players[2].score)
+    $('.bank-score.player-3').text(players[2].playerBank)
+    $('.score-total.player-3').text(players[2].score)
 
   },
 
   updateGameScore(activePlayerValue) {
     $('.score-total').text(activePlayerValue);
 
-    },
+  },
 
 
   gameMessage(message) {
     let className = message.split(' ').join('-');
     $('footer').prepend(`
     <section class="${className}">
-      <h1 class="result"><i class="fas fa-exclamation">${message.toUpperCase()}</i></h1>
-    </section>
-  `).fadeOut(2000, function() {
+      <h1 class="result">
+        <i class="fas fa-exclamation">${message.toUpperCase()}</i>
+      </h1>
+    </section>`
+    ).fadeOut(2000, function() {
       $(`.${className}`).remove();
       $('footer').removeAttr("style")
     })
   },
 
-    clearGameBoard() {
-      $('.puzzle-cell').remove();     
-        $('.letters-selected-area').remove();
-        $('.game-info').remove();
-        $('.puzzle-area').remove();
-    },
+  clearGameBoard() {
+    $('.puzzle-cell').remove();     
+    $('.letters-selected-area').remove();
+    $('.game-info').remove();
+    $('.puzzle-area').remove();
+  },
   
   displayActivePlayer(activePlayer) {
     $('.active-player-text').text(activePlayer.name);

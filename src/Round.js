@@ -159,23 +159,19 @@ class Round {
     }
   }
 
-
-  // checkRoundNum(game) {
-    
-    
-  //   // console.log(this, game)
-  //   if (game.stage === 5)  {
-  //     game.createBonusRound()
-  //   }
-  // }
+  checkRoundNum(game) { 
+    if (game.stage === 5)  {
+      game.createBonusRound()
+    }
+  }
 }
 
-// class BonusRound extends Round {
-//   constructor(roundNumber) {
-//     super(roundNumber)
+class BonusRound extends Round {
+  constructor(roundNumber) {
+    super(roundNumber)
    
-//   }
-// }
+  }
+}
 
 
 export default Round
