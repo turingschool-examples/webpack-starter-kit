@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Wheel from "./Wheel.js";
 
 export default {
 
@@ -50,8 +51,6 @@ export default {
 
   appendPuzzle (line1, line2) {
     // parameters instead, split.puzzle and null
-    console.log(line1);
-    console.log(line2);
     this.fillSpace(line1.length, false);
     this.appendWords(line1);
     this.fillSpace(line1.length, true);
@@ -82,7 +81,8 @@ export default {
     const spinAgain = (1800 * clicks) + extraDegree;
     const totalDegree = Math.round(spinAgain / 36) * 150;
     wheel = game.round.currentWheel
-    // debugger
+    
+
     wheel.spinWinner(winner, game.round);
     clicks++;
     $('#inner').css({
@@ -94,10 +94,10 @@ export default {
   },
 
   updateActivePlayer(oldPlayer, newPlayer, player) {
+    this.yourTurnMessage(player);
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
     $('#wheel').addClass('pulse').delay(600);
-    this.yourTurnMessage(player);
   },
   
   spinAgainPrompt() {
@@ -197,11 +197,12 @@ export default {
           </div> `;
       $('.puzzle-grid-container').html(gridContainer);
       // wheel = new Wheel(game, data.wheel)
-      game.createRound()
+      game.wheel = new Wheel();
+      game.createRound(game.wheel)
       this.updateRoundText(this.roundCount)
 
     } else {
-      alert('You guess incorrectly!')
+      alert('You guessed incorrectly!')
     }
   }
 
