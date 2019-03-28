@@ -95,7 +95,7 @@ export default {
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
     $('#wheel').addClass('pulse').delay(600);
-    this.yourTurnMessage(player);
+    this.yourTurnMessage(newplayer);
   },
   
   spinAgainPrompt() {
