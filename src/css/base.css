@@ -31,6 +31,14 @@ input {
 	display: none;
 }
 
+.visHidden {
+	visibility: hidden;
+}
+
+.visShow {
+	visibility: show;
+}
+
 #primary-heading {
 	font-family: "Monoton", cursive;
 	font-size: 65px;
@@ -136,7 +144,7 @@ input {
 	width: 95%;
 }
 
-.answer-section {
+.answer-article {
 	background-color: #ede9e1;
 	border-bottom: 2px solid #474441;
 	border: 1px solid #474441;
@@ -146,7 +154,7 @@ input {
 	padding-left: 1rem;
 }
 
-.answer-section:nth-child(2) {
+.answer-article:nth-child(2) {
 	margin: 0.5rem 0;
 }
 

@@ -15,5 +15,29 @@ export default {
 
   clearInput() {
     $("#player-guess").val("");
+  },
+
+  hideAnswers() {
+    $(".answer").each(function() {
+      $(this).addClass("visHidden");
+      $(this)
+        .parent()
+        .next()
+        .children()
+        .addClass("visHidden");
+    });
+  },
+
+  revealCorrectAnswer(correctAnswer) {
+    $(".answer").each(function() {
+      if ($(this).text() === correctAnswer.answer) {
+        $(this).removeClass("visHidden");
+        $(this)
+          .parent()
+          .next()
+          .children()
+          .removeClass("visHidden");
+      }
+    });
   }
 };

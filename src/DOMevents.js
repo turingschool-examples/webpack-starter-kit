@@ -38,10 +38,8 @@ $(".user-input").on("keyup", () => {
   }
 });
 
-//capture value from guess input
-$("#submit-guess").on("click", event => {
+$(".main-section").on("submit", "form", event => {
   event.preventDefault();
-
   if (game.currentRound < 3) {
     game.whoseTurn();
 
@@ -64,7 +62,7 @@ $("#submit-guess").on("click", event => {
       updateTheScoreOf(player2, 2);
     }
   } else {
-    console.log("|| It's over anakin, i have the high ground! ||");
+    console.log("|| Exceeds Rounds ||");
   }
 
   function rotatePlayer(player) {
@@ -74,7 +72,6 @@ $("#submit-guess").on("click", event => {
   function checkInputOf(player) {
     let userInput = $("#player-guess").val();
     player.score += game.checkUserGuess(userInput, game.currentAnswers);
-    // updateTheScoreOf(player, domElementId);
   }
 
   function updateTheScoreOf(player, domElementId) {
@@ -96,8 +93,11 @@ $(".player-cards").on("click", () => {
   $(".restart-game-btn").removeClass("hidden");
 });
 
-// $(".play-again-btn").on("click", () => {
-//   console.log("guess this is all i needed");
-//   // $(".main-content").toggle("hidden");
-//   // $(".post-game").toggle("hidden");
-// });
+$(".whose-turn-form").on("submit", "form", function(e) {
+  console.log($(this).data("clicked"));
+  return false;
+});
+$(".whose-turn-form").on("click", "button[type='submit']", function(e) {
+  $(this.form).data("clicked", this.value);
+});
+
