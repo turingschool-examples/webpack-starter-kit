@@ -50,23 +50,23 @@ class Game {
         roundNumber);
     } 
 
-    // if(this.roundNumber === 3 ) {
-    //   if(this.player1.score < this.player2.score) {
-    //     this.currentPlayer ==== this.player1; 
-    //   } else {
-    //     this.currentPlayer === this.player2;
-    //   } 
-    //   this.lightningRound = new LightningRound(this.currentPlayer);  
-    // }
+    if(this.roundNumber === 3 ) {
+      // if(this.player1.score < this.player2.score) {
+      //   this.currentPlayer ==== this.player1; 
+      // } else {
+      //   this.currentPlayer === this.player2;
+      // } 
+        this.lightningRound = new LightningRound(survey, this.currentPlayer);  
+    };
 
-     // if(this.roundNumber === 4) {
-    //   this.currentPlayer = !this.currentPlayer;
-    //   this.lightningRound = new LightningRound(this.currentPlayer);
-    // }
+     if(this.roundNumber === 4) {
+      this.currentPlayer = !this.currentPlayer;
+      this.lightningRound = new LightningRound(survey, this.currentPlayer);
+    };
 
-    if(this.roundNumber === 5){
-     domUpdates.winnerMessage(this.player1, this.player2)
-   }
+    if(this.roundNumber === 5) {
+      domUpdates.winnerMessage(this.player1, this.player2)
+    };
 
    const question = survey.question;
    domUpdates.appendQuestion(question);
@@ -78,18 +78,9 @@ class Game {
     this.round.checkAnswer(guess, this.currentPlayer, this);
   } else {
     console.log("round number three or more")
-    this.lightningRound.checkLrAnswer(guess, this);
+    this.lightningRound.checkLrAnswer(guess, this.currentPlayer, this);
   }
 };
-
-// lightningRound() {
-//     console.log('inside create lightning round');
-//     // domUpdates.multiplierMessage(this.player1, this.player2);
-
-//     console.log(this.lightningRound);
-// //we will have to pass everything into this
-// //what is the point of having a new instance?
-//     };
 
 }
 

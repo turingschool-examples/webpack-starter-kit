@@ -8,13 +8,12 @@ class LightningRound {
     this.answerCount = 0;
   };
 
-  checkLRAnswer(guess, currentPlayer, game) {
+  checkLrAnswer(guess, currentPlayer, game) {
     let answers = this.questionSet.answers;
     let score;
     domUpdates.clearInputField();
     let correctAnswer = answers.find(answer => (guess.toLowerCase() === answer.answer.toLowerCase())); 
     domUpdates.highlightPlayer(currentPlayer.playerId);
-    //needs to iluminate upon game creation for player 1 and should be removed when player switches
     console.log(correctAnswer);
     if (correctAnswer) {
       let score = correctAnswer.respondents;
