@@ -44,11 +44,11 @@ class Player {
   }
 //* Buy Vowel
   buyVowel(game, round, player, ltrGuess, vowels) {
-    if (player.roundCaps < 100) {
+    if (this.roundCaps < 100) {
       alert('Insufficient Funds!');
     } else {
-      player.roundCaps -= 100;
-      player.ans = ltrGuess.toUpperCase();
+      this.roundCaps -= 100;
+      this.ans = ltrGuess.toUpperCase();
       round.answer = round.answer
         .filter(item => item !== `'` && item !== `-` && item !== `&`)
       round.conditionalChecking(game, ltrGuess, vowels);
