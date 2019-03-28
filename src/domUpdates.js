@@ -116,6 +116,7 @@ export default {
   yourTurnMessage(player) {
     $('.spin-winner').html(`${player.name}'s turn to spin!`);
   },
+
   
   solvePuzzleMessage(player) {
     $('.spin-winner').html(`${player.name} solved the puzzle!`);
@@ -139,6 +140,7 @@ export default {
       $('.vowels').on('click', (event) => {
         $( '.vowels').removeClass( "cost");
         round.players[round.activePlayer].roundScore -= 100;
+
         game.round.guessLetter(event, game);
       });
     },

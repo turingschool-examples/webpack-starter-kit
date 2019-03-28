@@ -49,6 +49,7 @@ class Round {
   newTurn() {
     const player = this.players[this.activePlayer-1];
     this.changeActivePlayers()
+
     domUpdates.yourTurnMessage(player);
   }
 
@@ -65,6 +66,7 @@ class Round {
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer];
     spinValue === 0 ? player._roundScore = 0 : player.roundScore += spinValue;
+
     domUpdates.displayScore(player.playerNumber, player.roundScore)
   }
 
@@ -117,6 +119,7 @@ class Round {
       this.handleCorrectLetterChosen(splitAnswer, chosenLetter)
       // this.checkScore();
     }else {
+
       this.newTurn();
     }
   }
