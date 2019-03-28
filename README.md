@@ -5,7 +5,8 @@ On start players will be prompted to choose their names. Each of the three playe
 
 ## DTR
 - All feedback must be constructive
-- Members must communicate if anything previously decided has changed (e.g. time to work, issues being worked on)
+- Developers must communicate if anything previously decided has changed (e.g. time to work, issues being worked on)
+- Developers must commit regulary and should not merge their own PRs unless the work is done in a pair
 - All CSS will be written with the BEM naming convention
 - Issues must be created and moved to in progress when being worked on
 
