@@ -34,9 +34,13 @@ export default {
   },
   toggleButtons(game) {
     //Toggle: Consonant & Label
-    $('#consonant').attr('value') == 'Spin Wheel' 
-      ? $('#consonant').removeAttr('disabled').css('background-color', '#65AB55').attr('value', 'Guess Consonant')
-      : $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', 'Spin Wheel');
+    if ($('#consonant').attr('value') === 'Spin Wheel' ) {
+      $('#consonant').removeAttr('disabled').css('background-color', '#65AB55').attr('value', 'Guess Consonant')
+      $('#guess--input').css('border', '3px inset yellow');
+    } else {
+      $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', 'Spin Wheel');
+      $('#guess--input').css('border', 'none');
+    }
     //Toggle: Wheel
     $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
     //Toggle: Word & Vowel
@@ -66,7 +70,7 @@ export default {
   },
   updateRoundHintCategory(game) {
     //category
-    $('.hint__title').text(`Category: ${game.currentRound.roundPuzzle.cat} | `);
+    $('.hint__title').text(`Category: ${game.currentRound.roundPuzzle.cat}`);
     //hint
     $('.hint__value').text(`Hint: ${game.currentRound.roundPuzzle.description}`);
     this.updateRoundNumber(game);
@@ -109,11 +113,14 @@ export default {
   },
   appendWheelValue(slice) {
     let animationContainer = $('.animation--container');
-    animationContainer.append(`<h2 class="prompt-img fade-in">${slice}</h2>`);
-    $('.prompt-img').delay(1000).queue(function () {
-      $(this).removeClass('fade-in');
-      $(this).addClass('fade-out__animation');
-    });
+
+    if (Number.isInteger(slice)) {
+      animationContainer.append(`<h2 class="prompt-img fade-in">${slice}</h2>`)
+      $('.prompt-img').delay(1000).queue(function () {
+        $(this).removeClass('fade-in');
+        $(this).addClass('fade-out__animation');
+      });
+    }
   },
   appendCorrect() {
     let animationContainer = $('.animation--container');

@@ -80,6 +80,7 @@ class Round {
     if (game.currentRound.roundNumber !== 5) {
       this.roundNumber--;
       this.newRound(game)
+      console.log(game.currentRound.currWheel)
     }
   }
   makeBonusRound(game) {
