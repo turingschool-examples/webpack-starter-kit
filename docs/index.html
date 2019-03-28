@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+		<title>Family Feud</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P" rel="stylesheet">
+  </head>
+  <body>
+  	<header>
+  		<h1 id="primary-heading">FAMILY FEUD</h1>
+  	</header>
+  	<section class="user-inputs-section">
+				<form class="user-inputs">
+					<div class="user-input-group">
+						<div class="user-input">
+							<label for="player-1-name">Player One</label>
+							<input type="input" class="name-input" id="player1-name-input" name="player1-name" placeholder="Enter your name">
+						</div>
+						<div class="user-input">
+							<label for="player-2-name">Player Two</label>
+							<input type="input" class="name-input" id="player2-name-input" name="player2-name" placeholder="Enter your name">
+						</div>
+					</div>
+					<label for="submit-user-names">
+						<button type="button" class="btn submit-btn" id="submit-names" name="submit-user-names">Submit</button>
+					</label>
+				</form>
+  	</section>
+
+	<main class="main-content">
+  	<section class="main-section">
+			<section class="round3 hidden">
+				<h2>BONUS ROUND</h2>
+			</section>
+
+			<section class="countdown-timer hidden">
+			</section>
+			
+			<section class="question-section">
+				<h2 id="current-question">If you see this, I'm sorry</h2>
+			</section>
+			<section class="answers-section">
+		    <article class="answer-article" id="answer-article-1">
+		    	<div>
+		    		<h1 class="answer answer-1"></h1>
+		    	</div>
+		    	<div class="pts-section">
+		    		<p class="answer-1-pts"></p>
+		    	</div>
+		    </article>
+		    <article class="answer-article" id="answer-article-2">
+		    	<div>
+		    		<h1 class="answer answer-2"></h1>
+		    	</div>
+		    	<div class="pts-section">
+		    		<p class="answer-2-pts"></p>
+		    	</div>
+		    </article>
+		    <article class="answer-article" id="answer-article-3">
+		    	<div>
+		    		<h1 class="answer answer-3"></h1>
+		    	</div>
+		    	<div class="pts-section">
+		    		<p class="answer-3-pts"></p>
+		    	</div>
+		    </article>
+	  	</section>
+
+	  	<section class="multiplier-section round3 hidden">
+	  		<div class="multiplier-styling">
+		  		<h3>MULTIPLIER</h3>
+		  		<p class="multiplying-by"></p>
+		  		<form class="multiplier-form">
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="1">1</input>
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="2">2</input>
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="3">3</input>
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="4">4</input>
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="5">5</input>
+		  		</form>
+	  		</div>
+	  	</section>
+
+	  	<section class="whose-turn">
+	  		<form class="whose-turn-form">
+	  			<p class="current-turn"></p>
+	  			<label for="player-guess">
+	  				<input type="input" class="player-guess" id="player-guess" name="player-guess" placeholder="Make a guess!">
+	  			</label>
+	  			<button type="submit" class="btn submit-answer" id="submit-guess" name="submit-guess">Guess</button>
+	  		</form>
+	  	</section>
+
+	    <section class="player-cards">
+	    	<article class="player-1-card">
+	    		<h2 class="player-1-name">Player 1</h2>
+	    		<p class="player-1-score score">Score: 0</p>
+	    	</article>
+	    	<article class="player-2-card">
+	    		<h2 class="player-2-name">Player 2</h2>
+	    		<p class="player-2-score score">Score: 0</p>
+	    	</article>
+	    </section>
+	  </section>
+		</main>
+		
+		<footer>
+				<form class="post-game hidden">
+					<div>
+						<h1>Winner:</h1>
+						<p class="display-winner"></p>					
+					</div>
+					<div>
+						<h1>loser:</h1>
+						<p class="display-loser"></p>					
+					</div>
+          <button class="play-again-btn btn">Play Again?</button>
+				</form>
+				<form class="restart-game hidden">
+	    		<button class="submit-btn">Restart Game</button>
+	    	</form>
+		</footer>
+    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
