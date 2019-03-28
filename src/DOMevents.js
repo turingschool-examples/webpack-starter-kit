@@ -8,6 +8,7 @@ const game = new Game(player1, player2);
 
 game.startGame();
 
+$("#submit-names").prop("disabled", true);
 $("#submit-names").on("click", () => {
   if (
     $("#player1-name-input").val() === "" ||
@@ -22,6 +23,18 @@ $("#submit-names").on("click", () => {
     $(".current-turn").html(`${player1.name}'s turn!`);
     $(".main-content").slideDown();
     $(".user-inputs").hide();
+  }
+});
+
+$(".user-input").on("keyup", () => {
+  if (
+    $("#player1-name-input").val() === "" ||
+    $("#player2-name-input").val() === ""
+  ) {
+    console.log("at least one empty");
+  } else {
+    console.log("both full");
+    $("#submit-names").prop("disabled", false);
   }
 });
 
@@ -73,11 +86,18 @@ $(".multiplier-form").on("click", ".multiplier-radio", event => {
   const radioValue = parseInt(event.currentTarget.defaultValue);
   game.multiplyValues(radioValue);
   game.timer(10);
+  $("#submit-guess").prop("disabled", false);
   $(".countdown-timer").removeClass("hidden");
   $(".multiplier-form").fadeOut();
   $(".multiplying-by").html(`${radioValue}X POINTS`);
 });
 
 $(".player-cards").on("click", () => {
-  $(".restart-game").removeClass("hidden");
+  $(".restart-game-btn").removeClass("hidden");
 });
+
+// $(".play-again-btn").on("click", () => {
+//   console.log("guess this is all i needed");
+//   // $(".main-content").toggle("hidden");
+//   // $(".post-game").toggle("hidden");
+// });
