@@ -102,8 +102,8 @@ export default {
     let winningCaps = game.currentRound.currentPlayer.roundCaps;
     let answer = game.currentRound.wholeWord.join('');
 
-    let body = $('body');
-    body.append(`<section class="winner-card fade-in"> The Winner is: ${winner} 
+    let footer = $('footer');
+    footer.append(`<section class="winner-card fade-in"> The Winner is: ${winner} 
       <br> The Puzzle was: ${answer} 
       <br> ${winner} has won ${winningCaps} caps!<section>`);
     $('.winner-card').delay(6000).queue(function() {

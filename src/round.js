@@ -73,6 +73,7 @@ class Round {
   skipPuzzle(game) {
     if (game.currentRound.roundNumber !== 5) {
       this.roundNumber--;
+      game.players.map(player=> player.roundCaps = 0);
       this.newRound(game)
     }
   }
@@ -127,7 +128,7 @@ class Round {
       .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
     if (this.answer.length === 0) {
       DomUpdates.appendWinner(game);
-      // this.newRound(game);
+      this.newRound(game);
     }
     this.getCurrentPlayer(game);
     this.answer = this.answer.filter(char => char !== ' ' ? char : char = '');

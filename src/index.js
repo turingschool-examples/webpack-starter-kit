@@ -32,6 +32,7 @@ $('.start__start--btn').click(() =>{
 // * Nav Buttons
 $('.nav__end-round').click(function () {
   if ($('#guess--input').val() === 'levelUP') {
+    game.players.map(player=> player.roundCaps = 0);
     game.currentRound.newRound(game);
   } else {
     game.currentRound.skipPuzzle(game);
