@@ -11,10 +11,33 @@ export default {
       $(`.answer-${indexPlusOne}`).html(solution.answer);
       $(`.answer-${indexPlusOne}-pts`).html(solution.respondents);
     });
+  },
+
+  clearInput() {
+    $("#player-guess").val("");
+  },
+
+  hideAnswers() {
+    $(".answer").each(function() {
+      $(this).addClass("visHidden");
+      $(this)
+        .parent()
+        .next()
+        .children()
+        .addClass("visHidden");
+    });
+  },
+
+  revealCorrectAnswer(correctAnswer) {
+    $(".answer").each(function() {
+      if ($(this).text() === correctAnswer.answer) {
+        $(this).removeClass("visHidden");
+        $(this)
+          .parent()
+          .next()
+          .children()
+          .removeClass("visHidden");
+      }
+    });
   }
-  // postGame() {
-  //   console.log("hello? Postgame is here.");
-  //   $(".main-content").addClass("hidden");
-  //   $(".restart-game").removeClass("hidden");
-  // }
 };

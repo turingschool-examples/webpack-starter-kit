@@ -63,8 +63,10 @@ class Game {
 
   beginRound() {
     round.generateRound();
+    domObject.hideAnswers();
     this.currentAnswers = round.currentAnswers;
     console.log("currentRound: ", this.currentRound);
+    console.log("currentAnswers: ", this.currentAnswers);
   }
 
   timer(time) {
@@ -83,10 +85,14 @@ class Game {
     let correctAnswersPoints = 0;
     possibleAnswersArray.forEach(element => {
       if (element.answer.toLowerCase() === userGuess.toLowerCase()) {
+        domObject.revealCorrectAnswer(element);
+        domObject.clearInput();
         correctAnswersPoints = element.respondents;
         this.currentAnswers.splice(this.currentAnswers.indexOf(element), 1);
       }
-      this.currentAnswers.length === 0 ? this.startNextRound() : null;
+      if (this.currentRound < 3) {
+        this.currentAnswers.length === 0 ? this.startNextRound() : null;
+      }
     });
     return correctAnswersPoints;
   }
