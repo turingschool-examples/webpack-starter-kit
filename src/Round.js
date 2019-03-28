@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import DomUpdates from './DomUpdates';
 import Wheel from './Wheel';
-import BonusRound from './BonusRound'
+// import BonusRound from './BonusRound'
 
 
 class Round {
@@ -12,14 +12,13 @@ class Round {
     this.letterIndexs = {};
     this.wheelInst = new Wheel()
     this.remainingLetters = []
-    this.bonusRound = {}
+    // this.bonusRound = {}
   }
 
   createNewRound(game) {
     DomUpdates.clearGameBoard();
     DomUpdates.updateGameScore(this.activePlayer.score);
-    this.checkRoundNum(this)
-    this.checkRoundNum(game)
+    // this.checkRoundNum(game)
     let allRoundClues = game.gameRoundsClueBank[game.stage][1].puzzle_bank
     this.shuffler(allRoundClues)
     this.getRandomClue(allRoundClues)
@@ -27,7 +26,7 @@ class Round {
     this.wheelInst.createWheel()
 
     DomUpdates.displayActivePlayer(game.players[this.activePlayer])
-    DomUpdates.displayRound(this.roundNumber);
+    DomUpdates.displayRound(game.stage);
   }
   
   getRandomClue(cards) {  
@@ -97,12 +96,12 @@ class Round {
   
   checkValue(Wheel, game) {   
     
-    if (Wheel.wheelValue === "BANKRUPT") {
+    if (Wheel === "BANKRUPT") {
       DomUpdates.deactivateLetters()
       DomUpdates.gameMessage("bankrupt")
       game.bankruptPlayerBank();
       this.switchPlayer(game);
-    } else if (Wheel.wheelValue === "LOSE A TURN") {
+    } else if (Wheel === "LOSE A TURN") {
       DomUpdates.gameMessage("lose turn")
       DomUpdates.deactivateLetters()
       this.switchPlayer(game)
@@ -161,14 +160,14 @@ class Round {
   }
 
 
-  checkRoundNum(game) {
+  // checkRoundNum(game) {
     
     
-    // console.log(this, game)
-    if (game.stage === 2)  {
-      game.createBonusRound()
-    }
-  }
+  //   // console.log(this, game)
+  //   if (game.stage === 5)  {
+  //     game.createBonusRound()
+  //   }
+  // }
 }
 
 // class BonusRound extends Round {
