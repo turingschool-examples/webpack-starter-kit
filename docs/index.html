@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Wheel of Fortune</title>
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="shader popup--active">
+      <section class="popup popup--active">
+        <section class="instructions">
+          <article class="instructions__solve instructions--column">
+            <div class="instructions--column-header">
+              <i class="fas fa-puzzle-piece"></i>
+              <span class="instructions__head">Solve Puzzle</span>
+            </div>
+            <p>Attempt to solve the puzzle: If the guess is correct, your Total Caps will be increased by your Round Caps. </p>
+          </article>
+          <article class="instructions__vowel instructions--column">
+              <div class="instructions--column-header">
+                 <i class="fas fa-hand-holding-usd"></i>
+                 <span class="instructions__head"> Buy a Vowel</span>
+              </div>
+              <p>Buy a vowel for 100 Caps. The vowel will be entered into the board to further the puzzle</p>
+          </article>
+          <article class="instructions__wheel instructions--column">
+              <div class="instructions--column-header">
+                <i class="fas fa-dharmachakra"></i>
+                <span class="instructions__head">Spin the Wheel</span>
+              </div>
+            <p>Spin the wheel and have a chance to gain caps, lose your turn, or lose all your caps!
+              Won caps? Guess a consonant!
+            </p>
+          </article>
+        </section>
+        <div class="playerinfo__instructions--container">
+          <h3 class="playerinfo__instructions">If you would like, change name below.</h3>
+          </div>
+        <section class="playerinfo">
+           <div class="playerinfo__player playerinfo--1">
+            <img class="playerinfo__avatar" src="./images/thumbs.png" alt="Player one avatar">
+            <input type="text" class="playerinfo__player-1 playerinfo--input" value="Vault Boy" maxlength="20">
+          </div>
+          <div class="playerinfo__player playerinfo--2">
+            <img class="playerinfo__avatar" src="./images/radroach.png" alt="player three avatar">
+            <input type="text" class="playerinfo__player-2 playerinfo--input" value="Rad Roach" maxlength="20">
+          </div>
+          <div class="playerinfo__player playerinfo--3">
+            <img class="playerinfo__avatar" src="./images/mad_max-removebg.png" alt="Player two avatar">
+            <input type="text" class="playerinfo__player-3 playerinfo--input" value="Mad Max" maxlength="20">
+          </div>
+        </section>
+        <section class="start">
+          <button class="start__start--btn">Start</button>
+        </section>
+      </section>
+    </div>
+    <header>
+      <nav>
+        <div class="nav__btns--container">
+          <button class="nav__how-to nav--btn">How To</button>
+          <button class="nav__end-round nav--btn">Skip Puzzle</button>
+          <button class="nav__end-game nav--btn">Restart Game</button>
+        </div>
+      </nav>
+      <img src="https://fontmeme.com/permalink/190321/ce6a55d835663d3834cdf839f9ccfe02.png">
+    </header>
+    <div class="letters--container">
+      <h4 class="letters__title">Letters Used:</h4>
+      <aside class="letters__remaining">
+      </aside>
+    </div>
+    <section class="board__container">
+      <section class="board__tile-hider--container">
+        
+      </section>
+      <section class="board__tile-value--container">
+        
+      </section>
+      <aside class="round-info--container">
+          <h2 class="round-info__current-round">Round:</h2>
+          <h2 id="rnd-num"> 1 </h2>
+        </aside>
+      <article class="hint--container">
+        <h3 class="hint__title">Category |</h3>
+        <h3 class="hint__value">Hint</h3>
+      </article>
+      <section class="guess--container">
+        <input id="guess--input" type="text" placeholder="_ Enter Your Guess _" onkeypress="return /[a-z, A-Z, ', -]/i.test(event.key)">
+        <input class="guess__word--button guess--button" type="button" value="Guess Word">
+        <input id="vowel" class="guess__letter--button guess--button" type="button" value="Buy Vowel">
+        <input id="consonant" class="guess__letter--button guess--button" type="button" value="Spin Wheel" disabled="true">
+        <input class="nav__wheel--button" type="image" src="./images/vaultDoor.png">
+        <aside class="animation--container">
+        </aside>
+      </section>
+    </section>
+      <footer>
+          <section class="player--container">
+            <h2 class="player-1__name">Player-Name</h2>
+            <div class="player__avitar--container avitar avitar--container">
+              <img class="playerinfo__avatar" src="./images/thumbs.png" alt="Player one avatar">
+            </div>
+            <div class="caps--container">
+              <h3 class="roundCaps--text">Round<img class="caps--image" src="./images/bottleCaps.png"></h3>
+              <h3 class="roundCaps--text">Total<img class="caps--image" src="./images/bottleCaps.png"></h3>
+            </div>
+            <div class="player__points--container">
+              <h2 class="player-1__current-points player__round--points">0</h2>
+              <h2 class="player-1__total-points player__total-points">0</h2>
+            </div>
+          </section>
+          <section class="player--container">
+            <h2 class="player-2__name">Player-Name</h2>
+            <div class="player__avitar--container avitar avitar--container">
+                <img class="playerinfo__avatar" src="./images/radroach.png" alt="player three avatar">
+            </div>
+            <div class="caps--container">
+              <h3 class="roundCaps--text">Round<img class="caps--image" src="./images/bottleCaps.png"></h3>
+              <h3 class="roundCaps--text">Total<img class="caps--image" src="./images/bottleCaps.png"></h3>
+            </div>
+            <div class="player__points--container">
+              <h2 class="player-2__current-points player__round--points">0</h2>
+              <h2 class="player-2__total-points player__total-points">0</h2>
+            </div>
+          </section>
+          <section class="player--container">
+            <h2 class="player-3__name">Player-Name</h2>
+            <div class="player__avitar--container avitar avitar--container">
+              <img class="playerinfo__avatar" src="./images/mad_max-removebg.png" alt="Player two avatar">
+            </div>
+            <div class="caps--container">
+              <h3 class="roundCaps--text">Round<img class="caps--image" src="./images/bottleCaps.png"></h3>
+              <h3 class="roundCaps--text">Total<img class="caps--image" src="./images/bottleCaps.png"></h3>
+            </div>
+            <div class="player__points--container">
+              <h2 class="player-3__current-points player__round--points">0</h2>
+              <h2 class="player-3__total-points player__total-points">0</h2>
+            </div>
+          </section>
+      </footer>
+    </section>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
