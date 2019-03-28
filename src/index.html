@@ -93,21 +93,20 @@
           <h6>Points: <span class="player-2-points">00</span></h6>
         </section>
       </section>
-      <!-- FINAL JEOPARDY CARD -->
-
-      <section class="final-jeopardy">
+      <section class="final-jeopardy" style="display:none">
         <p>FINAL JEOPARDY!</p>
         <p>category:<span class="display-final-clue-category"></span></p>
+        <p>question:<span class="display-final-clue-question" style="display:none"></span></p>
         <section id="p0-cont-js" class="player">
           <p><span id="player-one-name" class="name-display player-one-name">Player One</span></p>
           <h6>Points: <span class="player-0-points">00</span></h6>
           <div class="wager-inputs">
             <label class="wager-input-btn" for="player-one-wager-input"></label>
-            <input type="text" name="firstname" id="player-one-wager-input" style="color:#888;" value="Player One Wager">
+            <input type="number" name="firstname" id="player-one-wager-input" style="color:#888;" value=0>
           </div>
           <div class="final-jeopardy-input-styles" style="display:none">
             <label class="final-jeopardy-inputs" for="player-one-final-jeopardy-input"></label>
-            <input type="text" name="firstname" id="player-one-final-jeopardy-input" style="color:#888;" value="Final Jeopardy Guess">
+            <input type="text" name="firstname" id="player-one-final-jeopardy-input" style="color:#888;" placeholder="Final Jeopardy Guess">
           </div>  
         </section>
         <section id="p1-cont-js" class="player">
@@ -115,11 +114,11 @@
           <h6>Points: <span class="player-1-points">00</span></h6>
           <div class="wager-inputs">
             <label class="wager-input-btn" for="player-two-wager-input"></label>
-            <input type="text" name="firstname" id="player-two-wager-input" style="color:#888;" value="Player Two Wager">
+            <input type="number" name="firstname" id="player-two-wager-input" style="color:#888;" value=0>
           </div> 
           <div class="final-jeopardy-input-styles" style="display:none">
             <label class="final-jeopardy-inputs" for="player-two-final-jeopardy-input"></label>
-            <input type="text" name="firstname" id="player-two-final-jeopardy-input" style="color:#888;" value="Final Jeopardy Guess">
+            <input type="text" name="firstname" id="player-two-final-jeopardy-input" style="color:#888;" placeholder="Final Jeopardy Guess">
           </div>
         </section>
         <section id="p2-cont-js" class="player">
@@ -127,21 +126,23 @@
           <h6>Points: <span class="player-2-points">00</span></h6>
           <div class="wager-inputs">
             <label class="wager-input-btn" for="player-three-wager-input"></label>
-            <input type="text" name="firstname" id="player-three-wager-input" style="color:#888;" value="Player Three Wager">
+            <input type="number" name="firstname" id="player-three-wager-input" style="color:#888;" value=0>
           </div>
           <div class="final-jeopardy-input-styles" style="display:none">
             <label class="final-jeopardy-inputs" for="player-three-final-jeopardy-input"></label>
-            <input type="text" name="firstname" id="player-three-final-jeopardy-input" style="color:#888;" value="Final Jeopardy Guess">
+            <input type="text" name="firstname" id="player-three-final-jeopardy-input" style="color:#888;" placeholder="Final Jeopardy Guess">
           </div>
         </section>
-        <input type="submit" class="btn" id="submit-wager-btn" value="SUBMIT WAGER">
+        <input type="submit" class="btn" id="submit-wager-btn" placeholder="SUBMIT WAGER">
+        <input type="submit" class="btn" id="submit-final-btn" placeholder="SUBMIT FINAL GUESSES" style="display:none">
       </section>
-      <!-- FINAL JEOPARDY CARD -->
+    <section class="winner-circle" style="display:none">
+      <p><span class="champion-name"></span>you have won Jeopardy!</p>
+    </section>
     </main>
     <footer>
       <input type="submit" class="btn" id="start-game-btn" value="START GAME">
       <input type="submit" class="btn" id="reset-game-btn" value="RESET" style="display:none">
     </footer>
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
