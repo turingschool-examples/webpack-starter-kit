@@ -40,8 +40,8 @@ This will download the file and install the dependencies needed to properly acce
 
 ## Future Goals
 
-*Move to a new round successfully
-*Move to BonusWheel
-*Disable letter in word bank once guessed
+* Move to a new round successfully
+* Move to BonusWheel
+* Disable letter in word bank once guessed
 
 
