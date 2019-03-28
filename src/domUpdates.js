@@ -15,13 +15,13 @@ export default {
     const $cards = $('.response-card')
     $responses.each((i, card) => {
       if ($(card).text() === response) {
-        $($cards[i]).hide()
+        $($cards[i]).fadeOut()
       }
     })
   },
 
   toggleStartModal() {
-    $(".start-game-modal").toggle();
+    $(".start-game-modal").fadeToggle();
   },
 
   hideModals() {
@@ -31,8 +31,8 @@ export default {
     $(".end-game-modal").hide();
   },
 
-  toggleEndGameModal(winner) {
-    $(".end-game-modal").toggle();
+  toggleEndGameModal() {
+    $(".end-game-modal").fadeToggle();
   },
 
   toggleWinner(winner, players) {
@@ -60,15 +60,15 @@ export default {
   },
 
   toggleNextRoundModal() {
-    $(".next-round-modal").toggle();
+    $(".next-round-modal").fadeToggle();
   },
 
   toggleLightningRoundModal() {
-    $(".lightning-round-modal").toggle();
+    $(".lightning-round-modal").fadeToggle();
   },
 
   toggleSwitchPlayerModal() {
-    $(".switch-player-modal").toggle();
+    $(".switch-player-modal").fadeToggle();
   },
 
   startGame(players) {
