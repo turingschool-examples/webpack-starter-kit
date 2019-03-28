@@ -3,12 +3,13 @@ import dataSet from './dataSet.js'
 import Rounds from './Rounds.js'
 import Game from './Game.js'
 
+
 export default {
   removeMe() {
     $(".start-up-screen").remove();
   },
 
-  publishCategories () {
+  publishCategories() {
     const categories = '<header class="categories" id="category-one">' +
     'Category' + 1 + '</header>' + '<header class="categories" id="category-two">'
     + 'Category' + 2 + '</header>' + '<header class="categories" id="category-three">'
@@ -18,7 +19,7 @@ export default {
     $(".category-wrapper").append(categories);
   },
 
-  publishRoundClues () {
+  publishRoundClues() {
     const scoreBoard = '<article class="clues cat-1 ind-0">' +
     100 +
     '</article>' +
@@ -71,7 +72,7 @@ export default {
     $(".box-wrapper").append(scoreBoard);
   },
 
-  publishScoreBoard () {
+  publishScoreBoard() {
     const board = '<form class="answer">' + '<label for="user-answer">Answer</label>'
     + '<input type="text" name="user-answer" id="user-answer" class="answer-input">'
     + '<button class="answer-btn">Submit</button>' + '</form>' +
@@ -85,7 +86,20 @@ export default {
     + '</span>' + '</section>' + '</footer>';
     $(".answer-wrapper").append(board);
   },
+  publishPlayerNames() {
+    let $p1Name = $("#player1-name");
+    $p1Name.html($('#player-1').val());
+    let $p2Name = $("#player2-name");
+    $p2Name.html($('#player-2').val());
+    let $p3Name = $("#player3-name");
+    $p3Name.html($('#player-3').val());
+  },
 
+  updateScore(game, num) {
+    game.p[num].forEach((player, num) => {
+      console.log(newGame.p[num]);
+       $(`#player${num}-score`).text(newGame.p[num].playerDollarAmount)
+     });
 
-
+  }
 }

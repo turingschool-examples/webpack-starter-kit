@@ -1,5 +1,4 @@
 import dataSet from './dataSet.js'
-
 import Game from './Game.js'
 import domUpdates from './domUpdates.js'
 

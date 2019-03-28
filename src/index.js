@@ -27,29 +27,18 @@ let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()
 [dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[6].toUpperCase()]];
 
-// dom manipulation to get values of the three names
-
 const $name1 = $("#player-1").val();
 const $name2 = $("#player-2").val();
 const $name3 = $("#player-3").val();
 
 const newGame = new Game($name1, $name2, $name3);
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
-
-
   $("#start-game").click(function() {
     event.preventDefault();
     domUpdates.publishCategories();
     domUpdates.publishRoundClues();
     domUpdates.publishScoreBoard();
-    let $p1Name = $("#player1-name");
-    $p1Name.html($('#player-1').val());
-    let $p2Name = $("#player2-name");
-    $p2Name.html($('#player-2').val());
-    let $p3Name = $("#player3-name");
-    $p3Name.html($('#player-3').val());
+    domUpdates.publishPlayerNames();
     $("#category-one").text(categoryArr[0]);
     $("#category-two").text(categoryArr[1]);
     $("#category-three").text(categoryArr[2]);
@@ -57,10 +46,8 @@ console.log('This is the JavaScript entry file - your code begins here.');
     domUpdates.removeMe();
   });
 
-
   $(document).on('click', '.clues', function (e) {
     newGame.cluesRemaining--;
-    console.log(newGame.cluesRemaining);
     $(e.target).css('visibility', 'hidden');
     let category = [];
     if ($(e.target).is(".cat-1")) {
@@ -73,7 +60,8 @@ console.log('This is the JavaScript entry file - your code begins here.');
   } else {
     category = (newGame.currentRound.topicFour);
   }
-  newGame.findClueIndex(category, e);
+    console.log(newGame.cluesRemaining);
+    newGame.findClueIndex(category, e);
   });
 
   $(document).on('click', ".answer-btn", "#user-answer", function(event) {

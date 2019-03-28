@@ -1,8 +1,9 @@
-import dataSet from './dataSet.js'
+import dataSet from './dataSet.js';
 import $ from 'jquery'
-import Player from './Player.js'
-import Rounds from  './Rounds.js'
-import Clue from './Clue.js'
+import Player from './Player.js';
+import Rounds from  './Rounds.js';
+import Clue from './Clue.js';
+import domUpdates from './domUpdates.js';
 
 class Game {
   constructor(name1, name2, name3) {
@@ -29,9 +30,12 @@ class Game {
     this.playerAnswer = userAnswer;
     if (this.playerAnswer.toLowerCase() === this.currentClue.answer.toLowerCase()) {
       this.playerList[this.currentPlayerNumber].playerDollarAmount += this.currentClue.pointValue;
-      console.log('true', this.playerList[this.currentPlayerNumber].playerDollarAmount); ;
+      // domUpdates.updateScore(this.playerList[this.currentPlayerNumber], [this.currentPlayerNumber])
+
+      console.log('true', this.playerList[this.currentPlayerNumber].playerDollarAmount);
     } else {
       console.log('false', this.playerList[this.currentPlayerNumber].playerDollarAmount -= this.currentClue.pointValue); this.playerList[this.currentPlayerNumber].playerDollarAmount -= this.currentClue.pointValue;
+      // domUpdates.updateScore(this.playerList[this.currentPlayerNumber], [this.currentPlayerNumber])
     }
   }
 
@@ -66,6 +70,7 @@ class Game {
     }
     this.activePlayer = this.playerList[this.currentPlayerNumber];
   }
+
 
   chooseWager() {
  // player input that is >= 5 && <= playerDollarAmount || <= pointValue
