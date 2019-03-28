@@ -22,26 +22,21 @@ class LightningRound {
       this.answerCount++
       domUpdates.appendAnswer(answers, correctAnswer.answer, correctAnswer.respondents);
     } else {
-      console.log('incorrect')
       domUpdates.tryAgain(); 
       };
-
-      console.log(currentPlayer);
-
-      if (guess === '') {
-        console.log('empty')
-        domUpdates.errorMessage();
-      };
-
-      if(this.answerCount === 3){
-        this.endRound(game);
-      }
+    if (guess === '') {
+      domUpdates.errorMessage();
     };
 
-    endRound(game) {
-      game.createRound();
-      this.answerCount = 0;
-    };
+    if(this.answerCount === 3){
+      this.endRound(game);
+    }
+  };
+
+  endRound(game) {
+    game.createRound();
+    this.answerCount = 0;
+  };
 }
 
 

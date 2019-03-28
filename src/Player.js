@@ -8,16 +8,13 @@ class Player {
     };
 
     addScore(scoreAmt) {
-        console.log('change score, correct guess')
         let newScore = this.score += scoreAmt;
         domUpdates.changeScore(newScore, this.playerId);
-        console.log(newScore);
     };
 
     lightningScore(scoreAmt, multiplier) {
         let newScore = this.score += (scoreAmt * multiplier);
         domUpdates.changeScore(newScore, this.playerId);
-        console.log(newScore);
     };
 }
 
