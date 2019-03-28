@@ -17,7 +17,8 @@ class Round {
     console.log('hello')
     DomUpdates.clearGameBoard();
     DomUpdates.updateGameScore(this.activePlayer.score);
-    let allRoundClues = game.gameRoundsClueBank[game.roundNumber][1].puzzle_bank
+
+    let allRoundClues = this.createClues(game);
     this.shuffler(allRoundClues)
     this.getRandomClue(allRoundClues)
 
@@ -26,7 +27,16 @@ class Round {
     DomUpdates.displayActivePlayer(game.players[this.activePlayer])
     DomUpdates.displayRound(game.roundNumber);
   }
-  
+
+  createClues(game) {
+    console.log(game.roundNumber)
+    if(game.roundNumber === 4) {
+      return game.gameRoundsClueBank[3][1].puzzle_bank
+    } else {
+      return game.gameRoundsClueBank[game.roundNumber][1].puzzle_bank;
+    }
+  }
+
   getRandomClue(cards) {  
     this.roundClue = this.randomNumber(cards);
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
@@ -144,7 +154,7 @@ class Round {
 
   checkRoundNum(game) { 
     if (game.roundNumber === 4)  {
-      game.createBonusRound()
+      game.createBonusRound(game)
     } else {
       this.createNewRound(game)
     }
