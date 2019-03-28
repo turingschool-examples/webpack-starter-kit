@@ -4,14 +4,15 @@ import Data from './Data'
 import Player from './Player'
 import BonusRound from './BonusRound'
 
+
 class Game {
-  constructor() {
+  constructor(stage, roundCards) {
     this.players = []
-    this.stage = 0
+    this.stage = stage || 0
     this.gameRoundsClueBank = null
-    this.roundCards = []
+    this.roundCards = roundCards || []
     this.roundInst = new Round(0)
-    this.bonus = null
+    this.bonus = new BonusRound()
   }
 
   startGame(p1, p2, p3) {
@@ -58,7 +59,7 @@ class Game {
     let winner = this.players.sort((playerA, playerB)=>{
       return playerA.score - playerB.score
     }).pop();
-    this.bonus = new BonusRound();
+    
   }
 }
 export default Game

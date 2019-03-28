@@ -1,9 +1,11 @@
 import Round from './Round'
 
 class BonusRound extends Round {
-  constructor() {
-    super();
+  constructor(roundNum) {
+    super(roundNum);
   }
+
+
 }
 
 export default BonusRound
