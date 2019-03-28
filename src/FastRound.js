@@ -1,6 +1,5 @@
 import Game from "./Game.js"
 import Round from './Round.js';
-import Timer from './Timer.js';
 import domUpdates from './domUpdates.js';
 
 class FastRound extends Round {

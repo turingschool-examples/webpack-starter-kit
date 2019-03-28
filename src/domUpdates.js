@@ -121,7 +121,7 @@ export default {
         $(".timer-area-1").addClass("hidden");
         $(".fastround-ready-screen").removeClass("hidden");
         game.triggerNewRound();
-      } else if ($(".timer-1-area").not(".hidden") && seconds === 0 && game.currentRound === 4) {
+      } else if (seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
         $(".timer-area-1").addClass("hidden");
         game.endGame();
@@ -144,7 +144,7 @@ export default {
         $(".timer-area-2").addClass("hidden");
         $(".fastround-ready-screen").removeClass("hidden");
         game.triggerNewRound();
-      } else if (!$(".timer-2-area").hasClass("hidden") && seconds === 0 && game.currentRound === 4) {
+      } else if (seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
         $(".timer-area-2").addClass("hidden");
         game.endGame();
