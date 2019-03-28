@@ -27,7 +27,7 @@ checkAnswer(guess, currentPlayer, game) {
         console.log('incorrect')
         domUpdates.wrongAnswer();
         // domupdates.unhighlightPlayer(currentPlayer.playerId);
-        game.switchPlayer();   
+        game.switchPlayer();  
     };
 
     console.log(currentPlayer);
@@ -47,16 +47,7 @@ checkAnswer(guess, currentPlayer, game) {
         game.createRound();
         this.answerCount = 0;
     }
-
-
-//     lightningRound(currentPlayer) {
-//     console.log('inside create lightning round');
-//     // domUpdates.multiplierMessage(this.player1, this.player2);
-//     this.lightningRound = new LightningRound(this.questionSet, currentPlayer);
-//     console.log(this.lightningRound);
-// //we will have to pass everything into this
-// //what is the point of having a new instance?
-//     };
+    
 }
 
 

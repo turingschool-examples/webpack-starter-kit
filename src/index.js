@@ -40,7 +40,7 @@ $('#resetBtn').click(() => {
 
 $('#submitBtn').on('click', inputValue);
 $('.answerInput').on('keyup', removeWrongAnswer);
-
+// $('.answerInput').on('keyup', removeTryAgain);
 
 function startPlaying() {
   let playerOne = $('.nameOne').val();
@@ -72,6 +72,10 @@ function inputValue() {
 function removeWrongAnswer() {
  domUpdates.removeWrongAnswer();
 };
+
+// function removeTryAgain() {
+//  domUpdates.removeTryAgain();
+// };
 
 
 export default dataSet;

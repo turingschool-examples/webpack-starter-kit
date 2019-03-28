@@ -26,6 +26,14 @@ export default {
   $('.tryAgain').css('visibility', 'visible');
 },
 
+ removeTryAgain() {
+  $('.tryAgain').css('visibility', 'hidden');
+},
+
+ tryAgain() {
+  $('.tryAgain').css('visibility', 'visible');
+},
+
 popUp() {
   $('.gamePopUp').append( `<section class="startGamePopUp">
    <h2>Welcome to Family Feud!</h2>
@@ -50,17 +58,19 @@ popUp() {
 
   highlightPlayer(playerId) {
     if(playerId === 1) {
+      console.log('toggle', 'player1highlight')
       $('#nameOne').toggle('width', '300px');
       $('#nameOne').toggle('height', '80px');
-      $('#nameOne').css('border-radius', '1%');
-      $('#nameOne').css('box-shadow','inset 0 0 50px #fff, 0 0 50px red, -10px 0 80px blue, 10px 0 80px #fff');
+      $('#nameOne').toggle('border-radius', '1%');
+      $('#nameOne').toggle('box-shadow','inset 0 0 50px #fff, 0 0 50px red, -10px 0 80px blue, 10px 0 80px #fff');
     }
 
     if(playerId === 2){
-      $('#nameTwo').css('width', '300px');
-      $('#nameTwo').css('height', '80px');
-      $('#nameTwo').css('border-radius', '1%');
-      $('#nameTwo').css('box-shadow','inset 0 0 50px #fff, 0 0 50px red, -10px 0 80px blue, 10px 0 80px #fff'); 
+        console.log('toggle', 'player2highlight')
+      $('#nameTwo').toggle('width', '300px');
+      $('#nameTwo').toggle('height', '80px');
+      $('#nameTwo').toggle('border-radius', '1%');
+      $('#nameTwo').toggle('box-shadow','inset 0 0 50px #fff, 0 0 50px red, -10px 0 80px blue, 10px 0 80px #fff'); 
     } 
   },
 

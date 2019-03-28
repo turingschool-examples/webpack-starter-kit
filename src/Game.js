@@ -28,6 +28,7 @@ createPlayer(name1, name2) {
 switchPlayer() { 
       console.log('player', this.currentPlayer);
     if(this.currentPlayer === this.player1) {
+      // domUpdates.unhighlightPlayer()
         this.currentPlayer = this.player2; 
     } else {
         this.currentPlayer = this.player1;
@@ -45,16 +46,24 @@ createRound() {
             roundNumber);
     } 
 
-    if(this.roundNumber === 3 || this.roundNumber === 4) {
-      this.lightningRound = new LightningRound(this.currentPlayer);
-        
-    }
+    // if(this.roundNumber === 3 ) {
+    //   if(this.player1.score < this.player2.score) {
+    //     this.currentPlayer ==== this.player1; 
+    //   } else {
+    //     this.currentPlayer === this.player2;
+    //   } 
+    //   this.lightningRound = new LightningRound(this.currentPlayer);  
+    // }
+
+     // if(this.roundNumber === 4) {
+    //   this.currentPlayer = !this.currentPlayer;
+    //   this.lightningRound = new LightningRound(this.currentPlayer);
+    // }
 
     if(this.roundNumber === 5){
-        //play with this number
        domUpdates.winnerMessage(this.player1, this.player2)
-       // return
      }
+
     const question = survey.question;
     domUpdates.appendQuestion(question);
 };
