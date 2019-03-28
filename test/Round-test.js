@@ -21,9 +21,9 @@ describe('Round', () => {
     expect(round.roundCountDown).to.equal(0);
   });
 
-  it('should be able to get a select a single random puzzle', ()=> {
-    expect(round.getPuzzle).to.be.a('function');
-  });
+  // it('should be able to get a select a single random puzzle', ()=> {
+  //   expect(round.getPuzzle).to.be.a('function');
+  // });
 
   it('should change activePlayer', () =>{
     expect(round.activePlayer).to.equal(0);

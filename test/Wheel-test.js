@@ -24,3 +24,7 @@ describe('Wheel', () => {
 
 });
 
+// new turn 
+
+// player score
+
