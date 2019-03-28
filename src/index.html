@@ -27,12 +27,11 @@
 				</form>
   	</section>
 
-  	<main class="main-content">
+	<main class="main-content">
+  	<section class="main-section">
 			<section class="round3 hidden">
 				<h2>BONUS ROUND</h2>
 			</section>
-
-			<section class="current-player-score">100</section>
 
 			<section class="countdown-timer hidden">
 			</section>
@@ -68,19 +67,21 @@
 	  	</section>
 
 	  	<section class="multiplier-section round3 hidden">
-	  		<h3>MULTIPLIER</h3>
-	  		<p class="multiplying-by"></p>
-	  		<form class="multiplier-form">
-	  			<input type="radio" name="multiplier" class="multiplier-radio" value="1">1</input>
-	  			<input type="radio" name="multiplier" class="multiplier-radio" value="2">2</input>
-	  			<input type="radio" name="multiplier" class="multiplier-radio" value="3">3</input>
-	  			<input type="radio" name="multiplier" class="multiplier-radio" value="4">4</input>
-	  			<input type="radio" name="multiplier" class="multiplier-radio" value="5">5</input>
-	  		</form>
+	  		<div class="multiplier-styling">
+		  		<h3>MULTIPLIER</h3>
+		  		<p class="multiplying-by"></p>
+		  		<form class="multiplier-form">
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="1">1</input>
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="2">2</input>
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="3">3</input>
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="4">4</input>
+		  			<input type="radio" name="multiplier" class="multiplier-radio" value="5">5</input>
+		  		</form>
+	  		</div>
 	  	</section>
 
 	  	<section class="whose-turn">
-	  		<form>
+	  		<form class="whose-turn-form">
 	  			<p class="current-turn"></p>
 	  			<label for="player-guess">
 	  				<input type="input" class="player-guess" id="player-guess" name="player-guess" placeholder="Make a guess!">
@@ -99,6 +100,7 @@
 	    		<p class="player-2-score score">Score: 0</p>
 	    	</article>
 	    </section>
+	  </section>
 		</main>
 		
 		<footer>
@@ -111,7 +113,7 @@
 						<h1>loser:</h1>
 						<p class="display-loser"></p>					
 					</div>
-          <button class="play-again-btn">Play Again?</button>
+          <button class="play-again-btn btn">Play Again?</button>
 				</form>
 				<form class="restart-game hidden">
 	    		<button class="submit-btn">Restart Game</button>

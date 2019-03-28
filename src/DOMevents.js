@@ -7,7 +7,7 @@ const player2 = new Player();
 const game = new Game(player1, player2);
 
 game.startGame();
-
+$(".main-content").addClass("hidden");
 $("#submit-names").prop("disabled", true);
 $("#submit-names").on("click", () => {
   if (
