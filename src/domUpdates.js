@@ -98,13 +98,17 @@ let domUpdates = {
     },
 
     spinMessage(player) {
-        $('.instructions').text(`Lose your turn, ${player} spin the wheel!`)
+        $('.instructions').text(`${player} lost your turn, next player spin the wheel!`)
     },
 
     disableSpin() {
         $('.spinButton').prop('disabled', true)
         $('.instructions').text('Choose a letter!')
 
+    },
+
+    continueMsg() {
+        $('.instructions').text('Correct! Keep going!')
     }
 }
 

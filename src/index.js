@@ -33,6 +33,7 @@ $('.letters').on('click', function(e) {
 
 $('.vowel').on('click', function (e) {
     if(game.currentPlayer.score > 99) {
+        game.currentPlayer.score -= 100;
         game.fillVowels(e);
         $('body').find(e.target).prop('disabled', true)
         $('body').find(e.target).css("background-color", "#00e000");
@@ -46,13 +47,10 @@ $('.vowel').on('click', function (e) {
 $('.spinButton').on('click', function (e) {
     e.preventDefault();
     game.wheel.spinWheel(game.stage);
-    game.currentPlayer.calculateBank(game.wheel.currentSpinValue, game, game.currentPlayer)
+    game.currentPlayer.calculateBank(game.wheel.currentSpinValue, game, game.currentPlayer.name)
     $('.spunValue').text(game.wheel.currentSpinValue)
     spin += 1000
     $('.boardWheel').css('transform', `rotate(${spin}deg)`)
-    console.log(game)
-    console.log(game.currentPlayer)
-    console.log('is this a number? ' + typeof game.wheel.currentSpinValue)
 });
 
 $('.reset').on('click', function (e) {

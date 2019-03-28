@@ -16,4 +16,13 @@ describe('Round', function(){
         expect(round.answerClues).to.deep.equal([]);
         expect(round.answerCategories).to.deep.equal([]);
     })
+    it('should reset the properties when resetRound is invoke', () => {
+        round.allCorrectAnswers = [1,2,3]
+        round.answerClues = [1,2,3]
+        round.answerCategories = [1,2,3]
+        round.resetRound()
+        expect(round.allCorrectAnswers).to.deep.equal([]);
+        expect(round.answerClues).to.deep.equal([]);
+        expect(round.answerCategories).to.deep.equal([]);
+    })
 })

@@ -26,7 +26,6 @@ class Wheel {
         let values = this.spunValues[stage].find( (cur, idx) => {
             return idx === randomIndex;
         })
-        console.log(values)
         this.currentSpinValue = values;
     }
 }

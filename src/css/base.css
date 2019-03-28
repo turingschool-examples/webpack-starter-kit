@@ -2,7 +2,7 @@ body {
   font-family: 'Press Start 2P';
   background: #5a4271;
   /* background-image: url("/images/back.gif"); */
-  background: linear-gradient(black, transparent), url("/images/back.gif") no-repeat center;
+  background: linear-gradient(black, transparent), url("/images/back.gif") no-repeat;
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -19,7 +19,7 @@ h1 {
 
 .boardWheel {
   transition: 3s;
-  margin-left: 215px;
+  margin-left: 250px;
 }
 
 form {
@@ -138,13 +138,15 @@ td {
 }
 
 .guessCard {
-  background: red;
+  background: #292727;
   position: absolute;
   z-index: 1;
   right: 40%;
   left: 40%;
   bottom: 40%;
   height: 210px;
+  border: 10px solid #00e000;
+  border-radius: 25px;
 }
 
 
