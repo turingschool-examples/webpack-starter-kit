@@ -28,7 +28,12 @@ Open http://localhost:8080/
 * Create a robust test suite that thoroughly tests all functionality of a client-side application
 
 ## Features
-#### Fill in later
+* Form for players to input their name
+* Table clearly showing letter location as well as spaces and special characters
+* Button to spin wheel which selects a random value as a prize or punishiment for active player
+* Button for the active player to buy a vowel for a value of 100
+* Button to submit a guess of thew puzzle
+* When you have the option to select a letter, if correctly selected, that letter will display in the table
 
 ## Contributors 
 * Michael King-Stockton
