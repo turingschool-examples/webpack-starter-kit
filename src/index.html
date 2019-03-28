@@ -4,13 +4,10 @@
     <title>Wheel of Fortune</title>
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="/css/fonts/overseer.css" type="text/css" charset="utf-8" /> -->
-    <!-- <link rel="stylesheet" src="css/base.css" type="text/css"/> -->
   </head>
   <body>
     <div class="shader popup--active">
       <section class="popup popup--active">
-        <!-- input for all three players, instructions, avatars next to name inputs -->
         <section class="instructions">
           <article class="instructions__solve instructions--column">
             <div class="instructions--column-header">
@@ -31,11 +28,13 @@
                 <i class="fas fa-dharmachakra"></i>
                 <span class="instructions__head">Spin the Wheel</span>
               </div>
-            <p>Spin the wheel and have a chance to gain caps, lose your turn, or lose all your caps!</p>
+            <p>Spin the wheel and have a chance to gain caps, lose your turn, or lose all your caps!
+              Won caps? Guess a consonant!
+            </p>
           </article>
         </section>
         <div class="playerinfo__instructions--container">
-          <p class="playerinfo__instructions">If you would like, change name below.</p>
+          <h3 class="playerinfo__instructions">If you would like, change name below.</h3>
           </div>
         <section class="playerinfo">
            <div class="playerinfo__player playerinfo--1">
@@ -64,7 +63,6 @@
           <button class="nav__end-game nav--btn">Restart Game</button>
         </div>
       </nav>
-      <!-- https://fontmeme.com/fallout-font/ -->
       <img src="https://fontmeme.com/permalink/190321/ce6a55d835663d3834cdf839f9ccfe02.png">
     </header>
     <div class="letters--container">
@@ -91,7 +89,6 @@
         <input id="guess--input" type="text" placeholder="_ Enter Your Guess _" onkeypress="return /[a-z, A-Z, ', -]/i.test(event.key)">
         <input class="guess__word--button guess--button" type="button" value="Guess Word">
         <input id="vowel" class="guess__letter--button guess--button" type="button" value="Buy Vowel">
-        <!-- <label id="consonant--label" class="" for="consonant">^Spin Wheel^</label> -->
         <input id="consonant" class="guess__letter--button guess--button" type="button" value="Spin Wheel" disabled="true">
         <input class="nav__wheel--button" type="image" src="./images/vaultDoor.png">
         <aside class="animation--container">
@@ -143,6 +140,5 @@
           </section>
       </footer>
     </section>
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>

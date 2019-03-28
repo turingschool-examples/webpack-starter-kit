@@ -21,26 +21,31 @@ class Round {
     game.players.map(player => player.roundCaps = 0);
     DomUpdates.updatePlayerScore(game);
     this.allRoundGuesses = [];
-    this.determinePuzzleLength();
+    this.determinePuzzleLength(game);
     this.displayDomPuzzle(game);
   }
-  determinePuzzleLength() {
+  determinePuzzleLength(game) {
     let random = Math.floor((Math.random() * 23) + 0);
     switch (this.roundNumber) {
     case 1: 
       this.storePuzzle(data.puzzles.one_word_answers.puzzle_bank[random]);
+      this.currWheel.wheelSlices = this.currWheel.getWheelSlices()
       break;
     case 2: 
       this.storePuzzle(data.puzzles.two_word_answers.puzzle_bank[random]);
+      this.currWheel.wheelSlices = this.currWheel.getWheelSlices()
       break;
     case 3: 
       this.storePuzzle(data.puzzles.three_word_answers.puzzle_bank[random]);
+      this.currWheel.wheelSlices = this.currWheel.getWheelSlices()
       break;
     case 4: 
       this.storePuzzle(data.puzzles.four_word_answers.puzzle_bank[random]);
+      this.currWheel.wheelSlices = this.currWheel.getWheelSlices()
       break;
     case 5: 
       this.storePuzzle(data.puzzles.one_word_answers.puzzle_bank[random]);
+      this.makeBonusRound(game);
     }
   }
   storePuzzle(puzzle) {
@@ -71,11 +76,13 @@ class Round {
       this.newRound(game)
     }
   }
+  makeBonusRound(game) {
+    game.bonusRound(this.roundNumber)
+  }
   getCurrentPlayer(game) {
     DomUpdates.showCurrentPlayer(game);
     this.currentPlayer = game.players[this.counter];
     this.counter < 2 ? this.counter++ : this.counter = 0;   
-    console.log(this.currentPlayer);
     DomUpdates.updatePlayerScore(game);
     DomUpdates.showCurrentPlayer(game);
     DomUpdates.clearInput();
@@ -86,13 +93,14 @@ class Round {
   conditionalChecking(game, ltrGuess, vowels) {
     if (this.allRoundGuesses.includes(ltrGuess.toUpperCase())) {
       alert('This letter has already been guessed!');
-      // todo: add an error message instead of alert
     } else if (this.compareAns() && !vowels.includes(ltrGuess.toUpperCase())) {
-      game.currentRound.correctAnsFunc(game, ltrGuess);
+      this.correctAnsFunc(game, ltrGuess);
       DomUpdates.toggleButtons();
-    } else if (game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
-      game.currentRound.correctAnsFunc(game, ltrGuess)
-    } else if (!game.currentRound.compareAns() && vowels.includes(ltrGuess.toUpperCase())) {
+    } else if (game.currentRound.compareAns() && vowels
+      .includes(ltrGuess.toUpperCase())) {
+      game.currentRound.correctAnsFunc(game, ltrGuess);
+    } else if (!game.currentRound.compareAns() && vowels
+      .includes(ltrGuess.toUpperCase())) {
       this.allRoundGuesses.push(this.currentPlayer.ans);
       this.allRoundGuesses.sort();
       DomUpdates.appendIncorrect();
@@ -118,11 +126,10 @@ class Round {
     this.answer = this.answer
       .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
     if (this.answer.length === 0) {
-      this.newRound(game);
       DomUpdates.appendWinner(game);
+      this.newRound(game);
     }
     this.getCurrentPlayer(game);
-    console.log(this.answer)
     this.answer = this.answer.filter(char => char !== ' ' ? char : char = '');
   }
 }

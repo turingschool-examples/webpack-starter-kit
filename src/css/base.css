@@ -415,3 +415,23 @@ footer {
   0% { opacity: 0 }
   100% { opacity: 1}
 }
+.prize--label {
+  position: absolute;
+  top: -30px;
+  color: white;
+  text-shadow: 1px 1px black;
+  width: 150px;
+  left: 110px;
+  border-bottom: 2px ridge white;
+}
+.prize-title {
+  position: absolute;
+  top: 14px;
+  left: 110px;
+  font-size: 20px;
+  color: #90D155;
+  text-shadow: 1.5px 1.5px black;
+}
+.prize-img {
+  width: 100px;
+}
