@@ -3,22 +3,34 @@ const expect = chai.expect;
 import Round from '../src/round.js';
 import data from '../src/data_wheel-of-fortune.js';
 import Puzzle from '../src/puzzle.js';
-
+import DomUpdates from '../src/dom-updates.js';
 import spies from 'chai-spies';
 import GameEngine from '../src/game-engine.js';
 import Player from '../src/player.js';
 chai.use(spies);
+
+chai.spy.on(DomUpdates, 'updatePlayerScore', () => true);
+chai.spy.on(DomUpdates, 'updateRoundHintCategory', () => true);
+chai.spy.on(DomUpdates, 'appendAns', () => true);
+chai.spy.on(DomUpdates, 'appendPuzzle', () => true);
+chai.spy.on(DomUpdates, 'showCurrentPlayer', () => 1);
+chai.spy.on(DomUpdates, 'clearInput', () => true);
+chai.spy.on(DomUpdates, 'toggleButtons', () => true);
+chai.spy.on(DomUpdates, 'appendIncorrect', () => true);
+chai.spy.on(DomUpdates, 'createPuzzleClassArr', () => true);
+chai.spy.on(DomUpdates, 'appendCorrect', () => true);
+chai.spy.on(DomUpdates, 'appendWinner', () => true);
 
 
 describe('Round', ()=>{
     it('Should be a function', ()=>{
         expect(Round).to.be.a('function');
     })
-    it('Should instanciate a new instance of Round', ()=>{
+    it('Should instantiate a new instance of Round', ()=>{
         const round = new Round();
         expect(round).to.be.a('object');
     })
-    it('Should instanciate a new instance of Puzzle', ()=>{
+    it('Should instantiate a new instance of Puzzle', ()=>{
         const puzzle = new Puzzle();
         expect(puzzle).to.be.a('object');
     })
@@ -44,30 +56,60 @@ describe('Round', ()=>{
         expect(round.roundPuzzle.description).to.equal('Location or object(s) found within a typical house.');
         expect(round.roundPuzzle.ans).to.equal('Armchair');
     })
-    it('Should split the puzzle answer into an array of letters',()=>{
+    it('Should split the puzzle answer into an array of letters', ()=>{
         const round = new Round(1);
         let puzzleBank = data.puzzles.one_word_answers.puzzle_bank[0];
         round.getPuzzle(puzzleBank.category, puzzleBank.number_of_words, puzzleBank.total_number_of_letters, puzzleBank.first_word,     puzzleBank.description, puzzleBank.correct_answer);
-        expect(round.answer).to.deep.equal(['A', 'r', 'm', 'c', 'h', 'a', 'i', 'r'])
+        expect(round.answer).to.deep.equal(['A', 'R', 'M', 'C', 'H', 'A', 'I', 'R'])
     })
-    // TODO dom updates is messing up this test " jQuery requires a window with a document "
-    // it('Should iterate to the next index value after getCurrentPlayer() is invoked and after reaching 3 it should reset to 1', ()=>{
-    //     const game = new GameEngine();
-    //     game.players = [1, 2, 3];
-    //     const round = new Round(1);
-    //     round.getCurrentPlayer(game);
-    //     expect(round.currentPlayer).to.equal(2);
-    //     round.getCurrentPlayer(game);
-    //     expect(round.currentPlayer).to.equal(3);
-    //     round.getCurrentPlayer(game);
-    //     expect(round.currentPlayer).to.equal(1);
-    //     round.getCurrentPlayer(game);
-    //     expect(round.currentPlayer).to.equal(2);
-    //     round.getCurrentPlayer(game);
-    //     expect(round.currentPlayer).to.equal(3);
-    //     round.getCurrentPlayer(game);
-    //     expect(round.currentPlayer).to.equal(1);
-    // })
+    it('Should accept an object and return two uppercase array of the answer', () =>{
+        const round = new Round(1);
+        round.storePuzzle(  {  
+            category: 'The 90s',
+            number_of_words: 1,
+            total_number_of_letters: 10,
+            first_word: 10, 
+            description: 'Puzzles pertaining to the decade in question.',
+            correct_answer: 'Tamagotchi',
+          })
+          expect(round.answer).to.deep.equal(['T','A','M','A','G','O','T','C','H','I']);
+          expect(round.wholeWord).to.deep.equal(['T','A','M','A','G','O','T','C','H','I'])
+    })
+    it('Should increase currentRound by 1 everytime that newRound() is invoked', ()=>{
+        let game = new GameEngine();
+        let player1 = new Player(game);
+        let player2 = new Player(game);
+        let player3 = new Player(game);
+        game.players = [player1, player2, player3];
+        game.currentRound.newRound(game);
+        expect(game.currentRound.roundNumber).to.equal(1);
+        game.currentRound.newRound(game);
+        game.currentRound.newRound(game);
+        expect(game.currentRound.roundNumber).to.equal(3);
+        expect(DomUpdates.updatePlayerScore).to.have.been.called(6);
+    })
+    it('Should return true when compareAns is invoked', ()=>{
+        let round = new Round();
+        round.answer = ['A'];
+        round.currentPlayer = {}
+        round.currentPlayer.ans = 'A';
+        expect(round.compareAns()).to.equal(true);
+    })
+    it('Should be able to skip a puzzle', () => {
+        let game = new GameEngine();
+        let player1 = new Player(game);
+        let player2 = new Player(game);
+        let player3 = new Player(game);
+        game.players = [player1, player2, player3];
+        game.currentRound.newRound(game);
+        let puzzle = game.currentRound.answer;
+        game.currentRound.skipPuzzle(game);
+        let skipPuzzle = game.currentRound.answer;
+        expect(puzzle).to.not.deep.equal(skipPuzzle);
+        expect(DomUpdates.updatePlayerScore).to.have.been.called(10);
+    })
+    it('Should be able to determine the puzzle length') {
 
+    }
 })
 export default Round;

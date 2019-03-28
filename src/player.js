@@ -7,29 +7,33 @@ class Player {
     this.roundCaps = 0,
     this.totalCaps = 0
   }
+
   addRoundCaps(caps) {
     this.roundCaps += caps;
   }
+
   addTotalCaps(caps) {
     this.totalCaps += caps;
   }
+
   bankrupt() {
     this.roundCaps = 0;
     this.totalCaps = 0;
   }
-//* Spin Wheel
+
   spinWheel(game, random) {
-    // let random = Math.floor((Math.random() * 7) + 0);
     DomUpdates.toggleButtons();
     const slice = game.currentRound.currWheel.wheelSlices[random];
     DomUpdates.appendWheelValue(slice);
     typeof slice === "number" ? this.spinNum(game, slice) 
       : this.spinNotNum(game, slice);
   }
+
   spinNum(game, slice) {
     game.currentRound.currentPlayer.roundCaps += slice;
     DomUpdates.updatePlayerScore(game);
   }
+
   spinNotNum(game, slice) {
     if (slice === 'BANKRUPT') {
       game.currentRound.currentPlayer.roundCaps = 0;
@@ -42,7 +46,7 @@ class Player {
     game.currentRound.getCurrentPlayer(game);
     DomUpdates.toggleButtons(game);
   }
-//* Buy Vowel
+
   buyVowel(game, round, player, ltrGuess, vowels) {
     if (this.roundCaps < 100) {
       alert('Insufficient Funds!');
@@ -55,14 +59,14 @@ class Player {
       DomUpdates.updateLettersUsed(game);
     }
   }
-//* Guess Word
+
   guessWord(game, guess, alphabet) {
     guess = guess.map(letter => letter.toUpperCase());
     guess = guess.filter(letter => alphabet.includes(letter));
     DomUpdates.updatePlayerScore(game);
     game.currentRound.wholeWord = game.currentRound.wholeWord
       .filter(letter => alphabet.includes(letter))
-    if (game.currentRound.wholeWord.join('') == guess.join('')) {
+    if (game.currentRound.wholeWord.join('') === guess.join('')) {
       DomUpdates.appendWinner(game);
       game.currentRound.newRound(game);
     } else {

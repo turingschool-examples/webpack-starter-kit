@@ -26,6 +26,7 @@ describe('BonusRound', ()=>{
     const bonus = new BonusRound(5);
     bonus.prizes = ["test_armor"];
     expect(bonus.prize).to.have.property('prize', "test_armor");
+
   })
 })
 export default BonusRound;
