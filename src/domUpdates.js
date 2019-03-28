@@ -103,13 +103,20 @@ export default {
   },
   
   spinResultMessage(spinResult) {
+    if(spinResult === "BANKRUPT" || spinResult === "LOSE A TURN"){
+      $('.spin-winner').html(`Sorry, you spun ${spinResult}! Next Player Spins!`)
+
+    }else{
       $('.spin-winner').html(`You spun ${spinResult}! Choose a letter.`);
-    },
+
+    }
+  },
 
 
   yourTurnMessage(player) {
     $('.spin-winner').html(`${player.name}'s turn to spin!`);
   },
+
   
   solvePuzzleMessage(player) {
     $('.spin-winner').html(`${player.name} solved the puzzle!`);
@@ -129,9 +136,11 @@ export default {
     },
     
     buyAVowel(event, game) {
+      console.log("vowels");
       $('.vowels').on('click', (event) => {
         $( '.vowels').removeClass( "cost");
-        // round.players[round.activePlayer].roundScore -= 100;
+        round.players[round.activePlayer].roundScore -= 100;
+
         game.round.guessLetter(event, game);
       });
     },
