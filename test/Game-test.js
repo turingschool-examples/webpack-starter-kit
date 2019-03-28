@@ -18,7 +18,7 @@ describe('Game', function() {
     expect(game.players.length).to.equal(3);
   })
 
-  it('After game starts alphabet should contain all letters', function() {
+  it.skip('After game starts alphabet should contain all letters', function() {
     let game = new Game();
 
     game.createLetters();
@@ -34,7 +34,7 @@ describe('Game', function() {
     expect(game.gameRoundsClueBank.length).to.equal(4);
   })
 
-  it('Create game board is a function', function() {
+  it.skip('Create game board is a function', function() {
     let game = new Game();
 
     game.createGameBoard();
