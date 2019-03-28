@@ -49,14 +49,14 @@ checkAnswer(guess, currentPlayer, game) {
     }
 
 
-    lightningRound(currentPlayer) {
-    console.log('create lightning round');
-    domUpdates.multiplierMessage(this.player1, this.player2);
-    const survey = this.surveys[Math.floor(Math.random() * this.surveys.length)];
-    this.lightningRound = new LightningRound();
-//we will have to pass everything into this
-//what is the point of having a new instance?
-    };
+//     lightningRound(currentPlayer) {
+//     console.log('inside create lightning round');
+//     // domUpdates.multiplierMessage(this.player1, this.player2);
+//     this.lightningRound = new LightningRound(this.questionSet, currentPlayer);
+//     console.log(this.lightningRound);
+// //we will have to pass everything into this
+// //what is the point of having a new instance?
+//     };
 }
 
 

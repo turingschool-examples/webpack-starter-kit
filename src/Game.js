@@ -14,7 +14,6 @@ class Game {
     this.lightningRound = null;
     this.roundNumber = 0;
     this.currentPlayer = null;
-    // this.round = [new Round(), new Round(), new LightningRound()];
 };
 
 createPlayer(name1, name2) {
@@ -27,13 +26,13 @@ createPlayer(name1, name2) {
 };
 
 switchPlayer() { 
-    console.log('player', this.currentPlayer);
+      console.log('player', this.currentPlayer);
     if(this.currentPlayer === this.player1) {
         this.currentPlayer = this.player2; 
     } else {
         this.currentPlayer = this.player1;
     }
-   console.log('newplayer', this.currentPlayer);
+      console.log('newplayer', this.currentPlayer);
 };
 
 createRound() {
@@ -46,8 +45,9 @@ createRound() {
             roundNumber);
     } 
 
-    if(this.roundNumber === 3) {
-        this.round.lightningRound();
+    if(this.roundNumber === 3 || this.roundNumber === 4) {
+      this.lightningRound = new LightningRound(this.currentPlayer);
+        
     }
 
     if(this.roundNumber === 5){
@@ -60,21 +60,25 @@ createRound() {
 };
 
 getAnswer(guess) {
-    this.round.checkAnswer(guess, this.currentPlayer, this);
-    };
+    if(this.roundNumber < 3) {
+      console.log("round number less than three")
+      this.round.checkAnswer(guess, this.currentPlayer, this);
+    } else {
+          console.log("round number three or more")
+      this.lightningRound.checkLrAnswer(guess, this);
+    }
+    
+  };
 
 // lightningRound() {
-//     console.log('create lightning round');
-//     domUpdates.multiplierMessage(this.player1, this.player2);
-//     const survey = this.surveys[Math.floor(Math.random() * this.surveys.length)];
-//     this.lightningRound = new LightningRound();
+//     console.log('inside create lightning round');
+//     // domUpdates.multiplierMessage(this.player1, this.player2);
+    
+//     console.log(this.lightningRound);
 // //we will have to pass everything into this
 // //what is the point of having a new instance?
-// };
+//     };
 
-lightningAnswer(guess) {
-    this.lightningRound.checkLrAnswer(guess, this.currentPlayer, this);
-}
 }
 
 export default Game;
