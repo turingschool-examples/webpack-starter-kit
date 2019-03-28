@@ -1,3 +1,6 @@
+import domUpdates from "./domUpdates.js";
+
+
 class Puzzle {
   constructor(currentPuzzle) {
     this.category = null || currentPuzzle.category;
@@ -7,30 +10,35 @@ class Puzzle {
     this.numLetters = currentPuzzle.total_number_of_letters
     this.numWords = null || currentPuzzle.number_of_words;
     this.splitAnswer = this.correctAnswer.toUpperCase().split('');
-    this.firstLine = null || currentPuzzle.firstLine;
-    this.secondLine = null || currentPuzzle.secondLine;
+    this.firstLine = null;
+    this.secondLine = null;
   }
   checkPuzLength() {
-    return this.splitAnswer.length > 14 ? this.twoLinePuzzle() : this.secondLine = null;
+    if(this.splitAnswer.length <= 14){
+       domUpdates.appendPuzzle(this.splitAnswer, null)
+    } else{ 
+      this.twoLinePuzzle()
+    }
+
+    // return this.splitAnswer.length > 14 ? this.twoLinePuzzle() : this.secondLine = null;
   }
 
   // TODO: REFACTOR TO SWITCH STATEMENT
   twoLinePuzzle() {
     let words = this.correctAnswer.split(' ');
-    let firstLine; 
-    let secondLine;
     if (this.numWords === 2) {
-      firstLine = words[0];
+      this.firstLine = words[0];
       secondLine = words[1];
     } else if (this.numWords === 3) {
-      firstLine = words[0].concat(` ${words[1]}`);
-      secondLine = words[2];
+      this.firstLine = words[0].concat(` ${words[1]}`);
+      this.secondLine = words[2];
     } else {
-      firstLine = words[0].concat(`${words[1]}`);
-      secondLine = words[2].concat(`${words[3]}`);
+      this.firstLine = words[0].concat(` ${words[1]}`);
+      this.secondLine = words[2].concat(` ${words[3]}`);
     }
-    this.firstLine = firstLine.toUpperCase().split('');
-    this.secondLine = secondLine.toUpperCase().split('');
+    this.firstLine = this.firstLine.toUpperCase().split('');
+    this.secondLine = this.secondLine.toUpperCase().split('');
+    domUpdates.appendPuzzle(this.firstLine, this.secondLine)
   }
 }
 

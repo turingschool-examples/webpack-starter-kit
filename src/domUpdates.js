@@ -49,6 +49,9 @@ export default {
   },
 
   appendPuzzle (line1, line2) {
+    // parameters instead, split.puzzle and null
+    console.log(line1);
+    console.log(line2);
     this.fillSpace(line1.length, false);
     this.appendWords(line1);
     this.fillSpace(line1.length, true);

@@ -1,6 +1,7 @@
 import Wheel from "./Wheel.js";
 import Round from "./Round.js";
 import Player from "./Player.js";
+import Puzzle from "./Puzzle.js"
 // import BonusWheel from "./BonusWheel.js"
 import data from "./data.js";
 import domUpdates from "./domUpdates.js";
@@ -11,7 +12,7 @@ class Game {
     this.roundCount  = 0;
     this.players = [];
     this.allData = []
-    this.currentPuzzle = null;
+    // this.currentPuzzle = null;
   }
 
   startGame() {
@@ -36,9 +37,11 @@ class Game {
     let round = new Round(this.players, wheel);
     this.round = round;
     round.currentWheel = wheel;
-    this.currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
+
+    // vvv instance of puzzle?
+    this.currentPuzzle = round.getPuzzle(this.allData[this.roundCount + 2]);
+
     this.currentPuzzle.checkPuzLength();
-    domUpdates.appendPuzzle(this.currentPuzzle.splitAnswer, this.currentPuzzle.secondLine);
     domUpdates.setCategoryText(this.currentPuzzle.category);
   }
 
