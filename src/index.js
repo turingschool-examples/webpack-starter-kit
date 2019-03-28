@@ -22,11 +22,16 @@ let dataCategories = Object.keys(dataSet.categories);
 
 let categoriesToArray = $('.categories').toArray();
 // Hard coded categories in
-let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()],
+let categoryArr1 = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[2].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[6].toUpperCase()]];
-// $(document).ready(dataCategories);
+
+let categoryArr2 = [[dataCategories[3].split(/(?=[A-Z])/).join(' ').toUpperCase()],
+[dataCategories[7].split(/(?=[A-Z])/).join(' ').toUpperCase()],
+[dataCategories[8].split(/(?=[A-Z])/).join(' ').toUpperCase()],
+[dataCategories[9].toUpperCase()]];
+console.log(categoryArr2);
 // Actual RNG for the categories---
 // for (let i = 0; i < categoriesToArray.length; i++) {
 //   // let randomCategory = dataCategories.splice(Math.floor(Math.random()*dataCategories.length),1).toString();
@@ -51,10 +56,10 @@ console.log('This is the JavaScript entry file - your code begins here.');
     domUpdates.publishRoundClues();
     domUpdates.publishScoreBoard();
     domUpdates.removeMe();
-    $('#category-one').text(newGame.round1Categories[0]);
-    $('#category-two').text(newGame.round1Categories[1]);
-    $('#category-three').text(newGame.round1Categories[2]);
-    $('#category-four').text(newGame.round1Categories[3]);
+    $('#category-one').text(categoryArr1[0]);
+    $('#category-two').text(categoryArr1[1]);
+    $('#category-three').text(categoryArr1[2]);
+    $('#category-four').text(categoryArr1[3]);
   });
 
 
