@@ -12,7 +12,6 @@ class Round {
     let score;
     domUpdates.clearInputField();
     let correctAnswer = answers.find(answer => (guess.toLowerCase() === answer.answer.toLowerCase())); 
-    //needs to iluminate upon game creation for player 1 and should be removed when player switches
     console.log(correctAnswer);
     if (correctAnswer) {
         console.log('if correct')
