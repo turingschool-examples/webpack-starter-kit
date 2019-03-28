@@ -14,6 +14,7 @@ class Round {
   }
 
   createNewRound(game) {
+    console.log('hello')
     DomUpdates.clearGameBoard();
     DomUpdates.updateGameScore(this.activePlayer.score);
     let allRoundClues = game.gameRoundsClueBank[game.roundNumber][1].puzzle_bank
@@ -108,7 +109,6 @@ class Round {
         this.checkRoundNum(game)
         game.roundNumber ++
         this.wheelInst.selectedValue = 0;
-        this.createNewRound(game);
       } else {
         game.updatePlayerBank();
         DomUpdates.resetWheelValue();
@@ -134,7 +134,6 @@ class Round {
       DomUpdates.clearGameBoard()
       game.roundNumber ++
       this.checkRoundNum(game)
-      this.createNewRound(game)
       
      
     } else {
@@ -144,8 +143,10 @@ class Round {
   }
 
   checkRoundNum(game) { 
-    if (game.roundNumber === 2)  {
+    if (game.roundNumber === 4)  {
       game.createBonusRound()
+    } else {
+      this.createNewRound(game)
     }
   }
 }
