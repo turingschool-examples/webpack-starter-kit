@@ -35,6 +35,9 @@ Open http://localhost:8080/
 * Button to submit a guess of thew puzzle
 * When you have the option to select a letter, if correctly selected, that letter will display in the table
 
+![Screen Shot 2019-03-28 at 9 01 19 AM](https://user-images.githubusercontent.com/34406483/55168262-23abf080-5138-11e9-89bc-a15da00edada.png)
+
+
 ## Contributors 
 * Michael King-Stockton
 * Joe Johnoson
