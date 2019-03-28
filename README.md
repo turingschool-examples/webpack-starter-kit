@@ -7,6 +7,12 @@
 
 This project is an exercie in Object Oriented Programming in (mostly)vanilla JavaScript, and is our first project which incorporated testing.  We were permitted to use jQuery and SASS, and it was the first time using both(for Kelly);
 
+![Entry Page](https://i.imgur.com/QJbjXP2.png)
+![First Guess](https://i.imgur.com/rRU5BLF.png)
+![Second Guess](https://i.imgur.com/GDUih55.png)
+
+
+
 
 ### Learning Goals and Objectives
 

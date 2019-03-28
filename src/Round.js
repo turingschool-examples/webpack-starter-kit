@@ -63,8 +63,6 @@ class Round {
 //clear previous spin on dom
 // pulse wheel on dom
 
-
-
   updatePlayerScore(spinValue) {
     const player = this.players[this.activePlayer];
     spinValue === 0 ? player._roundScore = 0 : player.roundScore += spinValue;
@@ -136,7 +134,6 @@ class Round {
       domUpdates.solvePuzzleMessage(this.players[this.activePlayer]);
       domUpdates.updateRoundText(this.roundCount)
       return true;
-
     }
   }
 
@@ -146,8 +143,6 @@ class Round {
     player._roundScore = 0;
     // domUpdates.displayTotalScore(player, player._roundScore)
   }
-
-  
 
 }
 

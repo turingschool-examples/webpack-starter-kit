@@ -117,6 +117,7 @@ export default {
   yourTurnMessage(player) {
     $('.spin-winner').html(`${player.name}'s turn to spin!`);
   },
+
   
   solvePuzzleMessage(player) {
     alert(`${player.name} solved the puzzle!`)
@@ -129,9 +130,6 @@ export default {
     $('.round-number').text(`Round ${round}`)
   },
 
-  // chooseLetterMessage() {
-    
-    // }
     
   displayCorrectLetter(puzzle, guess) {
       puzzle.forEach((letter) => {
