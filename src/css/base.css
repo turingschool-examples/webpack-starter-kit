@@ -1,6 +1,3 @@
-/* Global Styles */
-
-
 html {
   align-items: center;
   display: flex;
@@ -17,7 +14,6 @@ body{
   font-family: 'Open Sans', sans-serif;
   width: 100%;
   -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
 }
 
 /* Player Input Form */
@@ -92,7 +88,6 @@ input:focus {
   height: 38px;
   margin: 45px 0px 0px 22px;
   top: 39%;
-  transition: all .5s ease;
   width: 106px;
 }
 
@@ -118,7 +113,6 @@ footer {
   display: flex;
   flex-direction: row;
   padding: 1rem 2rem;
-  transition: all 2s ease;
 }
 
 h3 {
@@ -219,6 +213,7 @@ h3 {
   border-radius: 3px;
   font-size: 20px;
   height: 30px;
+  cursor: pointer;
   text-align: center;
   text-transform: uppercase;
   width: 30px;
