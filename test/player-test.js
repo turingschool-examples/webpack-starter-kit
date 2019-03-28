@@ -1,6 +1,10 @@
 import chai from 'chai';
 const expect = chai.expect;
-import Player from '../src/player.js';
+const assert = chai.assert;
+import Player from '../src/player';
+// import GameEngine from './game-engine';
+// import Round from '../src/round';
+import domUpdates from '../src/dom-updates';
 import spies from 'chai-spies';
 chai.use(spies);
 
@@ -37,5 +41,14 @@ describe('Player', ()=>{
     player.bankrupt();
     expect(player.roundCaps).to.equal(0);
     expect(player.totalCaps).to.equal(0);
+  })
+  it('Should be able to buy a vowel if player has enough caps', () => {
+    const player = new Player();
+    player.addRoundCaps(100);
+    expect(player.roundCaps).to.equal(100);
+    let ltrGuess = 'answer'
+    player.buyVowel(ltrGuess);
+    assert.propertyVal({ans: "answer"}, 'ans', 'answer')
+    expect(domUpdates.updateLettersUsed).to.have.been.called;
   })
 })
