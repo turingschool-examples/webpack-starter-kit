@@ -113,7 +113,6 @@ class Round {
     if (guess.toUpperCase() === solution) {
       domUpdates.displaySolvedPuzzle();
       domUpdates.solvePuzzleMessage(this.players[this.activePlayer]);
-      domUpdates.updateRoundText(this.roundCount)
       return true;
     }
   }
