@@ -69,7 +69,6 @@ $('#consonant').click(function () {
   const round = game.currentRound;
   const player = round.currentPlayer;
   let ltrGuess = $('#guess--input').val();
-
   if (vowels.includes(ltrGuess.toUpperCase()) || ltrGuess.length !== 1) {
     alert('Please Choose 1 Consonant');
   } else {

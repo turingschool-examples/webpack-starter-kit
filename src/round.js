@@ -127,7 +127,7 @@ class Round {
       .filter(letter => letter.toUpperCase() !== ltrGuess.toUpperCase());
     if (this.answer.length === 0) {
       DomUpdates.appendWinner(game);
-      this.newRound(game);
+      // this.newRound(game);
     }
     this.getCurrentPlayer(game);
     this.answer = this.answer.filter(char => char !== ' ' ? char : char = '');
