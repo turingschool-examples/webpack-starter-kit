@@ -39,7 +39,7 @@ class Round {
       this.activePlayer = 0;
       break;
     default:
-      // alert('Something went wrong!');
+      alert('Something went wrong!');
       break;
     }
     domUpdates.updateActivePlayer(oldPlayer, newPlayer, this.players[this.activePlayer]);
