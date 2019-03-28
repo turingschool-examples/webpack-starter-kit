@@ -88,7 +88,6 @@ $(".guess-input").on("keyup", function() {
 });
 
 $("#fastround-start-btn").on("click", function() {
-  alert('poop');
   $(".fastround-ready-screen").addClass("hidden");
   domUpdates.enableTabbing();
   if (game.activePlayer === game.player1) {

@@ -117,14 +117,20 @@ export default {
       if ($(".timer-1").is(":hidden")) {
         clearInterval(interval);
       } else if (seconds === 0 && game.currentRound === 3) {
+        $(".answer-data").removeClass("hidden");
         clearInterval(interval);
         $(".timer-area-1").addClass("hidden");
-        $(".fastround-ready-screen").removeClass("hidden");
-        game.triggerNewRound();
+        setTimeout(() => {
+          $(".fastround-ready-screen").removeClass("hidden");
+          game.triggerNewRound();
+        }, 1500);
       } else if (seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
+        $(".answer-data").removeClass("hidden");
         $(".timer-area-1").addClass("hidden");
-        game.endGame();
+        setTimeout(() => {
+          game.endGame();
+        }, 1500);
       }
     }, 1000);
 
@@ -141,13 +147,19 @@ export default {
         clearInterval(interval);
       } else if (seconds === 0 && game.currentRound === 3) {
         clearInterval(interval);
+        $(".answer-data").removeClass("hidden");
         $(".timer-area-2").addClass("hidden");
-        $(".fastround-ready-screen").removeClass("hidden");
-        game.triggerNewRound();
+        setTimeout(() => {
+          $(".fastround-ready-screen").removeClass("hidden");
+          game.triggerNewRound();
+        }, 1500);
       } else if (seconds === 0 && game.currentRound === 4) {
         clearInterval(interval);
+        $(".answer-data").removeClass("hidden");
         $(".timer-area-2").addClass("hidden");
-        game.endGame();
+        setTimeout(() => {
+          game.endGame();
+        }, 1500);
       }
     }, 1000);
   },
@@ -161,5 +173,9 @@ export default {
 
   blurGuessInput() {
     $(".guess-input").trigger("blur");
+  },
+
+  showUnansweredQuestions() {
+    $(".answer-data").removeClass("hidden");
   }
 }
