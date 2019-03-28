@@ -95,7 +95,8 @@ export default {
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
     $('#wheel').addClass('pulse').delay(600);
-    this.yourTurnMessage(newplayer);
+
+    this.yourTurnMessage(player);
   },
   
   spinAgainPrompt() {
@@ -127,6 +128,7 @@ export default {
     console.log(round)
     $('.round-number').text(`Round ${round}`)
   },
+
   // chooseLetterMessage() {
     
     // }
@@ -154,6 +156,7 @@ export default {
   // },
     
   displayScore(player, total) {
+
       $(`#player-${player}-round`).text(`Score: ${total}`);
   },
   
