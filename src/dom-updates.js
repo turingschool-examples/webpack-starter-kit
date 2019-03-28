@@ -61,15 +61,14 @@ export default {
       return !usedLetters.includes(letter);
     })
     usedLetters.map(letter => {
-      lettersRemaining.append(`<p class="used-letter used-${letter}"> ${letter},</p>`)
+      lettersRemaining.append(`<p class="used-letter used-${letter}"> ${letter},</p>`);
     });
-    // lettersRemaining.text(game.currentRound.allRoundGuesses);
   },
   updateRoundNumber(game) {
-    game.currentRound.roundNumber === 5 ? $('#rnd-num').text("Bonus") : $('#rnd-num').text(game.currentRound.roundNumber)
+    game.currentRound.roundNumber === 5 ? $('#rnd-num').text("Bonus") 
+      : $('#rnd-num').text(game.currentRound.roundNumber);
   },
   updateRoundHintCategory(game) {
-    // console.log(game.currentRound.roundPuzzle);
     //category
     $('.hint__title').text(`Category: ${game.currentRound.roundPuzzle.cat}`);
     //hint
@@ -89,14 +88,14 @@ export default {
         valueBoard.append(`<p class="ans-letter fade-in letter-${letter.toUpperCase()}">_</p>`);
       } else {
         valueBoard.append(`<p class="ans-letter fade-in nonLetter">${letter}</p>`);
-        $('.nonLetter').css('background-color', 'gray')
+        $('.nonLetter').css('background-color', 'gray');
       }
     })
   },
   createPuzzleClassArr(letter) {
     $(`.letter-${letter.toUpperCase()}`).text(letter.toUpperCase());
     $(`.letter-${letter.toUpperCase()}`).removeClass('fade-in')
-    $(`.letter-${letter.toUpperCase()}`).addClass('fade-in-letter')
+    $(`.letter-${letter.toUpperCase()}`).addClass('fade-in-letter');
   },
   appendWinner(game) {
     let winner = game.currentRound.currentPlayer.name;
@@ -104,7 +103,9 @@ export default {
     let answer = game.currentRound.wholeWord.join('');
 
     let body = $('body');
-    body.append(`<section class="winner-card fade-in"> The Winner is: ${winner} <br> The Puzzle was: ${answer} <br> ${winner} has won ${winningCaps} caps!<section>`)
+    body.append(`<section class="winner-card fade-in"> The Winner is: ${winner} 
+      <br> The Puzzle was: ${answer} 
+      <br> ${winner} has won ${winningCaps} caps!<section>`);
     $('.winner-card').delay(6000).queue(function() {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
@@ -112,6 +113,7 @@ export default {
   },
   appendWheelValue(slice) {
     let animationContainer = $('.animation--container');
+
     if (Number.isInteger(slice)) {
       animationContainer.append(`<h2 class="prompt-img fade-in">${slice}</h2>`)
       $('.prompt-img').delay(1000).queue(function () {
@@ -122,7 +124,7 @@ export default {
   },
   appendCorrect() {
     let animationContainer = $('.animation--container');
-    animationContainer.append(`<image class="prompt-img fade-in" src="./images/smartypants.png">`)
+    animationContainer.append(`<image class="prompt-img fade-in" src="./images/smartypants.png">`);
     $('.prompt-img').delay(1000).queue(function () {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
@@ -130,7 +132,7 @@ export default {
   },
   appendIncorrect() {
     let animationContainer = $('.animation--container');
-    animationContainer.append(`<image class="prompt-img fade-in" src="./images/incorrect.png">`)
+    animationContainer.append(`<image class="prompt-img fade-in" src="./images/incorrect.png">`);
     $('.prompt-img').delay(1000).queue(function() {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
@@ -138,7 +140,7 @@ export default {
   },
   appendBankrupt() {
     let animationContainer = $('.animation--container');
-    animationContainer.append(`<image class="prompt-img fade-in" src="./images/bankrupt.png">`)
+    animationContainer.append(`<image class="prompt-img fade-in" src="./images/bankrupt.png">`);
     $('.prompt-img').delay(1000).queue(function() {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
@@ -146,15 +148,18 @@ export default {
   },
   appendLoseTurn() {
     let animationContainer = $('.animation--container');
-    animationContainer.append(`<image class="prompt-img fade-in" src="./images/loseTurn.png">`)
+    animationContainer.append(`<image class="prompt-img fade-in" src="./images/loseTurn.png">`);
     $('.prompt-img').delay(1000).queue(function() {
       $(this).removeClass('fade-in');
       $(this).addClass('fade-out__animation');
     });
   },
   displayPrize(prize) {
-    $('.animation--container').prepend(`<h4 class="prize--label">Guess Correct You'll Win:</h4>`)
-    $('.animation--container').prepend(`<p class="prize-title">${prize}</p>`)
-    $('.animation--container').append(`<img class="prize-img" src="./images/${prize}.png" />`)
+    $('.animation--container')
+      .prepend(`<h4 class="prize--label">Guess Correct You'll Win:</h4>`);
+    $('.animation--container')
+      .prepend(`<p class="prize-title">${prize}</p>`);
+    $('.animation--container')
+      .append(`<img class="prize-img" src="./images/${prize}.png" />`);
   }
 }

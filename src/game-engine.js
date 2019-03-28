@@ -23,7 +23,6 @@ class GameEngine {
   }
   bonusRound (rndNum) {
     this.bonus = new BonusRound(rndNum);
-    console.log(this.bonus)
   }
 }
 

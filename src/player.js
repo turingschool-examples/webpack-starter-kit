@@ -17,19 +17,57 @@ class Player {
     this.roundCaps = 0;
     this.totalCaps = 0;
   }
+//* Spin Wheel
+  spinWheel(game, random) {
+    // let random = Math.floor((Math.random() * 7) + 0);
+    DomUpdates.toggleButtons();
+    const slice = game.currentRound.currWheel.wheelSlices[random];
+    DomUpdates.appendWheelValue(slice);
+    typeof slice === "number" ? this.spinNum(game, slice) 
+      : this.spinNotNum(game, slice);
+  }
+  spinNum(game, slice) {
+    game.currentRound.currentPlayer.roundCaps += slice;
+    DomUpdates.updatePlayerScore(game);
+  }
+  spinNotNum(game, slice) {
+    if (slice === 'BANKRUPT') {
+      game.currentRound.currentPlayer.roundCaps = 0;
+      game.currentRound.currentPlayer.totalCaps = 0;
+      DomUpdates.appendBankrupt(game);
+      DomUpdates.updatePlayerScore(game);
+    } else {
+      DomUpdates.appendLoseTurn(game);
+    }
+    game.currentRound.getCurrentPlayer(game);
+    DomUpdates.toggleButtons(game);
+  }
+//* Buy Vowel
   buyVowel(game, round, player, ltrGuess, vowels) {
     if (player.roundCaps < 100) {
       alert('Insufficient Funds!');
     } else {
       player.roundCaps -= 100;
       player.ans = ltrGuess.toUpperCase();
-      round.answer = round.answer.filter(item => item !== `'` && item !== `-` && item !== `&`)
+      round.answer = round.answer
+        .filter(item => item !== `'` && item !== `-` && item !== `&`)
       round.conditionalChecking(game, ltrGuess, vowels);
       DomUpdates.updateLettersUsed(game);
     }
   }
-  guessLtr() {
-    
+//* Guess Word
+  guessWord(game, guess, alphabet) {
+    guess = guess.map(letter => letter.toUpperCase());
+    guess = guess.filter(letter => alphabet.includes(letter));
+    DomUpdates.updatePlayerScore(game);
+    game.currentRound.wholeWord = game.currentRound.wholeWord
+      .filter(letter => alphabet.includes(letter))
+    if (game.currentRound.wholeWord.join('') == guess.join('')) {
+      DomUpdates.appendWinner(game);
+      game.currentRound.newRound(game);
+    } else {
+      game.currentRound.getCurrentPlayer(game);
+    }
   }
 }
 
