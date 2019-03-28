@@ -27,7 +27,7 @@ body {
 }
 
 .playerNames{
-  display: inline-block;
+  display: block;
   font-size: 1rem;
   margin: 2% 0;
 }
@@ -86,7 +86,7 @@ body {
 
 .gameBoard {
   display: block;
-  margin: 0px 25%;
+  margin: 0 25%;
   width: 50%;
 }
 
@@ -100,7 +100,7 @@ body {
   border: 9px solid goldenrod;
   font-size: 1.5em;
   font-weight: 800;
-  height: 120px;
+  height: 140px;
   margin-top: 6%;
   padding: 35px;
   text-align: center;
@@ -185,12 +185,20 @@ body {
   visibility: hidden;
 }
 
+#subRstBtn {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  width: 100%;
+}
+
 #resetBtn,
 #submitBtn {
-  border: 5px solid;
+  background-color: #0a4696;
+  border: 0 solid;
+  color: white;
   font-size: 1rem;    
   margin-top: 3%;
-  margin: 0 3%;
+  margin: 2% 30%;
   width: 40%;
 }
 
@@ -208,13 +216,6 @@ body {
 #submitBtn:hover {
   background-color: #276C0E;
   color: #FFF;
-}
-
-#resetBtn,
-#submitBtn {
-  background-color: #0a4696;
-  border: 0px;
-  color: white;
 }
 
 .counterOne,

@@ -18,7 +18,7 @@ class LightningRound {
     console.log(correctAnswer);
     if (correctAnswer) {
       let score = correctAnswer.respondents;
-      let mult = score * this.multiplier
+      let mult = score * this.multiplier;
       currentPlayer.addScore(mult);
       this.answerCount++
       domUpdates.appendAnswer(answers, correctAnswer.answer, correctAnswer.respondents);
@@ -44,8 +44,6 @@ class LightningRound {
       game.createRound();
       this.answerCount = 0;
     };
-
-//multiplier = score * 2
 }
 
 
