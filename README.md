@@ -9,7 +9,9 @@
 Run **npm install** in your terminal
 
 # Desktop View
+![JeopardyHomePage](https://user-images.githubusercontent.com/42000931/55164413-3838ba80-5131-11e9-91bb-e305a41eaa96.png)
 
+![gameinaction](https://user-images.githubusercontent.com/42000931/55164504-61594b00-5131-11e9-9543-39b512911126.png)
 
 # Learning Goals
 
