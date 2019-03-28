@@ -2,18 +2,17 @@
 
 
 html {
-  height: 100%;
-  display: flex;
-  overflow: hidden;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
 }
 
 body{
   background: url(../images/WOF-star-background.jpg);
+  background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center top;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   width: 100%;
@@ -23,21 +22,21 @@ body{
 
 /* Player Input Form */
 .input-form {
+  align-content: center;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  align-content: center;
 }
 
 form {
-  margin: 15rem 0rem;
-  padding: 4.5em 3em;
+  background: rgba(35, 31, 32, .95);
   border-radius: 5px;
-  max-width: 1200px;
+  box-shadow: 3px 4px 14px 5px #000;
   display: flex;
   flex-direction: row;
-  background: rgba(35, 31, 32, .95);
-  box-shadow: 3px 4px 14px 5px #000;
+  margin: 15rem 0rem;
+  max-width: 1200px;
+  padding: 4.5em 3em;
 }
 
 fieldset {
@@ -58,14 +57,14 @@ fieldset .fa-user {
 }
 
 fieldset .player-names{
-  border: none;
-  width: 202px;
-  height: 36px;
-  font-size: 22px;
-  margin-top: 14px;
-  border-radius: 8px;
   background: none;
+  border: none;
+  border-radius: 8px;
   color:#86f50de3;
+  font-size: 22px;
+  height: 36px;
+  margin-top: 14px;
+  width: 202px;
 }
 
 .player-names:hover {
@@ -76,99 +75,93 @@ fieldset .player-names{
 
 input:focus {
   background: none;
-  outline: none;
   color: #fff;
+  outline: none;
 }
 
 .disabled {
-  pointer-events: none;
   opacity: 0;
+  pointer-events: none;
 }
 
 .start-btn {
+  background-color: #86f50de3;
   border: none;
   border-radius: 8px;
   font-size: 18px;
-  width: 106px;
   height: 38px;
   margin: 45px 0px 0px 22px;
   top: 39%;
   transition: all .5s ease;
-  background-color: #86f50de3;
+  width: 106px;
 }
 
 .start-btn:hover {
   background-color: #6770f8;
 }
-/* End of Input Form */
 
 footer {
-  display: flex;
   align-items: flex-end;
+  bottom: -35rem;
+  display: flex;
   justify-content: space-around;
   position: relative;
-  bottom: -35rem;
   transition: all 1s ease;
-  /*overflow: hidden;*/
   z-index: 99999;
 }
 
-/* Player Score Board */
 .playerScoreBoardBox{
+  align-items: center;
+  background: rgba(81, 91, 234, 0.66);
+  border-radius: 10px;
+  box-shadow: 0px 3px 0px 1px #86f50de3;
+  display: flex;
+  flex-direction: row;
   padding: 1rem 2rem;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background: rgba(81, 91, 234, 0.66);
-    box-shadow: 0px 3px 0px 1px #86f50de3;
-    transition: all 2s ease;
+  transition: all 2s ease;
 }
 
 h3 {
-  /*margin-right: 75px;*/
   background: rgb(35, 31, 32);
+  border-radius: 8px;
   color: #ffffff;
-  text-align: center;
-  width: 9rem;
   height: 2rem;
   padding-top: 6px;
-  border-radius: 8px
+  text-align: center;
+  width: 9rem;
 }
 
 .eachPlayer {
   padding: 0rem 2rem;
 }
-/* End Player Score Board */
 
 .game-area {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: space-between;
-  align-items: center;
 }
 
 .player-score-area {
   display: flex;
   justify-content: space-between;
+  max-width: 955px;
   padding: 8px 0px;
   width: 70%;
-  max-width: 955px;
 }
 .player-score {
-  border: 1px solid black;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: #ffffff;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
   padding: 0 10px;
+  width: 30%;
 }
 
 .scoreboard {
-  width: 100%;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .player-score-area h2 {
@@ -180,30 +173,30 @@ h3 {
 }
 
 .puzzle-area {
-  width: 90%;
   padding: 10px;
+  width: 90%;
 }
 
 .puzzle {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-around;
 }
 
 .puzzle-row td {
   border: 3px solid black;
   border-radius: 5px;
-  width: 70px;
   height: 70px;
+  width: 70px;
 }
 
 .puzzle-text {
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
   font-size: 30px;
   font-weight: 700;
+  justify-content: center;
   margin: 0;
   text-transform: uppercase;
 }
@@ -215,32 +208,28 @@ h3 {
 .letters-selected-area {
   display: flex;
   justify-content: space-between;
+  max-width: 955px;
   padding: 10px 0;
   width: 70%;
-  max-width: 955px;
-
 }
 
 .letters-selected td {
+  background-color: #ffffff;
   border: 2px solid black;
   border-radius: 3px;
-  text-align: center;
   font-size: 20px;
-  width: 30px;
   height: 30px;
+  text-align: center;
   text-transform: uppercase;
-  width: 40px;
-  height: 40px;
-  background-color: #ffffff;
-
+  width: 30px;
 }
 
 .player-actions {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
-  width: 70%;
   max-width: 955px;
+  width: 70%;
 }
 
 .player-action-btn:hover {
@@ -254,8 +243,8 @@ h3 {
 
 .letters-not-displayed {
   background-color: white;
-  color: white;
   box-shadow: 0 0 8px black;
+  color: white;
   margin: -2px;
 }
 
@@ -290,103 +279,97 @@ h3 {
   pointer-events: none;
 }
 .bankrupt {
-  position: fixed;
-  padding-left: 3rem;
-  bottom: 47%;
-  height: 121px;
-  width: 350px;
   background-color: #00020ec9;
-  z-index: 1;
+  bottom: 47%;
   color: yellow;
   font-size: 50px;
+  height: 121px;
+  padding-left: 3rem;
+  position: fixed;
+  width: 350px;
+  z-index: 1;
 }
 .lose-turn {
-  position: fixed;
-  padding-left: 3rem;
-  bottom: 47%;
-  height: 121px;
-  width: 350px;
   background-color: #00020ec9;
-  z-index: 1;
+  bottom: 47%;
   color: yellow;
   font-size: 50px;
+  height: 121px;
+  padding-left: 3rem;
+  position: fixed;
+  width: 350px;
+  z-index: 1;
 }
 
 
 .round-winner {
-  position: fixed;
-  padding-left: 3rem;
-  bottom: 47%;
-  height: 121px;
-  width: 350px;
   background-color: #00020ec9;
-  z-index: 1;
+  bottom: 47%;
   color: yellow;
   font-size: 50px;
+  height: 121px;
+  padding-left: 3rem;
+  position: fixed;
+  width: 350px;
+  z-index: 1;
 }
 
 .spin-again {
-  position: fixed;
-  padding-left: 3rem;
-  bottom: 47%;
-  height: 121px;
-  width: 350px;
   background-color: #00020ec9;
-  z-index: 1;
+  bottom: 47%;
   color: yellow;
   font-size: 50px;
+  height: 121px;
+  padding-left: 3rem;
+  position: fixed;
+  width: 350px;
+  z-index: 1;
 }
 
 .next-player {
-  position: fixed;
-  padding-left: 3rem;
-  bottom: 47%;
-  height: 121px;
-  width: 350px;
   background-color: #00020ec9;
-  z-index: 1;
+  bottom: 47%;
   color: yellow;
   font-size: 50px;
+  height: 121px;
+  padding-left: 3rem;
+  position: fixed;
+  width: 350px;
+  z-index: 1;
 }
 
 
 .guess-submission {
-  width: 9rem;
-  height: 2rem;
-  font-size: 1rem;
   padding-left: 9px;
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
+  font-size: 1rem;
+  height: 2rem;
+  width: 9rem;
 }
-/* .quit-btn-container button{
-  background-color: black;
-  color: white;
-  border-radius: 5px;
-  border: 1px solid green;
-} */
 
 .quit-btn-container {
-  position: relative;
   left: 44%;
+  position: relative;
 }
 
 .game-info {
-  display: grid;
   align-items: center;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto;
+  display: grid;
   grid-template-areas: 
   "hint hint"
   "activePlayer round";
-  width: 70%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
   max-width: 955px;
+  width: 70%;
 }
 
 .game-info-containers {
   background-color: black;
-  margin: 5px;
-  border-radius: 10px;
   background-color: #131313cc;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .game-info-containers p {
@@ -409,12 +392,11 @@ h3 {
 
 
 .game-buttons {
+  background-image: radial-gradient(circle, #c0e4d2, #8bcdac, #68bd93);
   border: none;
   border-radius: 8px;
   font-size: 18px;
-  width: 200px;
   height: 38px;
-  /*margin: 45px 0px 0px 22px;*/
   top: 39%;
-  background-image: radial-gradient(circle, #c0e4d2, #8bcdac, #68bd93);
+  width: 200px;
 }
