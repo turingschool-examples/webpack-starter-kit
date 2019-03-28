@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-		<title>Gametime Starter Kit</title>
-		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+		<title>Family Feud</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P" rel="stylesheet">
   </head>
   <body>
   	<header>
- 			<section class="user-inputs">
-				<form>
-					<div class="user-input">
-						<div>
+  		<h1 id="primary-heading">FAMILY FEUD</h1>
+  	</header>
+  	<section class="user-inputs-section">
+				<form class="user-inputs">
+					<div class="user-input-group">
+						<div class="user-input">
 							<label for="player-1-name">Player One</label>
 							<input type="input" class="name-input" id="player1-name-input" name="player1-name" placeholder="Enter your name">
 						</div>
-						<div>
+						<div class="user-input">
 							<label for="player-2-name">Player Two</label>
 							<input type="input" class="name-input" id="player2-name-input" name="player2-name" placeholder="Enter your name">
 						</div>
 					</div>
+					<label for="submit-user-names">
 						<button type="button" class="btn submit-btn" id="submit-names" name="submit-user-names">Submit</button>
+					</label>
 				</form>
-			</section>
-  	</header>
+  	</section>
 
   	<main class="main-content">
 			<section class="round3 hidden">

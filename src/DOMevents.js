@@ -22,7 +22,7 @@ $("#submit-names").on("click", () => {
     $(".player-2-name").html(player2.name);
     $(".current-turn").html(`${player1.name}'s turn!`);
     $(".main-content").slideDown();
-    $(".user-inputs").hide();
+    $(".user-inputs-section").hide();
   }
 });
 

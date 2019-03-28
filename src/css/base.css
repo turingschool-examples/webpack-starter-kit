@@ -1,167 +1,133 @@
-*:before, *:after, * {
+*:before,
+*:after,
+* {
 	box-sizing: border-box;
 }
 
 html {
-	background-color: black;
+	/*	font-family: "VT323", monospace;
+	font-size: 20px;*/
 }
-body { 
-	align-items: center;
-	background-image: url('https://cdna.artstation.com/p/assets/images/images/009/210/272/medium/chris-stretten-wip-family-feud-stage5.jpg?1517716573');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100%;
-	border: 1px solid blue;
+/*font-family: 'VT323', monospace;
+font-family: 'Monoton', cursive;*/
+body {
+	/*	font-family: 'Monoton', cursive;*/
 	display: flex;
-	flex-direction: column;
-	height: 100vh;
 	justify-content: center;
-	margin: 0;
+	align-items: center;
+	flex-direction: column;
 	padding: 0;
+	margin: 0;
+	border: 1px solid red;
+	height: 100vh;
+	background-color: #dbd6ce;
 }
 
 main {
-	background-color: rgb(39, 118, 221);
-	border: 3px solid rgb(208, 211, 40);
-	border-radius: 25px;
-	margin: 0 auto;
-	text-align: center;
-	width: 40%;
-}
-
-h2 {
-	font-family: 'Righteous', cursive;
+	/*	border: 1px solid red;*/
 }
 
 footer {
-	width: 28%;
-	text-align: center;
-	font-family: 'Righteous', cursive;
+	/*	border: 1px solid red;*/
+}
+
+html,
+button,
+input {
+	font-family: "Press Start 2P", cursive;
+	font-size: 10px;
 }
 
 .hidden {
 	display: none;
 }
 
-/*=====user-inputs=====*/
-header { 
-	background-color: rgb(39, 118, 221);
-	width: 40%;
+#primary-heading {
+	font-family: "Monoton", cursive;
+	font-size: 65px;
+	margin: 0;
 }
 
-.name-input {
-	height: 22px;
-	font-size: 1rem;
+/*=====user-inputs=====*/
+
+.user-inputs-section {
+	display: flex;
+	border: 1px solid #918c88;
+	background-color: #ede9e1;
+	box-shadow: -4px 3px 0px 2px #474441;
+	width: 520px;
+	height: 200px;
+	justify-content: center;
+	border-radius: 12px;
+}
+
+.user-inputs {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+}
+
+.user-input-group {
+	/*	border: 1px solid red;*/
+	display: flex;
+	padding: 15px;
+	width: 520px;
+	justify-content: space-around;
+}
+
+.user-input {
+	text-align: center;
+	border: 1px solid #918c88;
+	width: 230px;
+	box-shadow: -2px 1px 0px 2px #474441;
+	padding: 0.8rem 0 0.4rem 0;
+}
+
+.user-input label {
+	/*	color: red;*/
+}
+
+.user-input input {
+	/*	font-family: "VT323", monospace;
+	font-size: 20px;*/
+	padding: 5px 0 5px 5px;
+	margin: 0.8rem;
 }
 
 .submit-btn {
-	margin: 1rem auto;
-  height: 25px;
-  width: 160px;
+	transition: box-shadow 0.5s ease, transform 0.5s ease;
+	border: none;
+	padding: 10px;
+	font-size: 20px;
 }
 
+.submit-btn:active {
+	background-color: #918c88;
+	outline: none;
+}
+
+.submit-btn:enabled {
+	border: 1px solid #918c88;
+	transform: translate(5px);
+	box-shadow: -2px 1px 0px 2px #474441;
+}
+
+/* DONT FORGET TO UNCOMMENT ME*/
 .main-content {
 	display: none;
 }
 
-.user-inputs {
-	border: 1px solid blue;
-}
-
-.user-inputs form {
-	display: flex;
-	flex-direction: column;
-}
- 
-.user-input {
-	/* border: 2px solid blue; */
-	display: flex;
-	justify-content: space-around;
-	padding: 1rem;
-}
 
 
 
 
-/*=====main-section====*/
-.current-player-score {
-	font-size: 50px;
-	margin: 0 auto;
-	width: 100px;
-}
-
-.answer-section {
-	align-items: center;
-	background-color: white;
-	border: 3px solid #000;
-	display: flex;
-	justify-content: space-between;
-	margin: 1rem auto;
-	width: 80%;
-}
-
-.answer-section h1 {
-	margin: 0;
-}
-
-.pts-section {
-	border-left: 2px solid rgb(39, 118, 221);
-	height: 100%;
-	width: 50px;
-}
 
 
-.player-cards {
-	display: flex;
-	justify-content: space-around;
-}
 
-/*=====whose-turn====*/
-.whose-turn {
-	border-top: 2px solid rgb(208, 211, 40);
-	display: flex;
-	justify-content: center;
-	padding-top: 25px;
-}
 
-.whose-turn form {
-	display: flex;
-	flex-direction: column;
-}
 
-.current-turn {
-	font-size: 25px;
-	margin: 7px;
-}
 
-.player-guess {
-	font-size: 1rem;
-  height: 30px;
-	text-align: center;
-	width: 200px;
-}
-
-.submit-answer {
-	margin: 1rem auto;
-  height: 30px;
-  width: 100%;
-}
-
-.score {
-	font-size: 20px;
-}
-
-/*=====restart-game====*/
-.restart-game {
-	display: none;
-}
-
-.post-game {
-	background-color: rgb(39, 118, 221);
-	border: 3px solid rgb(208, 211, 40);
-	border-radius: 25px;
-	height: 275px;
-}
 
 
 
