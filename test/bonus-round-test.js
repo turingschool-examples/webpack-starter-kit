@@ -3,8 +3,6 @@ const expect = chai.expect;
 import BonusRound from '../src/bonus-round';
 import Round from '../src/round';
 import GameEngine from '../src/game-engine';
-// import Puzzle from '../src/puzzle.js'
-
 import spies from 'chai-spies';
 chai.use(spies);
 

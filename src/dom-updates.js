@@ -32,7 +32,7 @@ export default {
   clearInput() {
     $('#guess--input').val('');
   },
-  toggleButtons(game) {
+  toggleButtons() {
     //Toggle: Consonant & Label
     if ($('#consonant').attr('value') === 'Spin Wheel' ) {
       $('#consonant').removeAttr('disabled').css('background-color', '#65AB55').attr('value', 'Guess Consonant')
