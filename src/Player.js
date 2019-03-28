@@ -1,4 +1,3 @@
-import Game from './Game'
 
 class Player {
   constructor(name, score) {

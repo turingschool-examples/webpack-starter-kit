@@ -291,13 +291,15 @@ export default {
     $('main').append(
       `<section id="player-actions" class="player-actions">
       <div>
-          <button class="player-action-btn spinner game-buttons">Wheel: <span class="wheel-value">Spin me!</span></button>
+          <button class="player-action-btn spinner game-buttons">
+            Wheel: <span class="wheel-value">Spin me!</span>
+          </button>
       </div>
       <div>
           <button class="player-action-btn game-buttons vowel">Buy Vowel</button>
       </div>
       <div>
-          <input for="player-guess" type="text" id="guess-submission" class="guess-submission" placeholder="Submit a guess!">
+          <input for="player-guess" type="text" class="guess-submission" placeholder="Guess!">
           <button id="player-guess" class="player-action-btn game-buttons">Submit Guess</button>
       </div>
         </section>
@@ -356,24 +358,33 @@ export default {
       }
       if (letter === " ") {
         $(cell).append(`<p class="puzzle-text">${letter}</p>`);
-        $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('spaces-not-displayed');
+        $(cell).parent().
+          has('p').removeClass('puzzle-cell-container').
+          addClass('spaces-not-displayed');
       } else if (letter === "-" || letter === "'") {
         $(cell).append(`<p class="puzzle-text">${letter}</p>`);
-        $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-displayed');
+        $(cell).parent().
+          has('p').removeClass('puzzle-cell-container').
+          addClass('letters-displayed');
       } else if (letter !== undefined && letter !== " ") {
         $(cell).append(`<p class="puzzle-text">${letter}</p>`);
-        $(cell).parent().has('p').removeClass('puzzle-cell-container').addClass('letters-not-displayed');
+        $(cell).parent().
+          has('p').removeClass('puzzle-cell-container').
+          addClass('letters-not-displayed');
       }
     })
     return (cellMap);
   },
 
   disableLetter(event) {
-    $(event.target).removeClass('single-letter-vowel').removeClass('single-letter').addClass('disable-selected-letters')
+    $(event.target).removeClass('single-letter-vowel').
+      removeClass('single-letter').
+      addClass('disable-selected-letters')
   },
 
   deactivateLetters() {
-    $('.single-letter, .single-letter-vowel').addClass('disable-selected-letters')
+    $('.single-letter, .single-letter-vowel').
+      addClass('disable-selected-letters')
   },
 
   displayHint(clue) {
@@ -406,7 +417,6 @@ export default {
   updateGameScore(activePlayerValue) {
     $('.score-total').text(activePlayerValue);
   },
-
 
   gameMessage(message) {
     $('footer').prepend(`

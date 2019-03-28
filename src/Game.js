@@ -38,15 +38,11 @@ class Game {
 
   updatePlayerBank() {
     this.players[this.roundInst.activePlayer].playerBank += this.roundInst.wheelInst.selectedValue
-    // let playerPot = this.players[this.roundInst.activePlayer].playerBank
-    // let playerTurn = this.roundInst.activePlayer
     DomUpdates.updateRoundScore(this.players)
   }
 
   bankruptPlayerBank() {
     this.players[this.roundInst.activePlayer].playerBank = 0;
-    // let playerPot = this.players[this.roundInst.activePlayer].playerBank
-    let playerTurn = this.roundInst.activePlayer
     DomUpdates.updateRoundScore(this.players)
   }
 
@@ -57,17 +53,12 @@ class Game {
     })
     this.updatePlayerBank();
   }
-// find winner
-// make them player in bonus round
+
   createBonusRound() {
     let winner = this.players.sort((playerA, playerB)=>{
-      console.log(this.players)
       return playerA.score - playerB.score
     }).pop();
-    
-    console.log(winner)
     this.bonus = new BonusRound();
-    console.log(this.bonus.test)
   }
 }
 export default Game

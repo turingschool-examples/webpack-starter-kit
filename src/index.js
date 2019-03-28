@@ -4,12 +4,7 @@
 // An example of how you import jQuery into a JS file if you use jQuery in the file
 import $ from 'jquery';
 import Game from './Game'
-// import Data from './Data'
-// import Round from './Round'
-// import Wheel from './Wheel'
 import DomUpdates from './DomUpdates';
-// import BonusRounf from './BonusRound.js'
-
 
 // An example of how you tell webpack to apply a CSS file
 import './css/base.css';
@@ -17,11 +12,7 @@ import './css/base.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/WOF-star-background.jpg'
 
-
-
 let game = new Game()
-
-
 //********Event Listeners ********/
 $('.begin').on('click', () => {
   event.preventDefault()
