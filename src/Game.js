@@ -2,6 +2,7 @@ import DomUpdates from './DomUpdates'
 import Round from './Round';
 import Data from './Data'
 import Player from './Player'
+import BonusRound from './BonusRound'
 
 class Game {
   constructor() {
@@ -10,6 +11,7 @@ class Game {
     this.gameRoundsClueBank = null
     this.roundCards = []
     this.roundInst = new Round(0)
+    this.bonus = null
   }
 
   startGame(p1, p2, p3) {
@@ -36,16 +38,16 @@ class Game {
 
   updatePlayerBank() {
     this.players[this.roundInst.activePlayer].playerBank += this.roundInst.wheelInst.selectedValue
-    let playerPot = this.players[this.roundInst.activePlayer].playerBank
-    let playerTurn = this.roundInst.activePlayer
-    DomUpdates.updateRoundScore(playerPot, playerTurn)
+    // let playerPot = this.players[this.roundInst.activePlayer].playerBank
+    // let playerTurn = this.roundInst.activePlayer
+    DomUpdates.updateRoundScore(this.players)
   }
 
   bankruptPlayerBank() {
     this.players[this.roundInst.activePlayer].playerBank = 0;
-    let playerPot = this.players[this.roundInst.activePlayer].playerBank
+    // let playerPot = this.players[this.roundInst.activePlayer].playerBank
     let playerTurn = this.roundInst.activePlayer
-    DomUpdates.updateRoundScore(playerPot, playerTurn)
+    DomUpdates.updateRoundScore(this.players)
   }
 
   updatePlayerScore() {
@@ -53,18 +55,19 @@ class Game {
     this.players.forEach(player => {
       player.playerBank = 0
     })
-    console.log(this.players);
+    this.updatePlayerBank();
   }
-
+// find winner
+// make them player in bonus round
   createBonusRound() {
     let winner = this.players.sort((playerA, playerB)=>{
       console.log(this.players)
       return playerA.score - playerB.score
-    })
+    }).pop();
     
-    console.log(winner.pop())
-
-    let bonus = new BonusRound()
+    console.log(winner)
+    this.bonus = new BonusRound();
+    console.log(this.bonus.test)
   }
 }
 export default Game

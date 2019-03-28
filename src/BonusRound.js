@@ -1,10 +1,10 @@
-// import Round from './Round'
+import Round from './Round'
 
-// class BonusRound extends Round {
-//   constructor(roundNumber) {
-//     super(roundNumber)
-//     this.test = console.log('test')
-//   }
-// }
+class BonusRound extends Round {
+  constructor() {
+    super();
+    this.test = console.log('test');
+  }
+}
 
-// export default BonusRound
+export default BonusRound

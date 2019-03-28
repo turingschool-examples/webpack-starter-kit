@@ -310,7 +310,7 @@ export default {
             </div>
             <div class="scoreboard">
                 <h2>Total<h2>
-                <h3 class="score-total">${player[0].score}</h3>
+                <h3 class="score-total player-1">${player[0].score}</h3>
             </div>
         </div>
         <div id="player-score" class="player-score">
@@ -321,7 +321,7 @@ export default {
             </div>
             <div class="scoreboard">
                 <h2>Total<h2>
-                <h3 class="score-total">${player[1].score}</h3>
+                <h3 class="score-total player-2">${player[1].score}</h3>
             </div>
         </div>
         <div id="player-score" class="player-score">
@@ -332,7 +332,7 @@ export default {
             </div>
             <div class="scoreboard">
                 <h2>Total<h2>
-                <h3 class="score-total">${player[2].score}</h3>
+                <h3 class="score-total player-3">${player[2].score}</h3>
             </div>
         </div>
     </section>
@@ -389,15 +389,28 @@ export default {
     $('.wheel-value').text('Spin Me!');
   },
 
-  updateRoundScore(playerBankValue, activePlayerValue) {
-    let playerScoreElement = $('.bank-score')
-    if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
-      $('.bank-score.player-1').text(playerBankValue)
-    } else if (activePlayerValue === 1 && playerScoreElement.hasClass('player-2') === true) {
-      $('.bank-score.player-2').text(playerBankValue)
-    } else if (activePlayerValue === 2 && playerScoreElement.hasClass('player-3') === true) {
-      $('.bank-score.player-3').text(playerBankValue)
-    }
+  // updateRoundScore(playerBankValue, activePlayerValue) {
+  //   let playerScoreElement = $('.bank-score')
+  //   if (activePlayerValue === 0 && playerScoreElement.hasClass('player-1') === true) {
+  //     $('.bank-score.player-1').text(playerBankValue)
+  //   } else if (activePlayerValue === 1 && playerScoreElement.hasClass('player-2') === true) {
+  //     $('.bank-score.player-2').text(playerBankValue)
+  //   } else if (activePlayerValue === 2 && playerScoreElement.hasClass('player-3') === true) {
+  //     $('.bank-score.player-3').text(playerBankValue)
+  //   }
+  // },
+
+  updateRoundScore(players) {
+        console.log(players)
+      $('.bank-score.player-1').text(players[0].playerBank)
+      $('.score-total.player-1').text(players[0].score)
+
+      $('.bank-score.player-2').text(players[1].playerBank)
+      $('.score-total.player-2').text(players[1].score)
+
+      $('.bank-score.player-3').text(players[2].playerBank)
+      $('.score-total.player-3').text(players[2].score)
+
   },
 
   updateGameScore(activePlayerValue) {
@@ -430,6 +443,7 @@ export default {
   },
 
   displayRound(roundNumber) {
+    roundNumber++
     $('.round-text').text(roundNumber);
   }
 }
