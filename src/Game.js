@@ -27,6 +27,7 @@ class Game {
       this.beginRound();
     } else if (this.currentRound === 3) {
       $(".round3").removeClass("hidden");
+      $("#submit-guess").prop("disabled", true);
       this.beginRound();
     } else if (this.currentRound >= 4) {
       this.beginRound();
