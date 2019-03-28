@@ -241,22 +241,24 @@ button.start__start--btn {
 }
 .hint--container {
   bottom: 120px;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: absolute;
   text-shadow: 1.5px 2px black;
   width: 1000px;
 }
 .hint__title {
   color: #90D155;
-  text-align: end;
-  width:350px;
+  display: flex;
 }
 
 .hint__value {
   color: #90D155;
+  display: flex;
   max-width: 500px;
-  padding-left: 20px;
+  margin: 0;
 }
 .round-info--container {
   bottom: -20px;

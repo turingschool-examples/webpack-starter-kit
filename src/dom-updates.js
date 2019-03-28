@@ -34,9 +34,13 @@ export default {
   },
   toggleButtons(game) {
     //Toggle: Consonant & Label
-    $('#consonant').attr('value') == 'Spin Wheel' 
-      ? $('#consonant').removeAttr('disabled').css('background-color', '#65AB55').attr('value', 'Guess Consonant')
-      : $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', 'Spin Wheel');
+    if ($('#consonant').attr('value') === 'Spin Wheel' ) {
+      $('#consonant').removeAttr('disabled').css('background-color', '#65AB55').attr('value', 'Guess Consonant')
+      $('#guess--input').css('border', '3px inset yellow');
+    } else {
+      $('#consonant').attr('disabled', 'true').css('background-color', 'gray').attr('value', 'Spin Wheel');
+      $('#guess--input').css('border', 'none');
+    }
     //Toggle: Wheel
     $('.nav__wheel--button').attr("disabled") ? $('.nav__wheel--button').removeAttr("disabled") : $('.nav__wheel--button').attr("disabled", 'true');
     //Toggle: Word & Vowel
@@ -67,7 +71,7 @@ export default {
   updateRoundHintCategory(game) {
     // console.log(game.currentRound.roundPuzzle);
     //category
-    $('.hint__title').text(`Category: ${game.currentRound.roundPuzzle.cat} | `);
+    $('.hint__title').text(`Category: ${game.currentRound.roundPuzzle.cat}`);
     //hint
     $('.hint__value').text(`Hint: ${game.currentRound.roundPuzzle.description}`);
     this.updateRoundNumber(game);
@@ -97,8 +101,7 @@ export default {
   appendWinner(game) {
     let winner = game.currentRound.currentPlayer.name;
     let winningCaps = game.currentRound.currentPlayer.roundCaps;
-    console.log(game.currentRound.answer)
-    let answer = game.currentRound.answer.join('');
+    let answer = game.currentRound.wholeWord.join('');
 
     let body = $('body');
     body.append(`<section class="winner-card fade-in"> The Winner is: ${winner} <br> The Puzzle was: ${answer} <br> ${winner} has won ${winningCaps} caps!<section>`)
@@ -109,11 +112,13 @@ export default {
   },
   appendWheelValue(slice) {
     let animationContainer = $('.animation--container');
-    animationContainer.append(`<h2 class="prompt-img fade-in">${slice}</h2>`)
-    $('.prompt-img').delay(1000).queue(function () {
-      $(this).removeClass('fade-in');
-      $(this).addClass('fade-out__animation');
-    });
+    if (Number.isInteger(slice)) {
+      animationContainer.append(`<h2 class="prompt-img fade-in">${slice}</h2>`)
+      $('.prompt-img').delay(1000).queue(function () {
+        $(this).removeClass('fade-in');
+        $(this).addClass('fade-out__animation');
+      });
+    }
   },
   appendCorrect() {
     let animationContainer = $('.animation--container');
