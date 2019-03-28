@@ -7,6 +7,12 @@
 
 This project is an exercie in Object Oriented Programming in (mostly)vanilla JavaScript, and is our first project which incorporated testing.  We were permitted to use jQuery and SASS, and it was the first time using both(for Kelly);
 
+![Entry Page](https://i.imgur.com/QJbjXP2.png)
+![First Guess](https://i.imgur.com/rRU5BLF.png)
+![Second Guess](https://i.imgur.com/GDUih55.png)
+
+
+
 
 ### Learning Goals and Objectives
 
@@ -40,20 +46,8 @@ This will download the file and install the dependencies needed to properly acce
 
 ## Future Goals
 
+* Move to a new round successfully
+* Move to BonusWheel
+* Disable letter in word bank once guessed
 
-## Links
-
-Even though this information can be found inside the project on machine-readable
-format like in a .json file, it's good to include a summary of most useful
-links to humans using your project. You can include links like:
-
-- Project homepage: https://your.github.com/awesome-project/
-- Repository: https://github.com/your/awesome-project/
-- Issue tracker: https://github.com/your/awesome-project/issues
-  - In case of sensitive bugs like security vulnerabilities, please contact
-    my@email.com directly instead of using issue tracker. We value your effort
-    to improve the security and privacy of this project!
-- Related projects:
-  - Your other project: https://github.com/your/other-project/
-  - Someone else's project: https://github.com/someones/awesome-project/
 

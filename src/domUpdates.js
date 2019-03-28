@@ -1,8 +1,4 @@
 import $ from 'jquery';
-// import Wheel from "./Wheel.js";
-// import data from "./data.js";
-
-
 
 export default {
 
@@ -94,11 +90,11 @@ export default {
 
   },
 
-  updateActivePlayer(oldPlayer, newPlayer, player) {
+  updateActivePlayer(oldPlayer, newPlayer) {
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
     $('#wheel').addClass('pulse').delay(600);
-    this.yourTurnMessage(player);
+    this.yourTurnMessage(newPlayer);
   },
   
   spinAgainPrompt() {
@@ -119,19 +115,23 @@ export default {
   yourTurnMessage(player) {
     $('.spin-winner').html(`${player.name}'s turn to spin!`);
   },
+
   
   solvePuzzleMessage(player) {
-    alert(`${player.name} solved the puzzle!`)
-    // $('.round-number').html(`${player.name} solved the puzzle!`);
-    
+    alert(`${player.name} solved the puzzle!`);
   },
+  
+  spinAgainPrompt() {
+    $('.spin-winner').text(`spin again, buy a vowel, or solve the puzzle`).fadeIn(800);
+  },
+  
+  spinResultMessage(spinResult) {
+      $('.spin-winner').html(`You spun ${spinResult}! Choose a letter.`);
+    },
 
   updateRoundText(round) {
     $('.round-number').text(`Round ${round}`)
   },
-  // chooseLetterMessage() {
-    
-  // }
     
   displayCorrectLetter(puzzle, guess) {
     puzzle.forEach((letter) => {
@@ -149,10 +149,7 @@ export default {
       game.round.guessLetter(event, game);
     });
   },
-  // this being commented in gives strange errors...
-  // displayTotalScore(player, total){
-  //     $(`#player-${player}-total`).text(`Total Score: ${total}`);
-  // },
+
     
   displayScore(player, total) {
     $(`#player-${player}-round`).text(`Score: ${total}`);
