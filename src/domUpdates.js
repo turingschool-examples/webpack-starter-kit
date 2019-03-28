@@ -68,8 +68,13 @@ export default {
       this.displayRound(game.roundCounter);
       this.newCategoryValues();
       game.createRound();
+    } 
+    if (game.round.cluesRemaining === 0 && game.roundCounter >= 2) {
+      game.roundCounter++;
+      $('.players').hide();
+      $('.game-board').hide();
+      game.createFinalRound();
     }
-      // game.createFinalRound();
     let answerMatch = data.clues.reduce((acc, currentClue) => {
       if ($(".question").text() === currentClue.question) {
         acc += currentClue.answer;
