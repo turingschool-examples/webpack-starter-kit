@@ -21,10 +21,10 @@ On start players will be prompted to choose their names. Each of the three playe
 
 
 ## Tools Used to Build Project
-[Sublime Text Editor](https://www.sublimetext.com/)
-[WebPack](https://webpack.js.org/)
-[VSCode](https://code.visualstudio.com/)
-[jQuery](https://jquery.com/)
+- [Sublime Text Editor](https://www.sublimetext.com/)
+- [WebPack](https://webpack.js.org/)
+- [VSCode](https://code.visualstudio.com/)
+- [jQuery](https://jquery.com/)
 
 ## Member Documentation
 
