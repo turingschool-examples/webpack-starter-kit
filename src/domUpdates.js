@@ -106,16 +106,17 @@ export default {
   
   spinResultMessage(spinResult) {
     if (spinResult === "BANKRUPT" || spinResult === "LOSE A TURN") {
-      $('.spin-winner').html(`Sorry, you spun ${spinResult}! Your turn is over.`)
+      // $('.spin-winner').html(`Sorry, you spun ${spinResult}! Your turn is over.`)
+      alert(`Bummer! You spun ${spinResult} :( `);
 
     } else {
       $('.spin-winner').html(`You spun ${spinResult}! Choose a letter.`);
-
     }
   },
 
 
   yourTurnMessage(player) {
+    console.log(player)
     $('.spin-winner').html(`${player.name}'s turn to spin!`);
   },
 
@@ -152,59 +153,59 @@ export default {
     $(`#player-${player}-round`).text(`Score: ${total}`);
   },
   
-  checkSolution(event, game) {
-    event.preventDefault();
-    let guess = $('.solve-input').val();
-    let variable = game.round.handleSolutionGuess(guess);
-    if (variable) {
-      game.round.updateTotalScore();
-      let gridContainer = `<div class="grid-container top">
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-            <div class="puz-grid top-row"></div>
-          </div> 
-          <div class="grid-container puzzle"></div>
-          <div class="grid-container bottom">
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-            <div class="puz-grid btm-row"></div>
-          </div> `;
-      $('.puzzle-grid-container').html(gridContainer);
-      // wheel = new Wheel(game, data.wheel)
-      game.wheel = new Wheel();
-      game.createRound(game.wheel)
-      this.updateRoundText(this.roundCount)
+  // checkSolution(event, game) {
+  //   event.preventDefault();
+  //   let guess = $('.solve-input').val();
+  //   let variable = game.round.handleSolutionGuess(guess);
+  //   if (variable) {
+  //     game.round.updateTotalScore();
+  //     let gridContainer = `<div class="grid-container top">
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //           <div class="puz-grid top-row"></div>
+  //         </div> 
+  //         <div class="grid-container puzzle"></div>
+  //         <div class="grid-container bottom">
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //           <div class="puz-grid btm-row"></div>
+  //         </div> `;
+  //     $('.puzzle-grid-container').html(gridContainer);
+  //     // wheel = new Wheel(game, data.wheel)
+  //     game.wheel = new Wheel();
+  //     game.createRound(game.wheel)
+  //     this.updateRoundText(this.roundCount)
 
-    } else {
-      alert('You guessed incorrectly!')
-    }
-  }
+  //   } else {
+  //     alert('You guessed incorrectly!')
+  //   }
+  // }
 
 
 

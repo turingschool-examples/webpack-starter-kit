@@ -21,15 +21,15 @@ class Wheel {
     if (this.currentSpin === 'BANKRUPT') {
       game.round.updatePlayerScore(0);
       domUpdates.displayScore(game.round.activePlayer, 0);
-      setTimeout(game.round.newTurn, 2500);
+      game.round.newTurn()
     } else if (this.currentSpin === 'LOSE A TURN') {
       // alert('You spun LOSE A TURN :(');
-      setTimeout(game.round.newTurn, 2500);
-      // game.round.newTurn();
+      game.round.newTurn();
     } 
     domUpdates.spinResultMessage(this.currentSpin);
-    
   }
+
+  
     
 }
 
