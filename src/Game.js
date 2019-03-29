@@ -14,14 +14,14 @@ class Game {
     this.roundInst = new Round(0)
   }
 
-  startGame(p1, p2, p3) {
-    this.createPlayers(p1, p2, p3)
+  startGame(players) {
+    this.createPlayers(players)
     this.createPlayerBox()
     this.createClues()
     this.roundInst.createNewRound(this)
   }
 
-  createPlayers(p1, p2, p3) {
+  createPlayers(players) {
     let player1 = new Player(p1)
     let player2 = new Player(p2)
     let player3 = new Player(p3)

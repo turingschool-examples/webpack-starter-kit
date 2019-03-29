@@ -67,7 +67,7 @@ function startGameBtn(event) {
   let playerName2 = $('#player-2').val();
   let playerName3 = $('#player-3').val();
   $('section.input-form').remove()
-  game.startGame(playerName1, playerName2, playerName3)
+  game.startGame([playerName1, playerName2, playerName3])
 }
 
 function selectingLetter(event) {
