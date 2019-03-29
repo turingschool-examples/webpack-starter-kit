@@ -14,7 +14,6 @@ class Round {
   }
 
   createNewRound(game) {
-    console.log(game)
     DomUpdates.clearGameBoard();
     DomUpdates.updateGameScore(this.activePlayer.score);
     let allRoundClues = this.createClues(game);
@@ -62,21 +61,25 @@ class Round {
   }
   
   switchPlayer(game) {
-    switch (this.activePlayer) {
-    case 0:
-      this.activePlayer = 1
-      DomUpdates.displayActivePlayer(game.players[this.activePlayer])
-      break;
-    case 1:
-      this.activePlayer = 2
-      DomUpdates.displayActivePlayer(game.players[this.activePlayer])
-      break;
-    case 2:
-      this.activePlayer = 0
-      DomUpdates.displayActivePlayer(game.players[this.activePlayer])
-      break;
-    default:
-      return;
+    if(game.players.length === 3) { 
+      switch (this.activePlayer) {
+      case 0:
+        this.activePlayer = 1
+        DomUpdates.displayActivePlayer(game.players[this.activePlayer])
+        break;
+      case 1:
+        this.activePlayer = 2
+        DomUpdates.displayActivePlayer(game.players[this.activePlayer])
+        break;
+      case 2:
+        this.activePlayer = 0
+        DomUpdates.displayActivePlayer(game.players[this.activePlayer])
+        break;
+      default:
+        return;
+      }
+    } else {
+      console.log('Bonus Round!')
     }
   }
   
@@ -140,7 +143,6 @@ class Round {
     if (playerSolve === gameAnswer) {
       DomUpdates.gameMessage("round winner")
       game.updatePlayerScore()
-      DomUpdates.clearGameBoard()
       game.roundNumber ++
       this.checkRoundNum(game)
       
