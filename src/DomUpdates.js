@@ -412,7 +412,6 @@ export default {
 
     $('.bank-score.player-3').text(players[2].playerBank)
     $('.score-total.player-3').text(players[2].score)
-
   },
 
   updateGameScore(activePlayerValue) {

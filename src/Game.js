@@ -22,10 +22,8 @@ class Game {
   }
 
   createPlayers(players) {
-    let player1 = new Player(p1)
-    let player2 = new Player(p2)
-    let player3 = new Player(p3)
-    this.players.push(player1, player2, player3)
+    console.log(players)
+    players.map(player => this.players.push(new Player(player)))
   }
 
   createPlayerBox() {
@@ -34,10 +32,6 @@ class Game {
 
   createClues() {
     this.gameRoundsClueBank = Object.entries(Data.puzzles);
-    
-    for(let i = 0; i < 5; i++) {
-
-    }
   }
 
   updatePlayerBank() {

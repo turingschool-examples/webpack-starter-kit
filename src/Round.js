@@ -26,8 +26,7 @@ class Round {
   }
 
   createClues(game) {
-    console.log(game.roundNumber)
-    if(game.roundNumber === 4) {
+    if (game.roundNumber === 4) {
       return game.gameRoundsClueBank[3][1].puzzle_bank
     } else {
       return game.gameRoundsClueBank[game.roundNumber][1].puzzle_bank;
