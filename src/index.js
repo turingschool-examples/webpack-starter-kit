@@ -63,9 +63,9 @@ $('body').on('click', '.vowel', () => {
 /************Functions******* */
 function startGameBtn(event) {
   event.preventDefault(event)
-  let playerName1 = $('#player1').val();
-  let playerName2 = $('#player2').val();
-  let playerName3 = $('#player3').val();
+  let playerName1 = $('#player-1').val();
+  let playerName2 = $('#player-2').val();
+  let playerName3 = $('#player-3').val();
   $('section.input-form').remove()
   game.startGame(playerName1, playerName2, playerName3)
 }
