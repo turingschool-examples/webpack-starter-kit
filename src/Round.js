@@ -14,6 +14,7 @@ class Round {
   }
 
   displayCategories() {
+    console.log(this.categoryIds)
     domUpdates.displayCategories(this.categoryIds, this.categoryTitles);
   }
 
