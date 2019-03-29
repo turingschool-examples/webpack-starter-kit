@@ -442,6 +442,10 @@ export default {
 
   displayRound(roundNumber) {
     roundNumber++
-    $('.round-text').text(roundNumber);
+    if(roundNumber === 5) {
+        $('.round-text').text('BONUS!')
+    } else {
+        $('.round-text').text(roundNumber);
+    }
   }
 }

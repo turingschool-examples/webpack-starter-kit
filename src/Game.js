@@ -34,6 +34,10 @@ class Game {
 
   createClues() {
     this.gameRoundsClueBank = Object.entries(Data.puzzles);
+    
+    for(let i = 0; i < 5; i++) {
+
+    }
   }
 
   updatePlayerBank() {
@@ -54,13 +58,11 @@ class Game {
     this.updatePlayerBank();
   }
 
-  createBonusRound() {
-    const bonus = new BonusRound()
+  createBonusRound(game) {
+    const bonus = new BonusRound(game)
     this.roundInst = bonus
     console.log(this.roundInst)
-  // let winner = this.players.sort((playerA, playerB)=>{
-  //   return playerA.score - playerB.score
-  // }).pop();
+
   
 }
 }

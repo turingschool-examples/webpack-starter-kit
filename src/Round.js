@@ -14,9 +14,11 @@ class Round {
   }
 
   createNewRound(game) {
+    console.log('hello')
     DomUpdates.clearGameBoard();
     DomUpdates.updateGameScore(this.activePlayer.score);
-    let allRoundClues = game.gameRoundsClueBank[game.roundNumber][1].puzzle_bank
+
+    let allRoundClues = this.createClues(game);
     this.shuffler(allRoundClues)
     this.getRandomClue(allRoundClues)
 
@@ -25,7 +27,16 @@ class Round {
     DomUpdates.displayActivePlayer(game.players[this.activePlayer])
     DomUpdates.displayRound(game.roundNumber);
   }
-  
+
+  createClues(game) {
+    console.log(game.roundNumber)
+    if(game.roundNumber === 4) {
+      return game.gameRoundsClueBank[3][1].puzzle_bank
+    } else {
+      return game.gameRoundsClueBank[game.roundNumber][1].puzzle_bank;
+    }
+  }
+
   getRandomClue(cards) {  
     this.roundClue = this.randomNumber(cards);
     this.clueAnswer = this.roundClue.correct_answer.toLowerCase().split('');
@@ -79,6 +90,7 @@ class Round {
   
   checkValue(wheelValue, game) {   
     if (wheelValue === "BANKRUPT") {
+      wheelValue = 0;
       DomUpdates.deactivateLetters()
       DomUpdates.gameMessage("bankrupt")
       game.bankruptPlayerBank();
@@ -108,7 +120,6 @@ class Round {
         this.checkRoundNum(game)
         game.roundNumber ++
         this.wheelInst.selectedValue = 0;
-        this.createNewRound(game);
       } else {
         game.updatePlayerBank();
         DomUpdates.resetWheelValue();
@@ -134,7 +145,6 @@ class Round {
       DomUpdates.clearGameBoard()
       game.roundNumber ++
       this.checkRoundNum(game)
-      this.createNewRound(game)
       
      
     } else {
@@ -144,8 +154,10 @@ class Round {
   }
 
   checkRoundNum(game) { 
-    if (game.roundNumber === 2)  {
-      game.createBonusRound()
+    if (game.roundNumber === 4)  {
+      game.createBonusRound(game)
+    } else {
+      this.createNewRound(game)
     }
   }
 }
