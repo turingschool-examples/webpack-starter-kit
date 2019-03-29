@@ -47,7 +47,7 @@ describe('Round', () => {
   it('should update activePlayers score', () =>{
     let currentPlayer = round.players[round.activePlayer];
     expect(currentPlayer._roundScore).to.equal(0);
-    round.updatePlayerScore(100);
+    round.updateRoundScore(100);
     expect(currentPlayer._roundScore).to.equal(100);
   });
 

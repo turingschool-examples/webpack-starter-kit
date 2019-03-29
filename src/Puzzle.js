@@ -37,6 +37,12 @@ class Puzzle {
     this.secondLine = this.secondLine.toUpperCase().split('');
     domUpdates.appendPuzzle(this.firstLine, this.secondLine)
   }
+
+  solvePuzzle(guess) {
+    if (this.correctAnswer.toUpperCase() === guess.toUpperCase()) {
+      console.log('nailed it')
+    }
+  }
 }
 
 

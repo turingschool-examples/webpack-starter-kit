@@ -116,7 +116,6 @@ export default {
 
 
   yourTurnMessage(player) {
-    console.log(player)
     $('.spin-winner').html(`${player.name}'s turn to spin!`);
   },
 
@@ -149,13 +148,16 @@ export default {
   },
 
     
-  displayScore(player, total) {
-    $(`#player-${player}-round`).text(`Score: ${total}`);
+  displayRoundScore(player, points) {
+    $(`#player-${player}-round`).text(`Score: ${points}`);
   },
   
-  // checkSolution(event, game) {
-  //   event.preventDefault();
-  //   let guess = $('.solve-input').val();
+  checkSolution(event, game) {
+    event.preventDefault();
+    console.log('almost')
+    let guess = $('.solve-input').val();
+    game.round.currentPuzzle.solvePuzzle(guess);
+  }
   //   let variable = game.round.handleSolutionGuess(guess);
   //   if (variable) {
   //     game.round.updateTotalScore();

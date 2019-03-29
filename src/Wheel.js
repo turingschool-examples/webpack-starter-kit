@@ -19,8 +19,9 @@ class Wheel {
   spinWinner(game) {
     this.currentSpin = this.values[this.getSpinVal()];
     if (this.currentSpin === 'BANKRUPT') {
-      game.round.updatePlayerScore(0);
-      domUpdates.displayScore(game.round.activePlayer, 0);
+      game.round.updateRoundScore(0);
+      // domUpdates.displayRoundScore(game.round.activePlayer, 0);
+      console.log(game.round.players)
       game.round.newTurn()
     } else if (this.currentSpin === 'LOSE A TURN') {
       // alert('You spun LOSE A TURN :(');
@@ -29,7 +30,7 @@ class Wheel {
     domUpdates.spinResultMessage(this.currentSpin);
   }
 
-  
+
     
 }
 

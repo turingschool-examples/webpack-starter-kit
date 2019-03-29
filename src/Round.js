@@ -49,17 +49,17 @@ class Round {
     this.changeActivePlayers()
   }
 
-  updatePlayerScore(spinValue) {
+  updateRoundScore(spinValue) {
     const player = this.players[this.activePlayer];
-    spinValue === '' ? player._roundScore = 0 : player.roundScore += spinValue;
-    domUpdates.displayScore(player.playerNumber, player.roundScore)
+    spinValue === 0 ? player._roundScore = 0 : player.roundScore += spinValue;
+    domUpdates.displayRoundScore(player.playerNumber, player.roundScore)
   }
 
   handleCorrectLetterChosen(splitAnswer, chosenLetter, spinValue) {
     // const spinValue = this.currentWheel.currentSpin
     splitAnswer.forEach(letter => {
       if (chosenLetter === letter) {
-        this.updatePlayerScore(spinValue);
+        this.updateRoundScore(spinValue);
         domUpdates.displayCorrectLetter(splitAnswer, chosenLetter);
         domUpdates.spinAgainPrompt();
       }
@@ -93,7 +93,8 @@ class Round {
     }
   }
 
-  handleSolutionGuess(guess) {
+  handleSolutionGuess( guess) {
+    // e.preventDefault();
     const solution = this.currentPuzzle.correctAnswer.toUpperCase();
     if (guess.toUpperCase() === solution) {
       domUpdates.displaySolvedPuzzle();
