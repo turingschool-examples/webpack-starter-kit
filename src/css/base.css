@@ -6,7 +6,7 @@ html {
 }
 
 body{
-  background: url(../images/WOF-star-background.jpg);
+  background: url(../images/WOF-star-background.png);
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -14,6 +14,10 @@ body{
   font-family: 'Open Sans', sans-serif;
   width: 100%;
   -webkit-text-size-adjust: 100%;
+}
+
+.gameboard-background {
+  background: url(../images/WOF-star-background.jpg);
 }
 
 /* Player Input Form */
