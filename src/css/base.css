@@ -13,10 +13,14 @@ body{
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   width: 100%;
-  -webkit-text-size-adjust: 100%;
 }
 
-/* Player Input Form */
+.title {
+  text-align: center;
+  color: #dedcdc;
+  font-size: 3rem;
+}
+
 .input-form {
   align-content: center;
   align-items: center;
@@ -25,14 +29,14 @@ body{
 }
 
 form {
-  background: rgba(35, 31, 32, .95);
-  border-radius: 5px;
-  box-shadow: 3px 4px 14px 5px #000;
+  background: rgba(0, 0, 0, 0.52);
+  border-radius: 63px;
+  box-shadow: -6px 4px 14px 5px #484343;
   display: flex;
-  flex-direction: row;
-  margin: 15rem 0rem;
-  max-width: 1200px;
-  padding: 4.5em 3em;
+  flex-direction: column;
+  align-items: center;
+  width: 21rem;
+  padding: 1.5em 1em;
 }
 
 fieldset {
