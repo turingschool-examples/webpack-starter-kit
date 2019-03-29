@@ -39,8 +39,8 @@ describe('Puzzle', () => {
     
     longPuzzle.checkPuzLength()
     
-    expect(longPuzzle.firstLine).to.deep.equal(['T', 'H', 'E', 'M', 'I', 'C', 'K', 'E', 'Y']);
-    expect(longPuzzle.secondLine).to.deep.equal(['M', 'O', 'U', 'S', 'E', 'C', 'L', 'U', 'B']);
+    expect(longPuzzle.firstLine).to.deep.equal(['T', 'H', 'E', ' ', 'M', 'I', 'C', 'K', 'E', 'Y']);
+    expect(longPuzzle.secondLine).to.deep.equal(['M', 'O', 'U', 'S', 'E', ' ', 'C', 'L', 'U', 'B']);
   })
 
   
