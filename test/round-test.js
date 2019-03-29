@@ -11,12 +11,15 @@ import domUpdates from '../src/domUpdates.js';
 describe('Round', function () {
   beforeEach(function() {
     chai.spy.on(domUpdates, 'updateCategories', () => true);
+    chai.spy.on(domUpdates, 'displayRound', () => true);
   });
   afterEach(function() {
     chai.spy.restore(domUpdates);
   });
   it('should have a new instance of Round', function () {
     let round = new Round;
+
+    expect(round).to.be.an('object');
   });
   it('should have properties of cluesRemaining, dailyDoubleClue', function () {
     let round = new Round;
@@ -26,11 +29,11 @@ describe('Round', function () {
   });
   it('categoryIds should have four numbers', function() {
     let round = new Round;
-    let game = new Game;
+    // let game = new Game;
 
     game.createRound();
 
-    expect(round.categoryIds).to.equal([1, 2, 3, 4]);
+    expect(round.categoryIds).to.equal([num, num, num, num]);
   })
   // it('should populate the category names array with categories', function () {
   //   let round = new Round;
