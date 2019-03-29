@@ -14,16 +14,13 @@ class Round {
   }
 
   createNewRound(game) {
-    console.log('hello')
+    console.log(game)
     DomUpdates.clearGameBoard();
     DomUpdates.updateGameScore(this.activePlayer.score);
-
     let allRoundClues = this.createClues(game);
     this.shuffler(allRoundClues)
     this.getRandomClue(allRoundClues)
-
     this.wheelInst.createWheel()
-
     DomUpdates.displayActivePlayer(game.players[this.activePlayer])
     DomUpdates.displayRound(game.roundNumber);
   }
@@ -96,6 +93,7 @@ class Round {
       game.bankruptPlayerBank();
       this.switchPlayer(game);
     } else if (wheelValue === "LOSE A TURN") {
+      wheelValue = 0;
       DomUpdates.gameMessage("lose turn")
       DomUpdates.deactivateLetters()
       this.switchPlayer(game)

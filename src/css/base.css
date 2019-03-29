@@ -6,7 +6,7 @@ html {
 }
 
 body{
-  background: url(../images/WOF-star-background.jpg);
+  background: url(../images/WOF-star-background.png);
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -15,11 +15,17 @@ body{
   width: 100%;
 }
 
+
+.gameboard-background {
+  background: url(../images/WOF-star-background.jpg);
+}
+
 .title {
   text-align: center;
   color: #dedcdc;
   font-size: 3rem;
 }
+
 
 .input-form {
   align-content: center;

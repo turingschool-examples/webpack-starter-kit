@@ -3,19 +3,18 @@ import Round from './Round'
 class BonusRound extends Round {
   constructor(game) {
     super(game);
-    this.createNewRound(game);
     this.setPlayer(game);
-    this.winner = this.setPlayer(game);
-    this.players = this.winner;
-    this.test = console.log(this.players);
+    console.log(this.players);
+    this.activePlayer = 0;
+    this.createNewRound(game);
   }
 
   setPlayer(game) {
     let allPlayers = game.players.sort((a, b) => {
       return a.score - b.score;
-  })
-    this.activePlayer = allPlayers.pop();
-    return this.activePlayer;
+    })
+    game.players = []
+    game.players.push(allPlayers[2]);
   }
 }
 
