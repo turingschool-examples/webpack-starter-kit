@@ -20,6 +20,8 @@ Open http://localhost:8080/
 ## Application Screen Shots
 ![Screen Shot 2019-03-28 at 9 01 19 AM](https://user-images.githubusercontent.com/34406483/55168262-23abf080-5138-11e9-89bc-a15da00edada.png)
 
+![Game start screen for Wheel of Fortune] (./src/images/start-game.png)
+
 ## Learning Goals & Emphasis
 * Write a program from scratch
 * Design and implement OOP patterns
