@@ -71,27 +71,27 @@ export default {
     $('.clue-container').text(category)
   },
 
-  spinWheel(game, wheel) {
-    let clicks = 1;
-    const winner = Math.round(Math.random() * 21);
+  spinWheel(game) {
+    // let clicks = 1;
+    // 
     /*multiply the degree by number of clicks
     generate random number between 1 - 360, 
     then add to the new degree*/
-    const extraDegree = (21 - winner) * 36;
-    const spinAgain = (1800 * clicks) + extraDegree;
-    const totalDegree = Math.round(spinAgain / 36) * 150;
-    wheel = game.round.currentWheel
-    
-
-    wheel.spinWinner(winner, game.round);
-    clicks++;
-    $('#inner').css({
-      'transform': 'rotate(' + totalDegree + 'deg)'
-    });
-    this.spinResultMessage(wheel.currentSpin);
+    // const extraDegree = (21 - winner) * 36;
+    // const spinAgain = (1800 * clicks) + extraDegree;
+    // const totalDegree = Math.round(spinAgain / 36) * 150;
+    // wheel = game.round.currentWheel;
+    // wheel.spinWinner(winner, game.round);
+    // clicks++;
+    $('#inner').toggleClass('spin-wheel');
+    // $('#inner').css({
+    //   'transform': 'rotate(' + 1800 + 'deg)'
+    // });
+    // this.spinResultMessage(wheel.currentSpin);
     $('#wheel').removeClass('pulse');
-
   },
+
+
 
   updateActivePlayer(oldPlayer, newPlayer, player) {
     this.yourTurnMessage(player);
@@ -106,7 +106,7 @@ export default {
   
   spinResultMessage(spinResult) {
     if (spinResult === "BANKRUPT" || spinResult === "LOSE A TURN") {
-      $('.spin-winner').html(`Sorry, you spun ${spinResult}! Next Player Spins!`)
+      $('.spin-winner').html(`Sorry, you spun ${spinResult}! Your turn is over.`)
 
     } else {
       $('.spin-winner').html(`You spun ${spinResult}! Choose a letter.`);

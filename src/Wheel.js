@@ -12,20 +12,23 @@ class Wheel {
     this.currentIndex = null;
   }
 
-
+  getSpinVal() {
+    return Math.round(Math.random() * 21);
+  }
   //TODO: CHOOSE A LETTER PROMPT MESSAGE
-  spinWinner(index, round) {
-    this.currentSpin = this.values[index];
+  spinWinner(game) {
+    this.currentSpin = this.values[this.getSpinVal()];
     if (this.currentSpin === 'BANKRUPT') {
-      round.updatePlayerScore(0);
-      domUpdates.displayScore(round.activePlayer, 0);
-      round.newTurn();
+      game.round.updatePlayerScore(0);
+      domUpdates.displayScore(game.round.activePlayer, 0);
+      setTimeout(game.round.newTurn, 2500);
     } else if (this.currentSpin === 'LOSE A TURN') {
-      alert('You spun LOSE A TURN :(');
-      round.newTurn();
-    } else {
-      domUpdates.spinResultMessage(this.currentSpin);
-    }
+      // alert('You spun LOSE A TURN :(');
+      setTimeout(game.round.newTurn, 2500);
+      // game.round.newTurn();
+    } 
+    domUpdates.spinResultMessage(this.currentSpin);
+    
   }
     
 }

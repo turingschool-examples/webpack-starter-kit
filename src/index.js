@@ -26,6 +26,7 @@ $('#reset-button').on('click', () =>{
 })
 
 $('#wheel').on('click', () => {
+  game.round.currentWheel.spinWinner(game);
   domUpdates.spinWheel(game);
 })
 

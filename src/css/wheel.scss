@@ -55,8 +55,11 @@ $segments: 20;
   background-color: lightgray;
   border-radius: 100%;
   transition: all 3s cubic-bezier(0,.99,.88,.99);
-  // animation: spin 10s linear infinite;
 }
+.spin-wheel {
+  transform: rotate(1000deg);
+}
+
 
 .segment {
   width: 0; 
