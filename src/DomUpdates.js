@@ -9,7 +9,8 @@ export default {
     $('td.single-letter-vowel').removeClass('disable-selected-letters');
   },
   
-  createGameBoard() {  
+  createGameBoard() {
+    $('body').addClass('gameboard-background'); 
     $('main').prepend(
       `<section id="letters-selected-area" class="letters-selected-area">
             <table class="letters-selected">

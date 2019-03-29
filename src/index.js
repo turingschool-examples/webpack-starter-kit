@@ -51,7 +51,7 @@ $('body').on('focus', '.guess-submission', () =>{
 })
 
 
-$('body').on('click', '.quit-btn-container', () =>{
+$('body').on('click', '.quit-btn', () =>{
   window.location.reload(true)
 })
 
