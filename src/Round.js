@@ -90,6 +90,7 @@ class Round {
   
   checkValue(wheelValue, game) {   
     if (wheelValue === "BANKRUPT") {
+      wheelValue = 0;
       DomUpdates.deactivateLetters()
       DomUpdates.gameMessage("bankrupt")
       game.bankruptPlayerBank();

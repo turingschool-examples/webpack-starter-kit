@@ -5,6 +5,9 @@ class BonusRound extends Round {
     super(game);
     this.createNewRound(game);
     this.setPlayer(game);
+    this.winner = this.setPlayer(game);
+    this.players = this.winner;
+    this.test = console.log(this.players);
   }
 
   setPlayer(game) {
@@ -12,6 +15,7 @@ class BonusRound extends Round {
       return a.score - b.score;
   })
     this.activePlayer = allPlayers.pop();
+    return this.activePlayer;
   }
 }
 
