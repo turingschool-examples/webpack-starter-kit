@@ -18,20 +18,19 @@ describe('Round', function () {
   it('should have a new instance of Round', function () {
     let round = new Round;
   });
-  it('should have empty arrays for data to be stored', function () {
+  it('should have properties of cluesRemaining, dailyDoubleClue', function () {
     let round = new Round;
 
-    expect(round.categoryNames).to.deep.equal([]);
-    expect(round.categoryIds).to.deep.equal([]);
-    expect(round.clues).to.deep.equal([]);
+    expect(round.cluesRemaining).to.equal(16);
+    expect(round.dailyDoubleClue).to.equal(0);
   });
   it('categoryIds should have four numbers', function() {
     let round = new Round;
     let game = new Game;
 
-    game.startRound();
+    game.createRound();
 
-    expect(.length).to.deep.equal(4);
+    expect(round.categoryIds).to.equal([1, 2, 3, 4]);
   })
   // it('should populate the category names array with categories', function () {
   //   let round = new Round;
