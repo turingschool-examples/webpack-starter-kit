@@ -16,7 +16,7 @@ class Puzzle {
     if (this.splitAnswer.length <= 14) {
       domUpdates.appendPuzzle(this.splitAnswer, null)
     } else { 
-      this.twoLinePuzzle()
+      setTimeout(this.twoLinePuzzle.bind(this), 2000);
     }
   }
 
@@ -25,7 +25,7 @@ class Puzzle {
     let words = this.correctAnswer.split(' ');
     if (this.numWords <= 2) {
       this.firstLine = words[0];
-      secondLine = words[1];
+      this.secondLine = words[1];
     } else if (this.numWords === 3) {
       this.firstLine = words[0].concat(` ${words[1]}`);
       this.secondLine = words[2];
@@ -35,13 +35,12 @@ class Puzzle {
     }
     this.firstLine = this.firstLine.toUpperCase().split('');
     this.secondLine = this.secondLine.toUpperCase().split('');
+    // setTimeout(domUpdates.appendPuzzle.bind(this.firstLine, this.secondLine), 2000);
     domUpdates.appendPuzzle(this.firstLine, this.secondLine)
   }
 
   solvePuzzle(guess) {
-    if (this.correctAnswer.toUpperCase() === guess.toUpperCase()) {
-      console.log('nailed it')
-    }
+    return this.correctAnswer.toUpperCase() === guess.toUpperCase();
   }
 }
 

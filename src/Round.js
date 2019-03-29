@@ -1,6 +1,6 @@
 import Puzzle from "./Puzzle.js";
 import domUpdates from "./domUpdates.js";
-// import Game from "./Game.js"
+import Game from "./Game.js"
 
 class Round {
   constructor(players, wheel, puzzle) {
@@ -93,22 +93,38 @@ class Round {
     }
   }
 
-  handleSolutionGuess( guess) {
-    // e.preventDefault();
-    const solution = this.currentPuzzle.correctAnswer.toUpperCase();
-    if (guess.toUpperCase() === solution) {
+  handleSolutionGuess(guess, game) {
+    let winner = this.players[this.activePlayer];
+    if (this.currentPuzzle.solvePuzzle(guess)) {
       domUpdates.displaySolvedPuzzle();
-      domUpdates.solvePuzzleMessage(this.players[this.activePlayer]);
-      return true;
+      this.updateTotalScore(winner);
+      setTimeout("alert('You solved the puzzle!');", 2000);
+      this.nextRound(winner, game)
+    } else {
+      alert('Aw, you tried!');
     }
   }
 
-  updateTotalScore() {
-    let player = this.players[this.activePlayer]
+  updateTotalScore(player) {
     player.totalScore += player._roundScore;
-    player._roundScore = 0;
-    // domUpdates.displayTotalScore(player, player.totalScore)
+    domUpdates.displayTotalScore(this.activePlayer, player.totalScore);
   }
+
+  nextRound(winner, game) {
+    console.log('NEW ROUND')
+
+    this.updateTotalScore(winner);
+    this.players.forEach((player, index) => {
+      player._roundScore = 0;
+      domUpdates.displayRoundScore(index, 0);
+    });
+    game.createRound(this.currentWheel);
+  }
+  // congratulate winner
+  // round score 0, total score updated
+  // update round number
+  // append new puzzle
+
 
 
 }

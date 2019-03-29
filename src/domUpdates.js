@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Wheel from "./Wheel.js";
+// import Wheel from "./Wheel.js";
 
 export default {
 
@@ -16,9 +16,7 @@ export default {
     return players;
   },
 
-  resetGame () {
-    location.reload();
-  },
+  
 
   fillSpace(puzzleLength, end) {
     const extraSpace = 14 - puzzleLength;
@@ -51,6 +49,7 @@ export default {
 
   appendPuzzle (line1, line2) {
     // parameters instead, split.puzzle and null
+    $('.puzzle').html(' ');
     this.fillSpace(line1.length, false);
     this.appendWords(line1);
     this.fillSpace(line1.length, true);
@@ -60,10 +59,6 @@ export default {
       this.appendWords(line2);
       this.fillSpace(line2.length, true);
     }
-  },
-
-  displaySolvedPuzzle() {
-    $('.secret').removeClass('secret');
   },
 
 
@@ -97,7 +92,7 @@ export default {
     this.yourTurnMessage(player);
     $(`#player${oldPlayer}-area`).removeClass('active');
     $(`#player${newPlayer}-area`).addClass('active'); 
-    $('#wheel').addClass('pulse').delay(600);
+    $('#wheel').addClass('pulse');
   },
   
   spinAgainPrompt() {
@@ -139,24 +134,34 @@ export default {
     });
   },
     
-  buyAVowel(event, game) {
-    $('.vowels').on('click', (event) => {
-      $( '.vowels').removeClass( "cost");
-      game.round.players[game.round.activePlayer].roundScore -= 100;
-      game.round.guessLetter(event, game);
-    });
-  },
+  // buyAVowel(event, game) {
+  //   $('.vowels').on('click', (event) => {
+  //     $( '.vowels').removeClass( "cost");
+  //     game.round.players[game.round.activePlayer].roundScore -= 100;
+  //     game.round.guessLetter(event, game);
+  //   });
+  // },
 
     
   displayRoundScore(player, points) {
     $(`#player-${player}-round`).text(`Score: ${points}`);
   },
+
+  displaySolvedPuzzle() {
+    $('.secret').removeClass('secret');
+  
+    // setTimeout("game.round.nextRound(game.round.players[game.round.activePlayer]);", 3000)
+  },
+
+  displayTotalScore(winner, score) {
+    $(`#player-${winner + 1}-total`).text(`TOTAL: ${score}`);
+  },
   
   checkSolution(event, game) {
     event.preventDefault();
-    console.log('almost')
     let guess = $('.solve-input').val();
-    game.round.currentPuzzle.solvePuzzle(guess);
+    game.round.handleSolutionGuess(guess, game);
+    $('.solve-input').val('');
   }
   //   let variable = game.round.handleSolutionGuess(guess);
   //   if (variable) {

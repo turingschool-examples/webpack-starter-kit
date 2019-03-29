@@ -6,6 +6,8 @@ import Player from "./Player.js";
 import data from "./data.js";
 import domUpdates from "./domUpdates.js";
 
+
+
 class Game {
   constructor() {
     this.round = null;
@@ -15,11 +17,16 @@ class Game {
     // this.currentPuzzle = null;
   }
 
+
   startGame() {
     let wheel = new Wheel();
     this.createPlayers(domUpdates.playerNames());
     this.getRandomData();
     this.createRound(wheel)
+  }
+
+  resetGame() {
+    location.reload();
   }
 
   getRandomData () {
@@ -31,16 +38,14 @@ class Game {
 
   createRound (wheel) {
     this.roundCount++;
+    domUpdates.updateRoundText(this.roundCount);
     if (this.roundCount === 4) {
       // let wheel = new BonusWheel();    
     }
     let round = new Round(this.players, wheel);
     this.round = round;
     round.currentWheel = wheel;
-
-    // vvv instance of puzzle?
     this.currentPuzzle = round.getPuzzle(this.allData[this.roundCount - 1]);
-
     this.currentPuzzle.checkPuzLength();
     domUpdates.setCategoryText(this.currentPuzzle.category);
   }
@@ -52,9 +57,6 @@ class Game {
     domUpdates.hiddenBoard(this.players);
   }
 
-  // checkSolution(event, game) {
-
-  // }
 
 }
 export default Game;

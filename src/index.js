@@ -22,7 +22,7 @@ $('.continue-button').on('click', (e) =>{
 })
 
 $('#reset-button').on('click', () =>{
-  domUpdates.resetGame();
+  game.resetGame();
 })
 
 $('#wheel').on('click', () => {
