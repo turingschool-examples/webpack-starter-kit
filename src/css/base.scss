@@ -1,0 +1,6 @@
+/* This is an example of using Sass, otherwise plain CSS works too*/
+$primary-background: pink;
+
+body {
+  background-color: $primary-background;
+}

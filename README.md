@@ -36,11 +36,11 @@ Here is a video that walks through some information about [import and export](ht
 
 Add your HTML to the `index.html` file in the `./src` directory. There is some boilerplate HTML that exists from the start that you can modify for your game.
 
-### CSS
+### CSS (SCSS/SASS)
 
-Add your CSS files in the `src/css` directory. There is a `base.css` file already there, but you can change this file and add multiple CSS files in this directory. Note that this project structure does not support SCSS.
+This project is setup to use SCSS/SASS files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
 
-This might sound weird, but you need to `import` your CSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.css` file has already been imported in the JavaScript entry file.
+This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
 
 ### Images
 
