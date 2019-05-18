@@ -1,14 +1,16 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$primary-background: teal;
 
 body {
   background-color: $primary-background;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 header {
   text-align: center;
+  border: 1px solid black;
 }
 
 main {
@@ -26,4 +28,26 @@ main {
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  width: 100px;
+  height: 60px;
+  border: 1px solid black;
+}
+
+.survey-box-container {
+  border: 1px solid black;
+}
+
+.survey-box-container p {
+  padding: 10px;
+  border: 1px solid black;
+  margin: 0
 }
