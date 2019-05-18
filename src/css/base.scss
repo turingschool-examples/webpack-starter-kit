@@ -3,4 +3,16 @@ $primary-background: pink;
 
 body {
   background-color: $primary-background;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex: 1
 }
