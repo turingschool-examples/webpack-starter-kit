@@ -5,9 +5,9 @@ var expect = chai.expect;
 const sampleData = {
 surveys: [
   { id: 1, question: 'If You Drew Homer Simpson\'s Name In A Secret Santa Exchange, What Would You Buy Him?' }],
-    answers: [{ answer: ‘Beer’, respondents: 67, surveyId: 1 },
-            { answer: ‘Bowling Ball’, respondents: 5, surveyId: 1 },
-            { answer: ‘Donuts’, respondents: 24, surveyId: 1 }]
+    answers: [{ answer: "Beer", respondents: 67, surveyId: 1 },
+            { answer: "Bowling Ball", respondents: 5, surveyId: 1 },
+            { answer: "Donuts", respondents: 24, surveyId: 1 }]
   }
 
 describe('User', function() {
