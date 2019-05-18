@@ -1,8 +1,10 @@
 import data from "../data";
+import Turn from "./Turn";
 
 class Round {
   constructor () {
     this.surveys = (this.pullSurveys());
+    this.turn = (new Turn(this))
   }
   pullSurveys() {
     const randomSurveys = []

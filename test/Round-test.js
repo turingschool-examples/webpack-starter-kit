@@ -1,4 +1,4 @@
-import chai from 'chai';
+ import chai from 'chai';
 import Round from '../src/Round'
 import data from '../data'
 const expect = chai.expect;
@@ -26,6 +26,7 @@ describe('Round', function () {
   it('should pull 3 random surveys', function () {
     round.pullSurveys()
     expect(round.surveys).to.have.length(3)
+    expect(round.surveys[0].id).to.equal(round.turn.answers[0].surveyId)
   }) 
 
 });
