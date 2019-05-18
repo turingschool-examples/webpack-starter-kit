@@ -6,7 +6,9 @@ class Player {
     this.guess = guess;
   }
   
-
+  checkGuess () {
+  
+  }
 }
 
 export default Player;

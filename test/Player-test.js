@@ -7,7 +7,7 @@ describe('Player', function () {
   let player;
 
   beforeEach(function () {
-    player = new Player(1,'Aidan')
+    player = new Player(1, 'Aidan')
   })
 
   it('should be a function', function () {
