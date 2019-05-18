@@ -7,6 +7,10 @@ body {
   padding: 0;
 }
 
+header {
+  text-align: center;
+}
+
 main {
   display: flex;
   flex-direction: row;
@@ -14,5 +18,12 @@ main {
 
 .column {
   display: flex;
-  flex: 1
+  flex: 1;
+  justify-content: center;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
