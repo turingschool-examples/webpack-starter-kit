@@ -9,5 +9,10 @@ import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
+import Game from './Game';
+import Round from './Round';
+import Turn from './Turn';
+import Player from './Player';
+import Survey from './Survey';
 
-console.log('This is the JavaScript entry file - your code begins here.');
+
