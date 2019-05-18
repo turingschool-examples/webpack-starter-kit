@@ -1,15 +1,17 @@
 import chai from 'chai';
 import Turn from '../src/Turn';
 import Round from '../src/Round';
-
+import Player from '../src/Player'
 const expect = chai.expect;
 
 describe('Turn', function () {
   let round;
   let turn;
+  let player
   beforeEach(function () {
-    const round = new Round()
-    turn = new Turn()
+    round = new Round()
+    turn = new Turn(round)
+    player = new Player(1, 'Patrick', 'hello')
   })
 
   it('should be a function', function () {
@@ -22,8 +24,13 @@ describe('Turn', function () {
 
   it('should find the answers', function () {
     expect(turn.answers).to.be.an('array').and.have.length(3)
+    expect(round.turn.answers[0].surveyId).to.equal(round.surveys[0].id)
   })
 
-  it('should increase the players score')
+  it('should check the guess', function() {
+    expect(turn.checkGuess(player))
+    console.log(player.guess);
+    
+  })
 
 });
