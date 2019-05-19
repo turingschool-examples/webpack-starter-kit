@@ -1,4 +1,4 @@
-import Data from './Data';
+import data from './sample-data';
 
 class Game {
   constructor(players) {
@@ -30,7 +30,7 @@ class Game {
     // assign this.winner to that player
   }
 
-  endGame() {
+  startBonusRound() {
     // find winner
     // start a bonus round with hardest puzzle and winner
   }
