@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Gametime Starter Kit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Family Feud</title>
   </head>
   <body>
-    <h1>Gametime Starter Kit</h1>
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
+    <header>  
+      <h1 class="title">FAMILY FEUD</h1>
+    </header>
+    <main>
+      <section class="player-area player-one">
+        <h3 class="player-one-name"><span class="name-2">NAME ONE</span></h3>
+        <div class="player-one-score">57</div>
+        <figure class="player-one-x"> X </figure>
+      </section>
+      <figure class="survey">
+        <h3 class="round-display">ROUND: <span class="round-num"> 1 </span></h3>
+        <div class="survey-board">
+          <h2 class="survey-question"><span class="question"></span></h2>
+          <h3 class="answer answer-1"><span class="respondents-1">100</span></h3>
+          <h3 class="answer answer-2"><span class="respondents-2">35</span></h3>
+          <h3 class="answer answer-3"><span class="respondents-3">5</span></h3>
+        </div>
+        <form class="player-guess">
+          <label class="guess-input-label" for="guess-input">Please enter your guess...</label>
+          <input id="guess-input" class="guess-input">
+          <button type="button" class="submit-guess">SUBMIT GUESS</button>
+        </form>
+      </figure>
+      <section class="player-area player-two">
+          <h3 class="player-two-name"><span class="name-2">NAME TWO</span></h3>
+          <div class="player-two-score"> 140 </div>
+          <figure class="player-two-x"> X </figure>
+      </section>
+    </main>
+    <footer class="money-round"> FA$T MONEY ROUND!!! </footer>
+    <!-- <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px"> -->
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
+
