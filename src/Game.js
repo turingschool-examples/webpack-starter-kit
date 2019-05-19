@@ -1,28 +1,35 @@
 import Data from './Data';
+import Round from './Round'
+import Puzzle from './Puzzle'
 
 class Game {
-  constructor(players) {
+  constructor(players, wheel) {
     this.players = players;
+    this.wheel = wheel;
     this.roundCounter = 0;
   }
 
-  returnPuzzleBlock() {
-    // fetch dataset
-    // instantiate a Puzzle() of each word length
-    // assign this.puzzleBlock to the array of instantiated Puzzles
+  assignPuzzleBlock() {
+    const newPuzzleBlock = Object.keys(Data.puzzles).reduce((puzzBlock, puzzType) => {
+      const randomIndex = Math.floor(Math.random() * 25);
+      const instantiatedPuzzle = new Puzzle(Data.puzzles[puzzType].puzzle_bank.find(puzz => Data.puzzles[puzzType].puzzle_bank.indexOf(puzz) === randomIndex));
+      puzzBlock.push(instantiatedPuzzle);
+      return puzzBlock;
+    }, [])
+    this.puzzleBlock = newPuzzleBlock;
   }
 
-  instantiatePuzzle() {
-    // instantiate and return a Puzzle() from this.puzzleBlock() based on difficulty needed
+  returnPuzzle() {
+    return this.puzzleBlock.find((puzz, index, array) => array.indexOf(puzz) === this.roundCounter);
   }
 
   start() {
-    // new Round(this, this.instantiatePuzzle())
-    // this.assignCurrentRound(round);
+    const round = new Round(this, this.returnPuzzle())
+    this.assignCurrentRound(round);
   }
 
   assignCurrentRound(round) {
-    // this.currentRound = round;
+    this.currentRound = round;
   }
   
   findWinner() {
