@@ -4,3 +4,36 @@ $primary-background: pink;
 body {
   background-color: $primary-background;
 }
+
+.dim {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  height: 100%;
+  left: 0;
+  margin: 0;
+  opacity: 0.5;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.player-start-page {
+  align-items: center;
+  background: pink;
+  bottom: 0;
+  display: grid;
+  grid-template-rows: 1.3fr repeat(4 1fr);
+  height: 422px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top:0;
+  width: 900px;
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}

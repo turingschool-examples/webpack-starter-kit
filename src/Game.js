@@ -1,4 +1,6 @@
 import Data from './Data';
+import Player from './Player';
+import domUpdates from './domUpdates';
 
 class Game {
   constructor(players) {
@@ -19,6 +21,15 @@ class Game {
   start() {
     // new Round(this, this.instantiatePuzzle())
     // this.assignCurrentRound(round);
+  }
+
+  createPlayers(names) {
+    const players = names.map(name => {
+      let player = new Player(name);
+      return player;
+    });
+    this.players = players;
+    domUpdates.displayNames(this.players);
   }
 
   assignCurrentRound(round) {
