@@ -107,7 +107,7 @@ const data = {
           description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'Bonjour',
         },
-         {  
+        {  
           category: 'The 90s',
           number_of_words: 1,
           total_number_of_letters: 9,
@@ -115,7 +115,7 @@ const data = {
           description:'Puzzles pertaining to the decade in question.',
           correct_answer: 'Operation',
         },
-         {  
+        {  
           category: 'The 90s',
           number_of_words: 1,
           total_number_of_letters: 3,
@@ -301,7 +301,7 @@ const data = {
           description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
           correct_answer: 'Fess Up',
         },
-         {  
+        {  
           category: 'The 90s',
           number_of_words: 2,
           total_number_of_letters: 6,
@@ -309,7 +309,7 @@ const data = {
           description:'Puzzles pertaining to the decade in question.',
           correct_answer: 'Fun Dip',
         },
-         {  
+        {  
           category: 'The 90s',
           number_of_words: 2,
           total_number_of_letters: 10,
@@ -807,3 +807,5 @@ const data = {
     }
   }
 };
+
+export default data;

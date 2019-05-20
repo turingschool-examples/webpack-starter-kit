@@ -8,38 +8,50 @@ class Turn {
   }
 
   spinWheel() {
-    // value of wheel
-    // conditional deciding which method to run with value
+    const result = this.round.game.wheel.returnResult();
+    if (typeof result === 'number') {
+      this.updateMoney(result);
+    } else if (result == 'BANKRUPT') {
+      this.goBankrupt(result);
+    } else {
+      this.endTurn(nextPlayer);
+    }
+    return result;
   }
 
-  buyVowel(vowel) {
-    // subtract cost of vowel from this.currentScore
-    // this.letterGuessCheck(vowel);
+  buyVowel(vowel, cost) {
+    this.currentScore -= cost;
+    this.letterGuessCheck(vowel);
   }
 
   solvePuzzle(guess) {
-    // this.round.puzzle.evaluateSolve(guess) === boolean
-    // if true, this.round.endRound()
-    // if false, this.endTurn(next Player)
+    if (this.round.puzzle.evaluateSolve(guess) === true) {
+      this.round.endRound()
+    } else {
+      this.endTurn(nextPlayer)
+    }
   }
   
   updateMoney(value) {
-    // Update currentScore with spin result
+    this.currentScore += value;
   }
 
   goBankrupt(value) {
-    // reset currentScore and end turn
+    this.currentScore = 0;
+    this.endTurn();
   }
 
   endTurn(player = this.player) {
-    // new Turn(round, appropraite Player)
+    const newTurn = new Turn(this.currentRound, player)
   }
 
-
   letterGuessCheck(guess) {
-    // this.round.puzzle.evaluateLetter(guess) === boolean
-    // if true this.endTurn()
-    // if false this.endTurn(next Player)
+      if (this.round.puzzle.evaluateLetter(guess) === true) {
+        this.player.roundScore += this.currentScore;
+        this.endTurn();
+      } else {
+        this.endTurn(next Player);
+      }
   }
 
 }

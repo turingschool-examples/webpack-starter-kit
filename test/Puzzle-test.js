@@ -4,7 +4,7 @@ import spies from 'chai-spies';
 chai.use(spies);
 import Puzzle from '../src/Puzzle.js';
 
-describe('Puzzle', function() {
+describe.skip('Puzzle', function() {
   let puzzle;
   beforeEach(function() {
     puzzle = new Puzzle();
