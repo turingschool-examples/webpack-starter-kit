@@ -7,10 +7,9 @@ class Player {
     this.totalScore = 0;
   }
 
-  quit() {
-    // if game.player.length < 4, end the game
-    // if game.player.length > 3, remove this player from game
-  }
+  // quit() {
+
+  // }
 
   newGame() {
     // new Game(same Players);

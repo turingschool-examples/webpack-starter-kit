@@ -13,13 +13,15 @@ class Puzzle {
   }
 
   evaluateLetter(guess) {
-    // this.correctAnswer.includes(guess);
-    // if true, push letter into this.correctGuesses
-    // if false, push letter into this.incorrectGuesses
+    if (this.correctAnswer.includes(guess)) {
+      this.correctGuesses.push(guess);
+    } else {
+      this.incorrectGuesses.push(guess);
+    }
   }
 
   evaluateSolve(guess) {
-    // return boolean;
+    return this.correctAnswer.join('') == guess;
   }
 }
 
