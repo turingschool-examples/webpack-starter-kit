@@ -3,7 +3,7 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 import Player from '../src/Player.js';
-
+ 
 describe('Player', function() {
   let player;
   beforeEach(function() {
