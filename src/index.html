@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Gametime Starter Kit</title>
+    <title>Gametime</title>
   </head>
   <body>
-    <h1>Gametime Starter Kit</h1>
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <header>
+      <h1>Family Feud</h1>
+    </header>
+    <main>
+      <section class="column player-1-column">
+        <article class="container player-1-container">
+          <div class="name-and-score">
+            <h3 class="player-1-name"></h3>
+            <p class="score">Score: 0</p>
+          </div>
+          <form class="player-1-guess-and-input">
+            <p class="player-1-guess">Player 1 Guess</p>
+            <input class="player-1-guess-input" type="text" name="" value="">
+          </form>
+        </article>
+      </section>
+      <section class="column game-column">
+        <article class="container game-container">
+          <div class="round">
+            <h3>Round 1</h3>
+          </div>
+          <section class="survey-box-container">
+          <div class="survey-box survey-box-1">
+            <p class="survey-1"></p>
+          </div>
+          <div class="survey-box survey-box-2">
+            <p class="survey-2"></p>
+          </div>
+          <div class="survey-box survey-box-3">
+            <p class="survey-3"></p>
+          </div>
+          </section>
+          <form class="submit-form" action="index.html" method="post">
+            <p class="timer">30.00</p>
+            <button class="submit-button" type="button" name="button"></button>
+          </form>
+        </article>
+      </section>
+      <section class="column player-2-column">
+        <article class="container player-2-container">
+          <div class="name-and-score">
+            <h3 class="player-2-name"></h3>
+            <p class="score">Score: 0</p>
+          </div>
+          <form class="player-2-guess-and-input">
+            <p class="player-2-guess">Player 2 Guess</p>
+            <input class="player-2-guess-input" type="text" name="" value="">
+          </form>
+      </section>
+    </main>
+    <footer>
+    </footer>
   </body>
 </html>
