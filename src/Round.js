@@ -1,6 +1,6 @@
 import data from "../data";
 import Turn from "./Turn";
-
+import domUpdates from './domUpdates';
 class Round {
   constructor () {
     this.surveys = (this.pullSurveys());

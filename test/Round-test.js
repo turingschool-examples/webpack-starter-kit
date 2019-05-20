@@ -1,7 +1,11 @@
- import chai from 'chai';
+import chai from 'chai';
 import Round from '../src/Round'
 import data from '../data'
+import spies from 'chai-spies'
+import domUpdates from '../src/domUpdates'
 const expect = chai.expect;
+chai.use(spies)
+chai.spy.on(domUpdates, 'displayWords', () => true)
 
 describe('Round', function () {
 

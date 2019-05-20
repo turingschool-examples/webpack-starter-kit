@@ -1,6 +1,10 @@
 import chai from 'chai';
 import Player from '../src/Player'
+import spies from 'chai-spies'
+import domUpdates from '../src/domUpdates'
 const expect = chai.expect;
+chai.use(spies)
+chai.spy.on(domUpdates, 'displayWords', () => true)
 
 describe('Player', function () {
 

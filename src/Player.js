@@ -1,3 +1,4 @@
+import domUpdates from './domUpdates';
 class Player {
   constructor(id, name, guess) {
     this.id = id;

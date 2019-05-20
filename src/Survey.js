@@ -1,3 +1,5 @@
+import domUpdates from './domUpdates';
+
 class Survey {
   constructor () {
 
