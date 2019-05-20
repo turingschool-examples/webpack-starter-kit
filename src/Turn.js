@@ -16,15 +16,19 @@ class Turn {
   }
 
   checkGuess(player) {  
-    if(this.answers.includes(player.guess)) {
-      this.increaseScore()
-    } else {
-      this.switchPlayer()
-    }
+    let guessed = this.answers.map(steve => steve.answer).indexOf(player.guess)
+    return guessed === -1 
+      ? this.switchPlayer(player)
+      : this.increaseScore(player, this.answers[guessed]);
   }
   
-  increaseScore () {
-    
+  increaseScore (player, answer) {
+    player.score += answer.respondents
+    // console.log(answer)
+  }
+
+  switchPlayer() {
+
   }
 }
 
