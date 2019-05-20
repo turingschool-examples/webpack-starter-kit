@@ -1,6 +1,121 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$primary-background: blue;
+
+* {
+  box-sizing: border-box;
+  margin: auto;
+}
 
 body {
   background-color: $primary-background;
 }
+
+header {
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+}
+
+.title {
+  color:yellow;
+}
+
+main {
+  display: flex;
+}
+
+.player-area {
+  align-items: center;
+  border: 2px solid black;
+  color: yellow;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  margin: 10px;
+  width: 25%;
+}
+
+.player-one-name,
+.player-two-name {
+  font-size: 24px;
+}
+
+.player-one-score,
+.player-two-score {
+  font-size: 48px;
+}
+
+.player-one-x,
+.player-two-x {
+  border: 5px solid red;
+  color: red;
+  font-size: 36px;
+  height: 50px;
+  text-align: center;
+  width: 50px;
+}
+
+.survey {
+  align-items: center;
+  border: 5px solid yellow;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  margin: 10px;
+  width: 50%;
+}
+
+.round-display {
+  border: 2px dotted yellow;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.survey-question {
+  border: 2px solid white;
+  height: 40px;
+  width: 200px;
+}
+
+.answer {
+  border: 2px solid white;
+  height: 40px;
+  margin-top: 5px;
+  width: 200px;
+}
+
+.respondents-1,
+.respondents-2,
+.respondents-3 {
+  color: yellow;
+}
+
+.player-guess {
+  display: flex;
+  flex-direction: column;
+}
+
+.guess-input-label {
+  color: yellow;
+}
+
+.guess-input {
+  width: 200px;
+}
+
+.submit-guess {
+  align-self: center;
+  background-color: yellow;
+  color: blue;
+  font-size: 8px;
+  margin-top: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.money-round {
+  background-color: yellow;
+  height: 100px;
+}
+
