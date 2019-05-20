@@ -1,4 +1,5 @@
 import Data from './Data';
+import Turn from './Turn';
 
 class Round {
   constructor(game, puzzle) {
@@ -6,13 +7,14 @@ class Round {
     this.puzzle = puzzle;
   }
 
-  newTurn(this, this.game.player[0]) {
-    // instantiate new Turn(this, player)
+  newTurn() {
+  const turn = new Turn(this, this.game.players[0]);
+  this.currentTurn = turn;
   }
 
   endRound() {
-    // update this.game.roundCounter;
-    // this.game.start();
+    update this.game.roundCounter++
+    this.game.start();
   }
 }
 

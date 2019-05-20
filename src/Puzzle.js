@@ -1,25 +1,27 @@
 import Data from './Data';
 
 class Puzzle {
-  constructor(category, numberOfWords, totalNumberofLetters, firstWordLength, description, correctAnswer) {
-    this.category = category;
-    this.numberOfWords = numberOfWords;
-    this.totalNumberofLetters = totalNumberofLetters;
-    this.firstWordLength = firstWordLength;
-    this.description = description;
-    this.correctAnswer = [...correctAnswer];
+  constructor(puzzleData) {
+    this.category = puzzleData.category;
+    this.numberOfWords = puzzleData.number_of_words;
+    this.totalNumberofLetters = puzzleData.total_number_of_letters;
+    this.firstWordLength = puzzleData.first_word;
+    this.description = puzzleData.description;
+    this.correctAnswer = [...puzzleData.correct_answer];
     this.correctGuesses = [];
     this.incorrectGuesses = [];
   }
 
   evaluateLetter(guess) {
-    // this.correctAnswer.includes(guess);
-    // if true, push letter into this.correctGuesses
-    // if false, push letter into this.incorrectGuesses
+    if (this.correctAnswer.includes(guess)) {
+      this.correctGuesses.push(guess);
+    } else {
+      this.incorrectGuesses.push(guess);
+    }
   }
 
   evaluateSolve(guess) {
-    // return boolean;
+    return this.correctAnswer.join('') == guess;
   }
 }
 
