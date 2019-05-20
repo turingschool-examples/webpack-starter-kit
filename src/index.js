@@ -10,4 +10,14 @@ import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
-console.log('This is the JavaScript entry file - your code begins here.');
+
+import User from './User';
+
+
+const user = new User("Andreea")
+
+$('.submit-guess').on('click', function(){
+  user.updateScore(100);
+  console.log(user)
+});
+
