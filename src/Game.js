@@ -1,10 +1,11 @@
 import Data from './Data';
+import Player from './Player';
+import domUpdates from './domUpdates';
 import Round from './Round'
 import Puzzle from './Puzzle'
 
 class Game {
-  constructor(players, wheel) {
-    this.players = players;
+  constructor(wheel) {
     this.wheel = wheel;
     this.roundCounter = 0;
   }
@@ -26,6 +27,15 @@ class Game {
   start() {
     const round = new Round(this, this.returnPuzzle())
     this.assignCurrentRound(round);
+  }
+
+  createPlayers(names) {
+    const players = names.map(name => {
+      let player = new Player(name);
+      return player;
+    });
+    this.players = players;
+    domUpdates.displayNames(this.players);
   }
 
   assignCurrentRound(round) {

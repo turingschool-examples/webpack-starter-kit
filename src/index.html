@@ -4,10 +4,27 @@
     <title>Gametime Starter Kit</title>
   </head>
   <body>
-    <h1>Gametime Starter Kit</h1>
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <div class="dim"></div>
+    <section class="player-start-page">
+      <h1>Wheel of Fortune</h1>
+      <div>
+        <label class="name-labels" for="player-1">Player 1:</label>
+        <input class="name-inputs p1" type="text" name="player-1" id="input-1" placeholder="Enter Name">
+      </div>
+      <div>
+        <label class="name-labels" for="player-2">Player 2:</label>
+        <input class="name-inputs" type="text" name="player-2" id="input-2" placeholder="Enter Name">
+      </div>
+      <div>
+        <label class="name-labels" for="player-3">Player 3:</label>
+        <input class="name-inputs" type="text" name="player-3" id="input-3" placeholder="Enter Name">
+      </div>
+      <button class="start-button">Start Game</button>
+    </section>
+    <main>
+      <h3 class="player-1"></h3>
+      <h3 class="player-2"></h3>
+      <h3 class="player-3"></h3>
+    </main>
   </body>
 </html>
