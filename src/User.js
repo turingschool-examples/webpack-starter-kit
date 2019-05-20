@@ -1,13 +1,15 @@
+import domUpdates from './domUpdates';
+
 class User {
-  constructor(name, player = playerOne) {
+  constructor(name, player = 'playerOne') {
     this.name = name;
     this.score = 0;
     this.player = player;
   }
 
-  updateScore() {
-    this.score += answers.respondents;
-    //DOM update display score
+  updateScore(score) {
+    this.score += 100;
+    domUpdates.displayScore(score)
   }
 
   //DOM update name 
