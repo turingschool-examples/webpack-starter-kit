@@ -12,6 +12,7 @@ import './images/turing-logo.png'
 
 
 import User from './User';
+import Game from './Game';
 
 
 const user = new User("Andreea")
