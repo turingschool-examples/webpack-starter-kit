@@ -13,7 +13,7 @@ header {
   border: 1px solid black;
 }
 
-main {
+#game_board{
   display: flex;
   flex-direction: row;
 }
@@ -22,6 +22,7 @@ main {
   display: flex;
   flex: 1;
   justify-content: center;
+  flex-direction: column;
 }
 
 .container {
