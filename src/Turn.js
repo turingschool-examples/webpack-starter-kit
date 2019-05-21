@@ -6,6 +6,7 @@ import domUpdates from './domUpdates';
 class Turn {
   constructor(round) {
     this.answers = (this.findAnswers(round));
+    this.currentPlayer = 1
   }
 
   findAnswers (round) {
@@ -17,19 +18,26 @@ class Turn {
 
   checkGuess(player) {  
     let guessed = this.answers.map(steve => steve.answer).indexOf(player.guess)
-    return guessed === -1 
-      ? this.switchPlayer(player)
-      : this.increaseScore(player, this.answers[guessed]);
+    guessed === -1 
+      ? this.switchPlayer()
+      : this.increaseScore(player, this.answers[guessed], guessed);
+    round.changeRound()
   }
   
-  increaseScore (player, answer) {
+  increaseScore (player, answer, index) {
     player.score += answer.respondents
-    // console.log(answer)
+    this.answers.splice(index, 1)
   }
 
   switchPlayer() {
-
+    this.currentPlayer === 1 
+      ? this.currentPlayer = 2 
+      : this.currentPlayer = 1
   }
+
+
+
+
 }
 
 export default Turn;
