@@ -6,7 +6,7 @@ import spies from 'chai-spies'
 import domUpdates from '../src/domUpdates'
 const expect = chai.expect;
 chai.use(spies)
-// chai.spy.on(Turn, 'increaseScore', () => true)
+chai.spy.on(domUpdates, 'switchPlayer', () => true)
 
 describe('Turn', function () {
   let round;

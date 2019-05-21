@@ -1,12 +1,13 @@
 import data from "../data";
 import Round from "../src/Round";
-import Player from '../src/Player'
+import Player from '../src/Player';
+import Game from '../src/Game';
 import domUpdates from './domUpdates';
 
 class Turn {
   constructor(round) {
     this.answers = (this.findAnswers(round));
-    this.currentPlayer = 1
+    this.currentPlayer = 1;
   }
 
   findAnswers (round) {
@@ -18,10 +19,11 @@ class Turn {
 
   checkGuess(player) {  
     let guessed = this.answers.map(steve => steve.answer).indexOf(player.guess)
-    guessed === -1 
-      ? this.switchPlayer()
+    guessed === -1
+      ? this.switchPlayer(player)
       : this.increaseScore(player, this.answers[guessed], guessed);
-    round.changeRound()
+
+    // this.round.turn.changeRound()
   }
   
   increaseScore (player, answer, index) {
@@ -29,10 +31,13 @@ class Turn {
     this.answers.splice(index, 1)
   }
 
-  switchPlayer() {
-    this.currentPlayer === 1 
-      ? this.currentPlayer = 2 
-      : this.currentPlayer = 1
+  switchPlayer(player) {
+    if (this.currentPlayer === 1) {
+      this.currentPlayer = 2
+    } else {
+      this.currentPlayer = 1
+    }
+    domUpdates.switchPlayer(player)
   }
 
 
