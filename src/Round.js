@@ -1,4 +1,5 @@
-// import Game from './Game'
+import domUpdates from './domUpdates';
+import Game from './Game'
 
 class Round {
   constructor(survey, user) {
@@ -7,7 +8,7 @@ class Round {
     this.user = user;
     this.isPlayerOneTurn = true;
     this.isPlayerTwoTurn = false;
-    this.answers = this.returnCurrentAnswers(questionID);
+    // this.answers = this.returnCurrentAnswers(questionID);
   }
 
   returnCurrentQuestion(questionID) {
