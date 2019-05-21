@@ -48,13 +48,10 @@ describe('Round', function() {
   
   it('should be able to change turns between players', function(){
     expect(round.isPlayerOneTurn).to.equal(true);
-    expect(round.isPlayerTwoTurn).to.equal(false);  
     
     round.changeTurns()
  
     expect(round.isPlayerOneTurn).to.equal(false);
-    expect(round.isPlayerTwoTurn).to.equal(true);  
- 
   })
 
   it('should return a user\'s guess', function(){
@@ -82,12 +79,10 @@ describe('Round', function() {
   })
 
   it('should start the next player\'s turn, if the current player answered incorrectly', function(){
-    expect(round.isPlayerOneTurn).to.equal(true);
-    expect(round.isPlayerTwoTurn).to.equal(false);  
+    expect(round.isPlayerOneTurn).to.equal(true); 
     expect(round.evaluateGuess(1, 'bla')).to.equal(false);  
     round.evaluateIfChangeTurnsNeeded(1, 'bla');
     expect(round.isPlayerOneTurn).to.equal(false);
-    expect(round.isPlayerTwoTurn).to.equal(true); 
   })
 
   it('should increase player\'s score by respondents amount if they answered correctly', function(){

@@ -42,12 +42,12 @@ describe('Game', function() {
   });
 
   it.skip('should have the four survey ids for the game', function() {
-    game.selectFourSurveys()
+    game.selectFourQuestionsIDs()
     expect(game.questions).to.eql([1,2,3,4])
   });
 
   it.skip('should have the four surveys for the game', function() {
-    game.selectFourSurveys()
+    game.selectFourQuestionsIDs()
     game.setGameSurveyObjects()
     expect(game.surveys).to.eql([
       { survey:
@@ -104,9 +104,12 @@ describe('Game', function() {
   });
 
   it('should update rounds', function() {
+    game.selectFourQuestionsIDs()
+    game.setGameSurveyObjects()    
     expect(game.round).to.equal(0);
     game.updateRound();
     expect(game.round).to.equal(1);
+    expect(game.surveys.length).to.equal(3);
   });
 
 })

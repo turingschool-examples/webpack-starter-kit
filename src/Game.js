@@ -10,7 +10,7 @@ class Game {
     this.surveys = [];
   }
 
-  selectFourSurveys(){
+  selectFourQuestionsIDs(){
     let allSurveys = this.data.surveys.map(el => el.id)
     let currentIndex = allSurveys.length;
     let tempValue, randomIndex;
@@ -42,9 +42,13 @@ class Game {
     if (this.round > 2) {
       let lightningRound = new lightningRound();
     }else {
-      let round = new Round(this.data[0]);
+      let round = new Round(this.surveys[0]);
+      this.surveys.shift()
     }
   }
+
+
+
 
 }
 

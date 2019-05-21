@@ -7,7 +7,6 @@ class Round {
     // this.guess = guess;
     this.user = user;
     this.isPlayerOneTurn = true;
-    this.isPlayerTwoTurn = false;
     // this.answers = this.returnCurrentAnswers(questionID);
   }
 
@@ -25,7 +24,6 @@ class Round {
   
   changeTurns() {
     this.isPlayerOneTurn = !this.isPlayerOneTurn;
-    this.isPlayerTwoTurn = !this.isPlayerTwoTurn;
     }
 
   returnGuess(guess) {

@@ -15,10 +15,11 @@ import User from './User';
 import Game from './Game';
 
 
-const user = new User("Andreea")
+const user2 = new User("Andreea")
+const user1 = new User("Emily")
 
 $('.submit-guess').on('click', function(){
-  user.updateScore(100);
+  user1.updateScore(100);
   console.log(user)
 });
 
