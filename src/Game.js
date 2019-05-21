@@ -3,8 +3,9 @@ import Round from './Round';
 import data from '../data/surveys';
 
 class Game {
-  constructor(data) {
+  constructor(data, user1, user2) {
     this.data = data;
+    this.users = [user1, user2];
     this.round = 0;
     this.questions = [];
     this.surveys = [];
@@ -30,10 +31,10 @@ class Game {
 
   createSurveyObject(id) {
     let survey = this.data.surveys.find(el => el.id === id)
-    let answer = this.data.answers.filter(el => el.surveyId === id)
+    let answers = this.data.answers.filter(el => el.surveyId === id)
     let object = {}
-    object.survey = survey
-    object.answer = answer
+    object.survey = survey;
+    object.answers = answers;
     return object;
   }
 
@@ -42,7 +43,7 @@ class Game {
     if (this.round > 2) {
       let lightningRound = new lightningRound();
     }else {
-      let round = new Round(this.surveys[0]);
+      let round = new Round(this.surveys[0], this);
       this.surveys.shift()
     }
   }

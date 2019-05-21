@@ -1,4 +1,6 @@
 import domUpdates from './domUpdates';
+import Game from './Game';
+import Round from './Round';
 
 class User {
   constructor(name, player = 'playerOne') {
@@ -7,9 +9,12 @@ class User {
     this.player = player;
   }
 
-  updateScore(score) {
-    this.score += 100;
-    domUpdates.displayScore(score)
+  increaseScore(guess){
+    console.log(round)
+    if(round.evaluateGuess(guess) === true) {
+      this.score += round.survey.answers.find(amount => amount.answer === guess).respondents;
+      //DOM update display score
+    }
   }
 
   //DOM update name 

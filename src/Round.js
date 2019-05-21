@@ -1,11 +1,12 @@
 import domUpdates from './domUpdates';
-import Game from './Game'
+import Game from './Game';
+import User from './User';
 
 class Round {
-  constructor(survey, user) {
+  constructor(survey) {
     this.survey = survey;
-    // this.guess = guess;
-    this.user = user;
+    this.guess = "";
+    this.answers = [];
     this.isPlayerOneTurn = true;
     // this.answers = this.returnCurrentAnswers(questionID);
   }
@@ -15,9 +16,8 @@ class Round {
     return currentQuestion.question
   }
 
-  returnCurrentAnswers(questionID){
-    let currentAnswers = this.survey.answers.filter(el => el.surveyId === questionID)
-    return currentAnswers.map(el => el.answer);
+  returnCurrentAnswers(){
+    return this.answers = this.survey.answers.map(el => el.answer)
   }
   
   // selectSurvey() here or in game?
@@ -30,8 +30,8 @@ class Round {
     return this.guess = guess;
   }
   
-  evaluateGuess(questionID, answer) {
-    return this.returnCurrentAnswers(questionID).includes(answer) ? true : false
+  evaluateGuess(guess) {
+    return this.answers.includes(guess) ? true : false
   }
 
   returnRemainingAnswers(questionID, answer) {
@@ -46,12 +46,7 @@ class Round {
     } 
   }
 
-  increaseScore(questionID, answer){
-    if(this.evaluateGuess(questionID, answer) === true) {
-      this.user.score += this.survey.answers.find(amount => amount.answer === answer).respondents;
-      //DOM update display score
-    }
-  }
+
 
   finishRoundMessage() {
 }

@@ -1,4 +1,6 @@
 import User from '../src/User';
+import Round from '../src/Round';
+import Game from '../src/Game';
 var chai = require('chai');
 var expect = chai.expect;
 
@@ -9,6 +11,15 @@ surveys: [
             { answer: "Bowling Ball", respondents: 5, surveyId: 1 },
             { answer: "Donuts", respondents: 24, surveyId: 1 }]
   }
+
+const sampleSurvey = { survey:
+    { id: 1,
+      question:
+      'If You Drew Homer Simpson\'s Name In A Secret Santa Exchange, What Would You Buy Him?' },
+   answers:
+    [ { answer: 'Beer', respondents: 67, surveyId: 1 },
+      { answer: 'Bowling Ball', respondents: 5, surveyId: 1 },
+      { answer: 'Donuts', respondents: 24, surveyId: 1 } ] }
 
 describe('User', function() {
 
@@ -37,11 +48,17 @@ describe('User', function() {
     expect(user.player).to.equal('playerTwo');
   })
 
-  it.skip('should update user score', function(){
+  it('should increase player\'s score by respondents amount if they answered correctly', function(){
     const user = new User('Anneke', 'playerTwo');
-    user.updateScore()
-    expect(user.score).to.equal()//need to finish this test or move to Round?
+    let round = new Round(sampleSurvey)
+
+    expect(round.returnCurrentAnswers()).to.eql(["Beer", "Bowling Ball", "Donuts"]);
+    expect(round.returnGuess('Beer')).to.equal('Beer');
+    expect(round.evaluateGuess('Beer')).to.equal(true);
+    user.increaseScore('Beer');
+    expect(user.score).to.equal(67);
   })
+
 })
 
 
