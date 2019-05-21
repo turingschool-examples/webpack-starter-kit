@@ -38,15 +38,12 @@ class Game {
   }
 
   updateRound() {
-    let round = new Round(this.data[0]);
     this.round++;
-    if (round > 2) {
-      this.startLightningRound()
+    if (this.round > 2) {
+      let lightningRound = new lightningRound();
+    }else {
+      let round = new Round(this.data[0]);
     }
-  }
-
-  startLightningRound() {
-    let lightningRound = new lightningRound();
   }
 
 }
