@@ -48,17 +48,6 @@ describe('User', function() {
     expect(user.player).to.equal('playerTwo');
   })
 
-  it('should increase player\'s score by respondents amount if they answered correctly', function(){
-    const user = new User('Anneke', 'playerTwo');
-    let round = new Round(sampleSurvey)
-
-    expect(round.returnCurrentAnswers()).to.eql(["Beer", "Bowling Ball", "Donuts"]);
-    expect(round.returnGuess('Beer')).to.equal('Beer');
-    expect(round.evaluateGuess('Beer')).to.equal(true);
-    user.increaseScore('Beer');
-    expect(user.score).to.equal(67);
-  })
-
 })
 
 

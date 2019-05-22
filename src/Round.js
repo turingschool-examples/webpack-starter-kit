@@ -1,37 +1,21 @@
 import domUpdates from './domUpdates';
 import Game from './Game';
 import User from './User';
+import Turn from './Turn';
 
 class Round {
-  constructor(survey) {
-    this.survey = survey;
-    this.guess = "";
-    this.answers = [];
-    this.isPlayerOneTurn = true;
-    // this.answers = this.returnCurrentAnswers(questionID);
+  constructor(game, surveys, user1, user2) {
+    this.game = game;
+    this.surveys = surveys || [];
+    this.users = [user1, user2];
+    this.currentPlayer = null;
   }
 
-  returnCurrentQuestion(questionID) {
-    let currentQuestion = this.survey.surveys.find(el => el.id === questionID)
-    return currentQuestion.question
-  }
-
-  returnCurrentAnswers(){
-    return this.answers = this.survey.answers.map(el => el.answer)
-  }
-  
-  // selectSurvey() here or in game?
-  
-  changeTurns() {
-    this.isPlayerOneTurn = !this.isPlayerOneTurn;
+  updateCurrentPlayer() {
+    let turn = new Turn(this.surveys);
+    if(this.currentPlayer === null) {
+      this.currentPlayer = this.users[0];
     }
-
-  returnGuess(guess) {
-    return this.guess = guess;
-  }
-  
-  evaluateGuess(guess) {
-    return this.answers.includes(guess) ? true : false
   }
 
   returnRemainingAnswers(questionID, answer) {
@@ -40,13 +24,24 @@ class Round {
     } 
   }
   
-  evaluateIfChangeTurnsNeeded(questionID, answer) {
-    if (this.evaluateGuess(questionID, answer) === false) {
-      this.changeTurns();
-    } 
+  evaluateIfChangeTurnsNeeded() {
+    let turn = new Turn(this.surveys);
+    if (this.currentPlayer === this.users[0] && turn.evaluateGuess() === true) {
+      this.currentPlayer = this.users[0]
+    } else if (this.currentPlayer === this.users[0] && turn.evaluateGuess() === false) {
+      this.currentPlayer = this.users[1]
+    } else if (this.currentPlayer === this.users[1] && turn.evaluateGuess() === true) {
+      this.currentPlayer = this.users[1]
+    } else if (this.currentPlayer === this.users[1] && turn.evaluateGuess() === false) {
+      this.currentPlayer = this.users[0]
+    }
   }
 
-
+  increaseScore(guess) {
+    if(this.currentPlayer === this.users[0]) {
+      user.score += this.survey.answers.find(amount => amount.answer === guess).respondents;
+    }
+  }
 
   finishRoundMessage() {
 }
