@@ -33,7 +33,7 @@ $('#btn_game-start').on('click', function (e) {
     game = new Game(player1, player2)
     round = game.round
     turn = game.round.turn
-    domUpdates.showBoard(round)
+    domUpdates.showBoard(round, 0)
     domUpdates.assignNames(player1, player2)
     console.log(game.players)
     console.log(round.surveys)
@@ -53,6 +53,8 @@ $('#btn_submit').on('click', function (e) {
     game.players[1].guess = $('#input_player-guess').val()
     game.round.turn.checkGuess(game.players[1])
   }
+  round.changeRound()
+  console.log(turn.answers)
 })
 
 
