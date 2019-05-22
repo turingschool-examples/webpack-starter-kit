@@ -19,9 +19,13 @@ class Round {
   }
 
   changeRound() {
-    turn.answers.length === 0
-      ? this.currentRound++
-      : null;
+    if (this.turn.guessed.length === 3) {
+      console.log('new round son')
+      this.currentRound++
+      this.surveys.shift()
+      new Turn(this)
+      domUpdates.showBoard(this, (this.currentRound - 1))
+    }
   }
 }
 
