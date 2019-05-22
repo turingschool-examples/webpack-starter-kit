@@ -8,6 +8,7 @@ class Turn {
   constructor(round) {
     this.answers = (this.findAnswers(round));
     this.currentPlayer = 1;
+    this.guessed = []
   }
 
   findAnswers (round) {
@@ -19,21 +20,22 @@ class Turn {
 
   checkGuess(player) {  
     let guessed = this.answers.map(steve => steve.answer).indexOf(player.guess)
-    guessed === -1
-      ? this.switchPlayer(player)
-      : this.increaseScore(player, this.answers[guessed], guessed);
-
-    // this.round.turn.changeRound()
+    if (this.guessed.includes(player.guess)) {
+      domUpdates.checkGuess()
+    } else if (guessed === -1) {
+      this.switchPlayer()
+    } else {
+      this.increaseScore(player, this.answers[guessed], guessed)
+    }
   }
   
   increaseScore (player, answer, index) {
-    player.score += answer.respondents
-    this.answers.splice(index, 1)
-    domUpdates.increaseScore(player.id, player.score)
+    player.score += answer.respondents;
+    this.guessed.push(`${this.answers[index].answer}`)
+    domUpdates.correctAnswer(player.id, player.score, answer, index)
   }
 
   switchPlayer() {
-    // console.log('switch player', player)
     if (this.currentPlayer === 1) {
       this.currentPlayer = 2
     } else {

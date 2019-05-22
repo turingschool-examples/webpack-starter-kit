@@ -18,11 +18,12 @@ const domUpdates = {
 
   checkGuess: function () {
     // let player.guess = $('#input_player-guess').val()
-
+    $('#input_player-guess').val('That\'s already been guessed')
   },
 
-  increaseScore: function (player, score) {
+  correctAnswer: function (player, score, answerObj, num) {
     $(`#score_player-${player}`).text(score)
+    $(`.survey-${num}`).text(answerObj.answer)
   },
 
   switchPlayer: function () {

@@ -7,6 +7,7 @@ import domUpdates from '../src/domUpdates'
 const expect = chai.expect;
 chai.use(spies)
 chai.spy.on(domUpdates, 'switchPlayer', () => true)
+chai.spy.on(domUpdates, 'correctAnswer', () => true)
 
 describe('Turn', function () {
   let round;
@@ -33,6 +34,11 @@ describe('Turn', function () {
     expect(round.turn.answers[0].surveyId).to.equal(round.surveys[0].id)
   })
 
+  it('should have default values for this.currentPlayer = 1, and this.guessed is empty', function () {
+    expect(turn.currentPlayer).to.equal(1)
+    expect(turn.guessed).to.be.a('array')
+  })
+
   it('should check the guess and increase the score if correct', function() {
     turn.checkGuess(player)
     expect(player.score).to.equal(61)
@@ -49,11 +55,9 @@ describe('Turn', function () {
     expect(turn.currentPlayer).to.equal(1)
   })
 
-  it('should slice out the answer if guess correct', function () {
-    expect(turn.answers).to.have.length(3)
+  it('should push the corrrect answer to the guessed array', function () {
     turn.checkGuess(player)
-    expect(turn.answers).to.have.length(2).and.eql([{ answer: 'Remove Price Tag', respondents: 27, surveyId: 2 },
-      { answer: 'Buy It', respondents: 4, surveyId: 2 }])
+    expect(turn.guessed).to.eql(['Wrap It'])
   })
 
 });
