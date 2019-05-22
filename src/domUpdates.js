@@ -2,17 +2,18 @@
 import $ from 'jquery'
 const domUpdates = {
 
-  showBoard: function () {
+  showBoard: function (roundObj) {
     console.log('new game')
     $('#form_game-start').hide()
     $('#game_board').toggle()
-    $('#input_player-2').prop('disabled', true)
+    $('#survey_output').text(roundObj.surveys[0].question)
   },
 
   assignNames: function (name1, name2) {
     $("#name_player-1, label[for='input_player-1']").text(name1)
+    $("#name_player-1").text(name1)
     $("#name_player-2").text(name2)
-    $("label[for='input_player-guess']").text(name1 + ' guess')
+    // $("label[for='input_player-guess']").text(name1 + ' guess')
   },
 
   checkGuess: function () {
@@ -20,8 +21,15 @@ const domUpdates = {
 
   },
 
-  switchPlayer: function (player) {
-    $("label[for='input_player-guess']").text(`${player.name} guess`)
+  increaseScore: function (player, score) {
+    $(`#score_player-${player}`).text(score)
+  },
+
+  switchPlayer: function () {
+    $('#steve1').toggle()
+    $('#steve2').toggle()
+    // $("label[for='input_player-guess']").text(`${player.name} guess`)
+    // $(`#name_player-${player.id}`).css('border', '1px solid red')
   }
 
 }

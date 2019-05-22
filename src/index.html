@@ -14,11 +14,12 @@
         <button id="btn_game-start">Start Game</button>
       </form>
       <div id="game_board">
-        <section class="column player-column">
+        <section class="column player-column p1">
           <article class="container player-container">
             <div class="name-and-score">
+              <p id="steve1"></p>
               <h3 id="name_player-1"></h3>
-              <p id="score_player-1">Score: 0</p>
+              <p>Score: <span id="score_player-1">0</span></p>
             </div>
           </article>
         </section>
@@ -26,6 +27,7 @@
           <article class="container game-container">
             <div class="round">
               <h3>Round 1</h3>
+              <h4 id="survey_output"></h4>
             </div>
             <section class="survey-box-container">
               <div class="survey-box survey-box-1">
@@ -41,7 +43,7 @@
             <form class="submit-form">
               <p class="timer">30.00</p>
               <form class="guess-and-input_player-1">
-                <label for="input_player-guess">player guess</label>
+                <label for="input_player-guess">Input Guess Here!!!</label>
                 <input id="input_player-guess" type="text" name="" value="">
               </form>
               <button id="btn_submit" type="button" name="button">Submit!</button>
@@ -51,8 +53,9 @@
         <section class="column player-column">
           <article class="container player-container">
             <div class="name-and-score">
+              <p id="steve2"></p>
               <h3 id="name_player-2"></h3>
-              <p id="score_player-2">Score: 0</p>
+              <p>Score:<span id="score_player-2">0</span></p>
             </div>
           </article>
         </section>

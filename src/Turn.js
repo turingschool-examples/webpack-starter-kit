@@ -29,19 +29,18 @@ class Turn {
   increaseScore (player, answer, index) {
     player.score += answer.respondents
     this.answers.splice(index, 1)
+    domUpdates.increaseScore(player.id, player.score)
   }
 
-  switchPlayer(player) {
+  switchPlayer() {
+    // console.log('switch player', player)
     if (this.currentPlayer === 1) {
       this.currentPlayer = 2
     } else {
       this.currentPlayer = 1
     }
-    domUpdates.switchPlayer(player)
+    domUpdates.switchPlayer()
   }
-
-
-
 
 }
 
