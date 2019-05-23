@@ -3,8 +3,8 @@ import Player from './Player';
 
 class Game {
   constructor(name1, name2) {
-    this.players = (this.newPlayers(name1, name2))
-    this.round = (new Round())
+    this.players = this.newPlayers(name1, name2)
+    this.round = new Round()
   }
   newPlayers (name1, name2) {
     let bothPlayers = []
