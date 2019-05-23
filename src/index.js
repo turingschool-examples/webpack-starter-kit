@@ -3,6 +3,7 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
+import fetch from ‘cross-fetch’;
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/normalize.scss'
@@ -27,9 +28,9 @@ import User from './User';
 import Game from './Game';
 
 
-const game = new Game(data, user1, user2)
-const user2 = new User("Andreea", "playerTwo")
-const user1 = new User("Emily", "playerOne")
+let user1 = new User("Anneke", "playerOne")
+let user2 = new User("Andreea", "playerTwo")
+let game = new Game(data, user1, user2)
 
 $('.submit-guess').on('click', function(){
   user1.updateScore(100);
