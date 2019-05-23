@@ -17,7 +17,7 @@ import Survey from './Survey';
 import domUpdates from './domUpdates';
 
 $(document).ready(function () {
-  $('#game_board').hide()
+  $('#game-board').hide()
   $('#steve2').hide()
   $('header').hide()
 })

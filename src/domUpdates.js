@@ -5,7 +5,7 @@ const domUpdates = {
   showBoard: function (roundObj, index) {
     $('header').show()
     $('#form_game-start').hide()
-    $('#game_board').show()
+    $('#game-board').show()
     $('#survey_output').text(roundObj.surveys[index].question)
     this.hideAnswers()
     $('#round_current-round').text(`Round ${roundObj.currentRound}`)
@@ -28,9 +28,10 @@ const domUpdates = {
     $('input').val('')
   },
 
-  switchPlayer: function () {
-    $('#steve1').toggle()
-    $('#steve2').toggle()
+  switchPlayer: function (userID) {
+    let next = userID === 1 ? userID++ : userID--
+    $(`#steve${next}`).toggle()
+    $(`#steve${userID}`).toggle()
     $('input').val('')
   },
 
