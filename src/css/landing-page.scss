@@ -1,0 +1,69 @@
+$landing-page-main-color: hotpink;
+$landing-accent-color: gold;
+$landing-page-font: cursive;
+
+
+.landing-page {
+  font-family: $landing-page-font;
+  height: 100vh;
+  width: 100%;
+  background-color: $landing-page-main-color;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+      .start-button {
+        background: transparent;
+        margin: 150px 0;
+        position: relative;
+        display: block;
+        color: $landing-accent-color;
+        width: 0px;
+        height: 0px;
+        border-right: 100px solid transparent;
+        border-bottom: 70px solid $landing-accent-color;
+        border-left: 100px solid transparent;
+        transform: rotate(36deg);
+      }
+      .start-button:before {
+        border-bottom: 80px solid $landing-accent-color;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        position: absolute;
+        height: 0;
+        width: 0;
+        top: -45px;
+        left: -65px;
+        display: block;
+        content: '';
+        transform: rotate(-35deg);
+      }
+      .start-button:after {
+        position: absolute;
+        display: block;
+        color: $landing-accent-color;
+        top: 3px;
+        left: -105px;
+        width: 0px;
+        height: 0px;
+        border-right: 100px solid transparent;
+        border-bottom: 70px solid $landing-accent-color;
+        border-left: 100px solid transparent;
+        transform: rotate(-70deg);
+        content: '';
+      }
+
+    input {
+      width: 300px;
+      height: 100px;
+      border: 2px solid $landing-accent-color;
+    }
+
+    h1 {
+      color: $landing-accent-color;
+    }
+  }
+

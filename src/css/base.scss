@@ -1,5 +1,8 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: blue;
+@import './landing-page.scss';
+
+$primary-background:purple;
+$primary-accent-color: gold;
 
 * {
   box-sizing: border-box;
@@ -8,16 +11,16 @@ $primary-background: blue;
 
 body {
   background-color: $primary-background;
+  position: relative;
 }
 
 header {
   height: 40px;
-  padding: 10px;
   text-align: center;
 }
 
 .title {
-  color:yellow;
+  color:$primary-accent-color;
 }
 
 main {
@@ -27,7 +30,7 @@ main {
 .player-area {
   align-items: center;
   border: 2px solid black;
-  color: yellow;
+  color: $primary-accent-color;
   display: flex;
   flex-direction: column;
   height: 70vh;
@@ -57,7 +60,7 @@ main {
 
 .survey {
   align-items: center;
-  border: 5px solid yellow;
+  border: 5px solid $primary-accent-color;
   border-radius: 60px;
   display: flex;
   flex-direction: column;
@@ -67,7 +70,7 @@ main {
 }
 
 .round-display {
-  border: 2px dotted yellow;
+  border: 2px dotted $primary-accent-color;
   color: #FFFFFF;
   font-size: 16px;
 }
@@ -88,7 +91,7 @@ main {
 .respondents-1,
 .respondents-2,
 .respondents-3 {
-  color: yellow;
+  color:$primary-accent-color;
 }
 
 .player-guess {
@@ -97,7 +100,7 @@ main {
 }
 
 .guess-input-label {
-  color: yellow;
+  color: $primary-accent-color;
 }
 
 .guess-input {
@@ -106,8 +109,8 @@ main {
 
 .submit-guess {
   align-self: center;
-  background-color: yellow;
-  color: blue;
+  background-color: $primary-accent-color;
+  color: $primary-background;
   font-size: 8px;
   margin-top: 10px;
   width: 50px;
@@ -115,7 +118,9 @@ main {
 }
 
 .money-round {
-  background-color: yellow;
+  background-color: $primary-accent-color;
   height: 100px;
 }
+
+
 
