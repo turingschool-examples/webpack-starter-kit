@@ -9,6 +9,10 @@ class User {
     this.player = player;
   }
 
+  updateScore(amount) {
+    this.score += amount;
+  }
+
   //DOM update name 
 
 }

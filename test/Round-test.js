@@ -1,7 +1,7 @@
 import User from '../src/User';
+import Turn from '../src/Turn';
 import Round from '../src/Round';
 import Game from '../src/Game';
-import Turn from '../src/Turn';
 var chai = require('chai');
 var expect = chai.expect;
 
@@ -14,6 +14,28 @@ const sampleSurvey = { survey:
     { answer: 'Bowling Ball', respondents: 5, surveyId: 1 },
     { answer: 'Donuts', respondents: 24, surveyId: 1 } ] }
 
+const sampleData = {
+      surveys: [
+        { id: 1, question: 'If You Drew Homer Simpson\'s Name In A Secret Santa Exchange, What Would You Buy Him?' },
+        { id: 2, question: 'Name Something You Do To An Item Before Giving It As A Gift' },
+        { id: 3, question: 'Name A Good Gift For Someone Who Is Always Late.' },
+        { id: 4, question: 'Why Might A Family Move Into A Bigger House?' }
+        ],
+      answers: [  { answer: "Beer", respondents: 67, surveyId: 1 },
+                  { answer: "Bowling Ball", respondents: 5, surveyId: 1 },
+                  { answer: "Donuts", respondents: 24, surveyId: 1 },
+                  { answer: 'Buy It', respondents: 4, surveyId: 2 },
+                  { answer: 'Remove Price Tag', respondents: 27, surveyId: 2 },
+                  { answer: 'Wrap It', respondents: 61, surveyId: 2 },
+                  { answer: 'Alarm Clock', respondents: 34, surveyId: 3 },
+                  { answer: 'Calendar', respondents: 3, surveyId: 3 },
+                  { answer: 'Watch', respondents: 58, surveyId: 3 },
+                  { answer: 'Can Afford More', respondents: 5, surveyId: 4 },
+                  { answer: 'Family Has Grown', respondents: 61, surveyId: 4 },
+                  { answer: 'Want More Space', respondents: 33, surveyId: 4 }
+                ]
+}
+
 describe('Round', function() {
   let user1;
   let user2;
@@ -23,7 +45,7 @@ describe('Round', function() {
   beforeEach(function() {
     user1 = new User('Anneke', 'playerOne');
     user2 = new User('Andreea', 'playerTwo');
-    game = new Game(sampleSurvey, user1, user2)
+    game = new Game(sampleData, user1, user2)
     round = new Round(game, sampleSurvey, user1, user2);
   }) 
 
@@ -49,39 +71,27 @@ describe('Round', function() {
     expect(round.currentPlayer).to.equal(user1)
   });
 
-  it.skip('should eliminate a correct answer from the array, if it has already been guessed', function(){
-    expect(round.returnGuess('Beer')).to.equal('Beer');
-    expect(round.evaluateGuess(1, 'Beer')).to.equal(true);
-
-    expect(round.returnRemainingAnswers(1, "Beer")).to.eql(["Bowling Ball", "Donuts"]);
-
-    expect(round.returnGuess('Bowling Ball')).to.equal('Bowling Ball');
-    expect(round.evaluateGuess(1, 'Beer')).to.equal(true);
-
-    expect(round.returnRemainingAnswers(1, "Bowling Ball")).to.eql(["Donuts"]);
-  })
-
-  it('should start the next player\'s turn, if the current player answered incorrectly', function(){
-    let turn = new Turn(sampleSurvey);
+  it('should switch the turn to the other player', function(){
     round.updateCurrentPlayer();
-    expect(round.currentPlayer).to.equal(user1); 
-    expect(turn.evaluateGuess('NOPE')).to.equal(false);  
-    round.evaluateIfChangeTurnsNeeded();
-    expect(round.currentPlayer).to.equal(user2);
+    expect(round.currentPlayer).to.equal(user1);
+    round.changeTurn();
+    expect(round.currentPlayer).to.equal(user2)
   });
 
-  it.skip('should increase the score of the current user if answered correctly', function(){
-    expect(turn.evaluateGuess()).to.equal(true);
-    round.increaseScore(turn.guess);
-    expect(user1.score).to.equal(67);
+  it('should eliminate a correct answer from the array, if it has already been guessed, and end round if array is empty', function(){
+    game.start();
+    expect(round.answers.length).to.equal(3);
+    round.eliminateGuessedAnswer(0);
+    expect(round.answers.length).to.equal(2);
+    round.eliminateGuessedAnswer(0);
+    expect(round.answers.length).to.equal(1);
+    round.eliminateGuessedAnswer(0);
+    expect(round.answers.length).to.equal(0);
+    game.updateRound();
+    expect(game.roundCount).to.equal(2);
   })
 
-  it.skip('should check if the correct answer array is empty, and end round if it is', function(){
-    expect(round.returnRemainingAnswers(1, 'Beer')).to.eql(["Bowling Ball", "Donuts"]);
-    expect(round.returnRemainingAnswers(1, 'Bowling Ball')).to.eql(["Donuts"]);
-    expect(round.returnRemainingAnswers(1, 'Donuts')).to.eql([]);
-    expect(round.finishRoundMessage()).to.equal('Round Over! Start the next one!')
-  })
+
 
 
 
