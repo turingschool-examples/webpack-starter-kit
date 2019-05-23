@@ -3,7 +3,7 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
-import fetch from ‘cross-fetch’;
+import fetch from 'cross-fetch';
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/normalize.scss'
@@ -19,18 +19,16 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
         return response.json()
     })
     .then(function(parsedData){
-        data = parsedData
+        data = parsedData;
+        let user1 = new User("Anneke", "playerOne")
+        let user2 = new User("Andreea", "playerTwo")
+        let game = new Game(data, user1, user2)
     })
     .catch(err => console.error('Error'));
-
 
 import User from './User';
 import Game from './Game';
 
-
-let user1 = new User("Anneke", "playerOne")
-let user2 = new User("Andreea", "playerTwo")
-let game = new Game(data, user1, user2)
 
 $('.submit-guess').on('click', function(){
   user1.updateScore(100);
