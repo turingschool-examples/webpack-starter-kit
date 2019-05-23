@@ -1,55 +1,55 @@
 import domUpdates from './domUpdates';
-import Game from './Game'
+import Game from './Game';
+import User from './User';
+import Turn from './Turn';
 
 class Round {
-  constructor(survey, user) {
+  constructor(game, survey, user1, user2) {
+    this.game = game;
     this.survey = survey;
-    // this.guess = guess;
-    this.user = user;
-    this.isPlayerOneTurn = true;
-    // this.answers = this.returnCurrentAnswers(questionID);
+    this.answers = this.survey.answers
+    this.users = [user1, user2];
+    this.currentPlayer = null;
   }
 
-  returnCurrentQuestion(questionID) {
-    let currentQuestion = this.survey.surveys.find(el => el.id === questionID)
-    return currentQuestion.question
-  }
-
-  returnCurrentAnswers(questionID){
-    let currentAnswers = this.survey.answers.filter(el => el.surveyId === questionID)
-    return currentAnswers.map(el => el.answer);
-  }
-  
-  // selectSurvey() here or in game?
-  
-  changeTurns() {
-    this.isPlayerOneTurn = !this.isPlayerOneTurn;
+  updateCurrentPlayer() {
+    if(this.currentPlayer === null) {
+      this.currentPlayer = this.users[0];
+    } else if (game.roundCount === 2) {
+      this.currentPlayer = this.users[1];
     }
-
-  returnGuess(guess) {
-    return this.guess = guess;
   }
   
-  evaluateGuess(questionID, answer) {
-    return this.returnCurrentAnswers(questionID).includes(answer) ? true : false
+  changeTurn() {
+    let index = this.users.indexOf(this.currentPlayer);
+    this.currentPlayer = this.users[1-index];
+    let turn = new Turn (this.currentPlayer, this);
   }
 
-  returnRemainingAnswers(questionID, answer) {
-    if (this.evaluateGuess(questionID, answer) === true) {
-      
-    } 
+  eliminateGuessedAnswer(index) {
+    if (this.answers.length > 0) {
+      return this.answers.splice(index, 1)
+    } else {
+      this.game.updateRound();
+    }
   }
   
-  evaluateIfChangeTurnsNeeded(questionID, answer) {
-    if (this.evaluateGuess(questionID, answer) === false) {
-      this.changeTurns();
-    } 
+  evaluateIfChangeTurnsNeeded() {
+    // let turn = new Turn(this.surveys);
+    if (this.currentPlayer === this.users[0] && turn.evaluateGuess() === true) {
+      this.currentPlayer = this.users[0]
+    } else if (this.currentPlayer === this.users[0] && turn.evaluateGuess() === false) {
+      this.currentPlayer = this.users[1]
+    } else if (this.currentPlayer === this.users[1] && turn.evaluateGuess() === true) {
+      this.currentPlayer = this.users[1]
+    } else if (this.currentPlayer === this.users[1] && turn.evaluateGuess() === false) {
+      this.currentPlayer = this.users[0]
+    }
   }
 
-  increaseScore(questionID, answer){
-    if(this.evaluateGuess(questionID, answer) === true) {
-      this.user.score += this.survey.answers.find(amount => amount.answer === answer).respondents;
-      //DOM update display score
+  increaseScore(guess) {
+    if(this.currentPlayer === this.users[0]) {
+      user.score += this.survey.answers.find(amount => amount.answer === guess).respondents;
     }
   }
 

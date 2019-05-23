@@ -1,7 +1,7 @@
-import User from '../src/User';
 import Turn from '../src/Turn';
+import User from '../src/User';
 import Round from '../src/Round';
-import Game from '../src/Game';
+import Game from '../src/Round';
 var chai = require('chai');
 var expect = chai.expect;
 
@@ -34,65 +34,59 @@ const sampleData = {
                   { answer: 'Family Has Grown', respondents: 61, surveyId: 4 },
                   { answer: 'Want More Space', respondents: 33, surveyId: 4 }
                 ]
-}
+        }
+    
 
-describe('Round', function() {
+describe('Turn', function() {
   let user1;
   let user2;
   let game;
   let round;
+  let turn;
 
   beforeEach(function() {
     user1 = new User('Anneke', 'playerOne');
     user2 = new User('Andreea', 'playerTwo');
-    game = new Game(sampleData, user1, user2)
+    game = new Game(sampleData, user1, user2);
     round = new Round(game, sampleSurvey, user1, user2);
+    turn = new Turn(user1, round);
   }) 
 
   it('should be a function', function() {
-    expect(Round).to.be.a('function');
+    expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Round', function() {
-    expect(round).to.be.an.instanceof(Round);
+  it('should be an instance of Turn', function() {
+    expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it('should set an array of users', function(){
-    expect(round.users).to.eql([user1, user2])
+  it('should default the guess to an empty string', function() {
+    expect(turn.guess).to.equal('');
   });
 
-  it('should have the currentPlayer default to null', function() {
-    expect(round.currentPlayer).to.equal(null);
-  });
+  // it('should return the current survey answers', function(){
+  //   expect(turn.returnCurrentAnswers()).to.eql(["Beer", "Bowling Ball", "Donuts"]);
+  // });
 
-  it('should update current player', function(){
-    expect(round.currentPlayer).to.equal(null);
-    round.updateCurrentPlayer();
-    expect(round.currentPlayer).to.equal(user1)
-  });
-
-  it('should switch the turn to the other player', function(){
-    round.updateCurrentPlayer();
-    expect(round.currentPlayer).to.equal(user1);
-    round.changeTurn();
-    expect(round.currentPlayer).to.equal(user2)
-  });
-
-  it('should eliminate a correct answer from the array, if it has already been guessed, and end round if array is empty', function(){
-    game.start();
-    expect(round.answers.length).to.equal(3);
-    round.eliminateGuessedAnswer(0);
-    expect(round.answers.length).to.equal(2);
-    round.eliminateGuessedAnswer(0);
-    expect(round.answers.length).to.equal(1);
-    round.eliminateGuessedAnswer(0);
-    expect(round.answers.length).to.equal(0);
-    game.updateRound();
-    expect(game.roundCount).to.equal(2);
+  it('should return the user\'s guess', function() {
+    expect(turn.guess).to.equal('');
+    turn.returnUserGuess('Beer')
+    expect(turn.guess).to.equal('Beer');
   })
 
+  it('should evaluate if a guess is correct or not', function(){
+    round.updateCurrentPlayer();
+    expect(round.currentPlayer.name).to.equal('Anneke');
+    turn.evaluateGuess('Beer');
+    expect(round.currentPlayer.name).to.equal('Anneke');
+    turn.evaluateGuess('Beeeeeeeer');
+    expect(round.currentPlayer.name).to.equal('Andreea');
+  });
 
-
-
+  // it('should be able to change turns between players', function(){
+  //   expect(turn.isPlayerOneTurn).to.equal(true);
+  //   turn.changeTurns()
+  //   expect(turn.isPlayerOneTurn).to.equal(false);
+  // });
 
 })

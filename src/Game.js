@@ -3,11 +3,12 @@ import Round from './Round';
 import data from '../data/surveys';
 
 class Game {
-  constructor(data) {
+  constructor(data, user1, user2) {
     this.data = data;
-    this.round = 0;
-    this.questions = [];
-    this.surveys = [];
+    this.users = [user1, user2];
+    this.gameSurveys = [];
+    this.roundCount = 0;
+    this.ids = [];
   }
 
   selectFourQuestionsIDs(){
@@ -21,36 +22,46 @@ class Game {
       allSurveys[currentIndex] = allSurveys[randomIndex]
       allSurveys[randomIndex] = tempValue;
     }
-    this.questions = this.questions.concat(allSurveys.splice(0,4))
+    this.ids = this.ids.concat(allSurveys.splice(0,4))
   }
     
   setGameSurveyObjects() {
-  this.surveys = this.questions.map(el => this.createSurveyObject(el))
+  this.gameSurveys = this.ids.map(el => this.createSurveyObject(el))
   }
 
   createSurveyObject(id) {
     let survey = this.data.surveys.find(el => el.id === id)
-    let answer = this.data.answers.filter(el => el.surveyId === id)
+    let answers = this.data.answers.filter(el => el.surveyId === id)
     let object = {}
-    object.survey = survey
-    object.answer = answer
+    object.survey = survey;
+    object.answers = answers;
     return object;
   }
 
+  start() {
+    this.selectFourQuestionsIDs();
+    this.setGameSurveyObjects();
+    let round = new Round(this.gameSurveys[0], this.users[0], this.users[1], this);
+    round.updateCurrentPlayer();
+    this.gameSurveys.shift();
+    this.roundCount++;
+  }
+  
   updateRound() {
-    this.round++;
-    if (this.round > 2) {
-      let lightningRound = new lightningRound();
+    this.roundCount++;
+    if (this.roundCount > 2) {
+      let finalRound = new FinalRound();
     }else {
-      let round = new Round(this.surveys[0]);
-      this.surveys.shift()
+      let round = new Round(this.gameSurveys[0], this.users[0], this.users[1], this);
+      this.gameSurveys.shift()
     }
   }
 
-
+  endGame() {
+    // DOM hard reset??????
+  }
 
 
 }
-
 
 export default Game;

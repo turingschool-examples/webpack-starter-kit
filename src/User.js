@@ -1,4 +1,6 @@
 import domUpdates from './domUpdates';
+import Game from './Game';
+import Round from './Round';
 
 class User {
   constructor(name, player = 'playerOne') {
@@ -7,9 +9,8 @@ class User {
     this.player = player;
   }
 
-  updateScore(score) {
-    this.score += 100;
-    domUpdates.displayScore(score)
+  updateScore(amount) {
+    this.score += amount;
   }
 
   //DOM update name 

@@ -10,16 +10,28 @@ import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
+var data;
+
+fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(parsedData){
+        data = parsedData
+    })
+    .catch(err => console.error('Error'));
+
 
 import User from './User';
 import Game from './Game';
 
 
-const user2 = new User("Andreea")
-const user1 = new User("Emily")
+const game = new Game(data, user1, user2)
+const user2 = new User("Andreea", "playerTwo")
+const user1 = new User("Emily", "playerOne")
 
 $('.submit-guess').on('click', function(){
   user1.updateScore(100);
-  console.log(user)
+  console.log(user1)
 });
 
