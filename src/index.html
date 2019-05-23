@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <header>
+    <!-- <header>
       <h1>Family Feud</h1>
-    </header>
+    </header> -->
     <main>
       <form id="form_game-start"> 
         <div>
@@ -17,21 +17,20 @@
         <button id="btn_game-start">Start Game</button>
       </form>
       <div id="game-board">
-        <section class="column player-column p1">
-          <article class="container player-container">
-            <div class="name-and-score">
-              <p id="steve1"></p>
+        <div id="top-left"></div>
+        <!-- <section class="column player-column p1"> -->
+          <p id="steve1"></p>
+          <article class="container player-container p1">
               <h3 id="name_player-1"></h3>
-              <p>Score: <span id="score_player-1">0</span></p>
-            </div>
+              <p class="player_score">Score: <span id="score_player-1">0</span></p>
           </article>
-        </section>
-        <section class="game-column column">
+        <!-- </section> -->
+        <!-- <section class="game-column column"> -->
+          <div class="round">
+            <h3 id="round_current-round">Round 1</h3>
+            <h4 id="survey_output"></h4>
+          </div>
           <article class="container game-container">
-            <div class="round">
-              <h3 id="round_current-round">Round 1</h3>
-              <h4 id="survey_output"></h4>
-            </div>
             <section class="survey-box-container">
               <div class="survey-box survey-box-0">
                 <p class="survey-0"></p>
@@ -43,23 +42,24 @@
                 <p class="survey-2"></p>
               </div>
             </section>
-            <form class="submit-form" onSubmit="return false">
-              <p class="timer">30.00</p>
-              <label for="input_player-guess">Input Guess Here!!!</label>
-              <input id="input_player-guess" type="text">
-              <button id="btn_submit" name="button">Submit!</button>
-            </form>
           </article>
-        </section>
-        <section class="column player-column">
-          <article class="container player-container">
-            <div class="name-and-score">
-              <p id="steve2"></p>
+          <p class="timer">Timer</p>
+          <form class="submit-form" onSubmit="return false">
+            <label for="input_player-guess">Input Guess Here!!!</label>
+            <input id="input_player-guess" type="text">
+            <button id="btn_submit" name="button">Submit!</button>
+          </form>
+          <div id="bottom-right"></div>
+          <div id="bottom-left"></div>
+        <!-- </section> -->
+        <div id="top-right"></div>
+        <!-- <section class="column player-column"> -->
+          <p id="steve2"></p>
+          <article class="container player-container p2">
               <h3 id="name_player-2"></h3>
-              <p>Score:<span id="score_player-2">0</span></p>
-            </div>
+              <p class="player_score">Score:<span id="score_player-2">0</span></p>
           </article>
-        </section>
+        <!-- </section> -->
         <button id="btn_game-quit">X</button>
       </div>
     </main>

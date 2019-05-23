@@ -1,20 +1,22 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 $primary-background: rgba(11, 25, 65, 1);
-$gradient: rgba(11,25,65,.8);
-$hover-color: lightblue;
+// $gradient: rgba(11,25,65,.8);
+$hover-color: orange;
 /*-------Body----------*/
 body {
-  
-  background: linear-gradient(rgba(11, 25, 65, .8), rgba(11,25,65,1) 70.71%);
+  background:rgba(11,25,65,1);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color:#fff;
 }
 
 /*-------Header----------*/
 header {
   text-align: center;
-  border: 1px solid black;
+  border: 20px dotted rgb(255, 208, 0);
+  background-color: #fff;
+  color:black;
 }
 
 /*-------Main----------*/
@@ -39,18 +41,20 @@ header {
 }
 
 input{
-  width: 100px;
+  font-size: 1.5em;
+  width: 150px;
   margin: 10px;
+  box-shadow: 0px 0px 10px 5px rgba(230,230,230,0.8);
   &:hover{
-    border-color: $hover-color
-  }
+    border-color: $hover-color;
+  };
 }
 
 button {
   width: 100%;
   margin: 10px;
   height: 40px;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 5px;
   &#btn_game-start{
     position: relative;
@@ -59,14 +63,16 @@ button {
     font-size: 2em;
   }
   &#btn_game-quit{
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
     border-radius: 50%;
+    border: 4px solid white;
     color: white;
     background-color: red;
     position: absolute;
-    top: 20px;
-    right:20px;
+    top: 25px;
+    right:50px;
   }
   &:hover{
     background-color: darkgrey;
@@ -78,21 +84,84 @@ button {
   display: flex;
   flex-direction: row;
   width: 100vw;
-  background: url('../images/FamilyFeudBG.png');
-  background-position: center;
-  background-size: cover
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 200px 100px 1fr;
 }
 
 p{
   margin:0;
 }
 
-.column {
+h3{
+  margin:0;
+  text-align: center;
+}
+
+h4{
+  font-size:1em;
+}
+
+#top-left{
+  grid-column: 1/1;
+  grid-row:1/1;
+  background: url('../images/top-left-bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#top-right{
+  grid-column: 3/3;
+  grid-row:1/1;
+  background: url('../images/top-right-bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+#bottom-left{
+  grid-column: 1/1;
+  grid-row: 3/3;
+  background: url('../images/bottom-left-bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#bottom-right{
+  grid-column: 3/3;
+  grid-row: 3/3;
+  background: url('../images/bottom-right-bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+
+
+.container {
   display: flex;
   flex: 1;
   justify-content: center;
   flex-direction: column;
   margin: 10px;
+    &.player-container{
+      &.p1{
+        grid-column: 1/1;
+        grid-row: 4/4;
+      }
+      &.p2{
+      grid-column: 3/3;
+      grid-row: 4/4;
+    } 
+  }
+  &.game-container{
+    grid-column: 2/2;
+    grid-row: 2/2;
+  }
+}
+
+.round{
+    grid-column: 2/2;
+    grid-row: 1/1;
 }
 
 .container {
@@ -105,6 +174,8 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  grid-column: 2/2;
+  grid-row:4/4;
 }
 
 .survey-box-container {
@@ -118,6 +189,12 @@ form {
   height: 180px;
 }
 
+.timer{
+  grid-column: 2/2;
+  grid-row:3/3;
+  margin: auto;
+}
+
 .turn_answer-container{
   background-color: darkblue;
   border: 2px solid white;
@@ -126,7 +203,7 @@ form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-    
+  height:50px;
   .turn_answer{
     color: white;
     padding:0 5px;
@@ -136,15 +213,27 @@ form {
     color:white;
     margin-left: auto;
     padding: 0 5px;
+    width: 20px;
+    text-align:center;
   }
 }
 
 #steve1,
 #steve2{
   background: url('../images/steve-1.png');
-  background-size: 200px;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height:200px;
-  width:200px;
+  // height:200px;
+  // width:200px;
+}
+
+#steve1{
+  grid-column: 1/1;
+  grid-row:2/2;
+}
+
+#steve2{
+  grid-column: 3/3;
+  grid-row:2/2;
 }
