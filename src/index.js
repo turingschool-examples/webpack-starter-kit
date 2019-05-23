@@ -19,6 +19,7 @@ import domUpdates from './domUpdates';
 $(document).ready(function () {
   $('#game_board').hide()
   $('#steve2').hide()
+  $('header').hide()
 })
 
 let game;
@@ -26,7 +27,6 @@ let round;
 let turn;
 $('#btn_game-start').on('click', function (e) {
   e.preventDefault()
-  console.log('prevent')
   let player1 = $('#input_name-player1').val()
   let player2 = $('#input_name-player2').val()
   if (player1 && player2) {
@@ -35,9 +35,6 @@ $('#btn_game-start').on('click', function (e) {
     turn = game.round.turn
     domUpdates.showBoard(round, 0)
     domUpdates.assignNames(player1, player2)
-    console.log(game.players)
-    console.log(round.surveys)
-    console.log(turn.answers)
   } else {
     alert('please enter a name')
   }
@@ -53,8 +50,12 @@ $('#btn_submit').on('click', function (e) {
     game.players[1].guess = $('#input_player-guess').val()
     game.round.turn.checkGuess(game.players[1])
   }
+
   round.changeRound()
-  console.log(turn.answers)
 })
 
+
+$('#btn_game-quit').on('click', function () {
+  domUpdates.quitGame()
+})
 
