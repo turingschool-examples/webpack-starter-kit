@@ -2,6 +2,7 @@
 <html lang="en-US">
   <head>
     <title>Gametime</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <header>
@@ -9,11 +10,13 @@
     </header>
     <main>
       <form id="form_game-start"> 
-        <input id="input_name-player1" placeholder="Player 1">
-        <input id="input_name-player2" placeholder="Player 2">
+        <div>
+          <input id="input_name-player1" placeholder="Player 1">
+          <input id="input_name-player2" placeholder="Player 2">
+        </div>
         <button id="btn_game-start">Start Game</button>
       </form>
-      <div id="game_board">
+      <div id="game-board">
         <section class="column player-column p1">
           <article class="container player-container">
             <div class="name-and-score">
@@ -26,27 +29,25 @@
         <section class="game-column column">
           <article class="container game-container">
             <div class="round">
-              <h3>Round 1</h3>
+              <h3 id="round_current-round">Round 1</h3>
               <h4 id="survey_output"></h4>
             </div>
             <section class="survey-box-container">
               <div class="survey-box survey-box-0">
-                <p class="survey-0">Hidden answer 1</p>
+                <p class="survey-0"></p>
               </div>
               <div class="survey-box survey-box-1">
-                <p class="survey-1">Hidden answer 2</p>
+                <p class="survey-1"></p>
               </div>
               <div class="survey-box survey-box-2">
-                <p class="survey-2">Hidden answer 3</p>
+                <p class="survey-2"></p>
               </div>
             </section>
-            <form class="submit-form">
+            <form class="submit-form" onSubmit="return false">
               <p class="timer">30.00</p>
-              <form class="guess-and-input_player-1">
-                <label for="input_player-guess">Input Guess Here!!!</label>
-                <input id="input_player-guess" type="text">
-              </form>
-              <button id="btn_submit" type="button" name="button">Submit!</button>
+              <label for="input_player-guess">Input Guess Here!!!</label>
+              <input id="input_player-guess" type="text">
+              <button id="btn_submit" name="button">Submit!</button>
             </form>
           </article>
         </section>
@@ -59,9 +60,8 @@
             </div>
           </article>
         </section>
+        <button id="btn_game-quit">X</button>
       </div>
     </main>
-    <footer>
-    </footer>
   </body>
 </html>

@@ -1,8 +1,11 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: teal;
+$primary-background: rgba(11, 25, 65, 1);
+$gradient: rgba(11,25,65,.8);
+$hover-color: lightblue;
 /*-------Body----------*/
 body {
-  background-color: $primary-background;
+  
+  background: linear-gradient(rgba(11, 25, 65, .8), rgba(11,25,65,1) 70.71%);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -15,9 +18,73 @@ header {
 }
 
 /*-------Main----------*/
-#game_board{
+
+/* --- game-start ---*/
+
+#form_game-start{
+  margin: auto;
+  width: 100vw;
+  background: url('../images/more-steve-bg.jpg');
+  background-position: center;
+  height: 100vh;
+  background-size: cover;
+  div{
+    display: flex;
+    flex-direction: row;
+    width:80%;
+    justify-content: space-between;
+    position: relative;
+    top:50%;
+  }
+}
+
+input{
+  width: 100px;
+  margin: 10px;
+  &:hover{
+    border-color: $hover-color
+  }
+}
+
+button {
+  width: 100%;
+  margin: 10px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 5px;
+  &#btn_game-start{
+    position: relative;
+    top: 60%;
+    width:400px;
+    font-size: 2em;
+  }
+  &#btn_game-quit{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: white;
+    background-color: red;
+    position: absolute;
+    top: 20px;
+    right:20px;
+  }
+  &:hover{
+    background-color: darkgrey;
+  }
+}
+
+/*---- Game Board -----*/
+#game-board{
   display: flex;
   flex-direction: row;
+  width: 100vw;
+  background: url('../images/FamilyFeudBG.png');
+  background-position: center;
+  background-size: cover
+}
+
+p{
+  margin:0;
 }
 
 .column {
@@ -25,6 +92,7 @@ header {
   flex: 1;
   justify-content: center;
   flex-direction: column;
+  margin: 10px;
 }
 
 .container {
@@ -39,14 +107,36 @@ form {
   align-items: center;
 }
 
-button {
-  width: 100px;
-  height: 60px;
-  border: 1px solid black;
+.survey-box-container {
+  border: 3px solid orange;
+  border-radius: 5px;
+  width: 100%;
+  background: url('../images/family-feud-logo-bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 180px;
 }
 
-.survey-box-container {
-  border: 1px solid black;
+.turn_answer-container{
+  background-color: darkblue;
+  border: 2px solid white;
+  border-radius: 5px;
+  width:98%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+    
+  .turn_answer{
+    color: white;
+    padding:0 5px;
+  }
+  .turn_answer-respondents{
+    border-left: 2px solid white;
+    color:white;
+    margin-left: auto;
+    padding: 0 5px;
+  }
 }
 
 #steve1,
@@ -57,10 +147,4 @@ button {
   background-position: center;
   height:200px;
   width:200px;
-}
-
-.survey-box-container p {
-  padding: 10px;
-  border: 1px solid black;
-  margin: 0
 }
