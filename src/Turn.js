@@ -14,8 +14,8 @@ class Turn {
   findAnswers (survey) {
     let answers = [... data.answers]
     let filteredAnswers = answers.filter(steve => steve.surveyId === survey.id)
+    // console.log(filteredAnswers)
     let sortedAnswers = filteredAnswers.sort((a, b)=> b.respondents - a.respondents)
-    console.log(sortedAnswers)
     return sortedAnswers
   }
 
@@ -38,11 +38,11 @@ class Turn {
 
   switchPlayer() {
     if (this.currentPlayer === 1) {
-      this.currentPlayer = 2
+      this.currentPlayer = 2;
     } else {
-      this.currentPlayer = 1
+      this.currentPlayer = 1;
     }
-    domUpdates.switchPlayer()
+    domUpdates.switchPlayer(this.currentPlayer)
   }
 
 }

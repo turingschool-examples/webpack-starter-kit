@@ -15,8 +15,8 @@ describe('Turn', function () {
   let player
   let player2
   beforeEach(function () {
-    round = new Round(2)
-    turn = new Turn(round)
+    round = new Round(2, 2, 2)
+    turn = new Turn(round.survey)
     player = new Player(1, 'Patrick', 'Wrap It')
     player2 = new Player(2, 'Aidan', 'What up')
   })
@@ -31,7 +31,7 @@ describe('Turn', function () {
 
   it('should find the answers', function () {
     expect(turn.answers).to.be.an('array').and.have.length(3)
-    expect(round.turn.answers[0].surveyId).to.equal(round.surveys[0].id)
+    expect(turn.answers[0].surveyId).to.equal(round.survey.id)
   })
 
   it('should have default values for this.currentPlayer = 1, and this.guessed is empty', function () {

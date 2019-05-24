@@ -12,6 +12,7 @@ describe('Round', function () {
   let round;
 
   beforeEach(function () {
+    
     round = new Round()
   })
 
@@ -23,14 +24,14 @@ describe('Round', function () {
     expect(round).to.be.an.instanceOf(Round)
   })
 
-  it('should hold surveys', function () {
-    expect(round.surveys).to.be.an('array')
+  it('should hold a random survey', function () {
+    expect(round.survey).to.be.an('object')
   })
 
-  it('should pull 3 random surveys', function () {
-    round.pullSurveys()
-    expect(round.surveys).to.have.length(3)
-    expect(round.surveys[0].id).to.equal(round.turn.answers[0].surveyId)
-  }) 
+  // it('should pull 3 random surveys', function () {
+  //   round.pullSurveys()
+  //   expect(round.survey).to.be.a('object')
+  //   // expect(round.surveys[0].id).to.equal(round.turn.answers[0].surveyId)
+  // }) 
 
 });
