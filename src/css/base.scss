@@ -1,22 +1,48 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
+
+@import url("https://use.typekit.net/hrr5eir.css");
+
+
 $primary-background: rgba(11, 25, 65, 1);
 // $gradient: rgba(11,25,65,.8);
 $hover-color: orange;
+$miami-soft-pink: #f090c0;
+$miami-hot-pink: #ed145a;
+$beachy-blue: #22ABC7;
+$tropical-seas: #18d8f0;
+$turquoise: #18c0f0;
+$lightgray: #f5f5f5;
+$neon-font: neonoir, sans-serif;
+$miami-font: ltc-broadway-engraved, sans-serif;
+$body-copy: fira-sans-2, sans-serif;
 /*-------Body----------*/
 body {
-  background:rgba(11,25,65,1);
+  background:white;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color:#fff;
+  color:black;
+  font-family: $body-copy;
+  height: 100vh;
 }
 
 /*-------Header----------*/
 header {
   text-align: center;
-  border: 20px dotted rgb(255, 208, 0);
   background-color: #fff;
-  color:black;
+  color: $tropical-seas;
+  font-family: $miami-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size:50px;
+
+  //good use case for mixins
+  & span{
+    color: $miami-soft-pink;
+  }
+  h2{
+    margin:10px;
+  }
 }
 
 /*-------Main----------*/
@@ -26,18 +52,48 @@ header {
 #form_game-start{
   margin: auto;
   width: 100vw;
-  background: url('../images/more-steve-bg.jpg');
+  background: url('../images/miami-splash.png');
   background-position: center;
   height: 100vh;
   background-size: cover;
   div{
     display: flex;
     flex-direction: row;
-    width:80%;
     justify-content: space-between;
     position: relative;
-    top:50%;
+    right:20%;
+    h1{
+      font-family: $neon-font;
+      text-align: center;
+      font-size:90px;
+      color: $miami-soft-pink;
+      margin: 0;
+      span{
+        font-family: $miami-font;
+        font-size:90px;
+        color:$miami-hot-pink;
+        display: block;
+      }
+    }
+    #btn_game-start{
+    width:100%;
+    font-size: 1.5em;
+    display: block;
+    border: 2px solid grey;
+    background: $miami-soft-pink;
+    box-shadow: 0px 0px 10px 5px $miami-soft-pink;
+      &:hover{
+        border:2px solid $beachy-blue;
+      }
+    }
   }
+  textarea {
+    height:200px;
+    width:40%;
+    overflow: scroll;
+
+  }
+
 }
 
 input{
@@ -45,8 +101,9 @@ input{
   width: 150px;
   margin: 10px;
   box-shadow: 0px 0px 10px 5px rgba(230,230,230,0.8);
+  border-radius: 5px;
   &:hover{
-    border-color: $hover-color;
+    border-color: $beachy-blue;
   };
 }
 
@@ -56,12 +113,6 @@ button {
   height: 40px;
   border: 2px solid black;
   border-radius: 5px;
-  &#btn_game-start{
-    position: relative;
-    top: 60%;
-    width:400px;
-    font-size: 2em;
-  }
   &#btn_game-quit{
     width: 50px;
     height: 50px;
@@ -69,10 +120,13 @@ button {
     border-radius: 50%;
     border: 4px solid white;
     color: white;
-    background-color: red;
+    background-color: $miami-hot-pink;
     position: absolute;
     top: 25px;
     right:50px;
+  }
+  &#btn_submit {
+    font-family: $body-copy;
   }
   &:hover{
     background-color: darkgrey;
@@ -84,28 +138,23 @@ button {
   display: flex;
   flex-direction: row;
   width: 100vw;
+  height: 100%;
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 200px 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  background: url('../images/Untitled-1-01.png');    background-size: cover;
+  background-repeat: no-repeat;
+  grid-template-rows: 50px 1fr 1fr;
 }
 
 p{
   margin:0;
 }
 
-h3{
-  margin:0;
-  text-align: center;
-}
-
-h4{
-  font-size:1em;
-}
 
 #top-left{
   grid-column: 1/1;
   grid-row:1/1;
-  background: url('../images/top-left-bg.png');
+  // background: url('../images/top-left-bg.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -113,7 +162,7 @@ h4{
 #top-right{
   grid-column: 3/3;
   grid-row:1/1;
-  background: url('../images/top-right-bg.png');
+  // background: url('../images/top-right-bg.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
@@ -122,36 +171,54 @@ h4{
 #bottom-left{
   grid-column: 1/1;
   grid-row: 3/3;
-  background: url('../images/bottom-left-bg.png');
+  // background: url('../images/bottom-left-bg.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
 #bottom-right{
   grid-column: 3/3;
   grid-row: 3/3;
-  background: url('../images/bottom-right-bg.png');
+  // background: url('../images/bottom-right-bg.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
 }
-
-
 
 .container {
   display: flex;
   flex: 1;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   margin: 10px;
     &.player-container{
+      text-align: center;
+      div{
+        width:80%;
+        border: 2px solid $turquoise;
+        border-radius: 5px;
+      }
       &.p1{
         grid-column: 1/1;
-        grid-row: 4/4;
+        grid-row:2/2;
       }
       &.p2{
-      grid-column: 3/3;
-      grid-row: 4/4;
-    } 
+        grid-column: 3/3;
+        grid-row:2/2;
+      } 
+      h3{
+        font-size: 38px;
+        margin:0;
+      }
+      span{
+        display: block;
+        font-size: 90px;
+        font-family: $neon-font;
+        color: $miami-hot-pink;
+      }
+      p{
+        font-size: 28px;
+      }
   }
   &.game-container{
     grid-column: 2/2;
@@ -162,13 +229,21 @@ h4{
 .round{
     grid-column: 2/2;
     grid-row: 1/1;
+    font-family: $body-copy;
+    color:black;
+    h4{
+      font-size: 28px;
+      margin: 0;
+    }
+    h3{
+      margin:0;
+      text-align: center;
+      font-family: $neon-font;
+      color: $miami-soft-pink;
+      font-size:38px;
+  }
 }
 
-.container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
 
 form {
   display: flex;
@@ -179,43 +254,49 @@ form {
 }
 
 .survey-box-container {
-  border: 3px solid orange;
+  border: 3px solid $miami-hot-pink;
   border-radius: 5px;
+  box-shadow: 0px 0px 10px 5px $miami-soft-pink;
   width: 100%;
-  background: url('../images/family-feud-logo-bg.png');
+  height: 80%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 180px;
 }
 
-.timer{
+.submit-form{
   grid-column: 2/2;
   grid-row:3/3;
   margin: auto;
+  font-family: $body-copy;
+  color: black;
 }
 
 .turn_answer-container{
-  background-color: darkblue;
+  background-color: $lightgray;
   border: 2px solid white;
   border-radius: 5px;
-  width:98%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height:50px;
-  .turn_answer{
-    color: white;
-    padding:0 5px;
-  }
-  .turn_answer-respondents{
-    border-left: 2px solid white;
-    color:white;
-    margin-left: auto;
-    padding: 0 5px;
-    width: 20px;
-    text-align:center;
-  }
+  height:80px;
+  font-family: $body-copy;
+  color: black;
+  font-size: 21px;
+    .turn_answer{
+      color: white;
+      padding:0 5px;
+    }
+
+    .turn_answer-respondents{
+      border-left: 2px solid white;
+      color:white;
+      margin-left: auto;
+      padding: 0 5px;
+      width: 20px;
+      text-align:center;
+    }
+
 }
 
 #steve1,
@@ -224,16 +305,14 @@ form {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  // height:200px;
-  // width:200px;
 }
 
-#steve1{
-  grid-column: 1/1;
-  grid-row:2/2;
-}
+// #steve1{
+//   // grid-column: 1/1;
+//   // grid-row:2/2;
+// }
 
-#steve2{
-  grid-column: 3/3;
-  grid-row:2/2;
-}
+// #steve2{
+//   // grid-column: 3/3;
+//   // grid-row:2/2;
+// }
