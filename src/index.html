@@ -11,7 +11,7 @@
     <main>
       <form id="form_game-start"> 
         <div><h1>Welcome to <span>MIAMI</span></h1></div>
-        <div>
+        <div class="form_input-players">
           <input id="input_name-player1" placeholder="Player 1 Name">
           <input id="input_name-player2" placeholder="Player 2 Name">
           <button id="btn_game-start">Start Game</button>
@@ -30,7 +30,7 @@
         <!-- </section> -->
         <!-- <section class="game-column column"> -->
           <div class="round">
-            <h3 id="round_current-round">Round 1</h3>
+            <h3 id="round_current-round">Round <span>1</span></h3>
           </div>
           <article class="container game-container">
             <section class="survey-box-container">
@@ -55,8 +55,7 @@
             </section>
           </article>
           <form class="submit-form" onSubmit="return false">
-            <p id="survey_output"></p>
-            <label for="input_player-guess">Input Guess Here!!!</label>
+            <label id="survey_output" for="input_player-guess"></label>
             <input id="input_player-guess" type="text">
             <button id="btn_submit" name="button">Submit!</button>
           </form>

@@ -7,6 +7,7 @@ $primary-background: rgba(11, 25, 65, 1);
 // $gradient: rgba(11,25,65,.8);
 $hover-color: orange;
 $miami-soft-pink: #f090c0;
+$miami-soft-blue: #9eccdc;
 $miami-hot-pink: #ed145a;
 $beachy-blue: #22ABC7;
 $tropical-seas: #18d8f0;
@@ -41,7 +42,8 @@ header {
     color: $miami-soft-pink;
   }
   h2{
-    margin:10px;
+    margin:20px 0 0;
+    border-bottom: 10px solid $miami-soft-pink;
   }
 }
 
@@ -66,8 +68,11 @@ header {
       font-family: $neon-font;
       text-align: center;
       font-size:90px;
+      border-radius: 2rem;
       color: $miami-soft-pink;
-      margin: 0;
+      margin: 10% 5%;
+      word-wrap: none;
+      animation: flicker 1.5s infinite alternate;
       span{
         font-family: $miami-font;
         font-size:90px;
@@ -75,6 +80,11 @@ header {
         display: block;
       }
     }
+
+    &.form_input-players{
+      margin: 10% 0;
+    }
+
     #btn_game-start{
     width:100%;
     font-size: 1.5em;
@@ -94,6 +104,34 @@ header {
 
   }
 
+}
+
+@keyframes flicker {
+    
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      
+        text-shadow:
+            -0.2rem -0.2rem 1rem #fff,
+            0.2rem 0.2rem 1rem #fff,
+            0 0 2rem $miami-hot-pink,
+            0 0 4rem $miami-hot-pink,
+            0 0 6rem $miami-hot-pink,
+            0 0 8rem $miami-hot-pink,
+            0 0 10rem $miami-hot-pink;
+        
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem $miami-soft-pink,
+            inset 0 0 2rem $miami-soft-pink,
+            0 0 4rem $miami-soft-pink,
+            inset 0 0 4rem $miami-soft-pink;        
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+        box-shadow: none;
+    }    
 }
 
 input{
@@ -141,7 +179,7 @@ button {
   height: 100%;
   display:grid;
   grid-template-columns: 1fr 2fr 1fr;
-  background: url('../images/Untitled-1-01.png');    background-size: cover;
+  background: url('../images/gametime-bg.png');background-size: cover;
   background-repeat: no-repeat;
   grid-template-rows: 50px 1fr 1fr;
 }
@@ -270,6 +308,9 @@ form {
   margin: auto;
   font-family: $body-copy;
   color: black;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .turn_answer-container{
@@ -282,7 +323,8 @@ form {
   height:80px;
   font-family: $body-copy;
   color: black;
-  font-size: 21px;
+  font-size: 32px;
+  align-items: center;
     .turn_answer{
       color: white;
       padding:0 5px;
@@ -295,6 +337,9 @@ form {
       padding: 0 5px;
       width: 20px;
       text-align:center;
+    }
+    p{
+      padding:5px;
     }
 
 }
