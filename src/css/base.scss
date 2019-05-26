@@ -27,26 +27,6 @@ body {
   height: 100vh;
 }
 
-/*-------Header----------*/
-header {
-  text-align: center;
-  background-color: #fff;
-  color: $tropical-seas;
-  font-family: $miami-font;
-  font-style: normal;
-  font-weight: 400;
-  font-size:50px;
-
-  //good use case for mixins
-  & span{
-    color: $miami-soft-pink;
-  }
-  h2{
-    margin:20px 0 0;
-    border-bottom: 10px solid $miami-soft-pink;
-  }
-}
-
 /*-------Main----------*/
 
 /* --- game-start ---*/
@@ -106,34 +86,6 @@ header {
 
 }
 
-@keyframes flicker {
-    
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-      
-        text-shadow:
-            -0.2rem -0.2rem 1rem #fff,
-            0.2rem 0.2rem 1rem #fff,
-            0 0 2rem $miami-hot-pink,
-            0 0 4rem $miami-hot-pink,
-            0 0 6rem $miami-hot-pink,
-            0 0 8rem $miami-hot-pink,
-            0 0 10rem $miami-hot-pink;
-        
-        box-shadow:
-            0 0 .5rem #fff,
-            inset 0 0 .5rem #fff,
-            0 0 2rem $miami-soft-pink,
-            inset 0 0 2rem $miami-soft-pink,
-            0 0 4rem $miami-soft-pink,
-            inset 0 0 4rem $miami-soft-pink;        
-    }
-    
-    20%, 24%, 55% {        
-        text-shadow: none;
-        box-shadow: none;
-    }    
-}
-
 input{
   font-size: 1.5em;
   width: 150px;
@@ -172,6 +124,26 @@ button {
 }
 
 /*---- Game Board -----*/
+
+header {
+  text-align: center;
+  background-color: #fff;
+  color: $tropical-seas;
+  font-family: $miami-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size:50px;
+  //good use case for mixins
+  & span{
+    color: $miami-soft-pink;
+  }
+  h2{
+    margin:20px 0 0;
+    border-bottom: 10px solid $miami-soft-pink;
+  }
+}
+
+
 #game-board{
   display: flex;
   flex-direction: row;
@@ -282,6 +254,9 @@ p{
   }
 }
 
+.neon-player-box{
+  animation: flicker-box 1.5s infinite alternate;
+}
 
 form {
   display: flex;
@@ -361,3 +336,49 @@ form {
 //   // grid-column: 3/3;
 //   // grid-row:2/2;
 // }
+
+@keyframes flicker {
+    
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      
+        text-shadow:
+            -0.2rem -0.2rem 1rem #fff,
+            0.2rem 0.2rem 1rem #fff,
+            0 0 2rem $miami-hot-pink,
+            0 0 4rem $miami-hot-pink,
+            0 0 6rem $miami-hot-pink,
+            0 0 8rem $miami-hot-pink,
+            0 0 10rem $miami-hot-pink;
+        
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem $miami-soft-pink,
+            inset 0 0 2rem $miami-soft-pink,
+            0 0 4rem $miami-soft-pink,
+            inset 0 0 4rem $miami-soft-pink;        
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+        box-shadow: none;
+    }    
+}
+
+@keyframes flicker-box {
+    
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem $miami-soft-pink,
+            inset 0 0 2rem $miami-soft-pink,
+            0 0 4rem $miami-soft-pink,
+            inset 0 0 4rem $miami-soft-pink;        
+    }
+    
+    20%, 24%, 55% {        
+        box-shadow: none;
+    }    
+}
