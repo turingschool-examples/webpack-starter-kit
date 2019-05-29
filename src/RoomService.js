@@ -1,6 +1,6 @@
 class RoomService {
-  constructor() {
-
+  constructor(data) {
+    this.data = data;
   }
 }
 
