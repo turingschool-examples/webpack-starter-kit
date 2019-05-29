@@ -1,4 +1,4 @@
-# Gametime Starter Kit
+# Webpack Starter Kit
 
 ## Fork This Repo
 
@@ -6,7 +6,7 @@ Within your group, decide on one person to have the project repository (repo) on
 
 ## Setup
 
-After one person has forked the repo, everyone should clone down the forked repo. Since you don't want to name your project "gametime-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+After one person has forked the repo, everyone should clone down the forked repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
 
 ```bash
 git clone [remote-address] [what you want to name the repo]
@@ -34,7 +34,7 @@ Here is a video that walks through some information about [import and export](ht
 
 ### HTML
 
-Add your HTML to the `index.html` file in the `./src` directory. There is some boilerplate HTML that exists from the start that you can modify for your game.
+Add the HTML you need in the `index.html` file in the `./src` directory. There is some boilerplate HTML that exists from the start that you can modify.
 
 ### CSS (SCSS/SASS)
 
@@ -94,6 +94,6 @@ If you look in the `package.json` file, you'll see one of the library dependenci
 
 ## Deploying to GitHub Pages
 
-_If you are finished with the functionality and testing of your game_, then you can consider deploying your game to the web! This way anyone can play it without cloning down your repo.
+_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
 
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your game to the web. Research deploying a Webpack project to GitHub Pages or ask your instructors about it if you get to that point. (Don't worry about this until your project is free of bugs and well tested!)
+[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Research deploying a Webpack project to GitHub Pages or ask your instructors about it if you get to that point. (Don't worry about this until your project is free of bugs and well tested!)
