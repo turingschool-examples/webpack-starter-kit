@@ -29,6 +29,10 @@ describe('OccupancyRepo', function () {
     expect(occupancyRepo.returnPercentRoomsOccupied('22/10/2019')).to.equal(41.5);
   });
 
+  it('Should be able to return all rooms available for a given date of a given type', function () {
+    expect(occupancyRepo.returnAvailableRoomsByType('22/10/2019', 'single room').length).to.equal(38);
+  });
+
   it.skip('Should be able to return the date with the most available rooms', function () {
     expect(occupancyRepo.returnMostAvailableDate()).to.equal('22/10/2019');
   });

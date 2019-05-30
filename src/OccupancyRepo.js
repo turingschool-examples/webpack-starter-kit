@@ -35,10 +35,17 @@ class OccupancyRepo {
     return ((numberOfRooms - availableRooms) / numberOfRooms) * 100;
   }
 
+  returnAvailableRoomsByType(givenDate, type) {
+    const availRooms = this.returnAvailableRooms(givenDate);
+    const availTypeRooms = availRooms.filter(room => room.roomType === type);
+    return availTypeRooms !== undefined ? availTypeRooms : availRooms;
+  }
+  
   // returnMostAvailableDate() {
   //   this.assignOccupancyDataset();
 
   // }
+
 }
 
 export default OccupancyRepo;
