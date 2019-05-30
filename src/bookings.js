@@ -23,6 +23,11 @@ class Booking {
     let maxDays = Math.max(...Object.values(days))
     return Object.keys(days).find(day => days[day] === maxDays)
   }
+
+  roomsTakenByDate(date) {
+    let rooms = this.findByDate(date)
+    return rooms.map(room => room.roomNumber)
+  }
 }
 
 export default Booking;

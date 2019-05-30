@@ -34,4 +34,10 @@ describe('Booking', function() {
   it('should be able to find the bookings for a customer by id', function() {
     expect(booking.findById(78).length).to.equal(1)
   })
+
+  it('should be able to find all rooms by date and return the room numbers', function() {
+    expect(booking.roomsTakenByDate('29/09/2019')).to.deep.equal([50, 79, 13, 51])
+  })
+
+  
 })

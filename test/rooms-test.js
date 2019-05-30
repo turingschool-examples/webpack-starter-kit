@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 import roomsData from '../Data/rooms-data'
 import Room from '../src/rooms'
+import bookingData from '../Data/booking-data'
 
 describe('Room', function() {
   let room;
@@ -35,5 +36,17 @@ describe('Room', function() {
 
   it('should be able to find all the rooms by type', function() {
     expect(room.filterByType('junior suite').length).to.equal(38)
+  })
+
+  it('should display if there are rooms available by type on a specific date', function() {
+    expect(room.availableTypeByDate('29/09/2019', 'junior suite', bookingData).length).to.equal(37)
+  })
+
+  it('should return all available rooms by date', function() {
+    expect(room.availableByDate('29/09/2019', bookingData).length).to.equal(196)
+  })
+
+  it('should return all other rooms available if one type is not', function() {
+    expect(room.availableAlternate('29/09/2019', 'junior suite', bookingData).length).to.equal(37)
   })
 })
