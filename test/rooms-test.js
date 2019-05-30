@@ -5,7 +5,7 @@ import roomsData from '../Data/rooms-data'
 import Room from '../src/rooms'
 import bookingData from '../Data/booking-data'
 
-describe('Room', function() {
+describe.skip('Room', function() {
   let room;
   beforeEach(function() {
     room = new Room(roomsData)

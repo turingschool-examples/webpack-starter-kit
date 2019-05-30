@@ -22,6 +22,13 @@ class Order {
   customerTotalSpent(id) {
     return Number(this.findById(id).reduce((acc, day) => acc += day.totalCost, 0).toFixed(2))
   }
+
+  itemsAndPrices() {
+    return this.data.reduce(function(acc, day) {
+      !acc[day.food] ? acc[day.food] = day.totalCost : null;
+      return acc
+    }, {})
+  }
 }
 
 export default Order;
