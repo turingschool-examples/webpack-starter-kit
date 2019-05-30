@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "animejs": "^3.0.1",
+    "fetch": "^1.1.0",
     "jquery": "^3.4.1"
   }
 }

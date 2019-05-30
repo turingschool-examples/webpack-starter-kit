@@ -1,4 +1,4 @@
-import data from './data'
+import Data from './data'
 
 class Customer {
   constructor() {
@@ -8,6 +8,7 @@ class Customer {
   getInfo(url) {
     let data = new Data()
     data.fetchData(url)
+    return data.data
   }
 }
 
