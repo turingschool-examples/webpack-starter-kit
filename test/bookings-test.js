@@ -30,4 +30,8 @@ describe('Booking', function() {
   it('should find the most popular booking date', function() {
     expect(booking.mostPopularDate()).to.equal('29/09/2019')
   })
+
+  it('should be able to find the bookings for a customer by id', function() {
+    expect(booking.findById(78).length).to.equal(1)
+  })
 })
