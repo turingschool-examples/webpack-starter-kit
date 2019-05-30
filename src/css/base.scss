@@ -1,7 +1,7 @@
 @import './_variables';
 
 body {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.dribbble.com/users/1044971/screenshots/4213596/dribbble_shots_half.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.dribbble.com/users/1379556/screenshots/5197492/vertical_flowers_edit_final.jpg')
 }
 
 h1 {
@@ -37,6 +37,15 @@ aside {
       display: inline-block;
       padding: 10px 15px;
       cursor: pointer;
+
+      &:hover {
+        color: $font-hover;
+      }
+
+      &.current {
+        background: #ededed;
+			  color: #222;
+      }
   
     }
 
