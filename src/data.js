@@ -1,4 +1,4 @@
-import fetch from '../node_modules/fetch'
+// import fetch from '../node_modules/fetch'
 
 class Data {
   constructor() {

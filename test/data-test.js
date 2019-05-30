@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 import Data from '../src/data'
 
-describe.only('Data', function() {
+describe.skip('Data', function() {
   let data;
   beforeEach(function() {
     data = new Data()
