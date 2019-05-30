@@ -11,3 +11,29 @@ import './css/base.scss';
 import './images/turing-logo.png'
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+import domUpdates from './domUpdates';
+
+let userData;
+fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/users/users')
+  .then(dataFile => dataFile.json())
+  .then(dataFile => userData = dataFile.users);
+
+let roomsData;
+fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/rooms/rooms')
+    .then(dataFile => dataFile.json())
+    .then(dataFile => roomsData = dataFile.rooms);
+
+let bookingsData;
+fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/bookings/bookings')
+    .then(dataFile => dataFile.json())
+    .then(dataFile => bookingsData = dataFile.bookings);
+
+let roomServicesData;
+fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/room-services/roomServices')
+    .then(dataFile => dataFile.json())
+    .then(dataFile => roomServicesData = dataFile.roomServices);
+
+    $(document).ready(() => {
+        
+    })
