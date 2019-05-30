@@ -1,6 +1,47 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import './_variables';
 
 body {
-  background-color: $primary-background;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.dribbble.com/users/1044971/screenshots/4213596/dribbble_shots_half.jpg');
+}
+
+h1 {
+  color: $heading-font-color;
+  font-size: 50px;
+  text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
+}
+
+// main {
+//   display: flex;
+// }
+
+.main__dashboard-display {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+aside {
+  height: 800px;
+  margin: 0 auto;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      background: none;
+      color: #222;
+      display: inline-block;
+      padding: 10px 15px;
+      cursor: pointer;
+  
+    }
+
+  }
+
+ 
+
 }
