@@ -1,6 +1,13 @@
+import Booking from "./Booking";
+
 class BookingRepo {
   constructor(data) {
     this.data = data;
+  }
+
+  returnBooking(id) {
+    const userBookingData = this.data.bookings.filter(booking => booking.userID === id);
+    return new Booking(userBookingData);
   }
 
   returnModeBookingDate() {
