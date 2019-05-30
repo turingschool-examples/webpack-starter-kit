@@ -40,11 +40,19 @@ class OccupancyRepo {
     const availTypeRooms = availRooms.filter(room => room.roomType === type);
     return availTypeRooms !== undefined ? availTypeRooms : availRooms;
   }
-  
-  // returnMostAvailableDate() {
-  //   this.assignOccupancyDataset();
 
-  // }
+  returnMostAvailableDate() {
+    this.assignOccupancyDataset();
+    const dateTally = this.occupancyData.occupancies.reduce((final, room) => {
+      if (room.datesBooked) {
+        room.datesBooked.forEach(date => {
+          !final[date] ? final[date] = 1 : final[date]++;
+        })
+      }
+      return final;
+    }, {});
+    return Object.keys(dateTally).find(date => dateTally[date] === Math.min(...Object.values(dateTally)));
+  }
 
 }
 

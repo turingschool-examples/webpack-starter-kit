@@ -33,7 +33,7 @@ describe('OccupancyRepo', function () {
     expect(occupancyRepo.returnAvailableRoomsByType('22/10/2019', 'single room').length).to.equal(38);
   });
 
-  it.skip('Should be able to return the date with the most available rooms', function () {
-    expect(occupancyRepo.returnMostAvailableDate()).to.equal('22/10/2019');
+  it('Should be able to return the date with the most available rooms', function () {
+    expect(occupancyRepo.returnMostAvailableDate()).to.equal('15/02/2020');
   });
 });
