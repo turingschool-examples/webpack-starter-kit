@@ -1,10 +1,15 @@
 import $ from 'jquery';
 import './css/base.scss';
 import Customer from './customer';
+import domUpdates from './domupdates'
 
-let customer = new Customer()
+$(document).ready(function() {
+  domUpdates.hideAtStart()
+})
 
-console.log(customer)
+$('#main__customer-section').on('click', function() {
+  domUpdates.displayCustomerTab()
+})
 
 
 
