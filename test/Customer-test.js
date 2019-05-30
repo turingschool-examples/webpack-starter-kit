@@ -7,19 +7,19 @@ describe('Customer', function() {
    
     let customer;
     beforeEach(function() {
-        customer = new Customer(customerSample);
+        customer = new Customer(1, "Autumn Toy");
     });
 
     it('should be a function', function() {
-        expect(Customer).to.be.a('function');
+    expect(Customer).to.be.a('function');
     });
 
     it('should make an instance of Customer', function() {
-        expect(customer).to.be.an.instanceOf(Customer);
+    expect(customer).to.be.an.instanceOf(Customer);
     })
 
     it('should have a name', function() {
-        expect(customer).to.equal('Autumn Toy');
+    expect(customer.name).to.equal("Autumn Toy");
     })
 
     it('should have an id', function() {

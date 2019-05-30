@@ -1,8 +1,12 @@
 class Customer {
-  constructor(customerSample) {
-    //   console.log(customerSample.users[0])
-    this.id = customerSample.users.id;
-    this.name = customerSample.users.name;
+  constructor(id, name, customerSample) {
+    this.id = id;
+    this.name = name;
+    this.customerSample = customerSample
+  }
+  getuserNames(name) {
+    let usersCollection = this.customerSample.users
+    usersCollection.forEach((user) => user.name)
   }
 }
 
