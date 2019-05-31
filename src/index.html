@@ -2,12 +2,40 @@
 <html lang="en-US">
   <head>
     <title>Webpack Starter Kit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
 
-    <!-- <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px"> -->
+    <section class="body-section-one">
+      <img class="logo" src="/images/overlook-logo.png" alt="overlook logo">
+    <section class="body-section-one-all-items">
+        <div class="body-section-one-item">
+            <h3 class="body-section-one__item-header">Rooms Available</h3>
+            <p class="rooms-available"></p>
+        </div>
+        <div class="body-section-one-item">
+            <h3 class="body-section-one__item-header">Rooms Occupied</h3>
+            <p class="rooms-occupied-percentage"></p>
+        </div>
+        <div class="body-section-one-item">
+            <h3 class="body-section-one__item-header">Today's Income</h3>
+            <p class="totdays-total-income-dollar">
+              <span class="totdays-total-income"></span>$
+            </p>
+        </div>
+    </section>
+  </section>
+  <section class="body-section-three">
+    <div class="body-section-three__date-and-time">
+      <div class="body-section-three__time">
+        <p class="time">00:00 MM</p>
+      </div>
+      <div class="body-section-three__date">
+          <p class="date">DDD | MMM D, YYYY</p>
+      </div>
+    </div>
+  </section>
+    
 
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>

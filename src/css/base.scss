@@ -1,6 +1,102 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$background-primary-color: #2F333F;
+$body-section-one__item-header-color:   #848484;
+$red: #F86B6B;
+$green: #7FE2C0;
+$yellow: #EACF76;
+$golden: #C3A984;
+$golden-40: rgba(195,169,132, 0.4);
 
-body {
-  background-color: $primary-background;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body-section-one {
+  background-color: $background-primary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  border-bottom: 1px solid $golden-40;
+};
+
+.logo {
+  width: 400px;
+  height: 270px;
+  margin-left: auto;
+  margin-right: auto;
+};
+
+.body-section-one-all-items {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 7em;
+};
+
+.body-section-one__item-header {
+  color: $body-section-one__item-header-color;
+}
+
+.body-section-one-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rooms-available,
+.totdays-total-income,
+.rooms-occupied-percentage {
+  font-size: 90px;
+}
+
+.rooms-available {
+  color: $red;
+}
+
+.rooms-occupied-percentage {
+  color: $green;
+}
+
+.totdays-total-income-dollar {
+  color: $yellow;
+  font-size: 45px;
+}
+
+.body-section-three {
+  background-color: $background-primary-color;
+  height: 10vh;
+  padding-top: 20px;
+  padding-left: 15px;
+}
+
+.body-section-three__date-and-time {
+  border: 1px solid $golden;
+  height: 42px;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+}
+
+.body-section-three__time {
+  background-color: $golden;
+  width: 30%;
+  height: 100%;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+  color: $background-primary-color;
+  font-size: 1.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-section-three__date {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  color: $golden;
 }
