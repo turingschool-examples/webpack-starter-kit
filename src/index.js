@@ -25,6 +25,12 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/users/users')
   .then(dataFile => dataFile.json())
   .then(dataFile => userData = dataFile.users);
 
+//   function timer() {
+//     console.log(userData);
+// }
+
+// setTimeout(timer, 500);
+
 let roomsData;
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/rooms/rooms')
     .then(dataFile => dataFile.json())
@@ -40,3 +46,7 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/room-services/roomServ
     .then(dataFile => dataFile.json())
     .then(dataFile => roomServicesData = dataFile.roomServices);
 
+
+// $(document).ready (() => {
+
+// }
