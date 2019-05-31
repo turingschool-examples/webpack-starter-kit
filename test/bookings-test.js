@@ -39,5 +39,5 @@ describe.skip('Booking', function() {
     expect(booking.roomsTakenByDate('29/09/2019')).to.deep.equal([50, 79, 13, 51])
   })
 
-
+  
 })

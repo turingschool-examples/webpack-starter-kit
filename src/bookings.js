@@ -28,6 +28,10 @@ class Booking {
     let rooms = this.findByDate(date)
     return rooms.map(room => room.roomNumber)
   }
+
+  percentageByDate(date) {
+    
+  }
 }
 
 export default Booking;
