@@ -51,6 +51,16 @@ aside {
 
   }
 
+  .tab-content {
+    display: none;
+    background: #ededed;
+    padding: 15px;
+
+    &:current {
+      display: inherit;
+    }
+  }
+
  
 
 }

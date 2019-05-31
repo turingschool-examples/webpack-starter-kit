@@ -40,5 +40,15 @@ console.log(allData)
 
 $(document).ready(() => {
     domUpdates.displayTodaysDate(mainRepo.date);
-    // domUpdates.displayTodaysAvailability(mainRepo.roomsAvailable);
+    domUpdates.displayTodaysAvailability(mainRepo.roomsAvailable);
+
+    $('.aside__tabs li').click(function(){
+		let tab_id = $(this).attr('data-tab');
+
+		$('.aside__tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	})
 })
