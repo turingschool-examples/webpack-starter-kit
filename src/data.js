@@ -1,4 +1,5 @@
 let Data = {
+
 users: [
     {
     id: 1,
@@ -40,10 +41,9 @@ users: [
     id: 10,
     name: "Kiel O'Reilly"
     }
-]
-},
+],
 
-{
+
     rooms: [
     {
     number: 1,
@@ -118,17 +118,15 @@ users: [
     costPerNight: 405.85
     },
     {
-    number: 10,
-    roomType: "junior suite",
-    bidet: false,
-    bedSize: "king",
+    number: 123,
+    roomType: "residential suite",
+    bidet: true,
+    bedSize: "queen",
     numBeds: 1,
-    costPerNight: 275.32
+    costPerNight: 380.84
     }
-    ]
-},
+  ],
 
-{
     bookings: [
     {
     userID: 78,
@@ -180,9 +178,7 @@ users: [
     date: "18/07/2019",
     roomNumber: 123
     }
-]
-},
-{
+],
     roomServices: [
     {
     userID: 34,
@@ -216,7 +212,7 @@ users: [
     },
     {
     userID: 98,
-    date: "19/07/2019",
+    date: "18/07/2019",
     food: "Rustic Wooden Sandwich",
     totalCost: 5.86
     },
@@ -245,6 +241,8 @@ users: [
     totalCost: 19.16
     }
 ]
+
 }
+
 
 export default Data;
