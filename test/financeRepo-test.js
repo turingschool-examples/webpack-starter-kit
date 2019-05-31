@@ -20,6 +20,6 @@ describe('FinanceRepo', function () {
   });
 
   it('Should be able to return the total money made on a given date', function () {
-    expect(financeRepo.returnTotalEarned('22/10/2019')).to.equal(449.25);
+    expect(financeRepo.returnTotalEarned('24/12/2019')).to.equal(299.56);
   });
 });

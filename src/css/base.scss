@@ -1,6 +1,377 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$font-color: black;
+$secondary-font-color: #97B1E9;
+$tab-color: #8CE1E5;
+$primary-color-lite: rgba(182, 231, 255, .5);
+$primary-color-liter: rgba(182, 231, 255, .2);
+$secondary-color: #3AD455;
+$tertiary-background: #204DAE;
+$primary-background: #ebebeb;
+$secondary-background: white;
 
-body {
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: sans-serif;
   background-color: $primary-background;
+}
+
+//--------------------Header--------------------//
+
+
+
+header{
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  div{
+    border-radius: 6px;
+    background-color: $tab-color;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: .8em;
+    h2{
+      margin: 0;
+    }
+  }
+}
+
+h1{
+  color: #0F989E;
+  font-size: 3.5rem;
+  font-weight: 700;
+  span{
+    font-size: 2.5rem;
+    font-weight: 100;
+  }
+}
+
+
+
+//--------------------Tabs--------------------//
+
+
+
+.container{
+  margin: 0 auto;
+  height: 85vh;
+  padding: 0px 10px;
+	width: 95%;
+}
+ul.tabs{
+  display: flex;
+  margin: 0;
+  margin-bottom: -1px;
+  height: 60px;
+  justify-content: space-around;
+	list-style: none;
+	padding: 0;
+}
+ul.tabs li{
+  background: none;
+  border-radius: 6px 6px 0px 0px;
+  color: $font-color;
+  height: 60px;
+  padding: 10px 15px;
+  width: 25%;
+  cursor: pointer;
+  span{
+    margin: 0px 15px;
+    display: none;
+  }
+  img{
+    height: 40px;
+    width: 40px;
+  }
+  &:hover{
+    background-color: $primary-color-lite;
+  }
+}
+ul.tabs li.current{
+	background: $tab-color;
+	color: $font-color;
+}
+.tab-content{
+	display: none;
+  background: $tab-color;
+  height: 70vh;
+}
+.tab-content.current{
+  display: flex;
+  flex-direction: column;
+  
+}
+.tab-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+//-----------------Main------------------//
+
+
+
+.main{
+  padding: 20px;
+  article{
+    background-color: $secondary-background;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 7px;
+    height: 32%;
+    .money-text{
+    color: $secondary-color;
+    }
+    h3{
+      color: $secondary-font-color;
+      font-size: 4em;
+      font-weight: 100;
+      margin: 15px;
+      padding: 0;
+    }
+    p{
+      color: $tertiary-background;
+      font-size: 6em;
+      font-weight: 400;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+
+//-----------------Orders------------------//
+
+
+
+.orders{
+  padding: 20px;
+  article{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+article.orders-total{
+  background-color: $secondary-background;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+  color: $secondary-font-color;
+  font-size: 2em;
+  flex-direction: row;
+  height: 120px;
+  margin: 15px 10px;
+  padding: 0;
+    p{
+      color: $secondary-color;
+      font-size: 2.5em;
+      font-weight: 100;
+      margin-left: 30px;
+    }
+}
+
+article.date-select{
+  p{
+    font-size: 2.5em;
+    margin-right: 20px;
+  }
+  select{
+	  appearance: none;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	  border-radius: 6px;
+	  background-color: #fff;
+    font-size: 2em;
+    height: 70px;
+    option{
+      margin:auto;
+    }
+    &:hover{
+	    border-color: #888;
+    }
+  }
+}
+
+article.order-history{
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  height: 80%;
+  div{
+    border-radius: 6px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background-color: $primary-background;
+    display: flex;
+    font-size: 2em;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 80px;
+    margin: 9px 20px;
+    width: 90%;
+  }
+}
+
+
+
+//-----------------Rooms------------------//
+
+
+
+
+.rooms{
+  padding: 20px;
+  article{
+    background-color: $secondary-background;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 7px;
+    height: 48%;
+    h3{
+      color: $secondary-font-color;
+      font-size: 4em;
+      font-weight: 100;
+      margin: 15px;
+      padding: 0;
+    }
+    p{
+      color: $tertiary-background;
+      font-size: 6em;
+      font-weight: 400;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+article.room-type-select{
+  display: none;
+  flex-direction: row;
+  select{
+    margin-left: 30px;
+    height: 20px;
+  }
+}
+
+
+//-----------------Customer------------------//
+
+
+
+.customer{
+  align-items: center;
+  color: $secondary-font-color;
+  form{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2rem;
+    margin: 20px 10px;
+    width: 100%;
+    input{
+      height: 3rem;
+      width: 40%;
+    }
+    button{
+      border: 0;
+      border-radius: 6px;
+      background: $primary-background;
+      font-size: 2.1rem;
+      line-height: 1.2;
+      white-space: nowrap;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      margin: 0.25rem;
+      cursor: pointer;
+      width: 15%;
+    }
+  }
+}
+
+.customer-search{
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  background-color: $secondary-background;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+  margin: 35px 0px;
+  padding: 10px;
+  width: 93%;
+}
+
+#create-new-guest-btn{
+  display: inline-block;
+  border-radius: 6px;
+  background-color: $secondary-color;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+  border: none;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 93%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 50px;
+  span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;  
+  &:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+    }
+  }
+}
+
+#create-new-guest-btn:hover span {
+  padding-right: 25px;
+}
+
+#create-new-guest-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+//-----------------Footer------------------//
+
+
+
+footer{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  font-size: .5em;
+  width: 90%;
+}
+
+
+
+//-----------------Breakpoints------------------//
+
+@media only screen and (min-width: 750px) {
+  ul.tabs li{
+    span{
+      // display: flex;
+    }
+    img{
+      height: 40px;
+      width: 40px;
+    }
+  }
 }

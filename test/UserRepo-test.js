@@ -20,5 +20,6 @@ describe('UserRepo', function() {
 
   it('Should be able to return a new user object given a name', function () {
     expect(userRepo.createNewUser('Steve Rumizen').id).to.equal(101);
+    expect(userRepo.data.users.length).to.equal(101);
   });
 });

@@ -4,5 +4,218 @@
     <title>Booking Buddy</title>
   </head>
   <body>
+    <header>
+      <h1>BOOKING<span>BUDDY</span></h1>
+      <div>
+        <h2>Today's Date</h2>
+      </div>
+      <div>
+        <h2>Customer Name</h2>
+      </div>
+    </header>
+    <div class="container">   
+      <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1"><img src="images/home.svg" height="20px" width="20px"/> <span>Home</span></li>
+        <li class="tab-link" data-tab="tab-2"><img src="images/banknote.svg" height="20px" width="20px"/> <span>Orders</span></li>
+        <li class="tab-link" data-tab="tab-3"><img src="images/bed.svg" height="20px" width="20px"/> <span>Rooms</span></li>
+        <li class="tab-link" data-tab="tab-4"><img src="images/user.svg" height="20px" width="20px"/> <span>Customer</span></li>
+      </ul>  
+      <section id="tab-1" class="tab-content current main">
+        <article>
+          <h3>Today's Revenue</h3>
+          <p class="money-text">$<span>6,432.51</span></p>
+        </article>
+        <article>
+          <h3>Rooms Available</h3>
+          <p>36</p>
+        </article>
+        <article>
+          <h3>Rooms Occupied</h3>
+          <p><span>71</span>%</p>
+        </article>
+      </section>
+      <section id="tab-2" class="tab-content orders">
+        <article class="orders-total">
+          <h3>Total All-Time:</h3>
+          <p>$<span>500.23</span></p>
+        </article>
+        <article class="date-select">
+          <p>See Total For:</p>
+          <select id="date-select">
+            <option value="select">Select date</option>
+            <option value="date-1">Date</option>
+            <option value="date-2">Date</option>
+            <option value="date-3">Date</option>
+            <option value="date-4">Date</option>
+          </select>
+        </article>
+        <article class="order-history">
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 04/5/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+          <div>
+            <p>Date: 24/12/2019</p>
+            <p>Amount: $13.54</p>
+          </div>
+        </article>
+      </section>
+      <section id="tab-3" class="tab-content rooms">
+        <article class="most-popular-date">
+          <h3>Most Popular Date</h3>
+          <p>24/12/2019</p>
+        </article>
+        <article class="most-available-date">
+          <h3>Most Available Date</h3>
+          <p>13/11/2019</p>
+        </article>
+        <article class="room-type-select">
+          <p>Sort by Room Type:</p>
+          <select id="room-select">
+            <option value="">--Choose room type--</option>
+            <option value="suite">suite</option>
+            <option value="residential">residential suite</option>
+            <option value="junior">junior suite</option>
+            <option value="single">single room</option>
+          </select>
+        </article>
+      </section>
+      <section id="tab-4" class="tab-content customer">
+        <article class="customer-search">
+          <form>
+            <label for="customer-search">Search Customers: </label>
+            <input type="text" name="customer-search" id="customer-search"/>
+            <button id="customer-search-button">Go</button>
+          </form>
+        </article>
+        <button id="create-new-guest-btn"><span> New Guest</span></button>
+      </section>  
+    </section>
+    <footer>
+      <div>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a
+          href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+          href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+      </div>
+      <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a
+          href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+          href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+      </div>
+      <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a
+          href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+          href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+      </div>
+      <div>Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a
+          href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+          href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+      </div>
+      <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a
+          href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+          href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+      </div>
+    </footer>
   </body>
 </html>

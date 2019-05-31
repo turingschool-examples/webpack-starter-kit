@@ -9,8 +9,9 @@ class UserRepo {
 
   createNewUser(name) {
     const ids = this.data.users.map(user => user.id);
-    const highestId = Math.max(...ids);
-    return {id: highestId + 1, name: name}
+    const newUser = { id: Math.max(...ids) + 1, name: name };
+    this.data.users.push(newUser);
+    return newUser;
   }
 }
 
