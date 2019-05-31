@@ -9,6 +9,7 @@ import './images/open-book.svg'
 import './images/home.svg'
 import Data from './data';
 import Room from './rooms';
+import Dashboard from './dashboard';
 
 let data;
 const currentDate = new Date().toLocaleDateString('en-GB')
@@ -26,10 +27,9 @@ $('.nav-list__tab').click(function() {
 
 $('.header__load-button').on('click', function() {
   $('.header__splash-page').fadeOut()
-  let room = new Room(data.roomData)
-  console.log(room)
   domUpdates.displayCurrentDate(currentDate)
-  domUpdates.displayTodaysAvailableRooms(currentDate, data.bookingData, room)
+  displayAvailableRooms()
+  displayDailyDebts()
 })
 
 function createDataSet() {
@@ -49,6 +49,17 @@ function fetchData(url, path) {
 
 setTimeout(() => console.log(data), 2000)
 
+/*-----------Dashboard------------*/
+
+function displayAvailableRooms() {
+  let room = new Room(data.roomData)
+  domUpdates.displayTodaysAvailableRooms(currentDate, data.bookingData, room)
+}
+
+function displayDailyDebts() {
+  let dashboard = new Dashboard(data.bookingData, data.serviceData, data.roomData)
+  console.log(dashboard)
+}
 
 
 

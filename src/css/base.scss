@@ -25,13 +25,13 @@ header {
 }
 
 .current {
-  background: #ededed;
+  background: #9BC1CE;
   color: #222;
 }
 
 .tab-content {
   display: none;
-  background: #ededed;
+  background: #9BC1CE;
   padding: 15px;
 }
 
@@ -59,6 +59,8 @@ header {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  right: 1px;
+  bottom: 5px;
 }
 
 .splash-page__header {

@@ -8,7 +8,7 @@ const domUpdates = {
 
   displayTodaysAvailableRooms(date, data, room) {
     let numRooms = room.availableByDate(date, data).length
-    $('tab-1__insert-data').text(numRooms)
+    $('#tab-1__insert-data').text(numRooms)
   }
 }
 
