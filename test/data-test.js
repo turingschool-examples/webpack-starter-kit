@@ -2,11 +2,15 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Data from '../src/data'
+import bookingData from '../Data/booking-data'
+import serviceData from '../Data/service-data'
+import roomsData from '../Data/rooms-data'
+import userData from '../Data/user-data'
 
-describe.skip('Data', function() {
+describe.only('Data', function() {
   let data;
   beforeEach(function() {
-    data = new Data()
+    data = new Data(bookingData, serviceData, roomsData, userData)
   })
 
   it('should be a function', function() {
@@ -17,7 +21,8 @@ describe.skip('Data', function() {
     expect(data).to.be.an.instanceOf(Data)
   })
 
-  it('should fetch the users data', function() {
-    data.fetchData('https://fe-apps.herokuapp.com/api/v1/overlook/1903/users/users')
+  it('should be able to create a new user and add user object to the data', function() {
+    data.addCustomer('Ryan')
+    expect(data.customerData[100]).to.deep.equal({id: 101, name: 'Ryan'})
   })
 })

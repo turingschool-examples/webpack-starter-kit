@@ -6,7 +6,7 @@ import bookingData from '../Data/booking-data'
 import serviceData from '../Data/service-data'
 import roomsData from '../Data/rooms-data'
 
-describe.only('Dashboard', function() {
+describe('Dashboard', function() {
   let dashboard;
   beforeEach(function() {
     dashboard = new Dashboard(bookingData, serviceData, roomsData)

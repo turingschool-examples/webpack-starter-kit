@@ -1,3 +1,5 @@
+import Data from "./data";
+
 class Booking {
   constructor(data) {
     this.data = data
@@ -30,7 +32,8 @@ class Booking {
   }
 
   percentageByDate(date) {
-    
+    let currentBookings = this.findByDate(date)
+    return ((this.data.length - currentBookings.length) / this.data.length) * 100
   }
 }
 

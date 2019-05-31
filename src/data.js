@@ -1,23 +1,16 @@
-// import fetch from '../node_modules/fetch'
+import Booking from "./bookings";
 
 class Data {
-  constructor() {
-    this.data;
+  constructor(booking, service, room, customer) {
+    this.bookingData = booking;
+    this.serviceData = service;
+    this.roomData = room;
+    this.customerData = customer;
   }
 
-  fetchData(url) {
-    fetch(url)
-      .then((response) => {
-        if (response.status !== 200) {
-          console.log('FETCH ERROR. Status Code: ' + response.status);
-          return;
-        }
-        response.json().then(info => {
-          console.log(info)
-        });
-      }
-      )
-      .catch((err) => console.log('Fetch Error :-S', err));
+  addCustomer(name) {
+    let id = this.customerData.length + 1
+    this.customerData.push({id, name})
   }
 }
 

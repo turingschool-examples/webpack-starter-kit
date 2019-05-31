@@ -4,7 +4,7 @@ const expect = chai.expect;
 import bookingData from '../Data/booking-data'
 import Booking from '../src/bookings'
 
-describe.skip('Booking', function() {
+describe('Booking', function() {
   let booking;
   beforeEach(function() {
     booking = new Booking(bookingData);
@@ -39,5 +39,9 @@ describe.skip('Booking', function() {
     expect(booking.roomsTakenByDate('29/09/2019')).to.deep.equal([50, 79, 13, 51])
   })
 
-  
+  it('should find the percentage of open rooms', function() {
+    expect(booking.percentageByDate('29/09/2019')).to.equal(98)
+  })
+
+
 })
