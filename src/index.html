@@ -4,34 +4,41 @@
     <title>Webpack Starter Kit</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <section class="header__splash-page">
+        <h1 class="splash-page__header">Welcome!</h1>
+        <button class="header__load-button">Start</button>
+      </section>
+    </header>
     <nav>
       <ul class="nav__nav-list">
         <li class="nav-list__tab current" id="nav-list__dashboard" data-tab="tab-1">
-          <img src="./images/breakfast.svg" alt="" class="nav-list__svg">
+          <img src="./images/home.svg" alt="" class="nav-list__svg">
         </li>
         <li class="nav-list__tab" id="nav-list__customer" data-tab="tab-2">
           <img src="./images/specialist-user.svg" alt="" class="nav-list__svg">
         </li>
         <li class="nav-list__tab" id="nav-list__booking" data-tab="tab-3">
-          <img src="./images/open-book.svg" alt="">
+          <img src="./images/open-book.svg" alt="" class="nav-list__svg">
         </li>
-        <li class="nav-list__tab" id="nab-list__order" data-tab="tab-4">Orders</li>
+        <li class="nav-list__tab" id="nab-list__order" data-tab="tab-4">
+            <img src="./images/breakfast.svg" alt="" class="nav-list__svg">
+        </li>
       </ul>
     </nav>
     <main class="container">
-      <div id="tab-1" class="tab-content current">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-      <div id="tab-2" class="tab-content">
+      <section id="tab-1" class="tab-content current">
+        <p class="tab-content__rooms">Total Rooms Available for <span id="tab-1__date"></span>: <span id="tab-1__insert-data"></span></p>
+      </section>
+      <section id="tab-2" class="tab-content">
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-      <div id="tab-3" class="tab-content">
+      </section>
+      <section id="tab-3" class="tab-content">
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </div>
-      <div id="tab-4" class="tab-content">
+      </section>
+      <section id="tab-4" class="tab-content">
         Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
+      </section>
     </main>
   </body>
 </html>

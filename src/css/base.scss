@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import './mixins.scss';
 
 * {
   box-sizing: border-box;
@@ -39,6 +40,42 @@ header {
 }
 
 .nav-list__svg {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
+}
+
+.tab-content__rooms {
+  font-size: 36px;
+}
+
+/*d---------Splash Page-----------*/ 
+
+.header__splash-page {
+  @include dimension(100%, 100%);
+  position: absolute;
+  z-index: 4;
+  background: repeating-linear-gradient(#E1E1E1, #9BC1CE);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.splash-page__header {
+  color: #7E7F7E;
+  animation: grow 2s ease-out forwards;
+  text-shadow: 3px 2px 1px rgb(165, 167, 165);
+}
+
+.header__load-button {
+  animation: slide-right 2s ease-out forwards;
+  padding: 10px 30px;
+  font-size: 100px;
+  position: relative;
+  right: 700px;
+  border: none;
+  background: initial;
+  &:hover {
+    cursor: pointer;
+  }
 }
