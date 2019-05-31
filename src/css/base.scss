@@ -1,6 +1,45 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-body {
-  background-color: $primary-background;
+* {
+  font-family: $mainFont;
+  margin: 0px;
+  box-sizing: border-box;
+  background-color: #e0ce90;
 }
+
+header {
+  height: 130px;
+  display: flex;
+  font-size: 40px;
+  color: white;
+  border-bottom: 2px solid white;
+  justify-content: center;
+  align-items: center;
+  .icon {
+    margin: 10px;
+    width: 7%;
+
+  }
+}
+
+navbar {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  border-bottom: 2px solid white;
+  article {
+    display: inline-flex;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    .icon {
+      width: 10%;
+      margin-right: 5px;
+    }
+    h3 {
+      color: white;
+    }
+  }
+}
+

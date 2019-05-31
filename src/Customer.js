@@ -8,6 +8,23 @@ class Customer {
     let usersCollection = this.customerSample.users
     usersCollection.forEach((user) => user.name)
   }
+
+  searchCustomer() {
+
+  }
+
+  createCustomer() {
+
+  }
+
+  displayCustomer() {
+
+  }
+//   likely DOM updates:
+// display customer name on top of page
+// prompt to search or create customer
+// select customer
+
 }
 
 export default Customer;

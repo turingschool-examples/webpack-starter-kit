@@ -8,13 +8,19 @@ import $ from 'jquery';
 import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import './images/backpack.svg'
+import './images/dish.svg'
+import './images/door.svg'
+import './images/notepad.svg'
+import './images/profile.svg'
+
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
 import domUpdates from './domUpdates';
 
 let userData;
+
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/users/users')
   .then(dataFile => dataFile.json())
   .then(dataFile => userData = dataFile.users);
@@ -34,6 +40,3 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/room-services/roomServ
     .then(dataFile => dataFile.json())
     .then(dataFile => roomServicesData = dataFile.roomServices);
 
-    $(document).ready(() => {
-        
-    })

@@ -7,7 +7,7 @@ describe('Customer', function() {
    
     let customer;
     beforeEach(function() {
-        customer = new Customer(1, "Autumn Toy");
+    customer = new Customer(1, "Autumn Toy");
     });
 
     it('should be a function', function() {
@@ -25,4 +25,6 @@ describe('Customer', function() {
     it('should have an id', function() {
         expect(customer.id).to.equal(1);
     })
+
+    // it('should retur')
 });
