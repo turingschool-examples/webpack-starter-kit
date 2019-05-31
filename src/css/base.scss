@@ -1,19 +1,44 @@
 @import './variables.scss';
 
-body {
-  height: 100vh;
+* {
+  box-sizing: border-box;
 }
 
 header {
-  height: 20vh;
-}
-
-nav {
   height: 10vh;
 }
 
-main {
-  height: 70vh;
-  background-color: $background-primary;
+.nav__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.nav-list__tab {
+  flex: 1;
+  background: none;
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
+.current {
+  background: #ededed;
+  color: #222;
+}
+
+.tab-content {
+  display: none;
+  background: #ededed;
+  padding: 15px;
+}
+
+.tab-content.current{
+  display: inherit;
+}
+
+.nav-list__svg {
+  height: 100px;
+  width: 100px;
+}
