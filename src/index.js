@@ -46,7 +46,7 @@ $(document).ready(() => {
         domUpdates.displayOutstandingBalances(mainRepo.findOutstandingBalance(mainRepo.date));
         domUpdates.displayPercentageAvailable(mainRepo.findPercentageOfRoomsAvailable('06/02/2020'));
         
-    }, 2000)
+    }, 1000)
     
 
     $('.aside__tabs li').click(function(){
