@@ -18,7 +18,7 @@ describe('MainRepo', function() {
     })
 
     it('should find total rooms available to book today', function() {
-        expect(main.findTotalRoomsAvailableToday('18/07/2019')).to.eql([143, 108, 8, 192, 118, 158, 73, 97, 51])
+        expect(main.findTotalRoomsAvailableToday('18/07/2019')).to.equal(9)
     })
 
     it('should find percentage of rooms available', function(){

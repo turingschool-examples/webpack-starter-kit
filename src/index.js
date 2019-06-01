@@ -23,24 +23,30 @@ let dataFile3 = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/bookin
     return response.json()})
 let dataFile4 = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/room-services/roomServices').then(function(response){ 
     return response.json()});
-let allData = {'dataFile1':{}, 'dataFile2':{}, 'dataFile3':{}, 'dataFile4':{}}
+let allData = {'users':{}, 'rooms':{}, 'bookings':{}, 'roomServices':{}}
 
 Promise.all([dataFile1, dataFile2, dataFile3, dataFile4])
     .then(function(values) {
-        allData['dataFile1'] = values[0];
-        allData['dataFile2'] = values[1];
-        allData['dataFile3'] = values[2];
-        allData['dataFile4'] = values[3];
+        allData['users'] = values[0];
+        allData['rooms'] = values[1];
+        allData['bookings'] = values[2];
+        allData['roomServices'] = values[3];
         return allData;
     })
 
 let mainRepo = new MainRepo(allData);
 
-console.log(allData)
 
 $(document).ready(() => {
-    domUpdates.displayTodaysDate(mainRepo.date);
-    domUpdates.displayTodaysAvailability(mainRepo.roomsAvailable);
+
+    setTimeout(function() {
+        console.log(mainRepo.data)
+        domUpdates.displayTodaysDate(mainRepo.date);
+        domUpdates.displayTodaysAvailability(mainRepo.findTotalRoomsAvailableToday(mainRepo.date));
+        domUpdates.displayOutstandingBalances(mainRepo.findOutstandingBalance(mainRepo.date))
+        
+    }, 1000)
+    
 
     $('.aside__tabs li').click(function(){
 		let tab_id = $(this).attr('data-tab');

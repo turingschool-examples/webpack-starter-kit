@@ -7,8 +7,7 @@ body {
 h1 {
   color: $heading-font-color;
   font-size: 50px;
-  text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
-}
+  text-shadow: black;
 
 // main {
 //   display: flex;
@@ -34,7 +33,7 @@ aside {
     li {
       background: none;
       color: #222;
-      display: inline-block;
+      display: block;
       padding: 10px 15px;
       cursor: pointer;
 
@@ -43,8 +42,7 @@ aside {
       }
 
       &.current {
-        background: #ededed;
-			  color: #222;
+			  color: $tab-background-color;
       }
   
     }
@@ -53,10 +51,18 @@ aside {
 
   .tab-content {
     display: none;
-    background: #ededed;
-    padding: 15px;
+    background: $tab-background-color;
+    opacity: 0.8;
+    margin: auto;
+    // padding: 15px;
+    // float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+    height: 300px;
 
-    &:current {
+    &.current {
       display: inherit;
     }
   }

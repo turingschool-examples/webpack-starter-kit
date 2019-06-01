@@ -1,11 +1,12 @@
 class MainRepo {
     constructor(data) {
         this.data = data;
-        this.rooms = data.rooms;
-        this.bookings = data.bookings;
-        this.orders = data.orders;
-        this.date = this.findTodaysDate;
-        this.roomsAvailable = this.findTotalRoomsAvailableToday;
+        this.guests = data.users.users;
+        this.rooms = data.rooms.rooms;
+        this.bookings = data.bookings.bookings;
+        this.orders = data.roomServices.roomServices;
+        this.date = this.findTodaysDate();
+        // this.roomsAvailable = this.findTotalRoomsAvailableToday;
         // this.cashBalanceDue = cashBalanceDue;
         // this.cashPaid = cashPaid;
     }
@@ -19,7 +20,7 @@ class MainRepo {
     }
 
     findTotalRoomsAvailableToday(date) {
-        return this.bookings.filter(item => item.date !== date).map(item => item.roomNumber)
+        return this.data.bookings.bookings.filter(item => item.date !== date).map(item => item.roomNumber).length
     }
 
     findPercentageOfRoomsAvailable(date) {
@@ -29,7 +30,22 @@ class MainRepo {
     }
 
     findOutstandingBalance(date) {
+        const roomNumbers = this.data.bookings.bookings.filter(item => item.date === date).map(item => item.roomNumber)
   
+        const cost = this.data.rooms.rooms.reduce((totalRoomCost, room) => {
+          roomNumbers.forEach(roomNum => {
+            if(room.number === roomNum) {
+              totalRoomCost += room.costPerNight
+            }
+          })
+          return totalRoomCost
+        }, 0)
+        
+       const orders = this.data.roomServices.roomServices.filter(item => item.date === date).reduce((totalRoomService, order) => {
+         totalRoomService += order.totalCost
+         return totalRoomService
+       }, 0)
+       return cost + orders
     }
 
 

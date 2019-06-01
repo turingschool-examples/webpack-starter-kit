@@ -1,6 +1,7 @@
 let Data = {
 
-users: [
+users: {
+    users: [
     {
     id: 1,
     name: "Autumn Toy"
@@ -41,9 +42,10 @@ users: [
     id: 10,
     name: "Kiel O'Reilly"
     }
-],
+]
+    },
 
-
+rooms: {
     rooms: [
     {
     number: 1,
@@ -125,8 +127,10 @@ users: [
     numBeds: 1,
     costPerNight: 380.84
     }
-  ],
+  ]
+},
 
+bookings: {
     bookings: [
     {
     userID: 78,
@@ -178,7 +182,10 @@ users: [
     date: "18/07/2019",
     roomNumber: 123
     }
-],
+]
+}, 
+
+roomServices: {
     roomServices: [
     {
     userID: 34,
@@ -242,6 +249,7 @@ users: [
     }
 ]
 
+}
 }
 
 
