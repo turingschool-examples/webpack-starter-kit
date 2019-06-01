@@ -8,10 +8,11 @@ h1 {
   color: $heading-font-color;
   font-size: 50px;
   text-shadow: black;
+}
 
-// main {
-//   display: flex;
-// }
+h2 {
+  margin: 15px;
+}
 
 .main__dashboard-display {
   display: flex;
@@ -66,7 +67,16 @@ aside {
       display: inherit;
     }
   }
+}
 
- 
+.pie-percentage {
+  margin: auto;
+  float: right;
+}
 
+svg {
+  transform: rotate(-90deg);
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
 }

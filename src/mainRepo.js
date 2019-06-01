@@ -24,8 +24,8 @@ class MainRepo {
     }
 
     findPercentageOfRoomsAvailable(date) {
-        const availableRooms = this.bookings.filter(item => item.date !== date);
-        return (availableRooms.length/this.bookings.length) * 100
+        const availableRooms = this.data.bookings.bookings.filter(item => item.date !== date);
+        return (availableRooms.length/this.data.bookings.bookings.length) * 100
 
     }
 
