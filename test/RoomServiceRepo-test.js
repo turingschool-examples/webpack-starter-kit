@@ -5,15 +5,15 @@ chai.use(spies);
 import RoomServiceRepo from '../src/RoomServiceRepo';
 import data from '../src/data-sample';
 import domUpdates from "../src/domUpdates";
-// chai.spy.on(domUpdates, 'domRoomsAvailable', () => true);
-// chai.spy.on(domUpdates, 'domPercentageRoomsOccupied', () => true);
+chai.spy.on(domUpdates, 'domTodayTotalIncome', () => true);
+chai.spy.on(domUpdates, 'domAllServicesOfOneDay', () => true);
 
 
 describe('RoomServiceRepo', function() {
 
   let roomServiceRepo;
   beforeEach(function() {
-    roomServiceRepo = new RoomServiceRepo(data.roomServices, '31/05/2019');
+    roomServiceRepo = new RoomServiceRepo(data.roomServices, '01/06/2019', '');
   })
 
   it('should be a function', function() {
@@ -26,11 +26,13 @@ describe('RoomServiceRepo', function() {
 
   it('todayTotalIncome should return total of todays income',
     function() {
-      expect(roomServiceRepo.todayTotalIncome()).to.equal(9.48);
+      expect(roomServiceRepo.todayTotalIncome()).to.equal(32.03);
     });
   
-  // it('percentageRoomReposOccupied should return percentage of accupied rooms', function() {
-  //   expect(roomRepo.percentageRoomsOccupied()).to.equal(0.5);
-  // });
+  it('allServicesOfOneDay should return all services of one day', function() {
+    expect(roomServiceRepo.allServicesOfOneDay()).to.eql({
+      'Generic Plastic Sandwich': [ 2, 18.96 ],
+      'Tasty Fresh Sandwich': [ 1, 13.07 ] });
+  });
 
 });

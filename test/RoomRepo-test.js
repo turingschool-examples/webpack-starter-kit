@@ -1,34 +1,152 @@
-import chai from 'chai';
+import chai from "chai";
 const expect = chai.expect;
-import spies from 'chai-spies';
+import spies from "chai-spies";
 chai.use(spies);
-import RoomRepo from '../src/RoomRepo';
-import data from '../src/data-sample';
+import RoomsDefault from "../src/RoomRepo";
+import data from "../src/data-sample";
 import domUpdates from "../src/domUpdates";
-chai.spy.on(domUpdates, 'domRoomsAvailable', () => true);
-chai.spy.on(domUpdates, 'domPercentageRoomsOccupied', () => true);
+chai.spy.on(domUpdates, "domRoomsAvailable", () => true);
+chai.spy.on(domUpdates, "domPercentageRoomsOccupied", () => true);
 
-describe('RoomRepo', function() {
-
-  let roomRepo;
+describe("RoomsDefault", function() {
+  let roomsDefault;
   beforeEach(function() {
-    roomRepo = new RoomRepo(data.bookings, data.rooms, '31/05/2019');
-  })
-
-  it('should be a function', function() {
-    expect(RoomRepo).to.be.a('function');
+    roomsDefault = new RoomsDefault(data.bookings, data.rooms, "01/06/2019");
   });
 
-  it('should be an instace of CustomerRepo', function() {
-    expect(roomRepo).to.be.an.instanceOf(RoomRepo);
+  it("should be a function", function() {
+    expect(RoomsDefault).to.be.a("function");
   });
 
-  it('roomsAvailable should return numbers of available rooms',
-    function() {
-      expect(roomRepo.roomsAvailable().length).to.equal(199);
+  it("should be an instace of CustomerRepo", function() {
+    expect(roomsDefault).to.be.an.instanceOf(RoomsDefault);
+  });
+
+  it("roomsAvailable should return numbers of available rooms", function() {
+    expect(roomsDefault.roomsAvailable().length).to.equal(198);
+  });
+
+  it("percentageRoomReposOccupied should return percentage of accupied rooms", function() {
+    expect(roomsDefault.percentageRoomsOccupied()).to.equal(1);
+  });
+
+  it("bookingDatesBreakDown should return an object with key-value pairs of min, max, uniquDates and dateRepeat", function() {
+    expect(roomsDefault.bookingDatesBreakDown()).to.eql({
+      maxValue: 2,
+      minValue: 1,
+      dateRepeatValue: [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      uniqueDatesValue: [
+        "01/06/2019",
+        "31/10/2019",
+        "17/07/2019",
+        "15/01/2020",
+        "07/02/2020",
+        "22/02/2020",
+        "21/10/2019",
+        "07/10/2019",
+        "18/07/2019",
+        "17/11/2019",
+        "19/08/2019",
+        "22/09/2019",
+        "03/11/2019",
+        "14/06/2019",
+        "16/07/2019",
+        "29/09/2019",
+        "06/11/2019",
+        "03/10/2019",
+        "04/08/2019",
+        "30/10/2019",
+        "16/01/2020",
+        "07/01/2020",
+        "05/11/2019",
+        "06/07/2019",
+        "29/01/2020",
+        "30/01/2020",
+        "17/03/2020",
+        "05/06/2019",
+        "06/03/2020",
+        "09/01/2020",
+        "27/11/2019",
+        "11/12/2019",
+        "06/01/2020",
+        "24/01/2020"
+      ]
     });
-  
-  it('percentageRoomReposOccupied should return percentage of accupied rooms', function() {
-    expect(roomRepo.percentageRoomsOccupied()).to.equal(0.5);
+  });
+
+  it("mostPopularDay should return all popular days", function() {
+    expect(roomsDefault.mostPopularDay()).to.eql(["01/06/2019", "07/01/2020"]);
+  });
+
+  it("leastPopularDay should return least popular days", function() {
+    expect(roomsDefault.leastPopularDay()).to.eql([
+      "31/10/2019",
+      "17/07/2019",
+      "15/01/2020",
+      "07/02/2020",
+      "22/02/2020",
+      "21/10/2019",
+      "07/10/2019",
+      "18/07/2019",
+      "17/11/2019",
+      "19/08/2019",
+      "22/09/2019",
+      "03/11/2019",
+      "14/06/2019",
+      "16/07/2019",
+      "29/09/2019",
+      "06/11/2019",
+      "03/10/2019",
+      "04/08/2019",
+      "30/10/2019",
+      "16/01/2020",
+      "05/11/2019",
+      "06/07/2019",
+      "29/01/2020",
+      "30/01/2020",
+      "17/03/2020",
+      "05/06/2019",
+      "06/03/2020",
+      "09/01/2020",
+      "27/11/2019",
+      "11/12/2019",
+      "06/01/2020",
+      "24/01/2020"
+    ]);
   });
 });

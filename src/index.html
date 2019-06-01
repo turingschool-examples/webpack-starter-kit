@@ -2,40 +2,75 @@
 <html lang="en-US">
   <head>
     <title>Webpack Starter Kit</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700|Quicksand&display=swap" rel="stylesheet">
+    
   </head>
   <body>
-
     <section class="body-section-one">
-      <img class="logo" src="/images/overlook-logo.png" alt="overlook logo">
-    <section class="body-section-one-all-items">
+      <img class="logo" src="/images/overlook-logo.png" alt="overlook logo" />
+      <section class="body-section-one-all-items">
         <div class="body-section-one-item">
-            <h3 class="body-section-one__item-header">Rooms Available</h3>
-            <p class="rooms-available"></p>
+          <h3 class="body-section-one__item-header">Rooms Available</h3>
+          <p class="rooms-available"></p>
         </div>
         <div class="body-section-one-item">
-            <h3 class="body-section-one__item-header">Rooms Occupied</h3>
-            <p class="rooms-occupied-percentage"></p>
+          <h3 class="body-section-one__item-header">Rooms Occupied</h3>
+          <p class="rooms-occupied-percentage-sign"><span class="rooms-occupied-percentage"></span>%</p>
         </div>
         <div class="body-section-one-item">
-            <h3 class="body-section-one__item-header">Today's Income</h3>
-            <p class="totdays-total-income-dollar">
-              <span class="totdays-total-income"></span>$
-            </p>
+          <h3 class="body-section-one__item-header">Today's Income (Services)</h3>
+          <p class="totdays-total-income-dollar">
+              $<span class="totdays-total-income"></span>
+          </p>
         </div>
+      </section>
+      <p class="body-section-one-open-close-more">SCROLL UP</p>
+      <div class="body-section-one-open-close-btn">
+        <!-- <p class="arrow"></p> -->
+      </div>
     </section>
-  </section>
-  <section class="body-section-three">
-    <div class="body-section-three__date-and-time">
-      <div class="body-section-three__time">
-        <p class="time">00:00 MM</p>
-      </div>
-      <div class="body-section-three__date">
-          <p class="date">DDD | MMM D, YYYY</p>
-      </div>
-    </div>
-  </section>
-    
+    <section class="body-section-two">
+      <section class="body-section-two-content">
+          <h5>Customer: Lis Chimaras</h5>
+        <ul class="body-section-two__headers">
+          <li data-id="customers-body" class="body-section-two__customers-header">CUSTOMERS</li>
+          <li data-id="rooms-body" class="body-section-two__rooms-header">ROOMS</li>
+          <li data-id="services-body" class="body-section-two__services-header">SERVICES</li>     
+        </ul>
+        <section class="body-section-two__bodies">
+            <div id="customers-body" class="content-body">
+              <div class="content-body-search-container">
+                <input placeholder="Find a customer..." type="text">
+                <buttn id="customers-body-search-btn">Search</buttn>
+              </div>
+            </div>
+          <div id="rooms-body" class="content-body">this is body of rooms</div>
 
+     <!-- ///////////////////////////////////////// -->
+
+          <div id="services-body" class="content-body">
+            <section class="services-general-info">
+              <p id="datepicker">Date</p>
+            <table class="services-general-info-services"></table>
+            </section>
+
+          </div>
+        </section>
+      </section>
+    </section>
+    <section class="body-section-three">
+      <div class="body-section-three-half-circle-container">
+        <p class="body-section-three-half-circle"></p>
+      </div>
+      <div class="body-section-three__date-and-time">
+        <div class="body-section-three__time">
+          <p class="time">00:00 MM</p>
+        </div>
+        <div class="body-section-three__date">
+          <p class="date">DDD | MMM D, YYYY</p>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

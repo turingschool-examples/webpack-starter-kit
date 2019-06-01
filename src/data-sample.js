@@ -1727,12 +1727,12 @@ const rooms = [
 const bookings = [
   {
     userID: 78,
-    date: "31/05/2019",
+    date: "01/06/2019",
     roomNumber: 143
   },
   {
     userID: 43,
-    date: "05/10/2019",
+    date: "01/06/2019",
     roomNumber: 108
   },
   {
@@ -1910,7 +1910,13 @@ const bookings = [
 const roomServices = [
   {
     userID: 34,
-    date: "31/05/2019",
+    date: "01/06/2019",
+    food: "Generic Plastic Sandwich",
+    totalCost: 9.48
+  },
+  {
+    userID: 34,
+    date: "01/06/2019",
     food: "Generic Plastic Sandwich",
     totalCost: 9.48
   },
@@ -1922,7 +1928,7 @@ const roomServices = [
   },
   {
     userID: 9,
-    date: "15/07/2019",
+    date: "01/06/2019",
     food: "Tasty Fresh Sandwich",
     totalCost: 13.07
   },
