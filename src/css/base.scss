@@ -282,3 +282,20 @@ th {
   font-size: 14px;
   background-color: $white-40;
 }
+
+.rooms-most-least-popular-days {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.rooms-most-popular-days-container {
+  height: 530px;
+  overflow: scroll;
+  border: none;
+}
+
+.rooms-least-popular-days-container {
+  height: 530px;
+  overflow: scroll;
+}

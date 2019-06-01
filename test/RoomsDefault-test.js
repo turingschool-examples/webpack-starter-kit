@@ -7,6 +7,8 @@ import data from "../src/data-sample";
 import domUpdates from "../src/domUpdates";
 chai.spy.on(domUpdates, "domRoomsAvailable", () => true);
 chai.spy.on(domUpdates, "domPercentageRoomsOccupied", () => true);
+chai.spy.on(domUpdates, "domMostPopularDay", () => true);
+chai.spy.on(domUpdates, "domLeastPopularDay", () => true);
 
 describe("RoomsDefault", function() {
   let roomsDefault;
@@ -110,43 +112,43 @@ describe("RoomsDefault", function() {
   });
 
   it("mostPopularDay should return all popular days", function() {
-    expect(roomsDefault.mostPopularDay()).to.eql(["01/06/2019", "07/01/2020"]);
+    expect(roomsDefault.mostPopularDay()).to.eql({numOfDays: 2, dates: [ '01/06/2019', '07/01/2020' ]});
   });
 
   it("leastPopularDay should return least popular days", function() {
-    expect(roomsDefault.leastPopularDay()).to.eql([
-      "31/10/2019",
-      "17/07/2019",
-      "15/01/2020",
-      "07/02/2020",
-      "22/02/2020",
-      "21/10/2019",
-      "07/10/2019",
-      "18/07/2019",
-      "17/11/2019",
-      "19/08/2019",
-      "22/09/2019",
-      "03/11/2019",
-      "14/06/2019",
-      "16/07/2019",
-      "29/09/2019",
-      "06/11/2019",
-      "03/10/2019",
-      "04/08/2019",
-      "30/10/2019",
-      "16/01/2020",
-      "05/11/2019",
-      "06/07/2019",
-      "29/01/2020",
-      "30/01/2020",
-      "17/03/2020",
-      "05/06/2019",
-      "06/03/2020",
-      "09/01/2020",
-      "27/11/2019",
-      "11/12/2019",
-      "06/01/2020",
-      "24/01/2020"
-    ]);
+    expect(roomsDefault.leastPopularDay()).to.eql({ numOfDays: 1,
+      dates:
+       [ '31/10/2019',
+         '17/07/2019',
+         '15/01/2020',
+         '07/02/2020',
+         '22/02/2020',
+         '21/10/2019',
+         '07/10/2019',
+         '18/07/2019',
+         '17/11/2019',
+         '19/08/2019',
+         '22/09/2019',
+         '03/11/2019',
+         '14/06/2019',
+         '16/07/2019',
+         '29/09/2019',
+         '06/11/2019',
+         '03/10/2019',
+         '04/08/2019',
+         '30/10/2019',
+         '16/01/2020',
+         '05/11/2019',
+         '06/07/2019',
+         '29/01/2020',
+         '30/01/2020',
+         '17/03/2020',
+         '05/06/2019',
+         '06/03/2020',
+         '09/01/2020',
+         '27/11/2019',
+         '11/12/2019',
+         '06/01/2020',
+         '24/01/2020' ] });
   });
 });

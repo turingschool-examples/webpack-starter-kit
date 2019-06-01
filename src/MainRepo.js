@@ -1,6 +1,6 @@
-class CustomersRepo {
-  constructor(customersData) {
-    this.customersData = customersData;
+class MainRepo {
+  constructor(sData) {
+    this.customersData = sData;
     this.currentID = this.customersData.length + 1;
   }
 
@@ -20,4 +20,4 @@ class CustomersRepo {
   }
 }
 
-export default CustomersRepo;
+export default MainRepo;

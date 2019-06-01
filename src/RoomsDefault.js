@@ -74,8 +74,9 @@ class RoomsDefault {
       }
       return acc;
     }, [])
-
-    return maxDates
+    let output = {numOfDays: obj.maxValue, dates: maxDates};
+    domUpdates.domMostPopularDay(output);
+    return output
   }
 
   leastPopularDay() {
@@ -86,10 +87,10 @@ class RoomsDefault {
       }
       return acc;
     }, [])
-
-    return leastDates
+    let output = {numOfDays: obj.minValue, dates: leastDates};
+    domUpdates.domLeastPopularDay(output);
+    return output
   }
-
 }
 
 export default RoomsDefault;

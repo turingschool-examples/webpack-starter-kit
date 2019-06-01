@@ -23,14 +23,29 @@ export default {
 
   domAllServicesOfOneDay(services) {
     let data = Object.entries(services);
-    var elements = $('<tr><th>Services</th><th>Quantity</th><th>Price</th></tr>');
+    let elements = $(`<tr><th>#</th><th>Services</th><th>Quantity</th><th>Total price</th></tr>`);
     for (let i = 0; i < data.length; i++) {
-    elements = elements.add('<tr><td>'+data[i][0]+'</td><td>'+data[i][1][0]+'</td><td>'+data[i][1][1]+'</td></tr>');
+    elements = elements.add(`<tr><td>${i + 1}</td><td>${data[i][0]}</td><td>${data[i][1][0]}</td><td>${data[i][1][1]}</td></tr>`);
     }
-
     $('.services-general-info-services').append(elements);
-
   },
 
+  domMostPopularDay(data) {
+    let elements = $(`<tr><th>#</th><th>Most popular day/s (${data.numOfDays}) </th></tr>`);
+    for (let i = 0; i < data.dates.length; i++) {
+    elements = elements.add(`<tr><td>${i + 1}</td><td>${data.dates[i]}</tr>`);
+    }
+    $(".rooms-most-popular-days").append(elements);
+  },
+
+
+
+  domLeastPopularDay(data) {
+    let elements = $(`<tr><th>#</th><th>Least popular day/s (${data.numOfDays}) </th></tr>`);
+    for (let i = 0; i < data.dates.length; i++) {
+    elements = elements.add(`<tr><td>${i + 1}</td><td>${data.dates[i]}</tr>`);
+    }
+    $(".rooms-least-popular-days").append(elements);
+  }
 
 }
