@@ -5,7 +5,7 @@ import Data from '../src/Data';
 
 describe('MainRepo', function() {
     let main;
-    beforeEach(function(){
+    beforeEach (function(){
         main = new MainRepo(Data)
     })
 
@@ -21,7 +21,7 @@ describe('MainRepo', function() {
         expect(main.findTotalRoomsAvailableToday('18/07/2019')).to.equal(9)
     })
 
-    it('should find percentage of rooms available', function(){
+    it('should find percentage of rooms available', function() {
         expect(main.findPercentageOfRoomsAvailable('18/07/2019')).to.equal(90)
     })
 
