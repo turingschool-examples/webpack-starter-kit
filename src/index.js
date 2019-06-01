@@ -42,9 +42,10 @@ $(document).ready(() => {
     setTimeout(function() {
         console.log(mainRepo.data)
         domUpdates.displayTodaysDate(mainRepo.date);
+        //change args to mainRepo.date//
         domUpdates.displayTodaysAvailability(mainRepo.findTotalRoomsAvailableToday(mainRepo.date));
         domUpdates.displayOutstandingBalances(mainRepo.findOutstandingBalance(mainRepo.date));
-        domUpdates.displayPercentageAvailable(mainRepo.findPercentageOfRoomsAvailable('06/02/2020'));
+        domUpdates.displayPercentageAvailable(mainRepo.findPercentageOfRoomsAvailable(mainRepo.date));
         
     }, 1000)
     

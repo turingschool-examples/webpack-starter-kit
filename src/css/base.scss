@@ -1,5 +1,6 @@
 @import './_variables';
 @import './searchInput';
+@import './pieChart';
 
 body {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.dribbble.com/users/1379556/screenshots/5197492/vertical_flowers_edit_final.jpg')
@@ -12,6 +13,7 @@ h1 {
 }
 
 h2 {
+  color: $h2-font-color;
   margin: 15px;
 }
 
@@ -36,7 +38,7 @@ aside {
       background: none;
       color: #222;
       display: block;
-      font-size: 24px;
+      font-size: 20px;
       padding: 10px 15px;
       cursor: pointer;
 
@@ -71,14 +73,22 @@ aside {
   }
 }
 
-.pie-percentage {
-  margin: auto;
-  float: right;
-}
+.aside__tabs--add-new-guest {
+  display: flex;
+  flex-direction: column;
 
-svg {
-  transform: rotate(-90deg);
-  border-radius: 50%;
-  width: 130px;
-  height: 130px;
+  label {
+    margin-top: 0px;
+  }
+
+  label,
+  input {
+    margin: 5px;
+    width: 200px;
+  }
+  
+  button {
+    width: 205px;
+    margin: 5px;
+  }
 }

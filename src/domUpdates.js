@@ -13,7 +13,7 @@ let domUpdates = {
     },
 
     displayOutstandingBalances(balance) {
-        $('#aside__tabs-main').append('<h2>Total Outstanding Balance: <span class="total-outstanding-balance"></span></h2>')
+        $('#aside__tabs-main').append('<h2>Total Outstanding Balance: $<span class="total-outstanding-balance"></span></h2>')
         $('.total-outstanding-balance').text(`${balance}`)
     },
 
