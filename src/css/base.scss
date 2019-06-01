@@ -1,6 +1,94 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import './_variables';
+@import './searchInput';
+@import './pieChart';
 
 body {
-  background-color: $primary-background;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.dribbble.com/users/1379556/screenshots/5197492/vertical_flowers_edit_final.jpg')
+}
+
+h1 {
+  color: $heading-font-color;
+  font-size: 50px;
+  text-shadow: black;
+}
+
+h2 {
+  color: $h2-font-color;
+  margin: 15px;
+}
+
+.main__dashboard-display {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+aside {
+  height: 800px;
+  margin: 0 auto;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      background: none;
+      color: #222;
+      display: block;
+      font-size: 20px;
+      padding: 10px 15px;
+      cursor: pointer;
+
+      &:hover {
+        color: $font-hover;
+      }
+
+      &.current {
+			  color: $tab-background-color;
+      }
+  
+    }
+
+  }
+
+  .tab-content {
+    display: none;
+    background: $tab-background-color;
+    opacity: 0.8;
+    margin: auto;
+    // padding: 15px;
+    // float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+    height: 300px;
+
+    &.current {
+      display: inherit;
+    }
+  }
+}
+
+.aside__tabs--add-new-guest {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-top: 0px;
+  }
+
+  label,
+  input {
+    margin: 5px;
+    width: 200px;
+  }
+  
+  button {
+    width: 205px;
+    margin: 5px;
+  }
 }

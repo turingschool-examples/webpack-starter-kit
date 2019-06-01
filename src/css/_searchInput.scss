@@ -1,0 +1,28 @@
+.searchterm {
+    outline: none;
+    font-size: 14px;
+    height: 40px;
+    width: 93%;
+    margin-left: 25px;
+    font-weight: 300;
+    color: #1f1f3b;
+    padding: 5px;
+  }
+  
+  .btn-search {
+   position: absolute;
+   width: 30px;
+   height: 40px;
+   background-color: lightgrey;
+   color: #ffffff;
+   cursor: pointer;
+   font-size: 20px;
+   padding: 5px;
+   background-color: $heading-font-color;
+  }
+
+  .searchterm,
+  .btn-search {
+    border: 1px solid lightgrey;
+    border-radius: 5px 0px 0px 5px;
+  }

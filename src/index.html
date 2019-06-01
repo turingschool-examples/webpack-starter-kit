@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <title>Overlook Hotel Management Tool</title>
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
+    <main>
+      <section class="main__dashboard-display">
+        <h1></h1>
+      </section>
+      <aside>
+        <ul class="aside__tabs">
+          <li class="tab-link current" data-tab="aside__tabs-main">Dashboard</li>
+          <li class="tab-link" data-tab="aside__tabs-guests">Guests</li>
+          <li class="tab-link" data-tab="aside__tabs-room-service">Room Service Orders</li>
+          <li class="tab-link" data-tab="aside__tabs-bookings">Bookings</li>
+        </ul>
 
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+        <div id="aside__tabs-main" class="tab-content">
+        </div>
+        <div id="aside__tabs-guests" class="tab-content current">
+            <form class="aside__tabs--guest-search">
+                <button type="button" class="btn-search" id="btn-search-guests">
+                  <i class="fa fa-search"></i>
+                </button>
+                <input type="search" placeholder="Search Guests" autocomnplete=off class="searchterm" id="search-input">
+            </form>
+            <form class="aside__tabs--add-new-guest">
+              <h3>Add New Guest</h3>
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" autocomnplete=off placeholder="Enter guest first name"/>
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" placeholder="Enter guest last name"/>
+              <button type="submit" id="submit-guess-info">Update Guest</button>
+            </form>        
+        </div>
+        <div id="aside__tabs-room-service" class="tab-content">
+            Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+            <form class="aside__tabs--orders-search">
+                <button type="button" class="btn-search" id="btn-search-orders">
+                  <i class="fa fa-search"></i>
+                </button>
+                <input type="search" placeholder="Search Room Service Orders" class="searchterm" id="search-input">
+            </form>   
+        </div>
+        <div id="aside__tabs-bookings" class="tab-content">
+            <form class="aside__tabs--bookings-search">
+                <button type="button" class="btn-search" id="btn-search-bookings">
+                  <i class="fa fa-search"></i>
+                </button>
+                <input type="search" placeholder="Search Reservations" class="searchterm" id="search-input">
+            </form>           
+          </div>
+      </aside>
+    </main>
   </body>
 </html>
