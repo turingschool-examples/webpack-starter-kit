@@ -2,7 +2,7 @@ import chai from "chai";
 const expect = chai.expect;
 import spies from "chai-spies";
 chai.use(spies);
-import RoomsDefault from "../src/RoomRepo";
+import RoomsDefault from "../src/RoomsDefault";
 import data from "../src/data-sample";
 import domUpdates from "../src/domUpdates";
 chai.spy.on(domUpdates, "domRoomsAvailable", () => true);

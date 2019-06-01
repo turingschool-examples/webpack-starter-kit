@@ -3,7 +3,7 @@ import "./css/base.scss";
 // import './images/turing-logo.png'
 import "./images/overlook-logo.png";
 import fetch from "cross-fetch";
-import RoomRepo from "./RoomRepo";
+import RoomsDefault from "./RoomsDefault";
 import RoomServiceRepo from "./RoomServiceRepo";
 import data from "./data-sample";
 import domUpdates from "./domUpdates";
@@ -64,9 +64,9 @@ function today() {
 setTimeout(start, 1000);
 // bookingsData roomsData
 function start() {
-  const roomRepo = new RoomRepo(data.bookings, data.rooms, today());
-  roomRepo.roomsAvailable();
-  roomRepo.percentageRoomsOccupied();
+  const roomsDefault = new RoomsDefault(data.bookings, data.rooms, today());
+  roomsDefault.roomsAvailable();
+  roomsDefault.percentageRoomsOccupied();
   // roomServicesData
   const roomServiceRepo = new RoomServiceRepo(data.roomServices, today());
   roomServiceRepo.todayTotalIncome();
