@@ -1,13 +1,17 @@
 import chai from 'chai';
 const expect = chai.expect;
+import spies from 'chai-spies';
+chai.use(spies);
 import MainRepo from '../src/MainRepo';
 import data from '../src/data-sample';
+import domUpdates from '../src/domUpdates';
+chai.spy.on(domUpdates, 'domSearchCustomerName', () => true);
 
-describe('CustomerRepo', function() {
+describe('MainRepo', function() {
 
   let mainRepo;
   beforeEach(function() {
-    mainRepo = new MainRepo(data.users);
+    mainRepo = new MainRepo(data);
   })
 
   it('should be a function', function() {
@@ -31,9 +35,16 @@ describe('CustomerRepo', function() {
     expect(mainRepo.customersData[31]).to.eql({id: 32, name: 'David'});
   });
 
+  // it('searchCustomerName should return customerID', function() {
+  //   expect(mainRepo.searchCustomerName('Andreea')).to.eql(31);
+  //   expect(mainRepo.searchCustomerName('Elmer Hyatt')).to.eql(27);
+  //   expect(mainRepo.searchCustomerName('Jev')).to.eql('Customer does not exist');
+  // });
+
   it('searchCustomerName should return customerID', function() {
-    expect(mainRepo.searchCustomerName('Andreea')).to.eql(31);
-    expect(mainRepo.searchCustomerName('Elmer Hyatt')).to.eql(27);
-    expect(mainRepo.searchCustomerName('Jev')).to.eql('Customer does not exist');
+    expect(mainRepo.searchCustomerName('al')).to.eql([
+      { id: 5, name: 'Reginald Schaden' },
+      { id: 17, name: 'Kianna Walter' }
+    ]);
   });
 });

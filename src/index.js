@@ -6,6 +6,7 @@ import RoomsDefault from "./RoomsDefault";
 import RoomServiceRepo from "./RoomServiceRepo";
 import sData from "./data-sample";
 import domUpdates from "./domUpdates";
+import MainRepo from "./MainRepo";
 
 let users = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/users/users').then(function(response) {
   return response.json()
@@ -61,13 +62,49 @@ setTimeout(start, 1000);
 // bookingsData roomsData
 function start() {
   const roomsDefault = new RoomsDefault(sData.bookings, sData.rooms, today());
-  roomsDefault.roomsAvailable();
+  roomsDefault.noRoomsAvailable();
   roomsDefault.percentageRoomsOccupied();
   roomsDefault.mostPopularDay();
   roomsDefault.leastPopularDay();
+
   const roomServiceRepo = new RoomServiceRepo(sData.roomServices, today());
   roomServiceRepo.todayTotalIncome();
   roomServiceRepo.allServicesOfOneDay();
+  const mainRepo = new MainRepo(sData);
+
+  $("#customers-body-search-input").keyup(function() {
+    let value = $("#customers-body-search-input").val();
+    mainRepo.searchCustomerName(value);
+  });
+
+
+  $("#customers-body-found-name").click(function(e) {
+     
+    if ($(e.target).attr('class') === "names-found") {
+      $("#selected-name").text("");
+      $("#selected-name").append(`<h4 class="selected-name__name">${$(e.target).text()}</h4>`);
+      $("#selected-name").append(`<button class="selected-name__close-btn">&times;</button>`)
+      $("#customers-body-found-name").text("");
+      $("#customers-body-search-input").val("");
+    }
+  })
+
+  $("#selected-name").click(function(e) {
+    if ($(e.target).attr('class') === "selected-name__close-btn") {
+      $("#selected-name").text("");
+    }
+  });
+   
+  $("#datepicker").change(function() {
+    let pickedDate = $("#datepicker").val();
+    let arr = pickedDate.split("-");
+    let fixedDate = `${arr[2]}/${arr[1]}/${arr[0]}`;
+
+    const roomServiceRepo = new RoomServiceRepo(sData.roomServices, fixedDate);
+    roomServiceRepo.allServicesOfOneDay();
+  })
+  
+
 }
 
 const showTime = () => {
@@ -149,10 +186,6 @@ $(document).ready(function() {
       $(`#${$(e.target).attr('data-id')}`).css('display', 'block');
     }
   })
- 
-  // $(function() {
-  //   domUpdates.domDatePicker();
-  // })
   
 
 });

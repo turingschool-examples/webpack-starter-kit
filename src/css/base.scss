@@ -182,7 +182,7 @@ $white-40: rgba(255,255,255,0.4);
   bottom: 0;
   display: flex;
   justify-content: center;
-  padding-top: 2em;
+  padding-top: 1em;
   z-index: 2;
 }
 
@@ -203,7 +203,7 @@ $white-40: rgba(255,255,255,0.4);
 }
 
 .body-section-two__bodies {
-  height: 90%;
+  height: 87%;
   position: relative;
   margin-top: 12px;
   background-color: $background-third-color;
@@ -227,7 +227,8 @@ $white-40: rgba(255,255,255,0.4);
 #customers-body {
   height: 100%;
   display: block;
-  padding: 20px;
+  padding-left: 20px;
+  padding-top: 5px;
 }
 
 #rooms-body {
@@ -242,14 +243,15 @@ $white-40: rgba(255,255,255,0.4);
   padding: 20px;
 }
 
-.content-body-search-container {
+.input-body  {
   border: $white 1px solid;
   width: 320px;
   border-radius: 5px;
   background-color: $white;
+  margin-top: 25px;
 }
 
-input[type="text"] {
+#customers-body-add-input {
   background-color: $background-secondary-color;
   border-bottom-left-radius: 5px;
   border-right: 1px solid $white;
@@ -263,19 +265,69 @@ input[type="text"] {
   width: 250px;
 }
 
-#customers-body-search-btn {
+#customers-body-search-input {
+  background-color: $background-secondary-color;
+  border-radius: 5px;
+  color: $white;
+  border: none;
+  // border: 1px solid $white;
+  font-size: 14px;
+  height: 30px;
+  outline: none;
+  padding-left: 8px;
+  width: 100%;
+}
+
+#customers-body-add-btn {
   height: 30px;
   cursor: pointer;
-  padding-left: 5px;
+  padding-left: 13px;
 }
 
 table, td, th {
   border-collapse: collapse;
-  border: 1px solid $white-40;
+  border: 1px solid #515769;
   color: $white
 }
 th, td {
   text-align: left;
+  height: 25px;
+  background-color: rgba(47, 51, 63, 0.3);
+}
+th {
+  text-align: center;
+}
+
+td {
+  padding-left: 4px;
+}
+
+.header_hashtag {
+  width: 30px;
+}
+
+.header_services {
+  width: 300px;
+}
+
+.header_quantity,
+.header_price {
+  width: 100px;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+  padding-right: 5px;
+}
+
+.services-general-info-services {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 th {
@@ -290,12 +342,105 @@ th {
 }
 
 .rooms-most-popular-days-container {
-  height: 530px;
-  overflow: scroll;
+  height: 520px;
+  overflow: hidden;
   border: none;
+  margin-right: 20px;
 }
 
 .rooms-least-popular-days-container {
   height: 530px;
-  overflow: scroll;
+  overflow: hidden;
+}
+
+#customers-body-found-name {
+  list-style: none;
+  margin-top: 2px;
+}
+
+.names-found {
+  width: 320px;
+  height: 30px;
+  border: 1px solid $background-secondary-color;
+  background-color: $background-third-color;
+  padding: 4px;
+  color: $white;
+}
+
+.names-found:hover {
+  background-color: $white;
+  color: $background-primary-color;
+  cursor: pointer;
+}
+
+#selected-name {
+  height: 30px;
+  display: flex;
+}
+
+.selected-name__name {
+  height: 30px;
+  width: 200px;
+  background-color: $golden;
+  color: $background-primary-color;
+  padding: 4px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.selected-name__close-btn {
+  background-color: $white-40;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 30px;
+  width: 30px;
+  border: none;
+  outline: none;
+}
+
+.selected-name__close-btn:hover {
+  background-color: $red;
+  color: $white;
+  cursor: pointer;
+}
+
+.prompt {
+  color: $background-primary-color;
+  border: 1px solid $background-secondary-color;
+}
+
+
+#datepicker {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 12px;
+  background-color: transparent;
+  border: none;
+  color: $white;
+}
+
+#datepicker-label {
+  display: inline-block;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 12px;
+  padding-left: 10px;
+  color: $white;
+}
+
+.date-picker-container {
+  border: 1px solid $white;
+  border-radius: 5px;
+  width: 260px;
+}
+
+.services-title {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: $white;
+}
+
+.days {
+  width: 170px;
 }

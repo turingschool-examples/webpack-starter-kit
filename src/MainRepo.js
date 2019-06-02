@@ -1,6 +1,8 @@
+import domUpdates from "./domUpdates";
+
 class MainRepo {
   constructor(sData) {
-    this.customersData = sData;
+    this.customersData = sData.users;
     this.currentID = this.customersData.length + 1;
   }
 
@@ -14,10 +16,23 @@ class MainRepo {
     this.currentID++;
   }
 
-  searchCustomerName(customerName) {
-    let customerObject = this.customersData.find(customer => customer.name === customerName);
-    return customerObject !== undefined ? customerObject.id : 'Customer does not exist';
+  searchCustomerName(search) {
+    // let customerObject = this.customersData.find(customer => customer.name === customerName);
+    // var output = customerObject !== undefined ? customerObject.id : 'Customer does not exist';
+    // ;
+    // return output
+
+    let filteredCustomers = this.customersData.filter(customer => {
+      let name = customer.name.toUpperCase();
+      let searchCap = search.toUpperCase();
+      if (name.includes(searchCap)) {
+        return customer
+      }
+    })
+    domUpdates.domSearchCustomerName(filteredCustomers)
+    return filteredCustomers
   }
+
 }
 
 export default MainRepo;

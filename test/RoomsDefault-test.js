@@ -24,8 +24,8 @@ describe("RoomsDefault", function() {
     expect(roomsDefault).to.be.an.instanceOf(RoomsDefault);
   });
 
-  it("roomsAvailable should return numbers of available rooms", function() {
-    expect(roomsDefault.roomsAvailable().length).to.equal(198);
+  it("noRoomsAvailable should return numbers of available rooms", function() {
+    expect(roomsDefault.noRoomsAvailable().length).to.equal(198);
   });
 
   it("percentageRoomReposOccupied should return percentage of accupied rooms", function() {

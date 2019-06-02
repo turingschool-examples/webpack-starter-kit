@@ -32,20 +32,26 @@
     </section>
     <section class="body-section-two">
       <section class="body-section-two-content">
-          <h5>Customer: Lis Chimaras</h5>
+          <div id="selected-name"></div>
         <ul class="body-section-two__headers">
           <li data-id="customers-body" class="body-section-two__customers-header">CUSTOMERS</li>
           <li data-id="rooms-body" class="body-section-two__rooms-header">ROOMS</li>
           <li data-id="services-body" class="body-section-two__services-header">SERVICES</li>     
         </ul>
         <section class="body-section-two__bodies">
+
+          <!-- ///////////////////////////////////////// -->
+
             <div id="customers-body" class="content-body">
-              <div class="content-body-search-container">
-                <input placeholder="Find a customer..." type="text">
-                <buttn id="customers-body-search-btn">Search</buttn>
+              <div class="content-body-add-container input-body">
+                <input id="customers-body-add-input" placeholder="Add new customer..." type="text">
+                <buttn id="customers-body-add-btn">Add</buttn>
               </div>
+              <div class="content-body-search-container input-body">
+                  <input id="customers-body-search-input" placeholder="Find a customer..." type="text">
+                </div>
+              <ul id="customers-body-found-name"></ul>
             </div>
-            <!-- ///////////////////////////////////////// -->
 
           <div id="rooms-body" class="content-body">
             <section class="rooms-most-least-popular-days">
@@ -60,7 +66,11 @@
 
           <div id="services-body" class="content-body">
             <section class="services-general-info">
-              <input type="date" id="datepicker">
+              <div class="date-picker-container">
+                <label for="datepicker" id="datepicker-label">Pick another date: </label>
+                <input type="date" id="datepicker" >
+              </div>
+              <div class="services-title">Today's services</div>
             <table class="services-general-info-services"></table>
             </section>
           </div>
