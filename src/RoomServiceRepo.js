@@ -8,7 +8,6 @@ class RoomServiceRepo {
     this.todayTotalIncome();
   }
 
-  
   todayTotalIncome(today) {
     return this.roomServiceData.reduce((total, booking) => {
       if (today === booking.date) {

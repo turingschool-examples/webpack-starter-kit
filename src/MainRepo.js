@@ -16,8 +16,7 @@ class MainRepo {
     let newCustomer = {id: this.currentID, name: customerName};
     this.data.users.push(newCustomer);
     this.currentID++;
-    domUpdates.domAddNewCustomer(customerName)
-    console.log('classss', newCustomer)
+    // domUpdates.domAddNewCustomer(customerName)
   }
 
   searchCustomerName(search) {

@@ -60,11 +60,18 @@ export default {
     for (let i = 0; i < filtredCustomers.length; i++) {
       elements = elements.add(`<li class="names-found">${filtredCustomers[i].name}</li>`);
     }
-    if ($("#customers-body-search-input").val() === "") {
-      $("#customers-body-found-name").val("");
+    if ($("#customers-body-search-add-input").val() === "") {
+      $("#customers-body-found-name").text("");
     } else {
       $("#customers-body-found-name").text("");
       $("#customers-body-found-name").append(elements);
+    }
+
+    if ($("#customers-body-search-add-input").val() !== "" && filtredCustomers.length === 0) {
+      $("#customers-body-add-btn").attr("disabled", false);
+
+    } else {
+      $("#customers-body-add-btn").attr("disabled", true);
     }
   },
 
@@ -82,16 +89,5 @@ export default {
     }
   },
 
-  domAddNewCustomer(name) {
-    this.domSearchCustomerName(name)
-    console.log('okkkkk')
-  }
 
 }
-
-// [ [total: 198,]
-//   ['residential suite', 45]
-//   [ 'single room', 65 ]
-//   [ 'junior suite', 38 ]
-//   [ suite, 50 ]
-// ]

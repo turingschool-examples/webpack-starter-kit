@@ -244,15 +244,18 @@ $white-40: rgba(255,255,255,0.4);
   padding: 20px;
 }
 
-.input-body  {
+.content-body-search-add-container {
   border: $white 1px solid;
   width: 320px;
   border-radius: 5px;
   background-color: $white;
-  margin-top: 25px;
+  color: $background-secondary-color;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
-#customers-body-add-input {
+input[type="text"] {
   background-color: $background-secondary-color;
   border-bottom-left-radius: 5px;
   border-right: 1px solid $white;
@@ -266,29 +269,14 @@ $white-40: rgba(255,255,255,0.4);
   width: 250px;
 }
 
-#customers-body-search-input {
-  background-color: $background-secondary-color;
-  border-radius: 5px;
-  color: $white;
-  border: none;
-  // border: 1px solid $white;
-  font-size: 14px;
-  height: 30px;
-  outline: none;
-  padding-left: 8px;
-  width: 100%;
-}
-
 #customers-body-add-btn {
-  height: 25px;
+  height: 28px;
   cursor: pointer;
-  padding-left: 13px;
-  display: inline-block;
+  position: relative;
   width: 63px;
-}
-
-#customers-body-add-btn:hover {
-  color: $golden;
+  font-size: 14px;
+  border: none;
+  outline: none;
 }
 
 table, td, th {
@@ -363,6 +351,9 @@ th {
 #customers-body-found-name {
   list-style: none;
   margin-top: 2px;
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .names-found {
@@ -416,7 +407,6 @@ th {
   border: 1px solid $background-secondary-color;
 }
 
-
 #datepicker,
 #datepicker-2 {
   border-top-right-radius: 5px;
@@ -443,9 +433,14 @@ th {
   width: 260px;
 }
 
-.services-title {
+.services-title,
+.title {
   text-align: center;
   color: $white;
+}
+
+.title {
+  margin-top: 25px;
 }
 
 .days {

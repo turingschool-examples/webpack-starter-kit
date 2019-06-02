@@ -43,6 +43,8 @@ Promise.all([users, roomServices, bookings, rooms])
 //   console.log(data);
 // }
 
+
+
 function today() {
   var fullDate = new Date();
   var twoDigitMonth =
@@ -65,8 +67,8 @@ function start() {
 
   const mainRepo = new MainRepo(sData, today());
   mainRepo.roomsAvailable(today())
-  $("#customers-body-search-input").keyup(function() {
-    let value = $("#customers-body-search-input").val();
+  $("#customers-body-search-add-input").keyup(function() {
+    let value = $("#customers-body-search-add-input").val();
     mainRepo.searchCustomerName(value);
   });
 
@@ -80,21 +82,7 @@ function start() {
   roomServiceRepo.todayTotalIncome(today());
   roomServiceRepo.allServicesOfOneDay();
   
-  function appendCustomerToDom(name) {
-    $("#selected-name").text("");
-      $("#selected-name").append(`<h4 class="selected-name__name">${name}</h4>`);
-      $("#selected-name").append(`<button class="selected-name__close-btn">&times;</button>`)
-  }
 
-  $("#customers-body-found-name").click(function(e) {
-     
-    if ($(e.target).attr('class') === "names-found") {
-      let name =  $(e.target).text()
-      appendCustomerToDom(name);
-      $("#customers-body-found-name").text("");
-      $("#customers-body-search-input").val("");
-    }
-  })
 
   $("#selected-name").click(function(e) {
     if ($(e.target).attr('class') === "selected-name__close-btn") {
@@ -121,22 +109,38 @@ function start() {
     mainRepo.roomsAvailable(fixedDate);
   })
 
+  function appendCustomerToDom(name) {
+    $("#selected-name").text("");
+      $("#selected-name").append(`<h4 class="selected-name__name">${name}</h4>`);
+      $("#selected-name").append(`<button class="selected-name__close-btn">&times;</button>`)
+  }
+// add existing customer...
 
+  $("#customers-body-found-name").click(function(e) {
+    if ($(e.target).attr('class') === "names-found") {
+      let name =  $(e.target).text()
+      appendCustomerToDom(name);
+      $("#customers-body-found-name").text("");
+      $("#customers-body-search-add-input").val("");
+    }
+  })
 
-  //////////////
-
-
-
+// add new customer....
   $("#customers-body-add-btn").click(function() {
-    var x = mainRepo.filteredCustomers
-    
-    let newCustomer = $("#customers-body-add-input").val();
-    // const mainRepo = new MainRepo(sData, today());
-    mainRepo.addNewCustomer(newCustomer);
-    appendCustomerToDom(newCustomer);
-    $("#customers-body-add-input").val("");
 
-    console.log(x)
+    if ($("#customers-body-search-add-input").val() !== "" ) {
+      let newCustomer = $("#customers-body-search-add-input").val();
+       // const mainRepo = new MainRepo(sData, today());
+      mainRepo.addNewCustomer(newCustomer);
+      appendCustomerToDom(newCustomer);
+      $("#customers-body-search-add-input").val("");
+      $("#customers-body-add-btn").attr("disabled", true);
+    }
+    
+    function filterDataOfOneCustomer(name) {
+      
+    }
+
   })
   
 }
@@ -225,7 +229,8 @@ $(document).ready(function() {
       $('.content-body').css('display', 'none');
       $(`#${$(e.target).attr('data-id')}`).css('display', 'flex');
     }
-  })
+  });
+  
   
 
 });
