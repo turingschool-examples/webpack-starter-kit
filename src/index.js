@@ -11,7 +11,10 @@ import domUpdates from './domUpdates';
 import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+// import './images/svg/001-credit-card.svg';
+// import './images/svg/002-food.svg';
+// import './images/svg/003-food-1.svg';
+// import './images/svg/004-bedroom.svg';
 import Customers from './customersRepo';
 import RoomsRepo from './roomsRepo';
 
