@@ -9,9 +9,9 @@ class RoomServiceRepo {
   }
 
   
-  todayTotalIncome() {
+  todayTotalIncome(today) {
     return this.roomServiceData.reduce((total, booking) => {
-      if (this.today === booking.date) {
+      if (today === booking.date) {
         total = total + booking.totalCost;
       }
       domUpdates.domTodayTotalIncome(total)

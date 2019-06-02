@@ -26,7 +26,7 @@ describe('RoomServiceRepo', function() {
 
   it('todayTotalIncome should return total of todays income',
     function() {
-      expect(roomServiceRepo.todayTotalIncome()).to.equal(32.03);
+      expect(roomServiceRepo.todayTotalIncome('01/06/2019')).to.equal(32.03);
     });
   
   it('allServicesOfOneDay should return all services of one day', function() {

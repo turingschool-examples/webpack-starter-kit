@@ -1,4 +1,5 @@
 import domUpdates from './domUpdates.js';
+// import MainRepo from './MainRepo';
 
 class RoomsDefault {
   constructor(bookingsData, roomsData, date) {
@@ -21,8 +22,7 @@ class RoomsDefault {
       }
       return acc;
     }, []);
-    domUpdates.domRoomsAvailable(availableRooms.length);
-    console.log(availableRooms)
+    domUpdates.domNoRoomsAvailable(availableRooms.length);
     return availableRooms
   }
 

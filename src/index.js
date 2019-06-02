@@ -61,6 +61,15 @@ function today() {
 setTimeout(start, 1000);
 // bookingsData roomsData
 function start() {
+  
+
+  const mainRepo = new MainRepo(sData, today());
+  mainRepo.roomsAvailable(today())
+  $("#customers-body-search-input").keyup(function() {
+    let value = $("#customers-body-search-input").val();
+    mainRepo.searchCustomerName(value);
+  });
+
   const roomsDefault = new RoomsDefault(sData.bookings, sData.rooms, today());
   roomsDefault.noRoomsAvailable();
   roomsDefault.percentageRoomsOccupied();
@@ -68,22 +77,20 @@ function start() {
   roomsDefault.leastPopularDay();
 
   const roomServiceRepo = new RoomServiceRepo(sData.roomServices, today());
-  roomServiceRepo.todayTotalIncome();
+  roomServiceRepo.todayTotalIncome(today());
   roomServiceRepo.allServicesOfOneDay();
-  const mainRepo = new MainRepo(sData);
-
-  $("#customers-body-search-input").keyup(function() {
-    let value = $("#customers-body-search-input").val();
-    mainRepo.searchCustomerName(value);
-  });
-
+  
+  function appendCustomerToDom(name) {
+    $("#selected-name").text("");
+      $("#selected-name").append(`<h4 class="selected-name__name">${name}</h4>`);
+      $("#selected-name").append(`<button class="selected-name__close-btn">&times;</button>`)
+  }
 
   $("#customers-body-found-name").click(function(e) {
      
     if ($(e.target).attr('class') === "names-found") {
-      $("#selected-name").text("");
-      $("#selected-name").append(`<h4 class="selected-name__name">${$(e.target).text()}</h4>`);
-      $("#selected-name").append(`<button class="selected-name__close-btn">&times;</button>`)
+      let name =  $(e.target).text()
+      appendCustomerToDom(name);
       $("#customers-body-found-name").text("");
       $("#customers-body-search-input").val("");
     }
@@ -101,32 +108,60 @@ function start() {
     let fixedDate = `${arr[2]}/${arr[1]}/${arr[0]}`;
 
     const roomServiceRepo = new RoomServiceRepo(sData.roomServices, fixedDate);
+    roomServiceRepo.todayTotalIncome(today());
     roomServiceRepo.allServicesOfOneDay();
   })
   
+  $("#datepicker-2").change(function() {
+    let pickedDate = $("#datepicker-2").val();
+    let arr = pickedDate.split("-");
+    let fixedDate = `${arr[2]}/${arr[1]}/${arr[0]}`;
 
+    const mainRepo = new MainRepo(sData, today());
+    mainRepo.roomsAvailable(fixedDate);
+  })
+
+
+
+  //////////////
+
+
+
+  $("#customers-body-add-btn").click(function() {
+    var x = mainRepo.filteredCustomers
+    
+    let newCustomer = $("#customers-body-add-input").val();
+    // const mainRepo = new MainRepo(sData, today());
+    mainRepo.addNewCustomer(newCustomer);
+    appendCustomerToDom(newCustomer);
+    $("#customers-body-add-input").val("");
+
+    console.log(x)
+  })
+  
 }
 
+
 const showTime = () => {
-  var date = new Date().toLocaleTimeString();
-  // var h = date.getHours(); // 0 - 23
-  // var m = date.getMinutes(); // 0 - 59
-  // var session = "AM";
+  var date = new Date()
+  var h = date.getHours(); // 0 - 23
+  var m = date.getMinutes(); // 0 - 59
+  var session = "AM";
 
-  // if (h == 0) {
-  //   h = 12;
-  // }
+  if (h == 0) {
+    h = 12;
+  }
 
-  // if (h > 12) {
-  //   h = h - 12;
-  //   session = "PM";
-  // }
+  if (h > 12) {
+    h = h - 12;
+    session = "PM";
+  }
 
-  // h = h < 10 ? "0" + h : h;
-  // m = m < 10 ? "0" + m : m;
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
 
-  // var time = h + ":" + m + " " + session;
-  domUpdates.time(date);
+  var time = h + ":" + m + " " + session;
+  domUpdates.time(time);
 
   setTimeout(showTime, 1000);
 };
@@ -179,11 +214,16 @@ $(document).ready(function() {
   
   $(".body-section-two__headers").click(function(e) {
     let target = $(e.target).text();
-    if (target === 'CUSTOMERS' || target === 'ROOMS' || target === 'SERVICES') {
+    if (target === 'CUSTOMERS'|| target === 'SERVICES') {
       $('li').css('color', 'rgba(255,255,255,0.4)');
       $(`.${$(e.target).attr('class')}`).css('color', '#fff');
       $('.content-body').css('display', 'none');
       $(`#${$(e.target).attr('data-id')}`).css('display', 'block');
+    } else if (target === 'ROOMS' ) {
+      $('li').css('color', 'rgba(255,255,255,0.4)');
+      $(`.${$(e.target).attr('class')}`).css('color', '#fff');
+      $('.content-body').css('display', 'none');
+      $(`#${$(e.target).attr('data-id')}`).css('display', 'flex');
     }
   })
   

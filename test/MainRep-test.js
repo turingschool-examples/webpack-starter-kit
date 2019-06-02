@@ -6,12 +6,13 @@ import MainRepo from '../src/MainRepo';
 import data from '../src/data-sample';
 import domUpdates from '../src/domUpdates';
 chai.spy.on(domUpdates, 'domSearchCustomerName', () => true);
+chai.spy.on(domUpdates, 'domRoomsAvailable', () => true);
 
 describe('MainRepo', function() {
 
   let mainRepo;
   beforeEach(function() {
-    mainRepo = new MainRepo(data);
+    mainRepo = new MainRepo(data, '01/06/2019');
   })
 
   it('should be a function', function() {
@@ -32,19 +33,21 @@ describe('MainRepo', function() {
     expect(mainRepo.currentID).to.equal(32);
     mainRepo.addNewCustomer('David');
     expect(mainRepo.currentID).to.equal(33);
-    expect(mainRepo.customersData[31]).to.eql({id: 32, name: 'David'});
+    expect(mainRepo.data.users[31]).to.eql({id: 32, name: 'David'});
   });
 
-  // it('searchCustomerName should return customerID', function() {
-  //   expect(mainRepo.searchCustomerName('Andreea')).to.eql(31);
-  //   expect(mainRepo.searchCustomerName('Elmer Hyatt')).to.eql(27);
-  //   expect(mainRepo.searchCustomerName('Jev')).to.eql('Customer does not exist');
-  // });
-
-  it('searchCustomerName should return customerID', function() {
+  it('searchCustomerName should return available rooms', function() {
     expect(mainRepo.searchCustomerName('al')).to.eql([
       { id: 5, name: 'Reginald Schaden' },
       { id: 17, name: 'Kianna Walter' }
     ]);
+  });
+
+  it('roomsAvailable should return number of rooms available', function() {
+    expect(mainRepo.roomsAvailable('')).to.eql({ total: 198,
+      'residential suite': 45,
+      'single room': 65,
+      'junior suite': 38,
+      suite: 50 });
   });
 });

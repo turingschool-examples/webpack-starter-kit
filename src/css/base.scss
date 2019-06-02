@@ -235,6 +235,7 @@ $white-40: rgba(255,255,255,0.4);
   height: 100%;
   display: none;
   padding: 20px;
+  justify-content: space-between;
 }
 
 #services-body {
@@ -279,9 +280,15 @@ $white-40: rgba(255,255,255,0.4);
 }
 
 #customers-body-add-btn {
-  height: 30px;
+  height: 25px;
   cursor: pointer;
   padding-left: 13px;
+  display: inline-block;
+  width: 63px;
+}
+
+#customers-body-add-btn:hover {
+  color: $golden;
 }
 
 table, td, th {
@@ -410,7 +417,8 @@ th {
 }
 
 
-#datepicker {
+#datepicker,
+#datepicker-2 {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   font-size: 12px;
@@ -419,7 +427,8 @@ th {
   color: $white;
 }
 
-#datepicker-label {
+#datepicker-label,
+#datepicker-label-2 {
   display: inline-block;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -435,12 +444,33 @@ th {
 }
 
 .services-title {
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   color: $white;
 }
 
 .days {
   width: 170px;
+}
+
+.rooms-available-rooms {
+  width: 40%
+}
+
+.room-type {
+  width: 220px;
+}
+
+.available-rooms {
+  width: 150px;
+}
+
+.rooms-available-rooms-table {
+  margin-top: 30px;
+}
+
+.services-title-2 {
+  text-align: center;
+  color: $white;
+  margin-top: 40px;
+  width: 400px;
 }

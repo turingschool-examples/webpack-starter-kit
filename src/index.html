@@ -39,10 +39,10 @@
           <li data-id="services-body" class="body-section-two__services-header">SERVICES</li>     
         </ul>
         <section class="body-section-two__bodies">
+            <div id="customers-body" class="content-body">    
+              
+               <!-- //////////////////////////////////////////////////// -->
 
-          <!-- ///////////////////////////////////////// -->
-
-            <div id="customers-body" class="content-body">
               <div class="content-body-add-container input-body">
                 <input id="customers-body-add-input" placeholder="Add new customer..." type="text">
                 <buttn id="customers-body-add-btn">Add</buttn>
@@ -52,7 +52,6 @@
                 </div>
               <ul id="customers-body-found-name"></ul>
             </div>
-
           <div id="rooms-body" class="content-body">
             <section class="rooms-most-least-popular-days">
               <div class="rooms-most-popular-days-container">
@@ -62,15 +61,22 @@
                   <table class="rooms-least-popular-days"></table>
               </div>
             </section>
+            <section class="rooms-available-rooms">
+                <div class="date-picker-container">
+                    <label for="datepicker-2" id="datepicker-label-2">Pick another date: </label>
+                    <input type="date" id="datepicker-2" >
+                  </div>
+                  <h3 class="services-title-2">Rooms available | Today</h3>
+                <table class="rooms-available-rooms-table"></table>
+            </section>
           </div>
-
           <div id="services-body" class="content-body">
             <section class="services-general-info">
               <div class="date-picker-container">
                 <label for="datepicker" id="datepicker-label">Pick another date: </label>
                 <input type="date" id="datepicker" >
               </div>
-              <div class="services-title">Today's services</div>
+              <h3 class="services-title">Today's services</h3>
             <table class="services-general-info-services"></table>
             </section>
           </div>
