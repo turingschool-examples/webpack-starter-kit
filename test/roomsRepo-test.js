@@ -19,5 +19,9 @@ describe('Rooms Repo', function() {
 
     it('should find and display the most popular booking date', function() {
         expect(rooms.findMostPopBookingDate()).to.eql(['07/10/2019'])
+    });
+
+    it('should find and display the date with the most availability', function() {
+        expect(rooms.findMostAvailableDate()).to.eq
     })
 })
