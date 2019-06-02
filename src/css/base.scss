@@ -5,8 +5,18 @@
   box-sizing: border-box;
 }
 
+/*------------Header------------*/
 header {
   height: 10vh;
+  display: flex;
+}
+
+#header__company-info {
+  flex: 2;
+}
+
+#header__customer-name {
+  flex: 3;
 }
 
 .nav__nav-list {

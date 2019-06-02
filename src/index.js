@@ -10,6 +10,7 @@ import './images/home.svg'
 import Data from './data';
 import Room from './rooms';
 import Dashboard from './dashboard';
+import Booking from './bookings'
 
 let data;
 const currentDate = new Date().toLocaleDateString('en-GB')
@@ -30,6 +31,14 @@ $('.header__load-button').on('click', function() {
   domUpdates.displayCurrentDate(currentDate)
   displayAvailableRooms()
   displayDailyDebts()
+  percentAvailableRooms()
+})
+
+$('#tab-2__customer-search-btn').on('click', function() {
+  event.preventDefault()
+  let customer = new Customer(data.customerData)
+  console.log(customer)
+  domUpdates.searchForCustomer(customer)
 })
 
 function createDataSet() {
@@ -58,7 +67,12 @@ function displayAvailableRooms() {
 
 function displayDailyDebts() {
   let dashboard = new Dashboard(data.bookingData, data.serviceData, data.roomData)
-  console.log(dashboard)
+  domUpdates.totalDailyDebts(currentDate, dashboard)
+}
+
+function percentAvailableRooms() {
+  let booking = new Booking(data.bookingData)
+  console.log(booking)
 }
 
 
