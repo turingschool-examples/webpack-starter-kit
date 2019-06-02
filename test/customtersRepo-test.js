@@ -22,7 +22,7 @@ describe('CustomersRepo', function() {
     });
 
     it('should be able to add new customers', function() {
-        guestsRepo.addNewGuest('Oprah Winfrey');
+        guestsRepo.addNewGuest('Oprah', 'Winfrey');
         expect(guestsRepo.newGuests).to.eql([{id: 11, name: 'Oprah Winfrey'}])
     })
 })

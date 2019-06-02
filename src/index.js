@@ -12,6 +12,8 @@ import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
+import Customers from './customersRepo';
+import RoomsRepo from './roomsRepo';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -35,6 +37,8 @@ Promise.all([dataFile1, dataFile2, dataFile3, dataFile4])
     })
 
 let mainRepo = new MainRepo(allData);
+let customers = new Customers(allData);
+let bookings = new RoomsRepo(allData);
 
 
 $(document).ready(() => {
@@ -43,12 +47,19 @@ $(document).ready(() => {
         console.log(mainRepo.data)
         domUpdates.displayTodaysDate(mainRepo.date);
         //change args to mainRepo.date//
-        domUpdates.displayTodaysAvailability(mainRepo.findTotalRoomsAvailableToday(mainRepo.date));
-        domUpdates.displayOutstandingBalances(mainRepo.findOutstandingBalance(mainRepo.date));
-        domUpdates.displayPercentageAvailable(mainRepo.findPercentageOfRoomsAvailable(mainRepo.date));
+        domUpdates.displayTodaysAvailability(mainRepo.findTotalRoomsAvailableToday('06/02/2020'));
+        domUpdates.displayOutstandingBalances(mainRepo.findOutstandingBalance('06/02/2020'));
+        domUpdates.displayPercentageAvailable(mainRepo.findPercentageOfRoomsAvailable('06/02/2020'));
+        domUpdates.displayMostPopBookingDate(bookings.findMostPopBookingDate())
+        
         
     }, 1000)
     
+    $('#submit-guest-info').on('click', function(e) {
+        e.preventDefault()
+        domUpdates.displayCurrentCustomer(customers.addNewGuest())
+
+    })
 
     $('.aside__tabs li').click(function(){
 		let tab_id = $(this).attr('data-tab');

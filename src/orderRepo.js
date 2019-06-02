@@ -1,16 +1,13 @@
-class OrdersRepo {
-    constructor() {
-        this.date = this.findTodaysDate();
+class OrderRepo {
+    constructor(data) {
+        this.data = data;
+    }
 
-    }
-    findTodaysDate() {
-        let today = new Date();
-        let dd = String(today.getDate()).padStart(2, '0');
-        let mm = String(today.getMonth() + 1).padStart(2, '0');
-        let yyyy = today.getFullYear();
-        return today = dd + '/' + mm + '/' + yyyy;
-    }
+   findOrdersForToday(date) {
+       return this.data.roomServices.roomServices.filter(item => item.date === date)
+   }
+
 
 }
 
-export default OrdersRepo
+export default OrderRepo

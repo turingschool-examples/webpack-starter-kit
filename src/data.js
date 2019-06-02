@@ -139,7 +139,7 @@ bookings: {
     },
     {
     userID: 43,
-    date: "05/10/2019",
+    date: "07/10/2019",
     roomNumber: 108
     },
     {

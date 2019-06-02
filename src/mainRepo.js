@@ -1,14 +1,7 @@
 class MainRepo {
     constructor(data) {
         this.data = data;
-        this.guests = data.users.users;
-        this.rooms = data.rooms.rooms;
-        this.bookings = data.bookings.bookings;
-        this.orders = data.roomServices.roomServices;
         this.date = this.findTodaysDate();
-        // this.roomsAvailable = this.findTotalRoomsAvailableToday;
-        // this.cashBalanceDue = cashBalanceDue;
-        // this.cashPaid = cashPaid;
     }
 
     findTodaysDate() {

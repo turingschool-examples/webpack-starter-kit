@@ -17,7 +17,16 @@ describe('Order Repo', function() {
         expect(orderRepo).to.be.an.instanceOf(OrderRepo)
     });
 
-    it('should find total cost of room service orders for a specific date', function() {
-        expect(orderRepo.calculateRoomServiceCostByDate('06/02/2020'))
+    it('should return all orders for today\'s date', function() {
+        expect(orderRepo.findOrdersForToday('15/07/2019')).to.eql([ {
+            userID: 9,
+            date: "15/07/2019",
+            food: "Tasty Fresh Sandwich",
+            totalCost: 13.07
+            }])
     })
+
+    // it('should find total cost of room service orders for a specific date', function() {
+    //     expect(orderRepo.calculateRoomServiceCostByDate('06/02/2020'))
+    // })
 })

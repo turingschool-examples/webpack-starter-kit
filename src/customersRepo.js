@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 class Customers {
     constructor(data) {
         this.data = data;
@@ -8,10 +10,10 @@ class Customers {
         return this.data.users.users.find(item => item.name === name)
     }
 
-    addNewGuest(name) {
+    addNewGuest() {
        return this.newGuests.push({
-            name: name,
-            id: 1 + this.data.users.users.length++
+           id: 1 + this.data.users.users.length++,
+           name: $('#first-name-input').val() + ' ' + $('#last-name-input').val()
         })
     }
 }
