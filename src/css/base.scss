@@ -91,3 +91,18 @@ header {
     cursor: pointer;
   }
 }
+
+/*---------Table----------*/
+
+table {
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+  margin: 0;
+  padding: 5px;
+}
+th {
+  border-bottom: 1px solid black;
+}

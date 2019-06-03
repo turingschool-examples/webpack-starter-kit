@@ -23,6 +23,13 @@ class Order {
     return Number(this.findById(id).reduce((acc, day) => acc += day.totalCost, 0).toFixed(2))
   }
 
+  customerDailySpent(id, date) {
+    return this.findByDate(date).reduce((acc, day) => {
+      day.userID === id ? acc += day.totalCost : null;
+      return acc
+    }, 0)
+  }
+
   itemsAndPrices() {
     return this.data.reduce(function(acc, day) {
       !acc[day.food] ? acc[day.food] = day.totalCost : null;

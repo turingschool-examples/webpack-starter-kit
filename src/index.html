@@ -13,7 +13,7 @@
         <h1>Photon Booking</h1>
         <h3>Travelling Light</h3>
       </div>
-      <h2 id="header__customer-name">No Current Customer</h2>
+      <h2 class="customer-name" id="header__customer-name">No Current Customer</h2>
     </header>
     <nav>
       <ul class="nav__nav-list">
@@ -26,7 +26,7 @@
         <li class="nav-list__tab" id="nav-list__booking" data-tab="tab-3">
           <img src="./images/open-book.svg" alt="" class="nav-list__svg">
         </li>
-        <li class="nav-list__tab" id="nab-list__order" data-tab="tab-4">
+        <li class="nav-list__tab" id="nav-list__order" data-tab="tab-4">
             <img src="./images/breakfast.svg" alt="" class="nav-list__svg">
         </li>
       </ul>
@@ -34,21 +34,46 @@
     <main class="container">
       <section id="tab-1" class="tab-content current">
         <p class="tab-content__rooms">Total Rooms Available for <span id="tab-1__date"></span>: <span id="tab-1__insert-data"></span></p>
-        <p class="tab-content__debts">Total Daily Debts: <span id="tab-1__debts"></span></p>
+        <p class="tab-content__debts">Total Daily Debts: $<span id="tab-1__debts"></span></p>
+        <p class="tab-content__percent">Percentage of Available Rooms: <span id="tab-1__percentage"></span>%</p>
       </section>
       <section id="tab-2" class="tab-content">
         <form>
           <label for="tab-2__customer-search"></label>
           <input type="text" name="tab-2__customer-search" id="tab-2__customer-search">
-          <button id="tab-2__creat-customer-btn">Create New Customer</button>
+          <button id="tab-2__create-customer-btn">Create New Customer</button>
           <button id="tab-2__customer-search-btn">Search For Customer</button>
         </form>
       </section>
       <section id="tab-3" class="tab-content">
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        <article id="booking-tab__no-customer">
+          <p id="booking-tab__most-popular">Most Popular Booking Date: <span id="booking-tab__popular-date"></span></p>
+        </article>
+        <article id="booking-tab__yes-customer">
+          <p id="booking-tab__all-bookings">Current and past bookings:</p>
+          <form id="order-tab__roomtype-form">
+              <input type="submit" id="roomtype-form__submit">
+            <select name="roomtype" form="order-tab__roomtype-form" id="roomtype-form__option">
+              <option value="single room">Single Room</option>
+              <option value="junior suite">Junior Suite</option>
+              <option value="suite">Suite</option>
+              <option value="residential suite">Residential Suite</option>
+            </select>
+          </form>
+          <table id="booking-table"></table>
+          <table id="orders-table"></table>
+        </article>
       </section>
       <section id="tab-4" class="tab-content">
-        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <article id="order-tab__no-customer">
+          <p id="tab-4__daily-orders">Todays Orders:</p>
+        </article>
+        <article id="order-tab__yes-customer">
+          <h4 class="customer-name"></h4>
+          <p id="customer-order__total-spent">total room service: <span id="customer-order__total"></span></p>
+          <p id="customer-order__daily-dpent">Room service for today: <span id="customer-order__daily"></span></p>
+          <p>Breakdown by date:</p>
+        </article>
       </section>
     </main>
   </body>
