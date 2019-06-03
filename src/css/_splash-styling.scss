@@ -9,10 +9,12 @@
   }
   
   .splash__box {
-    color: #E5C99D;
-    font-size: 70px;
     border: 5px outset;
-    background: radial-gradient(circle, rgba(151,3,6,1) 45%, rgba(220,13,12,1) 90%);
     margin: auto;
     border-radius: 5px;
+    z-index: 4;
+    h1 {
+      color: #E5C99D;
+      font-size: 70px;
+    }
   }

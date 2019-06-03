@@ -29,7 +29,7 @@ let domUpdates = {
     },
 
     displayMostPopBookingDate(date) {
-        $('#aside__tabs-room-service').append('<h2>Most Popular Booking Date(s): <span class="most-pop-date"></span></h2>')
+        $('#aside__tabs-bookings').append('<h2>Most Popular Booking Date(s): <span class="most-pop-date"></span></h2>')
         $('.most-pop-date').text(date)
     }
 
