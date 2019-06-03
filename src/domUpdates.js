@@ -23,7 +23,9 @@ let domUpdates = {
     },
 
     displayCurrentCustomer() {
-        $('#aside__tabs-guests').append(`<h1>${firstName} ${lastName}</h1>`)
+        $('h1').append(`<h1><span class="current-guest-name" id="first-name-display"></span> <span class="current-guest-name" id="last-name-display"></span></h1>`)
+        $('#first-name-display').text($('#first-name-input').val())
+        $('#last-name-display').text($('#last-name-input').val())
     },
 
     displayMostPopBookingDate(date) {

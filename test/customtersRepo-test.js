@@ -21,8 +21,8 @@ describe('CustomersRepo', function() {
         expect(guestsRepo.findGuestByName('Kiel O\'Reilly')).to.equal(Data.users.users[9])
     });
 
-    it.skip('should be able to add new customers', function() {
+    it('should be able to add new customers', function() {
         guestsRepo.addNewGuest('Oprah', 'Winfrey');
-        expect(guestsRepo.newGuests).to.eql([{id: 11, name: 'Oprah Winfrey'}])
+        expect(guestsRepo.newGuests).to.eql([{id: 12, name: 'Oprah Winfrey'}])
     })
 })

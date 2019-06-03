@@ -47,20 +47,20 @@ let bookings = new RoomsRepo(allData);
 $(document).ready(() => {
 
     setTimeout(function() {
-        console.log(mainRepo.data)
+        $('.splash__page').fadeOut()
         domUpdates.displayTodaysDate(mainRepo.date);
-        //change args to mainRepo.date//
-        domUpdates.displayTodaysAvailability(mainRepo.findTotalRoomsAvailableToday('06/02/2020'));
-        domUpdates.displayOutstandingBalances(mainRepo.findOutstandingBalance('06/02/2020'));
-        domUpdates.displayPercentageAvailable(mainRepo.findPercentageOfRoomsAvailable('06/02/2020'));
+        domUpdates.displayTodaysAvailability(mainRepo.findTotalRoomsAvailableToday(mainRepo.date));
+        domUpdates.displayOutstandingBalances(mainRepo.findOutstandingBalance(mainRepo.date));
+        domUpdates.displayPercentageAvailable(mainRepo.findPercentageOfRoomsAvailable(mainRepo.date));
         domUpdates.displayMostPopBookingDate(bookings.findMostPopBookingDate())
-        
-        
-    }, 1000)
-    
+    }, 1500)
+
+
     $('#submit-guest-info').on('click', function(e) {
         e.preventDefault()
-        domUpdates.displayCurrentCustomer(customers.addNewGuest())
+        domUpdates.displayCurrentCustomer(customers.addNewGuest($('#first-name-input').val(), $('#last-name-input').val()))
+        customers.currentGuest = customers.newGuests[0]
+        console.log(customers.currentGuest)
 
     })
 
