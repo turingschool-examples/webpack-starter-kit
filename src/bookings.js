@@ -35,6 +35,11 @@ class Booking {
     let currentBookings = this.findByDate(date)
     return ((this.data.length - currentBookings.length) / this.data.length) * 100
   }
+
+  getCurrentBooking(id, date) {
+    let bookings = this.findById(id)
+    return bookings.find(booking => booking.date === date)
+  }
 }
 
 export default Booking;

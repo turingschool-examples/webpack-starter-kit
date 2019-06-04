@@ -51,9 +51,9 @@
         </article>
         <article id="booking-tab__yes-customer">
           <p id="booking-tab__all-bookings">Current and past bookings:</p>
-          <form id="order-tab__roomtype-form">
+          <form id="booking-tab__roomtype-form">
               <input type="submit" id="roomtype-form__submit">
-            <select name="roomtype" form="order-tab__roomtype-form" id="roomtype-form__option">
+            <select name="roomtype" form="booking-tab__roomtype-form" id="roomtype-form__option">
               <option value="single room">Single Room</option>
               <option value="junior suite">Junior Suite</option>
               <option value="suite">Suite</option>
@@ -61,7 +61,6 @@
             </select>
           </form>
           <table id="booking-table"></table>
-          <table id="orders-table"></table>
         </article>
       </section>
       <section id="tab-4" class="tab-content">
@@ -72,7 +71,8 @@
           <h4 class="customer-name"></h4>
           <p id="customer-order__total-spent">total room service: <span id="customer-order__total"></span></p>
           <p id="customer-order__daily-dpent">Room service for today: <span id="customer-order__daily"></span></p>
-          <p>Breakdown by date:</p>
+          <p id="order-tab__breakdown">Breakdown by date:</p>
+          <table id="orders-table"></table>
         </article>
       </section>
     </main>

@@ -56,10 +56,10 @@ const domUpdates = {
     $('.order-tab__no-data').remove()
     $('.order-tab__breakdown-list-item').remove()
     if (orders.length === 0) {
-      $('#order-tab__yes-customer').append('<p class="order-tab__no-data">No Valid Data Exists</p>')
+      $('#order-tab__breakdown').append('<p class="order-tab__no-data">No Valid Data Exists</p>')
     } else {
       orders.forEach(order => {
-        $('#order-tab__yes-customer').append(`
+        $('#order-tab__breakdown').append(`
         <p class="order-tab__breakdown-list-item">${order.date}: $${order.totalCost} for ${order.food}
         `)
       })
@@ -91,7 +91,7 @@ const domUpdates = {
     `)
     room.availableAlternate(date, type, data).forEach(roomObj => {
       $('#booking-table').append(`
-        <tr data_id="${roomObj.roomNumber}">
+        <tr data_id="${roomObj.number}">
           <td>${roomObj.roomType}</td>
           <td>${roomObj.numBeds}</td>
           <td>${roomObj.bedSize}</td>
@@ -101,6 +101,46 @@ const domUpdates = {
       `)
     }) 
   },
+
+  displayBookingSearch(booking, data, currentDate) {
+    let currentBooking = booking.getCurrentBooking(data.currentCustomer.id, currentDate)
+    if (currentBooking === undefined) {
+      console.log(1)
+      $('#booking-tab__roomtype-form').show() 
+    } else {
+      console.log(2)
+      $('#booking-tab__roomtype-form').hide()
+    }
+  },
+
+  // clearInput() {
+  //   $('#tab-2__customer-search').trigger('reset')
+  // },
+
+  itemsAndPrices(order) {
+    let item = order.itemsAndPrices()
+    let keys = Object.keys(item)
+    let values = Object.values(item)
+    this.itemsAndPricesHeader()
+    keys.forEach((key, i) => {
+      $('#orders-table').append(`
+        <tr data_id="${[key, values[i]]}">
+          <td>${key}</td>
+          <td>${values[i]}</td>
+          <td><button class="order-item-btn">Order Item</button></td>
+        </tr>
+      `)
+    })
+  },
+
+  itemsAndPricesHeader() {
+    $('#orders-table').append(`
+      <tr>
+        <th>Food Item</th>
+        <th>Total Cost</th>
+      </tr>
+    `)
+  }
 }
 
 export default domUpdates;
