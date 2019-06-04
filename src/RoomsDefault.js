@@ -1,13 +1,9 @@
 import domUpdates from './domUpdates.js';
-// import MainRepo from './MainRepo';
 
 class RoomsDefault {
   constructor(data, date) {
     this.data = data;
-    // this.roomsData = roomsData;
     this.date = date;
-    // console.log(this.data);
-
   }
 
   noRoomsAvailable() {

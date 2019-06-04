@@ -24,14 +24,13 @@ describe("RoomsRepo", function() {
   it("roomsAvailable should return number of rooms available", function() {
     expect(roomsRepo.roomsAvailable("")).to.eql({
       rooms: {
-        total: 198,
-        "residential suite": 45,
+        total: 197,
+        "residential suite": 44,
         "single room": 65,
         "junior suite": 38,
         suite: 50
       },
       available: [
-        1,
         2,
         3,
         4,

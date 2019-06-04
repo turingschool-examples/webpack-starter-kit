@@ -40,14 +40,14 @@ describe('MainRepo', function() {
     expect(mainRepo.allAvailableRooms("", "junior suite")).to.equal(38);
   });
 
-  it.skip('bookingRoom should should be able to book a room', function() {
+  it('bookingRoom should should be able to book a room', function() {
     expect(mainRepo.bookingRoom("Ervin Larson", 1)).to.equal();
   });
 
   it('cancelBooking should should be able to remove booking a record in data', function() {
-    expect(mainRepo.data.bookings.length).to.equal(36);
+    expect(mainRepo.data.bookings.length).to.equal(37);
     mainRepo.cancelBooking("17/07/2019", 192)
-    expect(mainRepo.data.bookings.length).to.equal(35);
+    expect(mainRepo.data.bookings.length).to.equal(36);
   });
 
   it('addService should be able to book a room', function() {

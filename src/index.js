@@ -39,14 +39,6 @@ Promise.all([users, roomServices, bookings, rooms])
   })
   .catch(error => console.log(`Error in promises ${error}`));
 
-
-// setTimeout(timer, 1000);
-// function timer() {
-//   console.log(data);
-// }
-
-
-
 function today() {
   var fullDate = new Date();
   var twoDigitMonth =
@@ -64,17 +56,14 @@ function today() {
 var hotelData;
 
 setTimeout(start, 2000);
-// bookingsData roomsData
+
 function start() {
   
-
   const mainRepo = new MainRepo(data, today());
   hotelData = mainRepo.data;
 
-
   const roomsRepo = new RoomsRepo(hotelData, today());
   roomsRepo.roomsAvailable(today())
-
 
   const customersRepo = new CustomersRepo(hotelData, today());
   $("#customers-body-search-add-input").keyup(function() {
@@ -92,8 +81,6 @@ function start() {
   roomServiceDefault.todayTotalIncome(today());
   roomServiceDefault.allServicesOfOneDay();
   
-
-
   $("#selected-name").click(function(e) {
     if ($(e.target).attr('class') === "selected-name__close-btn") {
       $("#selected-name").text("");
@@ -138,12 +125,9 @@ function start() {
 
   function showAllAvailableRooms(date, roomType) {
     const mainRepo = new MainRepo(data, today());
-    // hotelData = mainRepo.data;
     
     mainRepo.allAvailableRooms(today(), roomType);
   }
-
-// add existing customer...
 
   $("#customers-body-found-name").click(function(e) {
     if ($(e.target).attr('class') === "names-found") {
@@ -157,7 +141,6 @@ function start() {
     }
   })
 
-// add new customer....
   $("#customers-body-add-btn").click(function() {
 
     if ($("#customers-body-search-add-input").val() !== "" ) {
@@ -171,14 +154,6 @@ function start() {
       showAllAvailableRooms(today(), 'All room types');
     }
   })
-
-  // $("#datepicker-controller").change(function() {
-  //   let pickedDate = $("#datepicker-controller").val();
-  //   let arr = pickedDate.split("-");
-  //   let fixedDate = `${arr[2]}/${arr[1]}/${arr[0]}`;
-    
-  //   showAllAvailableRooms(fixedDate, "roomType")
-  // });
 
   $(".select-room").change(function() {
     let roomType =  $('.select-room').find(":selected").val();
@@ -202,7 +177,7 @@ function start() {
   });
 
   $(".rooms-customer-history-table").click(function(e) {
-    // $(e.target).parent().remove()
+
     let roomType = $('.select-room').find(":selected").val();
     let roomNumber = $(e.target).attr("data-room-number");
     let numberRoomNumber = parseInt(roomNumber);
@@ -241,11 +216,11 @@ function start() {
 
 const showTime = () => {
   var date = new Date()
-  var h = date.getHours(); // 0 - 23
-  var m = date.getMinutes(); // 0 - 59
+  var h = date.getHours();
+  var m = date.getMinutes();
   var session = "AM";
 
-  if (h == 0) {
+  if (h === 0) {
     h = 12;
   }
 
@@ -323,10 +298,8 @@ $(document).ready(function() {
       $(`#${$(e.target).attr('data-id')}`).css('display', 'flex');
     }
 
-
-
-
   });
+
 
   function scrollPercentage() {
     let x = window.scrollY;
@@ -368,9 +341,5 @@ $(document).ready(function() {
     $(".open-bar").css("width", `${100 - mFixed}%`);
 
   })
-
-
-  
-  
 
 });

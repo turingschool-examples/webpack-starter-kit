@@ -16,7 +16,7 @@ class CustomersRepo {
     domUpdates.domSearchCustomerName(filteredCustomers)
     return filteredCustomers
   }
-
+  
 }
 
 export default CustomersRepo;

@@ -15,24 +15,24 @@ class MainRepo {
   }
 
   addNewCustomer(customerName) {
-    let newCustomer = {id: this.currentID, name: customerName};
+    let newCustomer = { id: this.currentID, name: customerName };
     this.data.users.push(newCustomer);
     this.currentID++;
   }
 
   allAvailableRooms(roomsDate, roomType) {
-    const roomsRepo = new RoomsRepo(this.data, this.today, roomsDate)
-    let arrAvailableRooms = roomsRepo.roomsAvailable(roomsDate).available
+    const roomsRepo = new RoomsRepo(this.data, this.today, roomsDate);
+    let arrAvailableRooms = roomsRepo.roomsAvailable(roomsDate).available;
 
     let availableRooms = this.data.rooms.filter(room => {
       return arrAvailableRooms.find(available => {
-        if (roomType === 'All room types') {
-          return  room.number === available;
+        if (roomType === "All room types") {
+          return room.number === available;
         } else {
           return room.number === available && room.roomType === roomType;
         }
-      })
-    })
+      });
+    });
 
     domUpdates.domAllAvailableRooms(availableRooms);
     return availableRooms.length;
@@ -42,7 +42,11 @@ class MainRepo {
     const customer = new Customer(this.data, customerName);
     let customerID = customer.returnCustomerId();
     let today = this.today;
-    let newBooking = { userID: customerID, date: today, roomNumber: parseInt(rNumber)};
+    let newBooking = {
+      userID: customerID,
+      date: today,
+      roomNumber: parseInt(rNumber)
+    };
     this.data.bookings.push(newBooking);
     customer.customerBookingHistory();
   }
@@ -50,9 +54,9 @@ class MainRepo {
   cancelBooking(bookingDate, roomNumber) {
     let booking = this.data.bookings.find(booking => {
       return booking.date === bookingDate && booking.roomNumber === roomNumber;
-    })
+    });
     let index = this.data.bookings.indexOf(booking);
-    (typeof roomNumber);
+    typeof roomNumber;
     this.data.bookings.splice(index, 1);
   }
 
@@ -61,20 +65,24 @@ class MainRepo {
       if (!menu[roomService.food]) {
         menu[roomService.food] = roomService.totalCost;
       }
-      return menu
+      return menu;
     }, {});
 
     const customer = new Customer(this.data, customerName);
     let customerID = customer.returnCustomerId();
-    let cost = Object.entries(services).find(food => food[0] === sFood)[1]
-    
+    let cost = Object.entries(services).find(food => food[0] === sFood)[1];
+
     let today = this.today;
-    let newService = { userID: customerID, date: today, food: sFood, totalCost: cost};
+    let newService = {
+      userID: customerID,
+      date: today,
+      food: sFood,
+      totalCost: cost
+    };
     this.data.roomServices.push(newService);
 
-    return newService
+    return newService;
   }
-
 }
 
 export default MainRepo;
