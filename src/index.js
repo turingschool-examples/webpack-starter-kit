@@ -71,8 +71,8 @@ $(document).ready(() => {
 		$('.aside__tabs li').removeClass('current');
 		$('.tab-content').removeClass('current');
 
-		$(this).addClass('current').slideDown(2000);
-		$("#"+tab_id).addClass('current').slideDown(2000)
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
     })
 
     $('.display-guest-info').on('click', function() {
@@ -85,7 +85,7 @@ $(document).ready(() => {
         })
 
         allData.users.users = clickChange;
-        updateOrdersTab();
+        updateTabs();
     })
     
     function searchGuests(e) {
@@ -93,23 +93,41 @@ $(document).ready(() => {
         if($('#search-guests-input').val() !== '') {
              domUpdates.findCustomers(customer)
         currentGuest = customer.findGuestByName($('#search-guests-input').val())
-        updateOrdersTab(currentGuest)
+        updateTabs(currentGuest)
         }
     }
   
-    function updateOrdersTab() {
-        // const customer = new Customer();
+    function updateTabs() {
         const verifyClick = allData.users.users.find(user => {
             if(user.clicked) {
                 domUpdates.displayRoomServiceBreakDown(customer.findOrderBreakDown(user))
                 domUpdates.displayTotalOrdersByDate(customer.findRoomServiceTotalByDate('06/02/2020', user))
                 domUpdates.displayTotalOrders(customer.findAllTimeOrderTotal(user))
+                domUpdates.displaySummaryOfBookings(customer.findBookingsSummary(user))
             }
         })
         return verifyClick;
     }
 
-    $('#btn-search-guests').on('click', searchGuests)
+    $('#residential-suite-option').on('click', function() {
+        domUpdates.displayRoomsByType(bookings.filterRoomType('residential suite'))
+    })
+
+    $('#single-option').on('click', function() {
+        domUpdates.displayRoomsByType(bookings.filterRoomType('single room'))
+    })
+
+    $('#junior-option').on('click', function() {
+        domUpdates.displayRoomsByType(bookings.filterRoomType('junior suite'))
+    })
+
+    $('#suite-option').on('click', function() {
+        domUpdates.displayRoomsByType(bookings.filterRoomType('suite'))
+    })
+
+  
+
+    $('#search-guests-input').on('input', searchGuests)
 
 
 })

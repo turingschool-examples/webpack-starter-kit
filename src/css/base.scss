@@ -73,7 +73,7 @@ aside {
     // float: left;
     padding: 0px 12px;
     border: 1px solid #ccc;
-    width: 70%;
+    // width: 70%;
     border-left: none;
     height: 300px;
 
@@ -108,3 +108,11 @@ aside {
   height: 35px;
 }
 
+
+.bookings-styling {
+  display: flex;
+}
+
+.guests-styling {
+  display: flex;
+}

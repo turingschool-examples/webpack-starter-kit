@@ -10,8 +10,17 @@ class RoomsRepo {
         }, {});
         const maxCount = Math.max(...Object.values(filterDates));
         return Object.keys(filterDates).filter(bookingDate => filterDates[bookingDate] === maxCount);
-        
-        
+          
+    }
+
+    filterRoomType(type) {
+        const filtered = this.data.rooms.rooms.filter(room => room.roomType === type)
+        console.log('filtered', filtered)
+        return filtered
+    }
+
+    filterRoomByDate(date, type) {
+        return this.filterRoomType(date).filter(room => room.roomType === type)
     }
 
 }

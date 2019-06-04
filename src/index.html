@@ -21,6 +21,7 @@
 
           <li class="tab-link" data-tab="aside__tabs-guests"><img src="/images/001-credit-card.svg" class="icon"> Guests</li>
           <div id="aside__tabs-guests" class="tab-content">
+            <div class="guests-styling">
               <form class="aside__tabs--guest-search">
                   <button type="button" class="btn-search" id="btn-search-guests">
                     <i class="fa fa-search"></i>
@@ -35,7 +36,8 @@
                 <input type="text" id="last-name-input" placeholder="Enter guest last name"/>
                 <button type="submit" id="submit-guest-info">Add New Guest</button>
               </form> 
-              <div class="display-guest-info"></div>       
+              <div class="display-guest-info"></div>
+            </div>       
           </div>
 
           <li class="tab-link" data-tab="aside__tabs-room-service"><img src="/images/003-food-1.svg" class="icon"> Room Service Orders</li>
@@ -51,13 +53,24 @@
 
           <li class="tab-link" data-tab="aside__tabs-bookings"><img src="/images/004-bedroom.svg" class="icon"> Reservations</li>
           <div id="aside__tabs-bookings" class="tab-content">
+            <div class="bookings-styling">
               <form class="aside__tabs--bookings-search">
                   <button type="button" class="btn-search" id="btn-search-bookings">
                     <i class="fa fa-search"></i>
                   </button>
                   <input type="search" placeholder="Search Reservations" class="searchterm" id="search-input">
-              </form>           
-            </div>
+              </form>  
+              <article class="flexRight">
+                  <p class="searchRooms">Search Room Type: </p>
+                    <button value="resSuite" id="residential-suite-option">Residential Suite</button>
+                    <button value="single" id="single-option">Single</button>
+                    <button value="juniorSuite" id="junior-option">Junior Suite</button>
+                    <button value="suite" id="suite-option">Suite</button>
+                </article>
+                <div class="room-types-display"></div>
+              <div class="customer-bookings"></div> 
+            </div>     
+          </div>
         </ul>
       </aside>
     </main>

@@ -58,9 +58,20 @@ let domUpdates = {
 
     displayTotalOrders(cost) {
         $('.customer-order').append(` Total for all orders: ${cost} `)
+    },
+
+    displaySummaryOfBookings(customer) {
+        customer.forEach(item => {
+        $('.customer-bookings').append(` Summary of all bookings: Date: ${item.date},  Room Number: ${item.roomNumber}`)
+        })
+    },
+
+    displayRoomsByType(rooms) {
+        rooms.forEach(room => {
+            $('.room-types-display').append(`Rooms Available:  ${room}`)
+
+        })
     }
-
-
 
 
 }

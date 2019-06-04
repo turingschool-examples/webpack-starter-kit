@@ -19,9 +19,6 @@ class Customer {
 
 
     findOrderBreakDown(customer) {
-      
-      // const guest = customer.find(item => item)
-      console.log(this.data.roomServices)
       const orders = this.data.roomServices.roomServices.filter(item => item.userID === customer.id)
       return orders
     }
@@ -45,15 +42,8 @@ class Customer {
     }
 
     findBookingsSummary(customer) {
-      // const guest = customer.find(item => item)
-        const total = this.data.bookings.bookings.filter(item => item.userID === customer.id)
-        return total.reduce((allDates, booking) => {
-          if(total.indexOf(booking.date) === total.indexOf(booking.totalCost)) {
-            if(!allDates[booking.date]) 
-            allDates[booking.date] = booking.roomNumber
-          }
-          return allDates
-        }, {})
+      const total = this.data.bookings.bookings.filter(item => item.userID === customer.id)
+      return total;
     }
 
 
