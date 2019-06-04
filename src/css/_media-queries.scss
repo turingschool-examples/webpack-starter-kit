@@ -2,9 +2,10 @@
 
 @media screen and (max-width: 700px) {
 
-    * {
-        border: solid 1px red;
+    h1 {
+        text-align: center;
     }
+
     aside {
         height: auto;
         margin: 0 auto;
@@ -14,16 +15,42 @@
 
             li {
                 background: $tab-background-color;
+                border: 1px solid $h2-font-color;
                 text-align: center;
                 width: 100%;
+
+                &.current {
+                    color: $h2-font-color;
+                }
             }
+
         }
     }
 
     .tab-content {
-        // opacity: none;
-
-        border: 2px;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 1em;
+    }
+
+    .tab-content {
+        width: 100%;
+    }
+
+    #aside__tabs-guests {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    h3 {
+        font-size: 1em;
     }
 }

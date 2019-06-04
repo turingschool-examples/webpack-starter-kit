@@ -4,6 +4,8 @@
 @import './_splash-styling';
 @import './_media-queries';
 
+
+
 * {
   box-sizing: border-box;
 }
@@ -43,7 +45,7 @@ aside {
     padding: 0px;
 
     li {
-      background: none;
+      // background: hidden;
       color: #222;
       display: block;
       font-size: 20px;
@@ -66,7 +68,7 @@ aside {
     display: none;
     background: $tab-background-color;
     opacity: 0.8;
-    margin: auto;
+    // margin: auto;
     // padding: 15px;
     // float: left;
     padding: 0px 12px;
@@ -105,3 +107,4 @@ aside {
   width: 35px;
   height: 35px;
 }
+

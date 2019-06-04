@@ -61,16 +61,15 @@ $(document).ready(() => {
         currentGuest = customer.newGuests[0]
         // console.log(currentGuest)
     })
-
-
+    
     $('.aside__tabs li').click(function(){
 		let tab_id = $(this).attr('data-tab');
 
 		$('.aside__tabs li').removeClass('current');
 		$('.tab-content').removeClass('current');
 
-		$(this).addClass('current');
-		$("#"+tab_id).addClass('current');
+		$(this).addClass('current').slideDown(2000);
+		$("#"+tab_id).addClass('current').slideDown(2000)
     })
     
     function searchGuests(e) {

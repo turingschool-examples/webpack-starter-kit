@@ -1,6 +1,6 @@
 .pie-percentage {
-    margin: auto;
-    float: right;
+    margin: 30px;
+    // float: right;
   }
   
   svg {
@@ -10,3 +10,7 @@
     height: 130px;
   }
   
+
+  @media screen and (max-width: 700px) {
+    
+  }

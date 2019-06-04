@@ -17,46 +17,50 @@
       <aside>
         <ul class="aside__tabs">
           <li class="tab-link" data-tab="aside__tabs-main"> Dashboard</li>
+          <div id="aside__tabs-main" class="tab-content"></div>
+
           <li class="tab-link" data-tab="aside__tabs-guests"><img src="/images/001-credit-card.svg" class="icon"> Guests</li>
+          <div id="aside__tabs-guests" class="tab-content">
+              <form class="aside__tabs--guest-search">
+                  <button type="button" class="btn-search" id="btn-search-guests">
+                    <i class="fa fa-search"></i>
+                  </button>
+                  <input type="search" placeholder="Search Guests" autocomnplete=off class="searchterm" id="search-guests-input">
+              </form>
+              <form class="aside__tabs--add-new-guest">
+                <h3>Add New Guest</h3>
+                <label for="first-name-input">First Name</label>
+                <input type="text" id="first-name-input" placeholder="Enter guest first name"/>
+                <label for="last-name-input">Last Name</label>
+                <input type="text" id="last-name-input" placeholder="Enter guest last name"/>
+                <button type="submit" id="submit-guest-info">Add New Guest</button>
+              </form> 
+              <div class="display-guest-info"></div>       
+          </div>
+
           <li class="tab-link" data-tab="aside__tabs-room-service"><img src="/images/003-food-1.svg" class="icon"> Room Service Orders</li>
+          <div id="aside__tabs-room-service" class="tab-content">
+              <form class="aside__tabs--orders-search">
+                  <button type="button" class="btn-search" id="btn-search-orders">
+                    <i class="fa fa-search"></i>
+                  </button>
+                  <input type="search" placeholder="Search Room Service Orders" class="searchterm" id="search-input">
+              </form>   
+          </div>
+
           <li class="tab-link" data-tab="aside__tabs-bookings"><img src="/images/004-bedroom.svg" class="icon"> Reservations</li>
+          <div id="aside__tabs-bookings" class="tab-content">
+              <form class="aside__tabs--bookings-search">
+                  <button type="button" class="btn-search" id="btn-search-bookings">
+                    <i class="fa fa-search"></i>
+                  </button>
+                  <input type="search" placeholder="Search Reservations" class="searchterm" id="search-input">
+              </form>           
+            </div>
         </ul>
 
-        <div id="aside__tabs-main" class="tab-content">
-        </div>
-        <div id="aside__tabs-guests" class="tab-content">
-            <form class="aside__tabs--guest-search">
-                <button type="button" class="btn-search" id="btn-search-guests">
-                  <i class="fa fa-search"></i>
-                </button>
-                <input type="search" placeholder="Search Guests" autocomnplete=off class="searchterm" id="search-guests-input">
-            </form>
-            <form class="aside__tabs--add-new-guest">
-              <h3>Add New Guest</h3>
-              <label for="first-name-input">First Name</label>
-              <input type="text" id="first-name-input" placeholder="Enter guest first name"/>
-              <label for="last-name-input">Last Name</label>
-              <input type="text" id="last-name-input" placeholder="Enter guest last name"/>
-              <button type="submit" id="submit-guest-info">Add New Guest</button>
-            </form> 
-            <div class="display-guest-info"></div>       
-        </div>
-        <div id="aside__tabs-room-service" class="tab-content">
-            <form class="aside__tabs--orders-search">
-                <button type="button" class="btn-search" id="btn-search-orders">
-                  <i class="fa fa-search"></i>
-                </button>
-                <input type="search" placeholder="Search Room Service Orders" class="searchterm" id="search-input">
-            </form>   
-        </div>
-        <div id="aside__tabs-bookings" class="tab-content">
-            <form class="aside__tabs--bookings-search">
-                <button type="button" class="btn-search" id="btn-search-bookings">
-                  <i class="fa fa-search"></i>
-                </button>
-                <input type="search" placeholder="Search Reservations" class="searchterm" id="search-input">
-            </form>           
-          </div>
+        <!-- <div id="aside__tabs-main" class="tab-content"> -->
+        <!-- </div> -->
       </aside>
     </main>
   </body>
