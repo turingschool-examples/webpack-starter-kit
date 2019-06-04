@@ -12,27 +12,23 @@ class Customer {
     addNewGuest(firstName, lastName) {
      return this.newGuests.push({
          id: 1 + this.data.users.users.length++,
-         name: `${firstName} ${lastName}`
+         name: `${firstName} ${lastName}`,
+         clicked: false
         })
      }
 
 
     findOrderBreakDown(customer) {
-      const guest = customer.find(item => item)
-      const orders = this.data.roomServices.roomServices.filter(item => item.userID === guest.id)
-      const breakDown = orders.reduce((datesAndDollars, order) => {
-          if(!datesAndDollars[order.date]) {
-          datesAndDollars[order.date] = []
-          }
-          datesAndDollars[order.date].push(order.totalCost)
-       return datesAndDollars
-        },{})
-       return breakDown
+      
+      // const guest = customer.find(item => item)
+      console.log(this.data.roomServices)
+      const orders = this.data.roomServices.roomServices.filter(item => item.userID === customer.id)
+      return orders
     }
 
     findRoomServiceTotalByDate(date, customer) {
-      const guest = customer.find(item => item)
-        const orders = this.data.roomServices.roomServices.filter(item => item.userID === guest.id)
+      // const guest = customer.find(item => item)
+        const orders = this.data.roomServices.roomServices.filter(item => item.userID === customer.id)
        const specificDate = orders.filter(item => item.date === date);
        return specificDate.reduce((totalForDate, order) => {
            totalForDate += order.totalCost
@@ -41,16 +37,16 @@ class Customer {
     }
 
     findAllTimeOrderTotal(customer) {
-      const guest = customer.find(item => item)
-        const orders = this.data.roomServices.roomServices.filter(item => item.userID === guest.id)
+      // const guest = customer.find(item => item)
+        const orders = this.data.roomServices.roomServices.filter(item => item.userID === customer.id)
         return orders.reduce((totalDollars, order) => {
           return totalDollars += order.totalCost
         }, 0)
     }
 
     findBookingsSummary(customer) {
-      const guest = customer.find(item => item)
-        const total = this.data.bookings.bookings.filter(item => item.userID === guest.id)
+      // const guest = customer.find(item => item)
+        const total = this.data.bookings.bookings.filter(item => item.userID === customer.id)
         return total.reduce((allDates, booking) => {
           if(total.indexOf(booking.date) === total.indexOf(booking.totalCost)) {
             if(!allDates[booking.date]) 

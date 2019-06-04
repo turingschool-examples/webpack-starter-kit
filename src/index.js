@@ -26,7 +26,7 @@ let dataFile3 = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/bookin
     return response.json()})
 let dataFile4 = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/room-services/roomServices').then(function(response){ 
     return response.json()});
-let allData = {'users':{}, 'rooms':{}, 'bookings':{}, 'roomServices':{}}
+let allData = {'users':[], 'rooms':[], 'bookings':[], 'roomServices':[]}
 
 Promise.all([dataFile1, dataFile2, dataFile3, dataFile4])
     .then(function(values) {
@@ -34,6 +34,9 @@ Promise.all([dataFile1, dataFile2, dataFile3, dataFile4])
         allData['rooms'] = values[1];
         allData['bookings'] = values[2];
         allData['roomServices'] = values[3];
+        allData['users'].users.map(user => {
+            user.clicked = false;
+        })
         return allData;
     })
 
@@ -71,6 +74,19 @@ $(document).ready(() => {
 		$(this).addClass('current').slideDown(2000);
 		$("#"+tab_id).addClass('current').slideDown(2000)
     })
+
+    $('.display-guest-info').on('click', function() {
+        const guest = customer.findGuestByName($('#search-guests-input').val())
+        const clickChange = allData.users.users.map(user => {
+            if(user.id === guest[0].id) {
+                user.clicked = true;
+            }
+            return user;
+        })
+
+        allData.users.users = clickChange;
+        updateOrdersTab();
+    })
     
     function searchGuests(e) {
         e.preventDefault();
@@ -81,11 +97,16 @@ $(document).ready(() => {
         }
     }
   
-    function updateOrdersTab(guest) {
-        domUpdates.displayCurrentCustOrder(guest)
-        console.log(customer.findOrderBreakDown(guest))
-    
-
+    function updateOrdersTab() {
+        // const customer = new Customer();
+        const verifyClick = allData.users.users.find(user => {
+            if(user.clicked) {
+                domUpdates.displayRoomServiceBreakDown(customer.findOrderBreakDown(user))
+                domUpdates.displayTotalOrdersByDate(customer.findRoomServiceTotalByDate('06/02/2020', user))
+                domUpdates.displayTotalOrders(customer.findAllTimeOrderTotal(user))
+            }
+        })
+        return verifyClick;
     }
 
     $('#btn-search-guests').on('click', searchGuests)

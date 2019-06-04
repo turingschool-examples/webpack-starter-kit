@@ -46,10 +46,21 @@ let domUpdates = {
         })
     },
 
-    displayCurrentCustOrder(customer) {
-        $('aside__tabs-room-service').append('<h3><span class="cust-orders"></span></h3>')
-        $('.cust-orders').text(`${customer.findOrderBreakDown()}`)
+    displayRoomServiceBreakDown(customer) {
+        customer.forEach(item => {
+            $('.customer-orders').append(` Order date: ${item.date}, Total cost: ${item.totalCost} `)
+        })
+    },
+
+    displayTotalOrdersByDate(cost) {
+        $('.customer-order').append(` Total for date: ${cost} `)
+    },
+
+    displayTotalOrders(cost) {
+        $('.customer-order').append(` Total for all orders: ${cost} `)
     }
+
+
 
 
 }
