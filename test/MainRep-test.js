@@ -5,8 +5,7 @@ chai.use(spies);
 import MainRepo from '../src/MainRepo';
 import data from '../src/data-sample';
 import domUpdates from '../src/domUpdates';
-chai.spy.on(domUpdates, 'domSearchCustomerName', () => true);
-chai.spy.on(domUpdates, 'domRoomsAvailable', () => true);
+chai.spy.on(domUpdates, "domAllAvailableRooms", () => true);
 
 describe('MainRepo', function() {
 
@@ -36,18 +35,12 @@ describe('MainRepo', function() {
     expect(mainRepo.data.users[31]).to.eql({id: 32, name: 'David'});
   });
 
-  it('searchCustomerName should return available rooms', function() {
-    expect(mainRepo.searchCustomerName('al')).to.eql([
-      { id: 5, name: 'Reginald Schaden' },
-      { id: 17, name: 'Kianna Walter' }
-    ]);
+  it('allAvailableRooms should return number of available rooms', function() {
+    expect(mainRepo.allAvailableRooms("", "junior suite")).to.equal(38);
   });
 
-  it('roomsAvailable should return number of rooms available', function() {
-    expect(mainRepo.roomsAvailable('')).to.eql({ total: 198,
-      'residential suite': 45,
-      'single room': 65,
-      'junior suite': 38,
-      suite: 50 });
+  it('bookingRoom should should be able to book a room', function() {
+    expect(mainRepo.bookingRoom("Kianna Walter", 1)).to.equal();
   });
+
 });

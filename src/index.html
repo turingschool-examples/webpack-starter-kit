@@ -4,7 +4,6 @@
     <title>Webpack Starter Kit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700|Quicksand&display=swap" rel="stylesheet">
-    
   </head>
   <body>
     <section class="body-section-one">
@@ -39,8 +38,6 @@
           <li data-id="services-body" class="body-section-two__services-header">SERVICES</li>     
         </ul>
         <section class="body-section-two__bodies">
-    <!-- //////////////////////////////////////////////////// -->
-            
             <div id="customers-body" class="content-body">   
                 <h3 class="title">Select existing or add a new customer</h3>
                 <div class="content-body-search-add-container">
@@ -50,6 +47,7 @@
               <ul id="customers-body-found-name"></ul>
             </div>
           <div id="rooms-body" class="content-body">
+            <div class="rooms-general-info">
             <section class="rooms-most-least-popular-days">
               <div class="rooms-most-popular-days-container">
                   <table class="rooms-most-popular-days"></table>
@@ -67,6 +65,30 @@
                 <table class="rooms-available-rooms-table"></table>
             </section>
           </div>
+          <div class="rooms-customer-info">
+              <table class="rooms-customer-history-table"></table>
+              <section class="available-all-rooms-container">
+                <h3 class="available-all-rooms-title">Available rooms</h3>
+                <div class="available-all-rooms-controller-rooms">
+                  <div class="available-all-rooms-controllers">
+
+                      <!-- <label class="controller-label">Date:</label>
+                      <input type="date" id="datepicker-controller" > -->
+
+                    <label class="controller-label">Room type:</label>
+                      <select class="select-room">
+                          <option value="All room types">All room types</option>
+                          <option value="residential suite">Residential suite</option>
+                          <option value="single room">Single room</option>
+                          <option value="junior suite">Junior suite</option>
+                          <option value="suite">Suite</option>
+                      </select>
+                  </div>
+                  <div class="available-all-rooms"></div>
+                </div>
+              </section>
+          </div>
+          </div>
           <div id="services-body" class="content-body">
             <section class="services-general-info">
               <div class="date-picker-container">
@@ -76,6 +98,9 @@
               <h3 class="services-title">Today's services</h3>
             <table class="services-general-info-services"></table>
             </section>
+            <div class="services-customer-info">
+                <table class="services-customer-history-table"></table>
+            </div>
           </div>
         </section>
       </section>

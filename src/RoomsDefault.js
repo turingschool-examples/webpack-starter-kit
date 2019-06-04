@@ -2,15 +2,17 @@ import domUpdates from './domUpdates.js';
 // import MainRepo from './MainRepo';
 
 class RoomsDefault {
-  constructor(bookingsData, roomsData, date) {
-    this.bookingsData = bookingsData;
-    this.roomsData = roomsData;
+  constructor(data, date) {
+    this.data = data;
+    // this.roomsData = roomsData;
     this.date = date;
+    // console.log(this.data);
+
   }
 
   noRoomsAvailable() {
-    let allRoomsNumbers = this.roomsData.map(roomData => roomData.number)
-    let roomsBooked = this.bookingsData.reduce((acc, booking) => {
+    let allRoomsNumbers = this.data.rooms.map(roomData => roomData.number)
+    let roomsBooked = this.data.bookings.reduce((acc, booking) => {
       if (this.date === booking.date) {
         acc.push(booking.roomNumber)
       }
@@ -22,23 +24,24 @@ class RoomsDefault {
       }
       return acc;
     }, []);
+
     domUpdates.domNoRoomsAvailable(availableRooms.length);
     return availableRooms
   }
 
   percentageRoomsOccupied() {
-    let roomsOccupied = ((this.roomsData.length - this.noRoomsAvailable().length) / this.roomsData.length) * 100
+    let roomsOccupied = ((this.data.rooms.length - this.noRoomsAvailable().length) / this.data.rooms.length) * 100
     domUpdates.domPercentageRoomsOccupied(roomsOccupied);
     return roomsOccupied;
   }
 
   bookingDatesBreakDown() {
-    let allDates = this.bookingsData.reduce((acc, booking) => {
+    let allDates = this.data.bookings.reduce((acc, booking) => {
       acc.push(booking.date)
       return acc;
     }, []);
 
-    let uniqueDates = this.bookingsData.reduce((acc, booking) => {
+    let uniqueDates = this.data.bookings.reduce((acc, booking) => {
       if (!acc.includes(booking.date)) {
         acc.push(booking.date)
       }

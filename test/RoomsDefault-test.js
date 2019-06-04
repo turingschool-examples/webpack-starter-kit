@@ -13,7 +13,7 @@ chai.spy.on(domUpdates, "domLeastPopularDay", () => true);
 describe("RoomsDefault", function() {
   let roomsDefault;
   beforeEach(function() {
-    roomsDefault = new RoomsDefault(data.bookings, data.rooms, "01/06/2019");
+    roomsDefault = new RoomsDefault(data, "01/06/2019");
   });
 
   it("should be a function", function() {
@@ -25,19 +25,19 @@ describe("RoomsDefault", function() {
   });
 
   it("noRoomsAvailable should return numbers of available rooms", function() {
-    expect(roomsDefault.noRoomsAvailable().length).to.equal(198);
+    expect(roomsDefault.noRoomsAvailable().length).to.equal(197);
   });
 
   it("percentageRoomReposOccupied should return percentage of accupied rooms", function() {
-    expect(roomsDefault.percentageRoomsOccupied()).to.equal(1);
+    expect(roomsDefault.percentageRoomsOccupied()).to.equal(1.5);
   });
 
   it("bookingDatesBreakDown should return an object with key-value pairs of min, max, uniquDates and dateRepeat", function() {
     expect(roomsDefault.bookingDatesBreakDown()).to.eql({
-      maxValue: 2,
+      maxValue: 3,
       minValue: 1,
       dateRepeatValue: [
-        2,
+        3,
         1,
         1,
         1,
@@ -112,7 +112,7 @@ describe("RoomsDefault", function() {
   });
 
   it("mostPopularDay should return all popular days", function() {
-    expect(roomsDefault.mostPopularDay()).to.eql({numOfDays: 2, dates: [ '01/06/2019', '07/01/2020' ]});
+    expect(roomsDefault.mostPopularDay()).to.eql({numOfDays: 3, dates: [ '01/06/2019' ]});
   });
 
   it("leastPopularDay should return least popular days", function() {

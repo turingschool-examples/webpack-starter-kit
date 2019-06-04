@@ -1,26 +1,26 @@
 import domUpdates from "./domUpdates.js";
 
-class RoomServiceRepo {
-  constructor(roomServiceData, today, fixedDate) {
-    this.roomServiceData = roomServiceData;
+class RoomServiceDefault {
+  constructor(data, today, fixedDate) {
+    this.data = data;
     this.today = today;
     this.fixedDate = fixedDate;
-    this.todayTotalIncome();
   }
 
   todayTotalIncome(today) {
-    return this.roomServiceData.reduce((total, booking) => {
+    var x =  this.data.roomServices.reduce((total, booking) => {
       if (today === booking.date) {
         total = total + booking.totalCost;
       }
-      domUpdates.domTodayTotalIncome(total)
+      domUpdates.domTodayTotalIncome(total);
       return total;
     }, 0);
+    return x;
   }
 
   allServicesOfOneDay() {
     let date = this.fixedDate || this.today;
-    let todayServices = this.roomServiceData.reduce((acc, roomService) => {
+    let todayServices = this.data.roomServices.reduce((acc, roomService) => {
       if (roomService.date === date ) {
         acc.push(roomService);
       }
@@ -37,7 +37,6 @@ class RoomServiceRepo {
     return services
   }
 
-
 }
 
-export default RoomServiceRepo;
+export default RoomServiceDefault;

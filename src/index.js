@@ -3,10 +3,13 @@ import "./css/base.scss";
 import "./images/overlook-logo.png";
 import fetch from "cross-fetch";
 import RoomsDefault from "./RoomsDefault";
-import RoomServiceRepo from "./RoomServiceRepo";
+import RoomServiceDefault from "./RoomServiceDefault";
 import sData from "./data-sample";
 import domUpdates from "./domUpdates";
 import MainRepo from "./MainRepo";
+import CustomersRepo from './CustomersRepo';
+import RoomsRepo from './RoomsRepo';
+import Customer from './Customer';
 
 let users = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/users/users').then(function(response) {
   return response.json()
@@ -59,34 +62,47 @@ function today() {
     twoDigitDay + "/" + twoDigitMonth + "/" + fullDate.getFullYear();
   return currentDate;
 }
+var hotelData;
 
-setTimeout(start, 1000);
+setTimeout(start, 2000);
 // bookingsData roomsData
 function start() {
   
 
-  const mainRepo = new MainRepo(sData, today());
-  mainRepo.roomsAvailable(today())
+  const mainRepo = new MainRepo(data, today());
+  hotelData = mainRepo.data;
+
+
+  const roomsRepo = new RoomsRepo(hotelData, today());
+  roomsRepo.roomsAvailable(today())
+
+
+  const customersRepo = new CustomersRepo(hotelData, today());
   $("#customers-body-search-add-input").keyup(function() {
     let value = $("#customers-body-search-add-input").val();
-    mainRepo.searchCustomerName(value);
+    customersRepo.searchCustomerName(value);
   });
 
-  const roomsDefault = new RoomsDefault(sData.bookings, sData.rooms, today());
+  const roomsDefault = new RoomsDefault(hotelData, today());
   roomsDefault.noRoomsAvailable();
   roomsDefault.percentageRoomsOccupied();
   roomsDefault.mostPopularDay();
   roomsDefault.leastPopularDay();
 
-  const roomServiceRepo = new RoomServiceRepo(sData.roomServices, today());
-  roomServiceRepo.todayTotalIncome(today());
-  roomServiceRepo.allServicesOfOneDay();
+  const roomServiceDefault = new RoomServiceDefault(hotelData, today());
+  roomServiceDefault.todayTotalIncome(today());
+  roomServiceDefault.allServicesOfOneDay();
   
 
 
   $("#selected-name").click(function(e) {
     if ($(e.target).attr('class') === "selected-name__close-btn") {
       $("#selected-name").text("");
+      $(".rooms-general-info").css('display', 'flex');
+      $(".rooms-customer-info").css('display', 'none');
+
+      $(".services-general-info").css('display', 'block');
+      $(".services-customer-info").css('display', 'none');
     }
   });
    
@@ -95,9 +111,9 @@ function start() {
     let arr = pickedDate.split("-");
     let fixedDate = `${arr[2]}/${arr[1]}/${arr[0]}`;
 
-    const roomServiceRepo = new RoomServiceRepo(sData.roomServices, fixedDate);
-    roomServiceRepo.todayTotalIncome(today());
-    roomServiceRepo.allServicesOfOneDay();
+    const roomServiceDefault = new RoomServiceDefault(hotelData, fixedDate);
+    roomServiceDefault.todayTotalIncome(today());
+    roomServiceDefault.allServicesOfOneDay();
   })
   
   $("#datepicker-2").change(function() {
@@ -105,15 +121,29 @@ function start() {
     let arr = pickedDate.split("-");
     let fixedDate = `${arr[2]}/${arr[1]}/${arr[0]}`;
 
-    const mainRepo = new MainRepo(sData, today());
-    mainRepo.roomsAvailable(fixedDate);
+    const roomsRepo = new RoomsRepo(hotelData, today());
+    roomsRepo.roomsAvailable(fixedDate)
   })
 
   function appendCustomerToDom(name) {
     $("#selected-name").text("");
-      $("#selected-name").append(`<h4 class="selected-name__name">${name}</h4>`);
-      $("#selected-name").append(`<button class="selected-name__close-btn">&times;</button>`)
+    $("#selected-name").append(`<h4 class="selected-name__name">${name}</h4>`);
+    $("#selected-name").append(`<button class="selected-name__close-btn">&times;</button>`)
   }
+
+  function filterDataOfOneCustomer(name) {
+    const customer = new Customer(hotelData, name)
+    customer.customerBookingHistory();
+    customer.customerServicesHistory();
+  }
+
+  function showAllAvailableRooms(date, roomType) {
+    const mainRepo = new MainRepo(data, today());
+    // hotelData = mainRepo.data;
+    
+    mainRepo.allAvailableRooms(today(), roomType);
+  }
+
 // add existing customer...
 
   $("#customers-body-found-name").click(function(e) {
@@ -122,6 +152,8 @@ function start() {
       appendCustomerToDom(name);
       $("#customers-body-found-name").text("");
       $("#customers-body-search-add-input").val("");
+      filterDataOfOneCustomer(name);
+      showAllAvailableRooms(today(), 'All room types');
     }
   })
 
@@ -130,19 +162,35 @@ function start() {
 
     if ($("#customers-body-search-add-input").val() !== "" ) {
       let newCustomer = $("#customers-body-search-add-input").val();
-       // const mainRepo = new MainRepo(sData, today());
       mainRepo.addNewCustomer(newCustomer);
       appendCustomerToDom(newCustomer);
       $("#customers-body-search-add-input").val("");
       $("#customers-body-add-btn").attr("disabled", true);
     }
-    
-    function filterDataOfOneCustomer(name) {
-      
-    }
-
   })
-  
+
+  // $("#datepicker-controller").change(function() {
+  //   let pickedDate = $("#datepicker-controller").val();
+  //   let arr = pickedDate.split("-");
+  //   let fixedDate = `${arr[2]}/${arr[1]}/${arr[0]}`;
+    
+  //   showAllAvailableRooms(fixedDate, "roomType")
+  // });
+
+  $(".select-room").change(function() {
+    let roomType =  $('.select-room').find(":selected").val();
+    showAllAvailableRooms(date, roomType)
+  })
+
+  $(".available-all-rooms").click(function(e) {
+    let roomNumber = $(e.target).next().text();
+    let customerName = $('.selected-name__name').text();
+    let roomType =  $('.select-room').find(":selected").val();
+    $(e.target).text("Booked");
+    const mainRepo = new MainRepo(data, today());
+    mainRepo.bookingRoom(customerName, roomNumber);
+    showAllAvailableRooms(date, roomType)
+  })
 }
 
 

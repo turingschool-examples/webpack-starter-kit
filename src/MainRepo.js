@@ -1,8 +1,10 @@
 import domUpdates from "./domUpdates";
+import RoomsRepo from "./RoomsRepo";
+import Customer from "./Customer";
 
 class MainRepo {
-  constructor(sData, today, fixedDate) {
-    this.data = sData;
+  constructor(data, today, fixedDate) {
+    this.data = data;
     this.today = today;
     this.fixedDate = fixedDate;
     this.currentID = this.data.users.length + 1;
@@ -16,59 +18,34 @@ class MainRepo {
     let newCustomer = {id: this.currentID, name: customerName};
     this.data.users.push(newCustomer);
     this.currentID++;
-    // domUpdates.domAddNewCustomer(customerName)
   }
 
-  searchCustomerName(search) {
-    let filteredCustomers = this.data.users.filter(customer => {
-      let name = customer.name.toUpperCase();
-      let searchCap = search.toUpperCase();
-      if (name.includes(searchCap)) {
-        return customer
-      }
-    })
-    domUpdates.domSearchCustomerName(filteredCustomers)
-    return filteredCustomers
-  }
+  allAvailableRooms(roomsDate, roomType) {
+    const roomsRepo = new RoomsRepo(this.data, this.today, roomsDate)
+    let arrAvailableRooms = roomsRepo.roomsAvailable(roomsDate).available
 
-
-  roomsAvailable(fixedDate) {
-    let date = fixedDate || this.today;
-
-    let allRoomsNumbers = this.data.rooms.map(roomData => roomData.number)
-    let roomsBooked = this.data.bookings.reduce((acc, booking) => {
-      if (date === booking.date) {
-        acc.push(booking.roomNumber)
-      }
-      return acc;
-    }, []);
-    let availableRooms = allRoomsNumbers.reduce((acc, roomNumber) => {
-      if (!roomsBooked.includes(roomNumber)) {
-        acc.push(roomNumber);
-      }
-      return acc;
-    }, []);
-    
-    
-    let rooms = availableRooms.reduce((acc, num) => {
-      this.data.rooms.forEach(room => {
-        if (room.number === num) {
-          acc.push(room)
+    let availableRooms = this.data.rooms.filter(room => {
+      return arrAvailableRooms.find(available => {
+        if (roomType === 'All room types') {
+          return  room.number === available;
+        } else {
+          return room.number === available && room.roomType === roomType;
         }
       })
-      return acc
-    }, [])
-    
+    })
 
-    let finalRooms =  rooms.reduce((acc, room) => {
-      if (!acc[room.roomType]) {
-        acc[room.roomType] = 0;
-      }
-      acc[room.roomType]++
-      return acc;
-    }, {total: rooms.length})
-    domUpdates.domRoomsAvailable(finalRooms);
-    return finalRooms
+    domUpdates.domAllAvailableRooms(availableRooms);
+    return availableRooms.length;
+  }
+
+  bookingRoom(customerName, rNumber) {
+    const customer = new Customer(this.data, customerName);
+    let customerID = customer.returnCustomerId();
+    let today = this.today;
+    let newBooking = { userID: customerID, date: today, roomNumber: parseInt(rNumber)};
+    // const customer2 = new Customer(this.data, customerName);
+    this.data.bookings.push(newBooking);
+    customer.customerBookingHistory();
   }
 
 }
