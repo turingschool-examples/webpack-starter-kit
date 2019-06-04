@@ -8,14 +8,15 @@ class RoomServiceDefault {
   }
 
   todayTotalIncome(today) {
-    var x =  this.data.roomServices.reduce((total, booking) => {
+    var grandTotal =  this.data.roomServices.reduce((total, booking) => {
       if (today === booking.date) {
         total = total + booking.totalCost;
       }
-      domUpdates.domTodayTotalIncome(total);
       return total;
     }, 0);
-    return x;
+    let fixedTotal = grandTotal.toFixed(2);
+    domUpdates.domTodayTotalIncome(fixedTotal);
+    return fixedTotal;
   }
 
   allServicesOfOneDay() {

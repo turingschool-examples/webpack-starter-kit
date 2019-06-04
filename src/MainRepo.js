@@ -43,9 +43,36 @@ class MainRepo {
     let customerID = customer.returnCustomerId();
     let today = this.today;
     let newBooking = { userID: customerID, date: today, roomNumber: parseInt(rNumber)};
-    // const customer2 = new Customer(this.data, customerName);
     this.data.bookings.push(newBooking);
     customer.customerBookingHistory();
+  }
+
+  cancelBooking(bookingDate, roomNumber) {
+    let booking = this.data.bookings.find(booking => {
+      return booking.date === bookingDate && booking.roomNumber === roomNumber;
+    })
+    let index = this.data.bookings.indexOf(booking);
+    (typeof roomNumber);
+    this.data.bookings.splice(index, 1);
+  }
+
+  addService(sFood, customerName) {
+    let services = this.data.roomServices.reduce((menu, roomService) => {
+      if (!menu[roomService.food]) {
+        menu[roomService.food] = roomService.totalCost;
+      }
+      return menu
+    }, {});
+
+    const customer = new Customer(this.data, customerName);
+    let customerID = customer.returnCustomerId();
+    let cost = Object.entries(services).find(food => food[0] === sFood)[1]
+    
+    let today = this.today;
+    let newService = { userID: customerID, date: today, food: sFood, totalCost: cost};
+    this.data.roomServices.push(newService);
+
+    return newService
   }
 
 }

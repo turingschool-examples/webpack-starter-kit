@@ -8,23 +8,26 @@ class Customer {
   }
 
   returnCustomerId() {
+
     return this.data.users.find(user => user.name === this.name).id
   }
-
+  
   customerBookingHistory() {
     let bookings =  this.data.bookings.filter(booking => booking.userID === this.id);
-
     var bookingHistory =  bookings.reduce((acc, booking) => {
-
+      let bookingObj = {};
       this.data.rooms.forEach(room => {
         if (room.number === booking.roomNumber) {
-          acc[room.roomType] = booking.date;
+          bookingObj.roomType =  room.roomType;
+          bookingObj.date = booking.date;
+          bookingObj.roomNumber = booking.roomNumber
         }
       })
+      acc.push(bookingObj);
       return acc
-    }, {})
-    domUpdates.domCustomerBookingHistory(bookingHistory)
+    }, [])
 
+    domUpdates.domCustomerBookingHistory(bookingHistory)
     return bookingHistory
   }
 

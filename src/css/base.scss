@@ -20,7 +20,7 @@ $white-40: rgba(255,255,255,0.4);
 .body-section-one {
   align-items: center;
   background-color: $background-primary-color;
-  border-bottom: 1px solid $golden-40;
+  border-bottom: 1px solid $golden;
   display: flex;
   flex-direction: column;
   height: 90vh;
@@ -64,9 +64,6 @@ $white-40: rgba(255,255,255,0.4);
   color: $red;
 }
 
-.rooms-occupied-percentage {
-  color: $green;
-}
 
 .totdays-total-income-dollar {
   font-family: 'Old Standard TT', serif;
@@ -87,6 +84,8 @@ $white-40: rgba(255,255,255,0.4);
   position: fixed;
   bottom: 0;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .body-section-three__date-and-time {
@@ -125,7 +124,7 @@ $white-40: rgba(255,255,255,0.4);
 .body-section-one-open-close-btn {
   background-color: $background-primary-color;
   border-radius: 50%;
-  border: 1px solid $golden-40;
+  border: 1px solid $golden;
   bottom: -17px;
   height: 34px;
   width: 34px;
@@ -134,7 +133,7 @@ $white-40: rgba(255,255,255,0.4);
 }
 
 .body-section-one-open-close-more {
-  color: $golden-40;
+  color: $golden;
   position: absolute;
   bottom: 0px;
   z-index: 6;
@@ -205,7 +204,7 @@ $white-40: rgba(255,255,255,0.4);
 }
 
 .body-section-two__bodies {
-  height: 87%;
+  height: 86%;
   position: relative;
   margin-top: 12px;
   background-color: $background-third-color;
@@ -514,27 +513,36 @@ th {
 
 .one-room {
   border-radius: 5px;
-  border: 1px solid $white;
+  // border: 1px solid $white;
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
   width: 95%;
-  background-color: $white;
-  color: $background-primary-color;
+  background-color: $background-primary-color;
+  color: #fff;
   padding-left: 5px;
   padding-top: 10px;
 }
 
 .book {
   width: 80%;
-  background: $green;
+  background: rgba(255,255,255,0.4);
   color: #000;
   outline: none;
   height: 20px;
   margin-left: 30px;
   margin-top: 10px;
   margin-bottom: 6px;
+  border-radius: 4px;
+  border: none;
+  color: $white;
+}
+
+.book:hover {
+  background-color: $green;
+  cursor: pointer;
+  color: $background-primary-color;
 }
 
 p {
@@ -556,12 +564,12 @@ p {
 }
  
 ::-webkit-scrollbar-thumb {
-  background: $background-third-color; 
+  background: $background-primary-color; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $background-secondary-color; 
+  background: $green; 
 }
 
 .controller-label {
@@ -584,3 +592,247 @@ p {
 .hidden {
   display: none;
 }
+
+.cancel-booking-header {
+  width: 150px;
+}
+
+.cancel-booking {
+  text-align: center;
+  cursor: pointer;
+}
+
+.cancel-booking:hover {
+  background-color: $red;
+}
+
+.services-customer-info {
+  display: none;
+  justify-content: space-between;
+}
+
+.menu-container {
+  width: 40%;
+  background-color: $background-third-color
+}
+
+.menu-td,
+.menu-column-1,
+.menu-column-2,
+.menu-column-3 {
+  height: 23px;
+  font-size: 13px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid $background-primary-color;
+  background-color: transparent;
+}
+
+.menu-title {
+  text-align: center;
+  color: $white;
+  margin-bottom: 15px;
+  margin-top: 2px;
+}
+
+.menu-table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu-column-1 {
+  width: 230px;
+}
+
+.menu-column-2,
+.menu-column-3 {
+  width: 80px;
+}
+
+.menu-column-3 {
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgba(255,255,255, 0.1);
+}
+
+.menu-column-3:hover {
+  background-color: $green;
+  color: $background-primary-color;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.open-bar-container {
+  border-radius: 5px;
+  border: 1px solid $golden-40;
+  display: flex;
+  height: 20px;
+  justify-content: flex-start;
+  position: absolute;
+  top: 70px;
+  width: 150px;
+}
+
+.open-bar {
+  height: 100%;
+  background-color: $golden;
+  border-radius: 4px;
+}
+
+.service-history-cost {
+  width: 80px;
+}
+
+
+@media only screen and (max-width: 912px) {
+  .body-section-one {
+    height: 85vh;
+    z-index: 7;
+   }
+
+  .body-section-three {
+   height: 15vh;
+   z-index: 5;
+   display: flex;
+   justify-content: center;
+  }
+
+  .body-section-two__bodies {
+    height: 80%;
+  }
+
+  .open-bar-container {
+    margin-top: -25px;
+  }
+
+  .body-section-three__date-and-time {
+    position: absolute;
+    margin-top: 50px;
+  }
+
+  .body-section-two {
+    padding-top: 0px;
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  .logo {
+    height: 200px;
+    width: 320px;
+  }
+
+  .body-section-two__bodies {
+    height: 78%;
+  }
+
+  .body-section-one__item-header {
+    font-size: 15px;
+  }
+
+  .rooms-available,
+  .totdays-total-income,
+  .rooms-occupied-percentage {
+    font-size: 66px;
+  }
+
+  .body-section-three__date-and-time {
+    width: 218px;
+    height: 30px;
+  }
+  .body-section-three__date,
+  .body-section-three__time {
+    font-size: 1em;
+  }
+
+  .open-bar-container {
+    height: 10px;
+    margin-top: -20px;
+  }
+
+  .rooms-occupied-percentage-sign,
+  .totdays-total-income-dollar {
+    font-size: 33px;
+  }
+
+  #selected-name {
+    margin-top: 20px;
+  }
+
+ 
+
+  .rooms-general-info {
+    overflow: scroll;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 615px) {
+ 
+  .body-section-one-all-items {
+    flex-direction: column;
+  }
+
+  .logo {
+    height: 165px;
+    width: 250px;
+}
+
+.rooms-available,
+  .totdays-total-income,
+  .rooms-occupied-percentage {
+    font-size: 55px;
+  }
+
+  .rooms-occupied-percentage-sign,
+  .totdays-total-income-dollar {
+    font-size: 27.5px;
+  }
+
+  .body-section-one-all-items {
+    margin-top: 4em;
+  }
+
+  .body-section-one-item {
+    margin-bottom: 30px;
+  }
+
+  .content-body-search-add-container {
+    width: 255px;
+  }
+
+  input[type="text"] {
+    width: 185px;
+  }
+
+  .title {
+    font-size: 16px;
+    margin-top: 13px;
+    padding: 5px;
+  }
+
+  #customers-body {
+    padding-left: 0;
+  }
+
+  .body-section-two__headers {
+    font-size: 14px;
+  }
+
+  .names-found,
+  #customers-body-found-name {
+    width: 255px;
+  }
+  #selected-name {
+    margin-top: 20px;
+}
+  
+
+}
+
+// @media only screen and (max-width: 615px) { 
+
+// }

@@ -6,6 +6,7 @@ import MainRepo from '../src/MainRepo';
 import data from '../src/data-sample';
 import domUpdates from '../src/domUpdates';
 chai.spy.on(domUpdates, "domAllAvailableRooms", () => true);
+chai.spy.on(domUpdates, "domAddService", () => true);
 
 describe('MainRepo', function() {
 
@@ -39,8 +40,25 @@ describe('MainRepo', function() {
     expect(mainRepo.allAvailableRooms("", "junior suite")).to.equal(38);
   });
 
-  it('bookingRoom should should be able to book a room', function() {
-    expect(mainRepo.bookingRoom("Kianna Walter", 1)).to.equal();
+  it.skip('bookingRoom should should be able to book a room', function() {
+    expect(mainRepo.bookingRoom("Ervin Larson", 1)).to.equal();
   });
 
+  it('cancelBooking should should be able to remove booking a record in data', function() {
+    expect(mainRepo.data.bookings.length).to.equal(36);
+    mainRepo.cancelBooking("17/07/2019", 192)
+    expect(mainRepo.data.bookings.length).to.equal(35);
+  });
+
+  it('addService should be able to book a room', function() {
+    expect(mainRepo.addService("Rustic Soft Sandwich", "Autumn Toy")).to.eql(
+      {
+        userID: 1,
+        date: '01/06/2019',
+        food: "Rustic Soft Sandwich",
+        totalCost: 18.63
+      }
+    )
+  });
+  
 });

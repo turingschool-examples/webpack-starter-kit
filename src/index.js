@@ -4,7 +4,6 @@ import "./images/overlook-logo.png";
 import fetch from "cross-fetch";
 import RoomsDefault from "./RoomsDefault";
 import RoomServiceDefault from "./RoomServiceDefault";
-import sData from "./data-sample";
 import domUpdates from "./domUpdates";
 import MainRepo from "./MainRepo";
 import CustomersRepo from './CustomersRepo';
@@ -153,6 +152,7 @@ function start() {
       $("#customers-body-found-name").text("");
       $("#customers-body-search-add-input").val("");
       filterDataOfOneCustomer(name);
+
       showAllAvailableRooms(today(), 'All room types');
     }
   })
@@ -166,6 +166,9 @@ function start() {
       appendCustomerToDom(newCustomer);
       $("#customers-body-search-add-input").val("");
       $("#customers-body-add-btn").attr("disabled", true);
+
+      filterDataOfOneCustomer(newCustomer);
+      showAllAvailableRooms(today(), 'All room types');
     }
   })
 
@@ -180,7 +183,7 @@ function start() {
   $(".select-room").change(function() {
     let roomType =  $('.select-room').find(":selected").val();
     showAllAvailableRooms(date, roomType)
-  })
+  });
 
   $(".available-all-rooms").click(function(e) {
     let roomNumber = $(e.target).next().text();
@@ -190,7 +193,49 @@ function start() {
     const mainRepo = new MainRepo(data, today());
     mainRepo.bookingRoom(customerName, roomNumber);
     showAllAvailableRooms(date, roomType)
-  })
+
+    const roomsDefault = new RoomsDefault(hotelData, today());
+    roomsDefault.noRoomsAvailable();
+    roomsDefault.percentageRoomsOccupied();
+    roomsDefault.mostPopularDay();
+    roomsDefault.leastPopularDay();
+  });
+
+  $(".rooms-customer-history-table").click(function(e) {
+    // $(e.target).parent().remove()
+    let roomType = $('.select-room').find(":selected").val();
+    let roomNumber = $(e.target).attr("data-room-number");
+    let numberRoomNumber = parseInt(roomNumber);
+    let bookingDate = $(e.target).attr("data-booking-date");
+    let customerName = $('.selected-name__name').text();
+    const mainRepo = new MainRepo(data, today());
+
+    mainRepo.cancelBooking(bookingDate, numberRoomNumber);
+    showAllAvailableRooms(date, roomType);
+
+    const customer = new Customer(hotelData, customerName);
+    customer.customerBookingHistory();
+    
+    const roomsDefault = new RoomsDefault(hotelData, today());
+    roomsDefault.noRoomsAvailable();
+    roomsDefault.percentageRoomsOccupied();
+    roomsDefault.mostPopularDay();
+    roomsDefault.leastPopularDay();
+  });
+
+  $(".menu-table").click(function(e) {
+    let food = $(e.target).attr("data-food");
+    let customerName = $('.selected-name__name').text();
+    const mainRepo = new MainRepo(data, today());
+    mainRepo.addService(food, customerName);
+
+    const customer = new Customer(hotelData, customerName)
+    customer.customerServicesHistory();
+
+    const roomServiceDefault = new RoomServiceDefault(hotelData, today());
+    roomServiceDefault.todayTotalIncome(today());
+    roomServiceDefault.allServicesOfOneDay();
+  });
 }
 
 
@@ -260,11 +305,11 @@ $(document).ready(function() {
       $(".arrow").css("transform", "rotate(-135deg)");
       $(".arrow").css("marginTop", "7px");
     }
-    
   });
 
-  
+
   $(".body-section-two__headers").click(function(e) {
+
     let target = $(e.target).text();
     if (target === 'CUSTOMERS'|| target === 'SERVICES') {
       $('li').css('color', 'rgba(255,255,255,0.4)');
@@ -277,7 +322,54 @@ $(document).ready(function() {
       $('.content-body').css('display', 'none');
       $(`#${$(e.target).attr('data-id')}`).css('display', 'flex');
     }
+
+
+
+
   });
+
+  function scrollPercentage() {
+    let x = window.scrollY;
+    let y = document.body.scrollHeight;
+    let z = window.innerHeight;
+    let m = (x / (y - z)) * 100;
+    let mFixed = parseInt(m.toFixed(0));
+    return mFixed
+  }
+
+  function runOnLoad() {
+    
+    let mFixed = scrollPercentage();
+    $(window).on('load', function() {
+      $(".open-bar").css("width", `${100 - mFixed}%`);
+    })
+  }
+  runOnLoad();
+  
+  $(window).scroll(function() {
+
+    let mFixed = scrollPercentage();
+
+    $(window).on('load', function() {
+      $(".open-bar").css("width", `${100 - mFixed}%`);
+    })
+
+    if (mFixed === 0) {
+      $(".body-section-one-open-close-btn").css("border-color", "#C3A984");
+      $(".body-section-one").css("border-color", "#C3A984");
+      $(".body-section-one-open-close-more").css("color", "#C3A984");
+ 
+
+    } else {
+      $(".body-section-one-open-close-btn").css("border-color", "rgba(195,169,132, 0.4");
+      $(".body-section-one").css("border-color", "rgba(195,169,132, 0.4");
+      $(".body-section-one-open-close-more").css("color", "rgba(195,169,132, 0.4");
+    }
+    $(".open-bar").css("width", `${100 - mFixed}%`);
+
+  })
+
+
   
   
 

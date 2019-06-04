@@ -27,11 +27,17 @@ describe("Customer", function() {
   });
 
   it("customerBookingHistory should return booking history of one customer", function() {
-    expect(customer.customerBookingHistory()).to.eql({
-      "junior suite": "22/02/2020",
-      "residential suite": "18/07/2019",
-      "single room": "16/07/2019"
-    });
+    expect(customer.customerBookingHistory()).to.eql([
+      {roomType: "junior suite", 
+        date: "22/02/2020",
+        roomNumber: 73 },
+      {roomType: "residential suite",
+        date: "18/07/2019",
+        roomNumber: 123 },
+      {roomType: "single room",
+        date: "16/07/2019",
+        roomNumber: 169 }
+    ]);
   });
 
   it("customerServicesHistory should return services history of one customer", function() {

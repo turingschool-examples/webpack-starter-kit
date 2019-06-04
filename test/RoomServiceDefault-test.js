@@ -26,13 +26,17 @@ describe('RoomServiceDefault', function() {
 
   it('todayTotalIncome should return total of todays income',
     function() {
-      expect(roomServiceDefault.todayTotalIncome('01/06/2019')).to.equal(32.03);
+      expect(roomServiceDefault.todayTotalIncome('01/06/2019')).to.equal(50.66);
     });
   
-  it('allServicesOfOneDay should return all services of one day', function() {
+  it.skip('allServicesOfOneDay should return all services of one day', function() {
     expect(roomServiceDefault.allServicesOfOneDay()).to.eql({
       'Generic Plastic Sandwich': [ 2, 18.96 ],
-      'Tasty Fresh Sandwich': [ 1, 13.07 ] });
+      'Tasty Fresh Sandwich': [ 1, 13.07 ],
+      'Rustic Soft Sandwich': [ 1, 18.63 ]
+    },
+      
+      );
   });
 
 });

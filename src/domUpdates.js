@@ -43,14 +43,17 @@ export default {
     for (let i = 0; i < data.dates.length; i++) {
     elements = elements.add(`<tr><td>${i + 1}</td><td>${data.dates[i]}</tr>`);
     }
+    $(".rooms-most-popular-days").text("");
     $(".rooms-most-popular-days").append(elements);
   },
 
   domLeastPopularDay(data) {
     let elements = $(`<tr><th class="header_hashtag">#</th><th class="days">Least popular day/s (${data.numOfDays}) </th></tr>`);
+
     for (let i = 0; i < data.dates.length; i++) {
     elements = elements.add(`<tr><td>${i + 1}</td><td>${data.dates[i]}</tr>`);
     }
+    $(".rooms-least-popular-days").text("");
     $(".rooms-least-popular-days").append(elements);
   },
 
@@ -89,31 +92,30 @@ export default {
   },
 
   domCustomerBookingHistory(bookingHistory) {
-    let data = Object.entries(bookingHistory);
 
-    let elements = $(`<tr><th class="header_hashtag">#</th><th class="room-type">Room type</th><th class="available-rooms">Date</th><tr>`);
+    let elements = $(`<tr><th class="header_hashtag">#</th><th class="room-type">Room type</th><th class="available-rooms">Date</th><th class="cancel-booking-header">Cancel booking</th><tr>`);
     
-    for (let i = 0; i < data.length; i++) {
-      elements = elements.add(`<tr><td>${i + 1}</td><td>${data[i][0]}</td><td class="align-center">${data[i][1]}</td></tr>`);
+    for (let i = 0; i < bookingHistory.length; i++) {
+
+      elements = elements.add(`<tr><td>${i + 1}</td><td>${bookingHistory[i].roomType}</td><td class="align-center">${bookingHistory[i].date}</td><td role="button" class="cancel-booking" data-booking-date="${bookingHistory[i].date}" data-room-number="${bookingHistory[i].roomNumber}" data-room-type="${bookingHistory[i].roomType}" >Cancel</td></tr>`);
     }
     $(".rooms-customer-history-table").text("");
     $(".rooms-general-info").css('display', 'none');
     $(".rooms-customer-info").css('display', 'flex');
 
-    if (data.length !== 0) {
+    if (bookingHistory.length !== 0) {
       $(".rooms-customer-history-table").append(elements);
     } else {
       $(".rooms-customer-history-table").append(`<p class="prompt">No booking history available for the selected customer...</p>`);
     }
-    console.log(bookingHistory)
-    
+
   },
 
   domCustomerServicesHistory(serviceHistory) {
     let data = Object.entries(serviceHistory)[0][1];
     let total = Object.entries(serviceHistory)[1][1]
 
-    let elements = $( `<tr><th class="header_hashtag">#</th><th class="room-type">Service</th><th class="available-rooms">Date</th><th>Cost</th><tr>`);
+    let elements = $( `<tr><th class="header_hashtag">#</th><th class="room-type">Service</th><th class="available-rooms">Date</th><th class="service-history-cost">Cost</th><tr>`);
     
     for (let i = 0; i < data.length; i++) {
       elements = elements.add(`<tr><td>${i + 1}</td><td>${data[i].food}</td><td class="align-center">${data[i].date}</td><td class="align-center">${data[i].totalCost}</td></tr>`);
@@ -121,10 +123,9 @@ export default {
 
     elements = elements.add(`<tr><td class="align-center" colspan="3">Total</td><td class="align-center">${total}</td></tr>`);
 
-
     $(".services-customer-history-table").text("");
     $(".services-general-info").css('display', 'none');
-    $(".services-customer-info").css('display', 'block');
+    $(".services-customer-info").css('display', 'flex');
     if (data.length !== 0) {
       $(".services-customer-history-table").append(elements);
     } else {
@@ -150,7 +151,8 @@ export default {
     $(".available-all-rooms").text("");
     $(".available-all-rooms").append(elements);
     $(".available-all-rooms-title").text(`Available rooms | ${availableRooms.length}`)
+  },
 
-  }
+
 
 }

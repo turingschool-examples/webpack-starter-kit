@@ -12,6 +12,7 @@ class RoomsRepo {
     let roomsBooked = this.data.bookings.reduce((acc, booking) => {
       if (date === booking.date) {
         acc.push(booking.roomNumber)
+
       }
       return acc;
     }, []);
@@ -21,7 +22,7 @@ class RoomsRepo {
       }
       return acc;
     }, []);
-    
+
     let rooms = availableRooms.reduce((acc, num) => {
       this.data.rooms.forEach(room => {
         if (room.number === num) {

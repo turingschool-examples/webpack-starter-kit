@@ -25,20 +25,19 @@ describe("RoomsDefault", function() {
   });
 
   it("noRoomsAvailable should return numbers of available rooms", function() {
-    expect(roomsDefault.noRoomsAvailable().length).to.equal(197);
+    expect(roomsDefault.noRoomsAvailable().length).to.equal(198);
   });
 
   it("percentageRoomReposOccupied should return percentage of accupied rooms", function() {
-    expect(roomsDefault.percentageRoomsOccupied()).to.equal(1.5);
+    expect(roomsDefault.percentageRoomsOccupied()).to.equal(1);
   });
 
   it("bookingDatesBreakDown should return an object with key-value pairs of min, max, uniquDates and dateRepeat", function() {
     expect(roomsDefault.bookingDatesBreakDown()).to.eql({
-      maxValue: 3,
+      maxValue: 2,
       minValue: 1,
       dateRepeatValue: [
-        3,
-        1,
+        2,
         1,
         1,
         1,
@@ -75,7 +74,6 @@ describe("RoomsDefault", function() {
       uniqueDatesValue: [
         "01/06/2019",
         "31/10/2019",
-        "17/07/2019",
         "15/01/2020",
         "07/02/2020",
         "22/02/2020",
@@ -112,14 +110,13 @@ describe("RoomsDefault", function() {
   });
 
   it("mostPopularDay should return all popular days", function() {
-    expect(roomsDefault.mostPopularDay()).to.eql({numOfDays: 3, dates: [ '01/06/2019' ]});
+    expect(roomsDefault.mostPopularDay()).to.eql({numOfDays: 2, dates: [ '01/06/2019', '07/01/2020' ]});
   });
 
   it("leastPopularDay should return least popular days", function() {
     expect(roomsDefault.leastPopularDay()).to.eql({ numOfDays: 1,
       dates:
        [ '31/10/2019',
-         '17/07/2019',
          '15/01/2020',
          '07/02/2020',
          '22/02/2020',
