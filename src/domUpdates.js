@@ -1,7 +1,10 @@
 import $ from 'jquery'
+import Customers from './customersRepo';
 
+let currentCustomer;
 
 let domUpdates = {
+    
 
     displayTodaysDate(date) {
         $('h1').append(`Today\'s date is: ${date}`);
@@ -23,7 +26,7 @@ let domUpdates = {
     },
 
     displayCurrentCustomer() {
-        $('h1').append(`<h1><span class="current-guest-name" id="first-name-display"></span> <span class="current-guest-name" id="last-name-display"></span></h1>`)
+        $('.display-guest-info').append('<h3><span id="first-name-display"></span> <span id="last-name-display"></span></h3>')
         $('#first-name-display').text($('#first-name-input').val())
         $('#last-name-display').text($('#last-name-input').val())
     },
@@ -31,6 +34,18 @@ let domUpdates = {
     displayMostPopBookingDate(date) {
         $('#aside__tabs-bookings').append('<h2>Most Popular Booking Date(s): <span class="most-pop-date"></span></h2>')
         $('.most-pop-date').text(date)
+    },
+
+    findCustomers(customer) {
+        const search = $('#search-guests-input').val();
+        customer.findGuestByName(search).forEach(guest => {
+            $('.display-guest-info').append(`<h3>Name: ${guest.name}</h3>`)
+        })
+    },
+
+    displayCurrentCustOrder(customer) {
+        $('aside__tabs-room-service').append('<h3><span class="cust-orders"></span></h3>')
+        $('.cust-orders').text(`${customer.findOrderBreakDown()}`)
     }
 
 

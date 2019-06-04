@@ -3,7 +3,7 @@ const expect = chai.expect;
 import Customers from '../src/customersRepo';
 import Data from '../src/Data';
 
-describe('CustomersRepo', function() {
+describe.skip('CustomersRepo', function() {
     let guestsRepo;
     beforeEach (function() {
         guestsRepo = new Customers(Data)

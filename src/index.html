@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overlook Hotel Management Tool</title>
   </head>
   <body>
       <div class = "splash__page">
           <dialog class = "splash__box">
-            <h1>Welcome to Overlook</h1>
+            <p class ="welcome-page">Welcome to Overlook</p>
           </dialog>
       </div>
     <main>
@@ -15,7 +16,7 @@
       </section>
       <aside>
         <ul class="aside__tabs">
-          <li class="tab-link current" data-tab="aside__tabs-main"> Dashboard</li>
+          <li class="tab-link" data-tab="aside__tabs-main"> Dashboard</li>
           <li class="tab-link" data-tab="aside__tabs-guests"><img src="/images/001-credit-card.svg" class="icon"> Guests</li>
           <li class="tab-link" data-tab="aside__tabs-room-service"><img src="/images/003-food-1.svg" class="icon"> Room Service Orders</li>
           <li class="tab-link" data-tab="aside__tabs-bookings"><img src="/images/004-bedroom.svg" class="icon"> Reservations</li>
@@ -28,7 +29,7 @@
                 <button type="button" class="btn-search" id="btn-search-guests">
                   <i class="fa fa-search"></i>
                 </button>
-                <input type="search" placeholder="Search Guests" autocomnplete=off class="searchterm" id="search-input">
+                <input type="search" placeholder="Search Guests" autocomnplete=off class="searchterm" id="search-guests-input">
             </form>
             <form class="aside__tabs--add-new-guest">
               <h3>Add New Guest</h3>
@@ -37,9 +38,10 @@
               <label for="last-name-input">Last Name</label>
               <input type="text" id="last-name-input" placeholder="Enter guest last name"/>
               <button type="submit" id="submit-guest-info">Add New Guest</button>
-            </form>        
+            </form> 
+            <div class="display-guest-info"></div>       
         </div>
-        <div id="aside__tabs-room-service" class="tab-content current">
+        <div id="aside__tabs-room-service" class="tab-content">
             <form class="aside__tabs--orders-search">
                 <button type="button" class="btn-search" id="btn-search-orders">
                   <i class="fa fa-search"></i>

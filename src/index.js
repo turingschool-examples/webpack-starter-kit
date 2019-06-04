@@ -14,13 +14,9 @@ import './css/base.scss';
 import "./images/001-credit-card.svg";
 import "./images/003-food-1.svg";
 import "./images/004-bedroom.svg";
-// import './images/svg/002-food.svg';
-// import './images/svg/003-food-1.svg';
-// import './images/svg/004-bedroom.svg';
-import Customers from './customersRepo';
+import Customer from './customer';
 import RoomsRepo from './roomsRepo';
 
-console.log('This is the JavaScript entry file - your code begins here.');
 
 let dataFile1 = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/users/users').then(function(response){
     return response.json()});
@@ -42,8 +38,9 @@ Promise.all([dataFile1, dataFile2, dataFile3, dataFile4])
     })
 
 let mainRepo = new MainRepo(allData);
-let customers = new Customers(allData);
+let customer = new Customer(allData);
 let bookings = new RoomsRepo(allData);
+let currentGuest;
 
 
 $(document).ready(() => {
@@ -60,11 +57,11 @@ $(document).ready(() => {
 
     $('#submit-guest-info').on('click', function(e) {
         e.preventDefault()
-        domUpdates.displayCurrentCustomer(customers.addNewGuest($('#first-name-input').val(), $('#last-name-input').val()))
-        customers.currentGuest = customers.newGuests[0]
-        console.log(customers.currentGuest)
-
+        domUpdates.displayCurrentCustomer(customer.addNewGuest($('#first-name-input').val(), $('#last-name-input').val()))
+        currentGuest = customer.newGuests[0]
+        // console.log(currentGuest)
     })
+
 
     $('.aside__tabs li').click(function(){
 		let tab_id = $(this).attr('data-tab');
@@ -74,5 +71,25 @@ $(document).ready(() => {
 
 		$(this).addClass('current');
 		$("#"+tab_id).addClass('current');
-	})
+    })
+    
+    function searchGuests(e) {
+        e.preventDefault();
+        if($('#search-guests-input').val() !== '') {
+             domUpdates.findCustomers(customer)
+        currentGuest = customer.findGuestByName($('#search-guests-input').val())
+        updateOrdersTab(currentGuest)
+        }
+    }
+  
+    function updateOrdersTab(guest) {
+        domUpdates.displayCurrentCustOrder(guest)
+        console.log(customer.findOrderBreakDown(guest))
+    
+
+    }
+
+    $('#btn-search-guests').on('click', searchGuests)
+
+
 })

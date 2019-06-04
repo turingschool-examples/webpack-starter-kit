@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class Customers {
     constructor(data) {
         this.data = data;
@@ -8,7 +6,7 @@ class Customers {
     }
 
     findGuestByName(name) {
-        return this.data.users.users.find(item => item.name === name)
+        return this.data.users.users.filter(item => item.name.toLowerCase().includes(name.toLowerCase()))
     }
 
     addNewGuest(firstName, lastName) {
