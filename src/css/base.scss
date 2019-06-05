@@ -135,28 +135,33 @@ td {
   width: 750px;
 }
 
-.select-btn {
-  height: 35px;
-  width: 90px;
-  margin: auto;
+.select-btn,
+.room-search {
   border-radius: 5px;
+  height: 35px;
+  margin: auto;
+}
+
+.select-btn {
+  width: 90px;
+}
+
+.room-search {
+  width: 50%;
 }
 
 .select-rooms,
-.all-orders {
+.all-orders,
+.all-rooms-display {
   display: flex;
 }
 
-.all-orders {
+.all-orders,
+.all-rooms-display {
   flex-direction: column;
   align-items: center;
 }
 
-.room-search {
-  height: 30px;
-  // margin-left: 50px;
-  width: 50%;
-}
 
 .aside__tabs--bookings-search {
   display: flex;
