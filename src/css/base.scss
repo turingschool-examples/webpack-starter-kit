@@ -14,10 +14,12 @@ body {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.dribbble.com/users/1379556/screenshots/5197492/vertical_flowers_edit_final.jpg');
 }
 
-h1 {
+header {
+  h1, p {
   color: $heading-font-color;
   font-size: 50px;
   text-shadow: black;
+  }
 }
 
 h2 {
