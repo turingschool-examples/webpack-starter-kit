@@ -5,19 +5,42 @@
   box-sizing: border-box;
 }
 
+p {
+  font-size: 40px;
+}
+
 /*------------Header------------*/
 header {
-  height: 10vh;
+  height: 20vh;
   display: flex;
 }
 
 #header__company-info {
-  flex: 2;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+
 }
 
 #header__customer-name {
   flex: 3;
 }
+
+#company-info__title {
+  font-size: 75px;
+  margin: 0;
+}
+
+#company-info__moto {
+  margin: 0;
+  font-size: 45px;
+  align-self: center;
+}
+
+#header__customer-name {
+  font-size: 40px;
+}
+/*--------Nav List---------*/
 
 .nav__nav-list {
   list-style: none;
@@ -96,6 +119,7 @@ header {
 
 table {
   border: 1px solid black;
+  width: 100%;
 }
 
 td {
