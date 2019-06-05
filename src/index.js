@@ -92,18 +92,20 @@ $(document).ready(() => {
       }
       return user;
     })
-
     allData.users.users = clickChange;
     updateTabs();
     domUpdates.selectCustomer(currentGuest)
   })
 
   $('#btn-search-bookings').on('click', function() {
-    domUpdates.displayRoomsByType(bookings.filterRoomByDate(mainRepo.date, 'residential'))
+    domUpdates.displayRoomsByType(bookings.filterRoomsByDate($('#search-reservations-input').val(), 'residential'))
   })
 
   $('#residential-suite-option').on('click', function() {
     domUpdates.displayRoomsByType(bookings.filterRoomType('residential suite'))
+    $('.btn-book-room').on('click', function(){
+      console.log(this)
+    })
   })
 
   $('#single-option').on('click', function() {
@@ -121,6 +123,8 @@ $(document).ready(() => {
   $('#btn-search-guests').on('click', searchGuests)
 
   $('#btn-search-orders').on('click', searchOrders)
+
+  
 
 
   //---------- Functions ---------//

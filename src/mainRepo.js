@@ -43,6 +43,10 @@ class MainRepo {
   }
 
 
+  // calculateBillForGuest() {
+
+  // }
+
 
 }
 

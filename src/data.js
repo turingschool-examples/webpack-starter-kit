@@ -250,6 +250,12 @@ let Data = {
         date: "17/12/2019",
         food: "Ergonomic Fresh Sandwich",
         totalCost: 19.16
+      },
+      {
+        date: "05/06/2019",
+        food: "Ergonomic Plastic Sandwich",
+        totalCost: 19.3,
+        userID: 82
       }
     ]
 

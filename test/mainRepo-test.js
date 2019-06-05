@@ -22,10 +22,12 @@ describe('MainRepo', function() {
   })
 
   it('should find percentage of rooms available', function() {
+    expect(main.findPercentageOfRoomsAvailable('18/07/2019')).to.be.a('number')
     expect(main.findPercentageOfRoomsAvailable('18/07/2019')).to.equal(90)
   })
 
   it('should find total balance owed for today', function() {
+    expect(main.findOutstandingBalance('18/07/2019')).to.be.a('number')
     expect(main.findOutstandingBalance('18/07/2019')).to.equal(386.70)
   })
 })
