@@ -62,14 +62,15 @@
           <div id="aside__tabs-bookings" class="tab-content">
             <div class="bookings-styling">
               <form class="aside__tabs--bookings-search">
-                  <button type="button" class="btn-search" id="btn-search-bookings">Search</button>
-                  <input type="text" placeholder="Search Reservations" autocomplete=off class="searchterm" id="search-reservations-input">
+                <input type="text" placeholder="Search Reservations by date dd/mm/yyyy" autocomplete=off class="searchterm" id="search-reservations-input">
+                <input type="text" placeholder="Enter Room Type" autocomplete=off class="searchterm" id="search-room-type-input">
+                <button type="button" class="room-search" id="btn-search-bookings">Search</button>
               </form>  
               <div class ="all-rooms-display"></div>
               <article class="select-rooms">
                   <p class="searchRooms">Search Room Type: </p>
                   <button class="select-btn" value="resSuite" id="residential-suite-option">Residential Suite</button>
-                  <button class="select-btn" value="single" id="single-option">Single</button>
+                  <button class="select-btn" value="single" id="single-option">Single Room</button>
                   <button class="select-btn" value="juniorSuite" id="junior-option">Junior Suite</button>
                   <button class="select-btn" value="suite" id="suite-option">Suite</button>
                 </article>

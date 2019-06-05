@@ -24,17 +24,23 @@ class RoomsRepo {
         return room.roomNumber
       }
     })
-    return avail
+    const num = avail.map(room => room.roomNumber)
+    return num
   }
 
   filterRoomsByDate(date, type) {
     const filteredRoomsByDate = this.findAvailableRooms(date)
-    const roomObjects = Object.values(this.data.rooms.rooms).filter(room => !filteredRoomsByDate.includes(room.number));
+    const roomObjects = this.data.rooms.rooms.filter(room => !filteredRoomsByDate.includes(room.number));
     const total = roomObjects.filter(room => room.roomType === type)
     return total
   }
 
-  addNewBooking(room) {
+  addNewBooking(name, id, date) {
+    const room = {
+      name: name,
+      roomNumber: id,
+      date: date
+    }
     const newReservation = this.data.bookings.bookings.push(room)
     return newReservation
   }

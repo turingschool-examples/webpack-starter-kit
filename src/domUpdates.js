@@ -116,8 +116,13 @@ let domUpdates = {
     order.forEach(item => {
       $('.all-orders').append(` Food item: ${item.food}, Total: ${item.date}, Date: ${item.date} `)
     })
-  }
+  }, 
 
+  displayNewBooking(customer, room, date) {
+    $('.room-types-display').html('')
+    $('.all-rooms-display').html('')
+    $('.room-types-display').append(`<h3>Success! ${customer.name} is booked in room number ${room} on ${date}.`)
+  }
 
 }
 

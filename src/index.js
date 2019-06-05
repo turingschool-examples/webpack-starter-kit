@@ -72,6 +72,7 @@ $(document).ready(() => {
     $('.display-guest-info').html('')
     domUpdates.displayCurrentCustomer(customer.addNewGuest($('#first-name-input').val(), $('#last-name-input').val()))
     currentGuest = customer.newGuests[0]
+    console.log(currentGuest)
   })
     
   $('.aside__tabs li').click(function() {
@@ -98,14 +99,15 @@ $(document).ready(() => {
   })
 
   $('#btn-search-bookings').on('click', function() {
-    domUpdates.displayRoomsByType(bookings.filterRoomsByDate($('#search-reservations-input').val(), 'residential'))
+    domUpdates.displayRoomsByType(bookings.filterRoomsByDate($('#search-reservations-input').val(), $('#search-room-type-input').val()))
+    $('.btn-book-room').on('click', function(){
+      domUpdates.displayNewBooking(currentGuest[0], this.id, $('#search-reservations-input').val())
+      bookings.addNewBooking(currentGuest[0], this.id, $('#search-reservations-input').val())
+    })
   })
 
   $('#residential-suite-option').on('click', function() {
     domUpdates.displayRoomsByType(bookings.filterRoomType('residential suite'))
-    $('.btn-book-room').on('click', function(){
-      console.log(this)
-    })
   })
 
   $('#single-option').on('click', function() {
