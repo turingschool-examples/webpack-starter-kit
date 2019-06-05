@@ -7,17 +7,17 @@ let domUpdates = {
     },
 
     displayTodaysAvailability(number) {
-        $('#aside__tabs-main').append('<h2>Rooms Available This Evening: <span class="total-rooms-available"></span></h2>')
+        $('.main-styling').append('<h2>Rooms Available This Evening: <span class="total-rooms-available"></span></h2>')
         $('.total-rooms-available').text(`${number}`).hide().fadeIn(1000)
     },
 
     displayOutstandingBalances(balance) {
-        $('#aside__tabs-main').append('<h2>Total Outstanding Balance: $<span class="total-outstanding-balance"></span></h2>')
+        $('.main-styling').append('<h2>Total Outstanding Balance: $<span class="total-outstanding-balance"></span></h2>')
         $('.total-outstanding-balance').text(`${balance}`).hide().fadeIn(1000)
     },
 
     displayPercentageAvailable(percent) {
-        $('#aside__tabs-main').append('<div class="pie-percentage"><h4>Percentage Rooms Available: <span class="percentage-rooms-available"></span> %</h4><svg width="100" height="100" viewBox="0 0 32 32"><circle r="16" cx="16" cy="16" fill="black" stroke="white" stroke-width="32" stroke-dasharray="98.5 100" /></svg></div>')
+        $('.main-styling').append('<div class="pie-percentage"><h4>Percentage Rooms Available: <span class="percentage-rooms-available"></span> %</h4><svg width="100" height="100" viewBox="0 0 32 32"><circle r="16" cx="16" cy="16" fill="black" stroke="white" stroke-width="32" stroke-dasharray="98.5 100" /></svg></div>')
         $('.percentage-rooms-available').text(percent)
     },
 
@@ -38,6 +38,11 @@ let domUpdates = {
         customer.findGuestByName(search).forEach(guest => {
             $('.display-guest-info').append(`<h3>Name: ${guest.name}</h3>`)
         })
+    },
+
+    selectCustomer(name) {
+        $('.current-guest-name-heading').append(`<h1>${name[0].name}</h1>`)
+
     },
 
     displayRoomServiceBreakDown(customer) {

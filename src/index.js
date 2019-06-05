@@ -90,6 +90,7 @@ $(document).ready(() => {
 
         allData.users.users = clickChange;
         updateTabs();
+        domUpdates.selectCustomer(currentGuest)
     })
 
     $('#residential-suite-option').on('click', function() {
@@ -118,6 +119,7 @@ $(document).ready(() => {
         e.preventDefault();
         currentGuest = customer.findGuestByName($('#search-guests-input').val())
         updateTabs(currentGuest)
+        console.log(currentGuest)
         if(currentGuest.length !== 0) {
          domUpdates.findCustomers(customer)
         } else {

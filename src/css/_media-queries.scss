@@ -40,17 +40,31 @@
         font-size: 1em;
     }
 
-    // .tab-content {
-        // width: 500px;
-    // }
-
-    #aside__tabs-guests {
-        display: flex;
-        flex-direction: column;
-
-    }
-
     h3 {
         font-size: 1em;
     }
+
+    header {
+        flex-direction: column;
+    }
+    
+    #search-reservations-input {
+        width: 73%;
+    }
+
+    .select-rooms {
+        flex-direction: column;
+    }
+
+    .pie-percentage {
+       float: left;
+        margin: auto;
+    }
+
+    svg {
+        height: 80px;
+        width: 80px;
+    }
+
+
 }
