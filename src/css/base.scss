@@ -73,9 +73,9 @@ aside {
     // float: left;
     padding: 0px 12px;
     border: 1px solid #ccc;
-    // width: 70%;
+    width: 800px;
     border-left: none;
-    height: 300px;
+    min-height: 300px;
 
     &.current {
       display: inherit;
@@ -111,8 +111,25 @@ aside {
 
 .bookings-styling {
   display: flex;
+  flex-direction: column;
 }
 
 .guests-styling {
   display: flex;
 }
+
+.room-types-display {
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  background: $tab-background-color;
+  opacity: 0.8;
+}
+
+

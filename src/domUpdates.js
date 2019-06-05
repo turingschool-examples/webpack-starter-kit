@@ -5,10 +5,6 @@ let currentCustomer;
 
 let domUpdates = {
 
-    // displayCurrentTab() {
-
-    // },
-
     displayTodaysDate(date) {
         $('h1').append(`Today\'s date is: ${date}`).hide().fadeIn(1000);
     },
@@ -35,7 +31,7 @@ let domUpdates = {
     },
 
     displayMostPopBookingDate(date) {
-        $('#aside__tabs-bookings').append('<h2>Most Popular Booking Date(s): <span class="most-pop-date"></span></h2>')
+        $('.all-rooms-display').append('<h2>Most Popular Booking Date(s): <span class="most-pop-date"></span></h2>')
         $('.most-pop-date').text(date)
     },
 
@@ -67,11 +63,30 @@ let domUpdates = {
     },
 
     displayRoomsByType(rooms) {
+        $('.all-rooms-display').html('');
+        $('.room-types-display')
         rooms.forEach(room => {
-            $('.room-types-display').append(`Rooms Available:  ${room}`)
-
+            $('.room-types-display').append(`<table>
+            <tr>
+            <th>Room Type</th>
+            <th>Bidet Avail</th>
+            <th>Bed Size</th>
+            <th>Num of Beds</th>
+            <th>Cost</th>
+            </tr>
+            <tr>
+            <td>${room.roomType}</td>
+            <td>${room.bidet}</td>
+            <td>${room.bedSize}</td>
+            <td>${room.numBeds}</td>
+            <td>${room.costPerNight}</td>
+            <td><button class="btn-book-room">Book Room</button>
+            </tr> `)
         })
     }
+
+ 
+
 
 
 }
