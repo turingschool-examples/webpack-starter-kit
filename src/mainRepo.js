@@ -38,7 +38,8 @@ class MainRepo {
          totalRoomService += order.totalCost
          return totalRoomService
        }, 0)
-       return cost + orders
+       const total= Number(cost + orders).toFixed(2)
+       return parseFloat(total)
     }
 
 

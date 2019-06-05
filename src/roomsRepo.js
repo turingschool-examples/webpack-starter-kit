@@ -14,13 +14,22 @@ class RoomsRepo {
     }
 
     filterRoomType(type) {
-        const filtered = this.data.rooms.rooms.filter(room => room.roomType === type)
-        console.log('filtered', filtered)
-        return filtered
+       return this.data.rooms.rooms.filter(room => room.roomType === type)
+    }
+
+    findAvailableRooms(date) {
+        const avail =  this.data.bookings.bookings.filter(room => {
+            if(room.date === date) {
+                return room.roomNumber
+            }
+        })
+        console.log('avail', avail)
+        return avail
     }
 
     filterRoomByDate(date, type) {
-        return this.filterRoomType(date).filter(room => room.roomType === type)
+        const filteredRooms = this.findAvailableRooms(date)
+        return Object.values(this.data.rooms.rooms).filter(room => !filteredRooms.includes(room.number) && room.type === type);
     }
 
 }

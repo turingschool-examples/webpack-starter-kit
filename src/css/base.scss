@@ -63,14 +63,13 @@ aside {
   }
 
   .tab-content {
-    display: none;
     background: $tab-background-color;
-    opacity: 0.8;
-    margin: auto;
-    padding: 0px 12px;
     border: 1px solid #ccc;
-    border-left: none;
+    display: none;
+    margin: auto;
     min-height: 300px;
+    opacity: 0.8;
+    padding: 0px 12px;
 
     &.current {
       display: inherit;
@@ -88,8 +87,8 @@ aside {
   }
   
   input {
-    height: 25px;
     font-size: 14px;
+    height: 25px;
   }
 
   label,
@@ -99,14 +98,14 @@ aside {
   }
   
   button {
-    width: 205px;
     margin: 5px;
+    width: 205px;
   }
 }
 
 .icon {
-  width: 35px;
   height: 35px;
+  width: 35px;
 }
 
 
@@ -118,6 +117,10 @@ aside {
   display: flex;
   flex-direction: column;
   width: 750px;
+}
+
+.main-styling {
+  align-items: center;
 }
 
 
@@ -137,6 +140,12 @@ td {
   border-radius: 5px;
 }
 
-.select-rooms {
+.select-rooms,
+.all-orders {
   display: flex;
+}
+
+.all-orders {
+  flex-direction: column;
+  align-items: center;
 }

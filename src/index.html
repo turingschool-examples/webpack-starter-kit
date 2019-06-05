@@ -5,11 +5,11 @@
     <title>Overlook Hotel Management Tool</title>
   </head>
   <body>
-      <div class = "splash__page">
+      <!-- <div class = "splash__page">
           <dialog class = "splash__box">
             <p class ="welcome-page">Welcome to Overlook</p>
           </dialog>
-      </div>
+      </div> -->
     <main>
       <header class="main__dashboard-display">
         <h1></h1>
@@ -17,7 +17,7 @@
       </header>
       <aside>
         <ul class="aside__tabs">
-          <li class="tab-link content" data-tab="aside__tabs-main">Dashboard</li>
+          <li class="tab-link current" data-tab="aside__tabs-main">Dashboard</li>
           <div id="aside__tabs-main" class="tab-content current">
             <div class="main-styling"></div>
           </div>
@@ -27,9 +27,7 @@
           <div id="aside__tabs-guests" class="tab-content">
             <div class="guests-styling">
               <form class="aside__tabs--guest-search">
-                  <button type="button" class="btn-search" id="btn-search-guests">
-                    <i class="fa fa-search"></i>
-                  </button>
+                  <button type="button" class="btn-search" id="btn-search-guests">Search</button>
                   <input type="search" placeholder="Search Guests" autocomnplete=off class="searchterm" id="search-guests-input">
               </form>
               <form class="aside__tabs--add-new-guest">
@@ -48,9 +46,7 @@
           <div id="aside__tabs-room-service" class="tab-content">
             <div class="orders-styling">
               <form class="aside__tabs--orders-search">
-                  <button type="button" class="btn-search" id="btn-search-orders">
-                    <i class="fa fa-search"></i>
-                  </button>
+                  <button type="button" class="btn-search" id="btn-search-orders">Search</button>
                   <input type="search" placeholder="Search Room Service Orders by Date dd/mm/yyyy" class="searchterm" id="search-orders-input">
               </form>
               <div class="all-orders"></div>
@@ -70,10 +66,8 @@
           <div id="aside__tabs-bookings" class="tab-content">
             <div class="bookings-styling">
               <form class="aside__tabs--bookings-search">
-                  <button type="button" class="btn-search" id="btn-search-bookings">
-                    <i class="fa fa-search"></i>
-                  </button>
-                  <input type="search" placeholder="Search Reservations" class="searchterm" id="search-reservations-input">
+                  <button type="button" class="btn-search" id="btn-search-bookings">Search</button>
+                  <input type="text" placeholder="Search Reservations" class="searchterm" id="search-reservations-input">
               </form>  
               <div class ="all-rooms-display"></div>
               <article class="select-rooms">

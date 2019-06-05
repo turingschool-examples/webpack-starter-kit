@@ -57,6 +57,7 @@ $(document).ready(() => {
         domUpdates.displayOutstandingBalances(mainRepo.findOutstandingBalance(mainRepo.date));
         domUpdates.displayPercentageAvailable(mainRepo.findPercentageOfRoomsAvailable(mainRepo.date));
         domUpdates.displayMostPopBookingDate(bookings.findMostPopBookingDate())
+        domUpdates.displayMostAvailableDate(mainRepo.date);
         domUpdates.displayTodaysOrders(orders.findOrdersForToday())
     }, 1500)
 
@@ -91,6 +92,10 @@ $(document).ready(() => {
         allData.users.users = clickChange;
         updateTabs();
         domUpdates.selectCustomer(currentGuest)
+    })
+
+    $('#btn-search-bookings').on('click', function() {
+        domUpdates.displayRoomsByType(bookings.filterRoomByDate(mainRepo.date, 'residential'))
     })
 
     $('#residential-suite-option').on('click', function() {
@@ -148,6 +153,10 @@ $(document).ready(() => {
         } else {
             domUpdates.displayErrorNoOrder()
         }
+    }
+
+    function placeOrder() {
+        
     }
 
     function errorMessages() {

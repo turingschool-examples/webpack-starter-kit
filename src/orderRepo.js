@@ -17,8 +17,12 @@ class OrderRepo {
    }
 
    findOrderByDate(date) {
-        return this.data.roomServices.roomServices.filter(item => item.date === date)
-      
+        return this.data.roomServices.roomServices.filter(item => item.date === date) 
+   }
+
+   addNewOrder(order) {
+       const updatedOrders = this.data.orders.orders.push(order)
+       return updatedOrders;
    }
 
 

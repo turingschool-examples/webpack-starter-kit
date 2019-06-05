@@ -4,7 +4,7 @@
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
-    position: absolute;
+    position: fixed;
     z-index: 4;
   }
   
@@ -13,10 +13,11 @@
     margin: auto;
     border-radius: 5px;
     z-index: 4;
-  }
-
-  .welcome-page {
-    color: #E5C99D;
-    font-size: 70px;
-    text-align: center;
+    
+    .welcome-page {
+      color: #E5C99D;
+      font-size: 70px;
+      position: relative;
+      text-align: center;
+    }
   }

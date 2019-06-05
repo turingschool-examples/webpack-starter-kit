@@ -32,6 +32,11 @@ let domUpdates = {
         $('.all-rooms-display').append('<h2>Most Popular Booking Date(s): <span class="most-pop-date"></span></h2>')
         $('.most-pop-date').text(date)
     },
+    
+    displayMostAvailableDate(date) {
+        $('.all-rooms-display').append('<h2>Date With Most Availability: <span class="most-available-date"></span></h2>')
+        $('.most-available-date').text(date)
+    },
 
     findCustomers(customer) {
         const search = $('#search-guests-input').val();
@@ -42,7 +47,6 @@ let domUpdates = {
 
     selectCustomer(name) {
         $('.current-guest-name-heading').append(`<h1>${name[0].name}</h1>`)
-
     },
 
     displayRoomServiceBreakDown(customer) {
@@ -65,7 +69,7 @@ let domUpdates = {
         })
     },
 
-    displayRoomsByType(rooms) {
+    displayRoomsByType(rooms, date) {
         $('.room-types-display').html('')
         $('.all-rooms-display').html('');
         rooms.forEach(room => {
@@ -103,7 +107,7 @@ let domUpdates = {
 
     displayTodaysOrders(order) {
         order.forEach(item => {
-            $('.all-orders').append(` Food item: ${item.food}, Total: ${item.date}, Date: ${item.date} `)
+            $('.all-orders').append(`<h2>Orders For Today</h2> Food item: ${item.food}, Total: ${item.totalCost}, Date: ${item.date} `)
         })
     },
 
