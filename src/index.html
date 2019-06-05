@@ -11,13 +11,14 @@
           </dialog>
       </div>
     <main>
-      <section class="main__dashboard-display">
+      <header class="main__dashboard-display">
         <h1></h1>
-      </section>
+        <span class="current-guest-name-heading"></span>
+      </header>
       <aside>
         <ul class="aside__tabs">
-          <li class="tab-link" data-tab="aside__tabs-main">Dashboard</li>
-          <div id="aside__tabs-main" class="tab-content"></div>
+          <li class="tab-link content" data-tab="aside__tabs-main">Dashboard</li>
+          <div id="aside__tabs-main" class="tab-content current"></div>
 
           <li class="tab-link" data-tab="aside__tabs-guests"><img src="/images/001-credit-card.svg" class="icon"> Guests</li>
           <div id="aside__tabs-guests" class="tab-content">
@@ -34,7 +35,7 @@
                 <input type="text" id="first-name-input" placeholder="Enter guest first name"/>
                 <label for="last-name-input">Last Name</label>
                 <input type="text" id="last-name-input" placeholder="Enter guest last name"/>
-                <button type="submit" id="submit-guest-info">Add New Guest</button>
+                <button class="select-btn" type="submit" id="submit-guest-info">Add New Guest</button>
               </form> 
               <div class="display-guest-info"></div>
             </div>       
@@ -42,13 +43,24 @@
 
           <li class="tab-link" data-tab="aside__tabs-room-service"><img src="/images/003-food-1.svg" class="icon"> Room Service Orders</li>
           <div id="aside__tabs-room-service" class="tab-content">
+            <div class="orders-styling">
               <form class="aside__tabs--orders-search">
                   <button type="button" class="btn-search" id="btn-search-orders">
                     <i class="fa fa-search"></i>
                   </button>
-                  <input type="search" placeholder="Search Room Service Orders" class="searchterm" id="search-input">
-              </form>   
+                  <input type="search" placeholder="Search Room Service Orders by Date dd/mm/yyyy" class="searchterm" id="search-orders-input">
+              </form>
+              <div class="all-orders"></div>
+              <form class="aside__tabs--add-new-order">
+                  <h3>Place Room Service Order</h3>
+                  <label for="food-type-input">Item</label>
+                  <input type="text" id="food-type-input" placeholder="Enter an item to order"/>
+                  <label for="price-input">Last Name</label>
+                  <input type="text" id="price-input" placeholder="Enter a price"/>
+                  <button class="select-btn" type="submit" id="submit-guest-info">Place Order</button>
+                </form>   
               <div class="customer-orders"></div>
+            </div>
           </div>
 
           <li class="tab-link" data-tab="aside__tabs-bookings"><img src="/images/004-bedroom.svg" class="icon"> Reservations</li>
@@ -61,12 +73,12 @@
                   <input type="search" placeholder="Search Reservations" class="searchterm" id="search-input">
               </form>  
               <div class ="all-rooms-display"></div>
-              <article class="flexRight">
+              <article class="select-rooms">
                   <p class="searchRooms">Search Room Type: </p>
-                  <button value="resSuite" id="residential-suite-option">Residential Suite</button>
-                  <button value="single" id="single-option">Single</button>
-                  <button value="juniorSuite" id="junior-option">Junior Suite</button>
-                  <button value="suite" id="suite-option">Suite</button>
+                  <button class="select-btn" value="resSuite" id="residential-suite-option">Residential Suite</button>
+                  <button class="select-btn" value="single" id="single-option">Single</button>
+                  <button class="select-btn" value="juniorSuite" id="junior-option">Junior Suite</button>
+                  <button class="select-btn" value="suite" id="suite-option">Suite</button>
                 </article>
                 <div class="customer-bookings"></div> 
               <div class="room-types-display"></div>

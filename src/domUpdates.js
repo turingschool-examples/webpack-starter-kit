@@ -1,7 +1,4 @@
 import $ from 'jquery'
-import Customers from './customersRepo';
-
-let currentCustomer;
 
 let domUpdates = {
 
@@ -26,6 +23,7 @@ let domUpdates = {
 
     displayCurrentCustomer() {
         $('.display-guest-info').append('<h3><span id="first-name-display"></span> <span id="last-name-display"></span></h3>')
+        $('.current-guest-name-heading').append('<h1><span id="first-name-display"></span> <span id="last-name-display"></span></h1>')
         $('#first-name-display').text($('#first-name-input').val())
         $('#last-name-display').text($('#last-name-input').val())
     },
@@ -63,16 +61,17 @@ let domUpdates = {
     },
 
     displayRoomsByType(rooms) {
+        $('.room-types-display').html('')
         $('.all-rooms-display').html('');
-        $('.room-types-display')
         rooms.forEach(room => {
-            $('.room-types-display').append(`<table>
+            $('.room-types-display').append(` 
             <tr>
             <th>Room Type</th>
             <th>Bidet Avail</th>
             <th>Bed Size</th>
             <th>Num of Beds</th>
             <th>Cost</th>
+            <th>Book Room</th>
             </tr>
             <tr>
             <td>${room.roomType}</td>
@@ -80,13 +79,34 @@ let domUpdates = {
             <td>${room.bedSize}</td>
             <td>${room.numBeds}</td>
             <td>${room.costPerNight}</td>
-            <td><button class="btn-book-room">Book Room</button>
+            <td><button class="btn-book-room">Select</button>
             </tr> `)
         })
+    },
+
+    displayErrorNoCustomer() {
+        $('.display-guest-info').append(`<h3>No results match your criteria. Please try another search or add a new guest.`)
+    },
+
+    displayErrorNoRooms() {
+        $('.customer-bookings').append(`<h3>No results match your criteria. Please try another search or make a new reservation.`)
+    },
+
+    displayErrorNoOrder()  {
+        $('.customer-orders').append(`<h3>No results match your criteria. Please try another search or place an new order.`)
+    },
+
+    displayTodaysOrders(order) {
+        order.forEach(item => {
+            $('.all-orders').append(` Food item: ${item.food}, Total: ${item.date}, Date: ${item.date} `)
+        })
+    },
+
+    displayOrdersForSpecificDate(order) {
+        order.forEach(item => {
+            $('.all-orders').append(` Food item: ${item.food}, Total: ${item.date}, Date: ${item.date} `)
+        })
     }
-
- 
-
 
 
 }

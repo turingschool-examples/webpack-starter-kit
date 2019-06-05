@@ -21,6 +21,4 @@ describe('Rooms Repo', function() {
         expect(rooms.findMostPopBookingDate()).to.eql(['07/10/2019'])
     });
 
-    it('should filter rooms by type', function())
-
 })

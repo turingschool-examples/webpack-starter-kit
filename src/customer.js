@@ -6,7 +6,6 @@ class Customer {
 
     findGuestByName(name) {
       return this.data.users.users.filter(item => item.name.toLowerCase().includes(name.toLowerCase()))
-      
     }
 
     addNewGuest(firstName, lastName) {
@@ -19,6 +18,7 @@ class Customer {
 
 
     findOrderBreakDown(customer) {
+      console.log(customer)
       const orders = this.data.roomServices.roomServices.filter(item => item.userID === customer.id)
       return orders
     }

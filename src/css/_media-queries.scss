@@ -17,7 +17,7 @@
                 background: $tab-background-color;
                 border: 1px solid $h2-font-color;
                 text-align: center;
-                width: 100%;
+                // width: 500px;
 
                 &.current {
                     color: $h2-font-color;
@@ -40,9 +40,9 @@
         font-size: 1em;
     }
 
-    .tab-content {
-        width: 100%;
-    }
+    // .tab-content {
+        // width: 500px;
+    // }
 
     #aside__tabs-guests {
         display: flex;

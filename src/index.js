@@ -16,6 +16,7 @@ import "./images/003-food-1.svg";
 import "./images/004-bedroom.svg";
 import Customer from './customer';
 import RoomsRepo from './roomsRepo';
+import OrderRepo from './orderRepo'
 
 
 let dataFile1 = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/users/users').then(function(response){
@@ -43,6 +44,7 @@ Promise.all([dataFile1, dataFile2, dataFile3, dataFile4])
 let mainRepo = new MainRepo(allData);
 let customer = new Customer(allData);
 let bookings = new RoomsRepo(allData);
+let orders = new OrderRepo(allData);
 let currentGuest;
 
 
@@ -55,14 +57,16 @@ $(document).ready(() => {
         domUpdates.displayOutstandingBalances(mainRepo.findOutstandingBalance(mainRepo.date));
         domUpdates.displayPercentageAvailable(mainRepo.findPercentageOfRoomsAvailable(mainRepo.date));
         domUpdates.displayMostPopBookingDate(bookings.findMostPopBookingDate())
+        domUpdates.displayTodaysOrders(orders.findOrdersForToday())
     }, 1500)
 
+    //---------- Event Listeners ---------//
 
     $('#submit-guest-info').on('click', function(e) {
         e.preventDefault()
+        $('.display-guest-info').html('')
         domUpdates.displayCurrentCustomer(customer.addNewGuest($('#first-name-input').val(), $('#last-name-input').val()))
         currentGuest = customer.newGuests[0]
-        // console.log(currentGuest)
     })
     
     $('.aside__tabs li').click(function(){
@@ -87,27 +91,6 @@ $(document).ready(() => {
         allData.users.users = clickChange;
         updateTabs();
     })
-    
-    function searchGuests(e) {
-        e.preventDefault();
-        if($('#search-guests-input').val() !== '') {
-             domUpdates.findCustomers(customer)
-        currentGuest = customer.findGuestByName($('#search-guests-input').val())
-        updateTabs(currentGuest)
-        }
-    }
-  
-    function updateTabs() {
-        const verifyClick = allData.users.users.find(user => {
-            if(user.clicked) {
-                domUpdates.displayRoomServiceBreakDown(customer.findOrderBreakDown(user))
-                domUpdates.displayTotalOrdersByDate(customer.findRoomServiceTotalByDate('06/02/2020', user))
-                domUpdates.displayTotalOrders(customer.findAllTimeOrderTotal(user))
-                domUpdates.displaySummaryOfBookings(customer.findBookingsSummary(user))
-            }
-        })
-        return verifyClick;
-    }
 
     $('#residential-suite-option').on('click', function() {
         domUpdates.displayRoomsByType(bookings.filterRoomType('residential suite'))
@@ -125,9 +108,53 @@ $(document).ready(() => {
         domUpdates.displayRoomsByType(bookings.filterRoomType('suite'))
     })
 
+    $('#btn-search-guests').on('click', searchGuests)
+
+    $('#btn-search-orders').on('click', searchOrders)
+
+
+//---------- Functions ---------//
+    function searchGuests(e) {
+        e.preventDefault();
+        currentGuest = customer.findGuestByName($('#search-guests-input').val())
+        updateTabs(currentGuest)
+        if(currentGuest.length !== 0) {
+         domUpdates.findCustomers(customer)
+        } else {
+            domUpdates.displayErrorNoCustomer()
+        }
+
+    }
   
+    function updateTabs() {
+        const verifyClick = allData.users.users.find(user => {
+            if(user.clicked) {
+                domUpdates.displayRoomServiceBreakDown(customer.findOrderBreakDown(user))
+                domUpdates.displayTotalOrdersByDate(customer.findRoomServiceTotalByDate('06/02/2020', user))
+                domUpdates.displayTotalOrders(customer.findAllTimeOrderTotal(user))
+                domUpdates.displaySummaryOfBookings(customer.findBookingsSummary(user))
+            }
+        })
+        return verifyClick;
+    }
 
-    $('#search-guests-input').on('input', searchGuests)
+    function searchOrders(e) {
+        e.preventDefault();
+        const currentOrder = orders.findOrderByDate($('.search-orders-input').val())
+        if(currentOrder.length !== 0) {
+            domUpdates.displayOrdersForSpecificDate(currentOrder)
+        } else {
+            domUpdates.displayErrorNoOrder()
+        }
+    }
 
-
+    function errorMessages() {
+        const verifyClick = allData.users.users.find(user => {
+            const orders = customer.findOrderBreakDown();
+            if(orders.length === 0) {
+                domUpdates.displayErrorNoOrder()
+            }
+        })
+        return verifyClick
+    }
 })

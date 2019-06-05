@@ -26,7 +26,7 @@ describe('Customer', function() {
 
     it('should be able to add new customers', function() {
         guest.addNewGuest('Oprah', 'Winfrey');
-        expect(guest.newGuests).to.eql([{id: 12, name: 'Oprah Winfrey'}])
+        expect(guest.newGuests).to.eql([{id: 12, name: 'Oprah Winfrey', clicked: false}])
     })
 
     it('should find all previous room service dates and dollar amounts', function() {

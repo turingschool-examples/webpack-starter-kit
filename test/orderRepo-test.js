@@ -18,7 +18,7 @@ describe('Order Repo', function() {
     });
 
     it('should return all orders for today\'s date', function() {
-        expect(orderRepo.findOrdersForToday('15/07/2019')).to.eql([ {
+        expect(orderRepo.findOrderByDate('15/07/2019')).to.eql([ {
             userID: 9,
             date: "15/07/2019",
             food: "Tasty Fresh Sandwich",

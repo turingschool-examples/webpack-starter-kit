@@ -24,7 +24,7 @@ h1 {
 
 h2 {
   color: $h2-font-color;
-  margin: 15px;
+  margin: 14px;
 }
 
 .main__dashboard-display {
@@ -47,7 +47,7 @@ aside {
     li {
       // background: hidden;
       color: #222;
-      display: block;
+      display: flex;
       font-size: 20px;
       padding: 10px 15px;
       cursor: pointer;
@@ -68,12 +68,9 @@ aside {
     display: none;
     background: $tab-background-color;
     opacity: 0.8;
-    // margin: auto;
-    // padding: 15px;
-    // float: left;
+    margin: auto;
     padding: 0px 12px;
     border: 1px solid #ccc;
-    width: 800px;
     border-left: none;
     min-height: 300px;
 
@@ -83,12 +80,18 @@ aside {
   }
 }
 
-.aside__tabs--add-new-guest {
+.aside__tabs--add-new-guest,
+.aside__tabs--add-new-order {
   display: flex;
   flex-direction: column;
 
   label {
     margin-top: 0px;
+  }
+  
+  input {
+    height: 25px;
+    font-size: 14px;
   }
 
   label,
@@ -109,20 +112,21 @@ aside {
 }
 
 
-.bookings-styling {
-  display: flex;
-  flex-direction: column;
-}
 
-.guests-styling {
-  display: flex;
-}
-
-.room-types-display {
+.bookings-styling,
+.guests-styling,
+.orders-styling {
   display: flex;
   flex-direction: column;
   width: 750px;
 }
+
+// .orders-styling {
+// }
+
+
+
+
 
 table,
 th,
@@ -130,6 +134,18 @@ td {
   border: 1px solid black;
   background: $tab-background-color;
   opacity: 0.8;
+  width: 750px;
 }
 
+.select-btn {
+  height: 35px;
+  width: 90px;
+  margin: auto;
+  border-radius: 5px;
+}
 
+.select-rooms {
+  display: flex;
+  // margin: auto;
+  // flex-direction: column;
+}
