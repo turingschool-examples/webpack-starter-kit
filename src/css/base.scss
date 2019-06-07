@@ -168,3 +168,9 @@ td {
   flex-direction: column;
   align-items: center;
 }
+
+.display-new-guest-info {
+  &:hover {
+    color: $heading-font-color;
+  }
+}

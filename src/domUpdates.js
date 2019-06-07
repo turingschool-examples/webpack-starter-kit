@@ -21,9 +21,8 @@ let domUpdates = {
     $('.percentage-rooms-available').text(percent)
   },
 
-  displayCurrentCustomer() {
-    $('.display-guest-info').append('<h3><span id="first-name-display"></span> <span id="last-name-display"></span></h3>')
-    $('.current-guest-name-heading').append('<h1><span id="first-name-display"></span> <span id="last-name-display"></span></h1>')
+  displayNewCustomer() {
+    $('.display-new-guest-info').append('<h3><span id="first-name-display"></span> <span id="last-name-display"></span></h3>')
     $('#first-name-display').text($('#first-name-input').val())
     $('#last-name-display').text($('#last-name-input').val())
   },

@@ -70,7 +70,8 @@ $(document).ready(() => {
   $('#submit-guest-info').on('click', function(e) {
     e.preventDefault()
     $('.display-guest-info').html('')
-    domUpdates.displayCurrentCustomer(customer.addNewGuest($('#first-name-input').val(), $('#last-name-input').val()))
+    domUpdates.displayNewCustomer(customer.addNewGuest($('#first-name-input').val(), $('#last-name-input').val()))
+    console.log(currentGuest)
     currentGuest = customer.newGuests[0]
     console.log(currentGuest)
   })
@@ -98,9 +99,22 @@ $(document).ready(() => {
     domUpdates.selectCustomer(currentGuest)
   })
 
+$('.display-new-guest-info').on('click', function() {
+  currentGuest = customer.newGuests
+  const clickChange = customer.newGuests.map(user => {
+    if(user.id === currentGuest[0].id) {
+      user.clicked = true;
+    }
+    return user;
+  })
+  allData.users.users = clickChange;
+  updateTabs();
+  domUpdates.selectCustomer(currentGuest)
+})
+
   $('#btn-search-bookings').on('click', function() {
     domUpdates.displayRoomsByType(bookings.filterRoomsByDate($('#search-reservations-input').val(), $('#search-room-type-input').val()))
-    $('.btn-book-room').on('click', function(){
+    $('.btn-book-room').on('click', function() {
       domUpdates.displayNewBooking(currentGuest[0], this.id, $('#search-reservations-input').val())
       bookings.addNewBooking(currentGuest[0], this.id, $('#search-reservations-input').val())
     })
