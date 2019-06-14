@@ -1,18 +1,27 @@
 # Webpack Starter Kit
 
-## Fork This Repo
+## Clone This Repo
 
-Within your group, decide on one person to have the project repository (repo) on their GitHub account. Then, that person should "fork" this repo. On the top right corner of this page, click the **Fork** button.
+That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
 
-## Setup
-
-After one person has forked the repo, everyone should clone down the forked repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
 
 ```bash
 git clone [remote-address] [what you want to name the repo]
 ```
 
-Once you have cloned the repo, install the library dependencies. Run:
+1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
+1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
+1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
+1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+
+Now try to commit something and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+
+## Setup
+
+After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
+
+Then install the library dependencies. Run:
 
 ```bash
 npm install
