@@ -7,7 +7,7 @@ Here is a general procedure for getting your project hosted on GitHub pages so y
 1. Checkout your `master` branch and double-check to make sure it is up-to-date and there is nothing needed to be committed at this point
 1. Navigate to the root of your project directory
 1. Open your project in your text editor
-1. Double-check that all image tags have the `src` attribute have `./` to start the path
+1. Double-check that all image tags have the `src` attribute have `./` to start the path, e.g `src="./images/turing-logo.png"`
 
 ## Required Steps
 

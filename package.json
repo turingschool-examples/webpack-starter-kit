@@ -1,7 +1,7 @@
 {
-  "name": "gametime-starter",
+  "name": "webpack-starter-kit",
   "version": "1.0.0",
-  "description": "Gametime starter kit using webpack, mocha, and chai",
+  "description": "Project starter kit using webpack, mocha, chai, and SCSS/SASS enabled",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -11,14 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turingschool-examples/gametime-starter.git"
+    "url": "git+https://github.com/turingschool-examples/webpack-starter-kit.git"
   },
   "author": "Turing School of Software and Design",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/turingschool-examples/gametime-starter/issues"
-  },
-  "homepage": "https://github.com/turingschool-examples/gametime-starter#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
