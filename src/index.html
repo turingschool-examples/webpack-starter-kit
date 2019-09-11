@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <title>Overlook RA Hughes</title>
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <main>
+    <header class="main__header"> 
+      <h1 class="main__header--h1"> Overlook Hotel </h1>
+      <div class="main__header--customer"> Current Customer</div>
+      <div class="main__header--date"> Current Date </div>
+    </header>
+    <aside class="main__aside">
+      <h2 class="main__aside--h2"> Customer Search </h2>
+      <input class="main__aside--input" type="text"> 
+    </aside>
+    <section class="main__section">
+        <ul class="main__section--tabs">
+          <li class="section__tabs--main"> Main</li>
+          <li class="section__tabs--orders"> Orders</li>
+          <li class="section__tabs--rooms"> Rooms</li>
+          <li class="section__tabs--customer"> Customer</li>
+        </ul>
+        <article id="main" class="panel active">
+            <p class="section__main--today"> Today </p>
+            <p class="section__main--occupancy"> Occupancy </p>
+            <p class="section__main--charges"> Hotel Charges </p>
+            <p class="section__main--bookings"> Hotel Bookings </p>
+            <p class="section__main--available"> Available Rooms </p>
+            <p class="section__main--mostDates"> Most Date and Rooms </p>
+            <p class="section__main--leastDates"> Least Date and Rooms </p>
+          </article>
+        </section>
+    </main>
+   <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>

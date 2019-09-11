@@ -1,6 +1,46 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
-
-body {
-  background-color: $primary-background;
+* {
+  border: 2px solid red;
 }
+
+main {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 20% 80%;
+  height: 100vh;
+  grid-template-areas:
+  "header header"
+  "aside main"
+  "aside main"
+}
+
+/*** Header ***/
+.main__header{
+  display: flex;
+  justify-content: space-around;
+  grid-area: header;
+  height: 100px;
+
+  .main__header--h1 {
+    
+  }
+}
+
+.main__aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 500px;
+}
+
+.main__section {
+  grid-area: main;;
+  width: 90%;
+
+  .main__section--tabs {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
