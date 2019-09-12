@@ -16,12 +16,13 @@
     </aside>
     <section class="main__section">
         <ul class="main__section--tabs">
-          <li class="section__tabs--main"> Main</li>
-          <li class="section__tabs--orders"> Orders</li>
-          <li class="section__tabs--rooms"> Rooms</li>
-          <li class="section__tabs--customer"> Customer</li>
+          <li><a href="#tabs--main">Main</a></li>
+          <li><a href="#tabs--orders">Orders</a></li>
+          <li><a href="#tabs--rooms">Rooms</a></li>
+          <li><a href="#tabs--customer">Customer</a></li>
         </ul>
-        <article id="main" class="panel active">
+        <div class="section__display">
+        <article id="tabs--main" class="panel active">
             <p class="section__main--today"> Today </p>
             <p class="section__main--occupancy"> Occupancy </p>
             <p class="section__main--charges"> Hotel Charges </p>
@@ -30,6 +31,16 @@
             <p class="section__main--mostDates"> Most Date and Rooms </p>
             <p class="section__main--leastDates"> Least Date and Rooms </p>
           </article>
+          <article id="tabs--orders">
+            <p> Orders </p>
+          </article>
+          <article id="tabs--rooms">
+            <p> Rooms </p>
+          </article>
+          <article id="tabs--customer"> 
+            <p> Customer </p>
+          </article>
+          </div>
         </section>
     </main>
    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
