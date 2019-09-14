@@ -7,5 +7,7 @@ class Bookings {
     this.rooms = rooms;
     this.today = today;
   }
+}
+
 
   module.exports = Bookings;
