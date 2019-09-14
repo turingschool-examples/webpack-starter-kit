@@ -1,6 +1,5 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 * {
-  border: 2px solid red;
   color: #666;
   font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
 }
@@ -18,17 +17,26 @@ main {
 
 /*** Header ***/
 .main__header{
+  border: 2px solid grey;
+  padding: 2%;
   display: flex;
   justify-content: space-around;
   grid-area: header;
   height: 100px;
 
   .main__header--h1 {
-    
+    font-size: 5vh;
+  }
+
+  .main__header--date {
+    display: flex;
+    flex-direction: column;
   }
 }
-
+/*** Aside ***/
 .main__aside {
+  border: 2px solid grey;
+  padding: 2%;
   grid-area: aside;
   display: flex;
   flex-direction: column;
@@ -36,13 +44,17 @@ main {
   height: 500px;
 }
 
+/*** Main ***/
 .main__section {
-  grid-area: main;;
+  border: 2px solid grey;
+  padding: 2%;
+  grid-area: main;
   width: 90%;
 
   .main__section--tabs {
     display: flex;
     justify-content: space-between;
+    list-style-type: none;
   }
 }
 
@@ -73,3 +85,4 @@ a {
   position: relative;
   top: -1px;
 }
+
