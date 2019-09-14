@@ -82,10 +82,6 @@ class Hotel {
     });
   };
 
-  createBookings() {
-    this.bookings = new Bookings(this.customers, this.bookingData, this.roomServiceData, this.roomData, this.today)
-  };
-
   createMenu() {
     this.menu = this.roomServiceData.reduce((foodOptions, order) => {
       if(!foodOptions.includes(order.food)) {
