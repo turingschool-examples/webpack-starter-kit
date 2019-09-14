@@ -7,42 +7,154 @@
     <main>
     <header class="main__header"> 
       <h1 class="main__header--h1"> Overlook Hotel </h1>
-      <div class="main__header--customer"> Current Customer</div>
-      <div class="main__header--date"> Current Date </div>
+      <div class="main__header--customer"> Current Customer <span class="span__customer"></span></div>
+      <div class="main__header--date"> Current Date <span class="span__date"> </span></div>
     </header>
     <aside class="main__aside">
       <h2 class="main__aside--h2"> Customer Search </h2>
       <input class="main__aside--input" type="text"> 
+      <button class="header__add-customer" value="Add New Customer" disabled="true">Add New Customer</button>
+      <section class="search__list">
+      </section>
     </aside>
     <section class="main__section">
-        <ul class="main__section--tabs">
-          <li><a href="#tabs--main">Main</a></li>
-          <li><a href="#tabs--orders">Orders</a></li>
-          <li><a href="#tabs--rooms">Rooms</a></li>
-          <li><a href="#tabs--customer">Customer</a></li>
-        </ul>
-        <div class="section__display">
-        <article id="tabs--main" class="panel active">
-            <p class="section__main--today"> Today </p>
-            <p class="section__main--occupancy"> Occupancy </p>
-            <p class="section__main--charges"> Hotel Charges </p>
-            <p class="section__main--bookings"> Hotel Bookings </p>
-            <p class="section__main--available"> Available Rooms </p>
-            <p class="section__main--mostDates"> Most Date and Rooms </p>
-            <p class="section__main--leastDates"> Least Date and Rooms </p>
-          </article>
-          <article id="tabs--orders">
-            <p> Orders </p>
+      <ul class="main__section--tabs">
+        <li><a href="#tabs--main">Main</a></li>
+        <li><a href="#tabs--orders">Orders</a></li>
+        <li><a href="#tabs--rooms">Rooms</a></li>
+        <li><a href="#tabs--customer">Customer</a></li>
+      </ul>
+      <div class="section__display">
+      <article id="tabs--main" class="panel active">
+        <p class="section__main--today"> Today: <span class="span__date"></span> </p>
+        <p class="section__main--available"> Rooms Available: <span class="main__available--rooms"></span> </p>
+        <p class="section__main--revenue"> Total Revenue: <span class="main__revenue--total"></span> </p>
+        <p class="section__main--occupied"> Rooms Occupied: <span class="main__occupied--percent"></span></p>
+      </article>
+      <article id="tabs--orders">
+        <p> Orders </p>
+        <section class="orders__container">
+          <div class="orders__food-box">
+            <p class="orders__current-order">Order</p>
+            <button class="orders__food-button">Click to Order</button>
+          </div>
+          <table class="today-menu-table">
+            <thead>
+              <tr>
+                <th colspan="2">Today's Menu</th>
+              </tr>
+              <tr>
+                <th>Dish</td>
+                <th>Cost</td>
+              </tr>
+              <tbody class="today-menu-body">
+              </tbody>
+            </thead>
+           </table>
+            <table class="customer-orders-table">
+              <thead>
+                <tr>
+                  <th colspan="4">Customer Orders</th>
+                </tr>
+                <tr>
+                  <th>Customer ID</th>
+                  <th>Order Date</th>
+                  <th>Dish</th>
+                  <th>Cost</th>
+                </tr> 
+                <tbody class="customer-orders-body">
+                </tbody>
+                </thead>
+              </table>
+                <div class="customer__search-box">
+                  <p>Search Customer Orders</p>
+                  <input class="customer__search-input" placeholder="YYYY/MM/DD">
+                  <button class="customer__search-button">Search</button>
+                </div>
+            </section>
           </article>
           <article id="tabs--rooms">
             <p> Rooms </p>
+            <div class="rooms__container">
+              <div class="room__booking-box">
+                <p>Book Room <span class="book__room-num"></span>?</p>
+                <button class="room_booking-button">Click to Book</button>
+              </div>
+              <div class="room__upgrade-box">
+                <p>Upgrade To Room <span class="book__room-num"></span>?</p>
+                <button class="room_upgrade-button">Click to Upgrade</button>
+              </div>
+              <table class="available-rooms-table">
+                <thead class="available">
+                  <tr>
+                    <th colspan="6">Available Rooms Selection</th>
+                    </tr>
+                    <tr>
+                      <th class="room_header" data-sort="number">Room</th>
+                      <th class="room_header" data-sort="roomType">Room Type</th>
+                      <th class="room_header" data-sort="bidet">Bidet?</th>
+                      <th class="room_header" data-sort="bedSize">Bed Size</th>
+                      <th class="room_header" data-sort="numBeds">Beds</th>
+                      <th class="room_header" data-sort="costPerNight">Cost Per Night $</th>
+                    </tr>
+                  </thead>
+                <tbody class="available-rooms-body">
+              </tbody>
+            </table>
+              <table class="all-bookings-table">
+                <thead>
+                <tr>
+                <th colspan="2">Current Bookings</th>
+                </tr>
+                <tr>
+                <th>Date</th>
+                <th>Room Number</th>
+                </tr>
+                </thead>
+                <tbody class="all-bookings-body">
+              </tbody>
+             </table>
+            </div>
           </article>
-          <article id="tabs--customer"> 
+            <article id="tabs--customer"> 
             <p> Customer </p>
+            <section class="customer__today-bookings">
+              <div class="customer__booking-box">
+              <p>Today's Itinerary</p>
+              <p class="customer__booked-name">Name:</p>
+              <p class="customer__booked-date">Date:</p>
+              <p class="customer__booked-room">Room: </p>
+              <button class="customer__order-room-service">Order Room Service</button>
+              <button class="customer__upgrade-room">Upgrade Room</button>
+              </div>
+              <p class="today-booking">
+                 <button class="customer__book-room" disabled="true">Book Room</button>
+                </p>
+                <div class="customer__fees-box">
+                  <p class="main__customer-total-bill">Customer Bill</p>
+                  <p class ="today-room-service"> Today's Customer Orders</p>
+                  <p class ="all-time-room-service">Customer All Time Orders</p>
+                </div>
+                <div class="customer__unbook-box">
+                  <p class="unbook-warning"></p>
+                  <button class="customer__unbook-room">Unbook Room</button>
+                </div>
+              <table class="customer-bookings-table">
+                <thead>
+                  <tr>
+                    <th colspan="2">All Customer's Bookings</th>
+                  </tr>
+                  <tr>
+                      <th>Date</th>
+                      <th>Room Number</th>
+                    </tr>
+                </thead>
+                <tbody class="customer-bookings-body">
+                </tbody>
+              </section>
           </article>
           </div>
         </section>
     </main>
-   <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
