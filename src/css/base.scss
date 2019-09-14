@@ -1,7 +1,13 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
+$main-font: 'Fondamento', cursive;
+
+html {
+  background-color: black;
+}
+
 * {
   color: #666;
-  font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+  font: 14px/24px "Fondamento", cursive;
 }
 
 main {
@@ -17,39 +23,75 @@ main {
 
 /*** Header ***/
 .main__header{
-  border: 2px solid grey;
+  margin-bottom: 10px;
+  border: 6px outset grey;
   padding: 2%;
   display: flex;
   justify-content: space-around;
   grid-area: header;
   height: 100px;
+  background-image: url(https://i.gifer.com/CDBO.gif);
+  background-size: 100%;
 
   .main__header--h1 {
-    font-size: 5vh;
+    font-size: 5em;
+    color: red;
+  }
+
+  .main__header--customer {
+    text-align: center;
+    color: white;
+    border: 6px outset grey;
+    text-align: center;
+    height: 75px;
+    width: 125px;
+    background-color: #888C8D;
   }
 
   .main__header--date {
+    text-align: center;
+    padding: auto;
+    color: white;
+    border: 6px outset grey;;
+    height: 75px;
+    width: 125px;
     display: flex;
     flex-direction: column;
+    background-color: #888C8D;
+
+      span {
+        color: white;
+      }
   }
 }
 /*** Aside ***/
 .main__aside {
-  border: 2px solid grey;
-  padding: 2%;
+  margin-top: 25px;
+  border: 6px outset grey;
+  padding: 4%;
   grid-area: aside;
   display: flex;
   flex-direction: column;
-  width: 90%;
-  height: 500px;
+  width: 80%;
+  height: 100%;
+  background-color: #454545;
+
+  .main__aside--h2 {
+    color: red;
+    font-size: 2em;
+  }
+
+  .header__add-customer {
+    margin: 20px 10px 0 10px;
+  }
 }
 
 /*** Main ***/
 .main__section {
-  border: 2px solid grey;
+  margin-top: 20px;
   padding: 2%;
   grid-area: main;
-  width: 90%;
+  width: 95%;
 
   .main__section--tabs {
     display: flex;
@@ -59,30 +101,38 @@ main {
 }
 
 .tab-active a {
-  background: #fff; 
+  border: 6px outset grey;
+  background: #888C8D; 
   border-bottom-color: transparent;
-  color: #2db34a;
+  color: black;
   cursor: default;
 }
 
 a {
-  background: #eaeaed;
-  border: 1px solid #cecfd5;
-  color: #0087cc;
+  border: 6px outset grey;
+  background: #888C8D; 
+  color: white;
   display: block;
-  font-weight: 600;
   padding: 10px 0;
   text-align: center;
   text-decoration: none;
 }
 
 .section__display {
-  border: 1px solid #cecfd5;
-  border-radius: 0 0 6px 6px;
-  border-top: 0;
+  color: white;
+  background-color: #454545;
+  border: 6px outset grey;
   clear: both;
   padding: 24px 30px;
   position: relative;
   top: -1px;
+
+  p {
+    color: white;
+  }
+
+  span {
+    color: red;
+  }
 }
 
