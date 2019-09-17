@@ -17,6 +17,18 @@ class Hotel {
     this.menu;
   };
 
+  createMenu() {
+    this.menu = this.roomServiceData.reduce((foodOptions, order) => {
+      if(!foodOptions.includes(order.food)) {
+        foodOptions.push({
+          food: order.food,
+          totalCost: order.totalCost
+        })
+      }
+      return foodOptions;
+    }, [])
+  }
+
   roomsAvailable(date) {
   let availableRooms = this.bookingData.filter(room => {
      if(date === room['date']) {
@@ -82,16 +94,19 @@ class Hotel {
     });
   };
 
-  createMenu() {
-    this.menu = this.roomServiceData.reduce((foodOptions, order) => {
-      if(!foodOptions.includes(order.food)) {
-        foodOptions.push({
-          food: order.food,
-          totalCost: order.totalCost
-        })
-      }
-      return foodOptions;
-    }, [])
+  createBookings() {
+    this.bookings = new Bookings(this.customers, this.bookingData, this.roomServiceData, this.roomData, this.today)
+  };
+
+  displayNewDay() {
+    let currentServiceRevenue = this.bookings.findRoomServiceRevenue(this.today);
+    let currentRoomRevenue = this.bookings.findRoomRevenue(this.today);
+    let todayDate = this.today;
+    let availableRoomCount = this.bookings.findAvailableRooms(this.today).length;
+    let availableRooms = this.bookings.findAvailableRooms(this.today);
+    let currentRoomService = this.bookings.findDailyRoomServiceOrders(this.today)
+    let bookedRooms = this.bookings.findBookedRooms(this.today);
+    DOMupdates.dailyBookings(availableRooms, this.menu, currentRoomService, bookedRooms);
   }
 };
 
