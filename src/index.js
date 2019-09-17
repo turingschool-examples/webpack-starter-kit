@@ -34,14 +34,13 @@ Promise.all([ apiRequestUser, apiRequestRooms, apiRequestBookings, apiRequestRoo
 });
 
 function doAllThings() {
-  domUpdates.startOnMainTab();
-  domUpdates.getDate()
+  domUpdates.startOnMainTab()
+  domUpdates.getDate(hotel)
   domUpdates.displayRoomsAvailable(hotel);
   domUpdates.displayRoomsOccupied(hotel);
   hotel.createBookings();
   hotel.createMenu();
   hotel.createCustomers();
-  domUpdates.appendTotalRevenue(hotel.currentCustomer)
   $('.main__aside--input').on('keydown', customerSearch);
   $('.main__section--tabs a').on('click', function(event) {
     let _this = this;
@@ -106,7 +105,7 @@ $('.available-rooms-table').on('click', '.table__room-number', function() {
 
 $('.room_booking-button').on('click', function() {
   hotel.bookings.bookRoom(hotel.currentRoom.number, hotel.today, hotel.currentCustomer);
-  domUpdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+  domUpdates.displayCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
   let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
   domUpdates.displayBookings(hotel.currentCustomer, booking);
   $('.room__booking-box').hide();
@@ -122,7 +121,7 @@ $('.customer-bookings-table').on('click', '.table__room-number', function() {
 
 $('.customer__unbook-room').on('click', function() {
   hotel.bookings.unbookRoom(hotel.currentRoom.number, hotel.currentDate, hotel.currentCustomer);
-  domUpdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+  domUpdates.displayCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
   let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
   domUpdates.displayBookings(hotel.currentCustomer, booking);
   $('.customer__unbook-box').hide();
@@ -141,7 +140,7 @@ $('.today-menu-table').on('click', '.table__menu-row', function() {
 
 $('.orders__food-button').on('click', function(){
   hotel.currentCustomer.orderRoomService(hotel.currentCustomer.currentDish, hotel.today);
-  domUpdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+  domUpdates.displayCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
   let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
   domUpdates.displayBookings(hotel.currentCustomer, booking);
   $('.customer__unbook-box').hide();
@@ -153,7 +152,7 @@ $('.room_upgrade-button').on('click', function() {
   console.log(hotel.currentCustomer)
   let oldRoom = hotel.currentCustomer.findTodayBooking(hotel.today).roomNumber;
   hotel.bookings.upgradeRoom(oldRoom, hotel.currentRoom.number, hotel.today, hotel.currentCustomer);
-  domUpdates.displayCurrentCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+  domUpdates.displayCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
   let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
   domUpdates.displayBookings(hotel.currentCustomer, booking);
   $('.room__upgrade-box').hide();
