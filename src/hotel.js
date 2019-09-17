@@ -43,9 +43,8 @@ class Hotel {
       if(date === room['date']) {
         return room
       }
-    });
-    let roomsTaken = this.roomData.length - percentRooms.length; 
-		let num = (roomsTaken / this.roomData.length) * 100;
+    }); 
+    let num = ((percentRooms.length / this.roomData.length) * 100)
 		return Math.floor(num);
   }
 
@@ -70,6 +69,7 @@ class Hotel {
 
   createBookings() {
     this.bookings = new Bookings(this.customers, this.bookingData, this.roomServiceData, this.roomData, this.today)
+    console.log(this.today)
   };
 
   findUserBookings(id) {
@@ -99,14 +99,10 @@ class Hotel {
   };
 
   displayNewDay() {
-    let currentServiceRevenue = this.bookings.findRoomServiceRevenue(this.today);
-    let currentRoomRevenue = this.bookings.findRoomRevenue(this.today);
-    let todayDate = this.today;
-    let availableRoomCount = this.bookings.findAvailableRooms(this.today).length;
     let availableRooms = this.bookings.findAvailableRooms(this.today);
     let currentRoomService = this.bookings.findDailyRoomServiceOrders(this.today)
     let bookedRooms = this.bookings.findBookedRooms(this.today);
-    DOMupdates.dailyBookings(availableRooms, this.menu, currentRoomService, bookedRooms);
+    domUpdates.dailyBookings(availableRooms, this.menu, currentRoomService, bookedRooms);
   }
 };
 
