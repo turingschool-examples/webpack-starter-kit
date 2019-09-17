@@ -104,6 +104,14 @@ class Hotel {
     let bookedRooms = this.bookings.findBookedRooms(this.today);
     domUpdates.dailyBookings(availableRooms, this.menu, currentRoomService, bookedRooms);
   }
+
+  addNewCustomer(name) {
+    let newId = this.customers.length + 1;
+    let newCustomer = new Customer(newId, name, [], [], [], this.menu, this.today)
+    this.customers.push(newCustomer);
+    console.log(this.customers[newId - 1])
+    return this.customers[newId - 1];
+  };
 };
 
 export default Hotel;
