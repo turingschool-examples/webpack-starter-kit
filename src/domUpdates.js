@@ -116,7 +116,7 @@ const domUpdates = {
     }
   },
 
-  dailyBookings(menu, roomService) {
+  dailyBookings(menu) {
     menu.forEach(dish => {
       $('.today-menu-body').append(`
       <tr class="table__menu-row" data-dish="${dish.food}" data-price="${dish.totalCost}">
@@ -176,7 +176,27 @@ const domUpdates = {
       </tr>
       `)
     })
-  }
+  },
+
+  displayNewCustomer(name) {
+    $('.search__list').empty();
+    $('.header__search-input').val('');
+    $('.header__current-customer').text(`Current Customer:  ${name}`);
+    $('.main__panel-container .main__panel-tabs li.active').removeClass('active'); 
+    $('.main__panel-container .panel.active').hide();
+    $('.customer-tab').addClass('active');
+    $('#customer').slideDown(300, function() {
+      $(this).addClass('active');
+    });
+  },
+  
+  displayNewCustomerShowHide() {
+    $('.customer__book-room').show();
+    $('.customer__book-room').attr('disabled', false);
+    $('.customer__booking-box').hide();
+    $('.customer__fees-box').hide();
+    $('.customer-bookings-table').hide();
+  },
 }
 
 export default domUpdates;

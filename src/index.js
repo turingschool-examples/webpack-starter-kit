@@ -80,7 +80,6 @@ $('.search__list').on('click', '.search__customer', function() {
   $('.header__add-customer').attr("disabled", true);
   let currentName = this.innerText;
   hotel.currentCustomer = hotel.findCustomerName(currentName);
-  console.log(hotel.currentCustomer)
   let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
   if(booking) {
     hotel.currentRoom = hotel.bookings.findRoom(booking.roomNumber);
@@ -172,6 +171,19 @@ $('.customer__search-button').on('click', function () {
   let day = $('.customer__search-input').val();
   let orders = hotel.bookings.findDailyRoomServiceOrders(day);
   domUpdates.updateOrderTable(orders);
+});
+
+$('.aside__add-customer').on('click', function(){
+  $('.aside__add-customer').attr("disabled", true);
+  let name = $('.main__aside--input').val();
+  hotel.currentCustomer = hotel.addNewCustomer(name);
+  let booking = hotel.currentCustomer.findTodayBooking(hotel.today);
+  if(booking) {
+    hotel.currentRoom = hotel.bookings.findRoom(booking.roomNumber);
+  }
+  domUpdates.displayCustomer(hotel.currentCustomer.name, hotel.currentCustomer.calculateBill(hotel.today), hotel.currentCustomer.calculateRoomServiceCost(hotel.today), hotel.currentCustomer.calculateAllRoomService());
+  domUpdates.displayBookings(hotel.currentCustomer, booking);
+  domUpdates.dailyBookings(hotel.menu)
 });
 
 
