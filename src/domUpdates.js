@@ -16,7 +16,7 @@ const domUpdates = {
     $($(_this).attr('href')).show();
   },
 
-  getDate() {
+  getDate(hotel) {
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -24,18 +24,21 @@ const domUpdates = {
   
     today = `${yyyy}/${mm}/${dd}`;
     $('.span__date').html(today);
+    hotel.today = today
   },
+
+  
 
   displayDate() {
     $('.main__today--date').html($('.span__date').val());
   },
 
-  displayRoomsAvailable(obj) {
-    $('.main__available--rooms').html(obj.roomsAvailable('2019/09/13'));
+  displayRoomsAvailable(hotel) {
+    $('.main__available--rooms').html(hotel.roomsAvailable(hotel.today));
   },
 
-  displayRoomsOccupied(obj) {
-    $('.main__occupied--percent').text(` ${obj.percentOccupied('2019/09/13')}%`);
+  displayRoomsOccupied(hotel) {
+    $('.main__occupied--percent').text(`${hotel.percentOccupied(hotel.today)}%`);
   },
 
   displaySearchResults(matches) {
@@ -122,10 +125,6 @@ const domUpdates = {
       </tr>
       `)
     })
-  },
-
-  appendTotalRevenue(customer) {
-    $('.main__revenue--total').html(customer.calculateAllCosts());
   },
 
   appendSortedRooms(rooms) {
