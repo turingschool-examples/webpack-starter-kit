@@ -171,6 +171,7 @@ td {
 
 th {
   padding: 10px;
+  font-size: 1.5em;
   color: white;
 }
 
@@ -192,6 +193,11 @@ table tr:nth-of-type(even) {
   display: inline-block;
   margin-left: 20px;
   position: absolute;
+}
+
+.customer__agenda {
+  font-size: 1.5em;
+  color: red;  
 }
 
 
