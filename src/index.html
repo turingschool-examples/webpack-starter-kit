@@ -33,6 +33,11 @@
         <p class="section__main--occupied"> Rooms Occupied: <span class="main__occupied--percent"></span></p>
       </article>
       <article id="tabs--orders">
+        <div class="customer__search-box">
+          <p>Search Customer Orders</p>
+          <input class="customer__search-input" placeholder="YYYY/MM/DD">
+          <button class="customer__search-button">Search</button>
+        </div>
         <section class="orders__container">
           <div class="orders__food-box">
             <p class="orders__current-order">Order</p>
@@ -50,7 +55,7 @@
               <tbody class="today-menu-body">
               </tbody>
             </thead>
-           </table>
+          </table>
             <table class="customer-orders-table">
               <thead>
                 <tr>
@@ -66,11 +71,6 @@
                 </tbody>
                 </thead>
               </table>
-                <div class="customer__search-box">
-                  <p>Search Customer Orders</p>
-                  <input class="customer__search-input" placeholder="YYYY/MM/DD">
-                  <button class="customer__search-button">Search</button>
-                </div>
             </section>
           </article>
           <article id="tabs--rooms">
@@ -109,12 +109,6 @@
               <p class="customer__booked-name">Name:</p>
               <p class="customer__booked-date">Date:</p>
               <p class="customer__booked-room">Room: </p>
-              <button class="customer__order-room-service">Order Room Service</button>
-              <button class="customer__upgrade-room">Upgrade Room</button>
-              </div>
-              <p class="today-booking">
-                 <button class="customer__book-room" disabled="true">Book Room</button>
-                </p>
                 <div class="customer__fees-box">
                   <p class="main__customer-total-bill">Customer Bill</p>
                   <p class ="today-room-service"> Today's Customer Orders</p>
