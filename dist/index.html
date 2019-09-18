@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Overlook RA Hughes</title>
+    <link href="https://fonts.googleapis.com/css?family=Fondamento&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+    <header class="main__header"> 
+      <h1 class="main__header--h1"> Hell Hotel </h1>
+      <div class="main__header--customer"> Current Customer <span class="span__customer"></span></div>
+      <div class="main__header--date"> Current Date <span class="span__date"> </span></div>
+    </header>
+    <aside class="main__aside">
+      <h2 class="main__aside--h2"> Customer Search </h2>
+      <input class="main__aside--input" type="text" placeholder="Search for Customer Here"> 
+      <button class="aside__add-customer" value="Add New Customer">Add New Customer</button>
+      <section class="search__list">
+      </section>
+    </aside>
+    <section class="main__section">
+      <ul class="main__section--tabs">
+        <li><a href="#tabs--main">Main</a></li>
+        <li><a href="#tabs--orders">Orders</a></li>
+        <li><a href="#tabs--rooms">Rooms</a></li>
+        <li><a href="#tabs--customer">Customer</a></li>
+      </ul>
+      <div class="section__display">
+      <article id="tabs--main" class="panel active">
+        <p class="section__main--today"> Today: <span class="span__date"></span> </p>
+        <p class="section__main--available"> Rooms Available: <span class="main__available--rooms"></span> </p>
+        <p class="section__main--revenue"> Total Revenue: <span class="main__revenue--total">$5474.03</span> </p>
+        <p class="section__main--occupied"> Rooms Occupied: <span class="main__occupied--percent"></span></p>
+      </article>
+      <article id="tabs--orders">
+        <div class="customer__search-box">
+          <p>Search Customer Orders</p>
+          <input class="customer__search-input" placeholder="YYYY/MM/DD">
+          <button class="customer__search-button">Search</button>
+        </div>
+        <section class="orders__container">
+          <div class="orders__food-box">
+            <p class="orders__current-order">Order</p>
+            <button class="orders__food-button">Click to Order</button>
+          </div>
+          <table class="today-menu-table">
+            <thead>
+              <tr>
+                <th colspan="2">Today's Menu</th>
+              </tr>
+              <tr>
+                <th>Dish</td>
+                <th>Cost</td>
+              </tr>
+              <tbody class="today-menu-body">
+              </tbody>
+            </thead>
+          </table>
+            <table class="customer-orders-table">
+              <thead>
+                <tr>
+                  <th colspan="4">Customer Orders</th>
+                </tr>
+                <tr>
+                  <th>Customer ID</th>
+                  <th>Order Date</th>
+                  <th>Dish</th>
+                  <th>Cost</th>
+                </tr> 
+                <tbody class="customer-orders-body">
+                </tbody>
+                </thead>
+              </table>
+            </section>
+          </article>
+          <article id="tabs--rooms">
+            <div class="rooms__container">
+              <div class="room__booking-box">
+                <p>Book Room <span class="book__room-num"></span>?</p>
+                <button class="room_booking-button">Click to Book</button>
+              </div>
+              <div class="room__upgrade-box">
+                <p>Upgrade To Room <span class="book__room-num"></span>?</p>
+                <button class="room_upgrade-button">Click to Upgrade</button>
+              </div>
+              <table class="available-rooms-table">
+                <thead class="available">
+                  <tr>
+                    <th colspan="6">Click for Rooms Selection</th>
+                    </tr>
+                    <tr>
+                      <th class="room_header" data-sort="number">Room</th>
+                      <th class="room_header" data-sort="roomType">Room Type</th>
+                      <th class="room_header" data-sort="bidet">Bidet?</th>
+                      <th class="room_header" data-sort="bedSize">Bed Size</th>
+                      <th class="room_header" data-sort="numBeds">Beds</th>
+                      <th class="room_header" data-sort="costPerNight">Cost Per Night $</th>
+                    </tr>
+                  </thead>
+                <tbody class="available-rooms-body">
+              </tbody>
+            </table>
+            </div>
+          </article>
+            <article id="tabs--customer"> 
+            <section class="customer__today-bookings">
+              <div class="customer__booking-box">
+              <p class="customer__agenda">Today's Agenda</p>
+              <p class="customer__booked-name">Name:</p>
+              <p class="customer__booked-date">Date:</p>
+              <p class="customer__booked-room">Room: </p>
+                <div class="customer__fees-box">
+                  <p class="main__customer-total-bill">Customer Bill</p>
+                  <p class ="today-room-service"> Today's Customer Orders</p>
+                  <p class ="all-time-room-service">Customer All Time Orders</p>
+                </div>
+                <div class="customer__unbook-box">
+                  <p class="unbook-warning"></p>
+                  <button class="customer__unbook-room">Unbook Room</button>
+                </div>
+              <table class="customer-bookings-table">
+                <thead>
+                  <tr>
+                    <th colspan="2">All Customer's Bookings</th>
+                  </tr>
+                  <tr>
+                      <th>Date</th>
+                      <th>Room Number</th>
+                    </tr>
+                </thead>
+                <tbody class="customer-bookings-body">
+                </tbody>
+              </section>
+          </article>
+          </div>
+        </section>
+    </main>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>

@@ -7,13 +7,16 @@
     "start": "webpack-dev-server",
     "build": "webpack",
     "test": "mochapack 'test/**/*.js'",
-    "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'"
+    "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turingschool-examples/webpack-starter-kit.git"
+    "url": "git+https://github.com/RaHughes/webpack-starter-kit.git"
   },
   "author": "Turing School of Software and Design",
+  "homepage": "http://RaHughes.github.io/webpack-starter-kit",
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
