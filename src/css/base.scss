@@ -77,6 +77,16 @@ $white-40: rgba(255,255,255,0.4);
   font-size: 45px;
 }
 
+.note {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  background-color: rgb(180, 53, 53);
+  padding: 5px;
+  font-size: 11px;
+  border-radius: 5px;
+}
+
 .body-section-three {
   background-color: $background-primary-color;
   height: 10vh;

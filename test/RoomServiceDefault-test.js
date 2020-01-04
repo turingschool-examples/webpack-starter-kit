@@ -34,9 +34,7 @@ describe('RoomServiceDefault', function() {
       'Generic Plastic Sandwich': [ 2, 18.96 ],
       'Tasty Fresh Sandwich': [ 1, 13.07 ],
       'Rustic Soft Sandwich': [ 1, 18.63 ]
-    },
-      
-      );
+    });
   });
 
 });

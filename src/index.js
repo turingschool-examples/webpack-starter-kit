@@ -29,7 +29,6 @@ let rooms = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/rooms/room
 let data = {'users': {}, 'roomServices': {}, 'bookings': {}, 'rooms': {}}
 
 Promise.all([users, roomServices, bookings, rooms])
-
   .then(function(values) {
     data['users'] = values[0].users;
     data['roomServices'] = values[1].roomServices;
@@ -39,7 +38,7 @@ Promise.all([users, roomServices, bookings, rooms])
   })
   .catch(error => console.log(`Error in promises ${error}`));
 
-function today() {
+  function today() {
   var fullDate = new Date();
   var twoDigitMonth =
     fullDate.getMonth().length + 1 === 1

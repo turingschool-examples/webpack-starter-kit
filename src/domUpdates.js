@@ -2,7 +2,10 @@ import $ from "../node_modules/jquery";
 
 export default {
   domPercentageRoomsOccupied(percentageOccupied) {
-    $(".rooms-occupied-percentage").text(percentageOccupied);
+    const fixedPer = percentageOccupied.toFixed(1)
+    $(".rooms-occupied-percentage").text(fixedPer);
+    console.log('fixed', fixedPer);
+    console.log('not fixed', percentageOccupied)
   },
 
   domNoRoomsAvailable(noRoomsAvailable) {
