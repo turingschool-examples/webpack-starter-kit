@@ -17,7 +17,6 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
-    "chai-spies": "^1.0.0",
     "css-loader": "^2.1.0",
     "eslint": "^6.8.0",
     "file-loader": "^3.0.1",
@@ -26,6 +25,8 @@
     "mochapack": "^1.0.0",
     "node-sass": "^4.13.1",
     "sass-loader": "^7.1.0",
+    "sinon": "^9.0.0",
+    "sinon-chai": "^3.5.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.31.0",
     "webpack-cli": "^3.2.1",
