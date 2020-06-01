@@ -3,8 +3,7 @@
     "browser": true,
     "commonjs": true,
     "es6": true,
-    "mocha": true,
-    "jquery": true
+    "mocha": true
   },
   "extends": "eslint:recommended",
   "parserOptions": { "sourceType": "module" },
