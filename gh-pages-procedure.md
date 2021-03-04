@@ -4,7 +4,7 @@ Here is a general procedure for getting your project hosted on GitHub pages so y
 
 ## Preparation
 
-1. Checkout your `master` branch and double-check to make sure it is up-to-date and there is nothing needed to be committed at this point
+1. Checkout your `main` branch and double-check to make sure it is up-to-date and there is nothing needed to be committed at this point
 1. Navigate to the root of your project directory
 1. Open your project in your text editor
 1. Double-check that all image tags in your HTML have the `src` attribute have `./` to start the path, e.g `src="./images/turing-logo.png"`
@@ -34,8 +34,8 @@ If you go to the GitHub pages site (http://USERNAME.github.io/REPONAME) in a min
 
 ## When You Make New Changes
 
-If you make new changes to your `master` branch, GitHub Pages doesn't automatically know about these changes, and your site won't be up-to-date. You need to update the `gh-pages` branch to see those changes live on GitHub Pages. Here is how to update and keep everything in sync:
+If you make new changes to your `main` branch, GitHub Pages doesn't automatically know about these changes, and your site won't be up-to-date. You need to update the `gh-pages` branch to see those changes live on GitHub Pages. Here is how to update and keep everything in sync:
 
-1. After you're done making changes, checkout your `master` branch and double-check to make sure it is up-to-date and there is nothing needed to be committed at this point
+1. After you're done making changes, checkout your `main` branch and double-check to make sure it is up-to-date and there is nothing needed to be committed at this point
 1. Run `npm run build` in the command line
 1. Run `npm run deploy` in the command line
