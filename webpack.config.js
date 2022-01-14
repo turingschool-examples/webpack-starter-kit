@@ -9,7 +9,7 @@ module.exports = {
     sourceMapFilename: "bundle.js.map"
   },
   devServer: {
-    static: path.join(__dirname, 'dist')
+    contentBase: path.join(__dirname, 'dist')
   },
   "devtool": "source-map",
   "module": {
