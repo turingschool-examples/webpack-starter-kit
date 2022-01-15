@@ -1,5 +1,9 @@
-/* This is an example of how to import a partial scss file*/
 @import '_variables';
+@import '_reset';
+@import '_mixins';
+@import '_header';
+@import '_forms';
+@import '_buttons';
 
 body {
   background: $primary-background;
