@@ -1,6 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import bookings from "./booking-data.js";
+import Booking from "../src/classes/bookings-class.js"
 
 describe('Bookings', () => {
 let booking;
