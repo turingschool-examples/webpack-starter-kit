@@ -3,6 +3,7 @@ const expect = chai.expect;
 import bookings from "./booking-data.js";
 import rooms from "./rooms-data.js";
 import users from "./user-data.js";
+import Hotel from "../src/classes/hotel-class.js"
 
 describe('Hotel', () => {
     let overlook;
