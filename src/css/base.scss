@@ -1,6 +1,56 @@
-/* This is an example of how to import a partial scss file*/
 @import '_variables';
+@import '_reset';
+@import '_mixins';
+@import '_header';
+@import '_forms';
+@import '_buttons';
+
+* {
+  font-family: $font;
+}
 
 body {
-  background: $primary-background;
+  background-image: $background;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: auto;
+}
+
+header {
+  display: inline-flex;
+  width: 100%;
+  padding: 2%;
+  background-color: $light-grey;
+  @include box-shadow();
+  opacity: 80%;
+}
+
+main {
+  display: flex;
+}
+
+h1 {
+  font-size: 5vh;
+  display: flex;
+  justify-content: center;
+  font-family: $font;
+  color: $dark-blue;
+}
+
+.login-display {
+  width: 100%;
+  height: 80%;
+  padding: 10%;
+  margin-top: 20%;
+  display: flex;
+  justify-content: center;
+  background-color: $light-grey;
+  opacity: 90%;
+  color: $dark-blue;
+  @include box-shadow();
+}
+
+.hidden {
+  display: none;
 }

@@ -7,10 +7,50 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
+  <header>
+    <h1>Welcome to The Overlook Hotel</h1>
+    <section class="header-buttons hidden">
+      <button class="header-button" id="booking-button">Make a Booking</button>
+      <button class="header-button" id="profile-button">My Profile</button>
+    </section>
+    <section class="logged-in-as">
+      <h2>You are logged in as:</h2>
+      <h3 id="logged-in-name"></h3>
+    </section>
+  </header>
+  <main>
+    <section class="login-display" id="loginDisplay">
+      <form class="login-form">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required><br>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required><br>
+        <button type="submit">Login</button>
+      </form>
+    </section>
+    <section class="bookings hidden">
+      <section class="bookings-section">
+        <h2>PlaceHolder</h2>
+        <form class="bookings-form">
+          <label for="booking-date">Date:</label>
+          <input type="date" id="date" name="booking-date" value="2022-01-15" min="2022-01-15" max="2022-12-31">
+          <input type="checkbox" id="singleRoom" name="single-room" value="single room">
+          <label for="single-room">single room</label>
+          <input type="checkbox" id="juniorSuite" name="junior-suite" value="junior suite">
+          <label for="junior-suite">junior suite</label>
+          <input type="checkbox" id="suite" name="suite" value="suite">
+          <label for="suite">suite</label>
+          <input type="checkbox" id="residentialSuite" name="residential-suite" value="residential suite">
+          <label for="residential-suite">residential suite</label>
+        </form>
+      </section>
+    </section>
+    <section class="users-profile hidden">
+      <h2>Your Bookings</h2>
+      <section class="users-bookings">
+      </section>
+    </section>
+  </main>
   <script src="bundle.js"></script>
-
 </body>
 </html>
