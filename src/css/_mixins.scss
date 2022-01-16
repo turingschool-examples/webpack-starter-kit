@@ -1,12 +1,8 @@
-@mixin height-width($height, $width) {
-  height: $height;
-  width: $width;
-}
-
-@mixin basic-section() {
-    background-color: $background-color;
-
-}
+// height and width
+// padding 
+// margins??? 
+// flex??? 
+// spacing??? 
 
 @mixin box-shadow() {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
