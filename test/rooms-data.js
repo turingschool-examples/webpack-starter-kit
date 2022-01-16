@@ -56,7 +56,7 @@ module.exports = [
         "costPerNight": 231.46
     },
     {
-        "number": 12,
+        "number": 22,
         "roomType": "junior suite",
         "bidet": false,
         "bedSize": "king",

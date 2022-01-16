@@ -27,7 +27,19 @@ describe('User', () => {
     })
 
     it('Should be able to store bookings', () => {
-        expect(userOne.bookings).to.deep.equal([])
+        expect(userOne.bookings).to.deep.equal([]);
+    })
+
+    it('Should have a username', () => {
+        expect(userOne.userName).to.equal('customer1');
+    })
+
+    it('Should have a password', () => {
+        expect(userOne.password).to.equal('overlook2021');
+    })
+
+    it('Should be able to store a total', () => {
+        expect(userOne.total).to.equal(0);
     })
 })
 
