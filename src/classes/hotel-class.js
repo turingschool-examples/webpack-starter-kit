@@ -1,4 +1,7 @@
+import { forEach, keys } from "../../test/booking-data";
 import User from "./users-class";
+import Booking from "./bookings-class";
+import Room from "./rooms-class";
 
 class Hotel {
     constructor(bookings, rooms, users) {
@@ -7,13 +10,16 @@ class Hotel {
         this.customers = users;
         this.currentCustomer = undefined;
         this.manager = {};
+        this.availableRooms = [];
+        this.unavailable = [];
+        this.selectedDate;
     }
 
     findCustomer(username, password) {
         if (password === "overlook2021"){
             const result = this.customers.find(customer => {
                 if(username.includes(`${customer.id}`)){
-                    return customer 
+                    return customer
                 }
             })
             return result;
@@ -29,19 +35,61 @@ class Hotel {
             if(booking.userID === this.currentCustomer.id){
                 this.currentCustomer.bookings.push(booking);
             }
-        }) 
-        return result 
+        })
+        return result
     }
 
     calculateTotal() {
-        const result = this.rooms.filter(room => {
+      const result = this.rooms.filter(room => {
             this.currentCustomer.bookings.forEach(booking => {
                 if(room.number === booking.roomNumber){
                     this.currentCustomer.total += room.costPerNight
                 }
             })
         })
-        return result 
+        return result
+    }
+
+    findAvailableRooms(date) {
+        this.selectedDate = date;
+        this.availableRooms = [];
+        this.unavailable = [];
+        this.bookings.filter(booking => {
+          if(booking.date === date) {
+              this.unavailable.push(booking.roomNumber);
+          }
+        })
+        const result = this.rooms.filter(room => {
+          if(!this.unavailable.includes(room.number)){
+            this.availableRooms.push(room)
+          }
+        })
+        return result
+    }
+
+    filterRooms(types, date) {
+      this.findAvailableRooms(date)
+      const result = this.availableRooms.filter(room => {
+        if(types.includes(room.roomType) && !this.unavailable.includes(room.number)){
+          return room
+        }
+      })
+      this.availableRooms = result
+
+      return result
+    }
+
+    bookRoom(roomNumber) {
+      let booking = new Booking({
+        id: Date.now(),
+        userID: this.currentCustomer.id,
+        date: this.selectedDate,
+        roomNumber: roomNumber,
+        roomServiceCharges: []
+      })
+      this.bookings.push(booking);
+      this.currentCustomer.bookings.push(booking);
+      this.calculateTotal()
     }
 
 }
@@ -52,5 +100,5 @@ export default Hotel;
 
 
 
-// Is going to have access to all information 
-// Will use subclasses/child classes to get the 
+// Is going to have access to all information
+// Will use subclasses/child classes to get the

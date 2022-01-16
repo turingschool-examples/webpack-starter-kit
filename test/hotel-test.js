@@ -65,49 +65,32 @@ describe('Hotel', () => {
         overlook.setCurrentCustomer(overlook.findCustomer('customer1', 'overlook2021'));
         overlook.listCustomerBookings()
         overlook.calculateTotal()
-        console.log(overlook.currentCustomer)
         expect(overlook.currentCustomer.total).to.deep.equal(397.02)
     })
 
-    it("Should be able to create new bookings", () => {
-        expect()
+    it("Should be able to store available rooms", () => {
+        expect(overlook.availableRooms).to.deep.equal([]);
     })
 
-    it("Should not allow a room to be double booked", () => {
-        expect()
+    it("Should have unavailable rooms", () => {
+      expect(overlook.unavailable).to.deep.equal([]);
     })
 
-    it("Should show rooms avaialbe for a given date", () => {
-        expect()
+    it("Should show rooms available for a given date", () => {
+        overlook.findAvailableRooms("2022/02/16");
+        expect(overlook.availableRooms).to.have.lengthOf(7);
     })
 
-    it("Should apologize when rooms are not availalbe", () => {
-        expect()
-    })
 
     it("Should be able to sort by room type", () => {
-        expect()
+      overlook.filterRooms(["residential suite"],"2022/02/16")
+      expect(overlook.availableRooms).to.have.lengthOf(1);
     })
 
-
+    it("Should be able to create new bookings", () => {
+          overlook.setCurrentCustomer(overlook.findCustomer('customer1', 'overlook2021'));
+          overlook.filterRooms(["residential suite"],"2022/02/16");
+          overlook.bookRoom(1);
+        expect(overlook.bookings).to.have.lengthOf(6);
+    })
 })
-
-// 1. Dashboard
-// As a customer:
-
-// I should see a dashboard page that shows me:
-// Any room bookings I have made(past or present / upcoming)
-// The total amount I have spent on rooms
-// 2. Customer Interaction
-// As a customer:
-
-// I should be able to select a date for which I’d like to book a room for myself
-// Upon selecting a date, I should be shown a list of room details for only rooms that are available on that date
-// I should be able to filter the list of available rooms by their roomType property
-// I should be able to select a room for booking
-// In the event that no rooms are available for the date / roomType selected, display a message fiercely apologizing to the user and asking them to adjust their room search
-// Refer to the “Add new booking” section from the endpoints table above!
-
-// Note!
-// If you haven’t already, focus on accessibility at this point.Before moving to iteration 3, please create a branch and push it up to GH so instructors can run Lighthouse and check your dashboard for it’s accessibility audit.
-
