@@ -32,6 +32,23 @@ describe('Hotel', () => {
         expect(overlook.manager).to.be.an("object");
     })
 
+    it('Should be able to find the current user', () => {
+        expect(overlook.findCustomer('customer1', 'overlook2021')).to.deep.equal({ id: 1, name: "Leatha Ullrich"});
+    })
+
+    it('Should be able to set current customer details', () => {
+        overlook.setCurrentCustomer(overlook.findCustomer('customer1', 'overlook2021'))
+        expect(overlook.currentCustomer).to.deep.equal({
+            id: 1,
+            name: 'Leatha Ullrich',
+            userName: 'customer1',
+            password: 'overlook2021',
+            isCustomer: true,
+            bookings: [],
+            total: 0
+        });
+    })
+
     it("Should be able to tell a customer their purchase history", () => {
         expect()
     })
