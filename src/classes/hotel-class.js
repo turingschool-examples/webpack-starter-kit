@@ -21,9 +21,27 @@ class Hotel {
     }
 
     setCurrentCustomer(user) {
-        console.log(user)
         this.currentCustomer = new User(user);
-        console.log(this.currentCustomer)
+    }
+
+    listCustomerBookings() {
+        const result = this.bookings.filter(booking => {
+            if(booking.userID === this.currentCustomer.id){
+                this.currentCustomer.bookings.push(booking);
+            }
+        }) 
+        return result 
+    }
+
+    calculateTotal() {
+        const result = this.rooms.filter(room => {
+            this.currentCustomer.bookings.forEach(booking => {
+                if(room.number === booking.roomNumber){
+                    this.currentCustomer.total += room.costPerNight
+                }
+            })
+        })
+        return result 
     }
 
 }

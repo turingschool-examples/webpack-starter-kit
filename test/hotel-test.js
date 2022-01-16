@@ -37,7 +37,7 @@ describe('Hotel', () => {
     })
 
     it('Should be able to set current customer details', () => {
-        overlook.setCurrentCustomer(overlook.findCustomer('customer1', 'overlook2021'))
+        overlook.setCurrentCustomer(overlook.findCustomer('customer1', 'overlook2021'));
         expect(overlook.currentCustomer).to.deep.equal({
             id: 1,
             name: 'Leatha Ullrich',
@@ -49,8 +49,24 @@ describe('Hotel', () => {
         });
     })
 
-    it("Should be able to tell a customer their purchase history", () => {
-        expect()
+    it("Should be able to give user a list of all of their bookings", () => {
+        overlook.setCurrentCustomer(overlook.findCustomer('customer1', 'overlook2021'));
+        overlook.listCustomerBookings()
+        expect(overlook.currentCustomer.bookings).to.deep.equal([{
+            id: '5fwrgu4i7k55hl6t8',
+            userID: 1,
+            date: '2022/02/05',
+            roomNumber: 12,
+            roomServiceCharges: []
+        }]);
+    })
+
+    it("Should be able to tell a customer their total spent", () => {
+        overlook.setCurrentCustomer(overlook.findCustomer('customer1', 'overlook2021'));
+        overlook.listCustomerBookings()
+        overlook.calculateTotal()
+        console.log(overlook.currentCustomer)
+        expect(overlook.currentCustomer.total).to.deep.equal(397.02)
     })
 
     it("Should be able to create new bookings", () => {
