@@ -16,7 +16,9 @@ const loadPage = () => {
     .then(data => {
       hotel = new Hotel(data[3].bookings, data[2].rooms, data[0].customers)
       hotel.setCurrentCustomer(hotel.findCustomer("customer1", 'overlook2021'))
-      domUpdates.displayUserName()
+      hotel.listCustomerBookings();
+      hotel.calculateTotal();
+      domUpdates.displayUserName();
     })
 }
 
