@@ -9,31 +9,31 @@
 <body>
   <header>
     <h1>Welcome to The Overlook Hotel</h1>
-    <section class="header-buttons hidden">
-      <button class="header-button" id="booking-button">Make a Booking</button>
-      <button class="header-button" id="profile-button">My Profile</button>
+    <section class="header-buttons">
+      <button class="header-button" id="bookingButton">Make a Booking</button>
+      <button class="header-button" id="profileButton">My Profile</button>
     </section>
     <section class="logged-in-as">
-      <h2>You are logged in as:</h2>
-      <h3 id="logged-in-name"></h3>
+      <h2 id="loggedInAs">You are logged in as:</h2>
+      <h3 id="loggedInName"></h3>
     </section>
   </header>
   <main>
-    <section class="login-display" id="loginDisplay">
+    <section class="login-display hidden" id="loginDisplay">
       <form class="login-form">
         <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required><br>
+        <input type="text" placeholder="Enter Username" name="uname" required id="userNameInput"><br>
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required><br>
-        <button type="submit">Login</button>
+        <input type="password" placeholder="Enter Password" name="psw" required id="passwordInput"><br>
+        <button type="submit" id="loginButton">Login</button>
       </form>
     </section>
     <section class="bookings hidden">
-      <section class="bookings-section">
+      <section class="bookings-section" id="bookingSection">
         <h2>PlaceHolder</h2>
         <form class="bookings-form">
           <label for="booking-date">Date:</label>
-          <input type="date" id="date" name="booking-date" value="2022-01-15" min="2022-01-15" max="2022-12-31">
+          <input type="date" id="date" name="booking-date" value="2022-01-15" min="2022-01-15" max="2022-12-31"><br>
           <input type="checkbox" id="singleRoom" name="single-room" value="single room">
           <label for="single-room">single room</label>
           <input type="checkbox" id="juniorSuite" name="junior-suite" value="junior suite">
@@ -42,13 +42,15 @@
           <label for="suite">suite</label>
           <input type="checkbox" id="residentialSuite" name="residential-suite" value="residential suite">
           <label for="residential-suite">residential suite</label>
+          <button id="checkAvailability">Check Availability</button>
         </form>
+        <h3 class="hidden" id="fierceApology">We are all booked for that date. Please select another date.</h3>
       </section>
     </section>
-    <section class="users-profile hidden">
+    <section class="users-profile" id="usersProfile">
       <h2>Your Bookings</h2>
-      <section class="users-bookings">
-      </section>
+      <section class="users-bookings" id="userBookings"></section>
+      <h3 id="userTotal"></h3>
     </section>
   </main>
   <script src="bundle.js"></script>
