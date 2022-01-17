@@ -10,16 +10,26 @@ const loginButton = document.getElementById('loginButton');
 
 
 let hotel;
+let customerId;
 
-const loadPage = () => {
-  Promise.all([customersData, userData, roomsData, bookingsData])
+
+
+const loadPage = (id) => {
+  Promise.all([customersData, userData(id), roomsData, bookingsData])
     .then(data => {
+      console.log(data[1])
       hotel = new Hotel(data[3].bookings, data[2].rooms, data[0].customers)
-      hotel.setCurrentCustomer(hotel.findCustomer("customer1", 'overlook2021'))
+      hotel.setCurrentCustomer(data[1])
       hotel.listCustomerBookings();
       hotel.calculateTotal();
       domUpdates.displayUserName();
+      domUpdates.showProfile();
+      domUpdates.displayButtons();
     })
+}
+
+const setUserId =() => {
+  customerId = parseInt(userNameInput.value.substring(8))
 }
 
 const bookRoom = (event) => {
@@ -35,13 +45,14 @@ const bookRoom = (event) => {
   })
 }
 
+const login = (event) => {
+  event.preventDefault()
+  setUserId()
+  if(customerId < 50 && 0 < customerId && passwordInput.value === 'overlook2021'){
+    loadPage(customerId)
+  }
+}
 
-
-// const login = () => {
-//
-// }
-
-window.addEventListener('load', loadPage);
-// loginButton.addEventListener('click', login)
+loginButton.addEventListener('click', login)
 
 export {hotel, bookRoom}

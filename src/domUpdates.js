@@ -20,6 +20,7 @@ const fierceApology = document.getElementById('fierceApology');
 const roomDisplay = document.getElementById('roomDisplay');
 const bookingForm = document.getElementById('bookingForm');
 const bookedMessage = document.getElementById('bookedMessage');
+const bookingPage = document.getElementById('bookingPage');
 let bookingButtons;
 
 
@@ -113,6 +114,9 @@ const createButtons = () => {
 
 let domUpdates = {
 
+displayButtons() {
+  show([profileButton, bookingButton])
+},
 
 displayUserName() {
   loggedInName.innerText = `${hotel.currentCustomer.name}`;
@@ -126,7 +130,7 @@ showProfile() {
 },
 
 showAvailableBookings() {
-  showHide([bookingSection, bookingForm], [loginDisplay, usersProfile, bookedMessage])
+  showHide([bookingSection, bookingForm, bookingPage], [loginDisplay, usersProfile, bookedMessage])
 },
 
 
