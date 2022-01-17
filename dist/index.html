@@ -28,12 +28,12 @@
         <button type="submit" id="loginButton">Login</button>
       </form>
     </section>
-    <section class="bookings hidden">
+    <section class="bookings">
       <section class="bookings-section" id="bookingSection">
-        <h2>PlaceHolder</h2>
-        <form class="bookings-form">
-          <label for="booking-date">Date:</label>
-          <input type="date" id="date" name="booking-date" value="2022-01-15" min="2022-01-15" max="2022-12-31"><br>
+        <form class="bookings-form" id="bookingForm">
+          <h2>Please select a date and room type:</h2><br>
+          <label for="booking-date">Date:</label><br>
+          <input type="date" id="date" name="booking-date" value="2022-01-20" min="2022-01-20" max="2022-12-31"><br>
           <input type="checkbox" id="singleRoom" name="single-room" value="single room">
           <label for="single-room">single room</label>
           <input type="checkbox" id="juniorSuite" name="junior-suite" value="junior suite">
@@ -44,10 +44,16 @@
           <label for="residential-suite">residential suite</label>
           <button id="checkAvailability">Check Availability</button>
         </form>
-        <h3 class="hidden" id="fierceApology">We are all booked for that date. Please select another date.</h3>
+        <section id="roomDisplay">
+          <h2 id="availabilityForDate"></h2>
+          <section id="roomAvailability">
+          </section>
+        </section>
+        <h3 class="hidden" id="bookedMessage">Thank you for booking with us! See you soon!</h3>
+        <h3 class="hidden" id="fierceApology">Oh No! We are all booked for that date. Please select another date.</h3>
       </section>
     </section>
-    <section class="users-profile" id="usersProfile">
+    <section class="users-profile hidden" id="usersProfile">
       <h2>Your Bookings</h2>
       <section class="users-bookings" id="userBookings"></section>
       <h3 id="userTotal"></h3>

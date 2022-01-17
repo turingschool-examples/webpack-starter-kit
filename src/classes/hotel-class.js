@@ -79,14 +79,8 @@ class Hotel {
       return result
     }
 
-    bookRoom(roomNumber) {
-      let booking = new Booking({
-        id: Date.now(),
-        userID: this.currentCustomer.id,
-        date: this.selectedDate,
-        roomNumber: roomNumber,
-        roomServiceCharges: []
-      })
+    bookRoom(room) {
+      let booking = new Booking(room)
       this.bookings.push(booking);
       this.currentCustomer.bookings.push(booking);
       this.calculateTotal()
