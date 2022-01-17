@@ -126,7 +126,7 @@ showProfile() {
 },
 
 showAvailableBookings() {
-  showHide([bookingSection], [loginDisplay, usersProfile])
+  showHide([bookingSection, bookingForm], [loginDisplay, usersProfile, bookedMessage])
 },
 
 
