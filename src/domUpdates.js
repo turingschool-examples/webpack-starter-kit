@@ -19,6 +19,8 @@ const availabilityForDate = document.getElementById('availabilityForDate');
 const fierceApology = document.getElementById('fierceApology');
 const roomDisplay = document.getElementById('roomDisplay');
 const bookingForm = document.getElementById('bookingForm');
+let bookingButtons;
+
 
 let selectedDate;
 let selectedRoomTypes = [];
@@ -73,6 +75,7 @@ const checkRoomAvailability = () => {
   assignSelectedData()
   if(selectedDate && selectedRoomTypes.length > 0){
     displayRooms()
+    createButtons()
     showHide([roomDisplay], [bookingForm, fierceApology])
   } else {
     show([fierceApology, bookingForm])
@@ -92,6 +95,16 @@ const displayRooms = () => {
             </div>`
     return acc
   }, '')
+}
+
+const createButtons = () => {
+  bookingButtons = document.querySelectorAll('.book-button');
+  bookingButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      console.log("Do I work>>>")
+      hotel.bookRoom(parseInt(button.value));
+    })
+  })
 }
 
 let domUpdates = {
