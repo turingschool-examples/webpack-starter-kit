@@ -23,6 +23,8 @@ const loadPage = (id) => {
       hotel.listCustomerBookings();
       hotel.calculateTotal();
       domUpdates.displayUserName();
+      domUpdates.showProfile();
+      domUpdates.displayButtons();
     })
 }
 

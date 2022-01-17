@@ -10,11 +10,11 @@
   <header>
     <h1>Welcome to The Overlook Hotel</h1>
     <section class="header-buttons">
-      <button class="header-button" id="bookingButton">Make a Booking</button>
-      <button class="header-button" id="profileButton">My Profile</button>
+      <button class="header-button hidden" id="bookingButton">Make a Booking</button>
+      <button class="header-button hidden" id="profileButton">My Profile</button>
     </section>
     <section class="logged-in-as">
-      <h2 id="loggedInAs">You are logged in as:</h2>
+      <h2 id="loggedInAs" class='hidden'>You are logged in as:</h2>
       <h3 id="loggedInName"></h3>
     </section>
   </header>
@@ -28,7 +28,7 @@
         <button type="submit" id="loginButton">Login</button>
       </form>
     </section>
-    <section class="bookings hidden">
+    <section class="bookings hidden" id="bookingPage">
       <section class="bookings-section" id="bookingSection">
         <form class="bookings-form" id="bookingForm">
           <h2>Please select a date and room type:</h2><br>
