@@ -33,7 +33,7 @@
         <h2>PlaceHolder</h2>
         <form class="bookings-form">
           <label for="booking-date">Date:</label>
-          <input type="date" id="date" name="booking-date" value="2022-01-15" min="2022-01-15" max="2022-12-31">
+          <input type="date" id="date" name="booking-date" value="2022-01-15" min="2022-01-15" max="2022-12-31"><br>
           <input type="checkbox" id="singleRoom" name="single-room" value="single room">
           <label for="single-room">single room</label>
           <input type="checkbox" id="juniorSuite" name="junior-suite" value="junior suite">
@@ -42,13 +42,16 @@
           <label for="suite">suite</label>
           <input type="checkbox" id="residentialSuite" name="residential-suite" value="residential suite">
           <label for="residential-suite">residential suite</label>
+          <button id="checkAvailability">Check Availability</button>
         </form>
+        <h3 class="hidden" id="fierceApology">We are all booked for that date. Please select another date.</h3>
       </section>
     </section>
     <section class="users-profile" id="usersProfile">
       <h2>Your Bookings</h2>
       <section class="users-bookings">
       </section>
+      <h3 id="userTotal"></h3>
     </section>
   </main>
   <script src="bundle.js"></script>
