@@ -22,6 +22,19 @@ const loadPage = () => {
     })
 }
 
+const bookRoom = (event) => {
+  let data = {
+    userID: hotel.currentCustomer.id,
+    date: hotel.selectedDate.replaceAll('-', '/'),
+    roomNumber: parseInt(event.target.value),
+  }
+  console.log(data)
+  return postBooking(data)
+  .then(data => {
+    hotel.bookRoom(data.newBooking)
+  })
+}
+
 
 
 // const login = () => {
@@ -31,4 +44,4 @@ const loadPage = () => {
 window.addEventListener('load', loadPage);
 // loginButton.addEventListener('click', login)
 
-export {hotel}
+export {hotel, bookRoom}

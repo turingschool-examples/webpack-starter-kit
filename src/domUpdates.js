@@ -1,4 +1,4 @@
-import {hotel} from './scripts'
+import {hotel, bookRoom} from './scripts'
 
 const loggedInAs = document.getElementById('loggedInAs');
 const loggedInName = document.getElementById('loggedInName');
@@ -19,6 +19,7 @@ const availabilityForDate = document.getElementById('availabilityForDate');
 const fierceApology = document.getElementById('fierceApology');
 const roomDisplay = document.getElementById('roomDisplay');
 const bookingForm = document.getElementById('bookingForm');
+const bookedMessage = document.getElementById('bookedMessage');
 let bookingButtons;
 
 
@@ -76,9 +77,9 @@ const checkRoomAvailability = () => {
   if(selectedDate && selectedRoomTypes.length > 0){
     displayRooms()
     createButtons()
-    showHide([roomDisplay], [bookingForm, fierceApology])
+    showHide([roomDisplay], [bookingForm, fierceApology, bookedMessage])
   } else {
-    show([fierceApology, bookingForm])
+    showHide([fierceApology, bookingForm], [bookedMessage, roomDisplay])
   }
 }
 
@@ -101,8 +102,11 @@ const createButtons = () => {
   bookingButtons = document.querySelectorAll('.book-button');
   bookingButtons.forEach(button => {
     button.addEventListener('click', (event) => {
-      console.log("Do I work>>>")
-      hotel.bookRoom(parseInt(button.value));
+
+      bookRoom(event)
+      .then(data => {
+        showHide([bookedMessage], [bookingForm, fierceApology,roomDisplay])
+      })
     })
   })
 }
