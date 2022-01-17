@@ -2,32 +2,50 @@ import {hotel} from './scripts'
 
 const loggedInAs = document.getElementById('loggedInAs');
 const loggedInName = document.getElementById('loggedInName');
+const loginDisplay = document.getElementById('loginDisplay');
+const profileButton = document.getElementById('profileButton');
+const bookingButton = document.getElementById('bookingButton');
+const usersProfile = document.getElementById('usersProfile');
+const bookingSection = document.getElementById('bookingSection');
+
+const hide = (toHide) => {
+toHide.forEach(element => {
+  element.classList.add('hidden');
+})
+};
+
+const show = (toShow) => {
+toShow.forEach(element => {
+  element.classList.remove('hidden');
+})
+};
+
+const showHide = (toShow, toHide) => {
+  hide(toHide);
+  show(toShow);
+};
 
 let domUpdates = {
 
-  hide(toHide){
-  toHide.forEach(element => {
-    element.classList.add('hidden');
-  })
-},
 
-show(toShow){
-  toShow.forEach(element => {
-    element.classList.remove('hidden');
-  });
-},
-
-showHide(toShow, toHide){
-  this.hide(toHide);
-  this.show(toShow);
-},
-
-displayUserName(){
+displayUserName() {
   loggedInName.innerText = `${hotel.currentCustomer.name}`;
-  this.show([loggedInAs, loggedInName]);
-}
+  show([loggedInAs, loggedInName]);
+},
 
-}
+showProfile() {
+  showHide([usersProfile], [loginDisplay, bookingSection])
+},
+
+showAvailableBookings() {
+  showHide([bookingSection], [loginDisplay, usersProfile])
+},
+
+};
+
+profileButton.addEventListener('click', domUpdates.showProfile);
+bookingButton.addEventListener('click', domUpdates.showAvailableBookings);
+
 
 
 export {domUpdates}
