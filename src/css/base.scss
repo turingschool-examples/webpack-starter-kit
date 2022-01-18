@@ -21,6 +21,7 @@ header {
   display: inline-flex;
   width: 100%;
   padding: 2%;
+  margin: 0;
   background-color: $light-grey;
   @include box-shadow();
   opacity: 80%;

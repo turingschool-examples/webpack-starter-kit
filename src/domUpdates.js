@@ -21,6 +21,7 @@ const roomDisplay = document.getElementById('roomDisplay');
 const bookingForm = document.getElementById('bookingForm');
 const bookedMessage = document.getElementById('bookedMessage');
 const bookingPage = document.getElementById('bookingPage');
+const pleaseMakeSelection = document.getElementById('pleaseMakeSelection');
 let bookingButtons;
 
 
@@ -54,7 +55,6 @@ const displayBookings = () => {
             </div>`
     return acc
   }, "")
-
 };
 
 const displayTotal = () => {
@@ -76,28 +76,33 @@ const checkRoomAvailability = () => {
   event.preventDefault()
   assignSelectedData()
   if(selectedDate && selectedRoomTypes.length > 0){
-    displayRooms()
-    createButtons()
-    showHide([roomDisplay], [bookingForm, fierceApology, bookedMessage])
+    if(hotel.availableRooms.length > 0){
+      displayRooms()
+      createButtons()
+      showHide([roomDisplay], [bookingForm, fierceApology, bookedMessage])
+    } else {
+      showHide([fierceApology, bookingForm], [bookedMessage, roomDisplay, pleaseMakeSelection])
+    }
   } else {
-    showHide([fierceApology, bookingForm], [bookedMessage, roomDisplay])
+    showHide([fierceApology, bookingForm, pleaseMakeSelection], [bookedMessage, roomDisplay])
   }
 }
 
 const displayRooms = () => {
   hotel.filterRooms(selectedRoomTypes, selectedDate)
-  availabilityForDate.innerText = `Rooms available for ${hotel.selectedDate}`
-  roomAvailability.innerHTML = hotel.availableRooms.reduce((acc, room) => {
-    acc += `<div class="available-rooms">
-              <h3>Type of room: ${room.roomType}</h3>
-              <p>Beds: ${room.numBeds} ${room.bedSize}</p>
-              <p>Bidet: ${room.bidet}</p>
-              <p>Room ${room.number} is ${room.costPerNight} per night</p>
-              <button class="book-button" value="${room.number}">Book Room</button>
-            </div>`
-    return acc
-  }, '')
+      availabilityForDate.innerText = `Rooms available for ${hotel.selectedDate}`
+      roomAvailability.innerHTML = hotel.availableRooms.reduce((acc, room) => {
+        acc += `<div class="available-rooms">
+                  <h3>Type of room: ${room.roomType}</h3>
+                  <p>Beds: ${room.numBeds} ${room.bedSize}</p>
+                  <p>Bidet: ${room.bidet}</p>
+                  <p>Room ${room.number} is ${room.costPerNight} per night</p>
+                  <button class="book-button" value="${room.number}">Book Room</button>
+                </div>`
+        return acc
+      }, '')
 }
+
 
 const createButtons = () => {
   bookingButtons = document.querySelectorAll('.book-button');
@@ -111,6 +116,7 @@ const createButtons = () => {
     })
   })
 }
+
 
 let domUpdates = {
 
@@ -132,7 +138,6 @@ showProfile() {
 showAvailableBookings() {
   showHide([bookingSection, bookingForm, bookingPage], [loginDisplay, usersProfile, bookedMessage])
 },
-
 
 };
 
