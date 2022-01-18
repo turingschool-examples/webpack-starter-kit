@@ -68,6 +68,7 @@ class Hotel {
     }
 
     filterRooms(types, date) {
+      console.log(date)
       this.findAvailableRooms(date)
       const result = this.availableRooms.filter(room => {
         if(types.includes(room.roomType) && !this.unavailable.includes(room.number)){
@@ -81,6 +82,7 @@ class Hotel {
 
     bookRoom(room) {
       let booking = new Booking(room)
+      console.log(booking)
       this.bookings.push(booking);
       this.currentCustomer.bookings.push(booking);
       this.calculateTotal()
