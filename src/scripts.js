@@ -15,7 +15,7 @@ let customerId;
 
 
 const loadPage = (id) => {
-  Promise.all([customersData, userData(id), roomsData, bookingsData])
+  Promise.all([customersData(), userData(id), roomsData(), bookingsData()])
     .then(data => {
       console.log(data[1])
       hotel = new Hotel(data[3].bookings, data[2].rooms, data[0].customers)
@@ -43,6 +43,8 @@ const bookRoom = (event) => {
   .then(data => {
     hotel.bookRoom(data.newBooking)
   })
+  .catch(error => console.log(error))
+  // .catch(error => domUpdates.displayError(error))
 }
 
 const login = (event) => {

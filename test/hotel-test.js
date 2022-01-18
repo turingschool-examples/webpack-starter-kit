@@ -88,8 +88,8 @@ describe('Hotel', () => {
     })
 
     it("Should be able to create new bookings", () => {
-          overlook.setCurrentCustomer(overlook.findCustomer('customer1', 'overlook2021'));
           overlook.filterRooms(["residential suite"],"2022/02/16");
+          overlook.setCurrentCustomer(overlook.findCustomer('customer1', 'overlook2021'));
           overlook.bookRoom(1);
         expect(overlook.bookings).to.have.lengthOf(6);
     })

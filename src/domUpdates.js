@@ -22,6 +22,7 @@ const bookingForm = document.getElementById('bookingForm');
 const bookedMessage = document.getElementById('bookedMessage');
 const bookingPage = document.getElementById('bookingPage');
 const pleaseMakeSelection = document.getElementById('pleaseMakeSelection');
+
 let bookingButtons;
 
 
@@ -58,7 +59,7 @@ const displayBookings = () => {
 };
 
 const displayTotal = () => {
-  userTotal.innerText = `Total Spent with Us: $${hotel.currentCustomer.total}`
+  userTotal.innerText = `Total Spent with Us: $${hotel.currentCustomer.total.toFixed(2)}`
 };
 
 const assignSelectedData = () => {
@@ -72,15 +73,25 @@ const assignSelectedData = () => {
   }, [])
 };
 
+const clearForm = () => {
+  date.value = "";
+  let roomTypes = [singleRoom, juniorSuite, suite, residentialSuite]
+  roomTypes.forEach(type => {
+    type.checked = false
+  })
+}
+
 const checkRoomAvailability = () => {
   event.preventDefault()
   assignSelectedData()
   if(selectedDate && selectedRoomTypes.length > 0){
+    hotel.filterRooms(selectedRoomTypes, selectedDate)
     if(hotel.availableRooms.length > 0){
       displayRooms()
       createButtons()
-      showHide([roomDisplay], [bookingForm, fierceApology, bookedMessage])
+      showHide([roomDisplay], [bookingForm, fierceApology, bookedMessage,pleaseMakeSelection])
     } else {
+      clearForm();
       showHide([fierceApology, bookingForm], [bookedMessage, roomDisplay, pleaseMakeSelection])
     }
   } else {
@@ -89,14 +100,13 @@ const checkRoomAvailability = () => {
 }
 
 const displayRooms = () => {
-  hotel.filterRooms(selectedRoomTypes, selectedDate)
       availabilityForDate.innerText = `Rooms available for ${hotel.selectedDate}`
       roomAvailability.innerHTML = hotel.availableRooms.reduce((acc, room) => {
         acc += `<div class="available-rooms">
                   <h3>Type of room: ${room.roomType}</h3>
                   <p>Beds: ${room.numBeds} ${room.bedSize}</p>
                   <p>Bidet: ${room.bidet}</p>
-                  <p>Room ${room.number} is ${room.costPerNight} per night</p>
+                  <p>Room ${room.number} is ${room.costPerNight.toFixed(2)} per night</p>
                   <button class="book-button" value="${room.number}">Book Room</button>
                 </div>`
         return acc
@@ -108,10 +118,9 @@ const createButtons = () => {
   bookingButtons = document.querySelectorAll('.book-button');
   bookingButtons.forEach(button => {
     button.addEventListener('click', (event) => {
-
       bookRoom(event)
       .then(data => {
-        showHide([bookedMessage], [bookingForm, fierceApology,roomDisplay])
+        showHide([bookedMessage], [bookingForm, fierceApology,roomDisplay, pleaseMakeSelection])
       })
     })
   })
@@ -136,7 +145,8 @@ showProfile() {
 },
 
 showAvailableBookings() {
-  showHide([bookingSection, bookingForm, bookingPage], [loginDisplay, usersProfile, bookedMessage])
+  clearForm();
+  showHide([bookingSection, bookingForm, bookingPage], [loginDisplay, usersProfile, bookedMessage, pleaseMakeSelection])
 },
 
 };

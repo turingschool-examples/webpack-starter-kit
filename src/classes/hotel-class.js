@@ -55,7 +55,8 @@ class Hotel {
         this.availableRooms = [];
         this.unavailable = [];
         this.bookings.filter(booking => {
-          if(booking.date.replaceAll('/', '-') === date.replaceAll('/', '-')) {
+          console.log(date)
+          if(booking.date === date.replaceAll('/', '-')) {
               this.unavailable.push(booking.roomNumber);
           }
         })

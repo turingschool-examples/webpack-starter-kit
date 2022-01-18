@@ -2,15 +2,15 @@ const fetchData = (api) =>
   fetch(`http://localhost:3001/api/v1/${api}`)
     .then(response => response.json())
 
-const customersData = fetchData('customers')
+const customersData = () => fetchData('customers')
 
 const userData = (id) => {
   return fetchData(`customers/${id}`);
 }
 
-const roomsData = fetchData('rooms')
+const roomsData = () =>  fetchData('rooms')
 
-const bookingsData = fetchData('bookings')
+const bookingsData = () => fetchData('bookings')
 
 const postBooking = (data) => {
 
@@ -22,13 +22,16 @@ return fetch(`http://localhost:3001/api/v1/bookings`, {
   body: JSON.stringify(data),
 })
   .then(response => {
-    if(!response.ok){
-      console.log(response.json())
-      throw "response"
-    }
-    return response.json()
+    return errorHandling(response);
   })
-
 }
+
+const errorHandling = (response) => {
+  if(!response.ok){
+    throw "response"
+  }
+  return response.json()
+}
+
 
 export {customersData, userData, roomsData, bookingsData, postBooking};

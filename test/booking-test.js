@@ -23,7 +23,7 @@ let booking;
     })
 
     it("Should have a booking date", () => {
-        expect(booking.date).to.equal("2022/04/22")
+        expect(booking.date).to.equal("2022-04-22")
     })
 
     it("Should have a room number", () => {
