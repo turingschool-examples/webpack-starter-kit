@@ -56,11 +56,9 @@ class Hotel {
         this.unavailable = [];
         this.bookings.filter(booking => {
           if(booking.date.replaceAll('/', '-') === date.replaceAll('/', '-')) {
-            console.log(booking.date, date)
               this.unavailable.push(booking.roomNumber);
           }
         })
-        console.log(this.unavailable, date)
         const result = this.rooms.filter(room => {
           if(!this.unavailable.includes(room.number)){
             this.availableRooms.push(room)
@@ -70,7 +68,6 @@ class Hotel {
     }
 
     filterRooms(types, date) {
-      console.log(date)
       this.findAvailableRooms(date)
       const result = this.availableRooms.filter(room => {
         if(types.includes(room.roomType) && !this.unavailable.includes(room.number)){
