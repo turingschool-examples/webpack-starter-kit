@@ -28,5 +28,9 @@
     "build": "webpack",
     "test": "mochapack 'test/**/*.js'",
     "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.5",
+    "micromodal": "^0.4.10"
   }
 }
