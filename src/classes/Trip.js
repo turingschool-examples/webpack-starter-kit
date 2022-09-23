@@ -1,6 +1,8 @@
 class Trip {
-  constructor() {
-
+  constructor(userID, tripData) {
+    this.userID = userID;
+    this.userTrips = tripData.filter(trip => trip.userID === userID);
+    this.tripData = tripData;
   }
 }
 
