@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 class Trip {
   constructor(userID, tripData, destinationData) {
     this.userID = userID;
@@ -9,6 +11,7 @@ class Trip {
   getTripStatus(tripStatus) {
     const filteredTrips = this.userTrips
       .filter(trip => trip.status === tripStatus);
+
     return filteredTrips;
   };
 
@@ -32,7 +35,19 @@ class Trip {
 
     const total = (lodgingCost + flightCost) * 1.1;
 
-    return parseInt(total.toFixed(2));
+    return parseFloat(total.toFixed(2));
+  };
+
+  getTotalCostPerYear(year) {
+    const yearlyCost = this.userTrips.reduce((total, trip) => {
+      if (dayjs(trip.date).$y === year) {
+        total += this.getTripCostWithAgentFee()
+      };
+
+      return total;
+    }, 0);
+
+    return parseInt(yearlyCost.toFixed(2));
   };
 };
 
