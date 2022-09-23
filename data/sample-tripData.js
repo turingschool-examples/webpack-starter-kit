@@ -124,7 +124,7 @@ const tripData = [
     "travelers": 1,
     "date": "2022/09/24",
     "duration": 10,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 15,
@@ -133,7 +133,7 @@ const tripData = [
     "travelers": 3,
     "date": "2022/07/04",
     "duration": 6,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 16,
@@ -142,7 +142,7 @@ const tripData = [
     "travelers": 1,
     "date": "2022/11/20",
     "duration": 9,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 17,
@@ -151,7 +151,7 @@ const tripData = [
     "travelers": 1,
     "date": "2022/10/30",
     "duration": 20,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 18,
@@ -160,7 +160,7 @@ const tripData = [
     "travelers": 2,
     "date": "2022/09/25",
     "duration": 17,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }
 ]
