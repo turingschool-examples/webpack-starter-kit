@@ -35,17 +35,17 @@ describe('Trip', () => {
   it('should have all user\'s trips', () => {
     
     expect(trip1.userTrips).to.deep.equal([
-      { id: 6, userID: 1, destinationID: 13, travelers: 3, date: '2022/06/29', duration: 9, status: 'approved', suggestedActivities: [] },
+      { id: 6, userID: 1, destinationID: 13, travelers: 3, date: '2021/06/29', duration: 9, status: 'approved', suggestedActivities: [] },
       { id: 12, userID: 1, destinationID: 7, travelers: 6, date: '2022/10/17', duration: 6, status: 'approved', suggestedActivities: [] },
       { id: 18, userID: 1, destinationID: 1, travelers: 2, date: '2022/09/25', duration: 17, status: 'pending', suggestedActivities: [] }
     ]);
     expect(trip2.userTrips).to.deep.equal([
-      { id: 5, userID: 2,  destinationID: 14, travelers: 3, date: '2022/04/30', duration: 18, status: 'approved', suggestedActivities: [] },
+      { id: 5, userID: 2,  destinationID: 14, travelers: 3, date: '2021/04/30', duration: 18, status: 'approved', suggestedActivities: [] },
       { id: 11, userID: 2, destinationID: 8, travelers: 4, date: '2022/10/14', duration: 4, status: 'approved', suggestedActivities: [] },
       { id: 17, userID: 2, destinationID: 2, travelers: 1, date: '2022/10/30',  duration: 20, status: 'pending', suggestedActivities: [] }
     ]);
     expect(trip3.userTrips).to.deep.equal([
-      { id: 4, userID: 3, destinationID: 15, travelers: 2, date: '2022/02/25', duration: 10, status: 'approved', suggestedActivities: [] },
+      { id: 4, userID: 3, destinationID: 15, travelers: 2, date: '2021/02/25', duration: 10, status: 'approved', suggestedActivities: [] },
       { id: 10, userID: 3, destinationID: 9, travelers: 6, date: '2022/07/23', duration: 17, status: 'approved', suggestedActivities: [] },
       { id: 16, userID: 3, destinationID: 3, travelers: 1, date: '2022/11/20', duration: 9, status: 'pending', suggestedActivities: [] }
     ]);
@@ -119,7 +119,7 @@ describe('Trip', () => {
         userID: 1,
         destinationID: 13,
         travelers: 3,
-        date: '2022/06/29',
+        date: '2021/06/29',
         duration: 9,
         status: 'approved',
         suggestedActivities: []
@@ -141,7 +141,7 @@ describe('Trip', () => {
         userID: 2,
         destinationID: 14,
         travelers: 3,
-        date: '2022/04/30',
+        date: '2021/04/30',
         duration: 18,
         status: 'approved',
         suggestedActivities: []
@@ -163,7 +163,7 @@ describe('Trip', () => {
         userID: 3,
         destinationID: 15,
         travelers: 2,
-        date: '2022/02/25',
+        date: '2021/02/25',
         duration: 10,
         status: 'approved',
         suggestedActivities: []
@@ -197,6 +197,12 @@ describe('Trip', () => {
     expect(trip1.getTripCostWithAgentFee()).to.equal(2189.00);
     expect(trip2.getTripCostWithAgentFee()).to.equal(3058.00);
     expect(trip3.getTripCostWithAgentFee()).to.equal(2332.00);
+  });
+
+  it('should return the total cost spent for a the current year', () => {
+    expect(trip1.getTotalCostPerYear(2022)).to.equal(4378.00)
+    expect(trip2.getTotalCostPerYear(2022)).to.equal(6116.00)
+    expect(trip3.getTotalCostPerYear(2022)).to.equal(4664.00)
   });
 });
 
