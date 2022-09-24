@@ -61,7 +61,7 @@ const tripData = [
     "travelers": 5,
     "date": "2022/5/28",
     "duration": 20,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 8,
@@ -70,7 +70,7 @@ const tripData = [
     "travelers": 6,
     "date": "2022/02/07",
     "duration": 4,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 9,
@@ -79,7 +79,7 @@ const tripData = [
     "travelers": 5,
     "date": "2022/12/19",
     "duration": 19,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 10,
@@ -88,7 +88,7 @@ const tripData = [
     "travelers": 6,
     "date": "2022/07/23",
     "duration": 17,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 11,
@@ -97,7 +97,7 @@ const tripData = [
     "travelers": 4,
     "date": "2022/10/14",
     "duration": 4,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 12,
@@ -106,7 +106,7 @@ const tripData = [
     "travelers": 6,
     "date": "2022/10/17",
     "duration": 6,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 13,
@@ -124,7 +124,7 @@ const tripData = [
     "travelers": 1,
     "date": "2022/09/24",
     "duration": 10,
-    "status": "pending",
+    "status": "approved",
     "suggestedActivities": []
   }, {
     "id": 15,
@@ -133,7 +133,7 @@ const tripData = [
     "travelers": 3,
     "date": "2022/07/04",
     "duration": 6,
-    "status": "pending",
+    "status": "approved",
     "suggestedActivities": []
   }, {
     "id": 16,
@@ -142,7 +142,7 @@ const tripData = [
     "travelers": 1,
     "date": "2022/11/20",
     "duration": 9,
-    "status": "pending",
+    "status": "approved",
     "suggestedActivities": []
   }, {
     "id": 17,
@@ -151,7 +151,7 @@ const tripData = [
     "travelers": 1,
     "date": "2022/10/30",
     "duration": 20,
-    "status": "pending",
+    "status": "approved",
     "suggestedActivities": []
   }, {
     "id": 18,
@@ -160,7 +160,7 @@ const tripData = [
     "travelers": 2,
     "date": "2022/09/25",
     "duration": 17,
-    "status": "pending",
+    "status": "approved",
     "suggestedActivities": []
   }
 ]

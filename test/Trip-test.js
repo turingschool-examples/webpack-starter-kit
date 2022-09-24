@@ -3,7 +3,6 @@ const expect = chai.expect;
 
 import Trip from '../src/classes/Trip.js'
 import tripData from '../data/sample-tripData.js'
-import destinationData from '../data/sample-destinationData.js'
 
 describe('Trip', () => {
   let trip1;
@@ -11,9 +10,9 @@ describe('Trip', () => {
   let trip3;
 
   beforeEach( () => {
-    trip1 = new Trip(1, tripData, destinationData);
-    trip2 = new Trip(2, tripData, destinationData);
-    trip3 = new Trip(3, tripData, destinationData);
+    trip1 = new Trip(tripData[0]);
+    trip2 = new Trip(tripData[5]);
+    trip3 = new Trip(tripData[10]);
   });
 
   it('should be a function', () => {
@@ -26,183 +25,52 @@ describe('Trip', () => {
     expect(trip3).to.be.an.instanceOf(Trip);
   });
 
-  it('should take in a user id', () => {
-    expect(trip1.userID).to.equal(1)
-    expect(trip2.userID).to.equal(2)
-    expect(trip3.userID).to.equal(3)
+  it('should have a trip id', () => {
+    expect(trip1.id).to.equal(1)
+    expect(trip2.id).to.equal(6)
+    expect(trip3.id).to.equal(11)
   });
 
-  it('should have all user\'s trips', () => {
-    
-    expect(trip1.userTrips).to.deep.equal([
-      { id: 6, userID: 1, destinationID: 13, travelers: 3, date: '2021/06/29', duration: 9, status: 'approved', suggestedActivities: [] },
-      { id: 12, userID: 1, destinationID: 7, travelers: 6, date: '2022/10/17', duration: 6, status: 'approved', suggestedActivities: [] },
-      { id: 18, userID: 1, destinationID: 1, travelers: 2, date: '2022/09/25', duration: 17, status: 'pending', suggestedActivities: [] }
-    ]);
-    expect(trip2.userTrips).to.deep.equal([
-      { id: 5, userID: 2,  destinationID: 14, travelers: 3, date: '2021/04/30', duration: 18, status: 'approved', suggestedActivities: [] },
-      { id: 11, userID: 2, destinationID: 8, travelers: 4, date: '2022/10/14', duration: 4, status: 'approved', suggestedActivities: [] },
-      { id: 17, userID: 2, destinationID: 2, travelers: 1, date: '2022/10/30',  duration: 20, status: 'pending', suggestedActivities: [] }
-    ]);
-    expect(trip3.userTrips).to.deep.equal([
-      { id: 4, userID: 3, destinationID: 15, travelers: 2, date: '2021/02/25', duration: 10, status: 'approved', suggestedActivities: [] },
-      { id: 10, userID: 3, destinationID: 9, travelers: 6, date: '2022/07/23', duration: 17, status: 'approved', suggestedActivities: [] },
-      { id: 16, userID: 3, destinationID: 3, travelers: 1, date: '2022/11/20', duration: 9, status: 'pending', suggestedActivities: [] }
-    ]);
+  it('should have a traveler\'s id for a trip', () => {
+    expect(trip1.travelerID).to.equal(6)
+    expect(trip2.travelerID).to.equal(1)
+    expect(trip3.travelerID).to.equal(2)
   });
 
-  it('should take in all the trip data for all users', () => {
-    expect(trip1.trips).to.deep.equal(tripData);
-    expect(trip1.trips.length).to.equal(18);
-
-    expect(trip2.trips).to.deep.equal(tripData);
-    expect(trip2.trips.length).to.equal(18);
-
-    expect(trip3.trips).to.deep.equal(tripData);
-    expect(trip3.trips.length).to.equal(18);
+  it('should have a destination id for a trip', () => {
+    expect(trip1.destinationID).to.equal(18)
+    expect(trip2.destinationID).to.equal(13)
+    expect(trip3.destinationID).to.equal(8)
   });
 
-  it('should take in destination data', () => {
-    expect(trip1.destinations).to.deep.equal(destinationData);
-    expect(trip1.destinations.length).to.equal(18);
-
-    expect(trip2.destinations).to.deep.equal(destinationData);
-    expect(trip2.destinations.length).to.equal(18);
-
-    expect(trip3.destinations).to.deep.equal(destinationData);
-    expect(trip3.destinations.length).to.equal(18);
+  it('should have the number of travelers for a trip', () => {
+    expect(trip1.numberOfTravelers).to.equal(1)
+    expect(trip2.numberOfTravelers).to.equal(3)
+    expect(trip3.numberOfTravelers).to.equal(4)
   });
 
-  it('should return trips with a pending status', () => {
-    expect(trip1.getTripStatus('pending')).to.deep.equal([
-      {
-        id: 18,
-        userID: 1,
-        destinationID: 1,
-        travelers: 2,
-        date: '2022/09/25',
-        duration: 17,
-        status: 'pending',
-        suggestedActivities: []
-      }
-    ]);
-    expect(trip2.getTripStatus('pending')).to.deep.equal([
-      {
-        id: 17,
-        userID: 2,
-        destinationID: 2,
-        travelers: 1,
-        date: '2022/10/30',
-        duration: 20,
-        status: 'pending',
-        suggestedActivities: []
-      }
-    ]);
-    expect(trip3.getTripStatus('pending')).to.deep.equal([
-      {
-        id: 16,
-        userID: 3,
-        destinationID: 3,
-        travelers: 1,
-        date: '2022/11/20',
-        duration: 9,
-        status: 'pending',
-        suggestedActivities: []
-      }
-    ]);
+  it('should have a trip\'s departure date', () => {
+    expect(trip1.tripDate).to.equal('2021/09/16')
+    expect(trip2.tripDate).to.equal('2021/06/29')
+    expect(trip3.tripDate).to.equal('2022/10/14')
   });
 
-  it('should return trips with an approved status', () => {
-    expect(trip1.getTripStatus('approved')).to.deep.equal([
-      {
-        id: 6,
-        userID: 1,
-        destinationID: 13,
-        travelers: 3,
-        date: '2021/06/29',
-        duration: 9,
-        status: 'approved',
-        suggestedActivities: []
-      },
-      {
-        id: 12,
-        userID: 1,
-        destinationID: 7,
-        travelers: 6,
-        date: '2022/10/17',
-        duration: 6,
-        status: 'approved',
-        suggestedActivities: []
-      }
-    ]);
-    expect(trip2.getTripStatus('approved')).to.deep.equal([
-      {
-        id: 5,
-        userID: 2,
-        destinationID: 14,
-        travelers: 3,
-        date: '2021/04/30',
-        duration: 18,
-        status: 'approved',
-        suggestedActivities: []
-      },
-      {
-        id: 11,
-        userID: 2,
-        destinationID: 8,
-        travelers: 4,
-        date: '2022/10/14',
-        duration: 4,
-        status: 'approved',
-        suggestedActivities: []
-      }
-    ]);
-    expect(trip3.getTripStatus('approved')).to.deep.equal([
-      {
-        id: 4,
-        userID: 3,
-        destinationID: 15,
-        travelers: 2,
-        date: '2021/02/25',
-        duration: 10,
-        status: 'approved',
-        suggestedActivities: []
-      },
-      {
-        id: 10,
-        userID: 3,
-        destinationID: 9,
-        travelers: 6,
-        date: '2022/07/23',
-        duration: 17,
-        status: 'approved',
-        suggestedActivities: []
-      }
-    ]);
+  it('should have a trip\'s duration', () => {
+    expect(trip1.tripDuration).to.equal(8)
+    expect(trip2.tripDuration).to.equal(9)
+    expect(trip3.tripDuration).to.equal(4)
   });
 
-  it('should return the trip estimated lodging cost for a destination', () => {
-    expect(trip1.getTripCost('estimatedLodgingCostPerDay', 'duration')).to.equal(1190);
-    expect(trip2.getTripCost('estimatedLodgingCostPerDay', 'duration')).to.equal(2000);
-    expect(trip3.getTripCost('estimatedLodgingCostPerDay', 'duration')).to.equal(1170);
+  it('should have a trip\'s status', () => {
+    expect(trip1.tripStatus).to.equal('approved')
+    expect(trip2.tripStatus).to.equal('approved')
+    expect(trip3.tripStatus).to.equal('pending')
   });
 
-  it('should return the trip estimated flight cost for a destination', () => {
-    expect(trip1.getTripCost('estimatedFlightCostPerPerson', 'travelers')).to.equal(800);
-    expect(trip2.getTripCost('estimatedFlightCostPerPerson', 'travelers')).to.equal(780);
-    expect(trip3.getTripCost('estimatedFlightCostPerPerson', 'travelers')).to.equal(950);
-  });
-
-  it('should return the trip estimated flight cost for a destination', () => {
-    expect(trip1.getTripCostWithAgentFee()).to.equal(2189.00);
-    expect(trip2.getTripCostWithAgentFee()).to.equal(3058.00);
-    expect(trip3.getTripCostWithAgentFee()).to.equal(2332.00);
-  });
-
-  it('should return the total cost spent for a the current year', () => {
-    expect(trip1.getTotalCostPerYear(2022)).to.equal(4378.00)
-    expect(trip2.getTotalCostPerYear(2022)).to.equal(6116.00)
-    expect(trip3.getTotalCostPerYear(2022)).to.equal(4664.00)
+  it('should start with an empty array for a trip\'s suggested activities', () => {
+    expect(trip1.suggestedActivities).to.deep.equal([])
+    expect(trip2.suggestedActivities).to.deep.equal([])
+    expect(trip3.suggestedActivities).to.deep.equal([])
   });
 });
 
