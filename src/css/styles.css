@@ -1,3 +1,116 @@
-body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+/* * {
+  border: 2px solid #ff0000;
+} */
+
+html {
+  background-image: url('../images/travel-background.png');
+  background-size: cover;
+  background-position: fixed;
+  font-family: 'Acme';
+  font-size: 1vw;
+}
+
+/* body {
+
+} */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffffd9;
+  border-radius: 10px;
+  margin: 1%;
+}
+
+.header-title {
+  font-size: 3em;
+  margin: 1.5%;
+}
+
+.account-login-button {
+  background-color: transparent;
+  border: none;
+  font-family: 'Acme';
+  font-size: 1.25em;
+  margin: 1.5%;
+}
+
+.account-login-button:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 0.75rem #000dff);
+  cursor: pointer;
+}
+
+.adventure-welcome {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffffd9;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 10%;
+  margin-right: 30%;
+  margin-bottom: 10%;
+  margin-left: 30%;
+  padding: 5%;;
+}
+
+.traveler-data-overview {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffffd9;
+  border-radius: 10px;
+  margin-top: 3%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  padding: 1%;
+}
+
+.title {
+  background-color: #bababad2;
+  border-radius: 10px;
+  text-align: center;
+  padding: 2%;
+}
+
+.trips-container{
+  display: flex;
+}
+
+.trips {
+  margin: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 20vw;
+  height: 60vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.spent-and-booking-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  /* margin: 1%; */
+  width: 30vw
+}
+
+.traveler-spent-overview {
+  margin-bottom: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  height: 20vh;
+}
+
+.trip-booking-form{
+  padding-left: 1%;
+  padding-right: 1%;
+  height: 40vh;
+}
+
+.hidden {
+  display: none;
 }
