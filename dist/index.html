@@ -12,6 +12,7 @@
   <body>
     <header class="travel-tracker-header" id="travelTrackerHeader">
       <h1 class="header-title" id="headerTitle">Travel Tracker</h1>
+      <h2 class="welcome-traveler" id="welcomeTraveler"></h2>
       <button type="button" class="account-login-button hidden" id="accountLoginButton">Account Login</button>
     </header>
     <section class="adventure-welcome hidden" id="adventureWelcome">
@@ -22,15 +23,15 @@
       <section class="trips-container" id="tripsContainer">
         <div class="trips traveler-past-trips" id="travelerPastTrips">
           <h3 class="title past-trips" id="pastTripTitle">Past Trips</h3>
-          <section class="past-trips-container" id="pastTripsContainer"></section>
+          <section class="container past-trips-container" id="pastTripsContainer"></section>
         </div>
         <div class="trips traveler-upcoming-trips">
           <h3 class="title upcoming-trips" id="upcomingTripTitle">Upcoming Trips</h3>
-          <section class="upcoming-trips-container" id="upcomingTripsContainer"></section>
+          <section class="container upcoming-trips-container" id="upcomingTripsContainer"></section>
         </div>
         <div class="trips traveler-pending-trips">
           <h3 class="title pending-trips" id="pendingTripTitle">Pending Trips</h3>
-          <section class="pending-trips-container" id="pendingTripsContainer"></section>
+          <section class="container pending-trips-container" id="pendingTripsContainer"></section>
         </div>
       </section>
       <section class="spent-and-booking-container" id="spentAndBookingContainer">
@@ -40,7 +41,33 @@
         </div>
         <div class="column trip-booking-form" id="tripBookingForm">
           <h3 class="title booking-form" id="BookingFormTitle">Start a New Adventure</h3>
-          <!-- form goes here-->
+          <form autocomplete="off" class="booking-section" id="bookingSection">
+            <div>
+              <label>Choose a Destination: </label>
+              <select name="destinations" aria-label="destination selection drop down" class="input location-options" id="locationOptions" required>
+                <option disabled selected>choose your destination</option>
+              </select>
+            </div>
+            <div>
+              <label>Departure Date: </label>
+              <input type="date" aria-label="calendar date input" class="input calendar-input" id="calendarInput"required>
+            </div>
+            <div>
+              <label>Trip Length: </label>
+              <input type="number" aria-label="trip length input"class="input trip-length" id="tripLength" min="0" pattern="[0-9]+" required>
+            <div>
+              <label>Number of Travelers:</label>
+              <input type="number" aria-label="number of travelers input"class="input number-travelers" id="numberTravelers" min="0" pattern="[0-9]+" required>
+            </div>
+          </form>
+          <div class="booking-buttons">
+            <button class="display-estimate">Get Estimated Adventure Cost</button>
+            <p class="trip-estimate"></p>
+            <div>
+              <button class="book-trip">Book Adventure</button>
+              <button class="new-search">Search for a Different Adventure</button>
+            </div>
+          </div>
         </div>
       </section>
     </section>
