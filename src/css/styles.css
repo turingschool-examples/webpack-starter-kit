@@ -23,15 +23,23 @@ header {
 }
 
 .header-title {
-  font-size: 3em;
+  font-size: 3rem;
   margin: 1.5%;
+}
+
+.welcome-traveler {
+  display: flex;
+  align-items: center;
+  font-size: 1.75rem;
+  margin: 1.5%;
+
 }
 
 .account-login-button {
   background-color: transparent;
   border: none;
   font-family: 'Acme';
-  font-size: 1.25em;
+  font-size: 1.25rem;
   margin: 1.5%;
 }
 
@@ -47,7 +55,7 @@ header {
   background-color: #ffffffd9;
   border-radius: 10px;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   margin-top: 10%;
   margin-right: 30%;
   margin-bottom: 10%;
@@ -94,7 +102,6 @@ header {
 }
 
 .column {
-  /* margin: 1%; */
   width: 30vw
 }
 
@@ -102,13 +109,82 @@ header {
   margin-bottom: 1%;
   padding-left: 1%;
   padding-right: 1%;
-  height: 20vh;
 }
 
 .trip-booking-form{
   padding-left: 1%;
   padding-right: 1%;
   height: 40vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #000000d1;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 2%;
+  padding-bottom: 10%;
+}
+
+.image-card {
+  border-radius: 10px;
+  width: 16vw;
+}
+
+.location-name {
+  font-size: 1rem;
+}
+
+.traveler-spent-breakdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.25rem;
+}
+
+.breakdown {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lodging,
+.flights {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+}
+
+.lodging-spent,
+.flights-spent,
+.total-spent {
+  font-size: 1.5rem;
+}
+
+.booking-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trip-estimate {
+  font-size: 2rem;
+
 }
 
 .hidden {
