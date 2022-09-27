@@ -32,9 +32,9 @@ describe('Trip', () => {
   });
 
   it('should have a traveler\'s id for a trip', () => {
-    expect(trip1.travelerID).to.equal(5)
-    expect(trip2.travelerID).to.equal(1)
-    expect(trip3.travelerID).to.equal(6)
+    expect(trip1.userID).to.equal(5)
+    expect(trip2.userID).to.equal(1)
+    expect(trip3.userID).to.equal(6)
   });
 
   it('should have a destination id for a trip', () => {
@@ -44,27 +44,27 @@ describe('Trip', () => {
   });
 
   it('should have the number of travelers for a trip', () => {
-    expect(trip1.numberOfTravelers).to.equal(1)
-    expect(trip2.numberOfTravelers).to.equal(4)
-    expect(trip3.numberOfTravelers).to.equal(5)
+    expect(trip1.travelers).to.equal(1)
+    expect(trip2.travelers).to.equal(4)
+    expect(trip3.travelers).to.equal(5)
   });
 
   it('should have a trip\'s departure date', () => {
-    expect(trip1.tripDate).to.equal('2022/10/24')
-    expect(trip2.tripDate).to.equal('2023/07/21')
-    expect(trip3.tripDate).to.equal('2023/11/15')
+    expect(trip1.date).to.equal('2022/10/24')
+    expect(trip2.date).to.equal('2023/07/21')
+    expect(trip3.date).to.equal('2023/11/15')
   });
 
   it('should have a trip\'s duration', () => {
-    expect(trip1.tripDuration).to.equal(10)
-    expect(trip2.tripDuration).to.equal(5)
-    expect(trip3.tripDuration).to.equal(7)
+    expect(trip1.duration).to.equal(10)
+    expect(trip2.duration).to.equal(5)
+    expect(trip3.duration).to.equal(7)
   });
 
   it('should have a trip\'s status', () => {
-    expect(trip1.tripStatus).to.equal('approved')
-    expect(trip2.tripStatus).to.equal('pending')
-    expect(trip3.tripStatus).to.equal('pending')
+    expect(trip1.status).to.equal('approved')
+    expect(trip2.status).to.equal('pending')
+    expect(trip3.status).to.equal('pending')
   });
 
   it('should start with an empty array for a trip\'s suggested activities', () => {

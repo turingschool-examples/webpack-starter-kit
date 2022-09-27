@@ -3,11 +3,15 @@ const expect = chai.expect;
 
 import TripRepository from '../src/classes/TripRepository.js'
 import Traveler from '../src/classes/Traveler.js'
+import Trip from '../src/classes/Trip.js'
+import Destination from '../src/classes/Destination.js'
 import tripData from '../data/sample-tripData.js'
 import travelerData from '../data/sample-travelerData.js'
 import destinationData from '../data/sample-destinationData.js'
 
 describe('TripRepository', () => {
+  let destinations;
+  let trips;
   let traveler1;
   let traveler2;
   let traveler3;
@@ -16,12 +20,14 @@ describe('TripRepository', () => {
   let tripRepo3;
 
   beforeEach( () => {
+    destinations = destinationData.map(destination => new Destination(destination));
+    trips = tripData.map(trip => new Trip(trip));
     traveler1 = new Traveler(travelerData[1]);
     traveler2 = new Traveler(travelerData[3]);
     traveler3 = new Traveler(travelerData[5]);
-    tripRepo1 = new TripRepository(traveler1, tripData);
-    tripRepo2 = new TripRepository(traveler2, tripData);
-    tripRepo3 = new TripRepository(traveler3, tripData);
+    tripRepo1 = new TripRepository(traveler1, trips);
+    tripRepo2 = new TripRepository(traveler2, trips);
+    tripRepo3 = new TripRepository(traveler3, trips);
   });
 
   it('should be a function', () => {
@@ -94,35 +100,21 @@ describe('TripRepository', () => {
     ]);
   });
 
-  it('should get the total cost spent on lodging for the current year to date', () => {
-    expect(tripRepo1.getTravelCostForYearToDate(destinationData, 'estimatedLodgingCostPerDay', 'duration')).to.equal('120.00');
-    expect(tripRepo2.getTravelCostForYearToDate(destinationData, 'estimatedLodgingCostPerDay', 'duration')).to.equal('680.00');
-    expect(tripRepo3.getTravelCostForYearToDate(destinationData, 'estimatedLodgingCostPerDay', 'duration')).to.equal('600.00');
+  it('should get the total lodging cost spent for the current year to date', () => {
+    expect(tripRepo1.getTravelCostForYearToDate(destinations, 'lodgingCost', 'duration')).to.equal('2620.00');
+    expect(tripRepo2.getTravelCostForYearToDate(destinations, 'lodgingCost', 'duration')).to.equal('1220.00');
+    expect(tripRepo3.getTravelCostForYearToDate(destinations, 'lodgingCost', 'duration')).to.equal('2250.00');
   });
 
   it('should get the total cost spent on flight for the current year to date', () => {
-    expect(tripRepo1.getTravelCostForYearToDate(destinationData, 'estimatedFlightCostPerPerson', 'travelers')).to.equal('7200.00');
-    expect(tripRepo2.getTravelCostForYearToDate(destinationData, 'estimatedFlightCostPerPerson', 'travelers')).to.equal('5400.00');
-    expect(tripRepo3.getTravelCostForYearToDate(destinationData, 'estimatedFlightCostPerPerson', 'travelers')).to.equal('6600.00');
+    expect(tripRepo1.getTravelCostForYearToDate(destinations, 'flightCost', 'travelers')).to.equal('8200.00');
+    expect(tripRepo2.getTravelCostForYearToDate(destinations, 'flightCost', 'travelers')).to.equal('6750.00');
+    expect(tripRepo3.getTravelCostForYearToDate(destinations, 'flightCost', 'travelers')).to.equal('7800.00');
   });
 
   it('should get the total cost spent on trips for the current year to date', () => {
-    expect(tripRepo1.getTotalSpentForYearToDate(destinationData)).to.equal('8052.00');
-    expect(tripRepo2.getTotalSpentForYearToDate(destinationData)).to.equal('6688.00');
-    expect(tripRepo3.getTotalSpentForYearToDate(destinationData)).to.equal('7920.00');
-  });
-
-  it('should get the total cost spent for any given year', () => {
-    expect(tripRepo1.getTotalSpentForAnyYear(2021, destinationData)).to.equal('4035.90');
-    expect(tripRepo1.getTotalSpentForAnyYear(2022, destinationData)).to.equal('11902.00');
-    expect(tripRepo1.getTotalSpentForAnyYear(2023, destinationData)).to.equal('3850.00');
-
-    expect(tripRepo2.getTotalSpentForAnyYear(2021, destinationData)).to.equal('4543.00');
-    expect(tripRepo2.getTotalSpentForAnyYear(2022, destinationData)).to.equal('8767.00');
-    expect(tripRepo2.getTotalSpentForAnyYear(2023, destinationData)).to.equal('6897.00');
-
-    expect(tripRepo3.getTotalSpentForAnyYear(2021, destinationData)).to.equal('1782.00');
-    expect(tripRepo3.getTotalSpentForAnyYear(2022, destinationData)).to.equal('11055.00');
-    expect(tripRepo3.getTotalSpentForAnyYear(2023, destinationData)).to.equal('2739.00');
+    expect(tripRepo1.getTotalSpentForYearToDate(destinations)).to.equal('11902.00');
+    expect(tripRepo2.getTotalSpentForYearToDate(destinations)).to.equal('8767.00');
+    expect(tripRepo3.getTotalSpentForYearToDate(destinations)).to.equal('11055.00');
   });
 });
