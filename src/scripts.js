@@ -13,7 +13,6 @@ import TripRepository from './classes/TripRepository.js';
 import dayjs from 'dayjs';
 
 // Query Selectors
-// const  = document.querySelector('.')
 const welcomeTraveler = document.querySelector('.welcome-traveler');
 const pastTrips = document.querySelector('.past-trips-container');
 const upcomingTrips = document.querySelector('.upcoming-trips-container');
@@ -21,32 +20,36 @@ const pendingTrips = document.querySelector('.pending-trips-container');
 const spentBreakdown = document.querySelector('.traveler-spent-breakdown');
 const locationOptions = document.querySelector('.location-options');
 const tripEstimate = document.querySelector('.trip-estimate')
+const allInputs = document.querySelectorAll('.input')
+const errorMessage = document.querySelector('.error-message')
+
 const displayEstimate = document.querySelector('.display-estimate');
 const bookTrip = document.querySelector('.book-trip')
 const clearForm = document.querySelector('.new-search')
-const allInputs = document.querySelectorAll('.input')
 
+let destinationInput = document.getElementById('locationOptions');
+let calendarInput = document.getElementById('calendarInput');
+let durationInput = document.getElementById('tripLength');
+let numberTravelersInput = document.getElementById('numberTravelers');
+
+// Global Variables
 let travelerData;
 let tripData;
 let destinationData;
 let currentTraveler;
 let tripRepo;
-let trip;
-let destination;
 
 function fetchAllData() {
   Promise.all([fetchData('travelers'),fetchData('trips'),fetchData('destinations')])
     .then((data) => {
-      travelerData = data[0].travelers,
-      tripData = data[1].trips,
-      destinationData = data[2].destinations;
+      travelerData = data[0].travelers;
+      tripData = data[1].trips.map(trip => new Trip(trip));
+      destinationData = data[2].destinations.map(destination =>  new Destination(destination));
 
       currentTraveler = new Traveler(travelerData[Math.floor(Math.random() * travelerData.length)]);
       tripRepo = new TripRepository(currentTraveler, tripData);
-      trip = new Trip(tripData[0]); // data coming back undefined unless index number used - may not need this class
-      destination = new Destination(destinationData[0]); // data coming back undefined unless index number used - may not need this class
       
-      generatePageLoad()
+      generatePageLoad();
   });
 };
 
@@ -54,6 +57,21 @@ function fetchAllData() {
 window.addEventListener('load', fetchAllData);
 displayEstimate.addEventListener('click', displayTripEstimate);
 clearForm.addEventListener('click', resetTripForm);
+bookTrip.addEventListener('click', bookNewTrip);
+
+// Helper Functions
+function getTravelCost(cost, multiplier) {
+  return (cost * multiplier).toFixed(2);
+}
+
+function getTotalTripCost(singleDestination, singleTrip) {
+  const lodgingCost = singleDestination.lodgingCost * singleTrip.duration;
+  const flightCost = singleDestination.flightCost * singleTrip.travelers;
+
+  const total = (lodgingCost + flightCost) * 1.1;
+
+  return total.toFixed(2);
+};
 
 // DOM Functions
 function generatePageLoad() {
@@ -74,16 +92,16 @@ function displayTravelerPastTrips() {
     destinationData.forEach(destination => {
       if (trip.destinationID === destination.id) {
         pastTrips.innerHTML += `
-         <div class="card single-past-trip">
-           <img class="image-card" src="${destination.image}" alt="${destination.alt}"/>
-           <h4 class="location-name">${destination.destination}</h4>
-           <sub>Trip Date: ${dayjs(trip.date).format('M/D/YYYY')}</sub>
-           <sub>Travelers on This Trip: ${trip.travelers}</sub>
-           <sub>Trip Length: ${trip.duration} days</sub>
-           <sub>Trip Lodging Cost: $ ${(trip.duration * destination.estimatedLodgingCostPerDay).toFixed(2)}</sub>
-           <sub>Trip Flight Cost: $ ${(trip.travelers * destination.estimatedFlightCostPerPerson).toFixed(2)}</sub>
-           <sub>Total Cost of Trip: $ ${((((trip.duration * destination.estimatedLodgingCostPerDay)) + (trip.travelers * destination.estimatedFlightCostPerPerson)) * 1.1).toFixed(2)}</sub>
-         </div>`;
+        <div class="card single-past-trip">
+          <img class="image-card" src="${destination.image}" alt="${destination.alt}"/>
+          <h4 class="location-name">${destination.destination}</h4>
+          <sub>Trip Date: ${dayjs(trip.date).format('M/D/YYYY')}</sub>
+          <sub>Travelers on This Trip: ${trip.travelers}</sub>
+          <sub>Trip Length: ${trip.duration} days</sub>
+          <sub>Trip Lodging Cost: $ ${getTravelCost(destination.lodgingCost, trip.duration)}</sub>
+          <sub>Trip Flight Cost: $ ${getTravelCost(destination.flightCost, trip.travelers)}</sub>
+          <sub>Total Cost of Trip: $ ${getTotalTripCost(destination, trip)}</sub>
+        </div>`;
       };
     });
   });
@@ -96,16 +114,17 @@ function displayTravelerUpcomingTrips() {
     destinationData.forEach(destination => {
       if (trip.destinationID === destination.id) {
         upcomingTrips.innerHTML += `
-         <div class="card single-upcoming-trip">
-           <img class="image-card" src="${destination.image}" alt="${destination.alt}"/>
-           <h4 class="location-name">${destination.destination}</h4>
-           <sub>Trip Date: ${dayjs(trip.date).format('M/D/YYYY')}</sub>
-           <sub>Travelers on This Trip: ${trip.travelers}</sub>
-           <sub>Trip Length: ${trip.duration}</sub>
-           <sub>Trip Lodging Cost: $ ${(trip.duration * destination.estimatedLodgingCostPerDay).toFixed(2)}</sub>
-           <sub>Trip Flight Cost: $ ${(trip.travelers * destination.estimatedFlightCostPerPerson).toFixed(2)}</sub>
-           <sub>Total Cost of Trip: $ ${((((trip.duration * destination.estimatedLodgingCostPerDay)) + (trip.travelers * destination.estimatedFlightCostPerPerson)) * 1.1).toFixed(2)}</sub>
-         </div>`;
+        <div class="card single-past-trip">
+          <img class="image-card" src="${destination.image}" alt="${destination.alt}"/>
+          <h4 class="location-name">${destination.destination}</h4>
+          <sub>Trip Date: ${dayjs(trip.date).format('M/D/YYYY')}</sub>
+          <sub>Travelers on This Trip: ${trip.travelers}</sub>
+          <sub>Trip Length: ${trip.duration} days</sub>
+          <sub>Trip Lodging Cost: $ ${getTravelCost(destination.lodgingCost, trip.duration)}</sub>
+          <sub>Trip Flight Cost: $ ${getTravelCost(destination.flightCost, trip.travelers)}</sub>
+          <sub>Total Cost of Trip: $ ${getTotalTripCost(destination, trip)}</sub>
+          <br><sub>${trip.status.toUpperCase()}</sub>
+        </div>`;
       };
     });
   });
@@ -114,20 +133,22 @@ function displayTravelerUpcomingTrips() {
 };
 
 function displayTravelerPendingTrips() {
+  pendingTrips.innerHTML = ''
   const pendingTrip = tripRepo.pendingTrips.filter(trip => {
     destinationData.forEach(destination => {
       if (trip.destinationID === destination.id) {
         pendingTrips.innerHTML += `
-         <div class="card single-pending-trip">
-           <img class="image-card" src="${destination.image}" alt="${destination.alt}"/>
-           <h4 class="location-name">${destination.destination}</h4>
-           <sub>Trip Date: ${dayjs(trip.date).format('M/D/YYYY')}</sub>
-           <sub>Travelers on This Trip: ${trip.travelers}</sub>
-           <sub>Trip Length: ${trip.duration}</sub>
-           <sub>Trip Lodging Cost: $ ${(trip.duration * destination.estimatedLodgingCostPerDay).toFixed(2)}</sub>
-           <sub>Trip Flight Cost: $ ${(trip.travelers * destination.estimatedFlightCostPerPerson).toFixed(2)}</sub>
-           <sub>Total Cost of Trip: $ ${((((trip.duration * destination.estimatedLodgingCostPerDay)) + (trip.travelers * destination.estimatedFlightCostPerPerson)) * 1.1).toFixed(2)}</sub>
-         </div>`
+        <div class="card single-past-trip">
+          <img class="image-card" src="${destination.image}" alt="${destination.alt}"/>
+          <h4 class="location-name">${destination.destination}</h4>
+          <sub>Trip Date: ${dayjs(trip.date).format('M/D/YYYY')}</sub>
+          <sub>Travelers on This Trip: ${trip.travelers}</sub>
+          <sub>Trip Length: ${trip.duration} days</sub>
+          <sub>Trip Lodging Cost: $ ${getTravelCost(destination.lodgingCost, trip.duration)}</sub>
+          <sub>Trip Flight Cost: $ ${getTravelCost(destination.flightCost, trip.travelers)}</sub>
+          <sub>Total Cost of Trip: $ ${getTotalTripCost(destination, trip)}</sub>
+          <br><sub>${trip.status.toUpperCase()}</sub>
+        </div>`
       };
     });
   });
@@ -139,11 +160,11 @@ function displayTravelerSpentBreakdown() {
   return spentBreakdown.innerHTML = `
     <div class="breakdown">
       <div class="lodging">
-        <p class="lodging-spent">$ ${tripRepo.getTravelCostForYearToDate(destinationData, 'estimatedLodgingCostPerDay', 'duration')}</p>
+        <p class="lodging-spent">$ ${tripRepo.getTravelCostForYearToDate(destinationData, 'lodgingCost', 'duration')}</p>
         <sub>Spent on lodging.</sub>
       </div>
       <div class="flights">
-        <p class="flights-spent">$ ${tripRepo.getTravelCostForYearToDate(destinationData, 'estimatedFlightCostPerPerson', 'travelers')}</p>
+        <p class="flights-spent">$ ${tripRepo.getTravelCostForYearToDate(destinationData, 'flightCost', 'travelers')}</p>
         <sub>Spent of flights.</sub>
       </div>
     </div>
@@ -154,7 +175,7 @@ function displayTravelerSpentBreakdown() {
 function displayLocationOptions() {
   const locations = destinationData.forEach(destination => {
     locationOptions.innerHTML += `
-      <option class="destination-choice" id="destinationChoice">${destination.destination}</option>`
+      <option value="${destination.id}">${destination.destination}</option>`
   });
 
   return locations;
@@ -162,16 +183,16 @@ function displayLocationOptions() {
 
 function displayTripEstimate(event) {
   event.preventDefault();
-  const destinationInput = document.getElementById('destinationChoice').value;
-  const durationInput = document.getElementById('tripLength').value;
-  const numberTravelersInput = document.getElementById('numberTravelers').value;
 
-  if (destinationInput === '' || durationInput === '' || numberTravelersInput === '') {
-    return alert('Please enter a valid input in each field!')
+  if (destinationInput.value === '' || calendarInput.value === '' || durationInput.value === '' || numberTravelersInput.value === '') {
+    return errorMessage.innerHTML = 'Please enter valid inputs in each field';
   } else {
-    const getDestination = destinationData.find(destination => destination.destination === destinationInput);
+    errorMessage.innerHTML = '';
 
-    const getEstimate = ((getDestination.estimatedLodgingCostPerDay * durationInput) + (getDestination.estimatedFlightCostPerPerson * numberTravelersInput) * 1.1);
+    const getDestination = destinationData
+      .find(destination => destination.id === parseInt(destinationInput.value));
+
+    const getEstimate = ((getDestination.lodgingCost * parseInt(durationInput.value)) + (getDestination.flightCost * parseInt(numberTravelersInput.value)) * 1.1);
 
     return tripEstimate.innerHTML = `$ ${getEstimate.toFixed(2)}`;
   };
@@ -179,12 +200,45 @@ function displayTripEstimate(event) {
 
 function resetTripForm(event) {
   event.preventDefault();
-  const clearInputs = allInputs.forEach(input => input.value = '');
 
+  const clearInputs = allInputs.forEach(input => input.value = '');
   tripEstimate.innerHTML = '';
 
   return clearInputs;
 };
 
 // POST Functions
+function bookNewTrip(event) {
+  event.preventDefault();
+
+  if (destinationInput.value === '' || calendarInput.value === '' || durationInput.value === '' || numberTravelersInput.value === '') {
+    return errorMessage.innerHTML = 'Please enter valid inputs in each field'
+  } else {
+    errorMessage.innerHTML = '';
+    
+    const newDestination = destinationData
+      .find(destination => destination.id === parseInt(destinationInput.value))
+ 
+    const newTrip = {
+      id: Date.now(),
+      userID: currentTraveler.id,
+      destinationID: newDestination.id,
+      travelers: numberTravelersInput.value,
+      date: dayjs(calendarInput.value).format('YYYY/MM/DD'),
+      duration: durationInput.value,
+      status: "pending",
+      suggestedActivities: []
+    };
+
+    Promise.all([postData('trips', newTrip)])
+    .then(response => {
+      tripRepo.allTravelerTrips.push(new Trip(response[0].newTrip));
+      tripRepo.pendingTrips.push(new Trip(response[0].newTrip));
+      displayTravelerPendingTrips();
+    });
+  };
+
+  allInputs.forEach(input => input.value = '');
+  tripEstimate.innerHTML = '';
+};
 
