@@ -1,98 +1,95 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
-    rel="stylesheet">
-  <title>Travel Tracker</title>
-</head>
-
-<body>
-  <header class="travel-tracker-header" id="travelTrackerHeader">
-    <h1 class="header-title" id="headerTitle">Travel Tracker</h1>
-    <h2 class="welcome-traveler" id="welcomeTraveler"></h2>
-    <button type="button" class="account-login-button hidden"
-      id="accountLoginButton">Account Login</button>
-  </header>
-  <section class="adventure-welcome hidden" id="adventureWelcome">
-    <h2 class="homepage-welcome" id="homepageWelcome">Are you ready for your
-      next adventure?</h2>
-    <!-- login inputs to replace welcome message on click of account login button -->
-  </section>
-  <section class="traveler-data-overview" id="travelerDataOverview">
-    <section class="trips-container" id="tripsContainer">
-      <div class="trips traveler-past-trips" id="travelerPastTrips">
-        <h3 class="title past-trips" id="pastTripTitle">Past Trips</h3>
-        <section class="container past-trips-container" id="pastTripsContainer">
-        </section>
-      </div>
-      <div class="trips traveler-upcoming-trips">
-        <h3 class="title upcoming-trips" id="upcomingTripTitle">Upcoming Trips
-        </h3>
-        <section class="container upcoming-trips-container"
-          id="upcomingTripsContainer"></section>
-      </div>
-      <div class="trips traveler-pending-trips">
-        <h3 class="title pending-trips" id="pendingTripTitle">Pending Trips</h3>
-        <section class="container pending-trips-container"
-          id="pendingTripsContainer"></section>
-      </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet">
+    <title>Travel Tracker</title>
+  </head>
+  <body>
+    <header class="travel-tracker-header" id="travelTrackerHeader">
+      <h1 class="header-title" id="headerTitle">Travel Tracker</h1>
+      <h2 class="welcome-traveler" id="welcomeTraveler"></h2>
+      <button type="button" class="account-login-button hidden"
+        id="accountLoginButton">Account Login</button>
+    </header>
+    <section class="adventure-welcome hidden" id="adventureWelcome">
+      <h2 class="homepage-welcome" id="homepageWelcome">Are you ready for your
+        next adventure?</h2>
+      <!-- login inputs to replace welcome message on click of account login button -->
     </section>
-    <section class="spent-and-booking-container" id="spentAndBookingContainer">
-      <div class="column traveler-spent-overview" id="travelerSpentOverview">
-        <h3 class="title traveler-spent" id="travelerSpentTitle">Total Spent
-          This Year</h3>
-        <section class="traveler-spent-breakdown" id="travelerSpentBreakdown">
-        </section>
-      </div>
-      <div class="column trip-booking-form" id="tripBookingForm">
-        <h3 class="title booking-form" id="BookingFormTitle">Start a New
-          Adventure</h3>
-        <form autocomplete="off" class="booking-section" id="bookingSection">
-          <div class="form-input">
-            <label>Choose a Destination: </label>
-            <select name="destinations"
-              aria-label="destination selection drop down"
-              class="input location-options" id="locationOptions" required>
-              <option disabled selected>choose your destination</option>
-            </select>
-          </div>
-          <div class="form-input">
-            <label>Departure Date: </label>
-            <input type="date" aria-label="calendar date input" min=""
-              class="input calendar-input" id="calendarInput" required>
-          </div>
-          <div class="form-input">
-            <label>Trip Length: </label>
-            <input type="number" aria-label="trip length input"
-              class="input trip-length" id="tripLength" min="0" pattern="[0-9]+"
-              required>
-          </div>
-          <div>
-            <label>Number of Travelers:</label>
-            <input type="number" aria-label="number of travelers input"
-              class="input number-travelers" id="numberTravelers" min="0"
-              pattern="[0-9]+" required>
-          </div>
-        </form>
-        <div class="booking-buttons">
-          <p class="error-message" id="errorMessage"></p>
-          <button class="display-estimate">Get Estimated Adventure Cost</button>
-          <p class="trip-estimate"></p>
-          <div>
-            <button class="book-trip">Book Adventure</button>
-            <button class="new-search">Search for a Different Adventure</button>
+    <section class="traveler-data-overview" id="travelerDataOverview">
+      <section class="trips-container" id="tripsContainer">
+        <div class="trips traveler-past-trips" id="travelerPastTrips">
+          <h3 class="title past-trips" id="pastTripTitle">Past Trips</h3>
+          <section class="container past-trips-container" id="pastTripsContainer">
+          </section>
+        </div>
+        <div class="trips traveler-upcoming-trips">
+          <h3 class="title upcoming-trips" id="upcomingTripTitle">Upcoming Trips
+          </h3>
+          <section class="container upcoming-trips-container"
+            id="upcomingTripsContainer"></section>
+        </div>
+        <div class="trips traveler-pending-trips">
+          <h3 class="title pending-trips" id="pendingTripTitle">Pending Trips</h3>
+          <section class="container pending-trips-container"
+            id="pendingTripsContainer"></section>
+        </div>
+      </section>
+      <section class="spent-and-booking-container" id="spentAndBookingContainer">
+        <div class="column traveler-spent-overview" id="travelerSpentOverview">
+          <h3 class="title traveler-spent" id="travelerSpentTitle">Total Spent
+            This Year</h3>
+          <section class="traveler-spent-breakdown" id="travelerSpentBreakdown">
+          </section>
+        </div>
+        <div class="column trip-booking-form" id="tripBookingForm">
+          <h3 class="title booking-form" id="BookingFormTitle">Start a New
+            Adventure</h3>
+          <form autocomplete="off" class="booking-section" id="bookingSection">
+            <div class="form-input">
+              <label>Choose a Destination: </label>
+              <select name="destinations"
+                aria-label="destination selection drop down"
+                class="input location-options" id="locationOptions" required>
+                <option disabled selected>choose your destination</option>
+              </select>
+            </div>
+            <div class="form-input">
+              <label>Departure Date: </label>
+              <input type="date" aria-label="calendar date input" min=""
+                class="input calendar-input" id="calendarInput" required>
+            </div>
+            <div class="form-input">
+              <label>Trip Length: </label>
+              <input type="number" aria-label="trip length input"
+                class="input trip-length" id="tripLength" min="0" pattern="[0-9]+"
+                required>
+            </div>
+            <div>
+              <label>Number of Travelers:</label>
+              <input type="number" aria-label="number of travelers input"
+                class="input number-travelers" id="numberTravelers" min="0"
+                pattern="[0-9]+" required>
+            </div>
+          </form>
+          <div class="booking-buttons">
+            <p class="error-message" id="errorMessage"></p>
+            <button class="display-estimate">Get Estimated Adventure Cost</button>
+            <p class="trip-estimate"></p>
+            <div>
+              <button class="book-trip">Book Adventure</button>
+              <button class="new-search">Search for a Different Adventure</button>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </section>
-  </section>
-  <script src="bundle.js"></script>
-</body>
-
+    <script src="bundle.js"></script>
+  </body>
 </html>

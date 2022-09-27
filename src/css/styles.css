@@ -10,6 +10,10 @@ html {
   font-size: 1vw;
 }
 
+/* body {
+
+} */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -87,7 +91,7 @@ header {
   padding-left: 1%;
   padding-right: 1%;
   width: 20vw;
-  height: 67vh;
+  height: 60vh;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -132,7 +136,7 @@ header {
 
 .image-card {
   border-radius: 10px;
-  width: 16vw;
+  width: 15vw;
 }
 
 .location-name {
@@ -172,23 +176,14 @@ header {
   align-items: center;
 }
 
-.form-input {
-  margin: 1%;
-}
-
 .booking-buttons{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.error-message {
-  font-size: 1rem;
-  color: #0000ff;
-}
-
 .trip-estimate {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .hidden {
