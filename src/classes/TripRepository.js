@@ -19,9 +19,9 @@ class TripRepository {
   };
 
   getTravelCostForYearToDate(destinationdata, cost, multiplier) {
-    const travelCost = this.pastTrips.reduce((total, trip) => {
+    const travelCost = this.allTravelerTrips.reduce((total, trip) => {
       destinationdata.forEach(destination => {
-        if (dayjs(trip.date).$y === dayjs().$y && trip.destinationID === destination.id) {
+        if (dayjs(trip.date).$y === dayjs().$y && trip.status === 'approved' && trip.destinationID === destination.id) {
           total += trip[multiplier] * destination[cost];
         };
       });
@@ -33,10 +33,10 @@ class TripRepository {
   };
 
   getTotalSpentForYearToDate(destinationData) {
-    const spentThisYear = this.pastTrips.reduce((total, trip) => {
+    const spentThisYear = this.allTravelerTrips.reduce((total, trip) => {
       destinationData.forEach(destination => {
-        if (dayjs(trip.date).$y === dayjs().$y && trip.destinationID === destination.id) {
-          total += ((trip.duration * destination.estimatedLodgingCostPerDay) + (trip.travelers * destination.estimatedFlightCostPerPerson));
+        if (dayjs(trip.date).$y === dayjs().$y && trip.status === 'approved' && trip.destinationID === destination.id) {
+          total += ((trip.duration * destination.lodgingCost) + (trip.travelers * destination.flightCost));
         };
       });
 
@@ -44,20 +44,6 @@ class TripRepository {
     }, 0);
 
     return (spentThisYear * 1.1).toFixed(2);
-  };
-
-  getTotalSpentForAnyYear(year, destinationData) {
-    const yearlyCost = this.allTravelerTrips.reduce((total, trip) => {
-      destinationData.forEach(destination => {
-        if (dayjs(trip.date).$y === year && trip.destinationID === destination.id) {
-          total += ((trip.duration * destination.estimatedLodgingCostPerDay) + (trip.travelers * destination.estimatedFlightCostPerPerson));
-        };
-      });
-
-      return total;
-    }, 0);
-
-    return (yearlyCost * 1.1).toFixed(2);
   };
 };
 
