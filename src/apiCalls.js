@@ -9,23 +9,19 @@ function fetchData(fileName) {
   );
 };
 
-const postData = (url, bodyData) => {
-  const requestData = {
+function postData(fileName, bodyData) {
+  return fetch(`http://localhost:3001/api/v1/${fileName}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(bodyData),
-  };
-  
-  fetch(url, requestData)
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.message) {
-        alert(data.message);
-      } else {
-        return data;
-      }
-    })
-    .catch((error) => alert(error));
+  })
+  .then((response) => response.json())
+  .catch((error) => 
+    alert(
+      'Something went wrong! Your booking could not be processed at this time.', 
+      error
+    )
+  );
 };
 
 export { fetchData, postData };
