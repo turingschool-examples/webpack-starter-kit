@@ -3,3 +3,5 @@ class Hotel {
     //TBD
   }
 }
+
+export default Hotel;
