@@ -1,0 +1,5 @@
+class Hotel {
+  constructor() {
+    //TBD
+  }
+}
