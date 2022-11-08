@@ -1,4 +1,4 @@
-const customerSampleData = [
+const customerData = [
   {
     id: 1,
     name: "Leatha Ullrich",
@@ -24,3 +24,5 @@ const customerSampleData = [
     name: "Fleta Schuppe",
   },
 ];
+
+export default customerData;
