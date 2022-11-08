@@ -8,3 +8,5 @@ class Room {
     this.costPerNight = data.costPerNight;
   }
 }
+
+export default Room;
