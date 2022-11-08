@@ -8,7 +8,7 @@ describe("Customer", function () {
   let data2 = customerData[1];
   let customer1 = new Customer(data);
   let customer2 = new Customer(data2);
-  console.log(customer1);
+
   it("Should take in an object", function () {
     expect(data).to.be.an("object");
   });
