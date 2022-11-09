@@ -6,7 +6,8 @@ import Customer from './classes/customer'
 
 
 //Query Selectors
-const bookingsList = document.querySelector(".bookings-list")
+const bookingsList = document.querySelector('.bookings-list')
+const totalCostOfBookings = document.querySelector('.total-booking-cost')
 
 
 //Variables
@@ -50,6 +51,7 @@ function displayUserData() {
     currentCustomer.customersBookings.forEach(booking => {
         bookingsList.insertAdjacentHTML('beforeend' ,`<p>${booking.date} Room Number:${booking.roomNumber}</p>`)
     })
+    totalCostOfBookings.innerHTML = `<p>You've spent: $${totalBookingsCost()}`
 }
 
 //Event Listeners
