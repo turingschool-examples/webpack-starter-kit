@@ -4,6 +4,9 @@ class Customer {
         this.name = data.name
         this.allBookings = bookingData
     }
+    findAllBookings() {
+        return this.allBookings.filter(booking => booking.userID === this.id)
+    }
 }
 
 export default Customer
