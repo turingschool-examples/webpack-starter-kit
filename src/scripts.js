@@ -12,7 +12,7 @@ let bookings
 let rooms
 let customers
 let singleCustomer
-let customer12
+let currentCustomer
 
 //Functions
 const fetchApiCalls = () => {
@@ -28,11 +28,22 @@ const fetchApiCalls = () => {
 
   function loadHandler() {
     console.log(bookings, rooms, customers, singleCustomer)
-    customer12 = new Customer(singleCustomer, bookings)
-    console.log(customer12)
+    currentCustomer = new Customer(singleCustomer, bookings)
+    console.log(currentCustomer)
+    totalBookingsCost()
+    console.log(totalBookingsCost())
   }
 
-  
+  function totalBookingsCost() {
+    const customersRooms = []
+    currentCustomer.findAllBookings()
+    currentCustomer.customersBookings.forEach(booking => {
+        customersRooms.push(rooms.filter(room => room.number === booking.roomNumber)[0])
+    })
+    return customersRooms.reduce((acc, cur) => {
+     return cur.costPerNight + acc
+    },0)
+  }
 
 //Event Listeners
 addEventListener('load', fetchApiCalls())
