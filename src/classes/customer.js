@@ -14,9 +14,12 @@ class Customer {
   chooseADate(day, month, year) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const chosenDate = new Date(`${year}-${month}-${day}`);
+    let chosenDate = new Date(`${year}-${month}-${day}`);
     if (chosenDate >= today) {
-      return `${year}/${month}/${day}`;
+      chosenDate = chosenDate.toISOString();
+      chosenDate = chosenDate.split("T");
+      let newChosenDate = chosenDate[0].split("-").join("/");
+      return newChosenDate;
     } else {
       return `Please choose a valid date`;
     }

@@ -9,10 +9,11 @@ describe("Customer", function () {
   let data2 = customerData[1];
   let customer1 = new Customer(data);
   let customer2 = new Customer(data2);
-  const date = new Date();
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
+  let now = new Date();
+  now.setHours(0, 0, 0, 0);
+  let nowString = now.toISOString();
+  nowString = nowString.split("T");
+  let todayDate = nowString[0].split("-").join("/");
 
   it("Should take in an object", function () {
     expect(data).to.be.an("object");
@@ -30,7 +31,7 @@ describe("Customer", function () {
       {
         id: "5fwrgu4i7k55hl6t8",
         userID: 1,
-        date: "2022/02/05",
+        date: "2023/02/05",
         roomNumber: 12,
       },
     ]);
@@ -40,15 +41,18 @@ describe("Customer", function () {
       "You have not made any bookings."
     );
   });
-  it("Should be able to choose todays date", function () {
-    const date2 = customer1.chooseADate(day, month, year);
-    expect(date2).to.equal(`${year}/${month}/${day}`);
+  it("Should be able to choose today", function () {
+    const day = now.getDate();
+    const month = now.getMonth() + 1;
+    const year = now.getFullYear();
+    const date1 = customer1.chooseADate(day, month, year);
+    expect(date1).to.equal(todayDate);
   });
   it("Should be able to choose a future date", function () {
     const date2 = customer1.chooseADate(29, 12, 2022);
     const date3 = customer1.chooseADate(1, 3, 2027);
     expect(date2).to.equal(`2022/12/29`);
-    expect(date3).to.equal(`2027/3/1`);
+    expect(date3).to.equal(`2027/03/01`);
   });
   it("Should not be able to choose a past date", function () {
     const date2 = customer1.chooseADate(1, 5, 2022);

@@ -95,7 +95,7 @@ describe("Hotel", function () {
       {
         id: "5fwrgu4i7k55hl6t8",
         userID: 1,
-        date: "2022/02/05",
+        date: "2023/02/05",
         roomNumber: 12,
       },
     ]);
@@ -138,7 +138,7 @@ describe("Hotel", function () {
       {
         id: "5fwrgu4i7k55hl6t8",
         userID: 1,
-        date: "2022/02/05",
+        date: "2023/02/05",
         roomNumber: 12,
       },
     ]);
@@ -159,5 +159,15 @@ describe("Hotel", function () {
     const currentCustomer = new Customer(customerData[1]);
     const expenses = hotelDani.findCustomerBookingExpenses(currentCustomer);
     expect(expenses).to.equal("You have not made any bookings.");
+  });
+  it("Should tell what rooms are available for a given date", function () {
+    const currentCustomer = new Customer(customerData[0]);
+    const roomsAvailable = hotelDani.findAvailableRooms(
+      currentCustomer,
+      5,
+      2,
+      2023
+    );
+    expect(roomsAvailable).to.equal("");
   });
 });

@@ -40,6 +40,19 @@ class Hotel {
       return total;
     }
   }
+  findAvailableRooms(currentUser, day, month, year) {
+    const dayChosen = currentUser.chooseADate(day, month, year);
+    if (dayChosen != `Please choose a valid date`) {
+      const unavailableRooms = this.allBookings.filter((booking) => {
+        console.log(dayChosen);
+        if (booking.date === dayChosen) {
+          return booking;
+        }
+      });
+      // .map((booking) => booking.roomNumber);
+      console.log(unavailableRooms);
+    }
+  }
 }
 
 export default Hotel;
