@@ -280,4 +280,42 @@ describe("Hotel", function () {
       `We apologize! No "sweet" rooms were found at the hotel.`
     );
   });
+  it("Should find rooms by number", function () {
+    const found1 = hotelDani.filterByRoomNumber(1);
+    const found2 = hotelDani.filterByRoomNumber(2);
+    console.log(found2);
+    expect(found1).to.deep.equal({
+      number: 1,
+      roomType: "residential suite",
+      bidet: true,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 358.4,
+    });
+    expect(found2).to.deep.equal({
+      number: 2,
+      roomType: "suite",
+      bidet: false,
+      bedSize: "full",
+      numBeds: 2,
+      costPerNight: 477.38,
+    });
+  });
+  it("Should return nothing if no room is found", function () {
+    const found1 = hotelDani.filterByRoomNumber(50);
+    expect(found1).to.deep.equal(undefined);
+  });
+  it("Should should create a new booking", function () {
+    const currentCustomer = customerData[0];
+    const booking = hotelDani.createNewBooking(
+      currentCustomer,
+      4,
+      "2022/09/23"
+    );
+    expect(booking).to.deep.equal({
+      userID: 1,
+      date: "2022/09/23",
+      roomNumber: 4,
+    });
+  });
 });

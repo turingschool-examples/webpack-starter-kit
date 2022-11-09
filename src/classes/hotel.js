@@ -71,6 +71,16 @@ class Hotel {
     }
     return roomsFound;
   }
+  filterByRoomNumber(number) {
+    return this.allRooms.find((room) => room.number === number);
+  }
+  createNewBooking(currentUser, roomNumber, date) {
+    const newBooking = new Object();
+    newBooking.userID = currentUser.id;
+    newBooking.date = date;
+    newBooking.roomNumber = roomNumber;
+    return newBooking;
+  }
 }
 
 export default Hotel;
