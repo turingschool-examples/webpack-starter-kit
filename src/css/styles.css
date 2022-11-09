@@ -1,11 +1,8 @@
 body {
   font-family: "Great Vibes", cursive;
   font-family: "Cantata One", serif;
-  /* background: radial-gradient(
-    circle,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 107, 1) 100%
-  ); */
+  background-image: url("../images/vacation.png.jpg");
+  background-size: cover;
 }
 
 .title {
@@ -18,6 +15,8 @@ body {
   font-family: "Great Vibes", cursive;
   font-size: 25vh;
   margin: 0;
+  text-shadow: -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255),
+    1px -1px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255);
 }
 
 #The {
@@ -25,12 +24,31 @@ body {
   align-self: center;
   margin: 0;
   margin-bottom: 9%;
+  text-shadow: -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255),
+    1px -1px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255);
 }
 
 .navigation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.first-navigation {
+  margin-left: 9%;
+}
+
+.sign-in {
+  margin-right: 9%;
+}
+
+button {
+  font-family: "Cantata One", serif;
+  font-size: 2vh;
+  height: 5vh;
+  width: auto;
+  border-radius: 3px;
+  background-color: rgb(255, 231, 211);
 }
 
 .main {
@@ -43,6 +61,7 @@ body {
   height: 70vh;
   width: 80vw;
   border-radius: 6px;
-  background-color: aliceblue;
+  background-image: linear-gradient(rgb(64, 165, 185), white);
+  box-shadow: rgb(0, 0, 0) 0px 22px 70px 4px;
   margin: 3%;
 }
