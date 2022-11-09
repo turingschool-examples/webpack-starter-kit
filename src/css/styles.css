@@ -1,3 +1,48 @@
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  font-family: "Great Vibes", cursive;
+  font-family: "Cantata One", serif;
+  /* background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  ); */
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+}
+
+#Overlook {
+  font-family: "Great Vibes", cursive;
+  font-size: 25vh;
+  margin: 0;
+}
+
+#The {
+  font-size: 9vh;
+  align-self: center;
+  margin: 0;
+  margin-bottom: 9%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.main-box {
+  height: 70vh;
+  width: 80vw;
+  border-radius: 6px;
+  background-color: aliceblue;
+  margin: 3%;
 }
