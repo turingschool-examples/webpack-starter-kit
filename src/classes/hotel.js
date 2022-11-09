@@ -43,15 +43,33 @@ class Hotel {
   findAvailableRooms(currentUser, day, month, year) {
     const dayChosen = currentUser.chooseADate(day, month, year);
     if (dayChosen != `Please choose a valid date`) {
-      const unavailableRooms = this.allBookings.filter((booking) => {
-        console.log(dayChosen);
-        if (booking.date === dayChosen) {
-          return booking;
+      const unavailableRooms = this.allBookings
+        .filter((booking) => {
+          if (booking.date === dayChosen) {
+            return booking;
+          }
+        })
+        .map((booking) => booking.roomNumber);
+      const rooms = this.allRooms.filter((room) => {
+        let bookedRoom;
+        unavailableRooms.forEach((booking) => {
+          bookedRoom = booking;
+        });
+        if (bookedRoom != room.number) {
+          return room;
         }
       });
-      // .map((booking) => booking.roomNumber);
-      console.log(unavailableRooms);
+      return rooms;
     }
+  }
+  filterByRoomType(roomType) {
+    const roomsFound = this.allRooms.filter(
+      (room) => room.roomType === roomType.toLowerCase()
+    );
+    if (roomsFound.length === 0) {
+      return `We apologize! No "${roomType}" rooms were found at the hotel.`;
+    }
+    return roomsFound;
   }
 }
 

@@ -168,6 +168,116 @@ describe("Hotel", function () {
       2,
       2023
     );
-    expect(roomsAvailable).to.equal("");
+    expect(roomsAvailable).to.deep.equal([
+      {
+        number: 1,
+        roomType: "residential suite",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 1,
+        costPerNight: 358.4,
+      },
+      {
+        number: 2,
+        roomType: "suite",
+        bidet: false,
+        bedSize: "full",
+        numBeds: 2,
+        costPerNight: 477.38,
+      },
+      {
+        number: 3,
+        roomType: "single room",
+        bidet: false,
+        bedSize: "king",
+        numBeds: 1,
+        costPerNight: 491.14,
+      },
+      {
+        number: 4,
+        roomType: "single room",
+        bidet: false,
+        bedSize: "queen",
+        numBeds: 1,
+        costPerNight: 429.44,
+      },
+      {
+        number: 5,
+        roomType: "single room",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 2,
+        costPerNight: 340.17,
+      },
+    ]);
+  });
+  it("Should be able to filter rooms by room type", function () {
+    const found1 = hotelDani.filterByRoomType("residential suite");
+    const found2 = hotelDani.filterByRoomType("suite");
+    const found3 = hotelDani.filterByRoomType("single room");
+    expect(found1).to.deep.equal([
+      {
+        number: 1,
+        roomType: "residential suite",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 1,
+        costPerNight: 358.4,
+      },
+    ]);
+    expect(found2).to.deep.equal([
+      {
+        number: 2,
+        roomType: "suite",
+        bidet: false,
+        bedSize: "full",
+        numBeds: 2,
+        costPerNight: 477.38,
+      },
+    ]);
+    expect(found3).to.deep.equal([
+      {
+        number: 3,
+        roomType: "single room",
+        bidet: false,
+        bedSize: "king",
+        numBeds: 1,
+        costPerNight: 491.14,
+      },
+      {
+        number: 4,
+        roomType: "single room",
+        bidet: false,
+        bedSize: "queen",
+        numBeds: 1,
+        costPerNight: 429.44,
+      },
+      {
+        number: 5,
+        roomType: "single room",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 2,
+        costPerNight: 340.17,
+      },
+      {
+        number: 12,
+        roomType: "single room",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 2,
+        costPerNight: 50.25,
+      },
+    ]);
+  });
+  it("Should tell if it does not have that room type", function () {
+    const found = hotelDani.filterByRoomType("clown room");
+    const found1 = hotelDani.filterByRoomType("sweet");
+    expect(found).to.equal(
+      `We apologize! No "clown room" rooms were found at the hotel.`
+    );
+    expect(found1).to.equal(
+      `We apologize! No "sweet" rooms were found at the hotel.`
+    );
   });
 });
