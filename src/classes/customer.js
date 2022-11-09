@@ -16,7 +16,7 @@ class Customer {
     today.setHours(0, 0, 0, 0);
     const chosenDate = new Date(`${year}-${month}-${day}`);
     if (chosenDate >= today) {
-      return `${day}/${month}/${year}`;
+      return `${year}/${month}/${day}`;
     } else {
       return `Please choose a valid date`;
     }

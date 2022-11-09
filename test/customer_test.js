@@ -42,13 +42,13 @@ describe("Customer", function () {
   });
   it("Should be able to choose todays date", function () {
     const date2 = customer1.chooseADate(day, month, year);
-    expect(date2).to.equal(`${day}/${month}/${year}`);
+    expect(date2).to.equal(`${year}/${month}/${day}`);
   });
   it("Should be able to choose a future date", function () {
     const date2 = customer1.chooseADate(29, 12, 2022);
     const date3 = customer1.chooseADate(1, 3, 2027);
-    expect(date2).to.equal(`29/12/2022`);
-    expect(date3).to.equal(`1/3/2027`);
+    expect(date2).to.equal(`2022/12/29`);
+    expect(date3).to.equal(`2027/3/1`);
   });
   it("Should not be able to choose a past date", function () {
     const date2 = customer1.chooseADate(1, 5, 2022);
