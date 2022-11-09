@@ -27,8 +27,9 @@ describe('customer', () => {
     it('should have booking data', () => {
         expect(customer1.allBookings).to.be.an('array')
     })
-    it('should return only this customers bookings', () => {
-        expect(customer1.findAllBookings()).to.deep.equal([{"id":"5fwrgu4i7k55hl6sz","userID":9,"date":"2022/04/22","roomNumber":15},
+    it('should store only this customers bookings', () => {
+        customer1.findAllBookings()
+        expect(customer1.customersBookings).to.deep.equal([{"id":"5fwrgu4i7k55hl6sz","userID":9,"date":"2022/04/22","roomNumber":15},
         {"id":"5fwrgu4i7k55hl6swqz","userID":9,"date":"2022/01/22","roomNumber":15}])
     })
 })

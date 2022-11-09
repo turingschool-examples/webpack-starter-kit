@@ -3,9 +3,10 @@ class Customer {
         this.id = data.id
         this.name = data.name
         this.allBookings = bookingData
+        this.customersBookings
     }
     findAllBookings() {
-        return this.allBookings.filter(booking => booking.userID === this.id)
+        this.customersBookings = this.allBookings.filter(booking => booking.userID === this.id)
     }
 }
 

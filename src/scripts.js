@@ -32,5 +32,7 @@ const fetchApiCalls = () => {
     console.log(customer12)
   }
 
+  
+
 //Event Listeners
 addEventListener('load', fetchApiCalls())
