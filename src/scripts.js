@@ -1,11 +1,33 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
-import './css/styles.css';
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
+//Imports
+import './css/styles.css'
 import './images/turing-logo.png'
+import apiCalls from './fetchApi'
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+
+//Query Selectors
+
+//Variables
+let bookings
+let rooms
+let customers
+let singleCustomer
+
+//Functions
+const fetchApiCalls = () => {
+    apiCalls.fetchData().then(data => {
+      bookings = data[0]
+      rooms = data[1]
+      customers = data[2]
+      singleCustomer = data[3]
+
+      loadHandler()
+    })
+  }
+
+  function loadHandler() {
+    console.log(bookings, rooms, customers, singleCustomer)
+  }
+
+//Event Listeners
+addEventListener('load', fetchApiCalls())
