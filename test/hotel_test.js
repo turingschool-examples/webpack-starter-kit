@@ -52,6 +52,14 @@ describe("Hotel", function () {
         numBeds: 2,
         costPerNight: 340.17,
       },
+      {
+        number: 12,
+        roomType: "single room",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 2,
+        costPerNight: 50.25,
+      },
     ]);
   });
   it("Should have the list of rooms be instances of Rooms", function () {
@@ -126,7 +134,6 @@ describe("Hotel", function () {
     hotelDani.createBookings(bookingsData);
     const currentCustomer = new Customer(customerData[0]);
     const myBookings = hotelDani.findCustomerBookings(currentCustomer);
-    console.log(myBookings);
     expect(myBookings).to.deep.equal([
       {
         id: "5fwrgu4i7k55hl6t8",
@@ -140,5 +147,17 @@ describe("Hotel", function () {
     const currentCustomer = new Customer(customerData[3]);
     const myBookings = hotelDani.findCustomerBookings(currentCustomer);
     expect(myBookings).to.deep.equal("You have not made any bookings.");
+  });
+  it("Should be able to find total booking expenses for any given customer", function () {
+    const currentCustomer = new Customer(customerData[0]);
+    hotelDani.createRooms(roomData);
+    hotelDani.createBookings(bookingsData);
+    const expenses = hotelDani.findCustomerBookingExpenses(currentCustomer);
+    expect(expenses).to.equal(50.25);
+  });
+  it("Should tell if there are no bookings", function () {
+    const currentCustomer = new Customer(customerData[1]);
+    const expenses = hotelDani.findCustomerBookingExpenses(currentCustomer);
+    expect(expenses).to.equal("You have not made any bookings.");
   });
 });

@@ -39,24 +39,13 @@ const roomData = [
     numBeds: 2,
     costPerNight: 340.17,
   },
-];
-
-const roomData2 = [
   {
-    number: 1,
-    roomType: "residential suite",
+    number: 12,
+    roomType: "single room",
     bidet: true,
     bedSize: "queen",
-    numBeds: 1,
-    costPerNight: 358.4,
-  },
-  {
-    number: 2,
-    roomType: "suite",
-    bidet: false,
-    bedSize: "full",
     numBeds: 2,
-    costPerNight: 477.38,
+    costPerNight: 50.25,
   },
 ];
 

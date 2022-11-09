@@ -11,6 +11,16 @@ class Customer {
       return `You have not made any bookings.`;
     }
   }
+  chooseADate(day, month, year) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const chosenDate = new Date(`${year}-${month}-${day}`);
+    if (chosenDate >= today) {
+      return `${day}/${month}/${year}`;
+    } else {
+      return `Please choose a valid date`;
+    }
+  }
 }
 
 export default Customer;
