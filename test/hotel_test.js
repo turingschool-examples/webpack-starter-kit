@@ -5,6 +5,7 @@ import Hotel from "../src/classes/hotel";
 import customerData from "../src/sampleData/customer_sample_data";
 import roomData from "../src/sampleData/room_sample_data";
 import bookingsData from "../src/sampleData/booking_sample_data";
+import Customer from "../src/classes/customer";
 const expect = chai.expect;
 
 describe("Hotel", function () {
@@ -120,5 +121,24 @@ describe("Hotel", function () {
         roomNumber: 15,
       },
     ]);
+  });
+  it("Should find bookings for any given customer", function () {
+    hotelDani.createBookings(bookingsData);
+    const currentCustomer = new Customer(customerData[0]);
+    const myBookings = hotelDani.findCustomerBookings(currentCustomer);
+    console.log(myBookings);
+    expect(myBookings).to.deep.equal([
+      {
+        id: "5fwrgu4i7k55hl6t8",
+        userID: 1,
+        date: "2022/02/05",
+        roomNumber: 12,
+      },
+    ]);
+  });
+  it("Should let the customer know if there are no bookings for any given customer", function () {
+    const currentCustomer = new Customer(customerData[3]);
+    const myBookings = hotelDani.findCustomerBookings(currentCustomer);
+    expect(myBookings).to.deep.equal("You have not made any bookings.");
   });
 });

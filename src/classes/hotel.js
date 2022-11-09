@@ -15,7 +15,9 @@ class Hotel {
     this.allBookings = bookingData.map((details) => new Booking(details));
     return this.allBookings;
   }
-  findCustomerBookings(currentUser) {}
+  findCustomerBookings(currentUser) {
+    return currentUser.getMyBookings(this.allBookings);
+  }
 }
 
 export default Hotel;
