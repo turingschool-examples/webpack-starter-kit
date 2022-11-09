@@ -1,7 +1,8 @@
 class Customer {
-    constructor(data) {
-        this.name
-        this.
+    constructor(data, bookingData) {
+        this.id = data.id
+        this.name = data.name
+        this.allBookings = bookingData
     }
 }
 
