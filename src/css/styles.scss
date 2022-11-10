@@ -1,10 +1,12 @@
-$lightBlue: rgb(64, 165, 185);
-$sand: rgb(255, 231, 211);
+$lightBlue: rgba(64, 165, 185);
+$sand: rgba(255, 231, 211);
+$darkGreen: rgb(14, 32, 0);
+$fontGreatVibes: "Great Vibes", cursive;
+$fontCantanaOne: "Cantata One", serif;
+$backgroundPicture: url("../images/vacation.png.jpg");
 
 body {
-  font-family: "Great Vibes", cursive;
-  font-family: "Cantata One", serif;
-  background-image: url("../images/vacation.png.jpg");
+  background-image: $backgroundPicture;
   background-size: cover;
 }
 
@@ -12,24 +14,24 @@ body {
   display: flex;
   flex-direction: row;
   margin: 1%;
-  margin-bottom: 0;
+}
 
-  #Overlook {
-    font-family: "Great Vibes", cursive;
-    font-size: 25vh;
-    margin: 0;
-    text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
-      -1px -1px 0 $sand;
-  }
+#Overlook {
+  font-family: $fontGreatVibes;
+  font-size: 25vh;
+  margin: 0;
+  text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
+    -1px -1px 0 $sand;
+}
 
-  #The {
-    font-size: 9vh;
-    align-self: center;
-    margin: 0;
-    margin-bottom: 9%;
-    text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
-      -1px -1px 0 $sand;
-  }
+#The {
+  font-family: $fontCantanaOne;
+  font-size: 9vh;
+  align-self: center;
+  margin: 0;
+  margin-bottom: 9%;
+  text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
+    -1px -1px 0 $sand;
 }
 
 .navigation {
@@ -47,12 +49,16 @@ body {
 }
 
 button {
-  font-family: "Cantata One", serif;
+  font-family: $fontCantanaOne;
   font-size: 2vh;
   height: 5vh;
   width: auto;
-  border-radius: 3px;
+  border-radius: 0.25rem;
   background-color: $sand;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .main {
@@ -62,10 +68,67 @@ button {
 }
 
 .main-box {
-  height: 70vh;
+  min-height: 60vh;
+  height: auto;
   width: 80vw;
   border-radius: 6px;
   background-image: linear-gradient($lightBlue, $sand);
   box-shadow: rgb(0, 0, 0) 0px 22px 70px 4px;
   margin: 3%;
+}
+
+.add-booking {
+  display: flex;
+  flex-direction: row;
+}
+
+.booking-results {
+  width: 50%;
+}
+
+/* form */
+#survey-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.form-control {
+  display: block;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: black;
+  background-color: $sand;
+  background-clip: padding-box;
+  border: 2px solid $lightBlue;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.submit-button {
+  background-color: $darkGreen;
+  color: $sand;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
 }
