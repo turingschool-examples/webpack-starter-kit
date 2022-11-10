@@ -30,109 +30,112 @@
         <section class="hide">
           <!-- Booking info -->
         </section>
-        <form id="survey-form">
-          <div class="form-group">
-            <p>What day would you like to book?</p>
-            <select id="select-day" class="form-control" required="">
-              <option disabled="" selected="" value="">Select a day</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-              <option value="24">24</option>
-              <option value="25">25</option>
-              <option value="26">26</option>
-              <option value="27">27</option>
-              <option value="28">28</option>
-              <option value="29">29</option>
-              <option value="30">30</option>
-              <option value="31">31</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <p>What month would you like to book?</p>
-            <select id="select-month" class="form-control" required="">
-              <option disabled="" selected="" value="">Select a month</option>
-              <option value="1">January</option>
-              <option value="2">Feburary</option>
-              <option value="3">March</option>
-              <option value="4">April</option>
-              <option value="5">May</option>
-              <option value="6">June</option>
-              <option value="7">July</option>
-              <option value="8">August</option>
-              <option value="9">September</option>
-              <option value="10">October</option>
-              <option value="11">November</option>
-              <option value="12">December</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <p>What year would you like to book?</p>
-            <select id="select-year" class="form-control" required="">
-              <option disabled="" selected="" value="">Select a year</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
-              <option value="2025">2025</option>
-              <option value="2026">2026</option>
-              <option value="2027">2027</option>
-              <option value="2028">2028</option>
-              <option value="2029">2029</option>
-              <option value="2030">2030</option>
-              <option value="2031">2031</option>
-              <option value="2032">2032</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <p>What room type are you looking for?</p>
-            <select id="select-room" class="form-control" required="">
-              <option disabled="" selected="" value="">
-                What room type are you looking for?
-              </option>
-              <option value="no-preference">No preference</option>
-              <option value="residential suite">Residential Suite</option>
-              <option value="suite">Suite</option>
-              <option value="single room">Single Room</option>
-              <option value="junior suite">Junior Suite</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <p>How many beds do you need?</p>
-            <select id="select-beds" class="form-control">
-              <option disabled="" selected="" value="">Number of beds</option>
-              <option value="no-preference">No preference</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <button type="submit" id="submit" class="submit-button">
-              Submit
-            </button>
-          </div>
-        </form>
+        <section class="add-booking">
+          <form id="survey-form">
+            <div class="form-group">
+              <p>What day would you like to book?</p>
+              <select id="select-day" class="form-control" required="">
+                <option disabled="" selected="" value="">Select a day</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <p>What month would you like to book?</p>
+              <select id="select-month" class="form-control" required="">
+                <option disabled="" selected="" value="">Select a month</option>
+                <option value="1">January</option>
+                <option value="2">Feburary</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <p>What year would you like to book?</p>
+              <select id="select-year" class="form-control" required="">
+                <option disabled="" selected="" value="">Select a year</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2031</option>
+                <option value="2032">2032</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <p>What room type are you looking for?</p>
+              <select id="select-room" class="form-control" required="">
+                <option disabled="" selected="" value="">
+                  What room type are you looking for?
+                </option>
+                <option value="no-preference">No preference</option>
+                <option value="residential suite">Residential Suite</option>
+                <option value="suite">Suite</option>
+                <option value="single room">Single Room</option>
+                <option value="junior suite">Junior Suite</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <p>How many beds do you need?</p>
+              <select id="select-beds" class="form-control">
+                <option disabled="" selected="" value="">Number of beds</option>
+                <option value="no-preference">No preference</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button type="submit" id="submit" class="submit-button">
+                Submit
+              </button>
+            </div>
+          </form>
+          <section class="booking-results">RESULTS GO HERE</section>
+        </section>
       </span>
     </main>
     <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->

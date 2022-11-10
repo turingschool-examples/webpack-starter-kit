@@ -1,5 +1,6 @@
 $lightBlue: rgba(64, 165, 185);
 $sand: rgba(255, 231, 211);
+$darkGreen: rgb(14, 32, 0);
 $fontGreatVibes: "Great Vibes", cursive;
 $fontCantanaOne: "Cantata One", serif;
 $backgroundPicture: url("../images/vacation.png.jpg");
@@ -52,7 +53,7 @@ button {
   font-size: 2vh;
   height: 5vh;
   width: auto;
-  border-radius: 3px;
+  border-radius: 0.25rem;
   background-color: $sand;
 }
 
@@ -74,6 +75,58 @@ button:hover {
   background-image: linear-gradient($lightBlue, $sand);
   box-shadow: rgb(0, 0, 0) 0px 22px 70px 4px;
   margin: 3%;
+}
+
+.add-booking {
+  display: flex;
+  flex-direction: row;
+}
+
+.booking-results {
+  width: 50%;
+}
+
+/* form */
+#survey-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.form-control {
+  display: block;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: black;
+  background-color: $sand;
+  background-clip: padding-box;
+  border: 2px solid $lightBlue;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.submit-button {
+  background-color: $darkGreen;
+  color: $sand;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+.submit-button:hover {
+  cursor: pointer;
 }
 
 .hide {
