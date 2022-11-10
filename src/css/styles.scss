@@ -29,8 +29,8 @@ body {
   align-self: center;
   margin: 0;
   margin-bottom: 9%;
-  text-shadow: -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255),
-    1px -1px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255);
+  text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
+    -1px -1px 0 $sand;
 }
 
 .navigation {
@@ -48,12 +48,16 @@ body {
 }
 
 button {
-  font-family: "Cantata One", serif;
+  font-family: $fontCantanaOne;
   font-size: 2vh;
   height: 5vh;
   width: auto;
   border-radius: 3px;
-  background-color: rgb(255, 231, 211);
+  background-color: $sand;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .main {
@@ -63,10 +67,15 @@ button {
 }
 
 .main-box {
-  height: 70vh;
+  min-height: 60vh;
+  height: auto;
   width: 80vw;
   border-radius: 6px;
-  background-image: linear-gradient(rgb(64, 165, 185), white);
+  background-image: linear-gradient($lightBlue, $sand);
   box-shadow: rgb(0, 0, 0) 0px 22px 70px 4px;
   margin: 3%;
+}
+
+.hide {
+  display: none;
 }
