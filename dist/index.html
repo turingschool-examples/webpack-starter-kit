@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hotel Dani</title>
+  </head>
+  <body>
+    <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
+    <span class="title"
+      ><h1 id="The">The</h1>
+      <h1 id="Overlook">Overlook</h1>
+    </span>
+    <nav class="navigation">
+      <section class="first-navigation">
+        <button>Manage My Bookings</button>
+        <button>Create New Booking</button>
+        <button>Explore Our Rooms</button>
+      </section>
+      <button class="sign-in">Sign In</button>
+    </nav>
+    <main class="main">
+      <span class="main-box">
+        <!-- Stuff goes here -->
+      </span>
+    </main>
+    <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
+    <script src="bundle.js"></script>
+  </body>
 </html>
