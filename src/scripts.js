@@ -39,6 +39,7 @@ function loadHandler() {
 
 function totalBookingsCost() {
     currentCustomer.findAllBookings()
+    currentCustomer.sortBookings()
     currentCustomer.customersBookings.forEach(booking => {
         customersRooms.push(rooms.filter(room => room.number === booking.roomNumber)[0])
     })

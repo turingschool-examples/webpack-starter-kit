@@ -8,6 +8,12 @@ class Customer {
     findAllBookings() {
         this.customersBookings = this.allBookings.filter(booking => booking.userID === this.id)
     }
+    sortBookings() {
+        this.customersBookings = this.customersBookings.sort(function(a,b){
+            return new Date(a.date) - new Date(b.date)
+          })
+          console.log(this.customersBookings)
+    }
 }
 
 export default Customer
