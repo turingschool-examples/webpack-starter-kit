@@ -9,10 +9,10 @@ class Customer {
         this.customersBookings = this.allBookings.filter(booking => booking.userID === this.id)
     }
     sortBookings() {
-        this.customersBookings = this.customersBookings.sort(function(a,b){
+        this.customersBookings = this.customersBookings.sort((a, b) => {
             return new Date(a.date) - new Date(b.date)
-          })
-          console.log(this.customersBookings)
+        })
+        console.log(this.customersBookings)
     }
 }
 
