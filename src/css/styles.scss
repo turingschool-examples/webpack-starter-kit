@@ -1,10 +1,11 @@
-$lightBlue: rgb(64, 165, 185);
-$sand: rgb(255, 231, 211);
+$lightBlue: rgba(64, 165, 185);
+$sand: rgba(255, 231, 211);
+$fontGreatVibes: "Great Vibes", cursive;
+$fontCantanaOne: "Cantata One", serif;
+$backgroundPicture: url("../images/vacation.png.jpg");
 
 body {
-  font-family: "Great Vibes", cursive;
-  font-family: "Cantata One", serif;
-  background-image: url("../images/vacation.png.jpg");
+  background-image: $backgroundPicture;
   background-size: cover;
 }
 
@@ -12,24 +13,24 @@ body {
   display: flex;
   flex-direction: row;
   margin: 1%;
-  margin-bottom: 0;
+}
 
-  #Overlook {
-    font-family: "Great Vibes", cursive;
-    font-size: 25vh;
-    margin: 0;
-    text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
-      -1px -1px 0 $sand;
-  }
+#Overlook {
+  font-family: $fontGreatVibes;
+  font-size: 25vh;
+  margin: 0;
+  text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
+    -1px -1px 0 $sand;
+}
 
-  #The {
-    font-size: 9vh;
-    align-self: center;
-    margin: 0;
-    margin-bottom: 9%;
-    text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
-      -1px -1px 0 $sand;
-  }
+#The {
+  font-family: $fontCantanaOne;
+  font-size: 9vh;
+  align-self: center;
+  margin: 0;
+  margin-bottom: 9%;
+  text-shadow: -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255),
+    1px -1px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255);
 }
 
 .navigation {
@@ -52,7 +53,7 @@ button {
   height: 5vh;
   width: auto;
   border-radius: 3px;
-  background-color: $sand;
+  background-color: rgb(255, 231, 211);
 }
 
 .main {
@@ -65,7 +66,7 @@ button {
   height: 70vh;
   width: 80vw;
   border-radius: 6px;
-  background-image: linear-gradient($lightBlue, $sand);
+  background-image: linear-gradient(rgb(64, 165, 185), white);
   box-shadow: rgb(0, 0, 0) 0px 22px 70px 4px;
   margin: 3%;
 }

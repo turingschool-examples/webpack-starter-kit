@@ -1,39 +1,44 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  "mode": "none",
-  "entry": "./src/scripts.js",
-  "output": {
-    "path": __dirname + '/dist',
-    "filename": "bundle.js",
-    sourceMapFilename: "bundle.js.map"
+  mode: "none",
+  entry: "./src/scripts.js",
+  output: {
+    path: __dirname + "/dist",
+    filename: "bundle.js",
+    sourceMapFilename: "bundle.js.map",
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist')
+    contentBase: path.join(__dirname, "dist"),
   },
-  "devtool": "source-map",
-  "module": {
-    "rules": [
+  devtool: "source-map",
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+          { loader: "sass-loader" },
+        ],
+      },
       {
         test: /\.css$/,
-        use: [
-            { loader: 'style-loader' },
-            { loader: 'css-loader' }
-        ]
-    },
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+      },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-              publicPath: 'images/'
-            }
-          }
-        ]
-      }
-    ]
-  }
+              name: "[name].[ext]",
+              outputPath: "images/",
+              publicPath: "images/",
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
