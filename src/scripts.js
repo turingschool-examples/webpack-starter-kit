@@ -1,11 +1,59 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
-import './css/styles.css';
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
+//Imports
+import './css/styles.css'
 import './images/turing-logo.png'
+import apiCalls from './fetchApi'
+import Customer from './classes/customer'
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+//Query Selectors
+const bookingsList = document.querySelector('.bookings-list')
+const totalCostOfBookings = document.querySelector('.total-booking-cost')
+
+
+//Variables
+let bookings
+let rooms
+let customers
+let singleCustomer
+let currentCustomer
+let customersRooms = []
+
+//Functions
+const fetchApiCalls = () => {
+    apiCalls.fetchData().then(data => {
+        bookings = data[0].bookings
+        rooms = data[1].rooms
+        customers = data[2].customers
+        singleCustomer = data[3]
+
+        loadHandler()
+    })
+}
+
+function loadHandler() {
+    console.log(bookings, rooms, customers, singleCustomer)
+    currentCustomer = new Customer(singleCustomer, bookings)
+    totalBookingsCost()
+    displayUserData()
+}
+
+function totalBookingsCost() {
+    currentCustomer.findAllBookings()
+    currentCustomer.sortBookings()
+    currentCustomer.customersBookings.forEach(booking => {
+        customersRooms.push(rooms.filter(room => room.number === booking.roomNumber)[0])
+    })
+    return customersRooms.reduce((acc, cur) => {
+        return cur.costPerNight + acc
+    }, 0)
+}
+
+function displayUserData() {
+    currentCustomer.customersBookings.forEach(booking => {
+        bookingsList.insertAdjacentHTML('beforeend' ,`<p>${booking.date} Room Number:${booking.roomNumber}</p>`)
+    })
+    totalCostOfBookings.innerHTML = `<p>You've spent: $${totalBookingsCost()}`
+}
+
+//Event Listeners
+addEventListener('load', fetchApiCalls())
