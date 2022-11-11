@@ -24,24 +24,14 @@ Promise.all([
   loadData("http://localhost:3001/api/v1/customers"),
   loadData("http://localhost:3001/api/v1/rooms"),
   loadData("http://localhost:3001/api/v1/bookings"),
-]).then((data) => {
-  overlookHotel = new Hotel(data[1].rooms, data[2].bookings);
-  console.log(overlookHotel);
-  currentUser = data[0].customers[3];
-  console.log(currentUser);
-});
-
-// fetch("http://localhost:3001/api/v1/customers")
-//   .then((res) => res.json())
-//   .then((data) => console.log("CUSTOMERS", data));
-
-// fetch("http://localhost:3001/api/v1/rooms").then((resp) =>
-//   resp.json().then((data) => console.log("ROOMS", data))
-// );
-
-// fetch("http://localhost:3001/api/v1/bookings")
-//   .then((resp) => resp.json())
-//   .then((data) => console.log("BOOKINGS", data));
+])
+  .then((data) => {
+    overlookHotel = new Hotel(data[1].rooms, data[2].bookings);
+    console.log(overlookHotel);
+    currentUser = data[0].customers[3];
+    console.log(currentUser);
+  })
+  .catch((error) => console.log("EOROROROROROOROR", "Failed to load"));
 
 //VARIABLES
 
@@ -61,7 +51,12 @@ navigationBar.addEventListener("click", changePageDisplay);
 //Starting functions
 
 function loadData(URL) {
-  return fetch(URL).then((res) => res.json());
+  return fetch(URL).then((res) => {
+    if (!res.ok) {
+      throw new Error("Failed to fetch at loadData");
+    }
+    return res.json();
+  });
 }
 
 function changePageDisplay(event) {
