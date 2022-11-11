@@ -5,6 +5,7 @@
 import "./css/styles.scss";
 import roomData from "./sampleData/room_sample_data";
 import bookingData from "./sampleData/booking_sample_data";
+import Hotel from "./classes/hotel";
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import "./images/HotelRoom1.png";
@@ -13,6 +14,34 @@ import "./images/HotelRoom3.png";
 import "./images/HotelRoom4.png";
 
 console.log("This is the JavaScript entry file - your code begins here.");
+
+//GLOBAL VAR
+
+let currentUser;
+let overlookHotel;
+
+Promise.all([
+  loadData("http://localhost:3001/api/v1/customers"),
+  loadData("http://localhost:3001/api/v1/rooms"),
+  loadData("http://localhost:3001/api/v1/bookings"),
+]).then((data) => {
+  overlookHotel = new Hotel(data[1].rooms, data[2].bookings);
+  console.log(overlookHotel);
+  currentUser = data[0].customers[3];
+  console.log(currentUser);
+});
+
+// fetch("http://localhost:3001/api/v1/customers")
+//   .then((res) => res.json())
+//   .then((data) => console.log("CUSTOMERS", data));
+
+// fetch("http://localhost:3001/api/v1/rooms").then((resp) =>
+//   resp.json().then((data) => console.log("ROOMS", data))
+// );
+
+// fetch("http://localhost:3001/api/v1/bookings")
+//   .then((resp) => resp.json())
+//   .then((data) => console.log("BOOKINGS", data));
 
 //VARIABLES
 
@@ -30,6 +59,10 @@ let myBookings = document.querySelector(".manage-bookings");
 navigationBar.addEventListener("click", changePageDisplay);
 
 //Starting functions
+
+function loadData(URL) {
+  return fetch(URL).then((res) => res.json());
+}
 
 function changePageDisplay(event) {
   hide(manageBookingsSection);
