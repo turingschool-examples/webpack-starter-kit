@@ -17,12 +17,32 @@ console.log("This is the JavaScript entry file - your code begins here.");
 //VARIABLES
 
 //QUERY SELECTORS
+const navigationBar = document.querySelector(".first-navigation");
+const manageBookingsSection = document.querySelector(".manage-bookings");
+const addBookingsSection = document.querySelector(".add-booking");
+const exploreHotelSection = document.querySelector(".explore-hotel");
+
 let availableRooms = document.querySelector(".room-thumbnails");
 let myBookings = document.querySelector(".manage-bookings");
 
-//FETCH
+//even listeners
+
+navigationBar.addEventListener("click", changePageDisplay);
 
 //Starting functions
+
+function changePageDisplay(event) {
+  hide(manageBookingsSection);
+  hide(addBookingsSection);
+  hide(exploreHotelSection);
+  if (event.target.classList.contains("manage-bookings-button")) {
+    show(manageBookingsSection);
+  } else if (event.target.classList.contains("create-bookings-button")) {
+    show(addBookingsSection);
+  } else if (event.target.classList.contains("explore-hotel-button")) {
+    show(exploreHotelSection);
+  }
+}
 
 function displayAvailableRooms(data) {
   data.forEach((room) => {
@@ -50,6 +70,14 @@ function displayRoomBookings(data) {
     </section>
     `;
   });
+}
+
+function hide(element) {
+  element.classList.add("hide");
+}
+
+function show(element) {
+  element.classList.remove("hide");
 }
 
 displayAvailableRooms(roomData);
