@@ -74,6 +74,11 @@ class Hotel {
   filterByRoomNumber(number) {
     return this.allRooms.find((room) => room.number === number);
   }
+
+  filterByBedNumber(number) {
+    return this.allRooms.filter((room) => room.numBeds === number);
+  }
+
   createNewBooking(currentUser, roomNumber, date) {
     const newBooking = new Object();
     newBooking.userID = currentUser.id;

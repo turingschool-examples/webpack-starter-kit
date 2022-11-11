@@ -12,9 +12,9 @@ class Customer {
     }
   }
   chooseADate(day, month, year) {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    let chosenDate = new Date(`${year}-${month}-${day}`);
+    const today = this.getToday();
+    let chosenDate = new Date();
+    chosenDate.setFullYear(year, month - 1, day);
     if (chosenDate >= today) {
       chosenDate = chosenDate.toISOString();
       chosenDate = chosenDate.split("T");
@@ -23,6 +23,11 @@ class Customer {
     } else {
       return `Please choose a valid date`;
     }
+  }
+  getToday() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today;
   }
 }
 
