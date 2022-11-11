@@ -134,6 +134,8 @@ button:hover {
   cursor: pointer;
 }
 
+// Create new booking
+
 #available-rooms {
   text-align: center;
 }
@@ -155,6 +157,21 @@ button:hover {
 .single-room-img {
   height: 22vh;
   width: auto;
+}
+
+//My bookings
+
+.manage-bookings {
+  padding: 1%;
+}
+
+.user-booking {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 1rem;
+  width: 25%;
+  background-color: $sand;
+  border: 2px solid black;
 }
 
 .hide {
