@@ -6,6 +6,7 @@ import "./css/styles.scss";
 import roomData from "./sampleData/room_sample_data";
 import bookingData from "./sampleData/booking_sample_data";
 import Hotel from "./classes/hotel";
+import Customer from "./classes/customer";
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import "./images/HotelRoom1.png";
@@ -28,8 +29,10 @@ Promise.all([
   .then((data) => {
     overlookHotel = new Hotel(data[1].rooms, data[2].bookings);
     console.log(overlookHotel);
-    currentUser = data[0].customers[3];
+    currentUser = new Customer(data[0].customers[3]);
     console.log(currentUser);
+    let myBookings = generateCustomerBookings();
+    displayRoomBookings(myBookings);
   })
   .catch((error) => console.log("EOROROROROROOROR", "Failed to load"));
 
@@ -89,6 +92,10 @@ function displayAvailableRooms(data) {
   });
 }
 
+function generateCustomerBookings() {
+  return currentUser.getMyBookings(overlookHotel.allBookings);
+}
+
 function displayRoomBookings(data) {
   data.forEach((booking) => {
     myBookings.innerHTML += `
@@ -109,4 +116,3 @@ function show(element) {
 }
 
 displayAvailableRooms(roomData);
-displayRoomBookings(bookingData);
