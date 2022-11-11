@@ -22,6 +22,8 @@ let myBookings = document.querySelector(".manage-bookings");
 
 //FETCH
 
+//Starting functions
+
 function displayAvailableRooms(data) {
   data.forEach((room) => {
     availableRooms.innerHTML += `
