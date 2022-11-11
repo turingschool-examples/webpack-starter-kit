@@ -1,5 +1,6 @@
 $lightBlue: rgba(64, 165, 185);
 $sand: rgba(255, 231, 211);
+$white: rgb(106, 106, 115);
 $darkGreen: rgb(14, 32, 0);
 $fontGreatVibes: "Great Vibes", cursive;
 $fontCantanaOne: "Cantata One", serif;
@@ -90,7 +91,11 @@ button:hover {
 #survey-form {
   display: flex;
   flex-direction: column;
+  border: 2px solid black;
+  border-radius: 0.25rem;
   width: 50%;
+  background-color: $sand;
+  margin: 1%;
 }
 
 .form-group {
@@ -107,7 +112,7 @@ button:hover {
   color: black;
   background-color: $sand;
   background-clip: padding-box;
-  border: 2px solid $lightBlue;
+  border: 2px solid $white;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
