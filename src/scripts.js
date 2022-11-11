@@ -3,8 +3,6 @@
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import "./css/styles.scss";
-import roomData from "./sampleData/room_sample_data";
-import bookingData from "./sampleData/booking_sample_data";
 import Hotel from "./classes/hotel";
 import Customer from "./classes/customer";
 
@@ -47,9 +45,17 @@ const exploreHotelSection = document.querySelector(".explore-hotel");
 let availableRooms = document.querySelector(".room-thumbnails");
 let myBookings = document.querySelector(".manage-bookings");
 
+let wantedDay = document.querySelector("#select-day");
+let wantedMonth = document.querySelector("#select-month");
+let wantedYear = document.querySelector("#select-year");
+let wantedRoomType = document.querySelector("#select-room");
+let wantedNumBeds = document.querySelector("#select-beds");
+let submitBookingButton = document.querySelector("#submit-booking");
+
 //even listeners
 
 navigationBar.addEventListener("click", changePageDisplay);
+submitBookingButton.addEventListener("click", searchForBookableRooms);
 
 //Starting functions
 
@@ -75,6 +81,49 @@ function changePageDisplay(event) {
   }
 }
 
+function generateCustomerBookings() {
+  return currentUser.getMyBookings(overlookHotel.allBookings);
+}
+
+function displayRoomBookings(data) {
+  data.forEach((booking) => {
+    myBookings.innerHTML += `
+    <section class="user-booking" id="${booking.id}">
+      <p>Date: ${booking.date}</p>
+      <p>Room: ${booking.roomNumber}</p>
+    </section>
+    `;
+  });
+}
+
+function searchForBookableRooms() {
+  event.preventDefault();
+  availableRooms.innerHTML = "";
+  const day = wantedDay.value;
+  const month = wantedMonth.value;
+  const year = wantedYear.value;
+  const room = wantedRoomType.value;
+  const foundRooms = overlookHotel.findAvailableRooms(
+    currentUser,
+    day,
+    month,
+    year
+  );
+  if (foundRooms === "Please choose a valid date") {
+    availableRooms.innerHTML = `
+    <h3 class='try-again'>We cannot create a booking for a past date! Please try another date.</h3>
+    `;
+    console.log("Cannot create a booking for a passed date");
+  } else {
+    if (room === "no-preference") {
+      displayAvailableRooms(foundRooms);
+    } else if (room != "no-preference") {
+      const withRoom = overlookHotel.filterByRoomType(room, foundRooms);
+      displayAvailableRooms(withRoom);
+    }
+  }
+}
+
 function displayAvailableRooms(data) {
   data.forEach((room) => {
     availableRooms.innerHTML += `
@@ -92,21 +141,6 @@ function displayAvailableRooms(data) {
   });
 }
 
-function generateCustomerBookings() {
-  return currentUser.getMyBookings(overlookHotel.allBookings);
-}
-
-function displayRoomBookings(data) {
-  data.forEach((booking) => {
-    myBookings.innerHTML += `
-    <section class="user-booking" id="${booking.id}">
-      <p>Date: ${booking.date}</p>
-      <p>Room: ${booking.roomNumber}</p>
-    </section>
-    `;
-  });
-}
-
 function hide(element) {
   element.classList.add("hide");
 }
@@ -114,5 +148,3 @@ function hide(element) {
 function show(element) {
   element.classList.remove("hide");
 }
-
-displayAvailableRooms(roomData);

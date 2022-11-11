@@ -8,7 +8,7 @@ $backgroundPicture: url("../images/vacation.png.jpg");
 
 body {
   background-image: $backgroundPicture;
-  background-size: cover;
+  background-size: 100%;
 }
 
 .title {
@@ -157,6 +157,10 @@ button:hover {
 .single-room-img {
   height: 22vh;
   width: auto;
+}
+
+.try-again {
+  color: rgb(154, 0, 0);
 }
 
 //My bookings

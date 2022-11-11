@@ -60,6 +60,8 @@ class Hotel {
         }
       });
       return rooms;
+    } else {
+      return dayChosen;
     }
   }
   filterByRoomType(roomType) {
@@ -71,12 +73,12 @@ class Hotel {
     }
     return roomsFound;
   }
-  filterByRoomNumber(number) {
-    return this.allRooms.find((room) => room.number === number);
+  filterByRoomNumber(number, dataSet = this.allRooms) {
+    return dataSet.find((room) => room.number === number);
   }
 
-  filterByBedNumber(number) {
-    return this.allRooms.filter((room) => room.numBeds === number);
+  filterByBedNumber(number, dataSet = this.allRooms) {
+    return dataSet.filter((room) => room.numBeds === number);
   }
 
   createNewBooking(currentUser, roomNumber, date) {
