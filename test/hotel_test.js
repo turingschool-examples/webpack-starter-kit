@@ -333,6 +333,10 @@ describe("Hotel", function () {
       },
     ]);
   });
+  it("Should return an empty array if none are found", function () {
+    const found1 = hotelDani.filterByBedNumber(10);
+    expect(found1).to.deep.equal([]);
+  });
   it("Should should create a new booking", function () {
     const currentCustomer = customerData[0];
     const booking = hotelDani.createNewBooking(
