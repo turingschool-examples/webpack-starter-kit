@@ -113,7 +113,6 @@ function searchForBookableRooms() {
     availableRooms.innerHTML = `
     <h3 class='try-again'>We cannot create a booking for a past date! Please try another date.</h3>
     `;
-    console.log("Cannot create a booking for a passed date");
   } else {
     if (room === "no-preference") {
       displayAvailableRooms(foundRooms);

@@ -167,13 +167,14 @@ button:hover {
 
 .manage-bookings {
   padding: 1%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
 }
 
 .user-booking {
-  margin: 1%;
   padding: 1%;
   border-radius: 1rem;
-  width: 25%;
   background-color: $sand;
   border: 2px solid black;
 }
