@@ -9,11 +9,13 @@ describe("Customer", function () {
   let data2 = customerData[1];
   let customer1 = new Customer(data);
   let customer2 = new Customer(data2);
-  let now = new Date();
-  now.setHours(0, 0, 0, 0);
-  let nowString = now.toISOString();
-  nowString = nowString.split("T");
-  let todayDate = nowString[0].split("-").join("/");
+
+  function getTodaysDate() {
+    let now;
+    now = new Date();
+    now.setHours(0, 0, 0, 0);
+    return now;
+  }
 
   it("Should take in an object", function () {
     expect(data).to.be.an("object");
@@ -42,10 +44,14 @@ describe("Customer", function () {
     );
   });
   it("Should be able to choose today", function () {
+    let now = getTodaysDate();
     const day = now.getDate();
     const month = now.getMonth() + 1;
     const year = now.getFullYear();
     const date1 = customer1.chooseADate(day, month, year);
+    let nowString = now.toISOString();
+    nowString = nowString.split("T");
+    let todayDate = nowString[0].split("-").join("/");
     expect(date1).to.equal(todayDate);
   });
   it("Should be able to choose a future date", function () {

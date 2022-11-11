@@ -1,5 +1,6 @@
 $lightBlue: rgba(64, 165, 185);
 $sand: rgba(255, 231, 211);
+$white: rgb(106, 106, 115);
 $darkGreen: rgb(14, 32, 0);
 $fontGreatVibes: "Great Vibes", cursive;
 $fontCantanaOne: "Cantata One", serif;
@@ -41,11 +42,11 @@ body {
 }
 
 .first-navigation {
-  margin-left: 9%;
+  margin-left: 4%;
 }
 
 .sign-in {
-  margin-right: 9%;
+  margin-right: 4%;
 }
 
 button {
@@ -69,8 +70,8 @@ button:hover {
 
 .main-box {
   min-height: 60vh;
-  height: auto;
-  width: 80vw;
+  height: min-content;
+  width: 90vw;
   border-radius: 6px;
   background-image: linear-gradient($lightBlue, $sand);
   box-shadow: rgb(0, 0, 0) 0px 22px 70px 4px;
@@ -90,7 +91,11 @@ button:hover {
 #survey-form {
   display: flex;
   flex-direction: column;
+  border: 2px solid black;
+  border-radius: 0.25rem;
   width: 50%;
+  background-color: $sand;
+  margin: 1%;
 }
 
 .form-group {
@@ -107,7 +112,7 @@ button:hover {
   color: black;
   background-color: $sand;
   background-clip: padding-box;
-  border: 2px solid $lightBlue;
+  border: 2px solid $white;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -127,6 +132,46 @@ button:hover {
 }
 .submit-button:hover {
   cursor: pointer;
+}
+
+// Create new booking
+
+#available-rooms {
+  text-align: center;
+}
+
+.room-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.single-room-thumbnail {
+  justify-self: center;
+  border: rgb(0, 0, 0) solid 2px;
+  background-color: $sand;
+  width: min-content;
+  padding: 2%;
+  margin: 5%;
+}
+
+.single-room-img {
+  height: 22vh;
+  width: auto;
+}
+
+//My bookings
+
+.manage-bookings {
+  padding: 1%;
+}
+
+.user-booking {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 1rem;
+  width: 25%;
+  background-color: $sand;
+  border: 2px solid black;
 }
 
 .hide {
