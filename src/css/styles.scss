@@ -9,6 +9,7 @@ $backgroundPicture: url("../images/vacation.png.jpg");
 body {
   background-image: $backgroundPicture;
   background-size: cover;
+  background-repeat: repeat-y;
 }
 
 .title {
@@ -19,7 +20,7 @@ body {
 
 #Overlook {
   font-family: $fontGreatVibes;
-  font-size: 25vh;
+  font-size: 15vw;
   margin: 0;
   text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
     -1px -1px 0 $sand;
@@ -27,7 +28,7 @@ body {
 
 #The {
   font-family: $fontCantanaOne;
-  font-size: 9vh;
+  font-size: 5vw;
   align-self: center;
   margin: 0;
   margin-bottom: 9%;
@@ -45,21 +46,22 @@ body {
   margin-left: 4%;
 }
 
-.sign-in {
-  margin-right: 4%;
-}
-
 button {
+  padding: 1%;
   font-family: $fontCantanaOne;
-  font-size: 2vh;
-  height: 5vh;
-  width: auto;
+  font-size: 1vw;
+  height: auto;
+  width: 15vw;
   border-radius: 0.25rem;
   background-color: $sand;
 }
 
 button:hover {
   cursor: pointer;
+}
+
+.sign-in {
+  margin-right: 4%;
 }
 
 .main {
@@ -159,17 +161,22 @@ button:hover {
   width: auto;
 }
 
+.try-again {
+  color: rgb(154, 0, 0);
+}
+
 //My bookings
 
 .manage-bookings {
   padding: 1%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
 }
 
 .user-booking {
-  margin: 1%;
   padding: 1%;
   border-radius: 1rem;
-  width: 25%;
   background-color: $sand;
   border: 2px solid black;
 }
