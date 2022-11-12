@@ -14,7 +14,7 @@ class Customer {
   chooseADate(day, month, year) {
     const today = this.getToday();
     let chosenDate = new Date();
-    chosenDate.setFullYear(year, month - 1, day - 1);
+    chosenDate.setFullYear(year, month - 1, day);
     if (chosenDate >= today) {
       chosenDate = chosenDate.toISOString();
       chosenDate = chosenDate.split("T");
@@ -25,8 +25,8 @@ class Customer {
     }
   }
   getToday() {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const today = Date.now();
+    const date = new Date(today);
     return today;
   }
 }
