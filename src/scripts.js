@@ -27,11 +27,8 @@ Promise.all([
 ])
   .then((data) => {
     overlookHotel = new Hotel(data[1].rooms, data[2].bookings);
-    console.log(overlookHotel);
     currentUser = new Customer(data[0].customers[3]);
-    console.log(currentUser);
     updateCustomerBookings();
-    console.log(overlookHotel.findCustomerBookingExpenses(currentUser));
   })
   .catch((error) => console.log("EOROROROROROOROR", "Failed to load"));
 
@@ -58,6 +55,11 @@ let submitBookingButton = document.querySelector("#submit-booking");
 navigationBar.addEventListener("click", changePageDisplay);
 submitBookingButton.addEventListener("click", searchForBookableRooms);
 availableRooms.addEventListener("dblclick", bookRoom);
+availableRooms.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    bookRoom(e);
+  }
+});
 
 //Starting functions
 
@@ -98,7 +100,7 @@ function displayRoomBookings(data) {
   myBookings.innerHTML = "";
   data.forEach((booking) => {
     myBookings.innerHTML += `
-    <section class="user-booking" id="${booking.id}">
+    <section class="user-booking" id="${booking.id}" tabindex='0'>
       <p>Date: ${booking.date}</p>
       <p>Room: ${booking.roomNumber}</p>
     </section>
@@ -144,7 +146,7 @@ function searchForBookableRooms() {
 function displayAvailableRooms(data) {
   data.forEach((room) => {
     availableRooms.innerHTML += `
-    <section class="single-room-thumbnail" id ="${room.number}"> 
+    <section class="single-room-thumbnail" id ="${room.number}" tabindex='0'> 
       <img class="single-room-img" src="./images/HotelRoom4.png" alt="Image of room ${room.number}"> 
         <div class="room-info"> 
           <p>Room number: ${room.number}</p>
