@@ -25,8 +25,8 @@ class Customer {
     }
   }
   getToday() {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const today = Date.now();
+    const date = new Date(today);
     return today;
   }
 }

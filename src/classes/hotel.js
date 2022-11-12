@@ -20,25 +20,15 @@ class Hotel {
   }
   findCustomerBookingExpenses(currentUser) {
     let myRooms = currentUser.getMyBookings(this.allBookings);
-
     if (myRooms === "You have not made any bookings.") {
       return myRooms;
-    } else {
-      let total;
-      myRooms = myRooms.map((booking) => booking.roomNumber);
-      myRooms.forEach((number) => {
-        const roomCosts = this.allRooms.filter((room) => {
-          if (room.number === number) {
-            return room;
-          }
-        });
-        total = roomCosts.reduce((acc, current) => {
-          acc = acc + current.costPerNight;
-          return acc;
-        }, 0);
-      });
-      return total;
     }
+    myRooms = myRooms.map((room) => room.roomNumber);
+    return myRooms.reduce((acc, current) => {
+      let room = this.filterByRoomNumber(current);
+      acc = acc + room.costPerNight;
+      return acc;
+    }, 0);
   }
   findAvailableRooms(currentUser, day, month, year) {
     const dayChosen = currentUser.chooseADate(day, month, year);

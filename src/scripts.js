@@ -12,12 +12,13 @@ import "./images/HotelRoom2.png";
 import "./images/HotelRoom3.png";
 import "./images/HotelRoom4.png";
 
-console.log("This is the JavaScript entry file - your code begins here.");
-
 //GLOBAL VAR
 
 let currentUser;
 let overlookHotel;
+let day;
+let month;
+let year;
 
 Promise.all([
   loadData("http://localhost:3001/api/v1/customers"),
@@ -29,8 +30,8 @@ Promise.all([
     console.log(overlookHotel);
     currentUser = new Customer(data[0].customers[3]);
     console.log(currentUser);
-    let myBookings = generateCustomerBookings();
-    displayRoomBookings(myBookings);
+    updateCustomerBookings();
+    console.log(overlookHotel.findCustomerBookingExpenses(currentUser));
   })
   .catch((error) => console.log("EOROROROROROOROR", "Failed to load"));
 
@@ -56,6 +57,7 @@ let submitBookingButton = document.querySelector("#submit-booking");
 
 navigationBar.addEventListener("click", changePageDisplay);
 submitBookingButton.addEventListener("click", searchForBookableRooms);
+availableRooms.addEventListener("dblclick", bookRoom);
 
 //Starting functions
 
@@ -74,6 +76,7 @@ function changePageDisplay(event) {
   hide(exploreHotelSection);
   if (event.target.classList.contains("manage-bookings-button")) {
     show(manageBookingsSection);
+    updateCustomerBookings();
   } else if (event.target.classList.contains("create-bookings-button")) {
     show(addBookingsSection);
   } else if (event.target.classList.contains("explore-hotel-button")) {
@@ -81,11 +84,18 @@ function changePageDisplay(event) {
   }
 }
 
+function updateCustomerBookings() {
+  displayRoomBookings(generateCustomerBookings());
+}
+
 function generateCustomerBookings() {
-  return currentUser.getMyBookings(overlookHotel.allBookings);
+  const booking = currentUser.getMyBookings(overlookHotel.allBookings);
+  return booking;
 }
 
 function displayRoomBookings(data) {
+  const cost = overlookHotel.findCustomerBookingExpenses(currentUser);
+  myBookings.innerHTML = "";
   data.forEach((booking) => {
     myBookings.innerHTML += `
     <section class="user-booking" id="${booking.id}">
@@ -94,14 +104,15 @@ function displayRoomBookings(data) {
     </section>
     `;
   });
+  myBookings.innerHTML += `<h2>Total Spent: ${cost}</h2>`;
 }
 
 function searchForBookableRooms() {
   event.preventDefault();
   availableRooms.innerHTML = "";
-  const day = wantedDay.value;
-  const month = wantedMonth.value;
-  const year = wantedYear.value;
+  day = wantedDay.value;
+  month = wantedMonth.value;
+  year = wantedYear.value;
   const room = wantedRoomType.value;
   const foundRooms = overlookHotel.findAvailableRooms(
     currentUser,
@@ -113,11 +124,18 @@ function searchForBookableRooms() {
     availableRooms.innerHTML = `
     <h3 class='try-again'>We cannot create a booking for a past date! Please try another date.</h3>
     `;
+  } else if (foundRooms.length === 0) {
+    availableRooms.innerHTML = `<h3 class="try-again">We are so sorry, there are no bookings available with your specifications!
+    Please modify your search!</h3>`;
   } else {
     if (room === "no-preference") {
       displayAvailableRooms(foundRooms);
     } else if (room != "no-preference") {
       const withRoom = overlookHotel.filterByRoomType(room, foundRooms);
+      if (withRoom.length === 0) {
+        availableRooms.innerHTML = `<h3 class="try-again">We are so sorry, there are no bookings available with your specifications!
+    Please modify your search!</h3>`;
+      }
       displayAvailableRooms(withRoom);
     }
   }
@@ -138,6 +156,47 @@ function displayAvailableRooms(data) {
         </div> 
     </section>`;
   });
+}
+
+function bookRoom(event) {
+  const id = +event.target.parentElement.id;
+  console.log("ID", event.target.parentElement.id);
+  const date = `${year}/${month}/${day}`;
+  const booking = overlookHotel.createNewBooking(currentUser, id, date);
+  console.log("POST BOOKING", booking);
+  postNewBooking(booking);
+}
+
+function postNewBooking(bookingToSend) {
+  fetch("http://localhost:3001/api/v1/bookings", {
+    method: "POST",
+    body: JSON.stringify(bookingToSend),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      getUpdatedBookings();
+      availableRooms.innerHTML = `
+      <h3>Saved Booking</h3>`;
+    })
+    .catch((err) => console.log(err));
+}
+
+function getUpdatedBookings() {
+  fetch("http://localhost:3001/api/v1/bookings")
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+        console.log("NOT OKAYYYYYY");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      overlookHotel.createBookings(data.bookings);
+    })
+    .catch((error) => error);
 }
 
 function hide(element) {

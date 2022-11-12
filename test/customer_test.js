@@ -11,8 +11,7 @@ describe("Customer", function () {
   let customer2 = new Customer(data2);
 
   function getTodaysDate() {
-    let now;
-    now = new Date();
+    let now = new Date(Date.now());
     now.setHours(0, 0, 0, 0);
     return now;
   }
