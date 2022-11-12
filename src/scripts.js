@@ -8,7 +8,10 @@ import Customer from './classes/customer'
 //Query Selectors
 const bookingsList = document.querySelector('.bookings-list')
 const totalCostOfBookings = document.querySelector('.total-booking-cost')
-
+const bookingYear = document.getElementById('year')
+const bookingMonth = document.getElementById('month')
+const bookingDay = document.getElementById('day')
+const bookingButton = document.getElementById('booking-button')
 
 //Variables
 let bookings
@@ -50,10 +53,27 @@ function totalBookingsCost() {
 
 function displayUserData() {
     currentCustomer.customersBookings.forEach(booking => {
-        bookingsList.insertAdjacentHTML('beforeend' ,`<p>${booking.date} Room Number:${booking.roomNumber}</p>`)
+        bookingsList.insertAdjacentHTML('beforeend', `<p>${booking.date} Room Number:${booking.roomNumber}</p>`)
     })
     totalCostOfBookings.innerHTML = `<p>You've spent: $${totalBookingsCost()}`
 }
 
+function filterNewBooking(event) {
+    let unavailable = []
+    let available = []
+    let unavailableRooms = bookings.filter(booking => booking.date === `${bookingYear.value}/${bookingMonth.value}/${bookingDay.value}`)
+    unavailableRooms.forEach(room => 
+        unavailable.push(room.roomNumber)
+    )
+    rooms.forEach(room => {
+        if(unavailable.includes(room.number)) {
+            return
+        } else {available.push(room)}
+    })
+    console.log(unavailableRooms, unavailable, available)
+    event.preventDefault()
+}
+
 //Event Listeners
 addEventListener('load', fetchApiCalls())
+bookingButton.addEventListener('click', filterNewBooking)
