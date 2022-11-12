@@ -27,7 +27,7 @@ class Hotel {
     return myRooms.reduce((acc, current) => {
       let room = this.filterByRoomNumber(current);
       acc = acc + room.costPerNight;
-      return acc;
+      return acc.toFixed(2);
     }, 0);
   }
   findAvailableRooms(currentUser, day, month, year) {

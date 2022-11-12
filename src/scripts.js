@@ -29,6 +29,7 @@ Promise.all([
     overlookHotel = new Hotel(data[1].rooms, data[2].bookings);
     currentUser = new Customer(data[0].customers[3]);
     updateCustomerBookings();
+    console.log(data);
   })
   .catch((error) => console.log("EOROROROROROOROR", "Failed to load"));
 
@@ -78,7 +79,7 @@ function changePageDisplay(event) {
   hide(exploreHotelSection);
   if (event.target.classList.contains("manage-bookings-button")) {
     show(manageBookingsSection);
-    updateCustomerBookings();
+    getUpdatedBookings();
   } else if (event.target.classList.contains("create-bookings-button")) {
     show(addBookingsSection);
   } else if (event.target.classList.contains("explore-hotel-button")) {
@@ -197,6 +198,7 @@ function getUpdatedBookings() {
     })
     .then((data) => {
       overlookHotel.createBookings(data.bookings);
+      updateCustomerBookings();
     })
     .catch((error) => error);
 }
