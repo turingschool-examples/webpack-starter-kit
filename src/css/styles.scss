@@ -1,7 +1,9 @@
-$lightBlue: rgba(64, 165, 185);
-$sand: rgba(255, 231, 211);
-$white: rgb(106, 106, 115);
-$darkGreen: rgb(14, 32, 0);
+$lightBlue: rgba(0, 238, 255);
+$medBlue: rgba(19, 165, 255);
+$darkBlue: rgb(22, 42, 193);
+$sand: rgb(245, 200, 163);
+$white: rgb(231, 231, 231);
+$navy: rgb(0, 0, 30);
 $fontGreatVibes: "Great Vibes", cursive;
 $fontCantanaOne: "Cantata One", serif;
 $backgroundPicture: url("../images/vacation.png.jpg");
@@ -13,6 +15,7 @@ body {
 }
 
 .title {
+  color: $navy;
   display: flex;
   flex-direction: row;
   margin: 1%;
@@ -22,8 +25,8 @@ body {
   font-family: $fontGreatVibes;
   font-size: 15vw;
   margin: 0;
-  text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
-    -1px -1px 0 $sand;
+  text-shadow: -0.1rem 0.1rem 0 $sand, 0.1rem 0.1rem 0 $sand,
+    0.1rem -0.1rem 0 $sand, -0.1rem -0.1rem 0 $sand;
 }
 
 #The {
@@ -32,8 +35,8 @@ body {
   align-self: center;
   margin: 0;
   margin-bottom: 9%;
-  text-shadow: -1px 1px 0 $sand, 1px 1px 0 $sand, 1px -1px 0 $sand,
-    -1px -1px 0 $sand;
+  text-shadow: -0.1rem 0.1rem 0 $sand, 0.1rem 0.1rem 0 $sand,
+    0.1rem -0.1rem 0 $sand, -0.1rem -0.1rem 0 $sand;
 }
 
 .navigation {
@@ -43,7 +46,7 @@ body {
 }
 
 .first-navigation {
-  margin-left: 4%;
+  margin-left: 4rem;
 }
 
 button {
@@ -68,16 +71,64 @@ button:hover {
   display: flex;
   justify-content: center;
   align-content: center;
+  opacity: 90%;
 }
 
 .main-box {
+  display: flex;
   min-height: 60vh;
   height: min-content;
   width: 90vw;
-  border-radius: 6px;
+  border-radius: 0.6rem;
   background-image: linear-gradient($lightBlue, $sand);
-  box-shadow: rgb(0, 0, 0) 0px 22px 70px 4px;
+  box-shadow: $navy 0 2.2rem 7rem 0.4rem;
   margin: 3%;
+}
+
+.welcome-normal {
+  text-align: center;
+  padding: 5%;
+  padding-top: 8%;
+  font-family: $fontCantanaOne;
+  font-size: 10vw;
+  color: $sand;
+  margin: 0;
+  text-shadow: -0.1rem 0.1rem 0 $navy, 0.1rem 0.1rem 0 $navy,
+    0.1rem -0.1rem 0 $navy, -0.1rem -0.1rem 0 $navy;
+}
+
+.welcome-styling {
+  align-self: center;
+  text-align: center;
+  font-family: $fontGreatVibes;
+  background-image: linear-gradient(
+    -225deg,
+    $sand 0%,
+    $white 10%,
+    $lightBlue 20%,
+    $medBlue 40%,
+    $darkBlue 60%,
+    $navy 70%,
+    $lightBlue 80%,
+    $white 90%,
+    $sand 100%
+  );
+  background-size: 300% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: transition 15s linear infinite;
+  display: inline-block;
+  font-size: 15vw;
+  margin: 0;
+  padding: 5rem;
+}
+
+@keyframes transition {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .add-booking {
@@ -86,17 +137,17 @@ button:hover {
 }
 
 .booking-results {
-  width: 50%;
+  width: 50vw;
 }
 
 /* form */
 #survey-form {
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+  border: 2px solid $navy;
   border-radius: 0.25rem;
-  width: 50%;
-  background-color: $sand;
+  width: 40vw;
+  background-color: $white;
   margin: 1%;
 }
 
@@ -111,10 +162,10 @@ button:hover {
   display: block;
   height: 2.375rem;
   padding: 0.375rem 0.75rem;
-  color: black;
-  background-color: $sand;
+  color: $navy;
+  background-color: $white;
   background-clip: padding-box;
-  border: 2px solid $white;
+  border: 2px solid $navy;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -127,8 +178,8 @@ button:hover {
 }
 
 .submit-button {
-  background-color: $darkGreen;
-  color: $sand;
+  background-color: $sand;
+  color: $navy;
   align-self: center;
   margin-bottom: 1rem;
 }
@@ -149,7 +200,7 @@ button:hover {
 
 .single-room-thumbnail {
   justify-self: center;
-  border: rgb(0, 0, 0) solid 2px;
+  border: $navy solid 2px;
   background-color: $sand;
   width: min-content;
   padding: 2%;
@@ -175,10 +226,10 @@ button:hover {
 }
 
 .user-booking {
-  padding: 1%;
+  padding: 2%;
   border-radius: 1rem;
-  background-color: $sand;
-  border: 2px solid black;
+  background-color: $white;
+  border: 2px solid $navy;
 }
 
 .hide {

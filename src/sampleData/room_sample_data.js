@@ -32,7 +32,7 @@ const roomData = [
     costPerNight: 429.44,
   },
   {
-    number: 5,
+    number: 15,
     roomType: "single room",
     bidet: true,
     bedSize: "queen",

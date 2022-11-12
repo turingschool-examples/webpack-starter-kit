@@ -6,6 +6,7 @@ class Hotel {
   constructor(roomData, bookingData) {
     this.allRooms = this.createRooms(roomData);
     this.allBookings = this.createBookings(bookingData);
+    this.availableRooms = [];
   }
   createRooms(roomData) {
     this.allRooms = roomData.map((room) => new Room(room));
@@ -30,30 +31,27 @@ class Hotel {
       return acc;
     }, 0);
   }
-  findAvailableRooms(currentUser, day, month, year) {
-    const dayChosen = currentUser.chooseADate(day, month, year);
-    if (dayChosen != `Please choose a valid date`) {
-      const unavailableRooms = this.allBookings
-        .filter((booking) => {
-          if (booking.date === dayChosen) {
-            return booking;
-          }
-        })
-        .map((booking) => booking.roomNumber);
-      const rooms = this.allRooms.filter((room) => {
-        let bookedRoom;
-        unavailableRooms.forEach((booking) => {
-          bookedRoom = booking;
-        });
-        if (bookedRoom != room.number) {
-          return room;
-        }
-      });
-      return rooms;
-    } else {
-      return dayChosen;
-    }
+
+  findAvailableRooms(date) {
+    this.availableRooms = [];
+    const bookedRooms = this.findBookedRoomNumber(date);
+    this.availableRooms = this.rooms.filter(
+      (room) => !bookedRooms.includes(room.number)
+    );
   }
+
+  findAvailableRooms(currentUser, day, month, year, data = this.allBookings) {
+    const dayChosen = currentUser.chooseADate(day, month, year);
+    const bookedRooms = data
+      .filter((booking) => dayChosen === booking.date)
+      .map((room) => room.roomNumber);
+    this.availableRooms = this.allRooms.filter(
+      (room) => !bookedRooms.includes(room.number)
+    );
+    console.log(this.availableRooms);
+    return this.availableRooms;
+  }
+
   filterByRoomType(roomType) {
     const roomsFound = this.allRooms.filter(
       (room) => room.roomType === roomType.toLowerCase()
