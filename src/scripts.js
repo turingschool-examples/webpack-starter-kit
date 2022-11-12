@@ -11,7 +11,9 @@ const totalCostOfBookings = document.querySelector('.total-booking-cost')
 const bookingYear = document.getElementById('year')
 const bookingMonth = document.getElementById('month')
 const bookingDay = document.getElementById('day')
+const roomTypeSelector = document.getElementById('room-type')
 const bookingButton = document.getElementById('booking-button')
+const availableBookingSection = document.querySelector('.available-bookings')
 
 //Variables
 let bookings
@@ -20,6 +22,9 @@ let customers
 let singleCustomer
 let currentCustomer
 let customersRooms = []
+let unavailable = []
+let available = []
+let roomFilter
 
 //Functions
 const fetchApiCalls = () => {
@@ -58,9 +63,21 @@ function displayUserData() {
     totalCostOfBookings.innerHTML = `<p>You've spent: $${totalBookingsCost()}`
 }
 
-function filterNewBooking(event) {
-    let unavailable = []
-    let available = []
+function checkInputs(event) {
+    if(bookingYear.value === "Year") {
+        availableBookingSection.innerHTML = '<p>Please select a year!</p>'
+    } else if(bookingMonth.value === "Month") {
+        availableBookingSection.innerHTML = '<p>Please select a month!</p>'
+    } else if(bookingDay.value === "Day") {
+        availableBookingSection.innerHTML = '<p>Please select a day!</p>'
+    } else{filterNewBooking()}
+    event.preventDefault()
+
+}
+
+function filterNewBooking() {
+    unavailable = []
+    available = []
     let unavailableRooms = bookings.filter(booking => booking.date === `${bookingYear.value}/${bookingMonth.value}/${bookingDay.value}`)
     unavailableRooms.forEach(room => 
         unavailable.push(room.roomNumber)
@@ -70,10 +87,36 @@ function filterNewBooking(event) {
             return
         } else {available.push(room)}
     })
-    console.log(unavailableRooms, unavailable, available)
-    event.preventDefault()
+    showAvailableBookings()
 }
 
+function showAvailableBookings() {
+    availableBookingSection.innerHTML = ''
+    available.forEach(booking => {
+        availableBookingSection.insertAdjacentHTML('beforeend', `Room Number: ${booking.number} Bed Size: ${booking.bedSize} Bidet: ${booking.bidet} Cost(per night): ${booking.costPerNight} Number of Beds: ${booking.numBeds} Room Type: ${booking.roomType} <br>`)
+    })
+    checkForUnavailable()
+}
+
+function filterByRoomType() {
+    if(roomTypeSelector.value != "Room Type") {filterResults()} else {return}
+}
+
+function filterResults() {
+    availableBookingSection.innerHTML = ''
+    roomFilter = available.filter(room => room.roomType === roomTypeSelector.value)
+    roomFilter.forEach(booking => {
+        availableBookingSection.insertAdjacentHTML('beforeend', `Room Number: ${booking.number} Bed Size: ${booking.bedSize} Bidet: ${booking.bidet} Cost(per night): ${booking.costPerNight} Number of Beds: ${booking.numBeds} Room Type: ${booking.roomType} <br>`)
+    })
+    checkForUnavailable()
+}
+
+function checkForUnavailable() {
+    if(unavailable === [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]) {
+        availableBookingSection.innerHTML = `<p> We are so sorry but there seems to be no available bookings for that day!</p>`
+    }
+}
 //Event Listeners
 addEventListener('load', fetchApiCalls())
-bookingButton.addEventListener('click', filterNewBooking)
+bookingButton.addEventListener('click', checkInputs)
+bookingButton.addEventListener('click', filterByRoomType)

@@ -10,11 +10,11 @@
 
 <body>
   <h1>Welcome!</h1>
-  <p>Your bookings:</p>
+  <h2>Your bookings:</h2>
   <section class="bookings-list"></section>
   <section class="total-booking-cost"></section>
   <section class="book-trip">
-    <p>Book your next trip here!</p>
+    <h3>Book your next trip here!</h3>
     <select id="year" name="year">
       <option>Year</option>
       <option value="2022">2022</option>
@@ -80,8 +80,17 @@
       <option value="30">30</option>
       <option value="31">31</option>
     </select>
-    <button id="booking-button">Book Now</button>
+    <select id="room-type" name="room-type">
+      <option>Room Type</option>
+      <option value="residential suite">residential suite</option>
+      <option value="suite">suite</option>
+      <option value="single room">single room</option>
+      <option value="junior suite">junior suite</option>
+    </select>
+    <button id="booking-button">Search Rooms</button>
   </section>
+  <h2>Available Rooms:</h2>
+  <section class="available-bookings"></section>
   <img src="./images/turing-logo.png" alt="turing logo">
   <script src="bundle.js"></script>
 
