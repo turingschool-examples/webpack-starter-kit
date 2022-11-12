@@ -21,7 +21,7 @@ describe("Booking", function () {
     expect(booking2.userID).to.equal(43);
   });
   it("Should have a date", function () {
-    expect(booking1.date).to.equal("2022/04/22");
+    expect(booking1.date).to.equal("2023/04/22");
     expect(booking2.date).to.equal("2022/01/24");
   });
   it("Should have a room number", function () {

@@ -31,6 +31,7 @@ Promise.all([
     updateCustomerBookings();
   })
   .catch((error) => {
+    console.log(error);
     welcome.innerText = "Sorry! There was a problem loading the data!";
     welcome.classList.remove("welcome-styling");
     welcome.classList.add("welcome-normal");
@@ -51,7 +52,6 @@ let wantedDay = document.querySelector("#select-day");
 let wantedMonth = document.querySelector("#select-month");
 let wantedYear = document.querySelector("#select-year");
 let wantedRoomType = document.querySelector("#select-room");
-let wantedNumBeds = document.querySelector("#select-beds");
 let submitBookingButton = document.querySelector("#submit-booking");
 
 //even listeners
@@ -61,7 +61,7 @@ submitBookingButton.addEventListener("click", searchForBookableRooms);
 availableRooms.addEventListener("dblclick", bookRoom);
 availableRooms.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
-    bookRoom(e);
+    bookRoomKeyDown(e);
   }
 });
 
@@ -85,6 +85,7 @@ function changePageDisplay(event) {
     getUpdatedBookings();
   } else if (event.target.classList.contains("create-bookings-button")) {
     show(addBookingsSection);
+    getUpdatedBookings();
   }
 }
 
@@ -114,6 +115,7 @@ function displayRoomBookings(data) {
 
 function searchForBookableRooms() {
   event.preventDefault();
+  getUpdatedBookings();
   availableRooms.innerHTML = "";
   day = wantedDay.value;
   month = wantedMonth.value;
@@ -144,8 +146,9 @@ function searchForBookableRooms() {
       if (withRoom.length === 0) {
         availableRooms.innerHTML = `<h3 class="try-again">We are so sorry, there are no bookings available with your specifications!
     Please modify your search!</h3>`;
+      } else {
+        displayAvailableRooms(withRoom);
       }
-      displayAvailableRooms(withRoom);
     }
   }
 }
@@ -169,10 +172,15 @@ function displayAvailableRooms(data) {
 
 function bookRoom(event) {
   const id = +event.target.parentElement.id;
-  console.log("ID", event.target.parentElement.id);
   const date = `${year}/${month}/${day}`;
   const booking = overlookHotel.createNewBooking(currentUser, id, date);
-  console.log("POST BOOKING", booking);
+  postNewBooking(booking);
+}
+
+function bookRoomKeyDown(event) {
+  const id = +event.target.id;
+  const date = `${year}/${month}/${day}`;
+  const booking = overlookHotel.createNewBooking(currentUser, id, date);
   postNewBooking(booking);
 }
 
@@ -206,8 +214,8 @@ function getUpdatedBookings() {
       return res.json();
     })
     .then((data) => {
-      overlookHotel.createBookings(data.bookings);
       updateCustomerBookings();
+      overlookHotel.createBookings(data.bookings);
     })
     .catch((error) => {
       myBookings.innerHTML = `

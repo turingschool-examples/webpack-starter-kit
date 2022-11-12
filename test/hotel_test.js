@@ -45,7 +45,7 @@ describe("Hotel", function () {
         costPerNight: 429.44,
       },
       {
-        number: 5,
+        number: 15,
         roomType: "single room",
         bidet: true,
         bedSize: "queen",
@@ -71,7 +71,7 @@ describe("Hotel", function () {
       {
         id: "5fwrgu4i7k55hl6sz",
         userID: 9,
-        date: "2022/04/22",
+        date: "2023/04/22",
         roomNumber: 15,
       },
       {
@@ -125,7 +125,7 @@ describe("Hotel", function () {
       {
         id: "5fwrgu4i7k55hl6sz",
         userID: 9,
-        date: "2022/04/22",
+        date: "2023/04/22",
         roomNumber: 15,
       },
     ]);
@@ -162,13 +162,13 @@ describe("Hotel", function () {
   });
   it("Should tell what rooms are available for a given date", function () {
     const currentCustomer = new Customer(customerData[0]);
-    const roomsAvailable = hotelDani.findAvailableRooms(
+    const roomsAvailable1 = hotelDani.findAvailableRooms(
       currentCustomer,
       5,
       2,
       2023
     );
-    expect(roomsAvailable).to.deep.equal([
+    expect(roomsAvailable1).to.deep.equal([
       {
         number: 1,
         roomType: "residential suite",
@@ -202,12 +202,60 @@ describe("Hotel", function () {
         costPerNight: 429.44,
       },
       {
-        number: 5,
+        number: 15,
         roomType: "single room",
         bidet: true,
         bedSize: "queen",
         numBeds: 2,
         costPerNight: 340.17,
+      },
+    ]);
+    const roomsAvailable2 = hotelDani.findAvailableRooms(
+      currentCustomer,
+      22,
+      4,
+      2023
+    );
+    expect(roomsAvailable2).to.deep.equal([
+      {
+        number: 1,
+        roomType: "residential suite",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 1,
+        costPerNight: 358.4,
+      },
+      {
+        number: 2,
+        roomType: "suite",
+        bidet: false,
+        bedSize: "full",
+        numBeds: 2,
+        costPerNight: 477.38,
+      },
+      {
+        number: 3,
+        roomType: "single room",
+        bidet: false,
+        bedSize: "king",
+        numBeds: 1,
+        costPerNight: 491.14,
+      },
+      {
+        number: 4,
+        roomType: "single room",
+        bidet: false,
+        bedSize: "queen",
+        numBeds: 1,
+        costPerNight: 429.44,
+      },
+      {
+        number: 12,
+        roomType: "single room",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 2,
+        costPerNight: 50.25,
       },
     ]);
   });
@@ -253,7 +301,7 @@ describe("Hotel", function () {
         costPerNight: 429.44,
       },
       {
-        number: 5,
+        number: 15,
         roomType: "single room",
         bidet: true,
         bedSize: "queen",
