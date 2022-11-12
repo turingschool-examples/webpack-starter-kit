@@ -12,8 +12,6 @@ import "./images/HotelRoom2.png";
 import "./images/HotelRoom3.png";
 import "./images/HotelRoom4.png";
 
-console.log("This is the JavaScript entry file - your code begins here.");
-
 //GLOBAL VAR
 
 let currentUser;
@@ -33,6 +31,7 @@ Promise.all([
     currentUser = new Customer(data[0].customers[3]);
     console.log(currentUser);
     updateCustomerBookings();
+    console.log(overlookHotel.findCustomerBookingExpenses(currentUser));
   })
   .catch((error) => console.log("EOROROROROROOROR", "Failed to load"));
 
@@ -90,10 +89,13 @@ function updateCustomerBookings() {
 }
 
 function generateCustomerBookings() {
-  return currentUser.getMyBookings(overlookHotel.allBookings);
+  const booking = currentUser.getMyBookings(overlookHotel.allBookings);
+  return booking;
 }
 
 function displayRoomBookings(data) {
+  const cost = overlookHotel.findCustomerBookingExpenses(currentUser);
+  myBookings.innerHTML = "";
   data.forEach((booking) => {
     myBookings.innerHTML += `
     <section class="user-booking" id="${booking.id}">
@@ -102,6 +104,7 @@ function displayRoomBookings(data) {
     </section>
     `;
   });
+  myBookings.innerHTML += `<h2>Total Spent: ${cost}</h2>`;
 }
 
 function searchForBookableRooms() {
@@ -175,6 +178,8 @@ function postNewBooking(bookingToSend) {
     .then((response) => response.json())
     .then((data) => {
       getUpdatedBookings();
+      availableRooms.innerHTML = `
+      <h3>Saved Booking</h3>`;
     })
     .catch((err) => console.log(err));
 }
