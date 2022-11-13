@@ -9,7 +9,7 @@ import Customer from "../src/classes/customer";
 const expect = chai.expect;
 
 describe("Hotel", function () {
-  let hotelDani = new Hotel(roomData, bookingsData, customerData);
+  let hotelDani = new Hotel(roomData, bookingsData);
   it("Should have an array that can hold all the rooms in the hotel", function () {
     expect(hotelDani.allRooms).to.deep.equal([
       {
@@ -131,6 +131,7 @@ describe("Hotel", function () {
     ]);
   });
   it("Should have a list of customers", function () {
+    hotelDani.createCustomers(customerData);
     expect(hotelDani.allCustomers).to.deep.equal([
       {
         id: 1,

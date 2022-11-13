@@ -3,10 +3,10 @@ import Booking from "./booking";
 import Customer from "./customer";
 
 class Hotel {
-  constructor(roomData, bookingData, customerData) {
+  constructor(roomData, bookingData) {
     this.allRooms = this.createRooms(roomData);
     this.allBookings = this.createBookings(bookingData);
-    this.allCustomers = this.createCustomers(customerData);
+    this.allCustomers = [];
     this.availableRooms = [];
   }
   createRooms(roomData) {

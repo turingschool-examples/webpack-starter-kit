@@ -21,35 +21,15 @@ let currentUser;
 let overlookHotel;
 let chosenDate;
 
-Promise.all([
-  loadData("http://localhost:3001/api/v1/customers"),
-  loadData("http://localhost:3001/api/v1/rooms"),
-  loadData("http://localhost:3001/api/v1/bookings"),
-])
-  .then((data) => {
-    overlookHotel = new Hotel(
-      data[1].rooms,
-      data[2].bookings,
-      data[0].customers
-    );
-    console.log(overlookHotel);
-    currentUser = new Customer(data[0].customers[3]);
-    updateCustomerBookings();
-  })
-  .catch((error) => {
-    console.log(error);
-    welcome.innerText = "Sorry! There was a problem loading the data!";
-    welcome.classList.remove("welcome-styling");
-    welcome.classList.add("welcome-normal");
-  });
-
 //VARIABLES
 
 //QUERY SELECTORS
+const loginSection = document.querySelector(".log-in");
 const loginButton = document.getElementById("login-btn");
 const username = document.getElementById("name");
 const password = document.getElementById("password");
 const loginError = document.querySelector(".bad-login");
+const signIn = document.querySelector(".sign-in");
 
 const navigationBar = document.querySelector(".first-navigation");
 const manageBookingsSection = document.querySelector(".manage-bookings");
@@ -64,8 +44,10 @@ let submitBookingButton = document.querySelector("#submit-booking");
 const calendar = document.getElementById("calendar");
 
 //even listeners
+window.addEventListener("load", loadAllData);
 loginButton.addEventListener("click", loginCustomer);
 navigationBar.addEventListener("click", changePageDisplay);
+signIn.addEventListener("click", backToLogin);
 submitBookingButton.addEventListener("click", searchForBookableRooms);
 availableRooms.addEventListener("dblclick", bookRoom);
 availableRooms.addEventListener("keydown", function (e) {
@@ -74,11 +56,40 @@ availableRooms.addEventListener("keydown", function (e) {
   }
 });
 
+function loadAllData() {
+  Promise.all([
+    loadData("http://localhost:3001/api/v1/customers"),
+    loadData("http://localhost:3001/api/v1/rooms"),
+    loadData("http://localhost:3001/api/v1/bookings"),
+  ])
+    .then((data) => {
+      overlookHotel = new Hotel(data[1].rooms, data[2].bookings);
+      overlookHotel.createCustomers(data[0].customers);
+    })
+    .catch((error) => {
+      console.log(error);
+      welcome.innerText = "Sorry! There was a problem loading the data!";
+      welcome.classList.remove("welcome-styling");
+      welcome.classList.add("welcome-normal");
+    });
+}
+
 //Starting functions
 
 function loginCustomer() {
-  if (username.value === "" || password.value === "") {
+  currentUser = overlookHotel.login(username.value, password.value);
+  if (currentUser === undefined) {
     show(loginError);
+    return "did not work";
+  } else {
+    console.log(currentUser);
+    hide(loginSection);
+    show(navigationBar);
+    show(welcome);
+    show(signIn);
+    welcome.innerText = `Welcome ${currentUser.name}`;
+    updateCustomerBookings();
+    return currentUser;
   }
 }
 
@@ -87,10 +98,22 @@ function changePageDisplay(event) {
   hide(addBookingsSection);
   hide(welcome);
   if (event.target.classList.contains("manage-bookings-button")) {
+    updateCustomerBookings();
     show(manageBookingsSection);
   } else if (event.target.classList.contains("create-bookings-button")) {
     show(addBookingsSection);
   }
+}
+
+function backToLogin() {
+  hide(manageBookingsSection);
+  hide(addBookingsSection);
+  hide(welcome);
+  hide(navigationBar);
+  hide(signIn);
+  show(loginSection);
+  username.value = "";
+  password.value = "";
 }
 
 function updateCustomerBookings() {
