@@ -67,10 +67,9 @@ function loadAllData() {
       overlookHotel.createCustomers(data[0].customers);
     })
     .catch((error) => {
-      console.log(error);
-      welcome.innerText = "Sorry! There was a problem loading the data!";
-      welcome.classList.remove("welcome-styling");
-      welcome.classList.add("welcome-normal");
+      loginError.innerText =
+        "We are so sorry! There was a problem loading the data!";
+      show(loginError);
     });
 }
 
@@ -79,6 +78,7 @@ function loadAllData() {
 function loginCustomer() {
   currentUser = overlookHotel.login(username.value, password.value);
   if (currentUser === undefined) {
+    loginError.innerText = "Invalid credentials! Please try again!";
     show(loginError);
     return "did not work";
   } else {
