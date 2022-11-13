@@ -18,15 +18,46 @@
       <h1 id="Overlook">Overlook</h1>
     </span>
     <nav class="navigation">
-      <section class="first-navigation">
+      <section class="first-navigation hide">
         <button class="manage-bookings-button">Manage My Bookings</button>
         <button class="create-bookings-button">Create New Booking</button>
       </section>
-      <button class="sign-in">Sign In</button>
+      <button class="sign-in hide">Sign In</button>
     </nav>
     <main class="main">
       <span class="main-box">
-        <h2 class="welcome welcome-styling">Welcome</h2>
+        <h2 class="welcome welcome-styling hide">Welcome</h2>
+        <section class="log-in">
+          <h2 class="bad-login hide">Not a valid user!</h2>
+          <form id="content">
+            <div class="input-bar">
+              <label for="name"
+                ><img
+                  class="icon-image"
+                  src="/images/user.png"
+                  alt="user icon"
+                />Username</label
+              >
+              <input type="text" id="name" class="input" />
+            </div>
+            <div class="input-bar">
+              <label for="password"
+                ><img
+                  class="icon-image"
+                  src="/images/lock.png"
+                  alt="lock icon"
+                />Password</label
+              >
+              <input
+                type="password"
+                id="password"
+                class="input"
+                value="overlook2021"
+              />
+            </div>
+          </form>
+          <button type="submit" id="login-btn">Login</button>
+        </section>
         <section class="manage-bookings hide">
           <!-- Booking info -->
         </section>

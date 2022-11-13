@@ -19,11 +19,12 @@ body {
   display: flex;
   flex-direction: row;
   margin: 1%;
+  margin-bottom: 0;
 }
 
 #Overlook {
   font-family: $fontGreatVibes;
-  font-size: 15vw;
+  font-size: 14vw;
   margin: 0;
   text-shadow: -0.1rem 0.1rem 0 $sand, 0.1rem 0.1rem 0 $sand,
     0.1rem -0.1rem 0 $sand, -0.1rem -0.1rem 0 $sand;
@@ -31,7 +32,7 @@ body {
 
 #The {
   font-family: $fontCantanaOne;
-  font-size: 5vw;
+  font-size: 4vw;
   align-self: center;
   margin: 0;
   margin-bottom: 9%;
@@ -67,6 +68,40 @@ button:hover {
 
 .sign-in {
   margin-right: 4%;
+  padding: 0;
+}
+
+//login
+.log-in {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  justify-content: center;
+  align-items: center;
+
+  .input-bar {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    .icon-image {
+      width: 3vw;
+      height: auto;
+      padding: 0.25rem;
+      padding-bottom: 0;
+    }
+    label {
+      align-self: center;
+      font-family: $fontCantanaOne;
+      font-size: 3vw;
+    }
+    input {
+      height: 6vh;
+      width: 35vw;
+      border-radius: 0.5rem;
+      font-size: 2vw;
+      text-align: center;
+    }
+  }
 }
 
 .main {
@@ -123,7 +158,7 @@ button:hover {
   -webkit-text-fill-color: transparent;
   animation: transition 15s linear infinite;
   display: inline-block;
-  font-size: 15vw;
+  font-size: 10vw;
   margin: 0;
   padding: 5rem;
 }

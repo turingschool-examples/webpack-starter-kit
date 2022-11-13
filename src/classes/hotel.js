@@ -6,6 +6,7 @@ class Hotel {
   constructor(roomData, bookingData) {
     this.allRooms = this.createRooms(roomData);
     this.allBookings = this.createBookings(bookingData);
+    this.allCustomers = [];
     this.availableRooms = [];
   }
   createRooms(roomData) {
@@ -15,6 +16,19 @@ class Hotel {
   createBookings(bookingData) {
     this.allBookings = bookingData.map((details) => new Booking(details));
     return this.allBookings;
+  }
+
+  createCustomers(customerData) {
+    this.allCustomers = customerData.map((details) => new Customer(details));
+    return this.allCustomers;
+  }
+
+  login(username, password) {
+    return this.allCustomers.find((customer) => {
+      if (customer.username === username && customer.password === password) {
+        return customer;
+      }
+    });
   }
 
   findCustomerBookings(currentUser) {
