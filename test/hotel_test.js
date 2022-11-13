@@ -9,7 +9,7 @@ import Customer from "../src/classes/customer";
 const expect = chai.expect;
 
 describe("Hotel", function () {
-  let hotelDani = new Hotel(roomData, bookingsData);
+  let hotelDani = new Hotel(roomData, bookingsData, customerData);
   it("Should have an array that can hold all the rooms in the hotel", function () {
     expect(hotelDani.allRooms).to.deep.equal([
       {
@@ -130,6 +130,62 @@ describe("Hotel", function () {
       },
     ]);
   });
+  it("Should have a list of customers", function () {
+    expect(hotelDani.allCustomers).to.deep.equal([
+      {
+        id: 1,
+        name: "Leatha Ullrich",
+        username: "customer1",
+        password: "overlook2021",
+      },
+      {
+        id: 2,
+        name: "Rocio Schuster",
+        username: "customer2",
+        password: "overlook2021",
+      },
+      {
+        id: 3,
+        name: "Kelvin Schiller",
+        username: "customer3",
+        password: "overlook2021",
+      },
+      {
+        id: 4,
+        name: "Kennedi Emard",
+        username: "customer4",
+        password: "overlook2021",
+      },
+      {
+        id: 5,
+        name: "Rhiannon Little",
+        username: "customer5",
+        password: "overlook2021",
+      },
+      {
+        id: 6,
+        name: "Fleta Schuppe",
+        username: "customer6",
+        password: "overlook2021",
+      },
+    ]);
+  });
+  it("Should be able to find a user based on their login information", function () {
+    const found1 = hotelDani.login("customer1", "overlook2021");
+    const found2 = hotelDani.login("customer2", "overlook2021");
+    expect(found1).to.deep.equal({
+      id: 1,
+      name: "Leatha Ullrich",
+      password: "overlook2021",
+      username: "customer1",
+    });
+    expect(found2).to.deep.equal({
+      id: 2,
+      name: "Rocio Schuster",
+      password: "overlook2021",
+      username: "customer2",
+    });
+  });
   it("Should find bookings for any given customer", function () {
     hotelDani.createBookings(bookingsData);
     const currentCustomer = new Customer(customerData[0]);
@@ -162,7 +218,6 @@ describe("Hotel", function () {
   });
   it("Should tell what rooms are available for a given date", function () {
     const roomsAvailable1 = hotelDani.findAvailableRooms("2023/02/05");
-    console.log(hotelDani.allBookings);
     expect(roomsAvailable1).to.deep.equal([
       {
         number: 1,

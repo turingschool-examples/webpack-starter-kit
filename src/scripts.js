@@ -27,7 +27,12 @@ Promise.all([
   loadData("http://localhost:3001/api/v1/bookings"),
 ])
   .then((data) => {
-    overlookHotel = new Hotel(data[1].rooms, data[2].bookings);
+    overlookHotel = new Hotel(
+      data[1].rooms,
+      data[2].bookings,
+      data[0].customers
+    );
+    console.log(overlookHotel);
     currentUser = new Customer(data[0].customers[3]);
     updateCustomerBookings();
   })
@@ -41,6 +46,11 @@ Promise.all([
 //VARIABLES
 
 //QUERY SELECTORS
+const loginButton = document.getElementById("login-btn");
+const username = document.getElementById("name");
+const password = document.getElementById("password");
+const loginError = document.querySelector(".bad-login");
+
 const navigationBar = document.querySelector(".first-navigation");
 const manageBookingsSection = document.querySelector(".manage-bookings");
 const addBookingsSection = document.querySelector(".add-booking");
@@ -54,7 +64,7 @@ let submitBookingButton = document.querySelector("#submit-booking");
 const calendar = document.getElementById("calendar");
 
 //even listeners
-
+loginButton.addEventListener("click", loginCustomer);
 navigationBar.addEventListener("click", changePageDisplay);
 submitBookingButton.addEventListener("click", searchForBookableRooms);
 availableRooms.addEventListener("dblclick", bookRoom);
@@ -65,6 +75,12 @@ availableRooms.addEventListener("keydown", function (e) {
 });
 
 //Starting functions
+
+function loginCustomer() {
+  if (username.value === "" || password.value === "") {
+    show(loginError);
+  }
+}
 
 function changePageDisplay(event) {
   hide(manageBookingsSection);

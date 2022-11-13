@@ -27,6 +27,14 @@ describe("Customer", function () {
     expect(customer1.name).to.equal("Leatha Ullrich");
     expect(customer2.name).to.equal("Rocio Schuster");
   });
+  it("Should have a username", function () {
+    expect(customer1.username).to.equal("customer1");
+    expect(customer2.username).to.equal("customer2");
+  });
+  it("Should have a password", function () {
+    expect(customer1.password).to.equal("overlook2021");
+    expect(customer2.password).to.equal("overlook2021");
+  });
   it("Should be able to find customers bookings", function () {
     expect(customer1.getMyBookings(bookingsData)).to.deep.equal([
       {
