@@ -12,6 +12,8 @@ import "./images/HotelRoom1.png";
 import "./images/HotelRoom2.png";
 import "./images/HotelRoom3.png";
 import "./images/HotelRoom4.png";
+import "./images/lock.png";
+import "./images/user.png";
 
 //GLOBAL VAR
 
