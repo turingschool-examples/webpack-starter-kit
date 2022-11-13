@@ -48,7 +48,6 @@ class Hotel {
     this.availableRooms = this.allRooms.filter(
       (room) => !bookedRooms.includes(room.number)
     );
-    console.log(this.availableRooms);
     return this.availableRooms;
   }
 

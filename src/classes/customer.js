@@ -19,7 +19,6 @@ class Customer {
       chosenDate = chosenDate.toISOString();
       chosenDate = chosenDate.split("T");
       let newChosenDate = chosenDate[0].split("-").join("/");
-      console.log("CHOSEN DATE", newChosenDate);
       return newChosenDate;
     } else {
       return `Please choose a valid date`;

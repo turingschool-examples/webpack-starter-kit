@@ -194,9 +194,9 @@ function postNewBooking(bookingToSend) {
   })
     .then((response) => response.json())
     .then((data) => {
-      getUpdatedBookings();
       availableRooms.innerHTML = `
       <h3>Saved Booking</h3>`;
+      getUpdatedBookings();
     })
     .catch((err) => {
       availableRooms.innerHTML = `
