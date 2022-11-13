@@ -96,7 +96,7 @@ function displayRoomBookings(data) {
     </section>
     `;
   });
-  myBookings.innerHTML += `<h2>Total Spent: $${cost}</h2>`;
+  myBookings.innerHTML += `<h2 class='total-spent'>Total Spent: $${cost}</h2>`;
 }
 
 function searchForBookableRooms() {

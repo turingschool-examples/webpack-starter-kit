@@ -1,12 +1,12 @@
 $lightBlue: rgba(0, 238, 255);
 $medBlue: rgba(19, 165, 255);
 $darkBlue: rgb(22, 42, 193);
-$sand: rgb(245, 200, 163);
-$white: rgb(231, 231, 231);
+$white: rgb(255, 229, 208);
+$sand: rgb(231, 231, 231);
 $navy: rgb(0, 0, 30);
 $fontGreatVibes: "Great Vibes", cursive;
 $fontCantanaOne: "Cantata One", serif;
-$backgroundPicture: url("../images/vacation.png.jpg");
+$backgroundPicture: url("../images/vacation.jpg");
 
 body {
   background-image: $backgroundPicture;
@@ -46,7 +46,7 @@ body {
 }
 
 .first-navigation {
-  margin-left: 4rem;
+  margin-left: 3rem;
 }
 
 button {
@@ -55,8 +55,10 @@ button {
   font-size: 1vw;
   height: auto;
   width: 15vw;
+  border: solid $sand 2px;
   border-radius: 0.25rem;
-  background-color: $sand;
+  background-color: $navy;
+  color: $sand;
 }
 
 button:hover {
@@ -78,11 +80,12 @@ button:hover {
   display: flex;
   min-height: 60vh;
   height: min-content;
-  width: 90vw;
+  width: 100vw;
   border-radius: 0.6rem;
-  background-image: linear-gradient($lightBlue, $sand);
-  box-shadow: $navy 0 2.2rem 7rem 0.4rem;
+  background-image: linear-gradient($lightBlue, $navy);
+  box-shadow: $sand 0 0.3rem 2rem 0.1rem;
   margin: 3%;
+  margin-top: 1%;
 }
 
 .welcome-normal {
@@ -141,50 +144,45 @@ button:hover {
 }
 
 /* form */
-#survey-form {
+#booking-form {
   display: flex;
   flex-direction: column;
-  border: 2px solid $navy;
+  border: 2px solid $white;
   border-radius: 0.25rem;
   width: 40vw;
-  background-color: $white;
+  background-color: $navy;
   margin: 1%;
-}
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  padding-bottom: 0;
-}
-
-.form-control {
-  display: block;
-  height: 2.375rem;
-  padding: 0.375rem 0.75rem;
-  color: $navy;
-  background-color: $white;
-  background-clip: padding-box;
-  border: 2px solid $navy;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.input-checkbox {
-  display: inline-block;
-  margin-right: 0.625rem;
-  min-height: 1.25rem;
-  min-width: 1.25rem;
-}
-
-.submit-button {
-  background-color: $sand;
-  color: $navy;
-  align-self: center;
-  margin-bottom: 1rem;
-}
-.submit-button:hover {
-  cursor: pointer;
+  label {
+    margin-bottom: 1rem;
+    color: $white;
+  }
+  input,
+  .form-control {
+    display: block;
+    height: 2.5rem;
+    padding: 0.375rem 0.75rem;
+    color: $white;
+    background-color: $navy;
+    border: 2px solid $lightBlue;
+    border-radius: 0.25rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    padding-bottom: 0;
+    margin: 1%;
+  }
+  .submit-button {
+    background-color: $white;
+    color: $navy;
+    align-self: center;
+    margin-bottom: 1rem;
+    .submit-button:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 // Create new booking
@@ -200,8 +198,10 @@ button:hover {
 
 .single-room-thumbnail {
   justify-self: center;
-  border: $navy solid 2px;
-  background-color: $sand;
+  color: $white;
+  border: $white solid 2px;
+  border-radius: 0.25rem;
+  background-color: $navy;
   width: min-content;
   padding: 2%;
   margin: 5%;
@@ -227,9 +227,14 @@ button:hover {
 
 .user-booking {
   padding: 2%;
+  color: $sand;
   border-radius: 1rem;
-  background-color: $white;
-  border: 2px solid $navy;
+  background-color: $navy;
+  border: 2px solid $white;
+}
+
+.total-spent {
+  color: $white;
 }
 
 .hide {
