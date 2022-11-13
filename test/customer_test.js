@@ -47,21 +47,21 @@ describe("Customer", function () {
     const day = now.getDate();
     const month = now.getMonth() + 1;
     const year = now.getFullYear();
-    const date1 = customer1.chooseADate(day, month, year);
+    const date1 = customer1.chooseADate(`${year}/${month}/${day}`);
     let nowString = now.toISOString();
     nowString = nowString.split("T");
     let todayDate = nowString[0].split("-").join("/");
     expect(date1).to.equal(todayDate);
   });
   it("Should be able to choose a future date", function () {
-    const date2 = customer1.chooseADate(29, 12, 2022);
-    const date3 = customer1.chooseADate(1, 3, 2027);
+    const date2 = customer1.chooseADate(`2022/12/29`);
+    const date3 = customer1.chooseADate(`2027/03/01`);
     expect(date2).to.equal(`2022/12/29`);
     expect(date3).to.equal(`2027/03/01`);
   });
   it("Should not be able to choose a past date", function () {
-    const date2 = customer1.chooseADate(1, 5, 2022);
-    const date3 = customer1.chooseADate(1, 3, 1997);
+    const date2 = customer1.chooseADate(`2022/5/1`);
+    const date3 = customer1.chooseADate(`1997/3/1`);
     expect(date2).to.equal(`Please choose a valid date`);
     expect(date3).to.equal(`Please choose a valid date`);
   });

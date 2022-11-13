@@ -11,10 +11,9 @@ class Customer {
       return `You have not made any bookings.`;
     }
   }
-  chooseADate(day, month, year) {
+  chooseADate(date) {
     const today = this.getToday();
-    let chosenDate = new Date();
-    chosenDate.setFullYear(year, month - 1, day);
+    let chosenDate = new Date(date);
     if (chosenDate >= today) {
       chosenDate = chosenDate.toISOString();
       chosenDate = chosenDate.split("T");
@@ -27,7 +26,8 @@ class Customer {
   getToday() {
     const today = Date.now();
     const date = new Date(today);
-    return today;
+    date.setHours(0, 0, 0, 0);
+    return date;
   }
 }
 

@@ -16,9 +16,11 @@ class Hotel {
     this.allBookings = bookingData.map((details) => new Booking(details));
     return this.allBookings;
   }
+
   findCustomerBookings(currentUser) {
     return currentUser.getMyBookings(this.allBookings);
   }
+
   findCustomerBookingExpenses(currentUser) {
     let myRooms = currentUser.getMyBookings(this.allBookings);
     if (myRooms === "You have not made any bookings.") {
@@ -32,34 +34,31 @@ class Hotel {
     }, 0);
   }
 
+  findBookedRoomNumber(date) {
+    const bookedRoom = this.allBookings.filter(
+      (booking) => date === booking.date
+    );
+    return bookedRoom.map((room) => room.roomNumber);
+  }
+
   findAvailableRooms(date) {
     this.availableRooms = [];
     const bookedRooms = this.findBookedRoomNumber(date);
-    this.availableRooms = this.rooms.filter(
-      (room) => !bookedRooms.includes(room.number)
-    );
-  }
-
-  findAvailableRooms(currentUser, day, month, year, data = this.allBookings) {
-    const dayChosen = currentUser.chooseADate(day, month, year);
-    const bookedRooms = data
-      .filter((booking) => dayChosen === booking.date)
-      .map((room) => room.roomNumber);
     this.availableRooms = this.allRooms.filter(
       (room) => !bookedRooms.includes(room.number)
     );
+    console.log(this.availableRooms);
     return this.availableRooms;
   }
 
-  filterByRoomType(roomType) {
-    const roomsFound = this.allRooms.filter(
-      (room) => room.roomType === roomType.toLowerCase()
-    );
-    if (roomsFound.length === 0) {
-      return `We apologize! No "${roomType}" rooms were found at the hotel.`;
+  filterRoomsByType(type, data = this.availableRooms) {
+    if (type === "no-preference") {
+      return data;
+    } else {
+      return data.filter((room) => room.roomType === type);
     }
-    return roomsFound;
   }
+
   filterByRoomNumber(number, dataSet = this.allRooms) {
     return dataSet.find((room) => room.number === number);
   }
