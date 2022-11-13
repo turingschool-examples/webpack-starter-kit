@@ -78,7 +78,7 @@ button:hover {
   display: flex;
   min-height: 60vh;
   height: min-content;
-  width: 90vw;
+  width: 100vw;
   border-radius: 0.6rem;
   background-image: linear-gradient($lightBlue, $sand);
   box-shadow: $navy 0 2.2rem 7rem 0.4rem;
@@ -141,7 +141,7 @@ button:hover {
 }
 
 /* form */
-#survey-form {
+#booking-form {
   display: flex;
   flex-direction: column;
   border: 2px solid $navy;
