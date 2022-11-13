@@ -161,13 +161,8 @@ describe("Hotel", function () {
     expect(expenses).to.equal("You have not made any bookings.");
   });
   it("Should tell what rooms are available for a given date", function () {
-    const currentCustomer = new Customer(customerData[0]);
-    const roomsAvailable1 = hotelDani.findAvailableRooms(
-      currentCustomer,
-      5,
-      2,
-      2023
-    );
+    const roomsAvailable1 = hotelDani.findAvailableRooms("2023/02/05");
+    console.log(hotelDani.allBookings);
     expect(roomsAvailable1).to.deep.equal([
       {
         number: 1,
@@ -210,12 +205,7 @@ describe("Hotel", function () {
         costPerNight: 340.17,
       },
     ]);
-    const roomsAvailable2 = hotelDani.findAvailableRooms(
-      currentCustomer,
-      22,
-      4,
-      2023
-    );
+    const roomsAvailable2 = hotelDani.findAvailableRooms("2023/04/22");
     expect(roomsAvailable2).to.deep.equal([
       {
         number: 1,
@@ -260,9 +250,9 @@ describe("Hotel", function () {
     ]);
   });
   it("Should be able to filter rooms by room type", function () {
-    const found1 = hotelDani.filterByRoomType("residential suite");
-    const found2 = hotelDani.filterByRoomType("suite");
-    const found3 = hotelDani.filterByRoomType("single room");
+    const found1 = hotelDani.filterRoomsByType("residential suite", roomData);
+    const found2 = hotelDani.filterRoomsByType("suite", roomData);
+    const found3 = hotelDani.filterRoomsByType("single room", roomData);
     expect(found1).to.deep.equal([
       {
         number: 1,
@@ -319,14 +309,10 @@ describe("Hotel", function () {
     ]);
   });
   it("Should tell if it does not have that room type", function () {
-    const found = hotelDani.filterByRoomType("clown room");
-    const found1 = hotelDani.filterByRoomType("sweet");
-    expect(found).to.equal(
-      `We apologize! No "clown room" rooms were found at the hotel.`
-    );
-    expect(found1).to.equal(
-      `We apologize! No "sweet" rooms were found at the hotel.`
-    );
+    const found = hotelDani.filterRoomsByType("clown room");
+    const found1 = hotelDani.filterRoomsByType("sweet");
+    expect(found).to.deep.equal([]);
+    expect(found1).to.deep.equal([]);
   });
   it("Should find rooms by number", function () {
     const found1 = hotelDani.filterByRoomNumber(1);
