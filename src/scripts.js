@@ -71,9 +71,9 @@ function totalBookingsCost() {
     currentCustomer.customersBookings.forEach(booking => {
         customersRooms.push(rooms.filter(room => room.number === booking.roomNumber)[0])
     })
-    return customersRooms.reduce((acc, cur) => {
+    return Math.round(customersRooms.reduce((acc, cur) => {
         return cur.costPerNight + acc
-    }, 0)
+    }, 0) * 100) / 100
 }
 
 function displayUserData() {
