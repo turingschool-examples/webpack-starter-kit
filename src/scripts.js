@@ -20,6 +20,7 @@ import "./images/user.png";
 let currentUser;
 let overlookHotel;
 let chosenDate;
+let managerCustomer;
 
 //VARIABLES
 
@@ -42,6 +43,14 @@ let myBookings = document.querySelector(".manage-bookings");
 let wantedRoomType = document.querySelector("#select-room");
 let submitBookingButton = document.querySelector("#submit-booking");
 const calendar = document.getElementById("calendar");
+const managerFormSection = document.querySelector(".managers-form-section");
+
+const roomsAvailableInfo = document.querySelector("#rooms-available");
+const totalRevenueInfo = document.querySelector("#total-revenue");
+const occupiedRoomsInfo = document.querySelector("#percentage-occupied");
+const currentSearchedCustomer = document.querySelector(
+  "#current-searched-customer"
+);
 
 //even listeners
 window.addEventListener("load", loadAllData);
@@ -82,15 +91,36 @@ function loginCustomer() {
     show(loginError);
     return "did not work";
   } else {
-    console.log(currentUser);
-    hide(loginSection);
-    show(navigationBar);
-    show(welcome);
-    show(signIn);
-    welcome.innerText = `Welcome ${currentUser.name}`;
-    updateCustomerBookings();
-    return currentUser;
+    if (currentUser != "manager") {
+      loginACustomer();
+    } else {
+      loginManager();
+    }
   }
+}
+
+function loginACustomer() {
+  hide(loginSection);
+  hide(managerFormSection);
+  show(navigationBar);
+  show(welcome);
+  show(signIn);
+  welcome.innerText = `Welcome ${currentUser.name}`;
+  updateCustomerBookings();
+  return currentUser;
+}
+
+function loginManager() {
+  displayHotelInfo();
+  hide(loginSection);
+  show(navigationBar);
+  show(welcome);
+  show(signIn);
+  show(managerFormSection);
+  myBookings.innerHTML = `
+    <h2> No customer chosen yet! To see bookings, choose a customer!</h2>`;
+  welcome.innerText = `Welcome Manager`;
+  return currentUser;
 }
 
 function changePageDisplay(event) {
@@ -98,7 +128,9 @@ function changePageDisplay(event) {
   hide(addBookingsSection);
   hide(welcome);
   if (event.target.classList.contains("manage-bookings-button")) {
-    updateCustomerBookings();
+    if (currentUser != "manager") {
+      updateCustomerBookings();
+    }
     show(manageBookingsSection);
   } else if (event.target.classList.contains("create-bookings-button")) {
     show(addBookingsSection);
@@ -112,6 +144,7 @@ function backToLogin() {
   hide(navigationBar);
   hide(signIn);
   show(loginSection);
+  availableRooms.innerHTML = "";
   username.value = "";
   password.value = "";
 }
@@ -145,7 +178,7 @@ function searchForBookableRooms() {
   getAllBookings();
   let date = `${calendar.value}`;
   date = date.split("-").join("/");
-  chosenDate = currentUser.chooseADate(date);
+  chosenDate = overlookHotel.chooseADate(date);
   availableRooms.innerHTML = "";
   const room = wantedRoomType.value;
   const foundRooms = overlookHotel.findAvailableRooms(date);
@@ -216,17 +249,27 @@ function postBooking(bookingToSend) {
       "Content-Type": "application/json",
     },
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+      return response.json();
+    })
     .then((data) => {
       availableRooms.innerHTML = `
       <h3>Saved Booking</h3>`;
       getAllBookings();
-      console.log(overlookHotel);
     })
     .catch((err) => {
-      availableRooms.innerHTML = `
-    <h3 class='try-again'>There was a problem saving your booking!</h3>
+      if (currentUser === "manager") {
+        availableRooms.innerHTML = `
+    <h3 class='try-again'>There was a problem saving your booking! Please check to see if you have a customer selected!</h3>
     `;
+      } else {
+        availableRooms.innerHTML = `
+        <h3 class='try-again'>There was a problem saving your booking!</h3>
+        `;
+      }
     });
 }
 
@@ -246,6 +289,17 @@ function getAllBookings() {
     <h3 class='try-again'>There was a problem retrieving your bookings data!</h3>
     `;
     });
+}
+
+function displayHotelInfo() {
+  const today = overlookHotel.chooseADate(overlookHotel.getToday());
+  const available = overlookHotel.findAvailableRooms(today);
+  const totalRevenue = overlookHotel.totalRevenue(today);
+  const percentageBooked =
+    (available.length / overlookHotel.allRooms.length) * 100;
+  roomsAvailableInfo.innerText = `Rooms Available: ${available.length}`;
+  totalRevenueInfo.innerText = `Total Revenue: $${totalRevenue}`;
+  occupiedRoomsInfo.innerText = `Percentage of rooms booked: ${percentageBooked}%`;
 }
 
 function hide(element) {
