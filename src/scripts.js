@@ -31,11 +31,12 @@ let customersRooms = []
 let unavailable = []
 let available = []
 let roomFilter 
+let idNumber
 
 //Functions
 function logIn(event) {
     if(passwordInput.value === 'overlook2021') {
-        let idNumber = usernameInput.value.match(/\d+/g)
+        idNumber = usernameInput.value.match(/\d+/g)
         console.log(idNumber)
         fetchApiCalls(idNumber)
         showMainPage()
@@ -78,6 +79,7 @@ function totalBookingsCost() {
 }
 
 function displayUserData() {
+    bookingsList.innerHTML = ''
     currentCustomer.customersBookings.forEach(booking => {
         bookingsList.insertAdjacentHTML('beforeend', `<p>${booking.date} Room Number: ${booking.roomNumber}</p>`)
     })
@@ -142,7 +144,7 @@ function createNewBooking(event) {
     const bookedRoom = rooms.filter(room => parseInt(event.target.id) === room.number)
     const objectString = JSON.stringify({userID: currentCustomer.id, date: `${bookingYear.value}/${bookingMonth.value}/${bookingDay.value}`, roomNumber: bookedRoom[0].number})
     post(objectString)
-    setTimeout(() => {window.location.reload()}, 1000)
+    setTimeout(fetchApiCalls(idNumber), 3000)
 }
 
 function post(data) {
