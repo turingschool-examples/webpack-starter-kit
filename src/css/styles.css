@@ -1,6 +1,28 @@
-/* body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-} */
+body {
+  background: radial-gradient(circle, rgb(69, 159, 255) 0%, rgb(0, 255, 200) 100%);
+  font-family: sans-serif;
+}
+button {
+  color: black;
+  background-color: white;
+  border: solid 3px white;
+  border-radius: 8px;
+}
+
+.login{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  height: 75px;
+  width: 250px;
+}
+
+.login-button{
+  margin-top: 3px;
+  margin-left: 100px;
+}
 
 .hidden{
   display: none;
