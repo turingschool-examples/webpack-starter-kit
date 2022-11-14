@@ -35,8 +35,8 @@ let idNumber
 
 //Functions
 function logIn(event) {
-    if(passwordInput.value === 'overlook2021') {
-        idNumber = usernameInput.value.match(/\d+/g)
+    idNumber = usernameInput.value.match(/\d+/g)
+    if(passwordInput.value === 'overlook2021' && idNumber <= 50) {
         console.log(idNumber)
         fetchApiCalls(idNumber)
         showMainPage()
@@ -61,10 +61,9 @@ const fetchApiCalls = (user) => {
 }
 
 function loadHandler() {
-    console.log(bookings, rooms, customers, singleCustomer)
     currentCustomer = new Customer(singleCustomer, bookings)
-    totalBookingsCost()
-    displayUserData()
+    setTimeout(() => {totalBookingsCost()}, 1000)
+    setTimeout(() => {displayUserData()}, 1000)
 }
 
 function totalBookingsCost() {
@@ -144,7 +143,8 @@ function createNewBooking(event) {
     const bookedRoom = rooms.filter(room => parseInt(event.target.id) === room.number)
     const objectString = JSON.stringify({userID: currentCustomer.id, date: `${bookingYear.value}/${bookingMonth.value}/${bookingDay.value}`, roomNumber: bookedRoom[0].number})
     post(objectString)
-    setTimeout(fetchApiCalls(idNumber), 3000)
+    availableBookingSection.innerHTML = ''
+    setTimeout(() => {fetchApiCalls(idNumber)}, 1000)
 }
 
 function post(data) {
@@ -155,7 +155,6 @@ function post(data) {
 
 //Event Listeners
 loginButton.addEventListener('click', logIn)
-// addEventListener('load', fetchApiCalls())
 bookingButton.addEventListener('click', checkInputs)
 bookingButton.addEventListener('click', filterByRoomType)
 availableBookingSection.addEventListener('dblclick', createNewBooking)
