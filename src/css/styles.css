@@ -13,6 +13,7 @@ body {
 
 .bookings-list{
   border: solid red 3px;
+  height: 1000px;
   width: 250px
 }
 
@@ -24,7 +25,7 @@ body {
 
 .book-trip {
   border: solid green 3px;
-  height: 1000px;
+  height: 900px;
   width: 250px;
 }
 

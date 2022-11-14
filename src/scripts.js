@@ -58,7 +58,7 @@ function totalBookingsCost() {
 
 function displayUserData() {
     currentCustomer.customersBookings.forEach(booking => {
-        bookingsList.insertAdjacentHTML('beforeend', `<p>${booking.date} Room Number:${booking.roomNumber}</p>`)
+        bookingsList.insertAdjacentHTML('beforeend', `<p>${booking.date} Room Number: ${booking.roomNumber}</p>`)
     })
     totalCostOfBookings.innerHTML = `<p>You've spent: $${totalBookingsCost()}`
 }
@@ -106,7 +106,7 @@ function filterResults() {
     availableBookingSection.innerHTML = ''
     roomFilter = available.filter(room => room.roomType === roomTypeSelector.value)
     roomFilter.forEach(booking => {
-        availableBookingSection.insertAdjacentHTML('beforeend', `<p id="${booking.number}">Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost(per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
+        availableBookingSection.insertAdjacentHTML('beforeend', `<p id="${booking.number}">Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost (per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
     })
     checkForUnavailable()
 }
@@ -121,6 +121,7 @@ function createNewBooking(event) {
     const bookedRoom = rooms.filter(room => parseInt(event.target.id) === room.number)
     const objectString = JSON.stringify({userID: currentCustomer.id, date: `${bookingYear.value}/${bookingMonth.value}/${bookingDay.value}`, roomNumber: bookedRoom[0].number})
     post(objectString)
+    setTimeout(() => {window.location.reload()}, 1000)
 }
 
 function post(data) {
@@ -133,4 +134,4 @@ function post(data) {
 addEventListener('load', fetchApiCalls())
 bookingButton.addEventListener('click', checkInputs)
 bookingButton.addEventListener('click', filterByRoomType)
-availableBookingSection.addEventListener('click', createNewBooking)
+availableBookingSection.addEventListener('dblclick', createNewBooking)
