@@ -187,6 +187,14 @@ describe("Hotel", function () {
       username: "customer2",
     });
   });
+  it("Should be able to login the manager", function () {
+    const found1 = hotelDani.login("manager", "overlook2021");
+    expect(found1).to.equal("manager");
+  });
+  it("Should return undefined if there is no valid user or manager credentials", function () {
+    const found1 = hotelDani.login("customer150", "overlook2021");
+    expect(found1).to.equal(undefined);
+  });
   it("Should find bookings for any given customer", function () {
     hotelDani.createBookings(bookingsData);
     const currentCustomer = new Customer(customerData[0]);
@@ -439,5 +447,9 @@ describe("Hotel", function () {
       date: "2022/09/23",
       roomNumber: 4,
     });
+  });
+  it("Should let us know total revenue for any given date", function () {
+    const found1 = hotelDani.totalRevenue(`2023/02/05`);
+    expect(found1).to.deep.equal(50.25);
   });
 });

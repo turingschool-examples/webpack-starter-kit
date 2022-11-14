@@ -24,11 +24,16 @@ class Hotel {
   }
 
   login(username, password) {
-    return this.allCustomers.find((customer) => {
+    const user = this.allCustomers.find((customer) => {
       if (customer.username === username && customer.password === password) {
         return customer;
       }
     });
+    if (username === "manager" && password === "overlook2021") {
+      return "manager";
+    } else {
+      return user;
+    }
   }
 
   findCustomerBookings(currentUser) {
@@ -36,7 +41,7 @@ class Hotel {
   }
 
   findCustomerBookingExpenses(currentUser) {
-    let myRooms = currentUser.getMyBookings(this.allBookings);
+    let myRooms = this.findCustomerBookings(currentUser);
     if (myRooms === "You have not made any bookings.") {
       return myRooms;
     }
@@ -61,7 +66,6 @@ class Hotel {
     this.availableRooms = this.allRooms.filter(
       (room) => !bookedRooms.includes(room.number)
     );
-    console.log(this.availableRooms);
     return this.availableRooms;
   }
 
@@ -81,12 +85,47 @@ class Hotel {
     return dataSet.filter((room) => room.numBeds === number);
   }
 
+  chooseADate(date) {
+    const today = this.getToday();
+    let chosenDate = new Date(date);
+    if (chosenDate >= today) {
+      chosenDate = chosenDate.toISOString();
+      chosenDate = chosenDate.split("T");
+      let newChosenDate = chosenDate[0].split("-").join("/");
+      return newChosenDate;
+    } else {
+      return `Please choose a valid date`;
+    }
+  }
+
+  getToday() {
+    const today = Date.now();
+    const date = new Date(today);
+    date.setHours(0, 0, 0, 0);
+    return date;
+  }
+
   createNewBooking(currentUser, roomNumber, date) {
     const newBooking = new Object();
     newBooking.userID = currentUser.id;
     newBooking.date = date;
     newBooking.roomNumber = roomNumber;
     return newBooking;
+  }
+
+  totalRevenue(date) {
+    const todaysBookings = this.findBookedRoomNumber(date);
+    console.log(todaysBookings);
+    return todaysBookings.reduce((acc, current) => {
+      let room = this.filterByRoomNumber(current);
+      acc = acc + room.costPerNight;
+      return acc;
+    }, 0);
+  }
+  findACustomer(name) {
+    return this.allCustomers.find(
+      (customer) => customer.name.toLowerCase() == name.toLowerCase()
+    );
   }
 }
 
