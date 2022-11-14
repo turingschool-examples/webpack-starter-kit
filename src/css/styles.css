@@ -2,8 +2,12 @@ body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 }
 
+.hidden{
+  display: none;
+}
+
 .main {
-  border: solid white 5px;
+  /* border: solid white 5px; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -12,25 +16,25 @@ body {
 }
 
 .bookings-list{
-  border: solid red 3px;
+  /* border: solid red 3px; */
   height: 1000px;
   width: 250px
 }
 
 .total-booking-cost {
-  border: solid blue 3px;
+  /* border: solid blue 3px; */
   height: 50px;
   width: 250px;
 }
 
 .book-trip {
-  border: solid green 3px;
+  /* border: solid green 3px; */
   height: 900px;
   width: 250px;
 }
 
 .available-bookings {
-  border: solid pink 3px;
+  /* border: solid pink 3px; */
   height: 900px;
   width: 900px
 }

@@ -15,4 +15,5 @@ const fetchApiUrl = (path) => {
     ])
   }
 
+
   export default { fetchData }
