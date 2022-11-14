@@ -118,14 +118,13 @@ function checkForUnavailable() {
 }
 
 function createNewBooking(event) {
-    const id = event.target.id
-    const bookedRoom = rooms.filter(room => parseInt(id) === room.number)
-    console.log(bookedRoom[0])
-    post(bookedRoom[0])
+    const bookedRoom = rooms.filter(room => parseInt(event.target.id) === room.number)
+    const objectString = JSON.stringify({userID: currentCustomer.id, date: `${bookingYear.value}/${bookingMonth.value}/${bookingDay.value}`, roomNumber: bookedRoom[0].number})
+    post(objectString)
 }
 
 function post(data) {
-    fetch('http://localhost:3001/api/v1/booking', {method: 'POST', body : data})
+    fetch('http://localhost:3001/api/v1/bookings', {method: 'POST', body : data, headers: {'Content-Type': 'application/json'}}) 
     .then(results => results.json)
     .then(console.log)
 }
