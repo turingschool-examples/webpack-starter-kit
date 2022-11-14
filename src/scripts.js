@@ -14,6 +14,12 @@ const bookingDay = document.getElementById('day')
 const roomTypeSelector = document.getElementById('room-type')
 const bookingButton = document.getElementById('booking-button')
 const availableBookingSection = document.querySelector('.available-bookings')
+const loginButton = document.querySelector('.login-button')
+const usernameInput = document.querySelector('.username')
+const passwordInput = document.querySelector('.password')
+const loginError = document.querySelector('.error-msg')
+const mainPage = document.querySelector('.hidden')
+const loginPage = document.querySelector('.login')
 
 //Variables
 let bookings
@@ -27,8 +33,23 @@ let available = []
 let roomFilter 
 
 //Functions
-const fetchApiCalls = () => {
-    apiCalls.fetchData().then(data => {
+function logIn(event) {
+    if(passwordInput.value === 'overlook2021') {
+        let idNumber = usernameInput.value.match(/\d+/g)
+        console.log(idNumber)
+        fetchApiCalls(idNumber)
+        showMainPage()
+    } else {loginError.innerHTML = 'Sorry there was an error trying to log you in, please try again'}
+    event.preventDefault()
+}
+
+function showMainPage() {
+    mainPage.className = "main"
+    loginPage.className = "hidden"
+}
+
+const fetchApiCalls = (user) => {
+    apiCalls.fetchData(user).then(data => {
         bookings = data[0].bookings
         rooms = data[1].rooms
         customers = data[2].customers
@@ -131,7 +152,8 @@ function post(data) {
 }
 
 //Event Listeners
-addEventListener('load', fetchApiCalls())
+loginButton.addEventListener('click', logIn)
+// addEventListener('load', fetchApiCalls())
 bookingButton.addEventListener('click', checkInputs)
 bookingButton.addEventListener('click', filterByRoomType)
 availableBookingSection.addEventListener('dblclick', createNewBooking)

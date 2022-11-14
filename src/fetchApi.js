@@ -6,12 +6,12 @@ const fetchApiUrl = (path) => {
   }
   
   
-  const fetchData = () => {
+  const fetchData = (user) => {
     return Promise.all([
       fetchApiUrl("bookings"),
       fetchApiUrl("rooms"),
       fetchApiUrl("customers"),
-      fetchApiUrl("customers/12")
+      fetchApiUrl(`customers/${user}`)
     ])
   }
 
