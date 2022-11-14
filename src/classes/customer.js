@@ -12,7 +12,6 @@ class Customer {
         this.customersBookings = this.customersBookings.sort((a, b) => {
             return new Date(a.date) - new Date(b.date)
         })
-        console.log(this.customersBookings)
     }
 }
 
