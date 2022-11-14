@@ -37,7 +37,6 @@ let idNumber
 function logIn(event) {
     idNumber = usernameInput.value.match(/\d+/g)
     if(passwordInput.value === 'overlook2021' && idNumber <= 50) {
-        console.log(idNumber)
         fetchApiCalls(idNumber)
         showMainPage()
     } else {loginError.innerHTML = 'Sorry there was an error trying to log you in, please try again'}
