@@ -93,7 +93,7 @@ function filterNewBooking() {
 function showAvailableBookings() {
     availableBookingSection.innerHTML = ''
     available.forEach(booking => {
-        availableBookingSection.insertAdjacentHTML('beforeend', `Room Number: ${booking.number} Bed Size: ${booking.bedSize} Bidet: ${booking.bidet} Cost(per night): ${booking.costPerNight} Number of Beds: ${booking.numBeds} Room Type: ${booking.roomType} <br>`)
+        availableBookingSection.insertAdjacentHTML('beforeend', `<p><button id="${booking.number}">Book Now</button> Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost(per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
     })
     checkForUnavailable()
 }
@@ -106,7 +106,7 @@ function filterResults() {
     availableBookingSection.innerHTML = ''
     roomFilter = available.filter(room => room.roomType === roomTypeSelector.value)
     roomFilter.forEach(booking => {
-        availableBookingSection.insertAdjacentHTML('beforeend', `Room Number: ${booking.number} Bed Size: ${booking.bedSize} Bidet: ${booking.bidet} Cost(per night): ${booking.costPerNight} Number of Beds: ${booking.numBeds} Room Type: ${booking.roomType} <br>`)
+        availableBookingSection.insertAdjacentHTML('beforeend', `<p><button id="${booking.number}">Book Now</button> Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost(per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
     })
     checkForUnavailable()
 }
