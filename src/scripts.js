@@ -24,7 +24,7 @@ let currentCustomer
 let customersRooms = []
 let unavailable = []
 let available = []
-let roomFilter
+let roomFilter 
 
 //Functions
 const fetchApiCalls = () => {
@@ -93,7 +93,7 @@ function filterNewBooking() {
 function showAvailableBookings() {
     availableBookingSection.innerHTML = ''
     available.forEach(booking => {
-        availableBookingSection.insertAdjacentHTML('beforeend', `<p><button id="${booking.number}">Book Now</button> Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost(per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
+        availableBookingSection.insertAdjacentHTML('beforeend', `<p id="${booking.number}">Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost(per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
     })
     checkForUnavailable()
 }
@@ -106,7 +106,7 @@ function filterResults() {
     availableBookingSection.innerHTML = ''
     roomFilter = available.filter(room => room.roomType === roomTypeSelector.value)
     roomFilter.forEach(booking => {
-        availableBookingSection.insertAdjacentHTML('beforeend', `<p><button id="${booking.number}">Book Now</button> Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost(per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
+        availableBookingSection.insertAdjacentHTML('beforeend', `<p id="${booking.number}">Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost(per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
     })
     checkForUnavailable()
 }
@@ -116,7 +116,22 @@ function checkForUnavailable() {
         availableBookingSection.innerHTML = `<p> We are so sorry but there seems to be no available bookings for that day!</p>`
     }
 }
+
+function createNewBooking(event) {
+    const id = event.target.id
+    const bookedRoom = rooms.filter(room => parseInt(id) === room.number)
+    console.log(bookedRoom[0])
+    post(bookedRoom[0])
+}
+
+function post(data) {
+    fetch('http://localhost:3001/api/v1/booking', {method: 'POST', body : data})
+    .then(results => results.json)
+    .then(console.log)
+}
+
 //Event Listeners
 addEventListener('load', fetchApiCalls())
 bookingButton.addEventListener('click', checkInputs)
 bookingButton.addEventListener('click', filterByRoomType)
+availableBookingSection.addEventListener('click', createNewBooking)
