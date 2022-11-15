@@ -6,6 +6,7 @@ import Customer from './classes/customer'
 
 
 //Query Selectors
+const welcome = document.querySelector('.welcome')
 const bookingsList = document.querySelector('.bookings-list')
 const totalCostOfBookings = document.querySelector('.total-booking-cost')
 const bookingYear = document.getElementById('year')
@@ -35,12 +36,21 @@ let idNumber
 
 //Functions
 function logIn(event) {
-    idNumber = usernameInput.value.match(/\d+/g)
+    parseUsername()
     if(passwordInput.value === 'overlook2021' && idNumber <= 50) {
         fetchApiCalls(idNumber)
         showMainPage()
     } else {loginError.innerHTML = 'Sorry there was an error trying to log you in, please try again'}
     event.preventDefault()
+}
+
+function parseUsername() {
+    let usernameSplit = []
+    let username = usernameInput.value
+    let split = username.split('')
+    usernameSplit.push(split[8], split[9])
+    username = usernameSplit.join('')
+    idNumber = parseInt(username)
 }
 
 function showMainPage() {
@@ -54,15 +64,20 @@ const fetchApiCalls = (user) => {
         rooms = data[1].rooms
         customers = data[2].customers
         singleCustomer = data[3]
-
+        console.log(singleCustomer)
         loadHandler()
     })
 }
 
 function loadHandler() {
     currentCustomer = new Customer(singleCustomer, bookings)
+    welcomeMessage()
     setTimeout(() => {totalBookingsCost()}, 1000)
     setTimeout(() => {displayUserData()}, 1000)
+}
+
+function welcomeMessage() {
+    welcome.innerHTML = `Welcome to Overlook ${singleCustomer.name}!`
 }
 
 function totalBookingsCost() {
