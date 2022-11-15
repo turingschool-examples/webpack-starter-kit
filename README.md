@@ -68,3 +68,13 @@ Only a manager can delete bookings and only future bookings can be deleted. Book
 - Github
 - Get & Post Netork Requests
 - Webpack
+
+## Ending Thoughts
+
+At this point in my journey as a software developer, I am veyr proud of this application. Being able to navigate network requests for the first time was a vry big win. Another win was being able to change the origonal webpack loader to handle SASS files. 
+
+Improvements: 
+
+- Add an additional view or section to display past bookings and upcoming bookings, rather than displaying them in the same place. 
+- Adding dynamic functionality for error handling as do dry up my code even further.
+- Cleaning up the error handling css and styling to be more visually appealing.
