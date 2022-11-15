@@ -73,6 +73,11 @@ myBookings.addEventListener("dblclick", function (e) {
     deleteBooking(e);
   }
 });
+myBookings.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" && manager) {
+    deleteBooking(e);
+  }
+});
 
 function loadAllData() {
   Promise.all([
@@ -130,6 +135,7 @@ function loginManager() {
   myBookings.innerHTML = `
     <h2> No customer chosen yet! To see bookings, choose a customer!</h2>`;
   welcome.innerText = `Welcome Manager`;
+  currentSearchedCustomer.innerText = `Current Customer: None selected`;
   manager = true;
   return currentUser;
 }
@@ -141,11 +147,11 @@ function changePageDisplay(event) {
   if (event.target.classList.contains("manage-bookings-button")) {
     if (currentUser != "manager") {
       updateCustomerBookings();
-      console.log(currentUser);
     }
     show(manageBookingsSection);
   } else if (event.target.classList.contains("create-bookings-button")) {
     show(addBookingsSection);
+    displayHotelInfo();
   }
 }
 
@@ -173,11 +179,11 @@ function generateCustomerBookings() {
 
 function displayRoomBookings(data) {
   let cost = overlookHotel.findCustomerBookingExpenses(currentUser);
+  const today = overlookHotel.chooseADate(overlookHotel.getToday());
   if (cost === "You have not made any bookings.") {
     myBookings.innerHTML = `<h2>${cost}</h2>`;
   } else {
     cost = cost.toFixed(2);
-    console.log(cost);
     myBookings.innerHTML = "";
     if (!manager) {
       data.forEach((booking) => {
@@ -190,13 +196,22 @@ function displayRoomBookings(data) {
       });
     } else {
       data.forEach((booking) => {
-        myBookings.innerHTML += `
+        if (booking.date >= today) {
+          myBookings.innerHTML += `
         <section class="user-booking" id="${booking.id}" data-index-number="${booking.id}" tabindex='0'>
           <p data-index-number="${booking.id}">Date: ${booking.date}</p>
           <p data-index-number="${booking.id}">Room: ${booking.roomNumber}</p>
           <p data-index-number="${booking.id}"class="delete">Double click to delete</p>
         </section>
         `;
+        } else {
+          myBookings.innerHTML += `
+        <section class="user-booking" id="${booking.id}" data-index-number="${booking.id}" tabindex='0'>
+          <p data-index-number="${booking.id}">Date: ${booking.date}</p>
+          <p data-index-number="${booking.id}">Room: ${booking.roomNumber}</p>
+        </section>
+        `;
+        }
       });
     }
     myBookings.innerHTML += `<h2 class='total-spent'>Total Spent: $${cost}</h2>`;
@@ -214,7 +229,7 @@ function searchForBookableRooms() {
   const foundRooms = overlookHotel.findAvailableRooms(date);
   if (chosenDate === "Please choose a valid date") {
     availableRooms.innerHTML = `
-    <h3 class='try-again'>We cannot search for bookings with a past date! Please try again.</h3>
+    <h3 class='try-again'>We cannot search for bookings with a past or invalid date! Please try again.</h3>
     `;
   } else if (room === "") {
     availableRooms.innerHTML = `
@@ -343,25 +358,31 @@ function managerCustomerSearch() {
 function deleteBooking(event) {
   event.preventDefault();
   let id = event.target.dataset.indexNumber;
-  fetch(`http://localhost:3001/api/v1/bookings/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Something went wrong");
-      }
-      return response.json();
+  const found = overlookHotel.findBookingByID(id);
+  const today = overlookHotel.chooseADate(overlookHotel.getToday());
+  if (found.date >= today) {
+    fetch(`http://localhost:3001/api/v1/bookings/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-    .then((data) => {
-      overlookHotel.deleteABooking(id);
-      myBookings.innerHTML = `<h2>${data.message}! Click the 'Manage Bookings" button to go back!</h2>`;
-    })
-    .catch((err) => {
-      myBookings.innerHTML = `<h2>There was a problem deleting your data! Click the 'Manage Bookings" button and try again!</h2>`;
-    });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Something went wrong");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        overlookHotel.deleteABooking(id);
+        myBookings.innerHTML = `<h2>${data.message}! Click the 'Manage Bookings" button to go back!</h2>`;
+      })
+      .catch((err) => {
+        myBookings.innerHTML = `<h2 class="try-again">There was a problem deleting your data! Please click the 'Manage Bookings' button to try again!</h2>`;
+      });
+  } else {
+    myBookings.innerHTML = `<h2 class="try-again">We cannot delete past bookings! Please click the 'Manage Bookings' button to try again!</h2>`;
+  }
 }
 
 function hide(element) {
