@@ -44,13 +44,14 @@ class Hotel {
     let myRooms = this.findCustomerBookings(currentUser);
     if (myRooms === "You have not made any bookings.") {
       return myRooms;
+    } else {
+      myRooms = myRooms.map((room) => room.roomNumber);
+      return myRooms.reduce((acc, current) => {
+        let room = this.filterByRoomNumber(current);
+        acc = acc + room.costPerNight;
+        return acc;
+      }, 0);
     }
-    myRooms = myRooms.map((room) => room.roomNumber);
-    return myRooms.reduce((acc, current) => {
-      let room = this.filterByRoomNumber(current);
-      acc = acc + room.costPerNight;
-      return acc;
-    }, 0);
   }
 
   findBookedRoomNumber(date) {

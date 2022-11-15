@@ -73,6 +73,11 @@ myBookings.addEventListener("dblclick", function (e) {
     deleteBooking(e);
   }
 });
+myBookings.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" && manager) {
+    deleteBooking(e);
+  }
+});
 
 function loadAllData() {
   Promise.all([
@@ -173,6 +178,7 @@ function generateCustomerBookings() {
 
 function displayRoomBookings(data) {
   let cost = overlookHotel.findCustomerBookingExpenses(currentUser);
+  console.log(cost);
   if (cost === "You have not made any bookings.") {
     myBookings.innerHTML = `<h2>${cost}</h2>`;
   } else {
@@ -214,7 +220,7 @@ function searchForBookableRooms() {
   const foundRooms = overlookHotel.findAvailableRooms(date);
   if (chosenDate === "Please choose a valid date") {
     availableRooms.innerHTML = `
-    <h3 class='try-again'>We cannot search for bookings with a past date! Please try again.</h3>
+    <h3 class='try-again'>We cannot search for bookings with a past or invalid date! Please try again.</h3>
     `;
   } else if (room === "") {
     availableRooms.innerHTML = `
