@@ -13,24 +13,6 @@ class Customer {
       return `You have not made any bookings.`;
     }
   }
-  chooseADate(date) {
-    const today = this.getToday();
-    let chosenDate = new Date(date);
-    if (chosenDate >= today) {
-      chosenDate = chosenDate.toISOString();
-      chosenDate = chosenDate.split("T");
-      let newChosenDate = chosenDate[0].split("-").join("/");
-      return newChosenDate;
-    } else {
-      return `Please choose a valid date`;
-    }
-  }
-  getToday() {
-    const today = Date.now();
-    const date = new Date(today);
-    date.setHours(0, 0, 0, 0);
-    return date;
-  }
 }
 
 export default Customer;

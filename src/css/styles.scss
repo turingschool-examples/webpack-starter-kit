@@ -21,34 +21,34 @@ body {
   flex-direction: row;
   margin: 1%;
   margin-bottom: 0;
-}
 
-#Overlook {
-  font-family: $fontGreatVibes;
-  font-size: 14vw;
-  margin: 0;
-  text-shadow: -0.1rem 0.1rem 0 $sand, 0.1rem 0.1rem 0 $sand,
-    0.1rem -0.1rem 0 $sand, -0.1rem -0.1rem 0 $sand;
-}
+  #Overlook {
+    font-family: $fontGreatVibes;
+    font-size: 14vw;
+    margin: 0;
+    text-shadow: -0.1rem 0.1rem 0 $sand, 0.1rem 0.1rem 0 $sand,
+      0.1rem -0.1rem 0 $sand, -0.1rem -0.1rem 0 $sand;
+  }
 
-#The {
-  font-family: $fontCantanaOne;
-  font-size: 4vw;
-  align-self: center;
-  margin: 0;
-  margin-bottom: 9%;
-  text-shadow: -0.1rem 0.1rem 0 $sand, 0.1rem 0.1rem 0 $sand,
-    0.1rem -0.1rem 0 $sand, -0.1rem -0.1rem 0 $sand;
+  #The {
+    font-family: $fontCantanaOne;
+    font-size: 4vw;
+    align-self: center;
+    margin: 0;
+    margin-bottom: 9%;
+    text-shadow: -0.1rem 0.1rem 0 $sand, 0.1rem 0.1rem 0 $sand,
+      0.1rem -0.1rem 0 $sand, -0.1rem -0.1rem 0 $sand;
+  }
 }
 
 .navigation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
 
-.first-navigation {
-  margin-left: 3rem;
+  .first-navigation {
+    margin-left: 3rem;
+  }
 }
 
 button {
@@ -72,7 +72,6 @@ button:hover {
   padding: 0;
 }
 
-//login
 .log-in {
   display: flex;
   flex-direction: column;
@@ -179,7 +178,6 @@ button:hover {
   width: 50vw;
 }
 
-/* form */
 #booking-form {
   display: flex;
   flex-direction: column;
@@ -221,8 +219,6 @@ button:hover {
   }
 }
 
-// Create new booking
-
 #available-rooms {
   text-align: center;
 }
@@ -253,8 +249,6 @@ button:hover {
   font-style: italic;
   color: rgb(154, 0, 0);
 }
-
-//My bookings
 
 .manage-bookings {
   padding: 1%;
