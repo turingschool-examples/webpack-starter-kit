@@ -105,11 +105,30 @@ function loginCustomer() {
     show(loginError);
     return "did not work";
   } else {
-    if (currentUser != "manager") {
-      loginACustomer();
-    } else {
-      loginManager();
-    }
+    getCustomer(currentUser.id);
+  }
+}
+
+function getCustomer(id) {
+  if (currentUser != "manager") {
+    loginACustomer();
+    fetch(`http://localhost:3001/api/v1/customers/${currentUser.id}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Something went wrong!");
+        }
+        return res.json;
+      })
+      .then((data) => {
+        loginACustomer();
+      })
+      .catch((err) => {
+        loginError.innerText =
+          "We are so sorry! We cannot log you in at this time.";
+        show(loginError);
+      });
+  } else {
+    loginManager();
   }
 }
 
