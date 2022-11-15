@@ -18,25 +18,18 @@ When the user logs in, they are taken to a welcome page that displays their name
 
 <img width="1422" alt="WelcomView" src="https://user-images.githubusercontent.com/108088961/201993749-4ad89b26-c0a6-46e4-8b89-7e34414d95eb.png">
 
-**Check Availability By Date**
+**Check Availability By Date & Room Type**
 
-![](./src/images/check-by-date.gif)
+https://user-images.githubusercontent.com/108088961/201994789-dd03e275-e7a9-4ead-bbfc-04ba34ea381e.mov
 
-**Check Availability By Room Type**
+**Book Room*
 
-![](./src/images/filter-by-roomtype.gif)
+https://user-images.githubusercontent.com/108088961/201995246-8f182d94-0ce0-4daf-8f39-65a3d85d0618.mov
 
-**Book Room**
+**See Customer Bookings*
 
-![](./src/images/book-room.gif)
+<img width="1424" alt="CustomerBookings" src="https://user-images.githubusercontent.com/108088961/201995517-de66e54f-84ad-49f4-8660-8378b4a21301.png">
 
-**Past Stays View**
-
-![](./src/images/past-stays.gif)
-
-**Upcoming Stays View**
-
-![](./src/images/upcoming-stays.gif)
 
 ## Setup
 
