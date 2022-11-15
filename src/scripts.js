@@ -79,7 +79,7 @@ function totalBookingsCost() {
 function displayUserData() {
     bookingsList.innerHTML = ''
     currentCustomer.customersBookings.forEach(booking => {
-        bookingsList.insertAdjacentHTML('beforeend', `<p>${booking.date} Room Number: ${booking.roomNumber}</p>`)
+        bookingsList.insertAdjacentHTML('beforeend', `<p id="${booking.id}">${booking.date} Room Number: ${booking.roomNumber}</p>`)
     })
     totalCostOfBookings.innerHTML = `<p>You've spent: $${totalBookingsCost()}`
 }
