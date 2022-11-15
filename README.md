@@ -53,7 +53,7 @@ Only a manager can delete bookings and only future bookings can be deleted. Book
 1. Clone down this [repo](https://github.com/turingschool-examples/overlook-api)
 2. cd into the directory and run `npm install`
 3. Run `npm start`.
-4. cd out of that directory and clone down this [repo](git@github.com:/daniabee/Hotel-Dani)
+4. cd out of that directory and clone down this [repo](https://github.com:/daniabee/Hotel-Dani)
 5. cd into the director and run `npm install`
 6. Run `npm start`
 7. Go to `http://localhos:8080/` to view the webpage
