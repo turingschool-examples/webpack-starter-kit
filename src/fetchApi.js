@@ -15,5 +15,11 @@ const fetchApiUrl = (path) => {
     ])
   }
 
+// function post(data) {
+//     fetch('http://localhost:3001/api/v1/bookings', {method: 'POST', body : data, headers: {'Content-Type': 'application/json'}}) 
+//     .then(results => results.json)
+//     .then(console.log)
+// }
 
-  export default { fetchData }
+export default { fetchData }
+// export function post

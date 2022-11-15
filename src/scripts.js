@@ -3,6 +3,7 @@ import './css/styles.css'
 import './images/turing-logo.png'
 import apiCalls from './fetchApi'
 import Customer from './classes/customer'
+// import post from './fetchApi'
 
 
 //Query Selectors
