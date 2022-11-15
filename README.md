@@ -22,13 +22,21 @@ When the user logs in, they are taken to a welcome page that displays their name
 
 https://user-images.githubusercontent.com/108088961/201994789-dd03e275-e7a9-4ead-bbfc-04ba34ea381e.mov
 
-**Book Room*
+**Book Room**
 
 https://user-images.githubusercontent.com/108088961/201995246-8f182d94-0ce0-4daf-8f39-65a3d85d0618.mov
 
-**See Customer Bookings*
+**See Customer Bookings**
 
 <img width="1424" alt="CustomerBookings" src="https://user-images.githubusercontent.com/108088961/201995517-de66e54f-84ad-49f4-8660-8378b4a21301.png">
+
+**Manager Dashboard**
+
+<img width="1440" alt="ManagerDashboard" src="https://user-images.githubusercontent.com/108088961/201995921-098b853a-c8c5-4720-958e-91c2399ed865.png">
+
+**Manager View of Customer Bookings**
+
+<img width="1424" alt="ManagerViewOfCustomerBookings" src="https://user-images.githubusercontent.com/108088961/201996327-fa50462d-c588-4eee-a44d-f36ebf176d13.png">
 
 
 ## Setup
