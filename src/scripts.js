@@ -20,7 +20,7 @@ import "./images/user.png";
 let currentUser;
 let overlookHotel;
 let chosenDate;
-let managerCustomer;
+let manager = false;
 
 //VARIABLES
 
@@ -52,6 +52,9 @@ const currentSearchedCustomer = document.querySelector(
   "#current-searched-customer"
 );
 
+const chooseCustomerButton = document.querySelector("#search-customers");
+const findCustomerInput = document.querySelector("#find-customer");
+
 //even listeners
 window.addEventListener("load", loadAllData);
 loginButton.addEventListener("click", loginCustomer);
@@ -62,6 +65,12 @@ availableRooms.addEventListener("dblclick", bookRoom);
 availableRooms.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     bookRoomKeyDown(e);
+  }
+});
+chooseCustomerButton.addEventListener("click", managerCustomerSearch);
+myBookings.addEventListener("dblclick", function (e) {
+  if (manager) {
+    deleteBooking(e);
   }
 });
 
@@ -107,6 +116,7 @@ function loginACustomer() {
   show(signIn);
   welcome.innerText = `Welcome ${currentUser.name}`;
   updateCustomerBookings();
+  manager = false;
   return currentUser;
 }
 
@@ -120,6 +130,7 @@ function loginManager() {
   myBookings.innerHTML = `
     <h2> No customer chosen yet! To see bookings, choose a customer!</h2>`;
   welcome.innerText = `Welcome Manager`;
+  manager = true;
   return currentUser;
 }
 
@@ -130,6 +141,7 @@ function changePageDisplay(event) {
   if (event.target.classList.contains("manage-bookings-button")) {
     if (currentUser != "manager") {
       updateCustomerBookings();
+      console.log(currentUser);
     }
     show(manageBookingsSection);
   } else if (event.target.classList.contains("create-bookings-button")) {
@@ -144,6 +156,7 @@ function backToLogin() {
   hide(navigationBar);
   hide(signIn);
   show(loginSection);
+  currentUser = "";
   availableRooms.innerHTML = "";
   username.value = "";
   password.value = "";
@@ -160,17 +173,34 @@ function generateCustomerBookings() {
 
 function displayRoomBookings(data) {
   let cost = overlookHotel.findCustomerBookingExpenses(currentUser);
-  cost = cost.toFixed(2);
-  myBookings.innerHTML = "";
-  data.forEach((booking) => {
-    myBookings.innerHTML += `
-    <section class="user-booking" id="${booking.id}" tabindex='0'>
-      <p>Date: ${booking.date}</p>
-      <p>Room: ${booking.roomNumber}</p>
-    </section>
-    `;
-  });
-  myBookings.innerHTML += `<h2 class='total-spent'>Total Spent: $${cost}</h2>`;
+  if (cost === "You have not made any bookings.") {
+    myBookings.innerHTML = `<h2>${cost}</h2>`;
+  } else {
+    cost = cost.toFixed(2);
+    console.log(cost);
+    myBookings.innerHTML = "";
+    if (!manager) {
+      data.forEach((booking) => {
+        myBookings.innerHTML += `
+        <section class="user-booking" id="${booking.id}" data-index-number="${booking.id}>
+          <p data-index-number="${booking.id}">Date: ${booking.date}</p>
+          <p data-index-number="${booking.id}">Room: ${booking.roomNumber}</p>
+        </section>
+        `;
+      });
+    } else {
+      data.forEach((booking) => {
+        myBookings.innerHTML += `
+        <section class="user-booking" id="${booking.id}" data-index-number="${booking.id}" tabindex='0'>
+          <p data-index-number="${booking.id}">Date: ${booking.date}</p>
+          <p data-index-number="${booking.id}">Room: ${booking.roomNumber}</p>
+          <p data-index-number="${booking.id}"class="delete">Double click to delete</p>
+        </section>
+        `;
+      });
+    }
+    myBookings.innerHTML += `<h2 class='total-spent'>Total Spent: $${cost}</h2>`;
+  }
 }
 
 function searchForBookableRooms() {
@@ -195,17 +225,13 @@ function searchForBookableRooms() {
     Please modify your search!</h3>`;
   } else {
     if (room === "no-preference") {
-      console.log(foundRooms);
       displayAvailableRooms(foundRooms);
     } else if (room != "no-preference") {
       const withRoom = overlookHotel.filterRoomsByType(room, foundRooms);
-      console.log(foundRooms);
-      console.log(withRoom);
       if (withRoom.length === 0) {
         availableRooms.innerHTML = `<h3 class="try-again">We are so sorry, there are no bookings available with your specifications!
     Please modify your search!</h3>`;
       } else {
-        console.log(withRoom);
         displayAvailableRooms(withRoom);
       }
     }
@@ -283,6 +309,7 @@ function getAllBookings() {
     })
     .then((data) => {
       overlookHotel.createBookings(data.bookings);
+      updateCustomerBookings();
     })
     .catch((error) => {
       myBookings.innerHTML = `
@@ -297,9 +324,44 @@ function displayHotelInfo() {
   const totalRevenue = overlookHotel.totalRevenue(today);
   const percentageBooked =
     (available.length / overlookHotel.allRooms.length) * 100;
-  roomsAvailableInfo.innerText = `Rooms Available: ${available.length}`;
-  totalRevenueInfo.innerText = `Total Revenue: $${totalRevenue}`;
+  roomsAvailableInfo.innerText = `Current number of rooms available: ${available.length}`;
+  totalRevenueInfo.innerText = `Today's hotel revenue: $${totalRevenue.toFixed(
+    2
+  )}`;
   occupiedRoomsInfo.innerText = `Percentage of rooms booked: ${percentageBooked}%`;
+}
+
+function managerCustomerSearch() {
+  event.preventDefault();
+  const name = findCustomerInput.value;
+  currentUser = overlookHotel.findACustomer(name);
+  currentSearchedCustomer.innerText = `Current Customer: ${currentUser.name}`;
+  updateCustomerBookings();
+  findCustomerInput.value = "";
+}
+
+function deleteBooking(event) {
+  event.preventDefault();
+  let id = event.target.dataset.indexNumber;
+  fetch(`http://localhost:3001/api/v1/bookings/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      overlookHotel.deleteABooking(id);
+      myBookings.innerHTML = `<h2>${data.message}! Click the 'Manage Bookings" button to go back!</h2>`;
+    })
+    .catch((err) => {
+      myBookings.innerHTML = `<h2>There was a problem deleting your data! Click the 'Manage Bookings" button and try again!</h2>`;
+    });
 }
 
 function hide(element) {

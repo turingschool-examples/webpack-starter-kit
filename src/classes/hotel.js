@@ -127,6 +127,12 @@ class Hotel {
       (customer) => customer.name.toLowerCase() == name.toLowerCase()
     );
   }
+  deleteABooking(id) {
+    const booking = this.allBookings.find((booking) => booking.id === id);
+    const index = this.allBookings.indexOf(booking);
+    this.allBookings.splice(index, 1);
+    return this.allBookings;
+  }
 }
 
 export default Hotel;
