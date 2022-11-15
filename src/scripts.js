@@ -152,6 +152,7 @@ function changePageDisplay(event) {
   } else if (event.target.classList.contains("create-bookings-button")) {
     show(addBookingsSection);
     displayHotelInfo();
+    availableRooms.innerHTML = "";
   }
 }
 
@@ -297,8 +298,13 @@ function postBooking(bookingToSend) {
       return response.json();
     })
     .then((data) => {
-      availableRooms.innerHTML = `
-      <h3>Saved Booking</h3>`;
+      if (!manager) {
+        availableRooms.innerHTML = `
+        <h3>Saved Booking!</h3>`;
+      } else {
+        availableRooms.innerHTML = `
+        <h3>Saved Booking! Click the "My Dashboard" button to refresh hotel information.</h3>`;
+      }
       getAllBookings();
     })
     .catch((err) => {
