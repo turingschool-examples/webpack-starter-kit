@@ -134,6 +134,9 @@ class Hotel {
     this.allBookings.splice(index, 1);
     return this.allBookings;
   }
+  findBookingByID(id) {
+    return this.allBookings.find((booking) => booking.id === id);
+  }
 }
 
 export default Hotel;

@@ -513,4 +513,24 @@ describe("Hotel", function () {
       },
     ]);
   });
+  it("Should find bookings by id", function () {
+    const found1 = hotelDani.findBookingByID("5fwrgu4i7k55hl6t7");
+    const found2 = hotelDani.findBookingByID("5fwrgu4i7k55hl6t8");
+    expect(found1).to.deep.equal({
+      id: "5fwrgu4i7k55hl6t7",
+      userID: 20,
+      date: "2022/02/16",
+      roomNumber: 7,
+    });
+    expect(found2).to.deep.equal({
+      id: "5fwrgu4i7k55hl6t8",
+      userID: 1,
+      date: "2023/02/05",
+      roomNumber: 12,
+    });
+  });
+  it("Should return undefined if nothing was found", function () {
+    const found1 = hotelDani.findBookingByID("boo");
+    expect(found1).to.deep.equal(undefined);
+  });
 });
