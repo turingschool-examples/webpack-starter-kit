@@ -9,6 +9,7 @@ $fontCantanaOne: "Cantata One", serif;
 $backgroundPicture: url("../images/vacation.jpg");
 
 body {
+  font-family: $fontCantanaOne;
   background-image: $backgroundPicture;
   background-size: cover;
   background-repeat: repeat-y;
@@ -247,7 +248,9 @@ button:hover {
   width: auto;
 }
 
-.try-again {
+.try-again,
+.delete {
+  font-style: italic;
   color: rgb(154, 0, 0);
 }
 
@@ -266,6 +269,12 @@ button:hover {
   border-radius: 1rem;
   background-color: $navy;
   border: 2px solid $white;
+}
+
+.hotel-information {
+  padding-left: 2rem;
+  font-size: 1.5vw;
+  color: $white;
 }
 
 .total-spent {

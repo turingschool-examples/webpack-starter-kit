@@ -19,8 +19,8 @@
     </span>
     <nav class="navigation">
       <section class="first-navigation hide">
-        <button class="manage-bookings-button">Manage My Bookings</button>
-        <button class="create-bookings-button">Create New Booking</button>
+        <button class="create-bookings-button">My Dashboard</button>
+        <button class="manage-bookings-button">Manage Bookings</button>
       </section>
       <button class="sign-in hide">Sign In</button>
     </nav>
@@ -59,7 +59,10 @@
           <button type="submit" id="login-btn">Login</button>
         </section>
         <section class="manage-bookings hide">
-          <!-- Booking info -->
+          <h2>
+            You have not choosen a customer's bookings to view yet! Please
+            choose a customer.
+          </h2>
         </section>
         <section class="add-booking hide">
           <form id="booking-form">
@@ -96,6 +99,25 @@
                 Search
               </button>
             </div>
+            <section class="managers-form-section hide">
+              <div class="form-group">
+                <label for="find-customer"
+                  >Type custmers name to manage their bookings:</label
+                >
+                <input type="text" id="find-customer" class="input" />
+              </div>
+              <div class="form-group">
+                <button id="search-customers" class="submit-button">
+                  Choose Customer
+                </button>
+              </div>
+              <section class="hotel-information">
+                <p id="rooms-available">PLACEHOLDER</p>
+                <p id="total-revenue">PLACEHOLDER</p>
+                <p id="percentage-occupied">PLACEHOLDER</p>
+                <p id="current-searched-customer">Customer: None selected</p>
+              </section>
+            </section>
           </form>
           <section class="booking-results">
             <h2 id="available-rooms">Double click on a room to book it!</h2>
