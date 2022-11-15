@@ -21,7 +21,7 @@ button {
 
 .login-button{
   margin-top: 3px;
-  margin-left: 100px;
+  margin-left: 120px;
 }
 
 .hidden{
@@ -42,6 +42,7 @@ button {
 }
 
 .total-booking-cost {
+  font-weight: bold;
   height: 50px;
   width: 250px;
 }
@@ -53,5 +54,11 @@ button {
 
 .available-bookings {
   height: 900px;
-  width: auto
+  width: 50%
+}
+
+.dblclick-to-book {
+  font-size: small;
+  font-style: italic;
+  font-weight: lighter;
 }
