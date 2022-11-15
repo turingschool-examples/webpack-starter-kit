@@ -10,12 +10,6 @@ describe("Customer", function () {
   let customer1 = new Customer(data);
   let customer2 = new Customer(data2);
 
-  function getTodaysDate() {
-    let now = new Date(Date.now());
-    now.setHours(0, 0, 0, 0);
-    return now;
-  }
-
   it("Should take in an object", function () {
     expect(data).to.be.an("object");
   });
@@ -49,28 +43,5 @@ describe("Customer", function () {
     expect(customer2.getMyBookings(bookingsData)).to.equal(
       "You have not made any bookings."
     );
-  });
-  it("Should be able to choose today", function () {
-    let now = getTodaysDate();
-    const day = now.getDate();
-    const month = now.getMonth() + 1;
-    const year = now.getFullYear();
-    const date1 = customer1.chooseADate(`${year}/${month}/${day}`);
-    let nowString = now.toISOString();
-    nowString = nowString.split("T");
-    let todayDate = nowString[0].split("-").join("/");
-    expect(date1).to.equal(todayDate);
-  });
-  it("Should be able to choose a future date", function () {
-    const date2 = customer1.chooseADate(`2022/12/29`);
-    const date3 = customer1.chooseADate(`2027/03/01`);
-    expect(date2).to.equal(`2022/12/29`);
-    expect(date3).to.equal(`2027/03/01`);
-  });
-  it("Should not be able to choose a past date", function () {
-    const date2 = customer1.chooseADate(`2022/5/1`);
-    const date3 = customer1.chooseADate(`1997/3/1`);
-    expect(date2).to.equal(`Please choose a valid date`);
-    expect(date3).to.equal(`Please choose a valid date`);
   });
 });

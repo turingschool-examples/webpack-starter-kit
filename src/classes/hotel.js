@@ -40,18 +40,8 @@ class Hotel {
     return currentUser.getMyBookings(this.allBookings);
   }
 
-  findCustomerBookingExpenses(currentUser) {
-    let myRooms = this.findCustomerBookings(currentUser);
-    if (myRooms === "You have not made any bookings.") {
-      return myRooms;
-    } else {
-      myRooms = myRooms.map((room) => room.roomNumber);
-      return myRooms.reduce((acc, current) => {
-        let room = this.filterByRoomNumber(current);
-        acc = acc + room.costPerNight;
-        return acc;
-      }, 0);
-    }
+  findBookingByID(id) {
+    return this.allBookings.find((booking) => booking.id === id);
   }
 
   findBookedRoomNumber(date) {
@@ -59,6 +49,24 @@ class Hotel {
       (booking) => date === booking.date
     );
     return bookedRoom.map((room) => room.roomNumber);
+  }
+
+  findSpecificRoomByNumber(number, dataSet = this.allRooms) {
+    return dataSet.find((room) => room.number === number);
+  }
+
+  filterRoomsByType(type, data = this.availableRooms) {
+    if (type === "no-preference") {
+      return data;
+    } else {
+      return data.filter((room) => room.roomType === type);
+    }
+  }
+
+  findACustomer(name) {
+    return this.allCustomers.find(
+      (customer) => customer.name.toLowerCase() == name.toLowerCase()
+    );
   }
 
   findAvailableRooms(date) {
@@ -70,20 +78,27 @@ class Hotel {
     return this.availableRooms;
   }
 
-  filterRoomsByType(type, data = this.availableRooms) {
-    if (type === "no-preference") {
-      return data;
+  findCustomerBookingExpenses(currentUser) {
+    let myRooms = this.findCustomerBookings(currentUser);
+    if (myRooms === "You have not made any bookings.") {
+      return myRooms;
     } else {
-      return data.filter((room) => room.roomType === type);
+      myRooms = myRooms.map((room) => room.roomNumber);
+      return myRooms.reduce((acc, current) => {
+        let room = this.findSpecificRoomByNumber(current);
+        acc = acc + room.costPerNight;
+        return acc;
+      }, 0);
     }
   }
 
-  filterByRoomNumber(number, dataSet = this.allRooms) {
-    return dataSet.find((room) => room.number === number);
-  }
-
-  filterByBedNumber(number, dataSet = this.allRooms) {
-    return dataSet.filter((room) => room.numBeds === number);
+  totalRevenue(date) {
+    const todaysBookings = this.findBookedRoomNumber(date);
+    return todaysBookings.reduce((acc, current) => {
+      let room = this.findSpecificRoomByNumber(current);
+      acc = acc + room.costPerNight;
+      return acc;
+    }, 0);
   }
 
   chooseADate(date) {
@@ -114,28 +129,11 @@ class Hotel {
     return newBooking;
   }
 
-  totalRevenue(date) {
-    const todaysBookings = this.findBookedRoomNumber(date);
-    console.log(todaysBookings);
-    return todaysBookings.reduce((acc, current) => {
-      let room = this.filterByRoomNumber(current);
-      acc = acc + room.costPerNight;
-      return acc;
-    }, 0);
-  }
-  findACustomer(name) {
-    return this.allCustomers.find(
-      (customer) => customer.name.toLowerCase() == name.toLowerCase()
-    );
-  }
   deleteABooking(id) {
     const booking = this.allBookings.find((booking) => booking.id === id);
     const index = this.allBookings.indexOf(booking);
     this.allBookings.splice(index, 1);
     return this.allBookings;
-  }
-  findBookingByID(id) {
-    return this.allBookings.find((booking) => booking.id === id);
   }
 }
 

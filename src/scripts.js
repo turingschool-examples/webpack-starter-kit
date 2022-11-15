@@ -1,13 +1,6 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import "./css/styles.scss";
 import Hotel from "./classes/hotel";
-import Customer from "./classes/customer";
 import loadData from "./apiCalls";
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import "./images/HotelRoom1.png";
 import "./images/HotelRoom2.png";
 import "./images/HotelRoom3.png";
@@ -15,47 +8,36 @@ import "./images/HotelRoom4.png";
 import "./images/lock.png";
 import "./images/user.png";
 
-//GLOBAL VAR
-
 let currentUser;
 let overlookHotel;
 let chosenDate;
 let manager = false;
 
-//VARIABLES
-
-//QUERY SELECTORS
 const loginSection = document.querySelector(".log-in");
 const loginButton = document.getElementById("login-btn");
 const username = document.getElementById("name");
 const password = document.getElementById("password");
 const loginError = document.querySelector(".bad-login");
 const signIn = document.querySelector(".sign-in");
-
 const navigationBar = document.querySelector(".first-navigation");
 const manageBookingsSection = document.querySelector(".manage-bookings");
 const addBookingsSection = document.querySelector(".add-booking");
 const welcome = document.querySelector(".welcome");
-
 let availableRooms = document.querySelector(".room-thumbnails");
 let myBookings = document.querySelector(".manage-bookings");
-
 let wantedRoomType = document.querySelector("#select-room");
-let submitBookingButton = document.querySelector("#submit-booking");
+const submitBookingButton = document.querySelector("#submit-booking");
 const calendar = document.getElementById("calendar");
 const managerFormSection = document.querySelector(".managers-form-section");
-
 const roomsAvailableInfo = document.querySelector("#rooms-available");
 const totalRevenueInfo = document.querySelector("#total-revenue");
 const occupiedRoomsInfo = document.querySelector("#percentage-occupied");
 const currentSearchedCustomer = document.querySelector(
   "#current-searched-customer"
 );
-
 const chooseCustomerButton = document.querySelector("#search-customers");
 const findCustomerInput = document.querySelector("#find-customer");
 
-//even listeners
 window.addEventListener("load", loadAllData);
 loginButton.addEventListener("click", loginCustomer);
 navigationBar.addEventListener("click", changePageDisplay);
@@ -96,20 +78,38 @@ function loadAllData() {
     });
 }
 
-//Starting functions
-
 function loginCustomer() {
+  event.preventDefault();
   currentUser = overlookHotel.login(username.value, password.value);
   if (currentUser === undefined) {
     loginError.innerText = "Invalid credentials! Please try again!";
     show(loginError);
     return "did not work";
   } else {
-    if (currentUser != "manager") {
-      loginACustomer();
-    } else {
-      loginManager();
-    }
+    getCustomer(currentUser.id);
+  }
+}
+
+function getCustomer(id) {
+  if (currentUser != "manager") {
+    loginACustomer();
+    fetch(`http://localhost:3001/api/v1/customers/${currentUser.id}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Something went wrong!");
+        }
+        return res.json;
+      })
+      .then((data) => {
+        loginACustomer();
+      })
+      .catch((err) => {
+        loginError.innerText =
+          "We are so sorry! We cannot log you in at this time.";
+        show(loginError);
+      });
+  } else {
+    loginManager();
   }
 }
 
@@ -140,6 +140,18 @@ function loginManager() {
   return currentUser;
 }
 
+function backToLogin() {
+  hide(manageBookingsSection);
+  hide(addBookingsSection);
+  hide(welcome);
+  hide(navigationBar);
+  hide(signIn);
+  show(loginSection);
+  currentUser = "";
+  availableRooms.innerHTML = "";
+  username.value = "";
+}
+
 function changePageDisplay(event) {
   hide(manageBookingsSection);
   hide(addBookingsSection);
@@ -152,20 +164,8 @@ function changePageDisplay(event) {
   } else if (event.target.classList.contains("create-bookings-button")) {
     show(addBookingsSection);
     displayHotelInfo();
+    availableRooms.innerHTML = "";
   }
-}
-
-function backToLogin() {
-  hide(manageBookingsSection);
-  hide(addBookingsSection);
-  hide(welcome);
-  hide(navigationBar);
-  hide(signIn);
-  show(loginSection);
-  currentUser = "";
-  availableRooms.innerHTML = "";
-  username.value = "";
-  password.value = "";
 }
 
 function updateCustomerBookings() {
@@ -221,6 +221,7 @@ function displayRoomBookings(data) {
 function searchForBookableRooms() {
   event.preventDefault();
   getAllBookings();
+  displayHotelInfo();
   let date = `${calendar.value}`;
   date = date.split("-").join("/");
   chosenDate = overlookHotel.chooseADate(date);
@@ -298,7 +299,7 @@ function postBooking(bookingToSend) {
     })
     .then((data) => {
       availableRooms.innerHTML = `
-      <h3>Saved Booking</h3>`;
+        <h3>Saved Booking!</h3>`;
       getAllBookings();
     })
     .catch((err) => {

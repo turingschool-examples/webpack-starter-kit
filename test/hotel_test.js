@@ -379,8 +379,8 @@ describe("Hotel", function () {
     expect(found1).to.deep.equal([]);
   });
   it("Should find rooms by number", function () {
-    const found1 = hotelDani.filterByRoomNumber(1);
-    const found2 = hotelDani.filterByRoomNumber(2);
+    const found1 = hotelDani.findSpecificRoomByNumber(1);
+    const found2 = hotelDani.findSpecificRoomByNumber(2);
     expect(found1).to.deep.equal({
       number: 1,
       roomType: "residential suite",
@@ -399,41 +399,8 @@ describe("Hotel", function () {
     });
   });
   it("Should return nothing if no room is found", function () {
-    const found1 = hotelDani.filterByRoomNumber(50);
+    const found1 = hotelDani.findSpecificRoomByNumber(50);
     expect(found1).to.deep.equal(undefined);
-  });
-  it("Should filter by bed number", function () {
-    const found1 = hotelDani.filterByBedNumber(1);
-    expect(found1).to.deep.equal([
-      {
-        bedSize: "queen",
-        bidet: true,
-        costPerNight: 358.4,
-        numBeds: 1,
-        number: 1,
-        roomType: "residential suite",
-      },
-      {
-        bedSize: "king",
-        bidet: false,
-        costPerNight: 491.14,
-        numBeds: 1,
-        number: 3,
-        roomType: "single room",
-      },
-      {
-        bedSize: "queen",
-        bidet: false,
-        costPerNight: 429.44,
-        numBeds: 1,
-        number: 4,
-        roomType: "single room",
-      },
-    ]);
-  });
-  it("Should return an empty array if none are found", function () {
-    const found1 = hotelDani.filterByBedNumber(10);
-    expect(found1).to.deep.equal([]);
   });
   it("Should should create a new booking", function () {
     const currentCustomer = customerData[0];
