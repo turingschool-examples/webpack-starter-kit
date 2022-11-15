@@ -3,7 +3,7 @@ import './css/styles.css'
 import './images/turing-logo.png'
 import apiCalls from './fetchApi'
 import Customer from './classes/customer'
-// import post from './fetchApi'
+import { post } from './fetchApi'
 
 
 //Query Selectors
@@ -32,16 +32,16 @@ let currentCustomer
 let customersRooms = []
 let unavailable = []
 let available = []
-let roomFilter 
+let roomFilter
 let idNumber
 
 //Functions
 function logIn(event) {
     parseUsername()
-    if(passwordInput.value === 'overlook2021' && idNumber <= 50) {
+    if (passwordInput.value === 'overlook2021' && idNumber <= 50) {
         fetchApiCalls(idNumber)
         showMainPage()
-    } else {loginError.innerHTML = 'Sorry there was an error trying to log you in, please try again'}
+    } else { loginError.innerHTML = 'Sorry there was an error trying to log you in, please try again' }
     event.preventDefault()
 }
 
@@ -73,8 +73,8 @@ const fetchApiCalls = (user) => {
 function loadHandler() {
     currentCustomer = new Customer(singleCustomer, bookings)
     welcomeMessage()
-    setTimeout(() => {totalBookingsCost()}, 1000)
-    setTimeout(() => {displayUserData()}, 1000)
+    setTimeout(() => { totalBookingsCost() }, 1000)
+    setTimeout(() => { displayUserData() }, 1000)
 }
 
 function welcomeMessage() {
@@ -101,13 +101,13 @@ function displayUserData() {
 }
 
 function checkInputs(event) {
-    if(bookingYear.value === "Year") {
+    if (bookingYear.value === "Year") {
         availableBookingSection.innerHTML = '<p>Please select a year!</p>'
-    } else if(bookingMonth.value === "Month") {
+    } else if (bookingMonth.value === "Month") {
         availableBookingSection.innerHTML = '<p>Please select a month!</p>'
-    } else if(bookingDay.value === "Day") {
+    } else if (bookingDay.value === "Day") {
         availableBookingSection.innerHTML = '<p>Please select a day!</p>'
-    } else{filterNewBooking()}
+    } else { filterNewBooking() }
     event.preventDefault()
 
 }
@@ -116,13 +116,13 @@ function filterNewBooking() {
     unavailable = []
     available = []
     let unavailableRooms = bookings.filter(booking => booking.date === `${bookingYear.value}/${bookingMonth.value}/${bookingDay.value}`)
-    unavailableRooms.forEach(room => 
+    unavailableRooms.forEach(room =>
         unavailable.push(room.roomNumber)
     )
     rooms.forEach(room => {
-        if(unavailable.includes(room.number)) {
+        if (unavailable.includes(room.number)) {
             return
-        } else {available.push(room)}
+        } else { available.push(room) }
     })
     showAvailableBookings()
 }
@@ -136,7 +136,7 @@ function showAvailableBookings() {
 }
 
 function filterByRoomType() {
-    if(roomTypeSelector.value != "Room Type") {filterResults()} else {return}
+    if (roomTypeSelector.value != "Room Type") { filterResults() } else { return }
 }
 
 function filterResults() {
@@ -149,23 +149,17 @@ function filterResults() {
 }
 
 function checkForUnavailable() {
-    if(unavailable === [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]) {
+    if (unavailable === [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]) {
         availableBookingSection.innerHTML = `<p> We are so sorry but there seems to be no available bookings for that day!</p>`
     }
 }
 
 function createNewBooking(event) {
     const bookedRoom = rooms.filter(room => parseInt(event.target.id) === room.number)
-    const objectString = JSON.stringify({userID: currentCustomer.id, date: `${bookingYear.value}/${bookingMonth.value}/${bookingDay.value}`, roomNumber: bookedRoom[0].number})
+    const objectString = JSON.stringify({ userID: currentCustomer.id, date: `${bookingYear.value}/${bookingMonth.value}/${bookingDay.value}`, roomNumber: bookedRoom[0].number })
     post(objectString)
     availableBookingSection.innerHTML = ''
-    setTimeout(() => {fetchApiCalls(idNumber)}, 1000)
-}
-
-function post(data) {
-    fetch('http://localhost:3001/api/v1/bookings', {method: 'POST', body : data, headers: {'Content-Type': 'application/json'}}) 
-    .then(results => results.json)
-    .then(console.log)
+    setTimeout(() => { fetchApiCalls(idNumber) }, 1000)
 }
 
 //Event Listeners
