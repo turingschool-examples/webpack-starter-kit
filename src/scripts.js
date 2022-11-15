@@ -221,6 +221,7 @@ function displayRoomBookings(data) {
 function searchForBookableRooms() {
   event.preventDefault();
   getAllBookings();
+  displayHotelInfo();
   let date = `${calendar.value}`;
   date = date.split("-").join("/");
   chosenDate = overlookHotel.chooseADate(date);
@@ -297,13 +298,8 @@ function postBooking(bookingToSend) {
       return response.json();
     })
     .then((data) => {
-      if (!manager) {
-        availableRooms.innerHTML = `
+      availableRooms.innerHTML = `
         <h3>Saved Booking!</h3>`;
-      } else {
-        availableRooms.innerHTML = `
-        <h3>Saved Booking! Click the "My Dashboard" button to refresh hotel information.</h3>`;
-      }
       getAllBookings();
     })
     .catch((err) => {
