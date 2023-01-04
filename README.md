@@ -71,7 +71,7 @@ Only a manager can delete bookings and only future bookings can be deleted. Book
 
 ## Ending Thoughts
 
-At this point in my journey as a software developer, I am veyr proud of this application. Being able to navigate network requests for the first time was a vry big win. Another win was being able to change the origonal webpack loader to handle SASS files. 
+At this point in my journey as a software developer, I am very proud of this application. Being able to navigate network requests for the first time was a very big win. Another win was being able to change the origonal webpack loader to handle SASS files. 
 
 Possible Improvements: 
 
