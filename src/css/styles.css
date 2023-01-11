@@ -36,12 +36,15 @@ h2 {
 }
 
 .form-container {
-  margin: 50px;
   display: flex;
-  justify-content: center
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #c5c3c31c;
 }
 
 .user-inputs {
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
