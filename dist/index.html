@@ -4,10 +4,82 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Where to NXT</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
+  <header>
+    <h1 class="title">Where to NXT</h1>
+    <section class="user-greeting">
+      <h2>Welcome, User!</h2>
+      <p class="money-spent">Total Amount Spent This Year: $109293.07</p>
+    </section>
+  </header>
+  <section class="form-container">
+    <form class="user-inputs">
+      <div class="input-container">
+        <label for="destinationDropdown">Select Your Destination:</label>
+        <select name="destinations" id="destinationDropdown">
+          <option value="">--Destination--</option>
+        </select>
+      </div>
+      <div class="input-container">
+        <label for="startDate">Start Date:</label>
+        <input type="date" class="date-input" id="startDate">
+      </div>
+      <div class="input-container">
+        <label for="tripDuration">Duration:</label>
+        <input type="number" class="number-input" id="tripDuration" min="1">
+      </div>
+      <div class="input-container">
+        <label for="numberOfTravelers">Travelers:</label>
+        <input type="number" class="number-input" id="numberOfTravelers" min="1">
+      </div>
+      <button class="search-button">Search</button>
+    </form>
+  </section>
+  <section class="trips-selector-container">
+    <h3>Your Trips</h3>
+    <div class="trip-selectors">
+      <button>All trips</button>
+      <button>Upcoming</button>
+      <button>Pending</button>
+    </div>
+  </section>
+  <main>
+    <article class="trip-card">
+      <section class="destination-image-container">
+        <img src="" alt="destination-image">
+      </section>
+      <section class="trip-info">
+        <h4>Destination Name</h4>
+      </section>
+    </article>
+    <article class="trip-card">
+      <section class="destination-image-container">
+        <img src="" alt="destination-image">
+      </section>
+      <section class="trip-info">
+        <h4>Destination Name</h4>
+      </section>
+    </article>
+    <article class="trip-card">
+      <section class="destination-image-container">
+        <img src="" alt="destination-image">
+      </section>
+      <section class="trip-info">
+        <h4>Destination Name</h4>
+      </section>
+    </article>
+    <article class="trip-card">
+      <section class="destination-image-container">
+        <img src="" alt="destination-image">
+      </section>
+      <section class="trip-info">
+        <h4>Destination Name</h4>
+      </section>
+    </article>
+  </main>
+  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
