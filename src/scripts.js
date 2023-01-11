@@ -8,4 +8,4 @@ import './css/styles.css';
 import './images/turing-logo.png'
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+console.log('This is the JavaScript entry file - your code begins here!');
