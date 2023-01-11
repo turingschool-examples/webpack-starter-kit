@@ -1,3 +1,122 @@
-body {
+/* body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+} */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(11, 11, 11, 0.95);
+  color: white;
+  height: 10vh;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.user-greeting {
+  width: 20%;
+  display: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.money-spent {
+  font-size: 15px;
+}
+
+.form-container {
+  display: flex;
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #c5c3c31c;
+}
+
+.user-inputs {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid; */
+  border-radius: 80px;
+  height: 9vh;
+  width: 55vw;
+  box-shadow: 0 10px 14px rgb(34 15 15 / 13%), 0 4px 14px rgb(0 0 0 / 22%)
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 20%;
+}
+
+.number-input,
+.date-input,
+select {
+  width: 10vw;
+  height: 3vh;
+}
+
+.date-input {
+  height: 3.1vh;
+}
+
+select {
+  height: 3.3vh;
+}
+
+.search-button {
+  height: 3.3vh;
+  margin-top: 15px;
+  width: 5vw;
+  border-radius: 10px;
+  border: none;
+}
+
+.trips-selector-container {
+  display: flex;
+  justify-content: center;
+  margin: 80px 0;
+  align-items: center;
+  flex-direction: column;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+  /* margin-top: 50px; */
+  height: 100%
+}
+
+.trip-card {
+  border: 1px solid;
+  height: 60vh;
+  width: 85%;
+  border-radius: 10px;
+  box-shadow: 0 10px 14px rgb(34 15 15 / 13%), 0 4px 14px rgb(0 0 0 / 22%)
+}
+
+.destination-image-container {
+  height: 40%;
+  border-bottom: 1px solid
+}
+
+h3 {
+  font-size: 20px;
 }
