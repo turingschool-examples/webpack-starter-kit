@@ -4,10 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>TRAVEL</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
+  <main class="traveler-page hidden" id="travelerPage">
+		<header class="header-container">
+			<img class="logo" src="./images/company.png" alt="travel company logo">
+			<button class="sign-out-button" id="signOutButton">Sign Out</button>
+		</header>
+		<main class="main-container"> 
+			<section class="dashboard-nav">
+				<nav class="button-section">
+					<button class="trip-button" id="allTripsButton" alt="all trips button">ALL TRIPS</button>
+					<button class="trip-button" id="upcomingTripsButton" alt="upcoming trips button">UPCOMING</button>
+					<button class="trip-button" id="presentTripsButton" alt="present trips button">PRESENT</button>
+					<button class="trip-button" id="pastTripsButton" alt="past trips button">PAST</button>
+					<button class="trip-button" id="pendingTripsButton" alt="pending trips button">PENDING</button>
+				</nav>
+				<section class="total-spent-section" id="totalSpentPerYear"></section>
+			</section>
+			<section class="dashboard-container">
+				<section class="trips-container">
+					<ul class="trips-data-section" id="allTripsData">ALL TRIPS
+					</ul>
+					<ul  class="trips-data-section hidden" id="upcomingTripsData">UPCOMING TRIPS
+					</ul>
+					<ul class="trips-data-section hidden" id="presentTripsData">PRESENT TRIPS
+					</ul>
+					<ul class="trips-data-section hidden" id="pastTripsData">PAST TRIPS
+					</ul>
+					<ul class="trips-data-section hidden" id="pendingTripsData">PENDING TRIPS
+					</ul>
+				</section>
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>

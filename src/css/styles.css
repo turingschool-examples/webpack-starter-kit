@@ -1,3 +1,25 @@
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background: #E69F00;
+}
+.header-container {
+display: flex;
+align-items:center;
+justify-content: space-between;
+height: 15vh;
+}
+
+.main-container {
+  display: flex
+}
+
+.logo { 
+  height: 100%;
+}
+
+.sign-out-button {
+  margin-right: 5%;
+}
+
+.total-spent-section {
+
 }
