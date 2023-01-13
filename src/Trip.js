@@ -12,24 +12,11 @@ class Trip {
 			this.suggestedActivities = tripData.suggestedActivities;
 	}
 
-  tripCost(destinationRepository) {
-      const destination = destinationRepository.findById(this.destinationID)
-      const totalLodgingCost = destination.lodgingCost * this.duration * this.travelers
-      const totalFlightCost = destination.flightCost * this.travelers
-      
-      return (totalLodgingCost + totalFlightCost) * 1.1
-    }
-
-
-  getAllTrips(travelerID) {
-      return this.sortDatesDescending().filter(trip => trip.userID === travelerID);
-    }
-
-  getEndDate() {
-		const endDate = new Date(this.date.getTime());
-		endDate.setDate(this.date.getDate() + this.duration);
-		return endDate;
-	}
+  costPerTrip(destination) {
+    const totalLodgingCost = destination.lodgingCost * this.duration * this.travelers
+    const totalFlightCost = destination.flightCost * this.travelers
+    return (totalLodgingCost + totalFlightCost) * 1.1
+  }
 
 }
 

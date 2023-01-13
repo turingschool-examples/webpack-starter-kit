@@ -26,6 +26,7 @@ height: 25vh;
 .button-section {
   display: flex;
   flex-direction: row;
+  height: 50px;
 }
 
 .logo { 
@@ -76,6 +77,13 @@ align-items: center;
 
 .trip-row {
   display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.trip-row-header {
+  display: flex;
+  flex-direction: row;
   width: 100%;
 }
 
