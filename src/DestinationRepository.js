@@ -15,19 +15,21 @@ class DestinationRepository {
 		})
 	}
 
-  findFlightCost(destinationID) {
-    const cost = this.allDestinations.findByDestID(destinationID).estimatedFlightCostPerPerson 
-    return cost
-  }
-
-  findLodgingCost() {
-    const cost = this.allDestinations.findByDestID(destinationID).estimatedLodgingCostPerDay 
-    return cost
-  }
-
-  // findTotalFlightCost() {
-  //   this.findFlightCost(destinationID) * 
+  // findFlightCost(destinationID) {
+  //   const cost = this.allDestinations.findByDestID(destinationID).estimatedFlightCostPerPerson 
+  //   return cost
   // }
+
+  // findLodgingCost(destinationID) {
+  //   const cost = this.allDestinations.findByDestID(destinationID).estimatedLodgingCostPerDay 
+  //   return cost
+  // }
+
+  findDestByName(name) {
+    return this.allDestinations.find((destination) => {
+			return destination.destination === name;
+		}).id
+  }
 }
 
 export default DestinationRepository;

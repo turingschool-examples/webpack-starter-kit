@@ -2,7 +2,11 @@ import Traveler from './Traveler';
 
 class TravelerRepository {
 	constructor(travelerData) {
-		this.travelers = travelerData.map((travelerObj) => { return new Traveler(travelerObj) });
+	this.travelers = []
+	}
+
+	travelerDataLoad(travelersData) {
+		this.travelers = travelersData.map((travelerObj) => { return new Traveler(travelerObj) });
 	}
 
 }

@@ -36,6 +36,28 @@
 					<ul class="trips-data-section hidden" id="pendingTripsData">PENDING TRIPS
 					</ul>
 				</section>
+      <section class="new-trip-container">
+        <article id="newTripArticle" class="newTrip-article hidden">
+          <h1 id="userName"></h1>
+          <h2>Start New Trip:</h2>
+          <form id="tripForm" class="trip-form">
+            <label for="date">Date:</label>
+            <input id="dateInput" type="date" placeholder="yyyy/mm/dd" name="date" required>
+            <label for="duration">Trip Duration:</label>
+            <input id="durationInput" type="number" name="duration" placeholder="#" required>
+            <label for="numTravelers">Number of Travelers:</label>
+            <input id="numTravelersInput" type="number" name="numTravelers" placeholder="#" required>
+            <label for="destinationsInput">Destination:</label>
+            <select name="destinationsInput" id="destinationsInput" required>
+            </select>
+            <input type="submit" value="Submit">
+            <p id="errorNotice" class="error"></p>
+          </form>
+          <button id="estimatedCost">Trip Estimate</button>
+          <p id="estimate"></p>
+        </article>
+      </section>
+    </main> 
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>

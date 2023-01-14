@@ -25,7 +25,7 @@ class TripRepository {
   num += trip.costPerTrip(destination)
   return num
   }, 0)
-  return totalCostofTripsAnnually
+  return Math.round(totalCostofTripsAnnually)
   }
 
 }
