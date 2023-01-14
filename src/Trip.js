@@ -15,7 +15,7 @@ class Trip {
   costPerTrip(destination) {
     const totalLodgingCost = destination.lodgingCost * this.duration * this.travelers
     const totalFlightCost = destination.flightCost * this.travelers
-    return (totalLodgingCost + totalFlightCost) * 1.1
+    return Math.round((totalLodgingCost + totalFlightCost) * 1.1)
   }
 
 }

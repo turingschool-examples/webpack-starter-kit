@@ -58,9 +58,9 @@ height: 25vh;
 }
 
 .total-spent-section {
-border: solid red;
 display: flex;
-border-width: 3px;
+border: 1px solid gray;
+border-radius: 5px;
 width: 25%;
 height: 50px;
 justify-content: center;
@@ -89,4 +89,14 @@ align-items: center;
 
 .trip-image {
 max-height: 60px;
+}
+
+.trip-card {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+}
+
+.new-trip-container {
+  
 }
