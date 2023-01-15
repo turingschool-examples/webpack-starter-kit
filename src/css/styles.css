@@ -97,6 +97,21 @@ max-height: 60px;
   border: 1px solid gray;
 }
 
-.new-trip-container {
+/* .new-trip-container {
   
+} */
+
+.hidden {
+  display: none;
+}
+
+.trip-estimate {
+  height: 20px;
+  width: 200px
+}
+
+.tripCostEstimateBox {
+  height: 20px;
+  width: 200px;
+  border: 1px solid gray;
 }

@@ -11,14 +11,34 @@ import domUpdates from './domUpdates';
 
 //Query Selectors
 
-let allTripsButton = document.getElementById('allTripsButton');
-let allTripsDisplay = document.querySelector('#allTripsData');
-let totalYearlyCost = document.querySelector('.total-spent-section');
-let tripForm = document.getElementById('tripForm');
-let destinationsInput = document.querySelector('#destinationsInput')
+const allTripsButton = document.querySelector('#allTripsButton');
+const allTripsDisplay = document.querySelector('#allTripsData');
+const totalYearlyCost = document.querySelector('.total-spent-section');
+const tripForm = document.getElementById('tripForm');
+const destinationsInput = document.querySelector('#destinationsInput')
+const upcomingTripsButton = document.querySelector('#upcomingTripsButton')
+const presentTripsButton = document.querySelector('#presentTripsButton')
+const pastTripsButton = document.querySelector('#pastTripsButton')
+const pendingTripsButton = document.querySelector('#pendingTripsButton')
+const allTripsData = document.querySelector('allTripsData');
+const upcomingTripsData = document.querySelector('upcomingTripsData')
+const presentTripsData = document.querySelector('presentTripsData');
+const pastTripsData = document.querySelector('pastTripsData');
+const pendingTripsData = document.querySelector('pendingTripsData');
+const tripCostEstimate = document.querySelector('#tripEstimate');
+const durationInput = document.querySelector('#durationInput');
+const numTravelersInput = document.querySelector('#numTravelersInput');
+
+
+// Global Variables
+let traveler;
+let tripRepository;
+let destinationRepository;
+let user = 50
 
 //Page Load
 window.addEventListener('load', loadData)
+
 tripForm.addEventListener('submit', (e) => {
   e.preventDefault()
   console.log(e)
@@ -26,11 +46,12 @@ tripForm.addEventListener('submit', (e) => {
   loadData()
 })
 
-// Global Variables
-let traveler;
-let tripRepository;
-let destinationRepository;
-let user = 50
+//Event Listeners
+tripCostEstimate.addEventListener('click', (e) => {
+  console.log('tripcostestimate listener', e)
+  e.preventDefault()
+  estimateTripCost(e)
+})
 
 function loadData() {
 	Promise.all([getOneAPIData('travelers', user), getAPIData('trips'), getAPIData('destinations')])
@@ -69,6 +90,7 @@ function addNewTrip(event) {
       "suggestedActivities": []
   };
 
+
   updateAPIData(newTrip, 'trips')
       .catch((error) => {
           console.log(error)
@@ -83,6 +105,16 @@ function addNewTrip(event) {
 
   event.target.reset();
 }
+
+function estimateTripCost() {
+  const destinationID = destinationRepository.findDestByName(destinationsInput.value)
+  const flightCost = destinationRepository.findFlightCost(destinationID) * (numTravelersInput.value)
+  const lodgingCost = destinationRepository.findLodgingCost(destinationID) * (numTravelersInput.value) * (durationInput.value)
+  const total = (flightCost + lodgingCost) * 1.1;   
+  domUpdates.estimatedTripCost(total)
+}
+
+
 
 
 

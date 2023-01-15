@@ -7,12 +7,13 @@
   <title>TRAVEL</title>
 </head>
 <body>
-  <main class="traveler-page hidden" id="travelerPage">
+  <main class="traveler-page" id="travelerPage">
 		<header class="header-container">
 			<img class="logo" src="./images/company.png" alt="travel company logo">
 			<button class="sign-out-button" id="signOutButton">Sign Out</button>
 		</header>
-		<main class="main-container"> 
+  
+		<main class="main-container "> 
 			<section class="dashboard-nav">
 				<nav class="button-section">
 					<button class="trip-button" id="allTripsButton" alt="all trips button">ALL TRIPS</button>
@@ -37,7 +38,7 @@
 					</ul>
 				</section>
       <section class="new-trip-container">
-        <article id="newTripArticle" class="newTrip-article hidden">
+        <article id="newTripArticle" class="newTrip-article">
           <h1 id="userName"></h1>
           <h2>Start New Trip:</h2>
           <form id="tripForm" class="trip-form">
@@ -52,9 +53,9 @@
             </select>
             <input type="submit" value="Submit">
             <p id="errorNotice" class="error"></p>
+            <button type="submit" class="trip-estimate" id="tripEstimate">Estimate Trip Cost</button>
+            <p class="tripCostEstimateBox" id="tripCostEstimate"></p>
           </form>
-          <button id="estimatedCost">Trip Estimate</button>
-          <p id="estimate"></p>
         </article>
       </section>
     </main> 

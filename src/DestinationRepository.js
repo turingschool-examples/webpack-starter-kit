@@ -15,15 +15,19 @@ class DestinationRepository {
 		})
 	}
 
-  // findFlightCost(destinationID) {
-  //   const cost = this.allDestinations.findByDestID(destinationID).estimatedFlightCostPerPerson 
-  //   return cost
-  // }
+  findDestObject(destinationID) {
+    return this.allDestinations.find(destination => destination.id === destinationID)
+  }
 
-  // findLodgingCost(destinationID) {
-  //   const cost = this.allDestinations.findByDestID(destinationID).estimatedLodgingCostPerDay 
-  //   return cost
-  // }
+  findFlightCost(destinationID) {
+    const destination = this.findDestObject(destinationID)
+    return destination.flightCost
+  }
+
+  findLodgingCost(destinationID) {
+    const destination = this.findDestObject(destinationID)
+    return destination.lodgingCost
+  }
 
   findDestByName(name) {
     return this.allDestinations.find((destination) => {

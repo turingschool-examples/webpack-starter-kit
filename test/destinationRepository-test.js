@@ -38,4 +38,13 @@ describe('Destination Repository Test', function() {
     expect(destinationRepository.findDestByName("Stockholm, Sweden")).to.equal(2);
   });
 
+  it('should calculate the flight cost of a trip', function() {
+    expect(destinationRepository.findFlightCost(1)).to.equal(000);
+  });
+
+  it('should calculate the lodging cost of a trip', function() {
+    
+    expect(destinationRepository.findLodgingCost(1)).to.equal(000);
+  });
+
 });

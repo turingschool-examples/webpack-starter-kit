@@ -10,6 +10,7 @@ const destination = destinationRepository.findByDestID(trip.destinationID)
     <p class="trip-date trip-card"> Date: ${trip.date} </p>
     <p class="trip-duration trip-card"> Duration: ${trip.duration} </p>
     <p class="trip-travelers trip-card"> Travelers: ${trip.travelers} </p>
+    <p class="trip-status trip-card"> Status: ${trip.status} </p>
 	</article>`
   },
 
@@ -19,6 +20,10 @@ const destination = destinationRepository.findByDestID(trip.destinationID)
 
   destinationsInput(destinationRepository) {
     destinationRepository.allDestinations.forEach(destination => destinationsInput.innerHTML += `<option value="${destination.destination}">${destination.destination}</option>`)
+},
+
+estimatedTripCost(total) {
+  tripCostEstimate.innerText = `Estimated Trip Cost: $${total}`
 },
 
 }
