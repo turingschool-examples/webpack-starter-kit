@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 60%;
+  height: 55%;
 }
 
 .dashboard-nav {
@@ -51,7 +51,6 @@ body {
 }
 
 .trips-container {
-	border: 1px solid gray;
 	border-radius: 5px;
 	width: 70%;
 	height: 350px;
@@ -65,7 +64,6 @@ body {
 
 .total-spent-section {
   display: flex;
-  border: 1px solid gray;
   border-radius: 5px;
   width: 25%;
   background-color: white;
@@ -97,7 +95,6 @@ body {
 }
 
 .trip-image {
-  width: 15vw;
   height: 15vh;
   border-radius: 8px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
@@ -121,12 +118,12 @@ body {
 
 .trip-estimate {
   height: 20px;
-  width: 200px
+  width: 16vw;
 }
 
 .tripCostEstimateBox {
   height: 20px;
-  width: 250px;
+  width: 20vw;
 }
 
 .trip-button {
@@ -144,3 +141,7 @@ body {
   flex-shrink: inherit;
 }
 
+input {
+  margin-bottom: 10px;
+  width: 16vw;
+}

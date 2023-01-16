@@ -22,7 +22,7 @@ describe('Destination Repository Test', function() {
   });
 
   it('should find a destination by the ID', function() {
-    expect(destinationRepository.findByDestID(1)).to.deep.equal({
+    expect(destinationRepository.findDestObject(1)).to.deep.equal({
       id: 1,
       destination: "Lima, Peru",
       lodgingCost: 70,
@@ -39,12 +39,11 @@ describe('Destination Repository Test', function() {
   });
 
   it('should calculate the flight cost of a trip', function() {
-    expect(destinationRepository.findFlightCost(1)).to.equal(000);
+    expect(destinationRepository.findFlightCost(1)).to.equal(400);
   });
 
   it('should calculate the lodging cost of a trip', function() {
-    
-    expect(destinationRepository.findLodgingCost(1)).to.equal(000);
+    expect(destinationRepository.findLodgingCost(1)).to.equal(70);
   });
 
 });

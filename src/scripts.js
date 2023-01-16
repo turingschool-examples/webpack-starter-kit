@@ -61,7 +61,6 @@ signOutButton.addEventListener('click', (e) => {
   domUpdates.signOut(e)
 })
 
-
 function loadData() {
 	Promise.all([getOneAPIData('travelers', user), getAPIData('trips'), getAPIData('destinations')])
 	.then(data => {

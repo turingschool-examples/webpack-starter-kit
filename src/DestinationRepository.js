@@ -9,12 +9,6 @@ class DestinationRepository {
   this.allDestinations = destinationData.map((destinationObj) => { return new Destination(destinationObj) });
   }
 
-	findByDestID(destinationID) {
-		return this.allDestinations.find((destination) => {
-			return destination.id === destinationID;
-		})
-	}
-
   findDestObject(destinationID) {
     return this.allDestinations.find(destination => destination.id === destinationID)
   }

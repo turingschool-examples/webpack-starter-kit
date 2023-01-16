@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-  <title>TRAVEL</title>
+  <title>Travel Tracker</title>
 </head>
 <body>
   <main class="traveler-page" id="travelerPage">
@@ -16,9 +16,9 @@
 			<button class="sign-out-button hidden" id="signOutButton">Sign Out</button>
 		</header>
     <form id="loginForm" class="login hidden">
-      <label for="name">Username:</label>
+      <label for="nameInput">Username:</label>
       <input type="text" name="name" placeholder="username" id="nameInput" required>
-      <label for="password">Password:</label>
+      <label for="passwordInput">Password:</label>
       <input type="password" name="password" placeholder="password" id="passwordInput" required>
       <button>Login</button>
       <p id="userNameError" class="userName-error"></p>
@@ -28,37 +28,37 @@
 			<section class="dashboard-nav">
 				<nav class="button-section">
 					<button class="trip-button" id="allTripsButton" alt="all trips button">ALL TRIPS</button>
-					<button class="trip-button" id="upcomingTripsButton" alt="upcoming trips button">UPCOMING</button>
+					<!-- <button class="trip-button" id="upcomingTripsButton" alt="upcoming trips button">UPCOMING</button>
 					<button class="trip-button" id="presentTripsButton" alt="present trips button">PRESENT</button>
 					<button class="trip-button" id="pastTripsButton" alt="past trips button">PAST</button>
-					<button class="trip-button" id="pendingTripsButton" alt="pending trips button">PENDING</button>
+					<button class="trip-button" id="pendingTripsButton" alt="pending trips button">PENDING</button> -->
 				</nav>
 				<section class="total-spent-section" id="totalSpentPerYear"></section>
 			</section>
 			<section class="dashboard-container">
-				<section class="trips-container">
-					<ul class="trips-data-section" id="allTripsData">ALL TRIPS
-					</ul>
-					<ul  class="trips-data-section hidden" id="upcomingTripsData">UPCOMING TRIPS
+				<ul class="trips-container">
+					<li class="trips-data-section" id="allTripsData">ALL TRIPS
+          </li>
+					<!-- <ul  class="trips-data-section hidden" id="upcomingTripsData">UPCOMING TRIPS
 					</ul>
 					<ul class="trips-data-section hidden" id="presentTripsData">PRESENT TRIPS
 					</ul>
 					<ul class="trips-data-section hidden" id="pastTripsData">PAST TRIPS
 					</ul>
 					<ul class="trips-data-section hidden" id="pendingTripsData">PENDING TRIPS
-					</ul>
-				</section>
+					</ul> -->
+				</ul>
       <section class="new-trip-container">
         <article id="newTripArticle" class="newTrip-article">
-          <h1 id="userName"></h1>
           <h2>Start New Trip:</h2>
           <form id="tripForm" class="trip-form">
-            <label for="date">Date:</label>
-            <input id="dateInput" type="date" placeholder="yyyy/mm/dd" name="date" required>
-            <label for="duration">Trip Duration:</label>
-            <input id="durationInput" type="number" name="duration" placeholder="#" required>
-            <label for="numTravelers">Number of Travelers:</label>
-            <input id="numTravelersInput" type="number" name="numTravelers" placeholder="#" required>
+            <label for="dateInput">Date:</label>
+            <input id="dateInput" type="date" placeholder="yyyy/mm/dd" name="date" min="2023-01-17" required>
+            <label for="durationInput">Trip Duration:</label>
+            <input id="durationInput" type="number" name="duration" placeholder="# of days" min="1" required>
+            <label for="numTravelersInput">Number of Travelers:</label>
+            <input id="numTravelersInput" type="number" name="numTravelers" placeholder="# of Travelers (1-10)" 
+            min="1" max="10" oninput="validity.valid||(value='');" required>
             <label for="destinationsInput">Destination:</label>
             <select name="destinationsInput" id="destinationsInput" required>
             </select>
