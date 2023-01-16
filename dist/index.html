@@ -4,16 +4,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
   <title>TRAVEL</title>
 </head>
 <body>
   <main class="traveler-page" id="travelerPage">
 		<header class="header-container">
 			<img class="logo" src="./images/company.png" alt="travel company logo">
-			<button class="sign-out-button" id="signOutButton">Sign Out</button>
+			<button class="sign-out-button hidden" id="signOutButton">Sign Out</button>
 		</header>
-  
-		<main class="main-container "> 
+    <form id="loginForm" class="login hidden">
+      <label for="name">Username:</label>
+      <input type="text" name="name" placeholder="username" id="nameInput" required>
+      <label for="password">Password:</label>
+      <input type="password" name="password" placeholder="password" id="passwordInput" required>
+      <button>Login</button>
+      <p id="userNameError" class="userName-error"></p>
+      <p id="passwordError" class="password-error"></p>
+    </form>
+		<section class="main-container"> 
 			<section class="dashboard-nav">
 				<nav class="button-section">
 					<button class="trip-button" id="allTripsButton" alt="all trips button">ALL TRIPS</button>
@@ -51,14 +62,15 @@
             <label for="destinationsInput">Destination:</label>
             <select name="destinationsInput" id="destinationsInput" required>
             </select>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Book New Trip">
             <p id="errorNotice" class="error"></p>
             <button type="submit" class="trip-estimate" id="tripEstimate">Estimate Trip Cost</button>
             <p class="tripCostEstimateBox" id="tripCostEstimate"></p>
           </form>
         </article>
       </section>
-    </main> 
+    </section>
+  </main> 
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>

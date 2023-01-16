@@ -1,17 +1,20 @@
 body {
   background: #E69F00;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
 }
 .header-container {
-display: flex;
-align-items:center;
-justify-content: space-between;
-height: 25vh;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  height: 25vh;
 }
 
 .main-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 60%;
 }
 
 .dashboard-nav {
@@ -21,6 +24,7 @@ height: 25vh;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  margin-left: 3%;
 }
 
 .button-section {
@@ -39,7 +43,6 @@ height: 25vh;
 
 .dashboard-container {
   width: 90%;
-  height: 100%;
 	margin-top: 0;
   display: flex;
   flex-direction: row;
@@ -51,20 +54,26 @@ height: 25vh;
 	border: 1px solid gray;
 	border-radius: 5px;
 	width: 70%;
-	height: 90%;
+	height: 350px;
 	display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  margin-top: 15px;
 }
 
 .total-spent-section {
-display: flex;
-border: 1px solid gray;
-border-radius: 5px;
-width: 25%;
-height: 50px;
-justify-content: center;
-align-items: center;
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 25%;
+  background-color: white;
+  height: 6vh;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  padding: 1%;
 }
 
 .trips-data-section {
@@ -78,28 +87,33 @@ align-items: center;
 .trip-row {
   display: flex;
   flex-direction: row;
-  width: 100%;
-}
-
-.trip-row-header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 95%;
+  margin: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: #E69F00;
+  box-sizing: border-box;
 }
 
 .trip-image {
-max-height: 60px;
+  width: 15vw;
+  height: 15vh;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  margin-left: 10px;
 }
 
-.trip-card {
+.new-trip-container {
+  width: 14vw;
+  align-items: flex-start;
+}
+
+.login {
   display: flex;
-  justify-content: space-between;
-  border: 1px solid gray;
+  align-items: center;
+  flex-direction: column;
 }
-
-/* .new-trip-container {
-  
-} */
 
 .hidden {
   display: none;
@@ -112,6 +126,21 @@ max-height: 60px;
 
 .tripCostEstimateBox {
   height: 20px;
-  width: 200px;
-  border: 1px solid gray;
+  width: 250px;
 }
+
+.trip-button {
+  margin-left: 3%;
+  width: 11vw;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.trip-card {
+  display: flex;
+  padding: 20px;
+  flex-shrink: inherit;
+}
+

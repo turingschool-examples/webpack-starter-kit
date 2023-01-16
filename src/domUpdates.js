@@ -14,16 +14,22 @@ const destination = destinationRepository.findByDestID(trip.destinationID)
 	</article>`
   },
 
-  updateTotalSpentPerYear(totalSpent) {
-    return `<p>Your total trip expenses for this year are $${totalSpent}.</p>`
+updateTotalSpentPerYear(totalSpent) {
+    return `<p>Your total trip expenses for 2022 were $${totalSpent}.</p>`
   },
 
-  destinationsInput(destinationRepository) {
+destinationsInput(destinationRepository) {
     destinationRepository.allDestinations.forEach(destination => destinationsInput.innerHTML += `<option value="${destination.destination}">${destination.destination}</option>`)
 },
 
 estimatedTripCost(total) {
   tripCostEstimate.innerText = `Estimated Trip Cost: $${total}`
+},
+
+signOut() {
+  loginForm.classList.remove('hidden')
+  document.querySelector('.main-container').classList.add('hidden')
+  document.querySelector('.sign-out-button').classList.add('hidden')
 },
 
 }

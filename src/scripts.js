@@ -28,7 +28,8 @@ const pendingTripsData = document.querySelector('pendingTripsData');
 const tripCostEstimate = document.querySelector('#tripEstimate');
 const durationInput = document.querySelector('#durationInput');
 const numTravelersInput = document.querySelector('#numTravelersInput');
-
+const loginForm = document.getElementById('loginForm');
+const signOutButton = document.getElementById('signOutButton')
 
 // Global Variables
 let traveler;
@@ -38,10 +39,12 @@ let user = 50
 
 //Page Load
 window.addEventListener('load', loadData)
-
+loginForm.addEventListener('submit', e => {
+  e.preventDefault()
+  login(e)
+})
 tripForm.addEventListener('submit', (e) => {
   e.preventDefault()
-  console.log(e)
   addNewTrip(e)
   loadData()
 })
@@ -52,6 +55,12 @@ tripCostEstimate.addEventListener('click', (e) => {
   e.preventDefault()
   estimateTripCost(e)
 })
+
+signOutButton.addEventListener('click', (e) => {
+  e.preventDefault()
+  domUpdates.signOut(e)
+})
+
 
 function loadData() {
 	Promise.all([getOneAPIData('travelers', user), getAPIData('trips'), getAPIData('destinations')])
@@ -110,11 +119,27 @@ function estimateTripCost() {
   const destinationID = destinationRepository.findDestByName(destinationsInput.value)
   const flightCost = destinationRepository.findFlightCost(destinationID) * (numTravelersInput.value)
   const lodgingCost = destinationRepository.findLodgingCost(destinationID) * (numTravelersInput.value) * (durationInput.value)
-  const total = (flightCost + lodgingCost) * 1.1;   
+  const total = Math.round((flightCost + lodgingCost) * 1.1);   
   domUpdates.estimatedTripCost(total)
 }
 
-
+function login(e) {
+  document.getElementById('userNameError').innerHTML = ""
+  document.getElementById('passwordError').innerHTML = ""
+  
+  if (e.target[0].value !== 'traveler50') {
+    document.getElementById('userNameError').innerHTML = "Invalid Username"
+    return false
+  } else if (e.target[1].value !== 'travel') {
+    document.getElementById('passwordError').innerHTML = "Invalid Password"
+    return false
+  } else {
+    loginForm.classList.add('hidden')
+    document.querySelector('.main-container').classList.remove('hidden')
+    document.querySelector('.sign-out-button').classList.remove('hidden')
+    loginForm.reset()
+  }
+}
 
 
 
