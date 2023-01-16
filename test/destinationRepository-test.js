@@ -4,7 +4,6 @@ import DestinationRepository from '../src/DestinationRepository';
 import { destinationsData } from './testData';
 
 
-
 describe('Destination Repository Test', function() {
   const destinationRepository = new DestinationRepository();
   destinationRepository.loadDestinations(destinationsData)

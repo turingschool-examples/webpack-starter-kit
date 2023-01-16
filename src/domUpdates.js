@@ -25,7 +25,8 @@ destinationsInput(destinationRepository) {
 },
 
 estimatedTripCost(total) {
-  tripCostEstimate.innerText = `Estimated Trip Cost: $${total.toLocaleString("en-US")}`
+  tripCostEstimate.innerText = `Estimated Trip Cost: $${total.toLocaleString("en-US")}, 
+  which includes an agent fee of $${Math.round(total * .090909).toLocaleString("en-US")}.`
 },
 
 signOut() {

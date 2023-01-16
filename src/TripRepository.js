@@ -14,7 +14,6 @@ class TripRepository {
       trip.userID === traveler.id ? arr.push(trip) : false
       return arr
     }, [])
-    // console.log('trip rows', tripRows)
     return tripRows
   }
 
@@ -24,12 +23,10 @@ class TripRepository {
   const totalCostofTripsAnnually = tripsbyYear.reduce((num, trip) => {
   const destination = destinationRepository.findDestObject(trip.destinationID)
   num += trip.costPerTrip(destination)
-  console.log('yearlyCost destination', destination)
   return num
   }, 0)
   return Math.round(totalCostofTripsAnnually)
   }
-
 }
 
 

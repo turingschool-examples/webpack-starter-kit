@@ -3,7 +3,6 @@
 import './images/company.png';
 import './css/styles.css';
 import Traveler from './Traveler';
-import Trip from './Trip';
 import { getAPIData, getOneAPIData, updateAPIData} from './API-calls';
 import TripRepository from './TripRepository';
 import DestinationRepository from './DestinationRepository';
@@ -108,9 +107,13 @@ function estimateTripCost() {
   const destinationID = destinationRepository.findDestByName(destinationsInput.value)
   const flightCost = destinationRepository.findFlightCost(destinationID) * (numTravelersInput.value)
   const lodgingCost = destinationRepository.findLodgingCost(destinationID) * (numTravelersInput.value) * (durationInput.value)
-  const total = Math.round((flightCost + lodgingCost) * 1.1);   
+  const total = Math.round((flightCost + lodgingCost) * 1.1);
+  if (flightCost && lodgingCost) {   
   domUpdates.estimatedTripCost(total)
+  } else
+    document.getElementById('tripCostEstimate').innerHTML = "Please enter trip duration and number of guests."
 }
+
 
 function login(e) {
   document.getElementById('userNameError').innerHTML = ""

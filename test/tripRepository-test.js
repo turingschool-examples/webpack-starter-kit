@@ -5,7 +5,6 @@ import { destinationsData, travelersData, tripsData } from './testData';
 import Trip from '../src/Trip';
 import TripRepository from '../src/TripRepository';
 import Traveler from '../src/Traveler';
-import DestinationsRepository from '../src/DestinationRepository';
 
 
 
@@ -14,7 +13,7 @@ describe('Trip Repository Test', function() {
   destinationRepository.loadDestinations(destinationsData)
 
   const tripRepository = new TripRepository();
-    tripRepository.tripDataLoad(tripsData)
+  tripRepository.tripDataLoad(tripsData)
 
   const traveler = new Traveler(travelersData[0])
 
