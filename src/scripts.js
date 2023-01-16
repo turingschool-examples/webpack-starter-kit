@@ -11,20 +11,10 @@ import domUpdates from './domUpdates';
 
 //Query Selectors
 
-const allTripsButton = document.querySelector('#allTripsButton');
 const allTripsDisplay = document.querySelector('#allTripsData');
 const totalYearlyCost = document.querySelector('.total-spent-section');
 const tripForm = document.getElementById('tripForm');
 const destinationsInput = document.querySelector('#destinationsInput')
-const upcomingTripsButton = document.querySelector('#upcomingTripsButton')
-const presentTripsButton = document.querySelector('#presentTripsButton')
-const pastTripsButton = document.querySelector('#pastTripsButton')
-const pendingTripsButton = document.querySelector('#pendingTripsButton')
-const allTripsData = document.querySelector('allTripsData');
-const upcomingTripsData = document.querySelector('upcomingTripsData')
-const presentTripsData = document.querySelector('presentTripsData');
-const pastTripsData = document.querySelector('pastTripsData');
-const pendingTripsData = document.querySelector('pendingTripsData');
 const tripCostEstimate = document.querySelector('#tripEstimate');
 const durationInput = document.querySelector('#durationInput');
 const numTravelersInput = document.querySelector('#numTravelersInput');
