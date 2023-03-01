@@ -34,7 +34,6 @@ var currentUser = 50
 var currentMonth
 var currentDay
 var currentYear
-var currentDate
 
 //Event Listeners and their variables
 
@@ -100,6 +99,7 @@ function customerView() {
   login.style.display = 'none'
   logOutButton.style.display = 'block'
   dataPane.innerText = `Hello, ${hotelData.customers[currentUser - 1].name}`
+  myInfo()
 }
 
 function adminView() {
@@ -123,6 +123,8 @@ bookHotelButton.addEventListener('click', bookHotel)
 
 function myInfo() {
   statMain.innerHTML = `
+  <h1 id="stat-title">Your profile info!</h2>`
+  statMain.innerHTML += `
   <li>
     <h1>Name: </h1> 
     <h2> ${hotelData.customers[currentUser - 1].name}</h2>
@@ -207,7 +209,6 @@ function chooseDay(Event) {
 
 function chooseYear(Event) {
   currentDay = Event.target.innerText
-  console.log(currentDay)
   statMain.innerHTML = ''
   for (var i = 2019; i < 2037; i++) {
     statMain.innerHTML += 
@@ -226,9 +227,21 @@ function confirmDate(Event) {
   statMain.innerHTML = `
   <h1 id="stat-title" class="selected-date">You have chosen </h1>
   <h2>${currentMonth}/${currentDay}/${currentYear}</h2>
-  <button class="book-button">Yes! Book It.</button>
-  <button class="book-button">Change Booking Date.</button>
+  <button id="book-it" class="book-button">Yes! Book It.</button>
+  <button id="change-date" class="book-button">Change Booking Date.</button>
   `
+
+  const bookNew = document.querySelector('#book-it')
+  const changeDate = document.querySelector('#change-date')
+
+  bookNew.addEventListener('click', bookNewHotel)
+  changeDate.addEventListener('click', bookHotel)
+
+}
+
+function bookNewHotel() {
+  console.log('booking')
+  //FETCH POST
 }
 
 const getDays = (year, month) => {
