@@ -1,3 +1,35 @@
+* {
+  border: 1px solid green;
+}
+
+/* General Styling */
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+section {
+  text-align: center;
+}
+
+figure {
+  width: 300px;
+}
+
+/* Images */
+
+img {
+  width: 300px;
+}
+
+/* Miscellaneous */
+
+section.rooms {
+  display: flex;
+  justify-content: space-evenly;
 }
