@@ -1,16 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
-
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpack Starter Kit</title>
+  </head>
+  <body>
+    <header>
+      <h1>Overlook Hotel</h1>
+      <p>All work and no play makes for a dull vacay. Book today!</p>
+    </header>
+    <nav>
+      <label>
+        Check-in:
+        <input type="text" name="date-selection" />
+      </label>
+      <label>
+        Room Type
+        <select>
+          <option value="">Any</option>
+        </select>
+      </label>
+    </nav>
+    <main>
+      <h2>Your Bookings</h2>
+      <h3>You have 3 bookings for a total of $968</h3>
+      <figure>
+        <img src="" alt="">
+        <figcaption>
+          <h4>Room #1</h4>
+          <h5>Suite</h5>
+          <p>Bed Size: Queen</p>
+          <p>Number of Beds: 2</p>
+          <p>includes bidet</p>
+          <p>$381</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="" alt="">
+        <figcaption>
+          <h4>Room #1</h4>
+          <h5>Suite</h5>
+          <p>Bed Size: Queen</p>
+          <p>Number of Beds: 2</p>
+          <p>includes bidet</p>
+          <p>$381</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="" alt="">
+        <figcaption>
+          <h4>Room #1</h4>
+          <h5>Suite</h5>
+          <p>Bed Size: Queen</p>
+          <p>Number of Beds: 2</p>
+          <p>includes bidet</p>
+          <p>$381</p>
+        </figcaption>
+      </figure>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
 </html>
