@@ -2,7 +2,7 @@ import {expect} from 'chai';
 import Customer from '../src/classes/Customer.js';
 import customersSample from '../src/data/customers-sample';
 
-describe('Customer tests', function() { 
+describe.only('Customer tests', function() { 
   let customer1, customer4, customer10;
 
   this.beforeEach('instantiate customers', () => {
@@ -31,5 +31,11 @@ describe('Customer tests', function() {
     expect(customer1.name).to.equal('Leatha Ullrich');
     expect(customer4.name).to.equal('Kennedi Emard');
     expect(customer10.name).to.equal('Tony Armstrong');
+  });
+
+  it('should start with no rooms', () => {
+    expect(customer1.roomIDs).to.deep.equal([]);
+    expect(customer4.roomIDs).to.deep.equal([]);
+    expect(customer10.roomIDs).to.deep.equal([]);
   });
 });
