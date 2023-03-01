@@ -5,6 +5,5 @@ class HotelData {
     this.rooms = allData.rooms
     this.bookings = allData.bookings
   }
-}
-  
+
 export default HotelData
