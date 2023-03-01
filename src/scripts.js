@@ -37,6 +37,7 @@ var currentUser = 50
 var currentMonth
 var currentDay
 var currentYear
+var roomType
 
 //Event Listeners and their variables
 
@@ -187,11 +188,15 @@ function bookingData(Event) {
   <h2>${booking[0].id}</h2>
 </li>
 <button id="remove-booking" class="book-button">Remove Booking :(</button>
-<button id="change-date" class="book-button">Change Booking Date.</button>
+<button id="back-button" class="book-button">Back to Bookings</button>
   `
 
   const removeBook = document.querySelector('#remove-booking')
-  
+  const backButton = document.querySelector('#back-button')
+   
+  backButton.addEventListener('click', () => {
+    myBookings()
+  })
   removeBook.addEventListener('click', () => {
     removeBooking(booking[0])
   })
@@ -277,7 +282,70 @@ function chooseYear(Event) {
   }
   const yearButtons = document.querySelectorAll('.calender-year-button')
   yearButtons.forEach(button => {
-    button.addEventListener('click', confirmDate)
+    button.addEventListener('click', typeOfRoom)
+  })
+}
+
+function typeOfRoom(Event) {
+  currentYear = Event.target.innerText
+  statMain.innerHTML = `
+  <h1 id="stat-title" class="room-type">Choose Type of Room</h1>
+  `
+  var roomArray = hotelData.rooms.reduce((acc, room) => {
+    if (!acc.includes(room.roomType)) {
+      statMain.innerHTML +=
+      `
+      <button class="room-type-button">${room.roomType}</button>
+      `
+      acc.push(room.roomType)
+    }
+    return acc
+  }, [])
+  var roomTypeButton = document.querySelectorAll('.room-type-button')
+  
+  roomTypeButton.forEach(roomButton => {
+    roomButton.addEventListener('click', roomsAvailable)
+  })
+}
+
+function roomsAvailable(Event) {
+  roomType = Event.target.innerText.toLowerCase()
+  if (currentDay < 10) {
+    currentDay = 0 + currentDay 
+  }
+  if (currentMonth < 10) {
+    currentMonth = 0 + currentMonth 
+  }
+  var date = `${currentYear}/${currentMonth}/${currentDay}`
+  statMain.innerHTML = `
+  <h1 id="stat-title">Available rooms on ${date}</h1>
+  `
+  var sameRoomType = hotelData.rooms
+    .filter(room => room.roomType === roomType.toLowerCase())
+
+  var takenThatDay = hotelData.rooms.reduce((acc, room) => {
+    hotelData.bookings.forEach(booking => {
+      if (booking.date === date && booking.roomNumber === room.number) {
+        acc.push(booking.roomNumber)
+      }
+    })
+    return acc
+  }, [])
+
+  console.log(sameRoomType)
+  console.log(takenThatDay)
+  console.log(takenThatDay.includes(25))
+
+  sameRoomType.forEach(room => {
+    console.log(takenThatDay.includes(room.number))
+    console.log(room)
+    if (!takenThatDay.includes(room.number)) {
+      statMain.innerHTML +=
+      `
+      <button value="${room}" class="calender-day-button">
+      ${room.number}</button>
+      `
+    }
   })
 }
 
@@ -327,7 +395,7 @@ function bookNewHotel() {
     .catch(() => alert('Error, unable to find the bookings API'))
   setTimeout(() => {
     location.reload() 
-  }, 1000)
+  }, 500)
 }
 
 const getDays = (year, month) => {
