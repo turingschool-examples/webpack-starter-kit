@@ -46,6 +46,8 @@ const dataPane = document.querySelector('#info-pane-text')
 logInButton.addEventListener('click', logIn)
 logOutButton.addEventListener('click', logOut)
 
+//log into page
+
 function renderData() {
   if (loggedIn === true) {
     checkPrivlage()
@@ -85,6 +87,8 @@ function logOut() {
   window.location.href = 'index.html' 
 }
 
+//2 views
+
 function customerView() {
   customerNav.style.display = 'block'
   login.style.display = 'none'
@@ -99,3 +103,30 @@ function adminView() {
   title.innerText = "Overlook Admin"
   dataPane.innerText = `Daily Statistics`
 }
+
+//Customer logged in
+
+const myInfoButton = document.querySelector('#my-info')
+const bookingsButton = document.querySelector('#booking-button')
+const bookHotelButton = document.querySelector('#book-new-button')
+const statMain = document.querySelector('#stat-main')
+
+myInfoButton.addEventListener('click', myInfo)
+bookingsButton.addEventListener('click', myBookings)
+bookHotelButton.addEventListener('click', bookHotel)
+
+function myInfo() {
+  statMain.innerHTML = ''
+  myInfoButton.style.backgroundColor = "var(--inv-highlight-color)"
+}
+
+function myBookings() {
+  statMain.innerHTML = ''
+  bookingsButton.style.backgroundColor = "var(--inv-highlight-color)"
+}
+
+function bookHotel() {
+  statMain.innerHTML = ''
+  bookHotelButton.style.backgroundColor = "var(--inv-highlight-color)"
+}
+
