@@ -3,27 +3,30 @@ import './images/turing-logo.png'
 import HotelData from './classes/hotelData.js'
 
 //Fetch my data!
+fetchData()
 
-const customers = fetch('http://localhost:3001/api/v1/customers')
-  .then((res) => res.json())
-const rooms =  fetch('http://localhost:3001/api/v1/rooms')
-  .then((res) => res.json())
-const bookings = fetch('http://localhost:3001/api/v1/bookings')
-  .then((res) => res.json())
+function fetchData() {
+  const customers = fetch('http://localhost:3001/api/v1/customers')
+    .then((res) => res.json())
+  const rooms =  fetch('http://localhost:3001/api/v1/rooms')
+    .then((res) => res.json())
+  const bookings = fetch('http://localhost:3001/api/v1/bookings')
+    .then((res) => res.json())
 
-Promise.all([customers, rooms, bookings])
-  .then((data) => {
-    let allData = {
-      customers: data[0].customers,
-      rooms: data[1].rooms,
-      bookings: data[2].bookings
-    }
-    return allData
-  })
-  .then((allData) => {
-    hotelData = new HotelData(allData)
-    renderData()
-  })
+  Promise.all([customers, rooms, bookings])
+    .then((data) => {
+      let allData = {
+        customers: data[0].customers,
+        rooms: data[1].rooms,
+        bookings: data[2].bookings
+      }
+      return allData
+    })
+    .then((allData) => {
+      hotelData = new HotelData(allData)
+      renderData()
+    })
+}
 
 //Global variables
 
@@ -53,7 +56,7 @@ logOutButton.addEventListener('click', logOut)
 //log into page
 
 function renderData() {
-    console.log(hotelData)
+  console.log(hotelData)
   if (loggedIn === true) {
     checkPrivlage()
   }
@@ -147,7 +150,7 @@ function myInfo() {
 function myBookings() {
   var userBookings = hotelData.bookings.filter(booking =>
     booking.userID === currentUser)
-    console.log(userBookings)
+  console.log(userBookings)
   statMain.innerHTML = `
   <h1 id="stat-title">You currently have ${userBookings.length} bookings!</h2>`
   userBookings.forEach(booking => {
@@ -240,25 +243,35 @@ function confirmDate(Event) {
 }
 
 function bookNewHotel() {
-  let roomNumber = Math.floor(Math.random() * 400)
+  let num = Math.floor(Math.random() * 400)
+  var currentDate = currentYear + '/' + currentMonth + '/' + currentDay
+  var yueh = JSON.stringify({
+    userID: currentUser,
+    date: currentDate,
+    roomNumber: num })
+  console.log(yueh)
   fetch('http://localhost:3001/api/v1/bookings', {
     method: 'POST',
     body: JSON.stringify({
       userID: currentUser,
-      date: `${currentYear}/${currentMonth}/${currentDay}`,
-      roomNumber: `${roomNumber}`
+      date: currentDate,
+      roomNumber: num
     }),
     headers: {
       'Content-Type': 'application/json'
     }
   })
     .then((response) => {
+      console.log(response)
       if (!response.ok) {
         throw new Error('Issue with request: ', response.status)
       }
       return response.json()
     })
-    .catch(error => alert('Error, unable to find the bookings API'))
+    .catch(() => alert('Error, unable to find the bookings API'))
+  setTimeout(() => {
+    location.reload() 
+  }, 1000)
 }
 
 const getDays = (year, month) => {
