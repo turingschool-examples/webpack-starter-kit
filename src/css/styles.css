@@ -4,7 +4,7 @@
   --head-nav-color: #353535;
   --font: 'Tilt Neon', cursive;
   --font-color: #ffb4a2;
-  --highlight-color: #06d6a0;
+  --highlight-color: #fdf0d5;
   --inv-highlight-color: #f9295f;
 }
 
@@ -20,11 +20,18 @@
 
 body {
   background: var(--background-color);
+  width: 100%;
+  display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Header */
 
 header {
+  position: absolute;
   width: 100%;
   height: 120px;
   background-color: var(--head-nav-color);
@@ -65,12 +72,13 @@ header {
 /* Navigation */
 
 nav {
-  margin-top: 30px;
+  margin-top: 150px;
   margin-left: 30px;
   height: 75vh;
   min-height: 600px;
   max-height: 800px;
   width: 400px;
+  min-width: 350px;
   background-color: var(--head-nav-color);
   border-radius: 30px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
@@ -93,4 +101,52 @@ nav {
   opacity: 50%;
   width: 100%;
   margin-top: 10px;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 15px;
+  width:100%;
+  height:80px;
+  position:relative;
+  background:var(--background-color);
+  text-transform:uppercase;
+  color:var(--head-nav-color);
+  font-weight:700;
+  letter-spacing:1px;
+  border: 2px solid var(--head-nav-color);
+  font-size:15px;
+  outline:none;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  cursor: pointer;
+  transition:all .2s ease-in-out;
+}
+
+button:hover {
+  background: var(--inv-highlight-color);
+}
+
+/* Stat Section*/
+
+#stat-section {
+  margin-top: 150px;
+  margin-left: 30px;
+  height: 75vh;
+  min-height: 600px;
+  max-height: 800px;
+  width: 66vw;
+  min-width: 700px;
+  background-color: var(--head-nav-color);
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+  flex-direction: column;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
 }
