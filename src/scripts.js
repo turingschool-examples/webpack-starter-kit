@@ -49,6 +49,7 @@ logOutButton.addEventListener('click', logOut)
 //log into page
 
 function renderData() {
+    console.log(hotelData)
   if (loggedIn === true) {
     checkPrivlage()
   }
@@ -116,17 +117,32 @@ bookingsButton.addEventListener('click', myBookings)
 bookHotelButton.addEventListener('click', bookHotel)
 
 function myInfo() {
-  statMain.innerHTML = ''
-  myInfoButton.style.backgroundColor = "var(--inv-highlight-color)"
+  statMain.innerHTML = `
+  <li>
+    <h1>Name: </h1> 
+    <h2> ${hotelData.customers[49].name}</h2>
+  </li>
+  <li>
+    <h1>ID: </h1> 
+    <h2> ${hotelData.customers[49].id}</h2>
+  </li>
+  <li>
+  <h1>Location: </h1>
+  <h2>Denver, CO </h2>
+  </li>
+  <li>
+    <h1>Amount of trips: </h1>
+    <h2>470 </h2>
+  </li>
+  `
 }
 
 function myBookings() {
+  
   statMain.innerHTML = ''
-  bookingsButton.style.backgroundColor = "var(--inv-highlight-color)"
 }
 
 function bookHotel() {
   statMain.innerHTML = ''
-  bookHotelButton.style.backgroundColor = "var(--inv-highlight-color)"
 }
 
