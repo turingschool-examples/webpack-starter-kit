@@ -30,6 +30,7 @@ Promise.all([customers, rooms, bookings])
 var isAdmin = JSON.parse(sessionStorage.getItem('isAdmin')) || false
 var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn')) || false
 var hotelData
+var currentUser = 50
 
 //Event Listeners and their variables
 
@@ -94,7 +95,7 @@ function customerView() {
   customerNav.style.display = 'block'
   login.style.display = 'none'
   logOutButton.style.display = 'block'
-  dataPane.innerText = `Hello, ${hotelData.customers[49].name}`
+  dataPane.innerText = `Hello, ${hotelData.customers[currentUser - 1].name}`
 }
 
 function adminView() {
@@ -120,11 +121,11 @@ function myInfo() {
   statMain.innerHTML = `
   <li>
     <h1>Name: </h1> 
-    <h2> ${hotelData.customers[49].name}</h2>
+    <h2> ${hotelData.customers[currentUser - 1].name}</h2>
   </li>
   <li>
     <h1>ID: </h1> 
-    <h2> ${hotelData.customers[49].id}</h2>
+    <h2> ${hotelData.customers[currentUser - 1].id}</h2>
   </li>
   <li>
   <h1>Location: </h1>
@@ -138,8 +139,14 @@ function myInfo() {
 }
 
 function myBookings() {
-  
-  statMain.innerHTML = ''
+    console.log(hotelData.bookings)
+  var userBookings = hotelData.bookings.filter(booking =>
+    booking.userID === currentUser)
+  console.log(userBookings)
+  statMain.innerHTML = 
+  `
+  <h1>You currently have ${userBookings.length} bookings!
+  `
 }
 
 function bookHotel() {
