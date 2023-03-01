@@ -11,7 +11,7 @@
 </head>
   <header>
     <section class="left-header">
-      <h1 class="header-text" id="page-title">Overlook Admin</h1>
+      <h1 class="header-text" id="page-title">Overlook</h1>
       <h1 class="header-text" id="smiley">)</h1>
     </section>
     <section class="right-header">
@@ -24,14 +24,24 @@
       <h1 id="welcome-text">Welcome</h1>
     </section>
     <hr class="line-break">
-
-    <section id="buttons">
+    <section id="login">
+      <input id="username" type="username" placeholder="Enter Username" required>  
+      <input id="password" type="password" placeholder="Enter Password" required>  
+      <h1 style="display: none;" id="bad-login">Incorrect Username or Password</h1>
+      <button id="log-in-button">Login</button>   
+    </section>
+    <section id="customer-buttons" style="display: none;">
+      <button>My Info</button>
+      <button>Bookings</button>
+      <button>Book a Hotel</button>
+    </section>
+    <section id="admin-buttons" style="display: none;">
       <button>Daily Stats</button>
       <button>Customer Data</button>
       <button>Room Data</button>
       <button>Booking Data</button>
     </section>
-    
+    <button id="log-out" style="display: none;">Log Out</button>
   </nav>
   <section id="stat-section">
     <section id="title">
