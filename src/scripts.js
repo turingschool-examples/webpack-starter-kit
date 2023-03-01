@@ -5,11 +5,16 @@ import './images/presidential-suite.jpeg';
 import './images/single-room.jpeg';
 import './images/suite.jpeg';
 import Customer from '../src/classes/Customer';
+import Room from '../src/classes/Room';
+import Booking from '../src/classes/Booking';
 import {fetchAPI, fetchAllData} from './apiCalls';
 
 // GLOBAL VARIABLES
 
-let customer, customers, rooms, bookings
+let customer;
+let customers = [];
+let rooms = [];
+let bookings = [];
 
 // QUERY SELECTORS
 
@@ -20,9 +25,9 @@ const roomsDisplay = document.getElementById('roomsDisplay');
 window.addEventListener('load', () => {
   fetchAllData().then(
     data => {
-      customers = data[0];
-      rooms = data[1];
-      bookings = data[2];
+      data[0].customers.forEach(customer => customers.push(new Customer(customer)));
+      data[1].rooms.forEach(room => rooms.push(new Room(room)));
+      data[2].bookings.forEach(booking => bookings.push(new Booking(booking)));
 
       // Will need to move to event listener for login button
       loginCustomer();
@@ -33,7 +38,7 @@ window.addEventListener('load', () => {
 // FUNCTIONS
 
 // Will need to adjust to accept customer login
-const loginCustomer = () => customer = new Customer(customers.customers[0]);
+const loginCustomer = () => customer = customers[0];
 
 const handleError = (error) => roomsDisplay.innerText = `${error}, sorry!`;
 
