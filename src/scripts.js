@@ -175,10 +175,6 @@ function bookingData(Event) {
   <h1 id="stat-title">Your Booking info!</h2>`
   statMain.innerHTML += `
   <li>
-    <h1>Name: </h1> 
-    <h2> ${hotelData.customers[currentUser - 1].name}</h2>
-  </li>
-  <li>
   <h1>Booking  Date: </h1>
   <h2>${booking[0].date}</h2>
   </li>
@@ -190,7 +186,35 @@ function bookingData(Event) {
   <h1>Booking ID</h1>
   <h2>${booking[0].id}</h2>
 </li>
+<button id="remove-booking" class="book-button">Remove Booking :(</button>
+<button id="change-date" class="book-button">Change Booking Date.</button>
   `
+
+  const removeBook = document.querySelector('#remove-booking')
+  
+  removeBook.addEventListener('click', () => {
+    removeBooking(booking[0])
+  })
+}
+
+function removeBooking(booking) {
+  fetch('http://localhost:3001/api/v1/bookings/' + booking.id, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => {
+      console.log(response)
+      if (!response.ok) {
+        throw new Error('Issue with request: ', response.status)
+      }
+      return response.json()
+    })
+    .catch(() => alert('Error, unable to find the bookings API'))
+  setTimeout(() => {
+    location.reload() 
+  }, 500)
 }
 
 function bookHotel() {
