@@ -16,7 +16,7 @@ const rooms =  fetch('http://localhost:3001/api/v1/rooms')
 const bookings = fetch('http://localhost:3001/api/v1/bookings')
   .then((res) => res.json())
 
-  Promise.all([customers, rooms, bookings])
+Promise.all([customers, rooms, bookings])
   .then((data) => {
     let allData = {
       customers: data[0].customers,
@@ -27,4 +27,9 @@ const bookings = fetch('http://localhost:3001/api/v1/bookings')
   })
   .then((allData) => {
     hotelData = new HotelData(allData)
+    renderData()
   })
+
+function renderData() {
+  console.log(hotelData)
+}
