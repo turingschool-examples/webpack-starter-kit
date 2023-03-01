@@ -1,25 +1,111 @@
-* {
-  border: 1px solid green;
-}
-
 /* General Styling */
 
 body {
+  margin: 20px;
+  background-color: #fff9ef;
+  box-shadow: 0 0 5px 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #29190f;
+}
+
+header {
+  margin: 0 30px;
+  padding: 30px 0 15px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 0;
+}
+
+h3 {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+h4 {
+  margin: 10px;
+}
+
+h5 {
+  margin-top: 0;
+}
+
+.book-visit-title {
+  width: 80%;
+  font-size: 32px;
+}
+
+p {
+  margin: 0.2em 0
 }
 
 nav {
+  background-color: #ebd197;
+  margin: 20px 0;
+  padding: 20px 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  font-size: 24px;
 }
 
-section {
+label {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  height: 24px;
+  width: 150px;
+  margin-left: 1em;
+  border: 1px solid #4c2f1e;
+  font-size: 20px;
   text-align: center;
 }
 
+select {
+  cursor: pointer;
+  height: 30px;
+  width: 150px;
+  margin-left: 1em;
+  padding: 0 4px;
+  border: 1px solid #4c2f1e;
+  font-size: 16px;
+}
+
+section {
+  margin: 30px;
+  text-align: center;
+}
+
+section.rooms {
+  padding: 40px 0;
+  border-top: 2px solid #29190f;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 figure {
+  background-color: #f9eac7;
+  border: 5px solid #ebd197;
   width: 300px;
 }
+
+figcaption {
+  height: 200px;
+}
+
+figcaption > p {
+  text-align: left;
+  margin: 5px;
+}
+
 
 /* Images */
 
@@ -27,9 +113,28 @@ img {
   width: 300px;
 }
 
-/* Miscellaneous */
+/* Buttons */
 
-section.rooms {
-  display: flex;
-  justify-content: space-evenly;
+button {
+  height: 32px;
+  width: 200px;
+  border: 2px solid #130c07;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #54331f;
+  color: #eee4d2;
+}
+
+button:hover {
+  background-color: #6a4127;
+}
+
+button:active {
+  background-color: #54331f;
+  box-shadow: inset 0 0 5px #130c07
+}
+
+figcaption > button {
+  margin-top: 16px;
 }
