@@ -240,8 +240,25 @@ function confirmDate(Event) {
 }
 
 function bookNewHotel() {
-  console.log('booking')
-  //FETCH POST
+  let roomNumber = Math.floor(Math.random() * 400)
+  fetch('http://localhost:3001/api/v1/bookings', {
+    method: 'POST',
+    body: JSON.stringify({
+      userID: currentUser,
+      date: `${currentYear}/${currentMonth}/${currentDay}`,
+      roomNumber: `${roomNumber}`
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Issue with request: ', response.status)
+      }
+      return response.json()
+    })
+    .catch(error => alert('Error, unable to find the bookings API'))
 }
 
 const getDays = (year, month) => {
