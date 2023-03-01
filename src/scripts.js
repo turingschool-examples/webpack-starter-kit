@@ -66,7 +66,7 @@ function logIn() {
     badLogin.style.display = 'block'
     setTimeout(() => {
       badLogin.style.display = 'none'
-    }, 1000)
+    }, 1500)
   }
 }
 
