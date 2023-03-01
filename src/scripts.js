@@ -31,6 +31,9 @@ var isAdmin = JSON.parse(sessionStorage.getItem('isAdmin')) || false
 var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn')) || false
 var hotelData
 var currentUser = 50
+var currentMonth
+var currentDay
+var currentYear
 
 //Event Listeners and their variables
 
@@ -141,10 +144,15 @@ function myInfo() {
 function myBookings() {
   var userBookings = hotelData.bookings.filter(booking =>
     booking.userID === currentUser)
-  console.log(userBookings)
+    console.log(userBookings)
   statMain.innerHTML = `
   <h1 id="stat-title">You currently have ${userBookings.length} bookings!</h2>`
-  genCalender()
+  userBookings.forEach(booking => {
+    statMain.innerHTML +=
+    `
+    <button class="booking-date">${booking.date}</button>
+    `
+  })
 }
 
 function bookHotel() {
@@ -174,17 +182,36 @@ function genCalender() {
     `
   const calenderButtons = document.querySelectorAll('.calender-month-button')
   calenderButtons.forEach(button => {
-    button.addEventListener('click', chooseMonth)
+    button.addEventListener('click', chooseDay)
   })
 }
 
-function chooseMonth(Event) {
+function chooseDay(Event) {
+  currentMonth = Event.target.value
   statMain.innerHTML = ''
-  const daysInMonth = getDays(2021, Event.target.value); // Returns 31
-  for (var i = 0; i < daysInMonth; i++) {
+  statMain.innerHTML = `
+  <h1 id="stat-title">Now, let's choose a day!</h2>`
+  const daysInMonth = getDays(2021, currentMonth);
+  for (var i = 1; i < daysInMonth + 1; i++) {
     statMain.innerHTML += 
     `
     <button value="${i}" class="calender-day-button">${i}</button>
+    `
+  }
+  const dayButtons = document.querySelectorAll('.calender-day-button')
+  dayButtons.forEach(button => {
+    button.addEventListener('click', chooseYear)
+  })
+}
+
+function chooseYear(Event) {
+  currentDay = Event.target.innerText
+  console.log(currentDay)
+  statMain.innerHTML = ''
+  for (var i = 2019; i < 2037; i++) {
+    statMain.innerHTML += 
+    `
+    <button value="${i}" class="calender-year-button">${i}</button>
     `
   }
 }
