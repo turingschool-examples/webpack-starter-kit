@@ -151,14 +151,46 @@ function myBookings() {
   var userBookings = hotelData.bookings.filter(booking =>
     booking.userID === currentUser)
   console.log(userBookings)
-  statMain.innerHTML = `
-  <h1 id="stat-title">You currently have ${userBookings.length} bookings!</h2>`
+  statMain.innerHTML = 
+  `
+  <h1 id="stat-title">You currently have ${userBookings.length} bookings!</h2>
+  `
   userBookings.forEach(booking => {
     statMain.innerHTML +=
     `
-    <button class="booking-date">${booking.date}</button>
+<button value="${booking.id}" 
+class="booking-date">${booking.date}</button>
     `
   })
+  const bookedButtons = document.querySelectorAll('.booking-date')
+  bookedButtons.forEach(button => {
+    button.addEventListener('click', bookingData)
+  })
+}
+
+function bookingData(Event) {
+  var booking = hotelData.bookings
+    .filter(booking => booking.id === Event.target.value)
+  statMain.innerHTML = `
+  <h1 id="stat-title">Your Booking info!</h2>`
+  statMain.innerHTML += `
+  <li>
+    <h1>Name: </h1> 
+    <h2> ${hotelData.customers[currentUser - 1].name}</h2>
+  </li>
+  <li>
+  <h1>Booking  Date: </h1>
+  <h2>${booking[0].date}</h2>
+  </li>
+  <li>
+    <h1>Room Number</h1>
+    <h2>${booking[0].roomNumber}</h2>
+  </li>
+  <li>
+  <h1>Booking ID</h1>
+  <h2>${booking[0].id}</h2>
+</li>
+  `
 }
 
 function bookHotel() {
