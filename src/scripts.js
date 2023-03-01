@@ -2,13 +2,6 @@ import './css/styles.css';
 import './images/turing-logo.png'
 import HotelData from './classes/hotelData.js'
 
-
-//Global variables
-
-var isAdmin = sessionStorage.getItem('isAdmin')
-var loggedIn = sessionStorage.getItem('loggedIn')
-var hotelData
-
 //Fetch my data!
 
 const customers = fetch('http://localhost:3001/api/v1/customers')
@@ -32,36 +25,43 @@ Promise.all([customers, rooms, bookings])
     renderData()
   })
 
+//Global variables
+
+var isAdmin = JSON.parse(sessionStorage.getItem('isAdmin')) || false
+var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn')) || false
+var hotelData
+
 //Event Listeners and their variables
 
 const title = document.querySelector('#page-title')
 const logInButton = document.querySelector('#log-in-button')
 const badLogin = document.querySelector('#bad-login')
 const logOutButton = document.querySelector('#log-out')
-var login = document.querySelector('#login')
-var customerNav = document.querySelector('#customer-buttons')
-var adminNav = document.querySelector('#admin-buttons')
+const login = document.querySelector('#login')
+const customerNav = document.querySelector('#customer-buttons')
+const adminNav = document.querySelector('#admin-buttons')
+const dataPane = document.querySelector('#info-pane-text')
+
 
 logInButton.addEventListener('click', logIn)
 logOutButton.addEventListener('click', logOut)
 
-if (loggedIn) {
-  checkPrivlage()
-}
-
 function renderData() {
-  console.log(hotelData)
-  console.log(isAdmin)
+  if (loggedIn === true) {
+    checkPrivlage()
+  }
 }
 
 function logIn() {
   const username = document.querySelector('#username').value
   const password = document.querySelector('#password').value
   if (username === 'customer50' && password === 'overlook2021') {
-    isAdmin = false
+    sessionStorage.setItem('isAdmin', false)
+    sessionStorage.setItem('loggedIn', true)
     checkPrivlage()
   } else if (username === 'manager' && password === 'overlook2021') {
-    isAdmin = true
+    sessionStorage.setItem('isAdmin', true)
+    sessionStorage.setItem('loggedIn', true)
     checkPrivlage()
   } else {
     badLogin.style.display = 'block'
@@ -72,9 +72,8 @@ function logIn() {
 }
 
 function checkPrivlage() {
-  sessionStorage.setItem('loggedIn', true)
-  sessionStorage.setItem('isAdmin', isAdmin)
-  if (isAdmin) { 
+  isAdmin = JSON.parse(sessionStorage.getItem('isAdmin'))
+  if (isAdmin === true) { 
     adminView()
   } else {
     customerView()
@@ -83,7 +82,6 @@ function checkPrivlage() {
 
 function logOut() {
   sessionStorage.clear()
-  logOutButton.style.display = 'none'
   window.location.href = 'index.html' 
 }
 
@@ -91,6 +89,7 @@ function customerView() {
   customerNav.style.display = 'block'
   login.style.display = 'none'
   logOutButton.style.display = 'block'
+  dataPane.innerText = `Hello, ${hotelData.customers[49].name}`
 }
 
 function adminView() {
@@ -98,4 +97,5 @@ function adminView() {
   login.style.display = 'none'
   logOutButton.style.display = 'block'
   title.innerText = "Overlook Admin"
+  dataPane.innerText = `Daily Statistics`
 }
