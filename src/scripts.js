@@ -38,6 +38,8 @@ var currentMonth
 var currentDay
 var currentYear
 var roomType
+var date
+var roomNum
 
 //Event Listeners and their variables
 
@@ -316,7 +318,7 @@ function roomsAvailable(Event) {
   if (currentMonth < 10) {
     currentMonth = 0 + currentMonth 
   }
-  var date = `${currentYear}/${currentMonth}/${currentDay}`
+  date = `${currentYear}/${currentMonth}/${currentDay}`
   statMain.innerHTML = `
   <h1 id="stat-title">Available rooms on ${date}</h1>
   `
@@ -332,28 +334,28 @@ function roomsAvailable(Event) {
     return acc
   }, [])
 
-  console.log(sameRoomType)
-  console.log(takenThatDay)
-  console.log(takenThatDay.includes(25))
-
   sameRoomType.forEach(room => {
-    console.log(takenThatDay.includes(room.number))
-    console.log(room)
     if (!takenThatDay.includes(room.number)) {
       statMain.innerHTML +=
       `
-      <button value="${room}" class="calender-day-button">
+      <button value="${room.number}" class="available-room-button">
       ${room.number}</button>
       `
     }
   })
+  var roomButtons = document.querySelectorAll('.available-room-button')
+
+  roomButtons.forEach(button => {
+    button.addEventListener('click', confirmRoomDate)
+  })
 }
 
-function confirmDate(Event) {
-  currentYear = Event.target.innerText
+function confirmRoomDate(Event) {
+  roomNum = JSON.parse(Event.target.value)
+  console.log(Event.target.value)
   statMain.innerHTML = `
   <h1 id="stat-title" class="selected-date">You have chosen </h1>
-  <h2>${currentMonth}/${currentDay}/${currentYear}</h2>
+  <h2>Room #${roomNum} on ${currentMonth}/${currentDay}/${currentYear}</h2>
   <button id="book-it" class="book-button">Yes! Book It.</button>
   <button id="change-date" class="book-button">Change Booking Date.</button>
   `
@@ -367,19 +369,13 @@ function confirmDate(Event) {
 }
 
 function bookNewHotel() {
-  let num = Math.floor(Math.random() * 400)
   var currentDate = currentYear + '/' + currentMonth + '/' + currentDay
-  var yueh = JSON.stringify({
-    userID: currentUser,
-    date: currentDate,
-    roomNumber: num })
-  console.log(yueh)
   fetch('http://localhost:3001/api/v1/bookings', {
     method: 'POST',
     body: JSON.stringify({
       userID: currentUser,
       date: currentDate,
-      roomNumber: num
+      roomNumber: roomNum
     }),
     headers: {
       'Content-Type': 'application/json'
