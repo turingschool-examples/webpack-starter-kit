@@ -6,9 +6,9 @@ describe('Room tests', function() {
   let room2, room6, room10;
 
   this.beforeEach('instantiate rooms', () => {
-    room2 = new Room(roomsSample[1]);
-    room6 = new Room(roomsSample[5]);
-    room10 = new Room(roomsSample[9]);
+    room2 = new Room(roomsSample.rooms[1]);
+    room6 = new Room(roomsSample.rooms[5]);
+    room10 = new Room(roomsSample.rooms[9]);
   });
 
   it('should be a function', () => {

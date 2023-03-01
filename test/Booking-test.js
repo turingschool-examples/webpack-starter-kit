@@ -6,9 +6,9 @@ describe('Booking tests', function() {
   let booking1, booking2, booking3
 
   beforeEach('instantiate bookings', () => {
-    booking1 = new Booking(bookingsSample[0]);
-    booking2 = new Booking(bookingsSample[6]);
-    booking3 = new Booking(bookingsSample[14]);
+    booking1 = new Booking(bookingsSample.bookings[0]);
+    booking2 = new Booking(bookingsSample.bookings[6]);
+    booking3 = new Booking(bookingsSample.bookings[14]);
   });
 
   it('should be a function', () => {
