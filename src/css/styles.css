@@ -193,7 +193,14 @@ button:hover {
   color: var(--font-color);
 }
 
-#stat-main button {
-  width: 23%;
-  height: 18vh;
+.calender-month-button {
+  width: 23.2%;
+  height: 17vh;
+  max-height: 190px;
+}
+
+.calender-day-button {
+  width: 15.2%;
+  height: 8vh;
+  max-height: 100px;
 }

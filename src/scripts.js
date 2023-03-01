@@ -139,31 +139,56 @@ function myInfo() {
 }
 
 function myBookings() {
-    console.log(hotelData.bookings)
   var userBookings = hotelData.bookings.filter(booking =>
     booking.userID === currentUser)
   console.log(userBookings)
-  statMain.innerHTML = 
-  `
-  <h1 id="stat-title">You currently have ${userBookings.length} bookings!
-  <section id="month-buttons">
-    <button>January</button>
-    <button>February</button>
-    <button>March</button>
-    <button>April</button>
-    <button>May</button>
-    <button>June</button>
-    <button>July</button>
-    <button>August</button>
-    <button>September</button>
-    <button>October</button>
-    <button>November</button>
-    <button>December</button>
-  </section>
-  `
+  statMain.innerHTML = `
+  <h1 id="stat-title">You currently have ${userBookings.length} bookings!</h2>`
+  genCalender()
 }
 
 function bookHotel() {
   statMain.innerHTML = ''
+  statMain.innerHTML = `
+  <h1 id="stat-title">First, choose a month!</h2>`
+  genCalender()
 }
 
+function genCalender() {
+  statMain.innerHTML += 
+  `
+  <section id="month-buttons">
+    <button value="1" class="calender-month-button">January</button>
+    <button value="2" class="calender-month-button">February</button>
+    <button value="3" class="calender-month-button">March</button>
+    <button value="4" class="calender-month-button">April</button>
+    <button value="5" class="calender-month-button">May</button>
+    <button value="6" class="calender-month-button">June</button>
+    <button value="7" class="calender-month-button">July</button>
+    <button value="8" class="calender-month-button">August</button>
+    <button value="9" class="calender-month-button">September</button>
+    <button value="10" class="calender-month-button">October</button>
+    <button value="11" class="calender-month-button">November</button>
+    <button value="12" class="calender-month-button">December</button>
+  </section>
+    `
+  const calenderButtons = document.querySelectorAll('.calender-month-button')
+  calenderButtons.forEach(button => {
+    button.addEventListener('click', chooseMonth)
+  })
+}
+
+function chooseMonth(Event) {
+  statMain.innerHTML = ''
+  const daysInMonth = getDays(2021, Event.target.value); // Returns 31
+  for (var i = 0; i < daysInMonth; i++) {
+    statMain.innerHTML += 
+    `
+    <button value="${i}" class="calender-day-button">${i}</button>
+    `
+  }
+}
+
+const getDays = (year, month) => {
+  return new Date(year, month, 0).getDate();
+};
