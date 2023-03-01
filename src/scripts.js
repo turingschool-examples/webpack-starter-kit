@@ -34,6 +34,7 @@ Promise.all([customers, rooms, bookings])
 
 //Event Listeners and their variables
 
+const title = document.querySelector('#page-title')
 const logInButton = document.querySelector('#log-in-button')
 const badLogin = document.querySelector('#bad-login')
 const logOutButton = document.querySelector('#log-out')
@@ -96,4 +97,5 @@ function adminView() {
   adminNav.style.display = 'block'
   login.style.display = 'none'
   logOutButton.style.display = 'block'
+  title.innerText = "Overlook Admin"
 }
