@@ -34,6 +34,7 @@ var currentUser = 50
 var currentMonth
 var currentDay
 var currentYear
+var currentDate
 
 //Event Listeners and their variables
 
@@ -214,6 +215,20 @@ function chooseYear(Event) {
     <button value="${i}" class="calender-year-button">${i}</button>
     `
   }
+  const yearButtons = document.querySelectorAll('.calender-year-button')
+  yearButtons.forEach(button => {
+    button.addEventListener('click', confirmDate)
+  })
+}
+
+function confirmDate(Event) {
+  currentYear = Event.target.innerText
+  statMain.innerHTML = `
+  <h1 id="stat-title" class="selected-date">You have chosen </h1>
+  <h2>${currentMonth}/${currentDay}/${currentYear}</h2>
+  <button class="book-button">Yes! Book It.</button>
+  <button class="book-button">Change Booking Date.</button>
+  `
 }
 
 const getDays = (year, month) => {
