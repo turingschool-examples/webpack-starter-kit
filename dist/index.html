@@ -21,7 +21,7 @@
   <body>
   <nav>
     <section id="welcome">
-      <h1 id="welcome-text">Welcome</h1>
+      <h1 class="title-text">Welcome</h1>
     </section>
     <hr class="line-break">
     <section id="login">
@@ -31,9 +31,9 @@
       <button id="log-in-button">Login</button>   
     </section>
     <section id="customer-buttons" style="display: none;">
-      <button>My Info</button>
-      <button>Bookings</button>
-      <button>Book a Hotel</button>
+      <button id="my-info">My Info</button>
+      <button id="booking-button">Bookings</button>
+      <button id="book-new-button">Book a Hotel</button>
     </section>
     <section id="admin-buttons" style="display: none;">
       <button>Daily Stats</button>
@@ -45,9 +45,12 @@
   </nav>
   <section id="stat-section">
     <section id="title">
-      <h1 id="welcome-text">Daily Stats</h1>
+      <h1 id="info-pane-text" class="title-text">Please Log In To See your data</h1>
     </section>
     <hr class="line-break">
+    <section id="stat-main">
+
+    </section>
   </section>
 
   <script src="bundle.js"></script>

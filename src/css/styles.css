@@ -110,7 +110,7 @@ nav {
   justify-content: center;
 }
 
-#welcome-text {
+.title-text {
   margin-top: 20px;
   font-size: 25px;
   color: var(--highlight-color);
@@ -146,6 +146,10 @@ button {
   transition: all .2s ease-in-out;
 }
 
+button:focus {
+  background: var(--inv-highlight-color);
+}
+
 button:hover {
   background: var(--inv-highlight-color);
 }
@@ -169,4 +173,57 @@ button:hover {
 #title {
   display: flex;
   justify-content: center;
+}
+
+#stat-main {
+  margin-top: 30px;
+  margin-left: 50px;
+  color: var(--highlight-color);
+}
+
+#stat-main h1 {
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+#stat-main h2 {
+  margin-left: 15px;
+  font-size: 25px;
+  margin-top: 20px;
+  color: var(--font-color);
+}
+
+.calender-month-button {
+  width: 24%;
+  height: 17vh;
+  max-height: 190px;
+  min-height: 130px;
+}
+
+.calender-day-button {
+  width: 15.2%;
+  height: 8vh;
+  max-height: 100px;
+  min-height: 55px;
+}
+
+.booking-date {
+  width: 15.8%;
+  height: 8vh;
+  max-height: 100px;
+  min-height: 50px;
+}
+
+.calender-year-button {
+  width: 15.8%;
+  height: 17vh;
+  max-height: 130px;
+  min-height: 60px;
+}
+
+.book-button {
+  width: 47.4%;
+  height: 17vh;
+  max-height: 130px;
+  min-height: 75px;
 }
