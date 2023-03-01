@@ -192,3 +192,8 @@ button:hover {
   margin-top: 20px;
   color: var(--font-color);
 }
+
+#stat-main button {
+  width: 23%;
+  height: 18vh;
+}

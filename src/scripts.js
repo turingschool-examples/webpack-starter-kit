@@ -145,7 +145,21 @@ function myBookings() {
   console.log(userBookings)
   statMain.innerHTML = 
   `
-  <h1>You currently have ${userBookings.length} bookings!
+  <h1 id="stat-title">You currently have ${userBookings.length} bookings!
+  <section id="month-buttons">
+    <button>January</button>
+    <button>February</button>
+    <button>March</button>
+    <button>April</button>
+    <button>May</button>
+    <button>June</button>
+    <button>July</button>
+    <button>August</button>
+    <button>September</button>
+    <button>October</button>
+    <button>November</button>
+    <button>December</button>
+  </section>
   `
 }
 
