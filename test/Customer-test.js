@@ -3,7 +3,7 @@ import Customer from '../src/classes/Customer.js';
 import customersSample from '../src/data/customers-sample';
 import bookingsSample from '../src/data/bookings-sample';
 
-describe('Customer tests', function() { 
+describe.only('Customer tests', function() { 
   let customer1, customer4, customer10;
 
   this.beforeEach('instantiate customers', () => {
@@ -32,5 +32,22 @@ describe('Customer tests', function() {
     expect(customer1.name).to.equal('Leatha Ullrich');
     expect(customer4.name).to.equal('Kennedi Emard');
     expect(customer10.name).to.equal('Tony Armstrong');
+  });
+
+  it('should be able to get all its bookings', () => {
+    expect(customer1.getCustomerBookings()).to.deep.equal([ 
+      {
+        "id": "5fwrgu4i7k55hl6t8",
+        "userID": 1,
+        "date": "2022/02/05",
+        "roomNumber": 12
+      },
+      {
+        "id": "5fwrgu4i7k55hl6x8",
+        "userID": 1,
+        "date": "2023/01/11",
+        "roomNumber": 20
+      }
+    ]);
   });
 });
