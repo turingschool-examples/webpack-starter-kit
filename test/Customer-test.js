@@ -3,7 +3,7 @@ import Customer from '../src/classes/Customer.js';
 import customersSample from '../src/data/customers-sample';
 import bookingsSample from '../src/data/bookings-sample';
 
-describe.only('Customer tests', function() { 
+describe('Customer tests', function() { 
   let customer1, customer4, customer10;
 
   this.beforeEach('instantiate customers', () => {

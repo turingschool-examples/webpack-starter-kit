@@ -80,10 +80,9 @@ const showBookingTotal = () => {
 
 const showCustomerBookings = () => {
   const customerBookings = customer.getCustomerBookings(bookings);
-  // console.log(customerBookings);
   customerBookings.forEach(booking => {
     const bookingDate = arrangeDate(booking.date);
-    const room = rooms.find(room => room.number === booking.roomNumber);
+    const room = booking.getRoom(rooms);
     const image = room.roomType.replace(' ', '-');
     const roomName = room.roomType.split(' ').map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
     const bedSize = room.bedSize[0].toUpperCase() + room.bedSize.substring(1);
