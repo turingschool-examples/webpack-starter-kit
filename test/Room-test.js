@@ -2,7 +2,7 @@ import {expect} from 'chai'
 import Room from '../src/classes/Room.js';
 import roomsSample from '../src/data/rooms-sample.js';
 
-describe.only('Room tests', function() {
+describe('Room tests', function() {
   let room2, room6, room10;
 
   this.beforeEach('instantiate rooms', () => {
