@@ -3,7 +3,7 @@ import Booking from '../src/classes/Booking.js';
 import bookingsSample from '../src/data/bookings-sample.js';
 import roomsSample from '../src/data/rooms-sample.js';
 
-describe.only('Booking tests', function() {
+describe('Booking tests', function() {
   let booking1, booking2, booking3
 
   beforeEach('instantiate bookings', () => {

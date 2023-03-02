@@ -2,7 +2,7 @@ import {expect} from 'chai'
 import Room from '../src/classes/Room.js';
 import roomsSample from '../src/data/rooms-sample.js';
 
-describe('Room tests', function() {
+describe.only('Room tests', function() {
   let room2, room6, room10;
 
   this.beforeEach('instantiate rooms', () => {
@@ -55,5 +55,21 @@ describe('Room tests', function() {
     expect(room2.costPerNight).to.equal(477.38);
     expect(room6.costPerNight).to.equal(397.02);
     expect(room10.costPerNight).to.equal(497.64);
+  });
+
+  it('should convert room type to matching image endpath', () => {
+    expect(room2.getImageEndPath()).to.equal('suite.jpeg');
+    expect(room6.getImageEndPath()).to.equal('junior-suite.jpeg');
+  });
+
+  it('should convert room type to room name', () => {
+    expect(room6.getRoomName()).to.equal('Junior Suite');
+    expect(room10.getRoomName()).to.equal('Suite');
+  });
+
+  it('should be able to capitalize bed size for DOM', () => {
+    expect(room2.getBedSize()).to.equal('Full');
+    expect(room6.getBedSize()).to.equal('Queen');
+    expect(room10.getBedSize()).to.equal('Twin');
   });
 });
