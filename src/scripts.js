@@ -18,7 +18,9 @@ let bookings = [];
 
 // QUERY SELECTORS
 
+const totalBookings = document.getElementById('totalBookings');
 const roomsDisplay = document.getElementById('roomsDisplay');
+
 
 // EVENT LISTENERS
 
@@ -31,6 +33,7 @@ window.addEventListener('load', () => {
 
       // Will need to move to event listener for login button
       loginCustomer();
+      showBookingTotal();
       showCustomerBookings();
     }
   );
@@ -38,14 +41,29 @@ window.addEventListener('load', () => {
 
 // FUNCTIONS
 
+const showBookingTotal = () => {
+  const customerBookings = bookings.filter(booking => booking.userID === customer.id);
+  let total = customerBookings.reduce((acc, booking) => {
+    const cost = rooms.find(room => room.number === booking.roomNumber).costPerNight;
+    acc += cost;
+    return acc;
+  }, 0)
+  
+  total = total.toFixed(2);
+
+  console.log(total);
+
+  totalBookings.innerText = `You have ${customerBookings.length} bookings for a total of $${total}`
+}
+
 const showCustomerBookings = () => {
   const customerBookings = bookings.filter(booking => booking.userID === customer.id);
   customerBookings.forEach(booking => {
     const room = rooms.find(room => room.number === booking.roomNumber);
     const image = room.roomType.replace(' ', '-');
     const roomName = room.roomType.split(' ').map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
-    const bedSize = room.bedSize[0].toUpperCase() + room.bedSize.substring(1)
-    let bidetStatus
+    const bedSize = room.bedSize[0].toUpperCase() + room.bedSize.substring(1);
+    let bidetStatus;
     if (room.bidet) {
       bidetStatus = 'Includes Bidet'
     } else {
