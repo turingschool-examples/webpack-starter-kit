@@ -6,8 +6,8 @@ class Customer {
     this.name = customer.name;
   }
 
-  getCustomerBookings() {
-    return bookingsSample.filter(booking => booking.userID === this.id);
+  getCustomerBookings(bookings) {
+    return bookings.filter(booking => booking.userID === this.id);
   }
 }
 

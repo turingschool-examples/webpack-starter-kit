@@ -59,7 +59,7 @@ describe.only('Customer tests', function() {
       }
     ];
 
-    expect(customer1.getCustomerBookings()).to.deep.equal(bookings1);
-    expect(customer4.getCustomerBookings()).to.deep.equal(bookings2);
+    expect(customer1.getCustomerBookings(bookingsSample)).to.deep.equal(bookings1);
+    expect(customer4.getCustomerBookings(bookingsSample)).to.deep.equal(bookings2);
   });
 });

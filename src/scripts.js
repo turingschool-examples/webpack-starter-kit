@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
       loginCustomer();
       showBookingTotal();
       showCustomerBookings();
-      console.log(getVacancies('2023/01/11'))
+      // console.log(getVacancies('2023/01/11'))
     }
   );
 });
@@ -56,8 +56,8 @@ const getVacancies = date => {
   const daysBookings = bookings.filter(booking => booking.date === date);
   // console.log(daysBookings)
   const vacancies = rooms.filter(room => daysBookings.find(booking => {
-    console.log('booking', booking.roomNumber);
-    console.log('room', room.number);
+    // console.log('booking', booking.roomNumber);
+    // console.log('room', room.number);
     return booking.roomNumber !== room.number
   }));
   // Working on weird issue where some days work but others don't
@@ -79,7 +79,8 @@ const showBookingTotal = () => {
 }
 
 const showCustomerBookings = () => {
-  const customerBookings = bookings.filter(booking => booking.userID === customer.id);
+  const customerBookings = customer.getCustomerBookings(bookings);
+  // console.log(customerBookings);
   customerBookings.forEach(booking => {
     const bookingDate = arrangeDate(booking.date);
     const room = rooms.find(room => room.number === booking.roomNumber);
@@ -116,7 +117,7 @@ const showCustomerBookings = () => {
 }
 
 // Will need to adjust to accept customer login
-const loginCustomer = () => customer = customers[0];
+const loginCustomer = () => customer = customers[10];
 
 function arrangeDate(date) {
   const monthAndDay = date.substring(5);
