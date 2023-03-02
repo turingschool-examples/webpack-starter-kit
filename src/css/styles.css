@@ -45,7 +45,7 @@ p {
   padding: 0 25px;
 }
 
-nav {
+form {
   background-color: #ebd197;
   margin: 20px 0;
   padding: 20px 0;
@@ -61,7 +61,7 @@ label {
 
 input {
   height: 24px;
-  width: 150px;
+  width: 170px;
   margin-left: 1em;
   border: 1px solid #4c2f1e;
   font-size: 20px;

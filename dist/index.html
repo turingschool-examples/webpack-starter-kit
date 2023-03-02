@@ -11,10 +11,10 @@
       <h1>Overlook Hotel</h1>
       <p>All work and no play makes for a dull vacay. Book today!</p>
     </header>
-    <nav>
+    <form>
       <label>
         Check-in:
-        <input type="text" name="date-selection" placeholder="dd/mm/yyyy"/>
+        <input id="dateInput" type="date" name="date-selection" required="true" placeholder="dd/mm/yyyy"/>
       </label>
       <label>
         Room Type:
@@ -26,10 +26,10 @@
           <option value="residential-suite">Residential Suite</option>
         </select>
       </label>
-      <button>
+      <button type="submit" id="searchButton">
         Check Vacancies
       </button>
-    </nav>
+    </form>
     <main>
       <section>
         <h2>Your Bookings</h2>

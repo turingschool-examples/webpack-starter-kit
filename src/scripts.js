@@ -20,6 +20,8 @@ let bookings = [];
 
 const totalBookings = document.getElementById('totalBookings');
 const roomsDisplay = document.getElementById('roomsDisplay');
+const dateInput = document.getElementById('dateInput');
+const searchButton = document.getElementById('searchButton');
 
 
 // EVENT LISTENERS
@@ -39,6 +41,10 @@ window.addEventListener('load', () => {
   );
 });
 
+searchButton.addEventListener('click', (event) => {
+  event.preventDefault();
+});
+
 // FUNCTIONS
 
 const showBookingTotal = () => {
@@ -50,8 +56,6 @@ const showBookingTotal = () => {
   }, 0)
   
   total = total.toFixed(2);
-
-  console.log(total);
 
   totalBookings.innerText = `You have ${customerBookings.length} bookings for a total of $${total}`
 }
