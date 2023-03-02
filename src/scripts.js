@@ -3,27 +3,30 @@ import './images/turing-logo.png'
 import HotelData from './classes/hotelData.js'
 
 //Fetch my data!
+fetchData()
 
-const customers = fetch('http://localhost:3001/api/v1/customers')
-  .then((res) => res.json())
-const rooms =  fetch('http://localhost:3001/api/v1/rooms')
-  .then((res) => res.json())
-const bookings = fetch('http://localhost:3001/api/v1/bookings')
-  .then((res) => res.json())
+function fetchData() {
+  const customers = fetch('http://localhost:3001/api/v1/customers')
+    .then((res) => res.json())
+  const rooms =  fetch('http://localhost:3001/api/v1/rooms')
+    .then((res) => res.json())
+  const bookings = fetch('http://localhost:3001/api/v1/bookings')
+    .then((res) => res.json())
 
-Promise.all([customers, rooms, bookings])
-  .then((data) => {
-    let allData = {
-      customers: data[0].customers,
-      rooms: data[1].rooms,
-      bookings: data[2].bookings
-    }
-    return allData
-  })
-  .then((allData) => {
-    hotelData = new HotelData(allData)
-    renderData()
-  })
+  Promise.all([customers, rooms, bookings])
+    .then((data) => {
+      let allData = {
+        customers: data[0].customers,
+        rooms: data[1].rooms,
+        bookings: data[2].bookings
+      }
+      return allData
+    })
+    .then((allData) => {
+      hotelData = new HotelData(allData)
+      renderData()
+    })
+}
 
 //Global variables
 
@@ -34,6 +37,9 @@ var currentUser = 50
 var currentMonth
 var currentDay
 var currentYear
+var roomType
+var date
+var roomNum
 
 //Event Listeners and their variables
 
@@ -53,7 +59,7 @@ logOutButton.addEventListener('click', logOut)
 //log into page
 
 function renderData() {
-    console.log(hotelData)
+  console.log(hotelData)
   if (loggedIn === true) {
     checkPrivlage()
   }
@@ -147,15 +153,75 @@ function myInfo() {
 function myBookings() {
   var userBookings = hotelData.bookings.filter(booking =>
     booking.userID === currentUser)
-    console.log(userBookings)
-  statMain.innerHTML = `
-  <h1 id="stat-title">You currently have ${userBookings.length} bookings!</h2>`
+  console.log(userBookings)
+  statMain.innerHTML = 
+  `
+  <h1 id="stat-title">You currently have ${userBookings.length} bookings!</h2>
+  `
   userBookings.forEach(booking => {
     statMain.innerHTML +=
     `
-    <button class="booking-date">${booking.date}</button>
+<button value="${booking.id}" 
+class="booking-date">${booking.date}</button>
     `
   })
+  const bookedButtons = document.querySelectorAll('.booking-date')
+  bookedButtons.forEach(button => {
+    button.addEventListener('click', bookingData)
+  })
+}
+
+function bookingData(Event) {
+  var booking = hotelData.bookings
+    .filter(booking => booking.id === Event.target.value)
+  statMain.innerHTML = `
+  <h1 id="stat-title">Your Booking info!</h2>`
+  statMain.innerHTML += `
+  <li>
+  <h1>Booking  Date: </h1>
+  <h2>${booking[0].date}</h2>
+  </li>
+  <li>
+    <h1>Room Number</h1>
+    <h2>${booking[0].roomNumber}</h2>
+  </li>
+  <li>
+  <h1>Booking ID</h1>
+  <h2>${booking[0].id}</h2>
+</li>
+<button id="remove-booking" class="book-button">Remove Booking :(</button>
+<button id="back-button" class="book-button">Back to Bookings</button>
+  `
+
+  const removeBook = document.querySelector('#remove-booking')
+  const backButton = document.querySelector('#back-button')
+   
+  backButton.addEventListener('click', () => {
+    myBookings()
+  })
+  removeBook.addEventListener('click', () => {
+    removeBooking(booking[0])
+  })
+}
+
+function removeBooking(booking) {
+  fetch('http://localhost:3001/api/v1/bookings/' + booking.id, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => {
+      console.log(response)
+      if (!response.ok) {
+        throw new Error('Issue with request: ', response.status)
+      }
+      return response.json()
+    })
+    .catch(() => alert('Error, unable to find the bookings API'))
+  setTimeout(() => {
+    location.reload() 
+  }, 500)
 }
 
 function bookHotel() {
@@ -218,15 +284,78 @@ function chooseYear(Event) {
   }
   const yearButtons = document.querySelectorAll('.calender-year-button')
   yearButtons.forEach(button => {
-    button.addEventListener('click', confirmDate)
+    button.addEventListener('click', typeOfRoom)
   })
 }
 
-function confirmDate(Event) {
+function typeOfRoom(Event) {
   currentYear = Event.target.innerText
   statMain.innerHTML = `
+  <h1 id="stat-title" class="room-type">Choose Type of Room</h1>
+  `
+  var roomArray = hotelData.rooms.reduce((acc, room) => {
+    if (!acc.includes(room.roomType)) {
+      statMain.innerHTML +=
+      `
+      <button class="room-type-button">${room.roomType}</button>
+      `
+      acc.push(room.roomType)
+    }
+    return acc
+  }, [])
+  var roomTypeButton = document.querySelectorAll('.room-type-button')
+  
+  roomTypeButton.forEach(roomButton => {
+    roomButton.addEventListener('click', roomsAvailable)
+  })
+}
+
+function roomsAvailable(Event) {
+  roomType = Event.target.innerText.toLowerCase()
+  if (currentDay < 10) {
+    currentDay = 0 + currentDay 
+  }
+  if (currentMonth < 10) {
+    currentMonth = 0 + currentMonth 
+  }
+  date = `${currentYear}/${currentMonth}/${currentDay}`
+  statMain.innerHTML = `
+  <h1 id="stat-title">Available rooms on ${date}</h1>
+  `
+  var sameRoomType = hotelData.rooms
+    .filter(room => room.roomType === roomType.toLowerCase())
+
+  var takenThatDay = hotelData.rooms.reduce((acc, room) => {
+    hotelData.bookings.forEach(booking => {
+      if (booking.date === date && booking.roomNumber === room.number) {
+        acc.push(booking.roomNumber)
+      }
+    })
+    return acc
+  }, [])
+
+  sameRoomType.forEach(room => {
+    if (!takenThatDay.includes(room.number)) {
+      statMain.innerHTML +=
+      `
+      <button value="${room.number}" class="available-room-button">
+      ${room.number}</button>
+      `
+    }
+  })
+  var roomButtons = document.querySelectorAll('.available-room-button')
+
+  roomButtons.forEach(button => {
+    button.addEventListener('click', confirmRoomDate)
+  })
+}
+
+function confirmRoomDate(Event) {
+  roomNum = JSON.parse(Event.target.value)
+  console.log(Event.target.value)
+  statMain.innerHTML = `
   <h1 id="stat-title" class="selected-date">You have chosen </h1>
-  <h2>${currentMonth}/${currentDay}/${currentYear}</h2>
+  <h2>Room #${roomNum} on ${currentMonth}/${currentDay}/${currentYear}</h2>
   <button id="book-it" class="book-button">Yes! Book It.</button>
   <button id="change-date" class="book-button">Change Booking Date.</button>
   `
@@ -240,8 +369,29 @@ function confirmDate(Event) {
 }
 
 function bookNewHotel() {
-  console.log('booking')
-  //FETCH POST
+  var currentDate = currentYear + '/' + currentMonth + '/' + currentDay
+  fetch('http://localhost:3001/api/v1/bookings', {
+    method: 'POST',
+    body: JSON.stringify({
+      userID: currentUser,
+      date: currentDate,
+      roomNumber: roomNum
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => {
+      console.log(response)
+      if (!response.ok) {
+        throw new Error('Issue with request: ', response.status)
+      }
+      return response.json()
+    })
+    .catch(() => alert('Error, unable to find the bookings API'))
+  setTimeout(() => {
+    location.reload() 
+  }, 500)
 }
 
 const getDays = (year, month) => {
