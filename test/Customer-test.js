@@ -35,7 +35,7 @@ describe.only('Customer tests', function() {
   });
 
   it('should be able to get all its bookings', () => {
-    expect(customer1.getCustomerBookings()).to.deep.equal([ 
+    const bookings1 = [ 
       {
         "id": "5fwrgu4i7k55hl6t8",
         "userID": 1,
@@ -48,6 +48,18 @@ describe.only('Customer tests', function() {
         "date": "2023/01/11",
         "roomNumber": 20
       }
-    ]);
+    ];
+
+    const bookings2 = [
+      {
+        "id": "5fwrgu4i7k55hl6u0",
+        "userID": 4,
+        "date": "2023/01/08",
+        "roomNumber": 5
+      }
+    ];
+
+    expect(customer1.getCustomerBookings()).to.deep.equal(bookings1);
+    expect(customer4.getCustomerBookings()).to.deep.equal(bookings2);
   });
 });
