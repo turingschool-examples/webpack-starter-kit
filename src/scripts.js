@@ -40,7 +40,6 @@ var currentYear
 var roomType
 var roomNum
 var roomsBooked
-var yourBookings
 var userID
 var currentEvent
 
@@ -80,7 +79,7 @@ logOutButton.addEventListener('click', logOut)
 //log into page
 
 function renderData() {
-  console.log(hotelData)
+  bookHotelButton.style.display = 'none'
   if (loggedIn === true) {
     checkPrivlage()
   }
@@ -160,6 +159,7 @@ customerDataButton.addEventListener('click', customerData)
 //Customer Logged In Functionality
 
 function myInfo() {
+  bookHotelButton.style.display = 'block'
   statMain.innerHTML = `
   <h1 id="stat-title">Your profile info!</h2>`
   statMain.innerHTML += `
@@ -515,7 +515,7 @@ function updateResult(searchValue) {
 function displayCustomerInfo(Event) {
   bookHotelButton.style.display = 'block'
   bookHotelButton.innerText = "Book for User"
-  bookHotelButton.style.color = "#f9295f"
+  bookHotelButton.style.color = "#06d6a0"
   currentEvent = Event
   userID = Event.target.value
   console.log(parseInt(userID))
