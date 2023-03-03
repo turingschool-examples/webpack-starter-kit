@@ -8,65 +8,40 @@
   </head>
   <body>
     <header>
-      <h1>Overlook Hotel</h1>
-      <p>All work and no play makes for a dull vacay. Book today!</p>
+      <div>
+        <h1>Overlook Hotel</h1>
+        <p>All work and no play makes for a dull vacay. Book today!</p>
+      </div>
+      <button id="bookingsButton" class="hidden">Back to Bookings</button>
     </header>
-    <nav>
+    <form>
       <label>
         Check-in:
-        <input type="text" name="date-selection" placeholder="dd/mm/yyyy"/>
+        <input id="dateInput" type="date" name="date-selection"  required="true" placeholder="dd/mm/yyyy"/>
       </label>
       <label>
         Room Type:
-        <select>
-          <option value="">Any</option> 
+        <select id="typeSelection">
+          <option value="any">Any</option>
+          <option value="single-room">Single Room</option>
+          <option value="junior-suite">Junior Suite</option>
+          <option value="suite">Suite</option>
+          <option value="residential-suite">Residential Suite</option>
         </select>
       </label>
-      <button>
+      <button type="submit" id="searchButton">
         Check Vacancies
       </button>
-    </nav>
+    </form>
     <main>
-      <section>
+      <section id="roomsDisplayTitle">
         <h2>Your Bookings</h2>
-        <h3>You have 3 bookings for a total of $968</h3>
+        <h3 id="totalBookings">You have 3 bookings for a total of $968</h3>
       </section>
-      <section class="rooms">
-        <figure>
-          <img src="./images/suite.jpeg" alt="image of suite">
-          <figcaption>
-            <h4>Room #1 - Suite</h4>
-            <h5>$381</h5>
-            <p>Bed Size: Queen</p>
-            <p>Number of Beds: 2</p>
-            <p>Includes bidet</p>
-            <button>Click to Book</button>
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="./images/suite.jpeg" alt="image of suite">
-          <figcaption>
-            <h4>Room #1 - Suite</h4>
-            <h5>$381</h5>
-            <p>Bed Size: Queen</p>
-            <p>Number of Beds: 2</p>
-            <p>includes bidet</p>
-            <button>Click to Book</button>
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="./images/suite.jpeg" alt="image of suite">
-          <figcaption>
-            <h4>Room #1 - Suite</h4>
-            <h5>$381</h5>
-            <p>Bed Size: Queen</p>
-            <p>Number of Beds: 2</p>
-            <p>includes bidet</p>
-            <button>Click to Book</button>
-          </figcaption>
-        </figure>
+      <section id="roomsDisplay" class="rooms">
+        <!-- POPULATES WITH ROOMS -->
       </section>
-      </main>
-      <script src="bundle.js"></script>
-    </body>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
 </html>

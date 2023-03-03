@@ -39,6 +39,6 @@ const customersSample = [
     "id": 10,
     "name": "Tony Armstrong"
   }
-];
+]
 
 export default customersSample;

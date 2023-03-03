@@ -56,4 +56,20 @@ describe('Room tests', function() {
     expect(room6.costPerNight).to.equal(397.02);
     expect(room10.costPerNight).to.equal(497.64);
   });
+
+  it('should convert room type to matching image endpath', () => {
+    expect(room2.getImageEndPath()).to.equal('suite.jpeg');
+    expect(room6.getImageEndPath()).to.equal('junior-suite.jpeg');
+  });
+
+  it('should convert room type to room name', () => {
+    expect(room6.getRoomName()).to.equal('Junior Suite');
+    expect(room10.getRoomName()).to.equal('Suite');
+  });
+
+  it('should be able to capitalize bed size for DOM', () => {
+    expect(room2.getBedSize()).to.equal('Full');
+    expect(room6.getBedSize()).to.equal('Queen');
+    expect(room10.getBedSize()).to.equal('Twin');
+  });
 });

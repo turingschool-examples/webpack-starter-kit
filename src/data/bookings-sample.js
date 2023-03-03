@@ -88,7 +88,7 @@ const bookingsSample = [
     "userID": 10,
     "date": "2022/01/26",
     "roomNumber": 17
-  },
-];
+  }
+]
 
 export default bookingsSample;

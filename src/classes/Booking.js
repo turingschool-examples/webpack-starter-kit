@@ -5,6 +5,10 @@ class Booking {
     this.date = booking.date;
     this.roomNumber = booking.roomNumber;
   }
+
+  getRoom(rooms) {
+    return rooms.find(room => room.number === this.roomNumber);
+  }
 }
 
 export default Booking;
