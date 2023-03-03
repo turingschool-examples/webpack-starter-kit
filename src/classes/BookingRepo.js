@@ -5,7 +5,7 @@ class BookingRepo {
     this.bookings = bookings.map(booking => new Booking(booking));
   }
 
-  getVacancies(date, rooms) {
+  getVacancies(date, rooms, type) {
     if (date.includes('-')) {
       date = date.replace(/\-/g, '/');
     }
@@ -21,7 +21,12 @@ class BookingRepo {
       }
     });
 
-    return vacancies;
+    if (type === 'any') {
+      return vacancies;
+    } else {
+      type = type.replace(/\-/, ' ');
+      return vacancies.filter(room => room.roomType === type);
+    }
   }
 }
 

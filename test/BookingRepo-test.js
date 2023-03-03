@@ -4,7 +4,7 @@ import Booking from '../src/classes/Booking.js';
 import bookingsSample from '../src/data/bookings-sample.js';
 import roomsSample from '../src/data/rooms-sample.js';
 
-describe('BookingRepo tests', () => {
+describe.only('BookingRepo tests', () => {
   let bookingRepo;
 
   beforeEach('instatiate BookingRepo', () => {
@@ -45,9 +45,9 @@ describe('BookingRepo tests', () => {
       return vacancies.some(room => room.number === roomNum);
     }
     
-    const vacancies1 = bookingRepo.getVacancies('2023/01/08', roomsSample);
-    const vacancies2 = bookingRepo.getVacancies('2022/01/11', roomsSample);
-    const allVacant = bookingRepo.getVacancies('1900/11/11', roomsSample);
+    const vacancies1 = bookingRepo.getVacancies('2023/01/08', roomsSample, 'any');
+    const vacancies2 = bookingRepo.getVacancies('2022/01/11', roomsSample, 'any');
+    const allVacant = bookingRepo.getVacancies('1900/11/11', roomsSample, 'any');
 
     const roomCheck1 = checkForRoom(vacancies1, 5)
     const roomCheck2 = checkForRoom(vacancies2, 4)
@@ -64,9 +64,9 @@ describe('BookingRepo tests', () => {
       return vacancies.some(room => room.number === roomNum);
     }
     
-    const vacancies1 = bookingRepo.getVacancies('2023-01-08', roomsSample);
-    const vacancies2 = bookingRepo.getVacancies('2022-01-11', roomsSample);
-    const allVacant = bookingRepo.getVacancies('1900-11-11', roomsSample);
+    const vacancies1 = bookingRepo.getVacancies('2023-01-08', roomsSample, 'any');
+    const vacancies2 = bookingRepo.getVacancies('2022-01-11', roomsSample, 'any');
+    const allVacant = bookingRepo.getVacancies('1900-11-11', roomsSample, 'any');
 
     const roomCheck1 = checkForRoom(vacancies1, 5)
     const roomCheck2 = checkForRoom(vacancies2, 4)
@@ -76,5 +76,26 @@ describe('BookingRepo tests', () => {
     expect(vacancies2.length).to.equal(9);
     expect(roomCheck2).to.equal(false);
     expect(allVacant.length).to.equal(10);
+  });
+
+  it('should be able to filter rooms by type', () => {
+    const checkForRoom = (vacancies ,roomNum) => {
+      return vacancies.some(room => room.number === roomNum);
+    }
+
+    const vacancies1 = bookingRepo.getVacancies('2023-01-08', roomsSample, 'suite');
+    const vacancies2 = bookingRepo.getVacancies('2023-01-08', roomsSample, 'single room');
+    const roomCheck1 = checkForRoom(vacancies2, 5)
+
+    const vacancies3 = bookingRepo.getVacancies('2022-01-11', roomsSample, 'residential suite');
+    const vacancies4 = bookingRepo.getVacancies('2022-01-11', roomsSample, 'single room');
+    const roomCheck2 = checkForRoom(vacancies4, 4)
+
+    expect(vacancies1.length).to.equal(2);
+    expect(vacancies2.length).to.equal(4);
+    expect(roomCheck1).to.equal(false);
+    expect(vacancies3.length).to.equal(1);
+    expect(vacancies4.length).to.equal(4);
+    expect(roomCheck2).to.equal(false);
   });
 });
