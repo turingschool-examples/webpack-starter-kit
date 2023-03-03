@@ -40,6 +40,9 @@ var currentYear
 var roomType
 var roomNum
 var roomsBooked
+var yourBookings
+var userID
+var currentEvent
 
 //Current Date
 
@@ -140,6 +143,7 @@ function adminView() {
 const myInfoButton = document.querySelector('#my-info')
 const bookingsButton = document.querySelector('#booking-button')
 const bookHotelButton = document.querySelector('#book-new-button')
+const pastBookingsButton = document.querySelector('#past-bookings')
 const statMain = document.querySelector('#stat-main')
 
 const dalyStatButton = document.querySelector('#daily-stat-button')
@@ -147,6 +151,7 @@ const customerDataButton = document.querySelector('#customer-data-button')
 
 myInfoButton.addEventListener('click', myInfo)
 bookingsButton.addEventListener('click', myBookings)
+pastBookingsButton.addEventListener('click', pastBookings)
 bookHotelButton.addEventListener('click', bookHotel)
 
 dalyStatButton.addEventListener('click', dailyStats)
@@ -180,7 +185,6 @@ function myInfo() {
 function myBookings() {
   var userBookings = hotelData.bookings.filter(booking =>
     booking.userID === currentUser)
-  console.log(userBookings)
   statMain.innerHTML = 
   `
   <h1 id="stat-title">You currently have ${userBookings.length} bookings!</h2>
@@ -188,8 +192,8 @@ function myBookings() {
   userBookings.forEach(booking => {
     statMain.innerHTML +=
     `
-<button value="${booking.id}" 
-class="booking-date">${booking.date}</button>
+    <button value="${booking.id}" 
+    class="booking-date">${booking.date}</button>
     `
   })
   const bookedButtons = document.querySelectorAll('.booking-date')
@@ -199,6 +203,7 @@ class="booking-date">${booking.date}</button>
 }
 
 function bookingData(Event) {
+  dataArea.innerHTML = ''
   var booking = hotelData.bookings
     .filter(booking => booking.id === Event.target.value)
   statMain.innerHTML = `
@@ -224,7 +229,11 @@ function bookingData(Event) {
   const backButton = document.querySelector('#back-button')
    
   backButton.addEventListener('click', () => {
-    myBookings()
+    if (isAdmin === true ) {
+      displayCustomerInfo(currentEvent)
+    } else {
+      myBookings()
+    }
   })
   removeBook.addEventListener('click', () => {
     removeBooking(booking[0])
@@ -499,6 +508,56 @@ function updateResult(searchValue) {
 }
 
 function displayCustomerInfo(Event) {
-  console.log(Event.target.value)
+  currentEvent = Event
+  userID = Event.target.value
+  console.log(parseInt(userID))
+  dataArea.innerHTML = ''
+  statMain.innerHTML = 
+  `
+  <h1 id="stat-title">All current bookings for ${Event.target.innerHTML}</h1>
+  `
 
+  var userBookings = hotelData.bookings.filter(booking =>
+    booking.userID === parseInt(userID))
+  var bookedRooms = []
+
+  userBookings.forEach(booking => {
+    bookedRooms.push(booking.roomNumber)
+    console.log(booking)
+    dataArea.innerHTML +=
+      `
+      <button value="${booking.id}" 
+      class="booking-date">${booking.date}</button>
+      `
+  })
+
+  var totalCost = calculateTotalCost(bookedRooms)
+
+  statMain.innerHTML =
+  `
+  <h1 id="stat-title">All current bookings for ${Event.target.innerHTML} 
+  - Total money spent: $${Math.floor(totalCost)}</h1>
+  `
+
+  const bookedButtons = document.querySelectorAll('.booking-date')
+  bookedButtons.forEach(button => {
+    button.addEventListener('click', bookingData)
+  })  
+
+}
+
+function calculateTotalCost(bookedRooms) {
+  return bookedRooms.reduce((acc, room) => {
+    hotelData.rooms.forEach(room2 => {
+      if (room === room2.number) {
+        acc += room2.costPerNight
+      }
+    })
+    return acc
+  }, 0)
+}
+
+function pastBookings() {
+  statMain.innerHTML = `
+  <h1 id="stat-title">Your past bookings!</h1>`
 }
