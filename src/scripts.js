@@ -21,6 +21,7 @@ let bookings = [];
 
 const totalBookings = document.getElementById('totalBookings');
 const roomsDisplay = document.getElementById('roomsDisplay');
+const vacanciesDisplay = document.getElementById('vacanciesDisplay');
 const dateInput = document.getElementById('dateInput');
 const searchButton = document.getElementById('searchButton');
 
@@ -44,12 +45,46 @@ window.addEventListener('load', () => {
 
 searchButton.addEventListener('click', (event) => {
   event.preventDefault();
-  const date = dateInput.value;
-  // console.log(bookingRepo.getVacancies(date, rooms))
-  bookingRepo.getVacancies(date, rooms);
+  showVacancies(dateInput.value, rooms);
 });
 
 // FUNCTIONS
+
+const showVacancies = (date, rooms) => {
+  clearRoomsDisplay();
+  const vacancies = bookingRepo.getVacancies(date, rooms);
+  vacancies.forEach(room => {
+    const imageEndPath = room.getImageEndPath();
+    const roomName = room.getRoomName();
+    const bedSize = room.getBedSize();
+    let bidetStatus;
+    if (room.bidet) {
+      bidetStatus = 'Includes Bidet'
+    } else {
+      bidetStatus = 'Does not Include Bidet'
+    }
+    
+    roomsDisplay.innerHTML += `
+    <figure>
+      <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
+      <figcaption>
+        <div>
+          <h4>Room #${room.number} - ${roomName}</h4>
+          <h5>$${room.costPerNight}</h5>
+        </div>
+        <div class="room-description">
+          <p>Bed Size: ${bedSize}</p>
+          <p>Number of Beds: 2</p>
+          <p>${bidetStatus}</p>
+        </div>
+        <div>  
+          <button>Click to Book</button>
+        </div>
+      </figcaption>
+    </figure>
+    `;
+  });
+}
 
 const showBookingTotal = () => {
   const customerBookings = bookings.filter(booking => booking.userID === customer.id);
@@ -81,21 +116,21 @@ const showCustomerBookings = () => {
     
     roomsDisplay.innerHTML += `
     <figure>
-    <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
-    <figcaption>
-    <div>
-    <h4>Room #${booking.roomNumber} - ${roomName}</h4>
-    <h5>$${room.costPerNight}</h5>
-    </div>
-    <div class="room-description">
-    <p>Bed Size: ${bedSize}</p>
-    <p>Number of Beds: 2</p>
-    <p>${bidetStatus}</p>
-    </div>
-    <div>  
-    <p class="booked">Booked for ${bookingDate}</p>
-    </div>
-    </figcaption>
+      <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
+      <figcaption>
+        <div>
+        <h4>Room #${booking.roomNumber} - ${roomName}</h4>
+        <h5>$${room.costPerNight}</h5>
+        </div>
+        <div class="room-description">
+          <p>Bed Size: ${bedSize}</p>
+          <p>Number of Beds: 2</p>
+          <p>${bidetStatus}</p>
+        </div>
+        <div>  
+          <p class="booked">Booked for ${bookingDate}</p>
+        </div>
+      </figcaption>
     </figure>
     `;
   });
@@ -104,17 +139,16 @@ const showCustomerBookings = () => {
 // Will need to adjust to accept customer login
 const loginCustomer = () => customer = customers[10];
 
+const clearRoomsDisplay = () => roomsDisplay.innerHTML = '';
+
 function arrangeDate(date) {
   const monthAndDay = date.substring(5);
   const year = date.substring(0, 4);
   return monthAndDay + '/' + year
 }
 
-// function arrangeYearToDay(date) {
-//   const monthAndDay = date.substring(0, 5);
-//   const year = date.substring(6);
-//   return year + '/' + monthAndDay;
-// }
+const hide = (element) => element.classList.add('hidden');
+const show = (element) => element.classList.remove('hidden');
 
 const handleError = (error) => roomsDisplay.innerText = `${error}, sorry!`;
 

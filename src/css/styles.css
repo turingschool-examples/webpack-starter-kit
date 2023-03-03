@@ -1,5 +1,9 @@
 /* General Styling */
 
+.hidden {
+  display: none!important;
+}
+
 body {
   margin: 20px;
   background-color: #fff9ef;
