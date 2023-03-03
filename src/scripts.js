@@ -20,10 +20,11 @@ let bookings = [];
 // QUERY SELECTORS
 
 const totalBookings = document.getElementById('totalBookings');
+const roomsDisplayTitle = document.getElementById('roomsDisplayTitle');
 const roomsDisplay = document.getElementById('roomsDisplay');
-const vacanciesDisplay = document.getElementById('vacanciesDisplay');
 const dateInput = document.getElementById('dateInput');
 const searchButton = document.getElementById('searchButton');
+const bookingsButton = document.getElementById('bookingsButton');
 
 
 // EVENT LISTENERS
@@ -48,10 +49,19 @@ searchButton.addEventListener('click', (event) => {
   showVacancies(dateInput.value, rooms);
 });
 
+bookingsButton.addEventListener('click', () => {
+  updateBookings();
+  clearRoomsDisplay();
+  dateInput.value = '';
+  showBookingTotal();
+  showCustomerBookings();
+})
+
 // FUNCTIONS
 
 const showVacancies = (date, rooms) => {
   clearRoomsDisplay();
+  show(bookingsButton);
   const vacancies = bookingRepo.getVacancies(date, rooms);
   vacancies.forEach(room => {
     const imageEndPath = room.getImageEndPath();
@@ -64,6 +74,10 @@ const showVacancies = (date, rooms) => {
       bidetStatus = 'Does not Include Bidet'
     }
     
+    roomsDisplayTitle.innerHTML = `
+      <h2>Rooms Available</h2>
+    `;
+
     roomsDisplay.innerHTML += `
     <figure>
       <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
@@ -100,6 +114,7 @@ const showBookingTotal = () => {
 }
 
 const showCustomerBookings = () => {
+  hide(bookingsButton);
   const customerBookings = customer.getCustomerBookings(bookings);
   customerBookings.forEach(booking => {
     const bookingDate = arrangeDate(booking.date);
@@ -114,6 +129,13 @@ const showCustomerBookings = () => {
       bidetStatus = 'Does not Include Bidet'
     }
     
+    roomsDisplayTitle.innerHTML = `
+      <h2>Your Bookings</h2>
+      <h3 id="totalBookings">You have 3 bookings for a total of $968</h3>
+    `;
+
+    showBookingTotal();
+
     roomsDisplay.innerHTML += `
     <figure>
       <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
@@ -138,6 +160,16 @@ const showCustomerBookings = () => {
 
 // Will need to adjust to accept customer login
 const loginCustomer = () => customer = customers[10];
+
+const updateBookings = () => {
+  fetchAPI('bookings').then(
+    data => {
+      bookings = [];
+      data.bookings.forEach(booking => bookings.push(new Booking(booking)));
+      bookingRepo = new BookingRepo(bookings);
+    }
+  );
+}
 
 const clearRoomsDisplay = () => roomsDisplay.innerHTML = '';
 
