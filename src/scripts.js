@@ -19,16 +19,22 @@ let bookings = [];
 
 // QUERY SELECTORS
 
-const totalBookings = document.getElementById('totalBookings');
 const roomsDisplayTitle = document.getElementById('roomsDisplayTitle');
 const roomsDisplay = document.getElementById('roomsDisplay');
 const dateInput = document.getElementById('dateInput');
 const typeSelection = document.getElementById('typeSelection');
-const searchButton = document.getElementById('searchButton');
+const searchForm = document.querySelector('form');
 const bookingsButton = document.getElementById('bookingsButton');
 
 
+
 // EVENT LISTENERS
+
+searchForm.addEventListener('submit', event => {
+  event.preventDefault()
+  updateBookings();
+  showVacancies(dateInput.value, rooms, typeSelection.value);
+})
 
 window.addEventListener('load', () => {
   fetchAllData().then(
@@ -54,12 +60,6 @@ roomsDisplay.addEventListener('click', (event) => {
     replaceBookingButton(event.target, dateInput.value);
     updateBookings();
   }
-});
-
-searchButton.addEventListener('click', (event) => {
-  event.preventDefault();
-  updateBookings();
-  showVacancies(dateInput.value, rooms, typeSelection.value);
 });
 
 bookingsButton.addEventListener('click', () => {
@@ -143,7 +143,7 @@ const showCustomerBookings = () => {
     
     roomsDisplayTitle.innerHTML = `
       <h2>Your Bookings</h2>
-      <h3 id="totalBookings">${showBookingTotal()}</h3>
+      <h3>${showBookingTotal()}</h3>
     `;
 
     showBookingTotal();
