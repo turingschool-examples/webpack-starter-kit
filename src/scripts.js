@@ -39,6 +39,7 @@ window.addEventListener('load', () => {
       bookingRepo = new BookingRepo(bookings);
       // Will need to move to event listener for login button
       loginCustomer();
+      resetDateInput();
       showBookingTotal();
       showCustomerBookings();
     }
@@ -187,17 +188,37 @@ const updateBookings = () => {
 }
 
 const resetSearchBar = () => {
-  dateInput.value = '';
+  resetDateInput();
   typeSelection.value = 'any';
 }
 
 const clearRoomsDisplay = () => roomsDisplay.innerHTML = '';
+
+const resetDateInput = () => {
+  let todaysDate = new Date();
+  const year = String(todaysDate.getFullYear());
+  let month = String(todaysDate.getMonth() + 1);
+  if (month.length === 1) {
+    month = '0' + month;
+  }
+
+  let day = String(todaysDate.getDate());
+  if (day.length === 1) {
+    day = '0' + day
+  }
+
+  todaysDate = year + '-' + month + '-' + day
+  dateInput.value = todaysDate;
+  dateInput.min = todaysDate;
+}
 
 function arrangeDate(date) {
   const monthAndDay = date.substring(5);
   const year = date.substring(0, 4);
   return monthAndDay + '/' + year
 }
+
+const hyphenateDate = date => date.replace(/\//g, '-');
 
 const hide = (element) => element.classList.add('hidden');
 const show = (element) => element.classList.remove('hidden');
