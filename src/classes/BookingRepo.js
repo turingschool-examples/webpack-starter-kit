@@ -6,6 +6,10 @@ class BookingRepo {
   }
 
   getVacancies(date, rooms) {
+    if (date.includes('-')) {
+      date = date.replace(/\-/g, '/');
+    }
+
     const dateBookings = this.bookings.filter(booking => {
       return booking.date === date;
     });

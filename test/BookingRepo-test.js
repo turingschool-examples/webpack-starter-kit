@@ -58,4 +58,23 @@ describe('BookingRepo tests', () => {
     expect(roomCheck2).to.equal(false);
     expect(allVacant.length).to.equal(10);
   });
+
+  it('should be able to convert a date with hyphens', () => {
+    const checkForRoom = (vacancies ,roomNum) => {
+      return vacancies.some(room => room.number === roomNum);
+    }
+    
+    const vacancies1 = bookingRepo.getVacancies('2023-01-08', roomsSample);
+    const vacancies2 = bookingRepo.getVacancies('2022-01-11', roomsSample);
+    const allVacant = bookingRepo.getVacancies('1900-11-11', roomsSample);
+
+    const roomCheck1 = checkForRoom(vacancies1, 5)
+    const roomCheck2 = checkForRoom(vacancies2, 4)
+    
+    expect(vacancies1.length).to.equal(9);
+    expect(roomCheck1).to.equal(false);
+    expect(vacancies2.length).to.equal(9);
+    expect(roomCheck2).to.equal(false);
+    expect(allVacant.length).to.equal(10);
+  });
 });

@@ -7,11 +7,12 @@ import './images/suite.jpeg';
 import Customer from '../src/classes/Customer';
 import Room from '../src/classes/Room';
 import Booking from '../src/classes/Booking';
+import BookingRepo from './classes/BookingRepo';
 import {fetchAPI, fetchAllData} from './apiCalls';
 
 // GLOBAL VARIABLES
 
-let customer;
+let bookingRepo, customer;
 let customers = [];
 let rooms = [];
 let bookings = [];
@@ -32,12 +33,11 @@ window.addEventListener('load', () => {
       data[0].customers.forEach(customer => customers.push(new Customer(customer)));
       data[1].rooms.forEach(room => rooms.push(new Room(room)));
       data[2].bookings.forEach(booking => bookings.push(new Booking(booking)));
-
+      bookingRepo = new BookingRepo(bookings);
       // Will need to move to event listener for login button
       loginCustomer();
       showBookingTotal();
       showCustomerBookings();
-      // console.log(getVacancies('2023/01/11'))
     }
   );
 });
@@ -45,25 +45,11 @@ window.addEventListener('load', () => {
 searchButton.addEventListener('click', (event) => {
   event.preventDefault();
   const date = dateInput.value;
-  // console.log(getVacancies(date));
-  getVacancies(date);
+  // console.log(bookingRepo.getVacancies(date, rooms))
+  bookingRepo.getVacancies(date, rooms);
 });
 
 // FUNCTIONS
-
-const getVacancies = date => {
-  date = date.replace(/\-/g, '/');
-  const daysBookings = bookings.filter(booking => booking.date === date);
-  // console.log(daysBookings)
-  const vacancies = rooms.filter(room => daysBookings.find(booking => {
-    // console.log('booking', booking.roomNumber);
-    // console.log('room', room.number);
-    return booking.roomNumber !== room.number
-  }));
-  // Working on weird issue where some days work but others don't
-  return vacancies;
-}
-
 
 const showBookingTotal = () => {
   const customerBookings = bookings.filter(booking => booking.userID === customer.id);
