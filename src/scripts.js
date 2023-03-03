@@ -38,8 +38,25 @@ var currentMonth
 var currentDay
 var currentYear
 var roomType
-var date
 var roomNum
+var roomsBooked
+
+//Current Date
+
+var date = new Date();
+var year = date.getFullYear();
+var month = date.getMonth() + 1;
+var day = date.getDate();
+
+if (day < 10) {
+  day = `0${day}`
+}
+if (month < 10) {
+  month = `0${month}`
+}
+
+var todaysDate = year + '/' + month + '/' + day
+
 
 //Event Listeners and their variables
 
@@ -51,6 +68,7 @@ const login = document.querySelector('#login')
 const customerNav = document.querySelector('#customer-buttons')
 const adminNav = document.querySelector('#admin-buttons')
 const dataPane = document.querySelector('#info-pane-text')
+const dataArea = document.querySelector('#data')
 
 
 logInButton.addEventListener('click', logIn)
@@ -113,7 +131,8 @@ function adminView() {
   login.style.display = 'none'
   logOutButton.style.display = 'block'
   title.innerText = "Overlook Admin"
-  dataPane.innerText = `Daily Statistics`
+  dataPane.innerText = `Admin Menu`
+  dailyStats()
 }
 
 //Customer logged in
@@ -123,9 +142,17 @@ const bookingsButton = document.querySelector('#booking-button')
 const bookHotelButton = document.querySelector('#book-new-button')
 const statMain = document.querySelector('#stat-main')
 
+const dalyStatButton = document.querySelector('#daily-stat-button')
+const customerDataButton = document.querySelector('#customer-data-button')
+
 myInfoButton.addEventListener('click', myInfo)
 bookingsButton.addEventListener('click', myBookings)
 bookHotelButton.addEventListener('click', bookHotel)
+
+dalyStatButton.addEventListener('click', dailyStats)
+customerDataButton.addEventListener('click', customerData)
+
+//Customer Logged In Functionality
 
 function myInfo() {
   statMain.innerHTML = `
@@ -397,3 +424,81 @@ function bookNewHotel() {
 const getDays = (year, month) => {
   return new Date(year, month, 0).getDate();
 };
+
+// Manager logged in functionality
+
+function dailyStats() {
+  dataArea.innerHTML = ""
+  roomsBooked = hotelData.bookings
+    .filter(booking => booking.date === '2022/04/22')
+  console.log(roomsBooked)
+  let totalRevenue = roomsBooked.reduce((acc, room) => {
+    acc += hotelData.rooms[room.roomNumber].costPerNight
+    return acc
+  }, 0)
+
+  statMain.innerHTML = `
+  <h1 id="stat-title">Hello, today is ${year}/${month}/${day}</h1>`
+  statMain.innerHTML += `
+  <li>
+    <h1>Rooms booked today: </h1> 
+    <h2> ${roomsBooked.length}</h2>
+  </li>
+  <li>
+  <h1>Rooms available today: </h1> 
+  <h2> ${hotelData.rooms.length - roomsBooked.length}</h2>
+  </li>
+  <h1>Percentage of rooms available today: </h1> 
+  <h2> ${Math.floor(roomsBooked.length / hotelData.rooms.length * 1000)}%</h2>
+  </li>
+  <li>
+    <h1>Total Revenue Today</h1>
+    <h2>$${totalRevenue}</h2>
+  </li>
+  `
+}
+
+function customerData() {
+  updateResult("")
+  statMain.innerHTML = `
+  <h1 id="stat-title">Search for a customer here!</h1>
+  <input id="search-customer" placeholder="Enter Username" required>  
+  `
+
+  var search = document.querySelector('#search-customer')
+  search.addEventListener("input", (event) => {
+    var searchValue = event.target.value.toLowerCase();
+    updateResult(searchValue);
+  });
+}
+
+function updateResult(searchValue) {
+  console.log(searchValue)
+  // let data = hotelData.customers.map(customer => customer.name)
+  dataArea.innerHTML = ""
+  var filterNames = hotelData.customers.filter((customer) => {
+    return (
+      customer.name.toLowerCase().includes(searchValue)
+    );
+  })
+  let maxNames = 0
+  filterNames.forEach(customer => {
+    maxNames++
+    if (maxNames < 25) {
+      dataArea.innerHTML +=
+      `
+      <button value="${customer.id}"
+       class="name-button">${customer.name}</button>
+      `
+    }
+  })
+  var nameButtons = document.querySelectorAll('.name-button')
+  nameButtons.forEach(button => {
+    button.addEventListener('click', displayCustomerInfo)
+  })
+}
+
+function displayCustomerInfo(Event) {
+  console.log(Event.target.value)
+
+}
