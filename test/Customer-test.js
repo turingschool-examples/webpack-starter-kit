@@ -4,7 +4,7 @@ import customersSample from '../src/data/customers-sample';
 import roomsSample from '../src/data/rooms-sample.js';
 import bookingsSample from '../src/data/bookings-sample';
 
-describe.only('Customer tests', function() { 
+describe('Customer tests', function() { 
   let customer1, customer4, customer10;
 
   this.beforeEach('instantiate customers', () => {

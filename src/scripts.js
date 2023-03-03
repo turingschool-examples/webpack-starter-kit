@@ -117,16 +117,11 @@ const showVacancies = (date, rooms, type) => {
 }
     
 const showBookingTotal = () => {
-  const customerBookings = bookings.filter(booking => booking.userID === customer.id);
-  let total = customerBookings.reduce((acc, booking) => {
-    const cost = rooms.find(room => room.number === booking.roomNumber).costPerNight;
-    acc += cost;
-    return acc;
-  }, 0)
-  
+  const customerBookings = customer.getCustomerBookings(bookings);
+  let total = customer.getTotalCost(bookings, rooms);  
   total = total.toFixed(2);
   
-  totalBookings.innerText = `You have ${customerBookings.length} bookings for a total of $${total}`
+  return `You have ${customerBookings.length} bookings for a total of $${total}`
 }
 
 const showCustomerBookings = () => {
@@ -147,7 +142,7 @@ const showCustomerBookings = () => {
     
     roomsDisplayTitle.innerHTML = `
       <h2>Your Bookings</h2>
-      <h3 id="totalBookings">You have 3 bookings for a total of $968</h3>
+      <h3 id="totalBookings">${showBookingTotal()}</h3>
     `;
 
     showBookingTotal();
