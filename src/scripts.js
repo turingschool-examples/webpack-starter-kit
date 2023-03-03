@@ -48,8 +48,10 @@ window.addEventListener('load', () => {
 roomsDisplay.addEventListener('click', (event) => {
   if (event.target.id.includes('bookButton')) {
     const roomNumber = parseInt(event.target.id.substring(10));
-    const bookingData = customer.getRoomToBook(dateInput.value, roomNumber)
+    const bookingData = customer.getRoomToBook(dateInput.value, roomNumber);
     postBooking(bookingData);
+    replaceBookingButton(event.target, dateInput.value);
+    updateBookings();
   }
 });
 
@@ -147,25 +149,29 @@ const showCustomerBookings = () => {
     showBookingTotal();
 
     roomsDisplay.innerHTML += `
-    <figure>
-      <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
-      <figcaption>
-        <div>
-        <h4>Room #${booking.roomNumber} - ${roomName}</h4>
-        <h5>$${room.costPerNight}</h5>
-        </div>
-        <div class="room-description">
-          <p>Bed Size: ${bedSize}</p>
-          <p>Number of Beds: 2</p>
-          <p>${bidetStatus}</p>
-        </div>
-        <div>  
-          <p class="booked">Booked for ${bookingDate}</p>
-        </div>
-      </figcaption>
-    </figure>
+      <figure>
+        <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
+        <figcaption>
+          <div>
+          <h4>Room #${booking.roomNumber} - ${roomName}</h4>
+          <h5>$${room.costPerNight}</h5>
+          </div>
+          <div class="room-description">
+            <p>Bed Size: ${bedSize}</p>
+            <p>Number of Beds: 2</p>
+            <p>${bidetStatus}</p>
+          </div>
+          <div>  
+            <p class="booked">Booked for ${bookingDate}</p>
+          </div>
+        </figcaption>
+      </figure>
     `;
   });
+}
+
+const replaceBookingButton = (button, bookingDate) => {
+  button.parentElement.innerHTML = `<p class="booked">Booked for ${bookingDate}</p>`
 }
 
 // Will need to adjust to accept customer login
