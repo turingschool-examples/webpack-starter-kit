@@ -75,43 +75,47 @@ const showVacancies = (date, rooms, type) => {
   clearRoomsDisplay();
   show(bookingsButton);
   const vacancies = bookingRepo.getVacancies(date, rooms, type);
-  vacancies.forEach(room => {
-    const imageEndPath = room.getImageEndPath();
-    const roomName = room.getRoomName();
-    const bedSize = room.getBedSize();
-    let bidetStatus;
-    if (room.bidet) {
-      bidetStatus = 'Includes Bidet'
-    } else {
-      bidetStatus = 'Does not Include Bidet'
-    }
-    
-    roomsDisplayTitle.innerHTML = `
-      <h2>Rooms Available</h2>
+  if (vacancies.length === 0) {
+    roomsDisplayTitle.innerHTML = `<h2>No Rooms Available`;
+    roomsDisplay.innerHTML = `
+      <p>We are so very sorry! Try selecting a different date or search for a different room type.</p>
     `;
+  } else {
+      vacancies.forEach(room => {
+        const imageEndPath = room.getImageEndPath();
+        const roomName = room.getRoomName();
+        const bedSize = room.getBedSize();
+        let bidetStatus;
 
-    roomsDisplay.innerHTML += `
-    <figure>
-      <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
-      <figcaption>
-        <div>
-          <h4>Room #${room.number} - ${roomName}</h4>
-          <h5>$${room.costPerNight}</h5>
-        </div>
-        <div class="room-description">
-          <p>Bed Size: ${bedSize}</p>
-          <p>Number of Beds: 2</p>
-          <p>${bidetStatus}</p>
-        </div>
-        <div>  
-          <button id="bookButton${room.number}">Click to Book</button>
-        </div>
-      </figcaption>
-    </figure>
-    `;
-  });
+        if (room.bidet) {
+          bidetStatus = 'Includes Bidet'
+        } else {
+          bidetStatus = 'Does not Include Bidet'
+          roomsDisplayTitle.innerHTML = `<h2>Rooms Available</h2>`;
+          roomsDisplay.innerHTML += `
+          <figure>
+            <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
+            <figcaption>
+              <div>
+                <h4>Room #${room.number} - ${roomName}</h4>
+                <h5>$${room.costPerNight}</h5>
+              </div>
+              <div class="room-description">
+                <p>Bed Size: ${bedSize}</p>
+                <p>Number of Beds: 2</p>
+                <p>${bidetStatus}</p>
+              </div>
+              <div>  
+               <button id="bookButton${room.number}">Click to Book</button>
+              </div>
+            </figcaption>
+          </figure>
+        `;
+      }
+    });
+  }
 }
-
+    
 const showBookingTotal = () => {
   const customerBookings = bookings.filter(booking => booking.userID === customer.id);
   let total = customerBookings.reduce((acc, booking) => {
