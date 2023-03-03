@@ -51,7 +51,7 @@ const bookingsSample = [
     "id": "5fwrgu4i7k55hl6xn",
     "userID": 6,
     "date": "2022/02/12",
-    "roomNumber": 17
+    "roomNumber": 7
   },
   {
     "id": "5fwrgu4i7k55hl6yo",

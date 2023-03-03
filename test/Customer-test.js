@@ -1,6 +1,7 @@
 import {expect} from 'chai';
 import Customer from '../src/classes/Customer.js';
 import customersSample from '../src/data/customers-sample';
+import roomsSample from '../src/data/rooms-sample.js';
 import bookingsSample from '../src/data/bookings-sample';
 
 describe.only('Customer tests', function() { 
@@ -61,6 +62,15 @@ describe.only('Customer tests', function() {
 
     expect(customer1.getCustomerBookings(bookingsSample)).to.deep.equal(bookings1);
     expect(customer4.getCustomerBookings(bookingsSample)).to.deep.equal(bookings2);
+  });
+
+  it('should be able to get the total cost of its bookings', () => {
+    const customer6 = new Customer(customersSample[5]);
+    const customerNoBookings = new Customer({id: 111, name: 'Jordan Doe'});
+
+    expect(customer4.getTotalCost(bookingsSample, roomsSample)).to.equal(340.17);
+    expect(customer6.getTotalCost(bookingsSample, roomsSample)).to.equal(628.48);
+    expect(customerNoBookings.getTotalCost(bookingsSample, roomsSample)).to.equal(0);
   });
 
   it('should be able to return info for a room it would like to book', () => {
