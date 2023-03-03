@@ -99,12 +99,16 @@ section.rooms {
 }
 
 figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #f9eac7;
   border: 5px solid #ebd197;
   width: 300px;
 }
 
 figcaption {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
