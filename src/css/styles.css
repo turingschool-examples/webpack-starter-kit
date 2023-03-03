@@ -177,7 +177,8 @@ button:hover {
 
 #stat-main {
   margin-top: 30px;
-  margin-left: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
   color: var(--highlight-color);
 }
 
@@ -194,7 +195,7 @@ button:hover {
 }
 
 .calender-month-button {
-  width: 24%;
+  width: 24.7%;
   height: 17vh;
   max-height: 190px;
   min-height: 130px;
@@ -208,7 +209,7 @@ button:hover {
 }
 
 .booking-date {
-  width: 15.8%;
+  width: 16.3%;
   height: 8vh;
   max-height: 100px;
   min-height: 50px;
@@ -245,11 +246,11 @@ button:hover {
 /* Admin Stat section */
 
 #search-customer {
-  width: 95%;
+  width: 98.5%;
 }
 
 #data {
-  margin-left: 2.7vw;
+  margin-left: 30px;
 }
 
 .name-button {
@@ -257,5 +258,5 @@ button:hover {
   height: 7vh;
   max-height: 100px;
   min-height: 55px;
-  font-size: 10px;
+  font-size: 8px;
 }

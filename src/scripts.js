@@ -453,7 +453,7 @@ function dailyStats() {
   </li>
   <li>
     <h1>Total Revenue Today</h1>
-    <h2>${totalRevenue}</h2>
+    <h2>$${totalRevenue}</h2>
   </li>
   `
 }
