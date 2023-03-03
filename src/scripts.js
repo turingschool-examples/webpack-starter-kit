@@ -261,7 +261,7 @@ function removeBooking(booking) {
 }
 
 function bookHotel() {
-  statMain.innerHTML = ''
+  dataArea.innerHTML = ''
   statMain.innerHTML = `
   <h1 id="stat-title">First, choose a month!</h2>`
   genCalender()
@@ -406,6 +406,9 @@ function confirmRoomDate(Event) {
 
 function bookNewHotel() {
   var currentDate = currentYear + '/' + currentMonth + '/' + currentDay
+  if (isAdmin === true) {
+    currentUser = parseInt(userID)
+  }
   fetch('http://localhost:3001/api/v1/bookings', {
     method: 'POST',
     body: JSON.stringify({
@@ -437,6 +440,7 @@ const getDays = (year, month) => {
 // Manager logged in functionality
 
 function dailyStats() {
+  bookHotelButton.style.display = 'none'
   dataArea.innerHTML = ""
   roomsBooked = hotelData.bookings
     .filter(booking => booking.date === '2022/04/22')
@@ -468,6 +472,7 @@ function dailyStats() {
 }
 
 function customerData() {
+  bookHotelButton.style.display = 'none'
   updateResult("")
   statMain.innerHTML = `
   <h1 id="stat-title">Search for a customer here!</h1>
@@ -508,6 +513,9 @@ function updateResult(searchValue) {
 }
 
 function displayCustomerInfo(Event) {
+  bookHotelButton.style.display = 'block'
+  bookHotelButton.innerText = "Book for User"
+  bookHotelButton.style.color = "#f9295f"
   currentEvent = Event
   userID = Event.target.value
   console.log(parseInt(userID))
