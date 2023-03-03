@@ -8,7 +8,7 @@ import Customer from '../src/classes/Customer';
 import Room from '../src/classes/Room';
 import Booking from '../src/classes/Booking';
 import BookingRepo from './classes/BookingRepo';
-import {fetchAPI, fetchAllData} from './apiCalls';
+import {fetchAPI, fetchAllData, postBooking} from './apiCalls';
 
 // GLOBAL VARIABLES
 
@@ -43,6 +43,14 @@ window.addEventListener('load', () => {
       showCustomerBookings();
     }
   );
+});
+
+roomsDisplay.addEventListener('click', (event) => {
+  if (event.target.id.includes('bookButton')) {
+    const roomNumber = parseInt(event.target.id.substring(10));
+    const bookingData = customer.getRoomToBook(dateInput.value, roomNumber)
+    postBooking(bookingData);
+  }
 });
 
 searchButton.addEventListener('click', (event) => {
@@ -94,7 +102,7 @@ const showVacancies = (date, rooms, type) => {
           <p>${bidetStatus}</p>
         </div>
         <div>  
-          <button>Click to Book</button>
+          <button id="bookButton${room.number}">Click to Book</button>
         </div>
       </figcaption>
     </figure>
