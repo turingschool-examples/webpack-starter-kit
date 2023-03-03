@@ -95,7 +95,7 @@ const showVacancies = (date, rooms, type) => {
           roomsDisplayTitle.innerHTML = `<h2>Rooms Available</h2>`;
           roomsDisplay.innerHTML += `
           <figure>
-            <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
+            <img src="./images/${imageEndPath}" alt="picture of ${room.roomType}">
             <figcaption>
               <div>
                 <h4>Room #${room.number} - ${roomName}</h4>
@@ -150,7 +150,7 @@ const showCustomerBookings = () => {
 
     roomsDisplay.innerHTML += `
       <figure>
-        <img src="./images/${imageEndPath}" alt="image of ${room.roomType}">
+        <img src="./images/${imageEndPath}" alt="picture of ${room.roomType}">
         <figcaption>
           <div>
           <h4>Room #${booking.roomNumber} - ${roomName}</h4>
@@ -162,7 +162,7 @@ const showCustomerBookings = () => {
             <p>${bidetStatus}</p>
           </div>
           <div>  
-            <p class="booked">Booked for ${bookingDate}</p>
+            <h6 class="booked">Booked for ${bookingDate}</h6>
           </div>
         </figcaption>
       </figure>
