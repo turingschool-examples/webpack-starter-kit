@@ -47,13 +47,14 @@ window.addEventListener('load', () => {
 
 searchButton.addEventListener('click', (event) => {
   event.preventDefault();
+  updateBookings();
   showVacancies(dateInput.value, rooms, typeSelection.value);
 });
 
 bookingsButton.addEventListener('click', () => {
   updateBookings();
   clearRoomsDisplay();
-  dateInput.value = '';
+  resetSearchBar();
   showBookingTotal();
   showCustomerBookings();
 })
@@ -170,6 +171,11 @@ const updateBookings = () => {
       bookingRepo = new BookingRepo(bookings);
     }
   );
+}
+
+const resetSearchBar = () => {
+  dateInput.value = '';
+  typeSelection.value = 'any';
 }
 
 const clearRoomsDisplay = () => roomsDisplay.innerHTML = '';
