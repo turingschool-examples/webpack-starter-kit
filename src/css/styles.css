@@ -124,6 +124,7 @@ figcaption > p {
   padding: 10px;
   text-align: center;
   font-size: 24px;
+  font-weight: 300;
   background-color: #54331f;
   color: #eee4d2;
 }
