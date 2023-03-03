@@ -23,6 +23,7 @@ const totalBookings = document.getElementById('totalBookings');
 const roomsDisplayTitle = document.getElementById('roomsDisplayTitle');
 const roomsDisplay = document.getElementById('roomsDisplay');
 const dateInput = document.getElementById('dateInput');
+const typeSelection = document.getElementById('typeSelection');
 const searchButton = document.getElementById('searchButton');
 const bookingsButton = document.getElementById('bookingsButton');
 
@@ -46,7 +47,7 @@ window.addEventListener('load', () => {
 
 searchButton.addEventListener('click', (event) => {
   event.preventDefault();
-  showVacancies(dateInput.value, rooms);
+  showVacancies(dateInput.value, rooms, typeSelection.value);
 });
 
 bookingsButton.addEventListener('click', () => {
@@ -59,10 +60,10 @@ bookingsButton.addEventListener('click', () => {
 
 // FUNCTIONS
 
-const showVacancies = (date, rooms) => {
+const showVacancies = (date, rooms, type) => {
   clearRoomsDisplay();
   show(bookingsButton);
-  const vacancies = bookingRepo.getVacancies(date, rooms);
+  const vacancies = bookingRepo.getVacancies(date, rooms, type);
   vacancies.forEach(room => {
     const imageEndPath = room.getImageEndPath();
     const roomName = room.getRoomName();

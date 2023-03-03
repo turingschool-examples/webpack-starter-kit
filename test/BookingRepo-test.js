@@ -4,7 +4,7 @@ import Booking from '../src/classes/Booking.js';
 import bookingsSample from '../src/data/bookings-sample.js';
 import roomsSample from '../src/data/rooms-sample.js';
 
-describe.only('BookingRepo tests', () => {
+describe('BookingRepo tests', () => {
   let bookingRepo;
 
   beforeEach('instatiate BookingRepo', () => {
