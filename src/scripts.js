@@ -39,6 +39,7 @@ window.addEventListener('load', () => {
       bookingRepo = new BookingRepo(bookings);
       // Will need to move to event listener for login button
       loginCustomer();
+      resetDateInput();
       showBookingTotal();
       showCustomerBookings();
     }
@@ -117,16 +118,11 @@ const showVacancies = (date, rooms, type) => {
 }
     
 const showBookingTotal = () => {
-  const customerBookings = bookings.filter(booking => booking.userID === customer.id);
-  let total = customerBookings.reduce((acc, booking) => {
-    const cost = rooms.find(room => room.number === booking.roomNumber).costPerNight;
-    acc += cost;
-    return acc;
-  }, 0)
-  
+  const customerBookings = customer.getCustomerBookings(bookings);
+  let total = customer.getTotalCost(bookings, rooms);  
   total = total.toFixed(2);
   
-  totalBookings.innerText = `You have ${customerBookings.length} bookings for a total of $${total}`
+  return `You have ${customerBookings.length} bookings for a total of $${total}`
 }
 
 const showCustomerBookings = () => {
@@ -147,7 +143,7 @@ const showCustomerBookings = () => {
     
     roomsDisplayTitle.innerHTML = `
       <h2>Your Bookings</h2>
-      <h3 id="totalBookings">You have 3 bookings for a total of $968</h3>
+      <h3 id="totalBookings">${showBookingTotal()}</h3>
     `;
 
     showBookingTotal();
@@ -192,17 +188,37 @@ const updateBookings = () => {
 }
 
 const resetSearchBar = () => {
-  dateInput.value = '';
+  resetDateInput();
   typeSelection.value = 'any';
 }
 
 const clearRoomsDisplay = () => roomsDisplay.innerHTML = '';
+
+const resetDateInput = () => {
+  let todaysDate = new Date();
+  const year = String(todaysDate.getFullYear());
+  let month = String(todaysDate.getMonth() + 1);
+  if (month.length === 1) {
+    month = '0' + month;
+  }
+
+  let day = String(todaysDate.getDate());
+  if (day.length === 1) {
+    day = '0' + day
+  }
+
+  todaysDate = year + '-' + month + '-' + day
+  dateInput.value = todaysDate;
+  dateInput.min = todaysDate;
+}
 
 function arrangeDate(date) {
   const monthAndDay = date.substring(5);
   const year = date.substring(0, 4);
   return monthAndDay + '/' + year
 }
+
+const hyphenateDate = date => date.replace(/\//g, '-');
 
 const hide = (element) => element.classList.add('hidden');
 const show = (element) => element.classList.remove('hidden');
