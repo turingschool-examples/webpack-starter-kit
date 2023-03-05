@@ -61,6 +61,16 @@ form {
   font-size: 24px;
 }
 
+.login-form {
+  margin-top: 50px;
+  margin-bottom: 10%;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 label {
   display: flex;
   align-items: center;
@@ -73,6 +83,12 @@ input {
   border: 1px solid #4c2f1e;
   font-size: 20px;
   text-align: center;
+}
+
+.login-info {
+  margin: 0;
+  width: 300px;
+  text-align: left;
 }
 
 select {
@@ -88,6 +104,17 @@ select {
 section {
   margin: 30px;
   text-align: center;
+}
+
+.login-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-info-container {
+  margin: 20px;
 }
 
 section.rooms {
