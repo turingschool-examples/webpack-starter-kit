@@ -293,7 +293,6 @@ function dailyStats() {
   dataArea.innerHTML = ""
   roomsBooked = hotelData.bookings
     .filter(booking => booking.date === '2022/04/22')
-  console.log(roomsBooked)
   let totalRevenue = roomsBooked.reduce((acc, room) => {
     acc += hotelData.rooms[room.roomNumber].costPerNight
     return acc
@@ -336,7 +335,6 @@ function customerData() {
 }
 
 function updateResult(searchValue) {
-  console.log(searchValue)
   // let data = hotelData.customers.map(customer => customer.name)
   dataArea.innerHTML = ""
   var filterNames = hotelData.customers.filter((customer) => {
@@ -542,7 +540,6 @@ function roomsAvailable(Event) {
 
 function confirmRoomDate(Event) {
   roomNum = JSON.parse(Event.target.value)
-  console.log(Event.target.value)
   statMain.innerHTML = `
   <h1 id="stat-title" class="selected-date">You have chosen </h1>
   <h2>Room #${roomNum} on ${currentMonth}/${currentDay}/${currentYear}</h2>
