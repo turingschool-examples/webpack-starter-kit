@@ -117,6 +117,12 @@ section {
   margin: 20px;
 }
 
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 section.rooms {
   padding: 40px 0;
   border-top: 2px solid #29190f;
