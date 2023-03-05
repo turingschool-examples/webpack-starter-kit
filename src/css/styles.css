@@ -209,9 +209,9 @@ button:hover {
 }
 
 .booking-date {
-  width: 16.3%;
+  width: 19%;
   height: 8vh;
-  max-height: 100px;
+  max-height: 150px;
   min-height: 50px;
 }
 
@@ -254,7 +254,7 @@ button:hover {
 }
 
 .name-button {
-  width: 15.6%;
+  width: 15.58%;
   height: 7vh;
   max-height: 100px;
   min-height: 55px;
