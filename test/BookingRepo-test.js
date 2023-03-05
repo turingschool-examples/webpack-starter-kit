@@ -1,4 +1,4 @@
-import {expect} from 'chai'
+import {expect} from 'chai';
 import BookingRepo from '../src/classes/BookingRepo.js';
 import Booking from '../src/classes/Booking.js';
 import bookingsSample from '../src/data/bookings-sample.js';
@@ -49,8 +49,8 @@ describe('BookingRepo tests', () => {
     const vacancies2 = bookingRepo.getVacancies('2022/01/11', roomsSample, 'any');
     const allVacant = bookingRepo.getVacancies('1900/11/11', roomsSample, 'any');
 
-    const roomCheck1 = checkForRoom(vacancies1, 5)
-    const roomCheck2 = checkForRoom(vacancies2, 4)
+    const roomCheck1 = checkForRoom(vacancies1, 5);
+    const roomCheck2 = checkForRoom(vacancies2, 4);
     
     expect(vacancies1.length).to.equal(9);
     expect(roomCheck1).to.equal(false);
@@ -68,8 +68,8 @@ describe('BookingRepo tests', () => {
     const vacancies2 = bookingRepo.getVacancies('2022-01-11', roomsSample, 'any');
     const allVacant = bookingRepo.getVacancies('1900-11-11', roomsSample, 'any');
 
-    const roomCheck1 = checkForRoom(vacancies1, 5)
-    const roomCheck2 = checkForRoom(vacancies2, 4)
+    const roomCheck1 = checkForRoom(vacancies1, 5);
+    const roomCheck2 = checkForRoom(vacancies2, 4);
     
     expect(vacancies1.length).to.equal(9);
     expect(roomCheck1).to.equal(false);
@@ -89,7 +89,7 @@ describe('BookingRepo tests', () => {
 
     const vacancies3 = bookingRepo.getVacancies('2022-01-11', roomsSample, 'residential suite');
     const vacancies4 = bookingRepo.getVacancies('2022-01-11', roomsSample, 'single room');
-    const roomCheck2 = checkForRoom(vacancies4, 4)
+    const roomCheck2 = checkForRoom(vacancies4, 4);
 
     expect(vacancies1.length).to.equal(2);
     expect(vacancies2.length).to.equal(4);
