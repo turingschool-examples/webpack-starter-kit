@@ -19,16 +19,25 @@ let bookings = [];
 
 // QUERY SELECTORS
 
+const loginScreen = document.getElementById('loginScreen');
+const loginForm = document.getElementById('loginForm');
+const searchContainer = document.getElementById('searchContainer');
 const roomsDisplayTitle = document.getElementById('roomsDisplayTitle');
 const roomsDisplay = document.getElementById('roomsDisplay');
 const dateInput = document.getElementById('dateInput');
 const typeSelection = document.getElementById('typeSelection');
 const searchForm = document.querySelector('form');
+const loginButton = document.getElementById('loginButton');
 const bookingsButton = document.getElementById('bookingsButton');
 
 
 
 // EVENT LISTENERS
+
+loginForm.addEventListener('submit', event => {
+  event.preventDefault();
+  showDashboard();
+});
 
 searchForm.addEventListener('submit', event => {
   event.preventDefault()
@@ -221,6 +230,13 @@ function arrangeDate(date) {
 }
 
 const hyphenateDate = date => date.replace(/\//g, '-');
+
+const showDashboard = () => {
+  hide(loginScreen);
+  show(searchContainer);
+  show(roomsDisplayTitle);
+  show(roomsDisplay);
+}
 
 const hide = (element) => element.classList.add('hidden');
 const show = (element) => element.classList.remove('hidden');
