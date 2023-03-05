@@ -53,10 +53,10 @@ loginForm.addEventListener('submit', event => {
 });
 
 searchForm.addEventListener('submit', event => {
-  event.preventDefault()
+  event.preventDefault();
   updateBookings();
   showVacancies(dateInput.value, rooms, typeSelection.value);
-})
+});
 
 roomsDisplay.addEventListener('click', (event) => {
   if (event.target.id.includes('bookButton')) {
@@ -74,7 +74,7 @@ bookingsButton.addEventListener('click', () => {
   resetSearchBar();
   showBookingTotal();
   showCustomerBookings();
-})
+});
 
 // FUNCTIONS
 const loginUser = (user, password) => {
@@ -85,7 +85,7 @@ const loginUser = (user, password) => {
     show(loginError);
     return false;
   } else {
-    usernameNum = parseInt(user.substring(8))
+    usernameNum = parseInt(user.substring(8));
   }
 
   possibleCustomer = customers.find(customer => customer.id === usernameNum);
@@ -104,7 +104,7 @@ const showBookingTotal = () => {
   let total = customer.getTotalCost(bookings, rooms);  
   total = total.toFixed(2);
   
-  return `You have ${customerBookings.length} bookings for a total of $${total}`
+  return `You have ${customerBookings.length} bookings for a total of $${total}`;
 }
 
 const showCustomerBookings = () => {
@@ -118,9 +118,9 @@ const showCustomerBookings = () => {
     const bedSize = room.getBedSize();
     let bidetStatus;
     if (room.bidet) {
-      bidetStatus = 'Includes Bidet'
+      bidetStatus = 'Includes Bidet';
     } else {
-      bidetStatus = 'Does not Include Bidet'
+      bidetStatus = 'Does not Include Bidet';
     }
     
     roomsDisplayTitle.innerHTML = `
@@ -158,19 +158,19 @@ const showVacancies = (date, rooms, type) => {
   if (vacancies.length === 0) {
     roomsDisplayTitle.innerHTML = `<h2>No Rooms Available`;
     roomsDisplay.innerHTML = `
-      <p>We are so very sorry! Try selecting a different date or search for a different room type.</p>
+      <p class="apology-message">Our deepest and most sincere apologies. Try selecting a different date or search for a different room type.</p>
     `;
   } else {
-    vacancies.forEach((room, index) => {
+    vacancies.forEach((room) => {
       const imageEndPath = room.getImageEndPath();
       const roomName = room.getRoomName();
       const bedSize = room.getBedSize();
       let bidetStatus;
 
       if (room.bidet) {
-        bidetStatus = 'Includes Bidet'
+        bidetStatus = 'Includes Bidet';
       } else {
-        bidetStatus = 'Does not Include Bidet'
+        bidetStatus = 'Does not Include Bidet';
       }
       
       roomsDisplayTitle.innerHTML = `<h2>Rooms Available</h2>`;
@@ -197,12 +197,14 @@ const showVacancies = (date, rooms, type) => {
   }
 }
 
+
+
 const replaceBookingButton = (button, bookingDate) => {
   const month = bookingDate.substring(5, 7);
   const day = bookingDate.substring(8);
   const year = bookingDate.substring(0, 4);
   bookingDate = month + '/' + day + '/' + year;
-  button.parentElement.innerHTML = `<p class="booked">Booked for ${bookingDate}</p>`
+  button.parentElement.innerHTML = `<p class="booked">Booked for ${bookingDate}</p>`;
 }
 
 const resetDateInput = () => {
@@ -215,10 +217,10 @@ const resetDateInput = () => {
 
   let day = String(todaysDate.getDate());
   if (day.length === 1) {
-    day = '0' + day
+    day = '0' + day;
   }
 
-  todaysDate = year + '-' + month + '-' + day
+  todaysDate = year + '-' + month + '-' + day;
   dateInput.value = todaysDate;
   dateInput.min = todaysDate;
 }
@@ -243,7 +245,7 @@ const updateBookings = () => {
 function arrangeDate(date) {
   const monthAndDay = date.substring(5);
   const year = date.substring(0, 4);
-  return monthAndDay + '/' + year
+  return monthAndDay + '/' + year;
 }
 
 const showDashboard = () => {

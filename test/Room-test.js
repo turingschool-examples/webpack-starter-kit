@@ -1,4 +1,4 @@
-import {expect} from 'chai'
+import {expect} from 'chai';
 import Room from '../src/classes/Room.js';
 import roomsSample from '../src/data/rooms-sample.js';
 
@@ -34,9 +34,9 @@ describe('Room tests', function() {
   });
 
   it('should be able to have or not have a bidet', () => {
-    expect(room2.bidet).to.equal(false)
-    expect(room6.bidet).to.equal(true)
-    expect(room10.bidet).to.equal(false)
+    expect(room2.bidet).to.equal(false);
+    expect(room6.bidet).to.equal(true);
+    expect(room10.bidet).to.equal(false);
   });
 
   it('should have a bed size', () => {

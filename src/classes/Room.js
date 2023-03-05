@@ -9,12 +9,12 @@ class Room {
   }
 
   getImageEndPath() {
-    return this.roomType.replace(' ', '-') + '.jpeg'
+    return this.roomType.replace(' ', '-') + '.jpeg';
   }
 
   getRoomName() {
     return this.roomType.split(' ').map(word => {
-      return word[0].toUpperCase() + word.substring(1)
+      return word[0].toUpperCase() + word.substring(1);
     }).join(' ');
   }
 

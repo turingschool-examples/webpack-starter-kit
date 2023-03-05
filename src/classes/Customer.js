@@ -14,7 +14,7 @@ class Customer {
 
     customerBookings.forEach(booking => {
       const customerRoom = (rooms.find(room => {
-        return room.number === booking.roomNumber
+        return room.number === booking.roomNumber;
       }));
       customerRooms.push(customerRoom);
     });

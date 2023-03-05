@@ -1,10 +1,10 @@
-import {expect} from 'chai'
+import {expect} from 'chai';
 import Booking from '../src/classes/Booking.js';
 import bookingsSample from '../src/data/bookings-sample.js';
 import roomsSample from '../src/data/rooms-sample.js';
 
 describe('Booking tests', function() {
-  let booking1, booking2, booking3
+  let booking1, booking2, booking3;
 
   beforeEach('instantiate bookings', () => {
     booking1 = new Booking(bookingsSample[5]);

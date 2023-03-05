@@ -85,5 +85,5 @@ describe('Customer tests', function() {
     expect(customer1Booking).to.deep.equal(booking1);
     expect(customer4Booking).to.deep.equal(booking2);
     expect(customer10Booking).to.deep.equal(booking3);
-  })
+  });
 });
