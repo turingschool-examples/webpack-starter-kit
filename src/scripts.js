@@ -158,7 +158,7 @@ const showVacancies = (date, rooms, type) => {
   if (vacancies.length === 0) {
     roomsDisplayTitle.innerHTML = `<h2>No Rooms Available`;
     roomsDisplay.innerHTML = `
-      <p>We are so very sorry! Try selecting a different date or search for a different room type.</p>
+      <p class="apology-message">Our deepest and most sincere apologies. Try selecting a different date or search for a different room type.</p>
     `;
   } else {
     vacancies.forEach((room, index) => {
