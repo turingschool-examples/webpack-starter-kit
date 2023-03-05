@@ -91,6 +91,12 @@ input {
   text-align: left;
 }
 
+.login-error {
+  margin-top: 15px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 select {
   cursor: pointer;
   height: 30px;

@@ -41,13 +41,14 @@
         <form id="loginForm" class="login-form">
           <div class="login-info-container">
             <label for="username">Username</label>
-            <input type="text" class="login-info" name="username" placeholder="Enter Username" maxlength="19" required>
+            <input id="username" type="text" class="login-info" name="username" placeholder="Enter Username" maxlength="19" required>
           </div>
           <div class="login-info-container">
             <label for="password">Password</label>
-            <input type="password" class="login-info" name="password" placeholder="Enter Password" maxlength="19" required>
+            <input id="password" type="text" class="login-info" name="password" placeholder="Enter Password" maxlength="19" required>
           </div>
-          <button id="loginButton" type="submit">Login</button>
+          <button type="submit">Login</button>
+          <p id="loginError" class="login-error hidden">Incorrect password or username. Try again.</p>
         </form>
       </section>
       <section id="roomsDisplayTitle" class="hidden">

@@ -21,13 +21,15 @@ let bookings = [];
 
 const loginScreen = document.getElementById('loginScreen');
 const loginForm = document.getElementById('loginForm');
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+const loginError = document.getElementById('loginError');
 const searchContainer = document.getElementById('searchContainer');
 const roomsDisplayTitle = document.getElementById('roomsDisplayTitle');
 const roomsDisplay = document.getElementById('roomsDisplay');
 const dateInput = document.getElementById('dateInput');
 const typeSelection = document.getElementById('typeSelection');
 const searchForm = document.querySelector('form');
-const loginButton = document.getElementById('loginButton');
 const bookingsButton = document.getElementById('bookingsButton');
 
 
@@ -36,7 +38,13 @@ const bookingsButton = document.getElementById('bookingsButton');
 
 loginForm.addEventListener('submit', event => {
   event.preventDefault();
-  showDashboard();
+  if (loginUser(username.value, password.value)) {
+    showDashboard();
+    resetDateInput();
+    showBookingTotal();
+    showCustomerBookings();
+    console.log(customer)
+  };
 });
 
 searchForm.addEventListener('submit', event => {
@@ -52,11 +60,6 @@ window.addEventListener('load', () => {
       data[1].rooms.forEach(room => rooms.push(new Room(room)));
       data[2].bookings.forEach(booking => bookings.push(new Booking(booking)));
       bookingRepo = new BookingRepo(bookings);
-      // Will need to move to event listener for login button
-      loginCustomer();
-      resetDateInput();
-      showBookingTotal();
-      showCustomerBookings();
     }
   );
 });
@@ -185,8 +188,27 @@ const replaceBookingButton = (button, bookingDate) => {
   button.parentElement.innerHTML = `<p class="booked">Booked for ${bookingDate}</p>`
 }
 
-// Will need to adjust to accept customer login
-const loginCustomer = () => customer = customers[1];
+const loginUser = (user, password) => {
+  const validUsername = /^customer\d+$/
+  let usernameNum, theCustomer;
+
+  if (!validUsername.test(user) || password !== 'overlook2021') {
+    show(loginError);
+    return false;
+  } else {
+    usernameNum = parseInt(user.substring(8))
+  }
+
+  theCustomer = customers.find(customer => customer.id === usernameNum);
+
+  if (theCustomer instanceof Customer) {
+    customer = theCustomer;
+    return true;
+  } else {
+    show(loginError);
+    return false;
+  }
+}
 
 const updateBookings = () => {
   fetchAPI('bookings').then(
