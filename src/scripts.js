@@ -11,14 +11,12 @@ import BookingRepo from './classes/BookingRepo';
 import {fetchAPI, fetchAllData, postBooking} from './apiCalls';
 
 // GLOBAL VARIABLES
-
 let bookingRepo, customer;
 let customers = [];
 let rooms = [];
 let bookings = [];
 
 // QUERY SELECTORS
-
 const loginScreen = document.getElementById('loginScreen');
 const loginForm = document.getElementById('loginForm');
 const username = document.getElementById('username');
@@ -32,27 +30,7 @@ const typeSelection = document.getElementById('typeSelection');
 const searchForm = document.querySelector('form');
 const bookingsButton = document.getElementById('bookingsButton');
 
-
-
 // EVENT LISTENERS
-
-loginForm.addEventListener('submit', event => {
-  event.preventDefault();
-  if (loginUser(username.value, password.value)) {
-    showDashboard();
-    resetDateInput();
-    showBookingTotal();
-    showCustomerBookings();
-    console.log(customer)
-  };
-});
-
-searchForm.addEventListener('submit', event => {
-  event.preventDefault()
-  updateBookings();
-  showVacancies(dateInput.value, rooms, typeSelection.value);
-})
-
 window.addEventListener('load', () => {
   fetchAllData().then(
     data => {
@@ -63,6 +41,22 @@ window.addEventListener('load', () => {
     }
   );
 });
+
+loginForm.addEventListener('submit', event => {
+  event.preventDefault();
+  if (loginUser(username.value, password.value)) {
+    showDashboard();
+    resetDateInput();
+    showBookingTotal();
+    showCustomerBookings();
+  };
+});
+
+searchForm.addEventListener('submit', event => {
+  event.preventDefault()
+  updateBookings();
+  showVacancies(dateInput.value, rooms, typeSelection.value);
+})
 
 roomsDisplay.addEventListener('click', (event) => {
   if (event.target.id.includes('bookButton')) {
@@ -83,6 +77,78 @@ bookingsButton.addEventListener('click', () => {
 })
 
 // FUNCTIONS
+const loginUser = (user, password) => {
+  const validUsername = /^customer\d+$/
+  let usernameNum, possibleCustomer;
+
+  if (!validUsername.test(user) || password !== 'overlook2021') {
+    show(loginError);
+    return false;
+  } else {
+    usernameNum = parseInt(user.substring(8))
+  }
+
+  possibleCustomer = customers.find(customer => customer.id === usernameNum);
+
+  if (possibleCustomer instanceof Customer) {
+    customer = possibleCustomer;
+    return true;
+  } else {
+    show(loginError);
+    return false;
+  }
+}
+
+const showBookingTotal = () => {
+  const customerBookings = customer.getCustomerBookings(bookings);
+  let total = customer.getTotalCost(bookings, rooms);  
+  total = total.toFixed(2);
+  
+  return `You have ${customerBookings.length} bookings for a total of $${total}`
+}
+
+const showCustomerBookings = () => {
+  hide(bookingsButton);
+  const customerBookings = customer.getCustomerBookings(bookings);
+  customerBookings.forEach(booking => {
+    const bookingDate = arrangeDate(booking.date);
+    const room = booking.getRoom(rooms);
+    const imageEndPath = room.getImageEndPath();
+    const roomName = room.getRoomName();
+    const bedSize = room.getBedSize();
+    let bidetStatus;
+    if (room.bidet) {
+      bidetStatus = 'Includes Bidet'
+    } else {
+      bidetStatus = 'Does not Include Bidet'
+    }
+    
+    roomsDisplayTitle.innerHTML = `
+      <h2>Your Bookings</h2>
+      <h3>${showBookingTotal()}</h3>
+    `;
+    
+    roomsDisplay.innerHTML += `
+      <figure>
+        <img src="./images/${imageEndPath}" alt="picture of ${room.roomType}">
+        <figcaption>
+          <div>
+          <h4>Room #${booking.roomNumber} - ${roomName}</h4>
+          <h5>$${room.costPerNight}</h5>
+          </div>
+          <div class="room-description">
+            <p>Bed Size: ${bedSize}</p>
+            <p>Number of Beds: 2</p>
+            <p>${bidetStatus}</p>
+          </div>
+          <div>  
+            <h6 class="booked">Booked for ${bookingDate}</h6>
+          </div>
+        </figcaption>
+      </figure>
+    `;
+  });
+}
 
 const showVacancies = (date, rooms, type) => {
   clearRoomsDisplay();
@@ -130,102 +196,14 @@ const showVacancies = (date, rooms, type) => {
     });
   }
 }
-    
-const showBookingTotal = () => {
-  const customerBookings = customer.getCustomerBookings(bookings);
-  let total = customer.getTotalCost(bookings, rooms);  
-  total = total.toFixed(2);
-  
-  return `You have ${customerBookings.length} bookings for a total of $${total}`
-}
-
-const showCustomerBookings = () => {
-  hide(bookingsButton);
-  const customerBookings = customer.getCustomerBookings(bookings);
-  customerBookings.forEach(booking => {
-    const bookingDate = arrangeDate(booking.date);
-    const room = booking.getRoom(rooms);
-    const imageEndPath = room.getImageEndPath();
-    const roomName = room.getRoomName();
-    const bedSize = room.getBedSize();
-    let bidetStatus;
-    if (room.bidet) {
-      bidetStatus = 'Includes Bidet'
-    } else {
-      bidetStatus = 'Does not Include Bidet'
-    }
-    
-    roomsDisplayTitle.innerHTML = `
-      <h2>Your Bookings</h2>
-      <h3>${showBookingTotal()}</h3>
-    `;
-
-    showBookingTotal();
-
-    roomsDisplay.innerHTML += `
-      <figure>
-        <img src="./images/${imageEndPath}" alt="picture of ${room.roomType}">
-        <figcaption>
-          <div>
-          <h4>Room #${booking.roomNumber} - ${roomName}</h4>
-          <h5>$${room.costPerNight}</h5>
-          </div>
-          <div class="room-description">
-            <p>Bed Size: ${bedSize}</p>
-            <p>Number of Beds: 2</p>
-            <p>${bidetStatus}</p>
-          </div>
-          <div>  
-            <h6 class="booked">Booked for ${bookingDate}</h6>
-          </div>
-        </figcaption>
-      </figure>
-    `;
-  });
-}
 
 const replaceBookingButton = (button, bookingDate) => {
+  const month = bookingDate.substring(5, 7);
+  const day = bookingDate.substring(8);
+  const year = bookingDate.substring(0, 4);
+  bookingDate = month + '/' + day + '/' + year;
   button.parentElement.innerHTML = `<p class="booked">Booked for ${bookingDate}</p>`
 }
-
-const loginUser = (user, password) => {
-  const validUsername = /^customer\d+$/
-  let usernameNum, theCustomer;
-
-  if (!validUsername.test(user) || password !== 'overlook2021') {
-    show(loginError);
-    return false;
-  } else {
-    usernameNum = parseInt(user.substring(8))
-  }
-
-  theCustomer = customers.find(customer => customer.id === usernameNum);
-
-  if (theCustomer instanceof Customer) {
-    customer = theCustomer;
-    return true;
-  } else {
-    show(loginError);
-    return false;
-  }
-}
-
-const updateBookings = () => {
-  fetchAPI('bookings').then(
-    data => {
-      bookings = [];
-      data.bookings.forEach(booking => bookings.push(new Booking(booking)));
-      bookingRepo = new BookingRepo(bookings);
-    }
-  );
-}
-
-const resetSearchBar = () => {
-  resetDateInput();
-  typeSelection.value = 'any';
-}
-
-const clearRoomsDisplay = () => roomsDisplay.innerHTML = '';
 
 const resetDateInput = () => {
   let todaysDate = new Date();
@@ -245,13 +223,28 @@ const resetDateInput = () => {
   dateInput.min = todaysDate;
 }
 
+const resetSearchBar = () => {
+  resetDateInput();
+  typeSelection.value = 'any';
+}
+
+const clearRoomsDisplay = () => roomsDisplay.innerHTML = '';
+
+const updateBookings = () => {
+  fetchAPI('bookings').then(
+    data => {
+      bookings = [];
+      data.bookings.forEach(booking => bookings.push(new Booking(booking)));
+      bookingRepo = new BookingRepo(bookings);
+    }
+  );
+}
+
 function arrangeDate(date) {
   const monthAndDay = date.substring(5);
   const year = date.substring(0, 4);
   return monthAndDay + '/' + year
 }
-
-const hyphenateDate = date => date.replace(/\//g, '-');
 
 const showDashboard = () => {
   hide(loginScreen);
