@@ -161,7 +161,7 @@ const showVacancies = (date, rooms, type) => {
       <p class="apology-message">Our deepest and most sincere apologies. Try selecting a different date or search for a different room type.</p>
     `;
   } else {
-    vacancies.forEach((room, index) => {
+    vacancies.forEach((room) => {
       const imageEndPath = room.getImageEndPath();
       const roomName = room.getRoomName();
       const bedSize = room.getBedSize();
@@ -196,6 +196,8 @@ const showVacancies = (date, rooms, type) => {
     });
   }
 }
+
+
 
 const replaceBookingButton = (button, bookingDate) => {
   const month = bookingDate.substring(5, 7);
