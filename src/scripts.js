@@ -187,7 +187,29 @@ function myBookings() {
     booking.userID === currentUser)
   statMain.innerHTML = 
   `
-  <h1 id="stat-title">You currently have ${userBookings.length} bookings!</h2>
+  <h1 id="stat-title">All your bookings: ${userBookings.length} bookings!</h2>
+  `
+  userBookings.forEach(booking => {
+    statMain.innerHTML +=
+    `
+    <button value="${booking.id}" 
+    class="booking-date">${booking.date}</button>
+    `
+  })
+  const bookedButtons = document.querySelectorAll('.booking-date')
+  bookedButtons.forEach(button => {
+    button.addEventListener('click', bookingData)
+  })
+}
+
+function pastBookings() {
+  var userBookings = hotelData.bookings.filter(booking =>
+    booking.userID === currentUser && 
+    new Date(todaysDate).valueOf() > new Date(booking.date).valueOf())
+  statMain.innerHTML = 
+  `
+  <h1 id="stat-title">You have 
+  ${userBookings.length} past bookings!</h2>
   `
   userBookings.forEach(booking => {
     statMain.innerHTML +=
@@ -259,6 +281,138 @@ function removeBooking(booking) {
     location.reload() 
   }, 500)
 }
+
+const getDays = (year, month) => {
+  return new Date(year, month, 0).getDate();
+};
+
+// Manager logged in functionality
+
+function dailyStats() {
+  bookHotelButton.style.display = 'none'
+  dataArea.innerHTML = ""
+  roomsBooked = hotelData.bookings
+    .filter(booking => booking.date === '2022/04/22')
+  console.log(roomsBooked)
+  let totalRevenue = roomsBooked.reduce((acc, room) => {
+    acc += hotelData.rooms[room.roomNumber].costPerNight
+    return acc
+  }, 0)
+
+  statMain.innerHTML = `
+  <h1 id="stat-title">Hello, today is ${year}/${month}/${day}</h1>`
+  statMain.innerHTML += `
+  <li>
+    <h1>Rooms booked today: </h1> 
+    <h2> ${roomsBooked.length}</h2>
+  </li>
+  <li>
+  <h1>Rooms available today: </h1> 
+  <h2> ${hotelData.rooms.length - roomsBooked.length}</h2>
+  </li>
+  <h1>Percentage of rooms available today: </h1> 
+  <h2> ${Math.floor(roomsBooked.length / hotelData.rooms.length * 1000)}%</h2>
+  </li>
+  <li>
+    <h1>Total Revenue Today</h1>
+    <h2>$${totalRevenue}</h2>
+  </li>
+  `
+}
+
+function customerData() {
+  bookHotelButton.style.display = 'none'
+  updateResult("")
+  statMain.innerHTML = `
+  <h1 id="stat-title">Search for a customer here!</h1>
+  <input id="search-customer" placeholder="Enter Username" required>  
+  `
+
+  var search = document.querySelector('#search-customer')
+  search.addEventListener("input", (event) => {
+    var searchValue = event.target.value.toLowerCase();
+    updateResult(searchValue);
+  });
+}
+
+function updateResult(searchValue) {
+  console.log(searchValue)
+  // let data = hotelData.customers.map(customer => customer.name)
+  dataArea.innerHTML = ""
+  var filterNames = hotelData.customers.filter((customer) => {
+    return (
+      customer.name.toLowerCase().includes(searchValue)
+    );
+  })
+  let maxNames = 0
+  filterNames.forEach(customer => {
+    maxNames++
+    if (maxNames < 25) {
+      dataArea.innerHTML +=
+      `
+      <button value="${customer.id}"
+       class="name-button">${customer.name}</button>
+      `
+    }
+  })
+  var nameButtons = document.querySelectorAll('.name-button')
+  nameButtons.forEach(button => {
+    button.addEventListener('click', displayCustomerInfo)
+  })
+}
+
+function displayCustomerInfo(Event) {
+  bookHotelButton.style.display = 'block'
+  bookHotelButton.innerText = "Book for User"
+  bookHotelButton.style.color = "#4d194d"
+  currentEvent = Event
+  userID = Event.target.value
+  dataArea.innerHTML = ''
+  statMain.innerHTML = 
+  `
+  <h1 id="stat-title">All current bookings for ${Event.target.innerHTML}</h1>
+  `
+
+  var userBookings = hotelData.bookings.filter(booking =>
+    booking.userID === parseInt(userID))
+  var bookedRooms = []
+
+  userBookings.forEach(booking => {
+    bookedRooms.push(booking.roomNumber)
+    dataArea.innerHTML +=
+      `
+      <button value="${booking.id}" 
+      class="booking-date">${booking.date}</button>
+      `
+  })
+
+  var totalCost = calculateTotalCost(bookedRooms)
+
+  statMain.innerHTML =
+  `
+  <h1 id="stat-title">All current bookings for ${Event.target.innerHTML} 
+  - Total money spent: $${Math.floor(totalCost)}</h1>
+  `
+
+  const bookedButtons = document.querySelectorAll('.booking-date')
+  bookedButtons.forEach(button => {
+    button.addEventListener('click', bookingData)
+  })  
+
+}
+
+function calculateTotalCost(bookedRooms) {
+  return bookedRooms.reduce((acc, room) => {
+    hotelData.rooms.forEach(room2 => {
+      if (room === room2.number) {
+        acc += room2.costPerNight
+      }
+    })
+    return acc
+  }, 0)
+}
+
+//Book New Hotel Button
 
 function bookHotel() {
   dataArea.innerHTML = ''
@@ -431,141 +585,4 @@ function bookNewHotel() {
   setTimeout(() => {
     location.reload() 
   }, 500)
-}
-
-const getDays = (year, month) => {
-  return new Date(year, month, 0).getDate();
-};
-
-// Manager logged in functionality
-
-function dailyStats() {
-  bookHotelButton.style.display = 'none'
-  dataArea.innerHTML = ""
-  roomsBooked = hotelData.bookings
-    .filter(booking => booking.date === '2022/04/22')
-  console.log(roomsBooked)
-  let totalRevenue = roomsBooked.reduce((acc, room) => {
-    acc += hotelData.rooms[room.roomNumber].costPerNight
-    return acc
-  }, 0)
-
-  statMain.innerHTML = `
-  <h1 id="stat-title">Hello, today is ${year}/${month}/${day}</h1>`
-  statMain.innerHTML += `
-  <li>
-    <h1>Rooms booked today: </h1> 
-    <h2> ${roomsBooked.length}</h2>
-  </li>
-  <li>
-  <h1>Rooms available today: </h1> 
-  <h2> ${hotelData.rooms.length - roomsBooked.length}</h2>
-  </li>
-  <h1>Percentage of rooms available today: </h1> 
-  <h2> ${Math.floor(roomsBooked.length / hotelData.rooms.length * 1000)}%</h2>
-  </li>
-  <li>
-    <h1>Total Revenue Today</h1>
-    <h2>$${totalRevenue}</h2>
-  </li>
-  `
-}
-
-function customerData() {
-  bookHotelButton.style.display = 'none'
-  updateResult("")
-  statMain.innerHTML = `
-  <h1 id="stat-title">Search for a customer here!</h1>
-  <input id="search-customer" placeholder="Enter Username" required>  
-  `
-
-  var search = document.querySelector('#search-customer')
-  search.addEventListener("input", (event) => {
-    var searchValue = event.target.value.toLowerCase();
-    updateResult(searchValue);
-  });
-}
-
-function updateResult(searchValue) {
-  console.log(searchValue)
-  // let data = hotelData.customers.map(customer => customer.name)
-  dataArea.innerHTML = ""
-  var filterNames = hotelData.customers.filter((customer) => {
-    return (
-      customer.name.toLowerCase().includes(searchValue)
-    );
-  })
-  let maxNames = 0
-  filterNames.forEach(customer => {
-    maxNames++
-    if (maxNames < 25) {
-      dataArea.innerHTML +=
-      `
-      <button value="${customer.id}"
-       class="name-button">${customer.name}</button>
-      `
-    }
-  })
-  var nameButtons = document.querySelectorAll('.name-button')
-  nameButtons.forEach(button => {
-    button.addEventListener('click', displayCustomerInfo)
-  })
-}
-
-function displayCustomerInfo(Event) {
-  bookHotelButton.style.display = 'block'
-  bookHotelButton.innerText = "Book for User"
-  bookHotelButton.style.color = "#06d6a0"
-  currentEvent = Event
-  userID = Event.target.value
-  console.log(parseInt(userID))
-  dataArea.innerHTML = ''
-  statMain.innerHTML = 
-  `
-  <h1 id="stat-title">All current bookings for ${Event.target.innerHTML}</h1>
-  `
-
-  var userBookings = hotelData.bookings.filter(booking =>
-    booking.userID === parseInt(userID))
-  var bookedRooms = []
-
-  userBookings.forEach(booking => {
-    bookedRooms.push(booking.roomNumber)
-    console.log(booking)
-    dataArea.innerHTML +=
-      `
-      <button value="${booking.id}" 
-      class="booking-date">${booking.date}</button>
-      `
-  })
-
-  var totalCost = calculateTotalCost(bookedRooms)
-
-  statMain.innerHTML =
-  `
-  <h1 id="stat-title">All current bookings for ${Event.target.innerHTML} 
-  - Total money spent: $${Math.floor(totalCost)}</h1>
-  `
-
-  const bookedButtons = document.querySelectorAll('.booking-date')
-  bookedButtons.forEach(button => {
-    button.addEventListener('click', bookingData)
-  })  
-
-}
-
-function calculateTotalCost(bookedRooms) {
-  return bookedRooms.reduce((acc, room) => {
-    hotelData.rooms.forEach(room2 => {
-      if (room === room2.number) {
-        acc += room2.costPerNight
-      }
-    })
-    return acc
-  }, 0)
-}
-
-function pastBookings() {
-  statMain.innerHTML = `
-  <h1 id="stat-title">Your past bookings!</h1>`
 }
