@@ -35,11 +35,6 @@ var isAdmin = JSON.parse(sessionStorage.getItem('isAdmin')) || false
 var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn')) || false
 var hotelData
 var currentUser = 50
-var currentMonth
-var currentDay
-var currentYear
-var roomType
-var roomNum
 var roomsBooked
 var userID
 var currentEvent
@@ -495,16 +490,21 @@ function roomsAvailable(Event) {
   var sameRoomType = booking.filterRoomType()
 
   var takenThatDay = booking.takenThatDay()
-
-  sameRoomType.forEach(room => {
-    if (!takenThatDay.includes(room.number)) {
-      statMain.innerHTML +=
-      `
-      <button value="${room.number}" class="available-room-button">
-      ${room.number}</button>
-      `
-    }
-  })
+  if (takenThatDay.length === 25) {
+    statMain.innerHTML = `
+    <h1 id="stat-title">No available rooms</h1>
+    `
+  } else {
+    sameRoomType.forEach(room => {
+      if (!takenThatDay.includes(room.number)) {
+        statMain.innerHTML +=
+        `
+        <button value="${room.number}" class="available-room-button">
+        ${room.number}</button>
+        `
+      }
+    })
+  }
   var roomButtons = document.querySelectorAll('.available-room-button')
 
   roomButtons.forEach(button => {
@@ -516,7 +516,7 @@ function confirmRoomDate(Event) {
   booking.roomNum = JSON.parse(Event.target.value)
   statMain.innerHTML = `
   <h1 id="stat-title" class="selected-date">You have chosen </h1>
-  <h2>Room #${roomNum} on 
+  <h2>Room #${booking.roomNum} on 
   ${booking.currentMonth}/${booking.currentDay}/${booking.currentYear}</h2>
   <button id="book-it" class="book-button">Yes! Book It.</button>
   <button id="change-date" class="book-button">Change Booking Date.</button>
