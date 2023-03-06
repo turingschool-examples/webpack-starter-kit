@@ -43,7 +43,7 @@ input {
 }  
 
 #bad-login {
-  color: #f9295f;
+  color: #fdf0d5;
   margin-top: 10px;
   margin-left: 50px;
 }
@@ -259,4 +259,9 @@ button:hover {
   max-height: 100px;
   min-height: 55px;
   font-size: 8px;
+}
+
+#label {
+  color: #fdf0d5;
+  margin-top: 10px;
 }

@@ -163,22 +163,14 @@ function myInfo() {
   statMain.innerHTML = `
   <h1 id="stat-title">Your profile info!</h2>`
   statMain.innerHTML += `
-  <li>
-    <h1>Name: </h1> 
-    <h2> ${hotelData.customers[currentUser - 1].name}</h2>
-  </li>
-  <li>
-    <h1>ID: </h1> 
-    <h2> ${hotelData.customers[currentUser - 1].id}</h2>
-  </li>
-  <li>
+  <h1>Name: </h1> 
+  <h2> ${hotelData.customers[currentUser - 1].name}</h2>
+  <h1>ID: </h1> 
+  <h2> ${hotelData.customers[currentUser - 1].id}</h2>
   <h1>Location: </h1>
   <h2>Denver, CO </h2>
-  </li>
-  <li>
-    <h1>Amount of trips: </h1>
-    <h2>470 </h2>
-  </li>
+  <h1>Amount of trips: </h1>
+  <h2>470 </h2>
   `
 }
 
@@ -297,25 +289,15 @@ function dailyStats() {
     acc += hotelData.rooms[room.roomNumber].costPerNight
     return acc
   }, 0)
-
-  statMain.innerHTML = `
-  <h1 id="stat-title">Hello, today is ${year}/${month}/${day}</h1>`
   statMain.innerHTML += `
-  <li>
-    <h1>Rooms booked today: </h1> 
-    <h2> ${roomsBooked.length}</h2>
-  </li>
-  <li>
+  <h1>Rooms booked today: </h1> 
+  <h2> ${roomsBooked.length}</h2>
   <h1>Rooms available today: </h1> 
   <h2> ${hotelData.rooms.length - roomsBooked.length}</h2>
-  </li>
   <h1>Percentage of rooms available today: </h1> 
   <h2> ${Math.floor(roomsBooked.length / hotelData.rooms.length * 1000)}%</h2>
-  </li>
-  <li>
-    <h1>Total Revenue Today</h1>
-    <h2>$${totalRevenue}</h2>
-  </li>
+  <h1>Total Revenue Today</h1>
+  <h2>$${totalRevenue}</h2>
   `
 }
 
@@ -324,7 +306,9 @@ function customerData() {
   updateResult("")
   statMain.innerHTML = `
   <h1 id="stat-title">Search for a customer here!</h1>
-  <input id="search-customer" placeholder="Enter Username" required>  
+  <label id="label" for="search">Enter Customer's name</label>
+  <input id="search" id="search-customer" 
+  placeholder="Enter Username" required>  
   `
 
   var search = document.querySelector('#search-customer')
