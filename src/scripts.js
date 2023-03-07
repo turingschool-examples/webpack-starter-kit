@@ -287,7 +287,7 @@ function dailyStats() {
     acc += hotelData.rooms[room.roomNumber].costPerNight
     return acc
   }, 0)
-  statMain.innerHTML += `
+  statMain.innerHTML = `
   <h1>Rooms booked today: </h1> 
   <h2> ${roomsBooked.length}</h2>
   <h1>Rooms available today: </h1> 
