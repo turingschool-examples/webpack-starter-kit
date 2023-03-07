@@ -38,6 +38,7 @@ var currentUser = 50
 var roomsBooked
 var userID
 var currentEvent
+
 var booking
 
 //Current Date
