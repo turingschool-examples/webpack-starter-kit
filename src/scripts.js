@@ -55,7 +55,10 @@ if (month < 10) {
   month = `0${month}`
 }
 
+//The Daily Statistics page is set to the sample date because 
+//there is no data for todays date. 
 var todaysDate = year + '/' + month + '/' + day
+var sampleDate = '2022/04/22'
 
 
 //Event Listeners and their variables
@@ -282,7 +285,7 @@ function dailyStats() {
   bookHotelButton.style.display = 'none'
   dataArea.innerHTML = ""
   roomsBooked = hotelData.bookings
-    .filter(booking => booking.date === '2022/04/22')
+    .filter(booking => booking.date === sampleDate)
   let totalRevenue = roomsBooked.reduce((acc, room) => {
     acc += hotelData.rooms[room.roomNumber].costPerNight
     return acc
