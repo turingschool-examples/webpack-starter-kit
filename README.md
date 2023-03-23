@@ -30,7 +30,7 @@ To verify that it is setup correctly, run `npm start` in your terminal. Go to `h
 
 You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
 
-**Create all of your feature code files in the `src` directory.**
+**Create all of your feature code files in the `src` directory. Your HTMl can be found in the dist folder.**
 
 Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
 
@@ -66,7 +66,7 @@ Go to `http://localhost:8080/` in your browser to view your code running in the 
 
 Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
 
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
+**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `index-test.js`.
 
 ## Running Your Tests
 
