@@ -20,12 +20,17 @@ Overlook Hotel is an app mimicking a hotel website. As a user, you will first se
 To clone a copy of the project to a remote repository, follow these steps:
 
 1. Clone down a local copy of [the repository](https://github.com/kirkhauck/overlook-hotel).
-1. `cd` into the repository and run `npm install`
-1. Clone down a local copy of [the API](https://github.com/turingschool-examples/overlook-api).
-1. `cd` into the repository and run `npm install`
+1. `cd` into the repository and run `npm install`.
 1. You can open the project in your preferred text editor.
-1. To host the page on your local server run first run `npm start` in the API repo and again in the project repo.
+1. To host the page on your local server run first run `npm start`.
 ***
+
+### Logging into the App
+
+When you first open the app, you will be presented with a login screen. To login, enter the following credentials:
+
+- Username: customer20 (can replace the number to view another user's dashboard)
+- Password: overlook2021 (password for all users)
 
 ### Preview of App:
 ![](demo.gif)

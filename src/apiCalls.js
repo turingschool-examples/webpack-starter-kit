@@ -1,5 +1,5 @@
 const fetchAPI = (url) => {
-  return fetch(`http://localhost:3001/api/v1/${url}`).then(
+  return fetch(`https://overlook-api-jfogiato.vercel.app/api/v1/${url}`).then(
     response => {
       if (response.ok) {
         return response.json();
@@ -20,7 +20,7 @@ const fetchAllData = () => {
 }
 
 const postBooking = (booking) => {
-  return fetch('http://localhost:3001/api/v1/bookings', {
+  return fetch('https://overlook-api-jfogiato.vercel.app/api/v1/bookings', {
     method: 'POST',
     body: JSON.stringify(booking),
     headers: {
