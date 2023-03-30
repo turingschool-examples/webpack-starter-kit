@@ -1,11 +1,12 @@
 {
+  "homepage": "http://kirkhauck.github.io/overlook-hotel",
   "name": "webpack-starter-kit",
   "version": "2.0.0",
   "description": "Project starter kit using webpack, mocha, chai, and SCSS/SASS enabled",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turingschool-examples/webpack-starter-kit.git"
+    "url": "git+https://github.com/kirkhauck/overlook-hotel.git"
   },
   "author": "Turing School of Software and Design",
   "license": "MIT",
@@ -27,6 +28,8 @@
     "start": "webpack serve",
     "build": "webpack",
     "test": "mochapack 'test/**/*.js'",
-    "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'"
+    "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   }
 }
