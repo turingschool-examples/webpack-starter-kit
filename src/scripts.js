@@ -7,11 +7,11 @@ import Booking from './classes/booking.js'
 fetchData()
 
 function fetchData() {
-  const customers = fetch('http://localhost:3001/api/v1/customers')
+  const customers = fetch('https://overlook-api-jfogiato.vercel.app/api/v1/customers')
     .then((res) => res.json())
-  const rooms =  fetch('http://localhost:3001/api/v1/rooms')
+  const rooms =  fetch('https://overlook-api-jfogiato.vercel.app/api/v1/rooms')
     .then((res) => res.json())
-  const bookings = fetch('http://localhost:3001/api/v1/bookings')
+  const bookings = fetch('https://overlook-api-jfogiato.vercel.app/api/v1/bookings')
     .then((res) => res.json())
 
   Promise.all([customers, rooms, bookings])
@@ -60,7 +60,7 @@ if (month < 10) {
 var todaysDate = year + '/' + month + '/' + day
 var sampleDate = '2022/04/22'
 
-
+  
 //Event Listeners and their variables
 
 const title = document.querySelector('#page-title')
