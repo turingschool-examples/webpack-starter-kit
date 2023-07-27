@@ -1,0 +1,280 @@
+$lightBlue: rgba(0, 238, 255);
+$medBlue: rgba(19, 165, 255);
+$darkBlue: rgb(22, 42, 193);
+$white: rgb(255, 229, 208);
+$sand: rgb(231, 231, 231);
+$navy: rgb(0, 0, 30);
+$fontGreatVibes: "Great Vibes", cursive;
+$fontCantanaOne: "Cantata One", serif;
+$backgroundPicture: url("../images/vacation.jpg");
+
+body {
+  font-family: $fontCantanaOne;
+  background-image: $backgroundPicture;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+
+.title {
+  color: $navy;
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+  margin-bottom: 0;
+
+  #Overlook {
+    font-family: $fontGreatVibes;
+    font-size: 13vw;
+    margin: 0;
+    text-shadow: -0.1rem 0.1rem 0 $sand, 0.1rem 0.1rem 0 $sand,
+      0.1rem -0.1rem 0 $sand, -0.1rem -0.1rem 0 $sand;
+  }
+
+  #The {
+    font-family: $fontCantanaOne;
+    font-size: 3vw;
+    align-self: center;
+    margin: 0;
+    margin-bottom: 9%;
+    text-shadow: -0.1rem 0.1rem 0 $sand, 0.1rem 0.1rem 0 $sand,
+      0.1rem -0.1rem 0 $sand, -0.1rem -0.1rem 0 $sand;
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .first-navigation {
+    margin-left: 3rem;
+  }
+}
+
+button {
+  padding: 1%;
+  font-family: $fontCantanaOne;
+  font-size: 1vw;
+  height: auto;
+  width: 15vw;
+  border: solid $sand 2px;
+  border-radius: 0.25rem;
+  background-color: $navy;
+  color: $sand;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.sign-in {
+  margin-right: 4%;
+  padding: 0;
+}
+
+.log-in {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  justify-content: center;
+  align-items: center;
+
+  .input-bar {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    .icon-image {
+      width: 3vw;
+      height: auto;
+      padding: 0.25rem;
+      padding-bottom: 0;
+    }
+    label {
+      align-self: center;
+      font-family: $fontCantanaOne;
+      font-size: 3vw;
+    }
+    input {
+      height: 6vh;
+      width: 35vw;
+      border-radius: 0.5rem;
+      font-size: 2vw;
+      text-align: center;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  opacity: 90%;
+}
+
+.main-box {
+  display: flex;
+  min-height: 60vh;
+  height: min-content;
+  width: 100vw;
+  border-radius: 0.6rem;
+  background-image: linear-gradient($lightBlue, $navy);
+  box-shadow: $sand 0 0.3rem 2rem 0.1rem;
+  margin: 3%;
+  margin-top: 1%;
+}
+
+.welcome-normal {
+  text-align: center;
+  padding: 5%;
+  padding-top: 8%;
+  font-family: $fontCantanaOne;
+  font-size: 10vw;
+  color: $sand;
+  margin: 0;
+  text-shadow: -0.1rem 0.1rem 0 $navy, 0.1rem 0.1rem 0 $navy,
+    0.1rem -0.1rem 0 $navy, -0.1rem -0.1rem 0 $navy;
+}
+
+.welcome-styling {
+  align-self: center;
+  text-align: center;
+  font-family: $fontGreatVibes;
+  background-image: linear-gradient(
+    -225deg,
+    $sand 0%,
+    $white 10%,
+    $lightBlue 20%,
+    $medBlue 40%,
+    $darkBlue 60%,
+    $navy 70%,
+    $lightBlue 80%,
+    $white 90%,
+    $sand 100%
+  );
+  background-size: 300% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: transition 15s linear infinite;
+  display: inline-block;
+  font-size: 10vw;
+  margin: 0;
+  padding: 5rem;
+}
+
+@keyframes transition {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.add-booking {
+  display: flex;
+  flex-direction: row;
+}
+
+.booking-results {
+  width: 50vw;
+}
+
+#booking-form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $white;
+  border-radius: 0.25rem;
+  width: 40vw;
+  background-color: $navy;
+  margin: 1%;
+
+  label {
+    margin-bottom: 1rem;
+    color: $white;
+  }
+  input,
+  .form-control {
+    display: block;
+    height: 2.5rem;
+    padding: 0.375rem 0.75rem;
+    color: $white;
+    background-color: $navy;
+    border: 2px solid $lightBlue;
+    border-radius: 0.25rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    padding-bottom: 0;
+    margin: 1%;
+  }
+  .submit-button {
+    background-color: $white;
+    color: $navy;
+    align-self: center;
+    margin-bottom: 1rem;
+    .submit-button:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#available-rooms {
+  text-align: center;
+}
+
+.room-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.single-room-thumbnail {
+  justify-self: center;
+  color: $white;
+  border: $white solid 2px;
+  border-radius: 0.25rem;
+  background-color: $navy;
+  width: min-content;
+  padding: 2%;
+  margin: 5%;
+}
+
+.single-room-img {
+  height: 22vh;
+  width: auto;
+}
+
+.try-again,
+.delete {
+  font-style: italic;
+  color: rgb(154, 0, 0);
+}
+
+.manage-bookings {
+  padding: 1%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2rem;
+}
+
+.user-booking {
+  padding: 2%;
+  color: $sand;
+  border-radius: 1rem;
+  background-color: $navy;
+  border: 2px solid $white;
+}
+
+.hotel-info {
+  padding-left: 2rem;
+  font-size: 1vw;
+  color: $white;
+}
+
+.total-spent {
+  color: $white;
+}
+
+.hide {
+  display: none;
+}

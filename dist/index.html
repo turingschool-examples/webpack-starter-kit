@@ -1,16 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hotel Dani</title>
+  </head>
+  <body>
+    <span class="title"
+      ><h1 id="The">The</h1>
+      <h1 id="Overlook">Overlook</h1>
+    </span>
+    <nav class="navigation">
+      <section class="first-navigation hide">
+        <button class="create-bookings-button">My Dashboard</button>
+        <button class="manage-bookings-button">Manage Bookings</button>
+      </section>
+      <button class="sign-in hide">Sign In</button>
+    </nav>
+    <main class="main">
+      <span class="main-box">
+        <h2 class="welcome welcome-styling hide">Welcome</h2>
+        <section class="log-in">
+          <h2 class="bad-login hide">Not a valid user!</h2>
+          <form id="content">
+            <div class="input-bar">
+              <label for="name"
+                ><img
+                  class="icon-image"
+                  src="/images/user.png"
+                  alt="user icon"
+                />Username</label
+              >
+              <input type="text" id="name" class="input" />
+            </div>
+            <div class="input-bar">
+              <label for="password"
+                ><img
+                  class="icon-image"
+                  src="/images/lock.png"
+                  alt="lock icon"
+                />Password</label
+              >
+              <input
+                type="password"
+                id="password"
+                class="input"
+                value="overlook2021"
+              />
+            </div>
+          </form>
+          <button type="submit" id="login-btn">Login</button>
+        </section>
+        <section class="manage-bookings hide">
+          <h2>
+            You have not choosen a customer's bookings to view yet! Please
+            choose a customer.
+          </h2>
+        </section>
+        <section class="add-booking hide">
+          <form id="booking-form">
+            <div class="form-group calendar-section" id="calendarSection">
+              <label class="book-room-titles" for="calendar"
+                >Check availability:</label
+              >
+              <input
+                class="book-room-titles calendar"
+                type="date"
+                id="calendar"
+                name="booking"
+                value=""
+                min=""
+              />
+            </div>
+            <div class="form-group">
+              <label for="select-room"
+                >What room type are you looking for?</label
+              >
+              <select id="select-room" class="form-control" required="">
+                <option disabled="" selected="" value="">
+                  What room type are you looking for?
+                </option>
+                <option value="no-preference">No preference</option>
+                <option value="residential suite">Residential Suite</option>
+                <option value="suite">Suite</option>
+                <option value="single room">Single Room</option>
+                <option value="junior suite">Junior Suite</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button type="submit" id="submit-booking" class="submit-button">
+                Search
+              </button>
+            </div>
+            <section class="managers-form-section hide">
+              <div class="form-group">
+                <label for="find-customer"
+                  >Type custmers name to manage their bookings:</label
+                >
+                <input type="text" id="find-customer" class="input" />
+              </div>
+              <div class="form-group">
+                <button id="search-customers" class="submit-button">
+                  Choose Customer
+                </button>
+              </div>
+              <section class="hotel-information">
+                <h2 class="hotel-info">Hotel Information:</h2>
+                <h2 id="rooms-available" class="hotel-info">PLACEHOLDER</h2>
+                <h2 id="total-revenue" class="hotel-info">PLACEHOLDER</h2>
+                <h2 id="percentage-occupied" class="hotel-info">PLACEHOLDER</h2>
+                <h2 id="current-searched-customer" class="hotel-info">
+                  Customer: None selected
+                </h2>
+              </section>
+            </section>
+          </form>
+          <section class="booking-results">
+            <h2 id="available-rooms">Double click on a room to book it!</h2>
+            <section class="room-thumbnails">
+              <!-- ROOMS GO HERE -->
+            </section>
+          </section>
+        </section>
+      </span>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
 </html>
