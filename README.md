@@ -4,7 +4,7 @@
 
 The Overlook Hotel is an application where users can book hotel rooms. The user can book rooms by date, and by room type as long as there is availability. Customers can also view their upcoming and past stays. As a manager, users can see hotel information, add and delete bookings for a customer, and see any customers bookings.  
 
-This application was written by [Dani Bagley ](https://github.com/daniabee), a Mod 2 Frontend Engineering student at [Turing School of Software & Design](https://turing.edu/).
+This application was written by [Dani Bagley ](https://github.com/daniabee)
 
 **Login View**
 
