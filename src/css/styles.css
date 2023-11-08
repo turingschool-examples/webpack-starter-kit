@@ -10,11 +10,45 @@ h1 {
   text-align: center;
 }
 
-.trip-sections-container {
+.trip-buttons-container {
   display: flex;
   justify-content: center;
 }
 
 .trip-type {
   width: 250px;
+}
+
+.upcoming-trips-section, .pending-trips-section, .past-trips-section, .book-a-trip-section, .book-a-trip-section {
+  background-color: grey;
+  height: 500px;
+  width: 320px;
+  outline: 2px solid red;
+}
+
+.trip-sections-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* .pending-trips-section {
+  background-color: grey;
+  height: 200px;
+  outline: 2px solid red;
+}
+
+.past-trips-section {
+  background-color: grey;
+  height: 200px;
+  outline: 2px solid red;
+}
+
+.book-a-trip-section {
+  background-color: grey;
+  height: 200px;
+  outline: 2px solid red;
+} */
+
+.hidden {
+  display: none;
 }
