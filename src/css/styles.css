@@ -1,6 +1,9 @@
 body {
   background-color: #304c9b;
+}
 
+.hidden {
+  display: none;
 }
 
 h1 {
@@ -16,39 +19,22 @@ h1 {
 }
 
 .trip-type {
-  width: 250px;
-}
+  width: 270px;
+  height: 25px;
+  font-size: 16px;
 
-.upcoming-trips-section, .pending-trips-section, .past-trips-section, .book-a-trip-section, .book-a-trip-section {
-  background-color: grey;
-  height: 500px;
-  width: 320px;
-  outline: 2px solid red;
 }
 
 .trip-sections-container {
   display: flex;
-  justify-content: center;
 }
 
-/* .pending-trips-section {
-  background-color: grey;
-  height: 200px;
-  outline: 2px solid red;
+.upcoming-trips-section, .pending-trips-section, .past-trips-section, .book-a-trip-section, .book-a-trip-section {
+  height: 600px;
+  width: 1079px;
+  margin-left: 107px;
+  background-color: white;
 }
 
-.past-trips-section {
-  background-color: grey;
-  height: 200px;
-  outline: 2px solid red;
-}
 
-.book-a-trip-section {
-  background-color: grey;
-  height: 200px;
-  outline: 2px solid red;
-} */
 
-.hidden {
-  display: none;
-}
