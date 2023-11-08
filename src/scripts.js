@@ -70,3 +70,21 @@ const showUpcomingTrips = () => {
 
 
 
+
+
+// export const getPastTrips = (userId, trips, destinations) => {
+//   const user = trips.trips
+//     .filter((element) => element.userID === userId)
+//     .filter((element1) => {
+//       let tripDate = new Date(element1.date);
+//       let currentDate = new Date();
+//       return currentDate > tripDate;
+//     });
+
+//   return user.reduce((acc, curr) => {
+//     destinations.destinations.forEach((element) => {
+//       element.id === curr.destinationID ? acc.push(element) : "";
+//     });
+//     return acc;
+//   }, []);
+//};
