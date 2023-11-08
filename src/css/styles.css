@@ -1,3 +1,20 @@
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-color: #304c9b;
+
+}
+
+h1 {
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+.trip-sections-container {
+  display: flex;
+  justify-content: center;
+}
+
+.trip-type {
+  width: 250px;
 }
