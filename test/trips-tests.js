@@ -118,7 +118,7 @@ describe("Trips Test", () => {
     expect(new Date(user[0].date)).to.be.below(currentDate)
     expect(new Date(user[1].date)).to.be.below(currentDate);
   });
-  it("should return an array of objects where the id's of the objects are the same as destionation id's in the trips object.", () => {
+  it("should return an array of all the matching destinations.", () => {
     const user = getUserPastTripsDestinations(19, trips, destinations);
     expect(user[0].id).to.equal(49);
     expect(user[1].id).to.equal(22);
