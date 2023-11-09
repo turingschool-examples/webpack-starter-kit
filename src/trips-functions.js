@@ -51,9 +51,17 @@ export const getUserUpcomingTripDestinations = (userId, trips, destinations) => 
 };
 
 export const userTripsThisYear = (userId, trips) => {
-  return trips.trips.filter((trip) => {
-    let currentYear = new Date().getFullYear();
+  let currentYear = new Date().getFullYear();
+  let userTrips = trips.trips.filter((trip) => {
     let tripYear = new Date(trip.date).getFullYear();
     return currentYear === tripYear && trip.userID === userId;
   });
+  if (!userTrips.length) {
+    return `${currentYear} Total: $0`;
+  }
+  return userTrips;
 };
+
+
+//make sad path
+// Should say yearly total 0 if none for the year

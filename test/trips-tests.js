@@ -241,6 +241,13 @@ describe("Trips Test", () => {
     expect(tripYear2).to.equal(2023)
   });
 
+  it("should send a message if no trips are this year", () => {
+    const user = userTripsThisYear(43, trips);
+    
+    expect(user).to.be.a("string");
+    expect(user).to.equal("2023 Total: $0")
+  });
+
 });
 
 
