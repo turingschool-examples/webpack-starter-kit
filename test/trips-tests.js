@@ -5,13 +5,14 @@ const {
   getUserPastTripDestinations,
   getUserUpcomingTrips,
   getUserUpcomingTripDestinations,
+  userTripsThisYear
 } = require("../src/trips-functions.js");
 
 describe("Trips Test", () => {
   let trips, destinations;
   
   beforeEach(() => {
-    
+
     trips = {
       trips: [
         {
@@ -19,7 +20,7 @@ describe("Trips Test", () => {
           userID: 19,
           destinationID: 49,
           travelers: 1,
-          date: "2022/09/16",
+          date: "2023/09/16",
           duration: 8,
           status: "approved",
           suggestedActivities: [],
@@ -29,7 +30,7 @@ describe("Trips Test", () => {
           userID: 19,
           destinationID: 25,
           travelers: 5,
-          date: "2025/12/04",
+          date: "2023/12/04",
           duration: 18,
           status: "approved",
           suggestedActivities: [],
@@ -66,6 +67,62 @@ describe("Trips Test", () => {
         },
       ],
     };
+
+    
+    // trips = {
+    //   trips: [
+    //     {
+    //       id: 1,
+    //       userID: 19,
+    //       destinationID: 49,
+    //       travelers: 1,
+    //       date: "2022/09/16",
+    //       duration: 8,
+    //       status: "approved",
+    //       suggestedActivities: [],
+    //     },
+    //     {
+    //       id: 2,
+    //       userID: 19,
+    //       destinationID: 25,
+    //       travelers: 5,
+    //       date: "2025/12/04",
+    //       duration: 18,
+    //       status: "approved",
+    //       suggestedActivities: [],
+    //     },
+    //     {
+    //       id: 3,
+    //       userID: 19,
+    //       destinationID: 22,
+    //       travelers: 4,
+    //       date: "2022/05/22",
+    //       duration: 17,
+    //       status: "approved",
+    //       suggestedActivities: [],
+    //     },
+    //     {
+    //       id: 4,
+    //       userID: 43,
+    //       destinationID: 14,
+    //       travelers: 2,
+    //       date: "2050/02/25",
+    //       duration: 10,
+    //       status: "approved",
+    //       suggestedActivities: [],
+    //     },
+    //     {
+    //       id: 5,
+    //       userID: 19,
+    //       destinationID: 29,
+    //       travelers: 3,
+    //       date: "2030/12/30",
+    //       duration: 18,
+    //       status: "approved",
+    //       suggestedActivities: [],
+    //     },
+    //   ],
+    // };
 
     destinations = {
       destinations: [
@@ -131,19 +188,19 @@ describe("Trips Test", () => {
     expect(user).to.equal('You have no past trips');
   });
 
-   it("should return an array of all the matching destinations from from the past", () => {
-     const user = getUserPastTripDestinations(19, trips, destinations);
-     expect(user).to.be.an("array");
-     expect(user).to.have.lengthOf(2)
-     expect(user[0].id).to.equal(49);
-     expect(user[1].id).to.equal(22);
-   });
+  it("should return an array of all the matching destinations from from the past", () => {
+    const user = getUserPastTripDestinations(19, trips, destinations);
+    expect(user).to.be.an("array");
+    expect(user).to.have.lengthOf(2)
+    expect(user[0].id).to.equal(49);
+    expect(user[1].id).to.equal(22);
+  });
 
-   it("should return a message if there are no past destinations visited", () => {
-     const user = getUserPastTripDestinations(43, trips, destinations);
-     expect(user).to.be.a('string')
-     expect(user).to.equal('You have no past trips')
-   });
+  it("should return a message if there are no past destinations visited", () => {
+    const user = getUserPastTripDestinations(43, trips, destinations);
+    expect(user).to.be.a('string')
+    expect(user).to.equal('You have no past trips')
+  });
 
   it("should only return trips with a future date", () => {
     const currentDate = new Date();
@@ -172,6 +229,16 @@ describe("Trips Test", () => {
     const user = getUserUpcomingTripDestinations(3, trips, destinations);
     expect(user).to.be.a("string");
     expect(user).to.equal("You have no upcoming trips")
+  });
+
+  it("should return only the trips that are this year", () => {
+    const user = userTripsThisYear(19, trips);
+    const tripYear1 = new Date(user[0].date).getFullYear();
+    const tripYear2 = new Date(user[1].date).getFullYear();
+
+    expect(user).to.be.an("array");
+    expect(tripYear1).to.equal(2023);
+    expect(tripYear2).to.equal(2023)
   });
 
 });

@@ -49,3 +49,11 @@ export const getUserUpcomingTripDestinations = (userId, trips, destinations) => 
     return acc;
   }, []);
 };
+
+export const userTripsThisYear = (userId, trips) => {
+  return trips.trips.filter((trip) => {
+    let currentYear = new Date().getFullYear();
+    let tripYear = new Date(trip.date).getFullYear();
+    return currentYear === tripYear && trip.userID === userId;
+  });
+};
