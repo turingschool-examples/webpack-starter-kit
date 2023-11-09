@@ -13,8 +13,11 @@ export const getUserPastTrips = (userId, trips) => {
 };
 
 export const getUserPastTripDestinations = (userId, trips, destinations) => {
-  let user = getUserPastTrips(userId, trips);
-  return user.reduce((acc, curr) => {
+  let userTrips = getUserPastTrips(userId, trips);
+  if (typeof userTrips === "string") {
+    return userTrips;
+  }
+  return userTrips.reduce((acc, curr) => {
     destinations.destinations.forEach((element) => {
       element.id === curr.destinationID ? acc.push(element) : "";
     });
@@ -23,20 +26,26 @@ export const getUserPastTripDestinations = (userId, trips, destinations) => {
 };
 
 export const getUserUpcomingTrips = (userId, trips) => {
-  return trips.trips.filter((element) => {
+  let userTrips = trips.trips.filter((element) => {
     let currentDate = new Date();
     let tripDate = new Date(element.date);
     return element.userID === userId && tripDate > currentDate;
   });
+  if (!userTrips.length) {
+    return "You have no upcoming trips";
+  }
+  return userTrips;
 };
 
 export const getUserUpcomingTripDestinations = (userId, trips, destinations) => {
-  let user = getUserUpcomingTrips(userId, trips);
-  return user.reduce((acc, curr) => {
+  let userTrips = getUserUpcomingTrips(userId, trips);
+  if (typeof userTrips === "string") {
+    return userTrips;
+  }
+  return userTrips.reduce((acc, curr) => {
     destinations.destinations.forEach((element) => {
       element.id === curr.destinationID ? acc.push(element) : "";
     });
     return acc;
   }, []);
 };
-

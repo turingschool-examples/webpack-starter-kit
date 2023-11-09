@@ -110,14 +110,14 @@ describe("Trips Test", () => {
 
   });
 
-  it("should only return objects with a user id of 19", () => {
+  it("should only return all trips with a user id of 19", () => {
     const user = getUserPastTrips(19, trips)
     expect(user).to.be.an("array");
     expect(user[0].userID).to.equal(19);
     expect(user[1].userID).to.equal(19);
   });
 
-  it("should only return objects with a past date", () => {
+  it("should only return trips with a specified user Id and with a past date", () => {
     const currentDate = new Date()
     const user = getUserPastTrips(19, trips);
     expect(user).to.be.an("array");
@@ -139,7 +139,13 @@ describe("Trips Test", () => {
      expect(user[1].id).to.equal(22);
    });
 
-  it("should only return objects with a future date", () => {
+   it("should return a message if there are no past destinations visited", () => {
+     const user = getUserPastTripDestinations(43, trips, destinations);
+     expect(user).to.be.a('string')
+     expect(user).to.equal('You have no past trips')
+   });
+
+  it("should only return trips with a future date", () => {
     const currentDate = new Date();
     const user = getUserUpcomingTrips(19, trips);
     expect(user).to.be.an("array");
@@ -148,12 +154,24 @@ describe("Trips Test", () => {
     expect(new Date(user[1].date)).to.be.above(currentDate);
   });
 
+  it("should return a message if user has no trips with a future date", () => {
+    const user = getUserUpcomingTrips(3, trips, destinations)
+    expect(user).to.be.a('string');
+    expect(user).to.equal('You have no upcoming trips')
+  });
+
   it("should return an array of all the matching destinations from from the future", () => {
     const user = getUserUpcomingTripDestinations(19, trips, destinations);
     expect(user).to.be.an("array");
     expect(user).to.have.lengthOf(2);
     expect(user[0].id).to.equal(25);
     expect(user[1].id).to.equal(29);
+  });
+
+  it("should return a message if there are no upcoming trip destinations", () => {
+    const user = getUserUpcomingTripDestinations(3, trips, destinations);
+    expect(user).to.be.a("string");
+    expect(user).to.equal("You have no upcoming trips")
   });
 
 });
