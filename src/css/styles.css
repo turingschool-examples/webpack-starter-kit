@@ -27,12 +27,12 @@ h1 {
 
 .trip-sections-container {
   display: flex;
+  justify-content: center;
 }
 
 .upcoming-trips-section, .pending-trips-section, .past-trips-section, .book-a-trip-section, .book-a-trip-section {
   height: 600px;
   width: 1079px;
-  margin-left: 107px;
   background-color: white;
 }
 

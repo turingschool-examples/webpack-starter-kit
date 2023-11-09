@@ -26,7 +26,7 @@ export const getUserUpcomingTrips = (userId, trips) => {
   });
 };
 
-export const getUserUpcomingTripDestinations = (userId, trips, destinations, trip) => {
+export const getUserUpcomingTripDestinations = (userId, trips, destinations) => {
   let user = getUserUpcomingTrips(userId, trips);
   return user.reduce((acc, curr) => {
     destinations.destinations.forEach((element) => {

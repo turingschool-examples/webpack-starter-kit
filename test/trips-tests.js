@@ -125,19 +125,19 @@ describe("Trips Test", () => {
     expect(new Date(user[1].date)).to.be.below(currentDate);
   });
 
+   it("should return an array of all the matching destinations from from the past", () => {
+     const user = getUserPastTripDestinations(19, trips, destinations);
+     expect(user).to.be.an("array");
+     expect(user[0].id).to.equal(49);
+     expect(user[1].id).to.equal(22);
+   });
+
   it("should only return objects with a future date", () => {
     const currentDate = new Date();
     const user = getUserUpcomingTrips(19, trips);
     expect(user).to.be.an("array");
     expect(new Date(user[0].date)).to.be.above(currentDate);
     expect(new Date(user[1].date)).to.be.above(currentDate);
-  });
-
-  it("should return an array of all the matching destinations from from the past", () => {
-    const user = getUserPastTripDestinations(19, trips, destinations);
-    expect(user).to.be.an('array')
-    expect(user[0].id).to.equal(49);
-    expect(user[1].id).to.equal(22);
   });
 
   it("should return an array of all the matching destinations from from the future", () => {
