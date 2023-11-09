@@ -1,6 +1,7 @@
 import { expect } from "chai";
 
-const {getUserPastTrips, getUserPastTripsDestinations } = require("../src/trips-functions.js");
+const {
+  getUserPastTrips,getUserPastTripsDestinations, getUserUpcomingTrips,} = require("../src/trips-functions.js");
 
 describe("Trips Test", () => {
   let trips, destinations;
@@ -110,18 +111,25 @@ describe("Trips Test", () => {
     expect(user[0].userID).to.equal(19);
     expect(user[1].userID).to.equal(19);
   });
+
   it("should only return objects with a past date", () => {
-
     const currentDate = new Date()
-
     const user = getUserPastTrips(19, trips);
     expect(new Date(user[0].date)).to.be.below(currentDate)
     expect(new Date(user[1].date)).to.be.below(currentDate);
   });
-  it("should return an array of all the matching destinations.", () => {
+
+  it("should return an array of all the matching destinations", () => {
     const user = getUserPastTripsDestinations(19, trips, destinations);
     expect(user[0].id).to.equal(49);
     expect(user[1].id).to.equal(22);
+  });
+  
+  it("should only return objects with a future date", () => {
+    const currentDate = new Date();
+    const user = getUserUpcomingTrips(19, trips);
+    expect(new Date(user[0].date)).to.be.above(currentDate);
+    expect(new Date(user[1].date)).to.be.above(currentDate);
   });
 });
 

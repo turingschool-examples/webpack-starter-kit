@@ -17,3 +17,12 @@ export const getUserPastTripsDestinations = (userId, trips, destinations) => {
     return acc;
   }, []);
 };
+
+export const getUserUpcomingTrips = (userId, trips) => {
+  return trips.trips.filter((element) => {
+    let currentDate = new Date();
+    let tripDate = new Date(element.date);
+    return element.userID === userId && tripDate > currentDate;
+  });
+};
+
