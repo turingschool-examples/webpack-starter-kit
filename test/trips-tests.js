@@ -5,7 +5,8 @@ const {
   getUserPastTripDestinations,
   getUserUpcomingTrips,
   getUserUpcomingTripDestinations,
-  userTripsThisYear
+  userTripsThisYear,
+  getAnnualSpent
 } = require("../src/trips-functions.js");
 
 describe("Trips Test", () => {
@@ -67,62 +68,6 @@ describe("Trips Test", () => {
         },
       ],
     };
-
-    
-    // trips = {
-    //   trips: [
-    //     {
-    //       id: 1,
-    //       userID: 19,
-    //       destinationID: 49,
-    //       travelers: 1,
-    //       date: "2022/09/16",
-    //       duration: 8,
-    //       status: "approved",
-    //       suggestedActivities: [],
-    //     },
-    //     {
-    //       id: 2,
-    //       userID: 19,
-    //       destinationID: 25,
-    //       travelers: 5,
-    //       date: "2025/12/04",
-    //       duration: 18,
-    //       status: "approved",
-    //       suggestedActivities: [],
-    //     },
-    //     {
-    //       id: 3,
-    //       userID: 19,
-    //       destinationID: 22,
-    //       travelers: 4,
-    //       date: "2022/05/22",
-    //       duration: 17,
-    //       status: "approved",
-    //       suggestedActivities: [],
-    //     },
-    //     {
-    //       id: 4,
-    //       userID: 43,
-    //       destinationID: 14,
-    //       travelers: 2,
-    //       date: "2050/02/25",
-    //       duration: 10,
-    //       status: "approved",
-    //       suggestedActivities: [],
-    //     },
-    //     {
-    //       id: 5,
-    //       userID: 19,
-    //       destinationID: 29,
-    //       travelers: 3,
-    //       date: "2030/12/30",
-    //       duration: 18,
-    //       status: "approved",
-    //       suggestedActivities: [],
-    //     },
-    //   ],
-    // };
 
     destinations = {
       destinations: [
@@ -246,6 +191,17 @@ describe("Trips Test", () => {
     
     expect(user).to.be.a("string");
     expect(user).to.equal("2023 Total: $0")
+  });
+  
+  it("should create an object with a breakdown of each price", () => {
+    const user = getAnnualSpent(19, trips, destinations);
+
+    expect(user).to.be.an("object");
+    expect(user.totalFlightPrice).to.equal(5090);
+    expect(user.totalLodgingPrice).to.equal(16000);
+    expect(user.subTotal).to.equal(21090);
+    expect(user.agentFee).to.equal(2109);
+    expect(user.total).to.equal(23199)
   });
 
 });

@@ -62,6 +62,31 @@ export const userTripsThisYear = (userId, trips) => {
   return userTrips;
 };
 
-
-//make sad path
-// Should say yearly total 0 if none for the year
+export const getAnnualSpent = (userId, trips, destinations) => {
+  let places = userTripsThisYear(userId, trips);
+  return places.reduce(
+    (acc, curr) => {
+      destinations.destinations.forEach((destination) => {
+        if (destination.id === curr.destinationID) {
+          let numOfTravelersXDuration = curr.travelers * curr.duration;
+          acc.totalLodgingPrice +=
+            numOfTravelersXDuration * destination.estimatedLodgingCostPerDay;
+          acc.totalFlightPrice +=
+            curr.travelers * destination.estimatedFlightCostPerPerson;
+          acc.subTotal = acc.totalLodgingPrice + acc.totalFlightPrice;
+          acc.agentFee = acc.subTotal * 0.1;
+          acc.total =
+            acc.totalLodgingPrice + acc.totalFlightPrice + acc.agentFee;
+        }
+      });
+      return acc;
+    },
+    {
+      totalLodgingPrice: 0,
+      totalFlightPrice: 0,
+      subTotal: 0,
+      agentFee: 0,
+      total: 0,
+    }
+  );
+};
