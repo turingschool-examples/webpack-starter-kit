@@ -49,7 +49,7 @@ describe("Trips Test", () => {
           userID: 43,
           destinationID: 14,
           travelers: 2,
-          date: "2022/02/25",
+          date: "2050/02/25",
           duration: 10,
           status: "approved",
           suggestedActivities: [],
@@ -125,9 +125,16 @@ describe("Trips Test", () => {
     expect(new Date(user[1].date)).to.be.below(currentDate);
   });
 
+  it("should return a message if the user has no pass trips", () => {
+    const user = getUserPastTrips(43, trips);
+    expect(user).to.be.a('string');
+    expect(user).to.equal('You have no past trips');
+  });
+
    it("should return an array of all the matching destinations from from the past", () => {
      const user = getUserPastTripDestinations(19, trips, destinations);
      expect(user).to.be.an("array");
+     expect(user).to.have.lengthOf(2)
      expect(user[0].id).to.equal(49);
      expect(user[1].id).to.equal(22);
    });
@@ -136,6 +143,7 @@ describe("Trips Test", () => {
     const currentDate = new Date();
     const user = getUserUpcomingTrips(19, trips);
     expect(user).to.be.an("array");
+    expect(user).to.have.lengthOf(2);
     expect(new Date(user[0].date)).to.be.above(currentDate);
     expect(new Date(user[1].date)).to.be.above(currentDate);
   });
@@ -143,6 +151,7 @@ describe("Trips Test", () => {
   it("should return an array of all the matching destinations from from the future", () => {
     const user = getUserUpcomingTripDestinations(19, trips, destinations);
     expect(user).to.be.an("array");
+    expect(user).to.have.lengthOf(2);
     expect(user[0].id).to.equal(25);
     expect(user[1].id).to.equal(29);
   });

@@ -1,11 +1,15 @@
 export const getUserPastTrips = (userId, trips) => {
-  return trips.trips
-  .filter((element) => element.userID === userId)
-  .filter((element1) => {
+  let userTrips = trips.trips
+    .filter((element) => element.userID === userId)
+    .filter((element1) => {
       let tripDate = new Date(element1.date);
       let currentDate = new Date();
       return currentDate > tripDate;
     });
+  if (!userTrips.length) {
+    return "You have no past trips";
+  }
+  return userTrips;
 };
 
 export const getUserPastTripDestinations = (userId, trips, destinations) => {
