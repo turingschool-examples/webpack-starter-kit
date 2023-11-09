@@ -1,7 +1,11 @@
 import { expect } from "chai";
 
 const {
-  getUserPastTrips,getUserPastTripsDestinations, getUserUpcomingTrips,} = require("../src/trips-functions.js");
+  getUserPastTrips,
+  getUserPastTripDestinations,
+  getUserUpcomingTrips,
+  getUserUpcomingTripDestinations,
+} = require("../src/trips-functions.js");
 
 describe("Trips Test", () => {
   let trips, destinations;
@@ -75,7 +79,7 @@ describe("Trips Test", () => {
           alt: "people standing inside a colosseum during the day",
         },
         {
-          id: 23,
+          id: 25,
           destination: "Copenhagen, Denmark",
           estimatedLodgingCostPerDay: 120,
           estimatedFlightCostPerPerson: 1000,
@@ -84,7 +88,7 @@ describe("Trips Test", () => {
           alt: "colorful buildings with holiday decorations by the water with tents and docked boats",
         },
         {
-          id: 24,
+          id: 29,
           destination: "Vilnius, Lithuania",
           estimatedLodgingCostPerDay: 65,
           estimatedFlightCostPerPerson: 1100,
@@ -108,6 +112,7 @@ describe("Trips Test", () => {
 
   it("should only return objects with a user id of 19", () => {
     const user = getUserPastTrips(19, trips)
+    expect(user).to.be.an("array");
     expect(user[0].userID).to.equal(19);
     expect(user[1].userID).to.equal(19);
   });
@@ -115,22 +120,33 @@ describe("Trips Test", () => {
   it("should only return objects with a past date", () => {
     const currentDate = new Date()
     const user = getUserPastTrips(19, trips);
+    expect(user).to.be.an("array");
     expect(new Date(user[0].date)).to.be.below(currentDate)
     expect(new Date(user[1].date)).to.be.below(currentDate);
   });
 
-  it("should return an array of all the matching destinations", () => {
-    const user = getUserPastTripsDestinations(19, trips, destinations);
-    expect(user[0].id).to.equal(49);
-    expect(user[1].id).to.equal(22);
-  });
-  
   it("should only return objects with a future date", () => {
     const currentDate = new Date();
     const user = getUserUpcomingTrips(19, trips);
+    expect(user).to.be.an("array");
     expect(new Date(user[0].date)).to.be.above(currentDate);
     expect(new Date(user[1].date)).to.be.above(currentDate);
   });
+
+  it("should return an array of all the matching destinations from from the past", () => {
+    const user = getUserPastTripDestinations(19, trips, destinations);
+    expect(user).to.be.an('array')
+    expect(user[0].id).to.equal(49);
+    expect(user[1].id).to.equal(22);
+  });
+
+  it("should return an array of all the matching destinations from from the future", () => {
+    const user = getUserUpcomingTripDestinations(19, trips, destinations);
+    expect(user).to.be.an("array");
+    expect(user[0].id).to.equal(25);
+    expect(user[1].id).to.equal(29);
+  });
+
 });
 
 

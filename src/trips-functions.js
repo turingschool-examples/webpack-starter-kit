@@ -8,7 +8,7 @@ export const getUserPastTrips = (userId, trips) => {
     });
 };
 
-export const getUserPastTripsDestinations = (userId, trips, destinations) => {
+export const getUserPastTripDestinations = (userId, trips, destinations) => {
   let user = getUserPastTrips(userId, trips);
   return user.reduce((acc, curr) => {
     destinations.destinations.forEach((element) => {
@@ -24,5 +24,15 @@ export const getUserUpcomingTrips = (userId, trips) => {
     let tripDate = new Date(element.date);
     return element.userID === userId && tripDate > currentDate;
   });
+};
+
+export const getUserUpcomingTripDestinations = (userId, trips, destinations, trip) => {
+  let user = getUserUpcomingTrips(userId, trips);
+  return user.reduce((acc, curr) => {
+    destinations.destinations.forEach((element) => {
+      element.id === curr.destinationID ? acc.push(element) : "";
+    });
+    return acc;
+  }, []);
 };
 
