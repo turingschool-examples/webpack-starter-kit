@@ -19,7 +19,7 @@ h1 {
 }
 
 .trip-type {
-  width: 270px;
+  width: 220px;
   height: 25px;
   font-size: 16px;
 }
@@ -29,9 +29,9 @@ h1 {
   justify-content: center;
 }
 
-.upcoming-trips-section, .pending-trips-section, .past-trips-section, .book-a-trip-section, .book-a-trip-section {
-  height: 600px;
-  width: 1079px;
+.upcoming-trips-section, .pending-trips-section, .past-trips-section, .book-a-trip-section, .book-a-trip-section, .annual-total-section {
+  height: 580px;
+  width: 1098px;
   background-color: white;
 }
 
