@@ -22,10 +22,18 @@ const pastTripsButton = document.querySelector('.past-trips-button');
 const annualTotalButton = document.querySelector('.annual-total-button')
 const bookATripButton = document.querySelector('.book-a-trip-button')
 
-  
+
+const loginContainer = document.querySelector('.login-container')
+
+
 window.addEventListener('load', () => {
-  showUpcomingTrips();
+  showLoginPage()
 })
+
+const showLoginPage = () => {
+  const pageContent = document.querySelector('.page-content')
+  pageContent.classList.add('hidden')
+}
 
 upcomingTripsButton.addEventListener('click', () => {
   showUpcomingTrips()
@@ -90,20 +98,3 @@ const showUpcomingTrips = () => {
 
 
 
-
-// export const getPastTrips = (userId, trips, destinations) => {
-//   const user = trips.trips
-//     .filter((element) => element.userID === userId)
-//     .filter((element1) => {
-//       let tripDate = new Date(element1.date);
-//       let currentDate = new Date();
-//       return currentDate > tripDate;
-//     });
-
-//   return user.reduce((acc, curr) => {
-//     destinations.destinations.forEach((element) => {
-//       element.id === curr.destinationID ? acc.push(element) : "";
-//     });
-//     return acc;
-//   }, []);
-//};
