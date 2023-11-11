@@ -70,7 +70,7 @@ const completeLogInEndpoint = (user) => {
 };
 
 const handleLoginErrors = (user) => {
-  if (user.id && user.password === 'travel' && user.username.slice(0, 8) === 'traveler') {
+  if (user.id && user.id <= 50 && user.password === 'travel' && user.username.slice(0, 8) === 'traveler') {
     signInUser()
   } else {
     loginError.classList.remove("hidden");
