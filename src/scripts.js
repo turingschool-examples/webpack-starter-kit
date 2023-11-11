@@ -50,7 +50,6 @@ signInButton.addEventListener("click", () => {
    handleLoginErrors(user)
    showUpcomingTrips()
    fetchLoginInfo(user)
-
 });
 
 const captureLoginInfo = (user) => {
@@ -71,11 +70,12 @@ const completeLogInEndpoint = (user) => {
 };
 
 const handleLoginErrors = (user) => {
-  if (user.id && user.password === 'travel') {
+  if (user.id && user.password === 'travel' && user.username.slice(0, 8) === 'traveler') {
     signInUser()
   } else {
     loginError.classList.remove("hidden");
   }
+  console.log(user)
 }
 
 export const getUserFirstName = (data) => {
