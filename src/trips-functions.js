@@ -1,7 +1,7 @@
-export const getUserPastTrips = (userId, trips) => {
-  let userTrips = trips.trips
-    .filter((element) => element.userID === userId)
-    .filter((element1) => {
+export const getUserPastTrips = (user, trips) => {
+  let userTrips = trips
+  .filter((element) => element.userID === user.id)
+  .filter((element1) => {
       let tripDate = new Date(element1.date);
       let currentDate = new Date();
       return currentDate > tripDate;
@@ -12,13 +12,13 @@ export const getUserPastTrips = (userId, trips) => {
   return userTrips;
 };
 
-export const getUserPastTripDestinations = (userId, trips, destinations) => {
-  let userTrips = getUserPastTrips(userId, trips);
+export const getUserPastTripDestinations = (user, trips, destinations) => {
+  let userTrips = getUserPastTrips(user, trips);
   if (typeof userTrips === "string") {
     return userTrips;
   }
   return userTrips.reduce((acc, curr) => {
-    destinations.destinations.forEach((element) => {
+    destinations.forEach((element) => {
       element.id === curr.destinationID ? acc.push(element) : "";
     });
     return acc;
@@ -26,7 +26,7 @@ export const getUserPastTripDestinations = (userId, trips, destinations) => {
 };
 
 export const getUserUpcomingTrips = (userId, trips) => {
-  let userTrips = trips.trips.filter((element) => {
+  let userTrips = trips.filter((element) => {
     let currentDate = new Date();
     let tripDate = new Date(element.date);
     return element.userID === userId && tripDate > currentDate;

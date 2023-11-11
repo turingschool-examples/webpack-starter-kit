@@ -6,8 +6,9 @@ import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
-import { fetchTavelers, fetchDestinations, fetchLoginInfo } from './apiCalls';
+import { fetchTrips, fetchDestinations, fetchLoginInfo } from './apiCalls';
 import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser } from './domUpdates';
+import { getUserPastTrips, getUserPastTripDestinations, getUserUpcomingTripDestinations } from './trips-functions';
 console.log('This is the JavaScript entry file - your code begins here.');
 
 
@@ -45,12 +46,42 @@ bookATripButton.addEventListener('click', () => {
 })
 
 signInButton.addEventListener("click", () => {
-   user = captureLoginInfo(user);
-   user = completeLogInEndpoint(user)
-   handleLoginErrors(user)
-   showUpcomingTrips()
-   fetchLoginInfo(user)
+  user = captureLoginInfo(user);
+  user = completeLogInEndpoint(user);
+  handleLoginErrors(user);
+  fetchLoginInfo(user)
+  showUpcomingTrips()
+  
+    Promise.all([fetchTrips(), fetchDestinations()])
+    .then((data) => {
+      console.log(data);
+      const tripsData = data[0];
+      const destinationsData = data[1];
+      populateDOM(tripsData, destinationsData)
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 });
+
+const populateDOM = (tripsData, destinationsData) => {
+  let theUsersTrips = getUserUpcomingTripDestinations(user, tripsData, destinationsData)
+  console.log("the users Trips", theUsersTrips)
+}
+
+// signInButton.addEventListener('click', () => {
+  
+// })
+
+
+
+
+
+
+
+
+
+
 
 const captureLoginInfo = (user) => {
    user = {
@@ -65,7 +96,6 @@ const captureLoginInfo = (user) => {
 const completeLogInEndpoint = (user) => {
   user.id = parseInt(user.username.slice(8));
   user.endpoint += user.id;
-  console.log("USER", user);
   return user;
 };
 
@@ -75,7 +105,7 @@ const handleLoginErrors = (user) => {
   } else {
     loginError.classList.remove("hidden");
   }
-  console.log(user)
+  console.log("USER",user)
 }
 
 export const getUserFirstName = (data) => {
