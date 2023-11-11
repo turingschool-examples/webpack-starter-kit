@@ -1,3 +1,5 @@
+import { getUserFirstName, showUserFirstName } from "./scripts";
+
 export const fetchTavelers = () => {
   fetch("http://localhost:3001/api/v1/travelers")
     .then((response) => {
@@ -43,6 +45,9 @@ export const fetchLoginInfo = (user) => {
     })
     .then((data) => {
       console.log(data);
+      let name = getUserFirstName(data)
+      console.log(name)
+      showUserFirstName(name)
     })
     .catch((err) => {
       console.error("Fetch error:", err);

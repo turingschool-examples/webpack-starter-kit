@@ -19,7 +19,8 @@ const bookATripButton = document.querySelector('.book-a-trip-button');
 const signInButton = document.querySelector('.sign-in-button');
 const usernameInputBox = document.querySelector('.username-input-box');
 const passwordInputBox = document.querySelector('.password-input-box');
- const loginError = document.querySelector(".login-error");
+const loginError = document.querySelector(".login-error");
+const pages = document.querySelectorAll('.pages');
 
 let user
 
@@ -48,6 +49,8 @@ signInButton.addEventListener("click", () => {
    user = completeLogInEndpoint(user)
    handleLoginErrors(user)
    showUpcomingTrips()
+   fetchLoginInfo(user)
+
 });
 
 const captureLoginInfo = (user) => {
@@ -57,7 +60,6 @@ const captureLoginInfo = (user) => {
     password: passwordInputBox.value,
     endpoint: 'http://localhost:3001/api/v1/travelers/'
   }
-  console.log(user)
   return user
 }
 
@@ -76,3 +78,12 @@ const handleLoginErrors = (user) => {
   }
 }
 
+export const getUserFirstName = (data) => {
+  return data.name.split(" ")[0];
+};
+
+export const showUserFirstName = (name) => {
+  pages.forEach((page) => {
+    page.innerText = `Welcome, ${name}`;
+  });
+};
