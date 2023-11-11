@@ -6,7 +6,7 @@ import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
-import { fetchTavelers, fetchDestinations } from './apiCalls';
+import { fetchTavelers, fetchDestinations, fetchLoginInfo } from './apiCalls';
 import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser } from './domUpdates';
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -19,8 +19,9 @@ const bookATripButton = document.querySelector('.book-a-trip-button');
 const signInButton = document.querySelector('.sign-in-button');
 const usernameInputBox = document.querySelector('.username-input-box');
 const passwordInputBox = document.querySelector('.password-input-box');
+ const loginError = document.querySelector(".login-error");
 
-let userInfo
+let user
 
 upcomingTripsButton.addEventListener('click', () => {
   showUpcomingTrips()
@@ -43,24 +44,35 @@ bookATripButton.addEventListener('click', () => {
 })
 
 signInButton.addEventListener("click", () => {
-  let obj = captureLoginInfo(userInfo);
-  validateLoginInfo(obj)
+   user = captureLoginInfo(user);
+   user = completeLogInEndpoint(user)
+   handleLoginErrors(user)
+   showUpcomingTrips()
 });
 
-const captureLoginInfo = (userInfo) => {
-   userInfo = {
+const captureLoginInfo = (user) => {
+   user = {
+    id: null,
     username: usernameInputBox.value,
     password: passwordInputBox.value,
     endpoint: 'http://localhost:3001/api/v1/travelers/'
   }
-  console.log(userInfo)
-  return userInfo
+  console.log(user)
+  return user
 }
 
-const validateLoginInfo = (obj) => {
-  if (obj.password === "travel") {
-    obj.endpoint += obj.username.slice(8);
-  }
-  console.log(obj)
-  return obj;
+const completeLogInEndpoint = (user) => {
+  user.id = parseInt(user.username.slice(8));
+  user.endpoint += user.id;
+  console.log("USER", user);
+  return user;
 };
+
+const handleLoginErrors = (user) => {
+  if (user.id && user.password === 'travel') {
+    signInUser()
+  } else {
+    loginError.classList.remove("hidden");
+  }
+}
+

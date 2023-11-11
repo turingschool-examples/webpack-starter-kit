@@ -32,8 +32,8 @@ export const fetchDestinations = () => {
     });
   }; 
 
-export const fetchLoginInfo = (userInfo) => {
-  let endpoint = userInfo.endpoint;
+export const fetchLoginInfo = (user) => {
+  let endpoint = user.endpoint;
   fetch(endpoint)
     .then((response) => {
       if (!response.ok) {
