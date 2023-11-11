@@ -11,7 +11,7 @@ const {
 
 describe("Trips Test", () => {
  
-  let trips, destinations, theUser
+  let trips, destinations, theUser, theUser2
   
   beforeEach(() => {
 
@@ -109,7 +109,7 @@ describe("Trips Test", () => {
       ]
 
       theUser = {id: 19}
-
+      theUser2 = {id: 43}
   });
 
   it("should only return all trips with a user id of 19", () => {
@@ -188,9 +188,10 @@ describe("Trips Test", () => {
 
   it("should send a message if no trips are this year", () => {
     const user = userTripsThisYear(43, trips);
+    let currentYear = new Date().getFullYear()
     
     expect(user).to.be.a("string");
-    expect(user).to.equal("2023 Total: $0")
+    expect(user).to.equal(`${currentYear} Total: $0`)
   });
   
   it("should create an object with a breakdown of each price", () => {
@@ -202,6 +203,15 @@ describe("Trips Test", () => {
     expect(user.subTotal).to.equal(21090);
     expect(user.agentFee).to.equal(2109);
     expect(user.total).to.equal(23199)
+  });
+
+  it("should return a message if the annual expense is 0", () => {
+    const user = getAnnualSpent(theUser2, trips, destinations);
+    let currentYear = new Date().getFullYear()
+
+    expect(user).to.be.a("string");
+    expect(user).to.equal(`${currentYear} Total: $0`)
+    
   });
 
 });
