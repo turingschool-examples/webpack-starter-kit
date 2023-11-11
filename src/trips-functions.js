@@ -25,11 +25,11 @@ export const getUserPastTripDestinations = (user, trips, destinations) => {
   }, []);
 };
 
-export const getUserUpcomingTrips = (userId, trips) => {
+export const getUserUpcomingTrips = (user, trips) => {
   let userTrips = trips.filter((element) => {
     let currentDate = new Date();
     let tripDate = new Date(element.date);
-    return element.userID === userId && tripDate > currentDate;
+    return element.userID === user.id && tripDate > currentDate;
   });
   if (!userTrips.length) {
     return "You have no upcoming trips";
@@ -43,7 +43,7 @@ export const getUserUpcomingTripDestinations = (userId, trips, destinations) => 
     return userTrips;
   }
   return userTrips.reduce((acc, curr) => {
-    destinations.destinations.forEach((element) => {
+    destinations.forEach((element) => {
       element.id === curr.destinationID ? acc.push(element) : "";
     });
     return acc;
@@ -64,15 +64,13 @@ export const userTripsThisYear = (user, trips) => {
 
 export const getAnnualSpent = (user, trips, destinations) => {
   let places = userTripsThisYear(user, trips);
-  console.log( typeof places)
- 
+
   if (typeof places === 'string') {
     return places
   }
-  
   return  places.reduce(
     (acc, curr) => {
-      destinations.destinations.forEach((destination) => {
+      destinations.forEach((destination) => {
         if (destination.id === curr.destinationID) {
           let numOfTravelersXDuration = curr.travelers * curr.duration;
           acc.totalLodgingPrice +=
@@ -85,7 +83,6 @@ export const getAnnualSpent = (user, trips, destinations) => {
             acc.totalLodgingPrice + acc.totalFlightPrice + acc.agentFee;
         }
       });
-      console.log("ACC", acc)
       return acc;
     },
     {

@@ -10,11 +10,13 @@ const {
 } = require("../src/trips-functions.js");
 
 describe("Trips Test", () => {
-  let trips, destinations
+ 
+  let trips, destinations, theUser
   
   beforeEach(() => {
 
-   trips = [
+
+    trips = [
         {
           id: 1,
           userID: 19,
@@ -106,10 +108,12 @@ describe("Trips Test", () => {
         },
       ]
 
+      theUser = {id: 19}
+
   });
 
   it("should only return all trips with a user id of 19", () => {
-    const user = getUserPastTrips(19, trips)
+    const user = getUserPastTrips(theUser, trips)
     expect(user).to.be.an("array");
     expect(user[0].userID).to.equal(19);
     expect(user[1].userID).to.equal(19);
@@ -117,7 +121,7 @@ describe("Trips Test", () => {
 
   it("should only return trips with a specified user Id and with a past date", () => {
     const currentDate = new Date()
-    const user = getUserPastTrips(19, trips);
+    const user = getUserPastTrips(theUser, trips);
     expect(user).to.be.an("array");
     expect(new Date(user[0].date)).to.be.below(currentDate)
     expect(new Date(user[1].date)).to.be.below(currentDate);
@@ -130,7 +134,7 @@ describe("Trips Test", () => {
   });
 
   it("should return an array of all the matching destinations from from the past", () => {
-    const user = getUserPastTripDestinations(19, trips, destinations);
+    const user = getUserPastTripDestinations(theUser, trips, destinations);
     expect(user).to.be.an("array");
     expect(user).to.have.lengthOf(2)
     expect(user[0].id).to.equal(49);
@@ -145,7 +149,7 @@ describe("Trips Test", () => {
 
   it("should only return trips with a future date", () => {
     const currentDate = new Date();
-    const user = getUserUpcomingTrips(19, trips);
+    const user = getUserUpcomingTrips(theUser, trips);
     expect(user).to.be.an("array");
     expect(user).to.have.lengthOf(2);
     expect(new Date(user[0].date)).to.be.above(currentDate);
@@ -159,7 +163,7 @@ describe("Trips Test", () => {
   });
 
   it("should return an array of all the matching destinations from from the future", () => {
-    const user = getUserUpcomingTripDestinations(19, trips, destinations);
+    const user = getUserUpcomingTripDestinations(theUser, trips, destinations);
     expect(user).to.be.an("array");
     expect(user).to.have.lengthOf(2);
     expect(user[0].id).to.equal(25);
@@ -173,7 +177,7 @@ describe("Trips Test", () => {
   });
 
   it("should return only the trips that are this year", () => {
-    const user = userTripsThisYear(19, trips);
+    const user = userTripsThisYear(theUser, trips);
     const tripYear1 = new Date(user[0].date).getFullYear();
     const tripYear2 = new Date(user[1].date).getFullYear();
 
@@ -190,7 +194,7 @@ describe("Trips Test", () => {
   });
   
   it("should create an object with a breakdown of each price", () => {
-    const user = getAnnualSpent(19, trips, destinations);
+    const user = getAnnualSpent(theUser, trips, destinations);
 
     expect(user).to.be.an("object");
     expect(user.totalFlightPrice).to.equal(5090);
