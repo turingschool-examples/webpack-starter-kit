@@ -7,8 +7,8 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import { fetchTrips, fetchDestinations, fetchLoginInfo } from './apiCalls';
-import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips } from './domUpdates';
-import { getUserPastTrips, getUserPastTripDestinations, getUserUpcomingTripDestinations } from './trips-functions';
+import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost } from './domUpdates';
+import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
 console.log('This is the JavaScript entry file - your code begins here.');
 
 
@@ -58,7 +58,8 @@ signInButton.addEventListener("click", () => {
       const tripsData = data[0];
       const destinationsData = data[1];
      displayUpcomingTripsDOM(tripsData, destinationsData)
-      displayPastTripsDOM(tripsData, destinationsData)
+     displayPastTripsDOM(tripsData, destinationsData)
+     displayAnnualCostDOM(tripsData, destinationsData);
 
     })
     .catch((error) => {
@@ -78,7 +79,11 @@ const displayPastTripsDOM = (tripsData, destinationsData) => {
   renderPastTrips(theUsersTrips)
 }
 
-
+const displayAnnualCostDOM = (tripsData, destinationsData) => {
+  let cost = getAnnualSpent(user, tripsData, destinationsData)
+  console.log(cost)
+  renderCost(cost)
+}
 
 
 

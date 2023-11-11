@@ -50,11 +50,11 @@ export const getUserUpcomingTripDestinations = (userId, trips, destinations) => 
   }, []);
 };
 
-export const userTripsThisYear = (userId, trips) => {
+export const userTripsThisYear = (user, trips) => {
   let currentYear = new Date().getFullYear();
-  let userTrips = trips.trips.filter((trip) => {
+  let userTrips = trips.filter((trip) => {
     let tripYear = new Date(trip.date).getFullYear();
-    return currentYear === tripYear && trip.userID === userId;
+    return currentYear === tripYear && trip.userID === user.id;
   });
   if (!userTrips.length) {
     return `${currentYear} Total: $0`;
@@ -62,9 +62,15 @@ export const userTripsThisYear = (userId, trips) => {
   return userTrips;
 };
 
-export const getAnnualSpent = (userId, trips, destinations) => {
-  let places = userTripsThisYear(userId, trips);
-  return places.reduce(
+export const getAnnualSpent = (user, trips, destinations) => {
+  let places = userTripsThisYear(user, trips);
+  console.log( typeof places)
+ 
+  if (typeof places === 'string') {
+    return places
+  }
+  
+  return  places.reduce(
     (acc, curr) => {
       destinations.destinations.forEach((destination) => {
         if (destination.id === curr.destinationID) {
@@ -79,6 +85,7 @@ export const getAnnualSpent = (userId, trips, destinations) => {
             acc.totalLodgingPrice + acc.totalFlightPrice + acc.agentFee;
         }
       });
+      console.log("ACC", acc)
       return acc;
     },
     {
@@ -89,4 +96,5 @@ export const getAnnualSpent = (userId, trips, destinations) => {
       total: 0,
     }
   );
+  
 };

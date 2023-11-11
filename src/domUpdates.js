@@ -69,6 +69,21 @@ export const renderPastTrips = (theUsersTrips) => {
       <p> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
     `;
   })
-
 }
 
+export const renderCost = (cost) => {
+
+  if (typeof cost === 'string') {
+    annualTotalSection.innerHTML += `
+    <p>${cost}</p>
+    `
+  } else {
+    annualTotalSection.innerHTML += `
+  <p>Flight - $${cost.totalFlightPrice}</p>
+  <p>Hotel - $${cost.totalLodgingPrice}</p>
+  <p>Subtotal - $${cost.subTotal}</p>
+  <p>Agent Fee - $${cost.agentFee}</p>
+  <p>Total $${cost.total}</p>
+  `
+  } 
+}

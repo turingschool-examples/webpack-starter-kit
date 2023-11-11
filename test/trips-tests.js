@@ -10,12 +10,11 @@ const {
 } = require("../src/trips-functions.js");
 
 describe("Trips Test", () => {
-  let trips, destinations;
+  let trips, destinations
   
   beforeEach(() => {
 
-    trips = {
-      trips: [
+   trips = [
         {
           id: 1,
           userID: 19,
@@ -66,11 +65,9 @@ describe("Trips Test", () => {
           status: "approved",
           suggestedActivities: [],
         },
-      ],
-    };
+      ]
 
-    destinations = {
-      destinations: [
+    destinations = [
         {
           id: 22,
           destination: "Rome, Italy",
@@ -107,8 +104,7 @@ describe("Trips Test", () => {
             "https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80",
           alt: "aerial photography of rocky mountain under cloudy sky",
         },
-      ],
-    };
+      ]
 
   });
 
