@@ -6,6 +6,7 @@ const bookATripSection = document.querySelector(".book-a-trip-section");
 const annualTotalSection = document.querySelector(".annual-total-section");
  const pageContent = document.querySelector(".page-content");
 const loginContainer = document.querySelector(".login-container");
+const upcomingTrips = document.querySelector('.upcoming-trips')
 
 export const signInUser = () => {
   pageContent.classList.remove("hidden");
@@ -51,3 +52,10 @@ export const showUpcomingTrips = () => {
   annualTotalSection.classList.add("hidden");
   upcomingTripsSection.classList.remove("hidden");
 };
+
+export const renderUpcomingTrips = (theUsersTrips) => {
+  console.log(theUsersTrips)
+  upcomingTripsSection.innerHTML += `
+  <p>${theUsersTrips}</p>
+  `
+}
