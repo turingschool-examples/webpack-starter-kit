@@ -7,33 +7,20 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import { fetchTavelers, fetchDestinations } from './apiCalls';
-
+import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser } from './domUpdates';
 console.log('This is the JavaScript entry file - your code begins here.');
 
-const upcomingTripsSection = document.querySelector('.upcoming-trips-section');
-const pendingTripsSection = document.querySelector('.pending-trips-section');
-const pastTripsSection = document.querySelector('.past-trips-section');
-const bookATripSection = document.querySelector('.book-a-trip-section');
-const annualTotalSection = document.querySelector('.annual-total-section');
 
 const upcomingTripsButton = document.querySelector('.upcoming-trips-button');
 const pendingTripsButton = document.querySelector('.pending-trips-button');
 const pastTripsButton = document.querySelector('.past-trips-button');
-const annualTotalButton = document.querySelector('.annual-total-button')
-const bookATripButton = document.querySelector('.book-a-trip-button')
+const annualTotalButton = document.querySelector('.annual-total-button');
+const bookATripButton = document.querySelector('.book-a-trip-button');
+const signInButton = document.querySelector('.sign-in-button');
+const usernameInputBox = document.querySelector('.username-input-box');
+const passwordInputBox = document.querySelector('.password-input-box');
 
-
-const loginContainer = document.querySelector('.login-container')
-
-
-window.addEventListener('load', () => {
-  showLoginPage()
-})
-
-const showLoginPage = () => {
-  const pageContent = document.querySelector('.page-content')
-  pageContent.classList.add('hidden')
-}
+let userInfo
 
 upcomingTripsButton.addEventListener('click', () => {
   showUpcomingTrips()
@@ -55,46 +42,25 @@ bookATripButton.addEventListener('click', () => {
   showBookATripSection()
 })
 
-const showAnnualCostSection = () => {
-  upcomingTripsSection.classList.add("hidden");
-  pendingTripsSection.classList.add("hidden");
-  pastTripsSection.classList.add("hidden");
-  bookATripSection.classList.add("hidden");
-  annualTotalSection.classList.remove("hidden");
+signInButton.addEventListener("click", () => {
+  let obj = captureLoginInfo(userInfo);
+  validateLoginInfo(obj)
+});
+
+const captureLoginInfo = (userInfo) => {
+   userInfo = {
+    username: usernameInputBox.value,
+    password: passwordInputBox.value,
+    endpoint: 'http://localhost:3001/api/v1/travelers/'
+  }
+  console.log(userInfo)
+  return userInfo
 }
 
-const showBookATripSection = () => {
-  upcomingTripsSection.classList.add('hidden');
-  pendingTripsSection.classList.add('hidden');
-  pastTripsSection.classList.add("hidden");
-  annualTotalSection.classList.add("hidden");
-  bookATripSection.classList.remove('hidden')
-}
-
-const showPastTrips = () => {
-  upcomingTripsSection.classList.add('hidden');
-  pendingTripsSection.classList.add('hidden');
-  bookATripSection.classList.add("hidden");
-  annualTotalSection.classList.add("hidden");
-  pastTripsSection.classList.remove('hidden');
-}
-
-const showPendingTrips = () => {
-  upcomingTripsSection.classList.add('hidden');
-  pastTripsSection.classList.add('hidden');
-  bookATripSection.classList.add('hidden');
-  annualTotalSection.classList.add("hidden");
-  pendingTripsSection.classList.remove('hidden');
-}
-
-const showUpcomingTrips = () => {
-  pendingTripsSection.classList.add('hidden');
-  pastTripsSection.classList.add('hidden');
-  bookATripSection.classList.add('hidden');
-  annualTotalSection.classList.add("hidden");
-  upcomingTripsSection.classList.remove('hidden');
-}
-
-
-
-
+const validateLoginInfo = (obj) => {
+  if (obj.password === "travel") {
+    obj.endpoint += obj.username.slice(8);
+  }
+  console.log(obj)
+  return obj;
+};

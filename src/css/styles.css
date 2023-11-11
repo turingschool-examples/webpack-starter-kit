@@ -7,9 +7,6 @@ body {
   background-color: #304c9b;
 }
 
-.hidden {
-  display: none;
-}
 
 h1 {
   color: white;
@@ -85,6 +82,14 @@ h2 {
   font-weight: 700;
   color: white;
   border-radius: 6px;
-  height: 30px
+  height: 30px;
+  border: 0;
 }
 
+.sign-in-button:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
