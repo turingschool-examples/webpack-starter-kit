@@ -7,7 +7,7 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import { fetchTrips, fetchDestinations, fetchLoginInfo } from './apiCalls';
-import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips } from './domUpdates';
+import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips } from './domUpdates';
 import { getUserPastTrips, getUserPastTripDestinations, getUserUpcomingTripDestinations } from './trips-functions';
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -57,22 +57,27 @@ signInButton.addEventListener("click", () => {
       console.log(data);
       const tripsData = data[0];
       const destinationsData = data[1];
-      populateDOM(tripsData, destinationsData)
+     displayUpcomingTripsDOM(tripsData, destinationsData)
+      displayPastTripsDOM(tripsData, destinationsData)
+
     })
     .catch((error) => {
       console.error(error);
     });
 });
 
-const populateDOM = (tripsData, destinationsData) => {
-  let theUsersTrips = getUserUpcomingTripDestinations(user, tripsData, destinationsData)
-  console.log("the users Trips", theUsersTrips)
-  renderUpcomingTrips(theUsersTrips)
+const displayUpcomingTripsDOM = (tripsData, destinationsData) => {
+  let theUsersTrips = getUserUpcomingTripDestinations(user,tripsData,destinationsData);
+  console.log("the users Trips", theUsersTrips);
+  renderUpcomingTrips(theUsersTrips);
+};
+
+const displayPastTripsDOM = (tripsData, destinationsData) => {
+  let theUsersTrips = getUserPastTripDestinations(user, tripsData, destinationsData)
+  console.log("past trips", theUsersTrips)
+  renderPastTrips(theUsersTrips)
 }
 
-// signInButton.addEventListener('click', () => {
-  
-// })
 
 
 

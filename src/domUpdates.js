@@ -59,3 +59,16 @@ export const renderUpcomingTrips = (theUsersTrips) => {
   <p>${theUsersTrips}</p>
   `
 }
+
+export const renderPastTrips = (theUsersTrips) => {
+
+  theUsersTrips.forEach(trip => {
+    pastTripsSection.innerHTML += `
+    <p> Location  ${trip.destination}</p>
+      <p> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
+      <p> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
+    `;
+  })
+
+}
+
