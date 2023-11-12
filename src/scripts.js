@@ -33,6 +33,7 @@ const submitButton = document.querySelector('.submit-button')
 let user
 let tripsData
 let destinationsData
+let newTrip 
 
 
 upcomingTripsButton.addEventListener('click', () => {

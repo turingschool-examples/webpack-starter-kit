@@ -18,10 +18,28 @@ export const handleDateErrors = (trip) => {
   }
 };
 
-export const makeUpcomingTrip = (trip) => {
+// export const makeUpcomingTrip = (trip) => {
+//   let startDate = new Date(trip.startDate);
+//   let endDate = new Date(trip.endDate);
+//   let durationInMilliSeconds = endDate - startDate;
+//   let durationInDays = durationInMilliSeconds / (1000 * 60 * 60 * 24);
+//   return durationInDays;
+// };
+
+export const makeUpcomingTrip = (trip, newTrip, tripsData, user) => {
   let startDate = new Date(trip.startDate);
   let endDate = new Date(trip.endDate);
   let durationInMilliSeconds = endDate - startDate;
   let durationInDays = durationInMilliSeconds / (1000 * 60 * 60 * 24);
-  return durationInDays;
+
+  newTrip.id = tripsData.length + 1;
+  newTrip.userID = user.id;
+  newTrip.destinationID = null;
+
+  newTrip.destination = trip.destination;
+  newTrip.travelers = trip.travelers;
+  newTrip.date = trip.startDate;
+  newTrip.duration = durationInDays;
+  newTrip.status = "pending";
+  newTrip.suggestedActivities = [];
 };

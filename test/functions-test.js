@@ -80,16 +80,63 @@ describe("Form Errors", () => {
   });
 
   it("should give the length of the trip based on the dates", () => {
+
+    const tripsData = [
+{
+"id": 1,
+"userID": 44,
+"destinationID": 49,
+"travelers": 1,
+"date": "2022/09/16",
+"duration": 8,
+"status": "approved",
+"suggestedActivities": []
+},
+{
+"id": 2,
+"userID": 35,
+"destinationID": 25,
+"travelers": 5,
+"date": "2022/10/04",
+"duration": 18,
+"status": "approved",
+"suggestedActivities": []
+},
+{
+"id": 3,
+"userID": 3,
+"destinationID": 22,
+"travelers": 4,
+"date": "2022/05/22",
+"duration": 17,
+"status": "approved",
+"suggestedActivities": []
+}
+]
+
+const user = {
+  id: 22,
+  username: "traveler22",
+  password: "travel",
+  endpoint: "http://localhost:3001/api/v1/travelers/22",
+};
+
     const trip = {
       startDate: "2023-11-14",
-      endDate: "2023-11-16",
+      endDate: "2023-11-22",
       travelers: 2,
       destination: "Stockholm, Sweden",
     };
 
-    const tripDuration = makeUpcomingTrip(trip);
+    let newTrip = {}
 
-    expect(tripDuration).to.be.a("number");
-    expect(tripDuration).to.equal(2);
+     makeUpcomingTrip(trip, newTrip, tripsData, user);
+
+    expect(newTrip.id).to.equal(4);
+    expect(newTrip.travelers).to.equal(2);
+    expect(newTrip.date).to.be.equal("2023-11-14");
+    expect(newTrip.duration).to.equal(8);
+    expect(newTrip.status).to.be.equal('pending');
+    expect(newTrip.suggestedActivities).to.deep.equal([])
   });
 });
