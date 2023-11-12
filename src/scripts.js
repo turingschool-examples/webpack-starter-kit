@@ -125,6 +125,7 @@ export const getUserFirstName = (data) => {
 
 export const showUserFirstName = (name) => {
   pages.forEach((page) => {
-    page.innerText = `Welcome, ${name}`;
+    page.innerHTML += `Welcome ${name}`
+    //page.innerText = `Welcome, ${name}`;
   });
 };

@@ -98,3 +98,52 @@ h2 {
 .login-error {
   color: red;
 }
+
+.dates {
+  display: flex;
+}
+
+.inside-booking-container {
+  display: flex;
+  justify-content: center;
+}
+
+.book-a-trip {
+  display: flex;
+  height: 250px;
+  justify-content: space-between;
+  align-items: center;
+  width: 900px;
+  text-align: center;
+}
+
+
+.dates-container {
+  display: flex;
+  outline: 2px solid red;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.start-date, .end-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.people-and-destination-container {
+  display: flex;
+  outline: 2px solid blue;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.number-of-people {
+  display: flex;
+  flex-direction: column;
+}
+
+.destinations-container {
+  display: flex;
+  flex-direction: column;
+}
+
