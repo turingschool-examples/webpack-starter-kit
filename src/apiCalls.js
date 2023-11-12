@@ -1,4 +1,5 @@
-import { getUserFirstName, showUserFirstName } from "./scripts";
+import { getUserFirstName } from "./scripts";
+import { showUserFirstName } from "./domUpdates";
 
 export const fetchTrips = () => {
   return fetch("http://localhost:3001/api/v1/trips")

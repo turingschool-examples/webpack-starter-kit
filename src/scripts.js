@@ -25,6 +25,7 @@ const loginError = document.querySelector(".login-error");
 const pages = document.querySelectorAll('.pages');
 const destination = document.querySelector('.destination')
 
+
 let user
 let tripsData
 let destinationsData
@@ -137,10 +138,4 @@ export const getUserFirstName = (data) => {
   return data.name.split(" ")[0];
 };
 
-export const showUserFirstName = (name) => {
-  pages.forEach((page) => {
-    page.innerHTML += `Welcome ${name}`
-    //page.innerText = `Welcome, ${name}`;
-  });
-};
 

@@ -8,7 +8,8 @@ const annualTotalSection = document.querySelector(".annual-total-section");
 const loginContainer = document.querySelector(".login-container");
 const upcomingTrips = document.querySelector('.upcoming-trips')
  const destination = document.querySelector('.destination')
-
+const pastTrips = document.querySelector('.past-tripss')
+const welcomeName = document.querySelector(".welcome-name");
 
 export const signInUser = () => {
   pageContent.classList.remove("hidden");
@@ -55,6 +56,11 @@ export const showUpcomingTrips = () => {
   upcomingTripsSection.classList.remove("hidden");
 };
 
+export const showUserFirstName = (name) => {
+  welcomeName.innerHTML += `Welcome ${name}`;
+  //page.innerText = `Welcome, ${name}`;
+};
+
 export const renderUpcomingTrips = (theUsersTrips) => {
   console.log(theUsersTrips)
   upcomingTripsSection.innerHTML += `
@@ -66,9 +72,12 @@ export const renderPastTrips = (theUsersTrips) => {
 
   theUsersTrips.forEach(trip => {
     pastTripsSection.innerHTML += `
-    <p> Location  ${trip.destination}</p>
+    <div class= "trip-wrapper">
+      <p> Location  ${trip.destination}</p>
+      <image  class="trip-images" src="${trip.image} alt=${trip.alt}">
       <p> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
       <p> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
+    </div>
     `;
   })
 }
@@ -90,9 +99,7 @@ export const renderCost = (cost) => {
   } 
 }
 
-
 export const createDropDown = (places) => {
- 
   places.forEach((place) => {
     const option = document.createElement("option");
     option.textContent = place;

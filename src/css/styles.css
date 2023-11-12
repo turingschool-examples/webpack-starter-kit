@@ -7,12 +7,20 @@ body {
   background-color: #304c9b;
 }
 
+.welcome-name {
+  display: inline-block;
+  color: white;
+  font-weight: 500;
+  margin-left: 8%;
+  font-size: 1.2em;
+}
 
 h1 {
   color: white;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight: 800;
   text-align: center;
+  margin-bottom: -2%;
 }
 
 .trip-buttons-container {
@@ -31,11 +39,13 @@ h1 {
   justify-content: center;
 }
 
-.upcoming-trips-section, .pending-trips-section, .past-trips-section, .book-a-trip-section, .book-a-trip-section, .annual-total-section {
-  height: 580px;
+.upcoming-trips-section, .pending-trips-section, .book-a-trip-section, .book-a-trip-section, .annual-total-section {
+  height: 560px;
   width: 1098px;
   background-color: white;
 }
+
+
 
 .login-container {
   display: flex;
@@ -91,10 +101,6 @@ h2 {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
-
 .login-error {
   color: red;
 }
@@ -132,7 +138,6 @@ h2 {
 
 .people-and-destination-container {
   display: flex;
-  outline: 2px solid blue;
   width: 400px;
   justify-content: space-between;
 }
@@ -145,5 +150,29 @@ h2 {
 .destinations-container {
   display: flex;
   flex-direction: column;
+}
+
+.trip-images {
+  height: 100px;
+  width: 100px;
+}
+
+.trip-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  height: 150px;
+}
+
+.past-trips-section {
+  display: flex;
+  flex-direction: column;
+  height: 560px;
+  width: 1098px;
+  background-color: white;
+}
+
+.hidden {
+  display: none;
 }
 
