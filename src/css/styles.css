@@ -1,10 +1,12 @@
+
+* {
+     font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 body {
   background-color: #304c9b;
 }
 
-.hidden {
-  display: none;
-}
 
 h1 {
   color: white;
@@ -19,7 +21,7 @@ h1 {
 }
 
 .trip-type {
-  width: 270px;
+  width: 220px;
   height: 25px;
   font-size: 16px;
 }
@@ -29,11 +31,70 @@ h1 {
   justify-content: center;
 }
 
-.upcoming-trips-section, .pending-trips-section, .past-trips-section, .book-a-trip-section, .book-a-trip-section {
-  height: 600px;
-  width: 1079px;
+.upcoming-trips-section, .pending-trips-section, .past-trips-section, .book-a-trip-section, .book-a-trip-section, .annual-total-section {
+  height: 580px;
+  width: 1098px;
   background-color: white;
 }
 
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+}
 
+.login-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 350px;
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+}
 
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.username-input-box, .password-input-box {
+  display: flex;
+  width: 220px;
+  height: 25px;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+}
+
+.sign-in-button {
+  margin-top: 35px;
+  background-color: green;
+  font-weight: 700;
+  color: white;
+  border-radius: 6px;
+  height: 30px;
+  border: 0;
+}
+
+.sign-in-button:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.login-error {
+  color: red;
+}

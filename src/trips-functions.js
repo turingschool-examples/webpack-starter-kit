@@ -1,7 +1,7 @@
-export const getUserPastTrips = (userId, trips) => {
-  let userTrips = trips.trips
-    .filter((element) => element.userID === userId)
-    .filter((element1) => {
+export const getUserPastTrips = (user, trips) => {
+  let userTrips = trips
+  .filter((element) => element.userID === user.id)
+  .filter((element1) => {
       let tripDate = new Date(element1.date);
       let currentDate = new Date();
       return currentDate > tripDate;
@@ -12,24 +12,24 @@ export const getUserPastTrips = (userId, trips) => {
   return userTrips;
 };
 
-export const getUserPastTripDestinations = (userId, trips, destinations) => {
-  let userTrips = getUserPastTrips(userId, trips);
+export const getUserPastTripDestinations = (user, trips, destinations) => {
+  let userTrips = getUserPastTrips(user, trips);
   if (typeof userTrips === "string") {
     return userTrips;
   }
   return userTrips.reduce((acc, curr) => {
-    destinations.destinations.forEach((element) => {
+    destinations.forEach((element) => {
       element.id === curr.destinationID ? acc.push(element) : "";
     });
     return acc;
   }, []);
 };
 
-export const getUserUpcomingTrips = (userId, trips) => {
-  let userTrips = trips.trips.filter((element) => {
+export const getUserUpcomingTrips = (user, trips) => {
+  let userTrips = trips.filter((element) => {
     let currentDate = new Date();
     let tripDate = new Date(element.date);
-    return element.userID === userId && tripDate > currentDate;
+    return element.userID === user.id && tripDate > currentDate;
   });
   if (!userTrips.length) {
     return "You have no upcoming trips";
@@ -43,18 +43,18 @@ export const getUserUpcomingTripDestinations = (userId, trips, destinations) => 
     return userTrips;
   }
   return userTrips.reduce((acc, curr) => {
-    destinations.destinations.forEach((element) => {
+    destinations.forEach((element) => {
       element.id === curr.destinationID ? acc.push(element) : "";
     });
     return acc;
   }, []);
 };
 
-export const userTripsThisYear = (userId, trips) => {
+export const userTripsThisYear = (user, trips) => {
   let currentYear = new Date().getFullYear();
-  let userTrips = trips.trips.filter((trip) => {
+  let userTrips = trips.filter((trip) => {
     let tripYear = new Date(trip.date).getFullYear();
-    return currentYear === tripYear && trip.userID === userId;
+    return currentYear === tripYear && trip.userID === user.id;
   });
   if (!userTrips.length) {
     return `${currentYear} Total: $0`;
@@ -62,11 +62,15 @@ export const userTripsThisYear = (userId, trips) => {
   return userTrips;
 };
 
-export const getAnnualSpent = (userId, trips, destinations) => {
-  let places = userTripsThisYear(userId, trips);
-  return places.reduce(
+export const getAnnualSpent = (user, trips, destinations) => {
+  let places = userTripsThisYear(user, trips);
+
+  if (typeof places === 'string') {
+    return places
+  }
+  return  places.reduce(
     (acc, curr) => {
-      destinations.destinations.forEach((destination) => {
+      destinations.forEach((destination) => {
         if (destination.id === curr.destinationID) {
           let numOfTravelersXDuration = curr.travelers * curr.duration;
           acc.totalLodgingPrice +=
@@ -89,4 +93,5 @@ export const getAnnualSpent = (userId, trips, destinations) => {
       total: 0,
     }
   );
+  
 };

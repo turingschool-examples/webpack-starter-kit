@@ -6,23 +6,24 @@ import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
-
-
+import { fetchTrips, fetchDestinations, fetchLoginInfo } from './apiCalls';
+import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost } from './domUpdates';
+import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
 console.log('This is the JavaScript entry file - your code begins here.');
 
-const upcomingTripsSection = document.querySelector('.upcoming-trips-section');
-const pendingTripsSection = document.querySelector('.pending-trips-section');
-const pastTripsSection = document.querySelector('.past-trips-section');
-const bookATripSection = document.querySelector('.book-a-trip-section');
 
 const upcomingTripsButton = document.querySelector('.upcoming-trips-button');
 const pendingTripsButton = document.querySelector('.pending-trips-button');
 const pastTripsButton = document.querySelector('.past-trips-button');
-const bookATripButton = document.querySelector('.book-a-trip-button')
-  
-window.addEventListener('load', () => {
-  showUpcomingTrips();
-})
+const annualTotalButton = document.querySelector('.annual-total-button');
+const bookATripButton = document.querySelector('.book-a-trip-button');
+const signInButton = document.querySelector('.sign-in-button');
+const usernameInputBox = document.querySelector('.username-input-box');
+const passwordInputBox = document.querySelector('.password-input-box');
+const loginError = document.querySelector(".login-error");
+const pages = document.querySelectorAll('.pages');
+
+let user
 
 upcomingTripsButton.addEventListener('click', () => {
   showUpcomingTrips()
@@ -36,55 +37,94 @@ pastTripsButton.addEventListener('click', () => {
   showPastTrips()
 })
 
+annualTotalButton.addEventListener('click', () => {
+  showAnnualCostSection()
+})
+
 bookATripButton.addEventListener('click', () => {
   showBookATripSection()
 })
 
-const showBookATripSection = () => {
-  upcomingTripsSection.classList.add('hidden');
-  pendingTripsSection.classList.add('hidden');
-  pastTripsSection.classList.add("hidden");
-  bookATripSection.classList.remove('hidden')
+signInButton.addEventListener("click", () => {
+  user = captureLoginInfo(user);
+  user = completeLogInEndpoint(user);
+  handleLoginErrors(user);
+  fetchLoginInfo(user)
+  showUpcomingTrips()
+  
+    Promise.all([fetchTrips(), fetchDestinations()])
+    .then((data) => {
+      console.log(data);
+      const tripsData = data[0];
+      const destinationsData = data[1];
+     displayUpcomingTripsDOM(tripsData, destinationsData)
+     displayPastTripsDOM(tripsData, destinationsData)
+     displayAnnualCostDOM(tripsData, destinationsData);
+
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});
+
+const displayUpcomingTripsDOM = (tripsData, destinationsData) => {
+  let theUsersTrips = getUserUpcomingTripDestinations(user,tripsData,destinationsData);
+  console.log("the users Trips", theUsersTrips);
+  renderUpcomingTrips(theUsersTrips);
+};
+
+const displayPastTripsDOM = (tripsData, destinationsData) => {
+  let theUsersTrips = getUserPastTripDestinations(user, tripsData, destinationsData)
+  console.log("past trips", theUsersTrips)
+  renderPastTrips(theUsersTrips)
 }
 
-const showPastTrips = () => {
-  upcomingTripsSection.classList.add('hidden');
-  pendingTripsSection.classList.add('hidden');
-  bookATripSection.classList.add("hidden");
-  pastTripsSection.classList.remove('hidden');
-}
-
-const showPendingTrips = () => {
-  upcomingTripsSection.classList.add('hidden');
-  pastTripsSection.classList.add('hidden');
-  bookATripSection.classList.add('hidden');
-  pendingTripsSection.classList.remove('hidden');
-}
-
-const showUpcomingTrips = () => {
-  pendingTripsSection.classList.add('hidden');
-  pastTripsSection.classList.add('hidden');
-  bookATripSection.classList.add('hidden');
-  upcomingTripsSection.classList.remove('hidden');
+const displayAnnualCostDOM = (tripsData, destinationsData) => {
+  let cost = getAnnualSpent(user, tripsData, destinationsData)
+  console.log(cost)
+  renderCost(cost)
 }
 
 
 
 
 
-// export const getPastTrips = (userId, trips, destinations) => {
-//   const user = trips.trips
-//     .filter((element) => element.userID === userId)
-//     .filter((element1) => {
-//       let tripDate = new Date(element1.date);
-//       let currentDate = new Date();
-//       return currentDate > tripDate;
-//     });
 
-//   return user.reduce((acc, curr) => {
-//     destinations.destinations.forEach((element) => {
-//       element.id === curr.destinationID ? acc.push(element) : "";
-//     });
-//     return acc;
-//   }, []);
-//};
+
+
+
+
+const captureLoginInfo = (user) => {
+   user = {
+    id: null,
+    username: usernameInputBox.value,
+    password: passwordInputBox.value,
+    endpoint: 'http://localhost:3001/api/v1/travelers/'
+  }
+  return user
+}
+
+const completeLogInEndpoint = (user) => {
+  user.id = parseInt(user.username.slice(8));
+  user.endpoint += user.id;
+  return user;
+};
+
+const handleLoginErrors = (user) => {
+  if (user.id && user.id <= 50 && user.password === 'travel' && user.username.slice(0, 8) === 'traveler') {
+    signInUser()
+  } else {
+    loginError.classList.remove("hidden");
+  }
+  console.log("USER",user)
+}
+
+export const getUserFirstName = (data) => {
+  return data.name.split(" ")[0];
+};
+
+export const showUserFirstName = (name) => {
+  pages.forEach((page) => {
+    page.innerText = `Welcome, ${name}`;
+  });
+};
