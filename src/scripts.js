@@ -23,8 +23,12 @@ const usernameInputBox = document.querySelector('.username-input-box');
 const passwordInputBox = document.querySelector('.password-input-box');
 const loginError = document.querySelector(".login-error");
 const pages = document.querySelectorAll('.pages');
-const destination = document.querySelector('.destination')
 
+
+const startDateInput = document.querySelector(".start-date-input");
+const endDateInput = document.querySelector(".end-date-input");
+const numberOfPeopleInput = document.querySelector(".number-of-people-input");
+const destination = document.querySelector(".destination");
 
 let user
 let tripsData
@@ -83,6 +87,9 @@ const renderDestinations = (destinationsData) => {
 
 
 
+// const captureTripBooking = () => {
+
+// }
 
 
 

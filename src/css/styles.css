@@ -142,10 +142,15 @@ h2 {
   justify-content: space-between;
 }
 
-.number-of-people {
+.number-of-people-container {
   display: flex;
   flex-direction: column;
 }
+
+.number {
+  width: 12vw;
+}
+
 
 .destinations-container {
   display: flex;
@@ -176,3 +181,11 @@ h2 {
   display: none;
 }
 
+.destination {
+  width: 15.5em;
+}
+
+.submit-button {
+  margin-top: 2.3%;
+  width: 10vw;
+}
