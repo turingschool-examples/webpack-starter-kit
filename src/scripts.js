@@ -85,7 +85,7 @@ destination.addEventListener('click', () => {
 submitButton.addEventListener('click', () => {
   let trip = captureTripBookingData()
   console.log("trip1", trip)
-  trip = handleDateErrors(trip)
+  trip = handleBookingErrors(trip)
   console.log("trip2", trip)
   showDateError(trip)
 })
@@ -94,7 +94,7 @@ submitButton.addEventListener('click', () => {
 
 // }
 
-const handleDateErrors = (trip) => {
+const handleBookingErrors = (trip) => {
   let currentDate = new Date();
   let startDate = new Date(trip.startDate);
   let endDate = new Date(trip.endDate);
@@ -104,6 +104,17 @@ const handleDateErrors = (trip) => {
   }
   if (endDate < startDate) {
     return "Your trip end date cannot be before your trip start date";
+  }
+  if (parseInt(trip.travelers) < 1) {
+    return "Must have at least one traveler";
+  }
+  if (
+    !trip.startDate ||
+    !trip.endDate ||
+    !trip.travelers ||
+    !trip.destination
+  ) {
+    return "Complete all form fields before submitting";
   }
 };
 
