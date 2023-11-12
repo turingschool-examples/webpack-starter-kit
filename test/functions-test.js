@@ -1,8 +1,8 @@
 import { expect } from "chai";
 
-const {getAllDestinations} = require("../src/functions.js");
+const {getAllDestinations, handleDateErrors} = require("../src/functions.js");
 
-describe("Trips Test", () => {
+describe("Functions Test", () => {
   const destinations = [
     {
       id: 1,
@@ -42,4 +42,41 @@ describe("Trips Test", () => {
     expect(places[2]).to.equal('Sydney, Austrailia')
 
   });
+
+});
+
+describe("Form Errors", () => {
+  
+  it("should send a message when the start date is not a future date", () => {
+
+  const trip = {
+    startDate: "2023-11-11",
+    endDate: "2023-11-13",
+    travelers: "2",
+    destination: "Stockholm, Sweden",
+  };
+
+    const dateHandling = handleDateErrors(trip)
+    
+    expect(dateHandling).to.be.a("string");
+    expect(dateHandling).to.equal('You must book for a future date')
+
+  });
+
+  it("should send a different message when the end date is before the start date", () => {
+    const trip = {
+      startDate: "2023-11-13",
+      endDate: "2023-11-09",
+      travelers: "2",
+      destination: "Stockholm, Sweden",
+    };
+
+    const dateHandling = handleDateErrors(trip);
+
+    expect(dateHandling).to.be.a("string");
+    expect(dateHandling).to.equal(
+      "Your trip end date cannot be before your trip start date"
+    );
+  });
+
 });

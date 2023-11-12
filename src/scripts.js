@@ -24,15 +24,16 @@ const passwordInputBox = document.querySelector('.password-input-box');
 const loginError = document.querySelector(".login-error");
 const pages = document.querySelectorAll('.pages');
 
-
 const startDateInput = document.querySelector(".start-date-input");
 const endDateInput = document.querySelector(".end-date-input");
-const numberOfPeopleInput = document.querySelector(".number-of-people-input");
+const travelersInput = document.querySelector(".travelers-input");
 const destination = document.querySelector(".destination");
+const submitButton = document.querySelector('.submit-button')
 
 let user
 let tripsData
 let destinationsData
+
 
 upcomingTripsButton.addEventListener('click', () => {
   showUpcomingTrips()
@@ -80,22 +81,36 @@ destination.addEventListener('click', () => {
   renderDestinations(destinationsData)
 })
 
-const renderDestinations = (destinationsData) => {
-  let places = getAllDestinations(destinationsData)
-  createDropDown(places)
+
+submitButton.addEventListener('click', () => {
+  let trip = captureTripBookingData()
+})
+
+const handleBookingData = () => {
+
+}
+
+const captureTripBookingData = () => {
+  
+  trip = {
+    startDate: startDateInput.value,
+    endDate: endDateInput.value,
+    travelers: travelersInput.value,
+    destination: destination.value
+  }
+ console.log(trip)
+ return obj
 }
 
 
 
-// const captureTripBooking = () => {
-
-// }
 
 
 
-
-
-
+const renderDestinations = (destinationsData) => {
+  let places = getAllDestinations(destinationsData);
+  createDropDown(places);
+};
 
 
 const displayUpcomingTripsDOM = (tripsData, destinationsData) => {
