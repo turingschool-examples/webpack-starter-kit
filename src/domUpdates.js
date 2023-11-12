@@ -10,6 +10,7 @@ const upcomingTrips = document.querySelector('.upcoming-trips')
  const destination = document.querySelector('.destination')
 const pastTrips = document.querySelector('.past-tripss')
 const welcomeName = document.querySelector(".welcome-name");
+const bookingError = document.querySelector('.booking-error')
 
 export const signInUser = () => {
   pageContent.classList.remove("hidden");
@@ -55,6 +56,7 @@ export const showUpcomingTrips = () => {
   annualTotalSection.classList.add("hidden");
   upcomingTripsSection.classList.remove("hidden");
 };
+
 
 export const showUserFirstName = (name) => {
   welcomeName.innerHTML += `Welcome ${name}`;
@@ -106,3 +108,10 @@ export const createDropDown = (places) => {
     destination.appendChild(option);
   });
 };
+
+export const showDateError = (trip) => {
+  if (typeof trip === 'string') {
+    bookingError.innerText = `${trip}`;
+  }
+  
+}

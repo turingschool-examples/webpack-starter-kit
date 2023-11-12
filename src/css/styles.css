@@ -189,3 +189,7 @@ h2 {
   margin-top: 2.3%;
   width: 10vw;
 }
+
+.booking-error {
+  color: red;
+}

@@ -7,7 +7,7 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import { fetchTrips, fetchDestinations, fetchLoginInfo } from './apiCalls';
-import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown } from './domUpdates';
+import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown, showDateError } from './domUpdates';
 import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
 import { getAllDestinations } from './functions';
 console.log('This is the JavaScript entry file - your code begins here.');
@@ -84,22 +84,39 @@ destination.addEventListener('click', () => {
 
 submitButton.addEventListener('click', () => {
   let trip = captureTripBookingData()
+  console.log("trip1", trip)
+  trip = handleDateErrors(trip)
+  console.log("trip2", trip)
+  showDateError(trip)
 })
 
-const handleBookingData = () => {
+// const handleBookingData = () => {
 
-}
+// }
+
+const handleDateErrors = (trip) => {
+  let currentDate = new Date();
+  let startDate = new Date(trip.startDate);
+  let endDate = new Date(trip.endDate);
+
+  if (startDate < currentDate) {
+    return "You must book for a future date";
+  }
+  if (endDate < startDate) {
+    return "Your trip end date cannot be before your trip start date";
+  }
+};
 
 const captureTripBookingData = () => {
   
-  trip = {
+  let trip = {
     startDate: startDateInput.value,
     endDate: endDateInput.value,
     travelers: travelersInput.value,
     destination: destination.value
   }
  console.log(trip)
- return obj
+ return trip
 }
 
 
