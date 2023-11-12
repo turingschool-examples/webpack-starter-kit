@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-const {getAllDestinations, handleDateErrors, makeUpcomingTrip} = require("../src/functions.js");
+const {getAllDestinations, handleDateErrors, makeUpcomingTrip, getDestinationId} = require("../src/functions.js");
 
 describe("Functions Test", () => {
   const destinations = [
@@ -79,6 +79,45 @@ describe("Form Errors", () => {
     );
   });
 
+  it("should get the destination id of the destination the user submits", () => {
+    
+    const destinations = [
+      {
+        id: 1,
+        destination: "Lima, Peru",
+        estimatedLodgingCostPerDay: 70,
+        estimatedFlightCostPerPerson: 400,
+        image:
+          "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
+        alt: "overview of city buildings with a clear sky",
+      },
+      {
+        id: 2,
+        destination: "Stockholm, Sweden",
+        estimatedLodgingCostPerDay: 100,
+        estimatedFlightCostPerPerson: 780,
+        image:
+          "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+        alt: "city with boats on the water during the day time",
+      }
+    ];
+
+    const bookingInfo = {
+      startDate: "2023-11-14",
+      endDate: "2023-11-25",
+      travelers: 4,
+      destination: "Stockholm, Sweden",
+    };
+
+    let newTrip = {}
+     let destinationId = getDestinationId(bookingInfo, destinations);
+
+    expect(destinationId).to.be.a("number");
+    expect(destinationId).to.equal(2)
+    
+  });
+
+
   it("should give the length of the trip based on the dates", () => {
 
     const tripsData = [
@@ -114,6 +153,27 @@ describe("Form Errors", () => {
 }
 ]
 
+const destinations = [
+  {
+    id: 1,
+    destination: "Lima, Peru",
+    estimatedLodgingCostPerDay: 70,
+    estimatedFlightCostPerPerson: 400,
+    image:
+      "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
+    alt: "overview of city buildings with a clear sky",
+  },
+  {
+    id: 2,
+    destination: "Stockholm, Sweden",
+    estimatedLodgingCostPerDay: 100,
+    estimatedFlightCostPerPerson: 780,
+    image:
+      "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+    alt: "city with boats on the water during the day time",
+  }
+];
+
 const user = {
   id: 22,
   username: "traveler22",
@@ -121,7 +181,7 @@ const user = {
   endpoint: "http://localhost:3001/api/v1/travelers/22",
 };
 
-    const trip = {
+    const bookingInfo = {
       startDate: "2023-11-14",
       endDate: "2023-11-22",
       travelers: 2,
@@ -130,9 +190,17 @@ const user = {
 
     let newTrip = {}
 
-     makeUpcomingTrip(trip, newTrip, tripsData, user);
+     makeUpcomingTrip(
+       bookingInfo,
+       newTrip,
+       tripsData,
+       destinations,
+       user,
+     );
 
     expect(newTrip.id).to.equal(4);
+    expect(newTrip.userID).to.equal(22)
+    expect(newTrip.destinationID).to.equal(2)
     expect(newTrip.travelers).to.equal(2);
     expect(newTrip.date).to.be.equal("2023-11-14");
     expect(newTrip.duration).to.equal(8);

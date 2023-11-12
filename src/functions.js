@@ -26,20 +26,35 @@ export const handleDateErrors = (trip) => {
 //   return durationInDays;
 // };
 
-export const makeUpcomingTrip = (trip, newTrip, tripsData, user) => {
-  let startDate = new Date(trip.startDate);
-  let endDate = new Date(trip.endDate);
+export const makeUpcomingTrip = (bookingInfo, newTrip, tripsData, destinations, user) => {
+  let num = getDestinationId(bookingInfo, destinations, newTrip)
+  let startDate = new Date(bookingInfo.startDate);
+  let endDate = new Date(bookingInfo.endDate);
   let durationInMilliSeconds = endDate - startDate;
   let durationInDays = durationInMilliSeconds / (1000 * 60 * 60 * 24);
 
   newTrip.id = tripsData.length + 1;
   newTrip.userID = user.id;
-  newTrip.destinationID = null;
+  newTrip.destinationID = num;
 
-  newTrip.destination = trip.destination;
-  newTrip.travelers = trip.travelers;
-  newTrip.date = trip.startDate;
+  newTrip.destination = bookingInfo.destination;
+  newTrip.travelers = bookingInfo.travelers;
+  newTrip.date = bookingInfo.startDate;
   newTrip.duration = durationInDays;
   newTrip.status = "pending";
   newTrip.suggestedActivities = [];
+};
+
+// export const getDestinationID = (bookingInfo, destinations, newTrip) => {
+//   let thePlace = destinations.find(
+//     (place) => place.destination === bookingInfo.destination
+//   ).id;
+//   newTrip.destinationID = thePlace;
+// };
+
+export const getDestinationId = (bookingInfo, destinations) => {
+  let thePlace = destinations.find(
+    (place) => place.destination === bookingInfo.destination
+  ).id;
+  return thePlace;
 };
