@@ -7,8 +7,9 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import { fetchTrips, fetchDestinations, fetchLoginInfo } from './apiCalls';
-import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost } from './domUpdates';
+import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown } from './domUpdates';
 import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
+import { getAllDestinations } from './functions';
 console.log('This is the JavaScript entry file - your code begins here.');
 
 
@@ -22,8 +23,11 @@ const usernameInputBox = document.querySelector('.username-input-box');
 const passwordInputBox = document.querySelector('.password-input-box');
 const loginError = document.querySelector(".login-error");
 const pages = document.querySelectorAll('.pages');
+const destination = document.querySelector('.destination')
 
 let user
+let tripsData
+let destinationsData
 
 upcomingTripsButton.addEventListener('click', () => {
   showUpcomingTrips()
@@ -42,7 +46,7 @@ annualTotalButton.addEventListener('click', () => {
 })
 
 bookATripButton.addEventListener('click', () => {
-  showBookATripSection()
+  showBookATripSection() 
 })
 
 signInButton.addEventListener("click", () => {
@@ -55,8 +59,8 @@ signInButton.addEventListener("click", () => {
     Promise.all([fetchTrips(), fetchDestinations()])
     .then((data) => {
       console.log(data);
-      const tripsData = data[0];
-      const destinationsData = data[1];
+       tripsData = data[0];
+       destinationsData = data[1];
      displayUpcomingTripsDOM(tripsData, destinationsData)
      displayPastTripsDOM(tripsData, destinationsData)
      displayAnnualCostDOM(tripsData, destinationsData);
@@ -66,6 +70,25 @@ signInButton.addEventListener("click", () => {
       console.error(error);
     });
 });
+
+destination.addEventListener('click', () => {
+  renderDestinations(destinationsData)
+})
+
+const renderDestinations = (destinationsData) => {
+  let places = getAllDestinations(destinationsData)
+  createDropDown(places)
+}
+
+
+
+
+
+
+
+
+
+
 
 const displayUpcomingTripsDOM = (tripsData, destinationsData) => {
   let theUsersTrips = getUserUpcomingTripDestinations(user,tripsData,destinationsData);
@@ -84,15 +107,6 @@ const displayAnnualCostDOM = (tripsData, destinationsData) => {
   console.log(cost)
   renderCost(cost)
 }
-
-
-
-
-
-
-
-
-
 
 const captureLoginInfo = (user) => {
    user = {
@@ -129,3 +143,4 @@ export const showUserFirstName = (name) => {
     //page.innerText = `Welcome, ${name}`;
   });
 };
+

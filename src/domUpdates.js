@@ -7,6 +7,8 @@ const annualTotalSection = document.querySelector(".annual-total-section");
  const pageContent = document.querySelector(".page-content");
 const loginContainer = document.querySelector(".login-container");
 const upcomingTrips = document.querySelector('.upcoming-trips')
+ const destination = document.querySelector('.destination')
+
 
 export const signInUser = () => {
   pageContent.classList.remove("hidden");
@@ -87,3 +89,13 @@ export const renderCost = (cost) => {
   `
   } 
 }
+
+
+export const createDropDown = (places) => {
+ 
+  places.forEach((place) => {
+    const option = document.createElement("option");
+    option.textContent = place;
+    destination.appendChild(option);
+  });
+};
