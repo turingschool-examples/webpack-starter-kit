@@ -7,7 +7,7 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import { fetchTrips, fetchDestinations, fetchLoginInfo } from './apiCalls';
-import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown, showDateError } from './domUpdates';
+import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown, showDateError, showErrorMessage } from './domUpdates';
 import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
 import { getAllDestinations } from './functions';
 console.log('This is the JavaScript entry file - your code begins here.');
@@ -85,9 +85,10 @@ destination.addEventListener('click', () => {
 submitButton.addEventListener('click', () => {
   let trip = captureTripBookingData()
   console.log("trip1", trip)
-  trip = handleBookingErrors(trip)
-  console.log("trip2", trip)
-  showDateError(trip)
+  let trip2 = handleBookingErrors(trip)
+  console.log("trip2", trip2)
+  console.log('user', user)
+  showErrorMessage(trip2)
 })
 
 // const handleBookingData = () => {
@@ -123,7 +124,7 @@ const captureTripBookingData = () => {
   let trip = {
     startDate: startDateInput.value,
     endDate: endDateInput.value,
-    travelers: travelersInput.value,
+    travelers: parseInt(travelersInput.value),
     destination: destination.value
   }
  console.log(trip)

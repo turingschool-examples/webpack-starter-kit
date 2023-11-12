@@ -17,3 +17,11 @@ export const handleDateErrors = (trip) => {
     return "Your trip end date cannot be before your trip start date";
   }
 };
+
+export const makeUpcomingTrip = (trip) => {
+  let startDate = new Date(trip.startDate);
+  let endDate = new Date(trip.endDate);
+  let durationInMilliSeconds = endDate - startDate;
+  let durationInDays = durationInMilliSeconds / (1000 * 60 * 60 * 24);
+  return durationInDays;
+};

@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-const {getAllDestinations, handleDateErrors} = require("../src/functions.js");
+const {getAllDestinations, handleDateErrors, makeUpcomingTrip} = require("../src/functions.js");
 
 describe("Functions Test", () => {
   const destinations = [
@@ -79,4 +79,17 @@ describe("Form Errors", () => {
     );
   });
 
+  it("should give the length of the trip based on the dates", () => {
+    const trip = {
+      startDate: "2023-11-14",
+      endDate: "2023-11-16",
+      travelers: 2,
+      destination: "Stockholm, Sweden",
+    };
+
+    const tripDuration = makeUpcomingTrip(trip);
+
+    expect(tripDuration).to.be.a("number");
+    expect(tripDuration).to.equal(2);
+  });
 });

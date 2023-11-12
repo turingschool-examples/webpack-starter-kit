@@ -109,7 +109,7 @@ export const createDropDown = (places) => {
   });
 };
 
-export const showDateError = (trip) => {
+export const showErrorMessage = (trip) => {
   if (typeof trip === 'string') {
     bookingError.innerText = `${trip}`;
   }
