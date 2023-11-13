@@ -10,7 +10,8 @@ const upcomingTrips = document.querySelector('.upcoming-trips')
  const destination = document.querySelector('.destination')
 const pastTrips = document.querySelector('.past-tripss')
 const welcomeName = document.querySelector(".welcome-name");
-const bookingError = document.querySelector('.booking-error')
+const bookingError = document.querySelector('.booking-error');
+const bookATrip = document.querySelector('.book-a-trip')
 
 export const signInUser = () => {
   pageContent.classList.remove("hidden");
@@ -113,5 +114,18 @@ export const showErrorMessage = (trip) => {
   if (typeof trip === 'string') {
     bookingError.innerText = `${trip}`;
   }
-  
+}
+export const handleSubmission = (response) => {
+  if(!response) {
+    bookATrip.innerHTML = ''
+    bookATrip.style.marginLeft = 'auto'
+    bookATrip.style.marginRight = "auto";
+  bookATrip.innerHTML += `
+  <section class="submit-container">
+  <div class="submit-message">
+   <p>Your're booking has be submitted. It should appear in Upcoming Trips!</p>
+  </div>
+  </section>
+  `
+  }
 }

@@ -37,9 +37,10 @@ h1 {
 .trip-sections-container {
   display: flex;
   justify-content: center;
+  outline: 2px solid black;
 }
 
-.upcoming-trips-section, .pending-trips-section, .book-a-trip-section, .book-a-trip-section, .annual-total-section {
+.upcoming-trips-section, .pending-trips-section, .book-a-trip-section, .annual-total-section {
   height: 560px;
   width: 1098px;
   background-color: white;
@@ -192,4 +193,19 @@ h2 {
 
 .booking-error {
   color: red;
+}
+
+.submit-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  border-radius: 8px;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1098px;
 }
