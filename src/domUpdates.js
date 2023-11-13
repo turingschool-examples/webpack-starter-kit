@@ -66,10 +66,24 @@ export const showUserFirstName = (name) => {
 
 export const renderUpcomingTrips = (theUsersTrips) => {
   console.log(theUsersTrips)
-  upcomingTripsSection.innerHTML += `
+  if (typeof theUsersTrips === "string") {
+    upcomingTripsSection.innerHTML += `
   <p>${theUsersTrips}</p>
-  `
+  `;
+  } else {
+    theUsersTrips.forEach(trip => {
+      upcomingTripsSection.innerHTML += `
+    <div class= "trip-wrapper">
+      <p> Location  ${trip.destination}</p>
+      <image  class="trip-images" src="${trip.image} alt=${trip.alt}">
+      <p> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
+      <p> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
+    </div>
+    `;
+    }) 
+  } 
 }
+
 
 export const renderPastTrips = (theUsersTrips) => {
 
