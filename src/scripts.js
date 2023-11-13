@@ -33,7 +33,7 @@ const submitButton = document.querySelector('.submit-button')
 let user
 let tripsData
 let destinationsData
-let newTrip 
+let newTrip = {}
 
 
 upcomingTripsButton.addEventListener('click', () => {
@@ -93,7 +93,8 @@ submitButton.addEventListener('click', () => {
   console.log('user', user)
     handleSubmission(errorResponse);
    showErrorMessage(errorResponse)
-
+  makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user)
+  console.log("NEW USER", newTrip)
 })
 
 // const handleSubmission = (response) => {

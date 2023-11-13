@@ -201,11 +201,7 @@ h2 {
   align-items: center;
   width: 50vw;
   border-radius: 8px;
+   width: 1098px;
+    align-items: center;
 }
 
-.submit-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1098px;
-}

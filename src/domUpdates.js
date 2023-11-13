@@ -118,14 +118,11 @@ export const showErrorMessage = (trip) => {
 export const handleSubmission = (response) => {
   if(!response) {
     bookATrip.innerHTML = ''
-    bookATrip.style.marginLeft = 'auto'
-    bookATrip.style.marginRight = "auto";
   bookATrip.innerHTML += `
-  <section class="submit-container">
-  <div class="submit-message">
-   <p>Your're booking has be submitted. It should appear in Upcoming Trips!</p>
-  </div>
-  </section>
+    <div class="submit-message">
+     <p>Your're booking has be submitted. It should appear in Upcoming Trips!</p>
+    </div>
+  
   `
   }
 }
