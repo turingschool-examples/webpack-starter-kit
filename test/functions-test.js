@@ -65,7 +65,7 @@ describe("Form Errors", () => {
 
   it("should send a different message when the end date is before the start date", () => {
     const trip = {
-      startDate: "2023-11-13",
+      startDate: "2024-11-12",
       endDate: "2023-11-09",
       travelers: "2",
       destination: "Stockholm, Sweden",
@@ -202,7 +202,7 @@ const user = {
     expect(newTrip.userID).to.equal(22)
     expect(newTrip.destinationID).to.equal(2)
     expect(newTrip.travelers).to.equal(2);
-    expect(newTrip.date).to.be.equal("2023-11-14");
+    expect(newTrip.date).to.be.equal("2023/11/14");
     expect(newTrip.duration).to.equal(8);
     expect(newTrip.status).to.be.equal('pending');
     expect(newTrip.suggestedActivities).to.deep.equal([])

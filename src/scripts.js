@@ -6,7 +6,7 @@ import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
-import { fetchTrips, fetchDestinations, fetchLoginInfo } from './apiCalls';
+import { fetchTrips, fetchDestinations, fetchLoginInfo, postTripBooking} from './apiCalls';
 import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown, showDateError, showErrorMessage, handleSubmission } from './domUpdates';
 import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
 import { getAllDestinations, makeUpcomingTrip } from './functions';
@@ -33,7 +33,7 @@ const submitButton = document.querySelector('.submit-button')
 let user
 let tripsData
 let destinationsData
-let newTrip = {}
+export let newTrip = {}
 
 
 upcomingTripsButton.addEventListener('click', () => {
@@ -95,6 +95,7 @@ submitButton.addEventListener('click', () => {
    showErrorMessage(errorResponse)
   makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user)
   console.log("NEW USER", newTrip)
+  postTripBooking(newTrip)
 })
 
 // const handleSubmission = (response) => {

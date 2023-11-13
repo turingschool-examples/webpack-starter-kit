@@ -39,7 +39,7 @@ export const makeUpcomingTrip = (bookingInfo, newTrip, tripsData, destinations, 
 
   newTrip.destination = bookingInfo.destination;
   newTrip.travelers = bookingInfo.travelers;
-  newTrip.date = bookingInfo.startDate;
+  newTrip.date = bookingInfo.startDate.split("-").join("/");
   newTrip.duration = durationInDays;
   newTrip.status = "pending";
   newTrip.suggestedActivities = [];

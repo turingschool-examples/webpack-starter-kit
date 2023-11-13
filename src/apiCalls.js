@@ -1,5 +1,6 @@
 import { getUserFirstName } from "./scripts";
 import { showUserFirstName } from "./domUpdates";
+import { newTrip } from "./scripts";
 
 export const fetchTrips = () => {
   return fetch("http://localhost:3001/api/v1/trips")
@@ -52,5 +53,51 @@ export const fetchLoginInfo = (user) => {
     })
     .catch((err) => {
       console.error("Fetch error:", err);
+    });
+};
+
+// export const postTripBooking = (newTrip) => {
+//   return fetch("http://localhost:3001/api/v1/trips", {
+//     method: "POST",
+//     body: JSON.stringify(newTrip),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! Status: ${response.status}`);
+//       }
+//       return response.json();
+//     })
+//     .then((json) => {
+//       // Do something with the JSON response
+//       console.log("Response:", json);
+//     })
+//     .catch((error) => {
+//       // Handle errors here
+//       console.error("Error:", error);
+//     });
+// };
+
+export const postTripBooking = (newTrip) => {
+  fetch("http://localhost:3001/api/v1/trips", {
+    method: "POST",
+    body: JSON.stringify(newTrip),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok && response.status !== 422) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("New activity data:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
     });
 };
