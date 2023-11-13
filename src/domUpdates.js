@@ -72,6 +72,7 @@ export const renderUpcomingTrips = (theUsersTrips) => {
   `;
   } else {
     theUsersTrips.forEach(trip => {
+      upcomingTrips.innerHTML = ''
       upcomingTripsSection.innerHTML += `
     <div class= "trip-wrapper">
       <p> Location  ${trip.destination}</p>

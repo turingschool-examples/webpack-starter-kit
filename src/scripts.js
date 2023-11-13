@@ -102,6 +102,7 @@ submitButton.addEventListener('click', () => {
 const handleNumberOfTravelers = (newTrip) => {
   if(newTrip.travelers >= 1) {
     postTripBooking(newTrip)
+    displayUpcomingTripsDOM(tripsData, destinationsData)
   }
 }
 
