@@ -7,7 +7,7 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import { fetchTrips, fetchDestinations, fetchLoginInfo, postTripBooking} from './apiCalls';
-import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown, showDateError, showErrorMessage, handleSubmission } from './domUpdates';
+import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown, showDateError, showErrorMessage, handleSubmission, closeBookingMessage, bookATrip } from './domUpdates';
 import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
 import { getAllDestinations, makeUpcomingTrip } from './functions';
 console.log('This is the JavaScript entry file - your code begins here.');
@@ -29,12 +29,13 @@ const endDateInput = document.querySelector(".end-date-input");
 const travelersInput = document.querySelector(".travelers-input");
 const destination = document.querySelector(".destination");
 const submitButton = document.querySelector('.submit-button')
+const closeButton = document.querySelector(".materials-symbols-outlined");
+
 
 let user
 let tripsData
 let destinationsData
 export let newTrip = {}
-
 
 upcomingTripsButton.addEventListener('click', () => {
   showUpcomingTrips()
@@ -91,13 +92,23 @@ submitButton.addEventListener('click', () => {
   let errorResponse = handleBookingErrors(bookingInfo)
   console.log("errorResponse", errorResponse)
   console.log('user', user)
-    handleSubmission(errorResponse);
+  //  handleSubmission(errorResponse);
    showErrorMessage(errorResponse)
   makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user)
   console.log("NEW USER", newTrip)
-  //postTripBooking(newTrip)
+  postTripBooking(newTrip)
   handleNumberOfTravelers(newTrip)
 })
+
+
+
+
+
+
+
+
+
+
 
 const handleNumberOfTravelers = (newTrip) => {
   if(newTrip.travelers >= 1) {
@@ -127,6 +138,9 @@ const handleBookingErrors = (trip) => {
     !trip.destination
   ) {
     return "Complete all form fields before submitting";
+  }
+  else {
+    return "Your're booking has be submitted. It should appear in Upcoming Trips!"
   }
 };
 

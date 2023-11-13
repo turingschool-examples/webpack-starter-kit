@@ -130,14 +130,14 @@ export const showErrorMessage = (trip) => {
     bookingError.innerText = `${trip}`;
   }
 }
-export const handleSubmission = (response) => {
-  if(!response) {
-    bookATrip.innerHTML = ''
-  bookATrip.innerHTML += `
-    <div class="submit-message">
-     <p>Your're booking has be submitted. It should appear in Upcoming Trips!</p>
-    </div>
+// export const handleSubmission = (response) => {
+//   if(!response) {
+//     bookATrip.innerHTML = ''
+//   bookATrip.innerHTML += `
+//     <div class="submit-message">
+//      <p>Your're booking has be submitted. It should appear in Upcoming Trips!</p>
+//     </div>
   
-  `
-  }
-}
+//   `
+//   }
+// }
