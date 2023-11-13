@@ -6,7 +6,7 @@ const {
   getUserUpcomingTrips,
   getUserUpcomingTripDestinations,
   userTripsThisYear,
-  getAnnualSpent
+  getAnnualSpent,
 } = require("../src/trips-functions.js");
 
 describe("Trips Test", () => {
