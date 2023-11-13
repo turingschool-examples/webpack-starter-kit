@@ -9,7 +9,7 @@ import './images/turing-logo.png'
 import { fetchTrips, fetchDestinations, fetchLoginInfo } from './apiCalls';
 import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown, showDateError, showErrorMessage } from './domUpdates';
 import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
-import { getAllDestinations } from './functions';
+import { getAllDestinations, makeUpcomingTrip } from './functions';
 console.log('This is the JavaScript entry file - your code begins here.');
 
 
@@ -82,14 +82,17 @@ destination.addEventListener('click', () => {
   renderDestinations(destinationsData)
 })
 
+const bookingError = document.querySelector(".booking-error");
 
 submitButton.addEventListener('click', () => {
-  let trip = captureTripBookingData()
-  console.log("trip1", trip)
-  let trip2 = handleBookingErrors(trip)
-  console.log("trip2", trip2)
+  bookingError.innerHTML = ''
+  let bookingInfo = captureTripBookingData()
+  console.log("bookingInfo", bookingInfo)
+  let errorResponse = handleBookingErrors(bookingInfo)
+  console.log("errorResponse", errorResponse)
   console.log('user', user)
-  showErrorMessage(trip2)
+  showErrorMessage(errorResponse)
+ // makeUpcomingTrip()
 })
 
 // const handleBookingData = () => {

@@ -45,12 +45,6 @@ export const makeUpcomingTrip = (bookingInfo, newTrip, tripsData, destinations, 
   newTrip.suggestedActivities = [];
 };
 
-// export const getDestinationID = (bookingInfo, destinations, newTrip) => {
-//   let thePlace = destinations.find(
-//     (place) => place.destination === bookingInfo.destination
-//   ).id;
-//   newTrip.destinationID = thePlace;
-// };
 
 export const getDestinationId = (bookingInfo, destinations) => {
   let thePlace = destinations.find(
