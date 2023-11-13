@@ -99,7 +99,7 @@ export const renderPastTrips = (theUsersTrips) => {
     `;
   })
 }
-
+const annualTotal = document.querySelec
 export const renderCost = (cost) => {
 
   if (typeof cost === 'string') {

@@ -41,9 +41,7 @@ upcomingTripsButton.addEventListener('click', () => {
   showUpcomingTrips()
 })
 
-pendingTripsButton.addEventListener('click', () => {
-  showPendingTrips()
-})
+
 
 pastTripsButton.addEventListener('click', () => {
   showPastTrips()

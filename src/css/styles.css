@@ -29,15 +29,15 @@ h1 {
 }
 
 .trip-type {
-  width: 220px;
+  width: 275px;
   height: 25px;
   font-size: 16px;
+
 }
 
 .trip-sections-container {
   display: flex;
   justify-content: center;
-  outline: 2px solid black;
 }
 
 .upcoming-trips-section, .pending-trips-section, .book-a-trip-section, .annual-total-section {
@@ -46,7 +46,16 @@ h1 {
   background-color: white;
 }
 
+.annual-total-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: 2px solid red;
+}
 
+.annual-total {
+  outline: 2px solid blue;
+}
 
 .login-container {
   display: flex;
@@ -125,12 +134,12 @@ h2 {
 }
 
 
-.dates-container {
+/* .dates-container {
   display: flex;
   outline: 2px solid red;
   width: 400px;
   justify-content: space-between;
-}
+} */
 
 .start-date, .end-date {
   display: flex;
@@ -192,6 +201,7 @@ h2 {
 }
 
 .booking-error {
+  text-align: center;
   color: red;
 }
 
@@ -205,3 +215,6 @@ h2 {
     align-items: center;
 }
 
+/* .travelers-input {
+  width: 8vw;
+} */
