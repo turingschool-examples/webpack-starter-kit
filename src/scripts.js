@@ -95,14 +95,15 @@ submitButton.addEventListener('click', () => {
    showErrorMessage(errorResponse)
   makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user)
   console.log("NEW USER", newTrip)
-  postTripBooking(newTrip)
+  //postTripBooking(newTrip)
+  handleNumberOfTravelers(newTrip)
 })
 
-// const handleSubmission = (response) => {
-//   if(!response) {
-    
-//   }
-// }
+const handleNumberOfTravelers = (newTrip) => {
+  if(newTrip.travelers >= 1) {
+    postTripBooking(newTrip)
+  }
+}
 
 const handleBookingErrors = (trip) => {
   let currentDate = new Date();
