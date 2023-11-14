@@ -7,11 +7,12 @@ const {
   getUserUpcomingTripDestinations,
   userTripsThisYear,
   getAnnualSpent,
+  calculateTripCost,
 } = require("../src/trips-functions.js");
 
 describe("Trips Test", () => {
  
-  let trips, destinations, theUser, theUser2
+  let trips, destinations, theUser, theUser2, newTrip
   
   beforeEach(() => {
 
@@ -70,6 +71,14 @@ describe("Trips Test", () => {
       ]
 
     destinations = [
+       {
+        id: 1,
+        destination: "Lima, Peru",
+        estimatedLodgingCostPerDay: 70,
+        estimatedFlightCostPerPerson: 400,
+        image: "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
+        alt: "overview of city buildings with a clear sky"
+       },  
         {
           id: 22,
           destination: "Rome, Italy",
@@ -110,6 +119,16 @@ describe("Trips Test", () => {
 
       theUser = {id: 19}
       theUser2 = {id: 43}
+
+      newTrip = {
+        id: 209,
+        userID: 18,
+        destinationID: 1,
+        destination: "Lima, Peru",
+        travelers: 2,
+        userId: 18,
+        duration: 7,
+      };
   });
 
   it("should only return all trips with a user id of 19", () => {
@@ -212,6 +231,17 @@ describe("Trips Test", () => {
     expect(user).to.be.a("string");
     expect(user).to.equal(`${currentYear} Total: $0`)
     
+  });
+
+  it("", () => {
+    const tripCost = calculateTripCost(newTrip, destinations);
+    
+    expect(tripCost).to.be.an("object");
+    expect(tripCost.totalLodgingPrice).to.equal(490)
+    expect(tripCost.totalFlightPrice).to.equal(800)
+    expect(tripCost.subTotal).to.equal( 1290)
+     expect(tripCost.agentFee).to.equal(129);
+    expect(tripCost.total).to.equal(1419)
   });
 
 });

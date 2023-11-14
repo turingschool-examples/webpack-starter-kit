@@ -106,6 +106,7 @@ submitButton.addEventListener('click', () => {
    showErrorMessage(errorResponse)
   makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user)
   postTripBooking(newTrip)
+  console.log("NEW TRIP", newTrip)
   handleNumberOfTravelers(newTrip)
   clearOutInputFields()
   

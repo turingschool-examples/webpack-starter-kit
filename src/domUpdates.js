@@ -99,7 +99,7 @@ export const renderPastTrips = (theUsersTrips) => {
 }
 
 export const renderCost = (cost) => {
-
+  console.log("COST", cost)
   if (typeof cost === 'string') {
     annualTotal.innerHTML += `
     <p>${cost}</p>
