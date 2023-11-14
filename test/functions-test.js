@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-const {getAllDestinations, handleDateErrors, makeUpcomingTrip, getDestinationId} = require("../src/functions.js");
+const {getAllDestinations, handleDateErrors, makeUpcomingTrip, getDestinationId, calculateTripCost} = require("../src/functions.js");
 
 describe("Functions Test", () => {
   const destinations = [
@@ -109,7 +109,6 @@ describe("Form Errors", () => {
       destination: "Stockholm, Sweden",
     };
 
-    let newTrip = {}
      let destinationId = getDestinationId(bookingInfo, destinations);
 
     expect(destinationId).to.be.a("number");

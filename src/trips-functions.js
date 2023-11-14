@@ -93,5 +93,31 @@ export const getAnnualSpent = (user, trips, destinations) => {
       total: 0,
     }
   );
-  
+};
+
+export const calculateTripCost = (newTrip, destinationsData) => {
+  return Object.keys(newTrip).reduce(
+    (acc, curr) => {
+      destinationsData.forEach((destination) => {
+        if (destination.id === newTrip.destinationID) {
+          acc.totalLodgingPrice =
+            destination.estimatedLodgingCostPerDay * newTrip.duration;
+          acc.totalFlightPrice =
+            destination.estimatedFlightCostPerPerson * newTrip.travelers;
+          acc.subTotal = acc.totalLodgingPrice + acc.totalFlightPrice;
+          acc.agentFee = acc.subTotal * 0.1;
+          acc.total =
+            acc.totalLodgingPrice + acc.totalFlightPrice + acc.agentFee;
+        }
+      });
+      return acc;
+    },
+    {
+      totalLodgingPrice: 0,
+      totalFlightPrice: 0,
+      subTotal: 0,
+      agentFee: 0,
+      total: 0,
+    }
+  );
 };

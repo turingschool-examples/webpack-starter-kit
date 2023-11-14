@@ -25,7 +25,7 @@ import {
   bookATrip,
   clearErrorMessage,
 } from "./domUpdates";
-import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
+import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent, calculateTripCost } from './trips-functions';
 import { getAllDestinations, makeUpcomingTrip } from './functions';
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -106,6 +106,7 @@ submitButton.addEventListener('click', () => {
    showErrorMessage(errorResponse)
   makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user)
   postTripBooking(newTrip)
+  console.log("NEW TRIP", newTrip)
   handleNumberOfTravelers(newTrip)
   clearOutInputFields()
   
@@ -118,7 +119,8 @@ submitButton.addEventListener('click', () => {
       displayPastTripsDOM(tripsData, destinationsData);
       displayAnnualCostDOM(tripsData, destinationsData);
     }).then(() => {
-       clearErrorMessage();
+       let tripCost = calculateTripCost(newTrip, destinationsData);
+       clearErrorMessage(tripCost);
     })
     .catch((error) => {
       console.error(error);
@@ -170,7 +172,7 @@ const handleBookingErrors = (trip) => {
     return "Complete all form fields before submitting";
   }
   else {
-    return "Your're booking has be submitted. It should appear in Upcoming Trips!"
+    return "You're booking is complete. It should appear in Upcoming Trips!"
   }
 };
 
