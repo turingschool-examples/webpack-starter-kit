@@ -214,6 +214,10 @@ h2 {
     align-items: center;
 }
 
-/* .travelers-input {
-  width: 8vw;
-} */
+.travelers-input {
+  width: 10vw;
+}
+
+.trip-wrapper {
+  outline: 2px solid blue;
+}

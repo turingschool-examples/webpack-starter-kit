@@ -96,10 +96,16 @@ submitButton.addEventListener('click', () => {
   console.log("NEW USER", newTrip)
   postTripBooking(newTrip)
   handleNumberOfTravelers(newTrip)
+  clearOutInputFields()
 })
 
 
-
+const clearOutInputFields = () => {
+  startDateInput.value = '';
+  endDateInput.value = '';
+  travelersInput.value = '';
+  destination.value = ''
+}
 
 
 

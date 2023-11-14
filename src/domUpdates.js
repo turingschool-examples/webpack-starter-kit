@@ -128,3 +128,4 @@ export const showErrorMessage = (trip) => {
     bookingError.innerText = `${trip}`;
   }
 }
+
