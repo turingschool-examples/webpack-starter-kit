@@ -1,6 +1,6 @@
 import { getUserFirstName } from "./scripts";
 import { showUserFirstName } from "./domUpdates";
-import { newTrip } from "./scripts";
+
 
 export const fetchTrips = () => {
   return fetch("http://localhost:3001/api/v1/trips")

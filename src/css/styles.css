@@ -29,24 +29,39 @@ h1 {
 }
 
 .trip-type {
-  width: 220px;
+  width: 275px;
   height: 25px;
   font-size: 16px;
+
 }
 
 .trip-sections-container {
   display: flex;
   justify-content: center;
-  outline: 2px solid black;
 }
 
 .upcoming-trips-section, .pending-trips-section, .book-a-trip-section, .annual-total-section {
   height: 560px;
-  width: 1098px;
+  width: 68.7em;
   background-color: white;
 }
 
+.annual-total-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgrey;
+}
 
+.annual-total {
+  margin-top: 8%;
+  color: red;
+}
+
+/* .annual-cost {
+  height: 75%;
+  outline: 2px solid black;
+} */
 
 .login-container {
   display: flex;
@@ -116,8 +131,9 @@ h2 {
 }
 
 .book-a-trip {
+  margin-top: 3%;
   display: flex;
-  height: 250px;
+  height: 220px;
   justify-content: space-between;
   align-items: center;
   width: 900px;
@@ -125,12 +141,12 @@ h2 {
 }
 
 
-.dates-container {
+/* .dates-container {
   display: flex;
   outline: 2px solid red;
   width: 400px;
   justify-content: space-between;
-}
+} */
 
 .start-date, .end-date {
   display: flex;
@@ -163,12 +179,7 @@ h2 {
   width: 100px;
 }
 
-.trip-wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 25%;
-  height: 150px;
-}
+
 
 .past-trips-section {
   display: flex;
@@ -178,9 +189,7 @@ h2 {
   background-color: white;
 }
 
-.hidden {
-  display: none;
-}
+
 
 .destination {
   width: 15.5em;
@@ -192,6 +201,7 @@ h2 {
 }
 
 .booking-error {
+  text-align: center;
   color: red;
 }
 
@@ -205,3 +215,83 @@ h2 {
     align-items: center;
 }
 
+.travelers-input {
+  width: 10vw;
+}
+
+
+
+.upcoming-trips {
+  margin-top: 8%;
+  display: flex;
+  justify-content: center;
+  color: red;
+  width: 100%;
+}
+
+/* .upcoming-trips-section {
+  display: flex;
+ 
+} */
+
+
+.upcoming-trips-section, .past-trips-section {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: lightgray;
+}
+
+.trip-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 25%;
+  margin: 1em 0 0 1.7em;
+  background-color: white;
+  border-radius: 1em;
+}
+
+.location {
+
+  margin-left: 0.6em;
+}
+
+.per-night {
+  display: flex;
+  font-size: 0.8em;
+}
+
+.hotel {
+  margin-right: 0.5em;
+}
+
+.flight-cost {
+  margin-left: 0.3em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hidden {
+  display: none;
+}

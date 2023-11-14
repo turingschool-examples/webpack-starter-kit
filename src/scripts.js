@@ -7,7 +7,24 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import { fetchTrips, fetchDestinations, fetchLoginInfo, postTripBooking} from './apiCalls';
-import { showAnnualCostSection, showBookATripSection, showPastTrips, showPendingTrips, showUpcomingTrips, signInUser, renderUpcomingTrips, renderPastTrips, renderCost, createDropDown, showDateError, showErrorMessage, handleSubmission } from './domUpdates';
+import {
+  showAnnualCostSection,
+  showBookATripSection,
+  showPastTrips,
+  showPendingTrips,
+  showUpcomingTrips,
+  signInUser,
+  renderUpcomingTrips,
+  renderPastTrips,
+  renderCost,
+  createDropDown,
+  showDateError,
+  showErrorMessage,
+  handleSubmission,
+  closeBookingMessage,
+  bookATrip,
+  clearErrorMessage,
+} from "./domUpdates";
 import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent } from './trips-functions';
 import { getAllDestinations, makeUpcomingTrip } from './functions';
 console.log('This is the JavaScript entry file - your code begins here.');
@@ -29,20 +46,19 @@ const endDateInput = document.querySelector(".end-date-input");
 const travelersInput = document.querySelector(".travelers-input");
 const destination = document.querySelector(".destination");
 const submitButton = document.querySelector('.submit-button')
+const closeButton = document.querySelector(".materials-symbols-outlined");
+
 
 let user
 let tripsData
 let destinationsData
 export let newTrip = {}
 
-
 upcomingTripsButton.addEventListener('click', () => {
   showUpcomingTrips()
 })
 
-pendingTripsButton.addEventListener('click', () => {
-  showPendingTrips()
-})
+
 
 pastTripsButton.addEventListener('click', () => {
   showPastTrips()
@@ -85,19 +101,44 @@ destination.addEventListener('click', () => {
 const bookingError = document.querySelector(".booking-error");
 
 submitButton.addEventListener('click', () => {
-  bookingError.innerHTML = ''
   let bookingInfo = captureTripBookingData()
-  console.log("bookingInfo", bookingInfo)
   let errorResponse = handleBookingErrors(bookingInfo)
-  console.log("errorResponse", errorResponse)
-  console.log('user', user)
-    handleSubmission(errorResponse);
    showErrorMessage(errorResponse)
   makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user)
-  console.log("NEW USER", newTrip)
-  //postTripBooking(newTrip)
+  postTripBooking(newTrip)
   handleNumberOfTravelers(newTrip)
+  clearOutInputFields()
+  
+  Promise.all([fetchTrips(), fetchDestinations()])
+    .then((data) => {
+      console.log(data);
+      tripsData = data[0];
+      destinationsData = data[1];
+      displayUpcomingTripsDOM(tripsData, destinationsData);
+      displayPastTripsDOM(tripsData, destinationsData);
+      displayAnnualCostDOM(tripsData, destinationsData);
+    }).then(() => {
+       clearErrorMessage();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 })
+
+
+const clearOutInputFields = () => {
+  startDateInput.value = '';
+  endDateInput.value = '';
+  travelersInput.value = '';
+  destination.value = ''
+}
+
+
+
+
+
+
+
 
 const handleNumberOfTravelers = (newTrip) => {
   if(newTrip.travelers >= 1) {
@@ -127,6 +168,9 @@ const handleBookingErrors = (trip) => {
     !trip.destination
   ) {
     return "Complete all form fields before submitting";
+  }
+  else {
+    return "Your're booking has be submitted. It should appear in Upcoming Trips!"
   }
 };
 
