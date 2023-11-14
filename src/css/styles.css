@@ -50,10 +50,12 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .annual-total {
-  height: 10vh;
+  height: 75%;
+  color: red;
 }
 
 .login-container {
@@ -186,9 +188,7 @@ h2 {
   background-color: white;
 }
 
-.hidden {
-  display: none;
-}
+
 
 .destination {
   width: 15.5em;
@@ -220,4 +220,52 @@ h2 {
 
 .trip-wrapper {
   outline: 2px solid blue;
+}
+
+.upcoming-trips {
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  color: red;
+  width: 100%;
+}
+
+.upcoming-trips-section {
+  display: flex;
+  align-items: flex-end;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hidden {
+  display: none;
 }

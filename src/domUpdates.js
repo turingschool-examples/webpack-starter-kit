@@ -11,6 +11,7 @@ const destination = document.querySelector('.destination');
 const welcomeName = document.querySelector(".welcome-name");
 const bookingError = document.querySelector('.booking-error');
 const annualTotal = document.querySelector(".annual-cost");
+// const pastTrips = document.querySelector('.past-trips')
 
 export const signInUser = () => {
   pageContent.classList.remove("hidden");
@@ -83,6 +84,7 @@ export const renderUpcomingTrips = (theUsersTrips) => {
 export const renderPastTrips = (theUsersTrips) => {
 
   theUsersTrips.forEach(trip => {
+    pastTripsSection.innerHTML = ''
     pastTripsSection.innerHTML += `
     <div class= "trip-wrapper">
       <p> Location  ${trip.destination}</p>
@@ -101,6 +103,7 @@ export const renderCost = (cost) => {
     <p>${cost}</p>
     `
   } else {
+    annualTotalSection.innerHTML = '';
     annualTotalSection.innerHTML += `
   <p>Flight - $${cost.totalFlightPrice}</p>
   <p>Hotel - $${cost.totalLodgingPrice}</p>
