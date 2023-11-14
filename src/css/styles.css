@@ -234,27 +234,38 @@ h2 {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: flext-start;
-  /* justify-content: flex-end; */
-  /* align-items: flex-start; */
   align-content: flex-start;
-  outline: 3px solid magenta;
+  background-color: lightgray;
 }
 
 .trip-wrapper {
   display: flex;
-  width: 25%;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
   height: 25%;
-  outline: 2px solid green;
-  margin: 1em 0 0 1em;
+  margin: 1em 0 0 1.7em;
+  background-color: white;
+  border-radius: 1em;
 }
 
+.location {
 
+  margin-left: 0.6em;
+}
 
+.per-night {
+  display: flex;
+  font-size: 0.8em;
+}
 
+.hotel {
+  margin-right: 0.5em;
+}
 
-
-
+.flight-cost {
+  margin-left: 0.3em;
+}
 
 
 

@@ -72,10 +72,10 @@ export const renderUpcomingTrips = (theUsersTrips) => {
       upcomingTrips.innerHTML = ''
       upcomingTripsSection.innerHTML += `
     <div class="trip-wrapper">
-      <p> Location  ${trip.destination}</p>
+      <p class="location"> ${trip.destination}</p>
       <image  class="trip-images" src="${trip.image} alt=${trip.alt}">
-      <p> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
-      <p> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
+      <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
+      <p class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per Night</span></p>
     </div>
     `;
     }) 
