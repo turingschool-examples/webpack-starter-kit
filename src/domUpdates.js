@@ -91,7 +91,7 @@ export const renderPastTrips = (theUsersTrips) => {
     <div class= "trip-wrapper">
       <p class="location"> Location  ${trip.destination}</p>
       <image  class="trip-images" src="${trip.image} alt=${trip.alt}">
-      <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
+      <p class="flight-cost"> Flight Cost ${(trip.estimatedFlightCostPerPerson).toLocaleString()}</p>
       <p class="hotel"> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
     </div>
     `;
@@ -111,7 +111,7 @@ export const renderCost = (cost) => {
   <p>Hotel - $${(cost.totalLodgingPrice).toLocaleString()}</p>
   <p>Subtotal - $${(cost.subTotal).toLocaleString()}</p>
   <p>Agent Fee - $${(cost.agentFee).toLocaleString()}</p>
-  <p>Total $${(cost.total).toLocaleString()}</p>
+  <p class="total">Total $${(cost.total).toLocaleString()}</p>
   `
   } 
 }
@@ -139,7 +139,7 @@ export const clearErrorMessage = (tripCost) => {
         <p>Lodging - $${(tripCost.totalLodgingPrice).toLocaleString()}</p>
         <p>Subtotal - $${(tripCost.subTotal).toLocaleString()}</p>
         <p>Agent Fee - $${(tripCost.agentFee).toLocaleString()}</p>
-        <p>Total - $${(tripCost.total).toLocaleString()}</p>
+        <p class="total">Total - $${(tripCost.total).toLocaleString()}</p>
       </section>
       `;
   }
