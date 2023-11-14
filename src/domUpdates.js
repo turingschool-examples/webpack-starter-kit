@@ -73,7 +73,7 @@ export const renderUpcomingTrips = (theUsersTrips) => {
       upcomingTripsSection.innerHTML += `
     <div class="trip-wrapper">
       <p class="location"> ${trip.destination}</p>
-      <image class="trip-images" src="${trip.image} alt=${trip.alt}">
+      <image class="trip-images" src="${trip.image}" alt="${trip.alt}">
       <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
       <p class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per night</span></p>
     </div>
@@ -90,7 +90,7 @@ export const renderPastTrips = (theUsersTrips) => {
     pastTripsSection.innerHTML += `
     <div class= "trip-wrapper">
       <p class="location"> Location  ${trip.destination}</p>
-      <image  class="trip-images" src="${trip.image} alt=${trip.alt}">
+      <image  class="trip-images" src="${trip.image}" alt="${trip.alt}">
       <p class="flight-cost"> Flight Cost ${(trip.estimatedFlightCostPerPerson).toLocaleString()}</p>
       <p class="hotel"> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
     </div>
