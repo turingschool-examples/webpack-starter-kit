@@ -71,11 +71,11 @@ export const renderUpcomingTrips = (theUsersTrips) => {
       upcomingTrips.remove()
       upcomingTrips.innerHTML = ''
       upcomingTripsSection.innerHTML += `
-    <div class="trip-wrapper">
-      <p class="location"> ${trip.destination}</p>
-      <image class="trip-images" src="${trip.image}" alt="${trip.alt}">
-      <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
-      <p class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per night</span></p>
+    <div tabindex="1" class="trip-wrapper">
+      <p tabindex="1" class="location"> ${trip.destination}</p>
+      <image tabindex="1" class="trip-images" src="${trip.image}" alt="${trip.alt}">
+      <p tabindex="1" class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
+      <p tabindex="1" class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per night</span></p>
     </div>
     `;
     }) 
@@ -88,10 +88,10 @@ export const renderPastTrips = (theUsersTrips) => {
   theUsersTrips.forEach(trip => {
     pastTripsSection.innerHTML = ''
     pastTripsSection.innerHTML += `
-    <div class= "trip-wrapper">
+    <div tabindex="0" class= "trip-wrapper">
       <p class="location"> Location  ${trip.destination}</p>
-      <image  class="trip-images" src="${trip.image}" alt="${trip.alt}">
-      <p class="flight-cost"> Flight Cost ${(trip.estimatedFlightCostPerPerson).toLocaleString()}</p>
+      <image class="trip-images" src="${trip.image}" alt="${trip.alt}">
+      <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson.toLocaleString()}</p>
       <p class="hotel"> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
     </div>
     `;
@@ -107,12 +107,12 @@ export const renderCost = (cost) => {
   } else {
     annualTotalSection.innerHTML = '';
     annualTotalSection.innerHTML += `
-  <p>Flight - $${(cost.totalFlightPrice).toLocaleString()}</p>
-  <p>Hotel - $${(cost.totalLodgingPrice).toLocaleString()}</p>
-  <p>Subtotal - $${(cost.subTotal).toLocaleString()}</p>
-  <p>Agent Fee - $${(cost.agentFee).toLocaleString()}</p>
-  <p class="total">Total $${(cost.total).toLocaleString()}</p>
-  `
+  <p tabindex="0">Flight - $${cost.totalFlightPrice.toLocaleString()}</p>
+  <p tabindex="1" >Hotel - $${cost.totalLodgingPrice.toLocaleString()}</p>
+  <p tabindex="2" >Subtotal - $${cost.subTotal.toLocaleString()}</p>
+  <p tabindex="3" >Agent Fee - $${cost.agentFee.toLocaleString()}</p>
+  <p tabindex="4" class="total">Total $${cost.total.toLocaleString()}</p>
+  `;
   } 
 }
 
@@ -133,13 +133,13 @@ export const showErrorMessage = (trip) => {
 export const clearErrorMessage = (tripCost) => {
   if (bookingError.innerText ="You're booking is complete. It should appear in Upcoming Trips!") {
       bookingError.innerHTML += `
-      <section class="trip-cost">
-        <h3>Trip Cost</h3>
-        <p> Flight - $${(tripCost.totalFlightPrice).toLocaleString()}</p>
-        <p>Lodging - $${(tripCost.totalLodgingPrice).toLocaleString()}</p>
-        <p>Subtotal - $${(tripCost.subTotal).toLocaleString()}</p>
-        <p>Agent Fee - $${(tripCost.agentFee).toLocaleString()}</p>
-        <p class="total">Total - $${(tripCost.total).toLocaleString()}</p>
+      <section tabindex="0" class="trip-cost">
+        <h3 tabindex="1" >Trip Cost</h3>
+        <ptabindex="2" > Flight - $${tripCost.totalFlightPrice.toLocaleString()}</p>
+        <ptabindex="3" >Lodging - $${tripCost.totalLodgingPrice.toLocaleString()}</p>
+        <p tabindex="4" >Subtotal - $${tripCost.subTotal.toLocaleString()}</p>
+        <p tabindex="5" >Agent Fee - $${tripCost.agentFee.toLocaleString()}</p>
+        <p tabindex="6" class="total">Total - $${tripCost.total.toLocaleString()}</p>
       </section>
       `;
   }
