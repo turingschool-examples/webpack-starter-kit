@@ -107,11 +107,11 @@ export const renderCost = (cost) => {
   } else {
     annualTotalSection.innerHTML = '';
     annualTotalSection.innerHTML += `
-  <p>Flight - $${cost.totalFlightPrice}</p>
-  <p>Hotel - $${cost.totalLodgingPrice}</p>
-  <p>Subtotal - $${cost.subTotal}</p>
-  <p>Agent Fee - $${cost.agentFee}</p>
-  <p>Total $${cost.total}</p>
+  <p>Flight - $${(cost.totalFlightPrice).toLocaleString()}</p>
+  <p>Hotel - $${(cost.totalLodgingPrice).toLocaleString()}</p>
+  <p>Subtotal - $${(cost.subTotal).toLocaleString()}</p>
+  <p>Agent Fee - $${(cost.agentFee).toLocaleString()}</p>
+  <p>Total $${(cost.total).toLocaleString()}</p>
   `
   } 
 }
@@ -135,11 +135,11 @@ export const clearErrorMessage = (tripCost) => {
       bookingError.innerHTML += `
       <section class="trip-cost">
         <h3>Trip Cost</h3>
-        <p> Flight - ${tripCost.totalFlightPrice}</p>
-        <p>Lodging - ${tripCost.totalLodgingPrice}</p>
-        <p>Subtotal - ${tripCost.subTotal}</p>
-        <p>Agent Fee - ${tripCost.agentFee}</p>
-        <p>Total - ${tripCost.total}</p>
+        <p> Flight - $${(tripCost.totalFlightPrice).toLocaleString()}</p>
+        <p>Lodging - $${(tripCost.totalLodgingPrice).toLocaleString()}</p>
+        <p>Subtotal - $${(tripCost.subTotal).toLocaleString()}</p>
+        <p>Agent Fee - $${(tripCost.agentFee).toLocaleString()}</p>
+        <p>Total - $${(tripCost.total).toLocaleString()}</p>
       </section>
       `;
   }

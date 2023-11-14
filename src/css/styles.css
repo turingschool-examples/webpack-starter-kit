@@ -131,9 +131,9 @@ h2 {
 }
 
 .book-a-trip {
-  margin-top: 3%;
+  margin-top: 6%;
   display: flex;
-  height: 220px;
+  height: 100px;
   justify-content: space-between;
   align-items: center;
   width: 900px;
@@ -225,7 +225,6 @@ h2 {
   margin-top: 8%;
   display: flex;
   justify-content: center;
-  color: red;
   width: 100%;
 }
 
@@ -272,7 +271,12 @@ h2 {
   margin-left: 0.3em;
 }
 
-
+.trip-cost {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  line-height: 0.5em;
+}
 
 
 
