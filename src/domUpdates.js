@@ -129,3 +129,10 @@ export const showErrorMessage = (trip) => {
   }
 }
 
+export const clearErrorMessage = () => {
+  if (bookingError.innerText = "Your're booking has be submitted. It should appear in Upcoming Trips!") {
+     setTimeout(() => {
+       bookingError.innerHTML = ''
+     }, 3000);
+  }
+}
