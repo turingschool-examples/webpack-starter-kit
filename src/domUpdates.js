@@ -73,7 +73,7 @@ export const renderUpcomingTrips = (theUsersTrips) => {
       upcomingTripsSection.innerHTML += `
     <div class="trip-wrapper">
       <p class="location"> ${trip.destination}</p>
-      <image class="trip-images" src="${trip.image} alt=${trip.alt}">
+      <image  class="trip-images" src="${trip.image}" alt=${trip.alt}">
       <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
       <p class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per night</span></p>
     </div>
@@ -99,7 +99,7 @@ export const renderPastTrips = (theUsersTrips) => {
 }
 
 export const renderCost = (cost) => {
-  console.log("COST", cost)
+
   if (typeof cost === 'string') {
     annualTotal.innerHTML += `
     <p>${cost}</p>
@@ -107,11 +107,11 @@ export const renderCost = (cost) => {
   } else {
     annualTotalSection.innerHTML = '';
     annualTotalSection.innerHTML += `
-  <p>Flight - $${(cost.totalFlightPrice).toLocaleString()}</p>
-  <p>Hotel - $${(cost.totalLodgingPrice).toLocaleString()}</p>
-  <p>Subtotal - $${(cost.subTotal).toLocaleString()}</p>
-  <p>Agent Fee - $${(cost.agentFee).toLocaleString()}</p>
-  <p>Total $${(cost.total).toLocaleString()}</p>
+  <p>Flight - $${cost.totalFlightPrice}</p>
+  <p>Hotel - $${cost.totalLodgingPrice}</p>
+  <p>Subtotal - $${cost.subTotal}</p>
+  <p>Agent Fee - $${cost.agentFee}</p>
+  <p>Total $${cost.total}</p>
   `
   } 
 }
@@ -130,17 +130,10 @@ export const showErrorMessage = (trip) => {
   }
 }
 
-export const clearErrorMessage = (tripCost) => {
-  if (bookingError.innerText ="You're booking is complete. It should appear in Upcoming Trips!") {
-      bookingError.innerHTML += `
-      <section class="trip-cost">
-        <h3>Trip Cost</h3>
-        <p> Flight - $${(tripCost.totalFlightPrice).toLocaleString()}</p>
-        <p>Lodging - $${(tripCost.totalLodgingPrice).toLocaleString()}</p>
-        <p>Subtotal - $${(tripCost.subTotal).toLocaleString()}</p>
-        <p>Agent Fee - $${(tripCost.agentFee).toLocaleString()}</p>
-        <p>Total - $${(tripCost.total).toLocaleString()}</p>
-      </section>
-      `;
+export const clearErrorMessage = () => {
+  if (bookingError.innerText = "Your're booking has be submitted. It should appear in Upcoming Trips!") {
+     setTimeout(() => {
+       bookingError.innerHTML = ''
+     }, 3000);
   }
 }
