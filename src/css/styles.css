@@ -173,12 +173,7 @@ h2 {
   width: 100px;
 }
 
-.trip-wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 25%;
-  height: 150px;
-}
+
 
 .past-trips-section {
   display: flex;
@@ -218,9 +213,7 @@ h2 {
   width: 10vw;
 }
 
-.trip-wrapper {
-  outline: 2px solid blue;
-}
+
 
 .upcoming-trips {
   height: 70%;
@@ -230,14 +223,31 @@ h2 {
   width: 100%;
 }
 
+/* .upcoming-trips-section {
+  display: flex;
+ 
+} */
+
+
+
 .upcoming-trips-section {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flext-start;
+  /* justify-content: flex-end; */
+  /* align-items: flex-start; */
+  align-content: flex-start;
+  outline: 3px solid magenta;
 }
 
-
-
-
+.trip-wrapper {
+  display: flex;
+  width: 25%;
+  height: 25%;
+  outline: 2px solid green;
+  margin: 1em 0 0 1em;
+}
 
 
 
