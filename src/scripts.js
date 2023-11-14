@@ -108,7 +108,7 @@ submitButton.addEventListener('click', () => {
   postTripBooking(newTrip)
   handleNumberOfTravelers(newTrip)
   clearOutInputFields()
-  clearErrorMessage()
+  
   Promise.all([fetchTrips(), fetchDestinations()])
     .then((data) => {
       console.log(data);
@@ -117,6 +117,8 @@ submitButton.addEventListener('click', () => {
       displayUpcomingTripsDOM(tripsData, destinationsData);
       displayPastTripsDOM(tripsData, destinationsData);
       displayAnnualCostDOM(tripsData, destinationsData);
+    }).then(() => {
+       clearErrorMessage();
     })
     .catch((error) => {
       console.error(error);
