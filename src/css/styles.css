@@ -111,6 +111,7 @@ h2 {
   border-radius: 6px;
   height: 30px;
   border: 0;
+   letter-spacing: 1px;
 }
 
 .sign-in-button:hover {
@@ -200,6 +201,14 @@ h2 {
 .submit-button {
   margin-top: 2.3%;
   width: 10vw;
+  height: 4vh;
+  color: white;
+  background-color: green;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9em;
+  letter-spacing: 1px;
 }
 
 .booking-error {
@@ -275,7 +284,7 @@ h2 {
 
 .trip-wrapper {
   display: flex;
-
+  color: black;
   justify-content: center;
   align-items: center;
   width: 30%;
@@ -285,6 +294,9 @@ h2 {
   border-radius: 1em;
 }
 
+.trip-cost {
+  color: black;
+}
 
 
 
