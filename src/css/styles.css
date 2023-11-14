@@ -50,11 +50,10 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  outline: 2px solid red;
 }
 
 .annual-total {
-  outline: 2px solid blue;
+  height: 10vh;
 }
 
 .login-container {
