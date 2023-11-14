@@ -94,9 +94,32 @@ signInButton.addEventListener("click", () => {
     });
 });
 
-destination.addEventListener('click', () => {
-  renderDestinations(destinationsData)
-})
+// destination.addEventListener('click', () => {
+//   renderDestinations(destinationsData)
+// })
+
+
+// function handleEvent(event) {
+//   if (
+//     event.type === "click" ||
+//     (event.type === "keydown" && event.key === "Enter")
+//   ) {
+//     renderDestinations(destinationsData);
+//   }
+// }
+
+const handleEvent = (event) => {
+  if (
+    event.type === "click" ||
+    (event.type === "keydown" && event.key === "Enter")
+  ) {
+    renderDestinations(destinationsData);
+  }
+};
+
+destination.addEventListener("click", handleEvent);
+destination.addEventListener("keydown", handleEvent);
+
 
 const bookingError = document.querySelector(".booking-error");
 
