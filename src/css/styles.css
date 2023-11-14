@@ -1,6 +1,6 @@
 
 * {
-     font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'M PLUS Rounded 1c', sans-serif
 }
 
 body {
@@ -187,6 +187,8 @@ h2 {
   height: 560px;
   width: 1098px;
   background-color: white;
+  overflow-y: scroll
+ 
 }
 
 
@@ -205,15 +207,15 @@ h2 {
   color: red;
 }
 
-.submit-message {
+/* .submit-message {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50vw;
   border-radius: 8px;
    width: 1098px;
-    align-items: center;
-}
+  align-items: center;
+} */
 
 .travelers-input {
   width: 10vw;
@@ -226,12 +228,10 @@ h2 {
   display: flex;
   justify-content: center;
   width: 100%;
+
 }
 
-/* .upcoming-trips-section {
-  display: flex;
- 
-} */
+
 
 
 .upcoming-trips-section, .past-trips-section {
@@ -242,16 +242,7 @@ h2 {
   background-color: lightgray;
 }
 
-.trip-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  height: 25%;
-  margin: 1em 0 0 1.7em;
-  background-color: white;
-  border-radius: 1em;
-}
+
 
 .location {
 
@@ -274,13 +265,25 @@ h2 {
 .trip-cost {
   display: flex;
   flex-direction: column;
-  color: black;
   line-height: 0.5em;
 }
 
+.upcoming-trips-section {
+  display: flex;
+  overflow-y: scroll;
+}
 
+.trip-wrapper {
+  display: flex;
 
-
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 25%;
+  margin: 1em 0 0 1.7em;
+  background-color: white;
+  border-radius: 1em;
+}
 
 
 
