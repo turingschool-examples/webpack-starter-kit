@@ -101,20 +101,26 @@ destination.addEventListener('click', () => {
 const bookingError = document.querySelector(".booking-error");
 
 submitButton.addEventListener('click', () => {
-  bookingError.innerHTML = ''
   let bookingInfo = captureTripBookingData()
-  console.log("bookingInfo", bookingInfo)
   let errorResponse = handleBookingErrors(bookingInfo)
-  console.log("errorResponse", errorResponse)
-  console.log('user', user)
-  //  handleSubmission(errorResponse);
    showErrorMessage(errorResponse)
   makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user)
-  console.log("NEW USER", newTrip)
   postTripBooking(newTrip)
   handleNumberOfTravelers(newTrip)
   clearOutInputFields()
   clearErrorMessage()
+  Promise.all([fetchTrips(), fetchDestinations()])
+    .then((data) => {
+      console.log(data);
+      tripsData = data[0];
+      destinationsData = data[1];
+      displayUpcomingTripsDOM(tripsData, destinationsData);
+      displayPastTripsDOM(tripsData, destinationsData);
+      displayAnnualCostDOM(tripsData, destinationsData);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 })
 
 

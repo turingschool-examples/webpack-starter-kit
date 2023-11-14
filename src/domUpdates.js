@@ -64,11 +64,7 @@ export const showUserFirstName = (name) => {
 
 export const renderUpcomingTrips = (theUsersTrips) => {
   console.log(theUsersTrips)
-  if (typeof theUsersTrips === "string") {
-    upcomingTripsSection.innerHTML += `
-  <p>${theUsersTrips}</p>
-  `;
-  } else {
+  if (typeof theUsersTrips !== "string") {
     theUsersTrips.forEach(trip => {
       upcomingTrips.innerHTML = ''
       upcomingTripsSection.innerHTML += `
