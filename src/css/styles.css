@@ -42,7 +42,7 @@ h1 {
 
 .upcoming-trips-section, .pending-trips-section, .book-a-trip-section, .annual-total-section {
   height: 560px;
-  width: 1098px;
+  width: 68.7em;
   background-color: white;
 }
 
@@ -50,12 +50,12 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  outline: 2px solid black;
 }
 
-.annual-total {
+.annual-cost {
   height: 75%;
-  color: red;
+  outline: 2px solid black;
 }
 
 .login-container {
@@ -229,8 +229,7 @@ h2 {
 } */
 
 
-
-.upcoming-trips-section {
+.upcoming-trips-section, .past-trips-section {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;

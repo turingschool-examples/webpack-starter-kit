@@ -75,7 +75,7 @@ export const renderUpcomingTrips = (theUsersTrips) => {
       <p class="location"> ${trip.destination}</p>
       <image  class="trip-images" src="${trip.image} alt=${trip.alt}">
       <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
-      <p class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per Night</span></p>
+      <p class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per night</span></p>
     </div>
     `;
     }) 
@@ -89,10 +89,10 @@ export const renderPastTrips = (theUsersTrips) => {
     pastTripsSection.innerHTML = ''
     pastTripsSection.innerHTML += `
     <div class= "trip-wrapper">
-      <p> Location  ${trip.destination}</p>
+      <p class="location"> Location  ${trip.destination}</p>
       <image  class="trip-images" src="${trip.image} alt=${trip.alt}">
-      <p> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
-      <p> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
+      <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
+      <p class="hotel"> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
     </div>
     `;
   })
