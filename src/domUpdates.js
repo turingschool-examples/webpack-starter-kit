@@ -130,10 +130,17 @@ export const showErrorMessage = (trip) => {
   }
 }
 
-export const clearErrorMessage = () => {
-  if (bookingError.innerText = "Your're booking has be submitted. It should appear in Upcoming Trips!") {
-     setTimeout(() => {
-       bookingError.innerHTML = ''
-     }, 3000);
+export const clearErrorMessage = (tripCost) => {
+  if (bookingError.innerText ="You're booking is complete. It should appear in Upcoming Trips!") {
+      bookingError.innerHTML += `
+      <section class="trip-cost">
+        <h3>Trip Cost</h3>
+        <p> Flight - ${tripCost.totalFlightPrice}</p>
+        <p>Lodging - ${tripCost.totalLodgingPrice}</p>
+        <p>Subtotal - ${tripCost.subTotal}</p>
+        <p>Agent Fee - ${tripCost.agentFee}</p>
+        <p>Total - ${tripCost.total}</p>
+      </section>
+      `;
   }
 }
