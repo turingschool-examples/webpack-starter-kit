@@ -135,7 +135,9 @@ export const showErrorMessage = (trip) => {
 }
 
 export const clearErrorMessage = (tripCost) => {
-  if (bookingError.innerText ="You're booking is complete. It should appear in Upcoming Trips!") {
+  if (tripCost.total) {
+  if (bookingError.innerText ="You're booking is complete. It should appear in Upcoming Trips!" || tripCost.total) {
+
       bookingError.innerHTML += `
       <section tabindex="0" class="trip-cost">
         <h3 tabindex="0" >Trip Cost</h3>
@@ -146,5 +148,6 @@ export const clearErrorMessage = (tripCost) => {
         <p tabindex="0" class="total">Total - $${tripCost.total.toLocaleString()}</p>
       </section>
       `;
+  }
   }
 }

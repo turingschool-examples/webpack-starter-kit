@@ -165,6 +165,7 @@ const clearOutInputFields = () => {
 
 
 
+
 const handleNumberOfTravelers = (newTrip) => {
   if(newTrip.travelers >= 1) {
     postTripBooking(newTrip)
@@ -193,10 +194,10 @@ const handleBookingErrors = (trip) => {
     !trip.destination
   ) {
     return "Complete all form fields before submitting";
-  }
-  else {
-    return "You're booking is complete. It should appear in Upcoming Trips!"
-  }
+  } else {
+  submitButton.disabled = false;
+  return "You're booking is complete. It should appear in Upcoming Trips!"
+}
 };
 
 const captureTripBookingData = () => {
