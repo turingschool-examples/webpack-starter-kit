@@ -1,37 +1,12 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/styles.css';
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 import { fetchTrips, fetchDestinations, fetchLoginInfo, postTripBooking} from './apiCalls';
-import {
-  showAnnualCostSection,
-  showBookATripSection,
-  showPastTrips,
-  showPendingTrips,
-  showUpcomingTrips,
-  signInUser,
-  renderUpcomingTrips,
-  renderPastTrips,
-  renderCost,
-  createDropDown,
-  showDateError,
-  showErrorMessage,
-  handleSubmission,
-  closeBookingMessage,
-  bookATrip,
-  clearErrorMessage,
-} from "./domUpdates";
+import {showAnnualCostSection,showBookATripSection,
+  showPastTrips,showUpcomingTrips,signInUser,renderUpcomingTrips,renderPastTrips,renderCost,createDropDown,showErrorMessage,clearErrorMessage,} from "./domUpdates";
 import {getUserPastTripDestinations, getUserUpcomingTripDestinations, getAnnualSpent, calculateTripCost } from './trips-functions';
 import { getAllDestinations, makeUpcomingTrip } from './functions';
-console.log('This is the JavaScript entry file - your code begins here.');
-
 
 const upcomingTripsButton = document.querySelector('.upcoming-trips-button');
-const pendingTripsButton = document.querySelector('.pending-trips-button');
 const pastTripsButton = document.querySelector('.past-trips-button');
 const annualTotalButton = document.querySelector('.annual-total-button');
 const bookATripButton = document.querySelector('.book-a-trip-button');
@@ -39,53 +14,47 @@ const signInButton = document.querySelector('.sign-in-button');
 const usernameInputBox = document.querySelector('.username-input-box');
 const passwordInputBox = document.querySelector('.password-input-box');
 const loginError = document.querySelector(".login-error");
-const pages = document.querySelectorAll('.pages');
-
 const startDateInput = document.querySelector(".start-date-input");
 const endDateInput = document.querySelector(".end-date-input");
 const travelersInput = document.querySelector(".travelers-input");
 const destination = document.querySelector(".destination");
-const submitButton = document.querySelector('.submit-button')
-const closeButton = document.querySelector(".materials-symbols-outlined");
+const submitButton = document.querySelector('.submit-button');
 
-
-let user
-let tripsData
-let destinationsData
-export let newTrip = {}
+let user;
+let tripsData;
+let destinationsData;
+export let newTrip = {};
 
 upcomingTripsButton.addEventListener('click', () => {
-  showUpcomingTrips()
-})
-
-
+  showUpcomingTrips();
+});
 
 pastTripsButton.addEventListener('click', () => {
-  showPastTrips()
-})
+  showPastTrips();
+});
 
 annualTotalButton.addEventListener('click', () => {
-  showAnnualCostSection()
-})
+  showAnnualCostSection();
+});
 
 bookATripButton.addEventListener('click', () => {
-  showBookATripSection() 
-})
+  showBookATripSection();
+});
 
 signInButton.addEventListener("click", () => {
   user = captureLoginInfo(user);
   user = completeLogInEndpoint(user);
   handleLoginErrors(user);
-  fetchLoginInfo(user)
-  showUpcomingTrips()
+  fetchLoginInfo(user);
+  showUpcomingTrips();
   
     Promise.all([fetchTrips(), fetchDestinations()])
     .then((data) => {
       console.log(data);
        tripsData = data[0];
        destinationsData = data[1];
-     displayUpcomingTripsDOM(tripsData, destinationsData)
-     displayPastTripsDOM(tripsData, destinationsData)
+     displayUpcomingTripsDOM(tripsData, destinationsData);
+     displayPastTripsDOM(tripsData, destinationsData);
      displayAnnualCostDOM(tripsData, destinationsData);
 
     })
@@ -94,21 +63,26 @@ signInButton.addEventListener("click", () => {
     });
 });
 
-destination.addEventListener('click', () => {
-  renderDestinations(destinationsData)
-})
+const handleEvent = (event) => {
+  if (
+    event.type === "click" ||
+    (event.type === "keydown" && event.key === "Enter")
+  ) {
+    renderDestinations(destinationsData);
+  };
+};
 
-const bookingError = document.querySelector(".booking-error");
+destination.addEventListener("click", handleEvent);
+destination.addEventListener("keydown", handleEvent);
 
 submitButton.addEventListener('click', () => {
-  let bookingInfo = captureTripBookingData()
-  let errorResponse = handleBookingErrors(bookingInfo)
-   showErrorMessage(errorResponse)
-  makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user)
-  postTripBooking(newTrip)
-  console.log("NEW TRIP", newTrip)
-  handleNumberOfTravelers(newTrip)
-  clearOutInputFields()
+  let bookingInfo = captureTripBookingData();
+  let errorResponse = handleBookingErrors(bookingInfo);
+   showErrorMessage(errorResponse);
+  makeUpcomingTrip(bookingInfo, newTrip, tripsData, destinationsData, user);
+  postTripBooking(newTrip);
+  handleNumberOfTravelers(newTrip);
+  clearOutInputFields();
   
   Promise.all([fetchTrips(), fetchDestinations()])
     .then((data) => {
@@ -125,27 +99,19 @@ submitButton.addEventListener('click', () => {
     .catch((error) => {
       console.error(error);
     });
-})
-
+});
 
 const clearOutInputFields = () => {
   startDateInput.value = '';
   endDateInput.value = '';
   travelersInput.value = '';
-  destination.value = ''
+  destination.value = '';
 }
-
-
-
-
-
-
-
 
 const handleNumberOfTravelers = (newTrip) => {
   if(newTrip.travelers >= 1) {
-    postTripBooking(newTrip)
-    displayUpcomingTripsDOM(tripsData, destinationsData)
+    postTripBooking(newTrip);
+    displayUpcomingTripsDOM(tripsData, destinationsData);
   }
 }
 
@@ -170,9 +136,8 @@ const handleBookingErrors = (trip) => {
     !trip.destination
   ) {
     return "Complete all form fields before submitting";
-  }
-  else {
-    return "You're booking is complete. It should appear in Upcoming Trips!"
+  } else {
+  return "You're booking is complete. It should appear in Upcoming Trips!";
   }
 };
 
@@ -184,38 +149,28 @@ const captureTripBookingData = () => {
     travelers: parseInt(travelersInput.value),
     destination: destination.value
   }
- console.log(trip)
- return trip
+ return trip;
 }
-
-
-
-
-
 
 const renderDestinations = (destinationsData) => {
   let places = getAllDestinations(destinationsData);
   createDropDown(places);
 };
 
-
 const displayUpcomingTripsDOM = (tripsData, destinationsData) => {
   let theUsersTrips = getUserUpcomingTripDestinations(user,tripsData,destinationsData);
-  console.log("the users Trips", theUsersTrips);
   renderUpcomingTrips(theUsersTrips);
 };
 
 const displayPastTripsDOM = (tripsData, destinationsData) => {
   let theUsersTrips = getUserPastTripDestinations(user, tripsData, destinationsData)
-  console.log("past trips", theUsersTrips)
-  renderPastTrips(theUsersTrips)
-}
+  renderPastTrips(theUsersTrips);
+};
 
 const displayAnnualCostDOM = (tripsData, destinationsData) => {
-  let cost = getAnnualSpent(user, tripsData, destinationsData)
-  console.log(cost)
-  renderCost(cost)
-}
+  let cost = getAnnualSpent(user, tripsData, destinationsData);
+  renderCost(cost);
+};
 
 const captureLoginInfo = (user) => {
    user = {
@@ -224,8 +179,8 @@ const captureLoginInfo = (user) => {
     password: passwordInputBox.value,
     endpoint: 'http://localhost:3001/api/v1/travelers/'
   }
-  return user
-}
+  return user;
+};
 
 const completeLogInEndpoint = (user) => {
   user.id = parseInt(user.username.slice(8));
@@ -235,12 +190,11 @@ const completeLogInEndpoint = (user) => {
 
 const handleLoginErrors = (user) => {
   if (user.id && user.id <= 50 && user.password === 'travel' && user.username.slice(0, 8) === 'traveler') {
-    signInUser()
+    signInUser();
   } else {
     loginError.classList.remove("hidden");
-  }
-  console.log("USER",user)
-}
+  };
+};
 
 export const getUserFirstName = (data) => {
   return data.name.split(" ")[0];

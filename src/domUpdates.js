@@ -1,4 +1,3 @@
-
 const upcomingTripsSection = document.querySelector(".upcoming-trips-section");
 const pendingTripsSection = document.querySelector(".pending-trips-section");
 const pastTripsSection = document.querySelector(".past-trips-section");
@@ -11,8 +10,6 @@ const destination = document.querySelector('.destination');
 const welcomeName = document.querySelector(".welcome-name");
 const bookingError = document.querySelector('.booking-error');
 const annualTotal = document.querySelector(".annual-cost");
-
-// const pastTrips = document.querySelector('.past-trips')
 
 export const signInUser = () => {
   pageContent.classList.remove("hidden");
@@ -59,7 +56,6 @@ export const showUpcomingTrips = () => {
   upcomingTripsSection.classList.remove("hidden");
 };
 
-
 export const showUserFirstName = (name) => {
   welcomeName.innerHTML += `Welcome ${name}`;
 };
@@ -71,28 +67,30 @@ export const renderUpcomingTrips = (theUsersTrips) => {
       upcomingTrips.remove()
       upcomingTrips.innerHTML = ''
       upcomingTripsSection.innerHTML += `
-    <div class="trip-wrapper">
-      <p class="location"> ${trip.destination}</p>
-      <image  class="trip-images" src="${trip.image}" alt=${trip.alt}">
-      <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
-      <p class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per night</span></p>
-    </div>
-    `;
+    <div tabindex="1" class="trip-wrapper">
+      <p tabindex="1" class="location"> ${trip.destination}</p>
+      <image tabindex="1" class="trip-images" src="${trip.image}" alt="${trip.alt}">
+      <p tabindex="1" class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
+      <p tabindex="1" class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per night</span></p>
+    </div>;
     }) 
   } 
 }
-
 
 export const renderPastTrips = (theUsersTrips) => {
 
   theUsersTrips.forEach(trip => {
     pastTripsSection.innerHTML = ''
     pastTripsSection.innerHTML += `
-    <div class= "trip-wrapper">
-      <p class="location"> Location  ${trip.destination}</p>
-      <image  class="trip-images" src="${trip.image} alt=${trip.alt}">
-      <p class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
-      <p class="hotel"> Hotel Daily ${trip.estimatedLodgingCostPerDay}</p>
+    <div tabindex="0" class= "trip-wrapper">
+      <p tabindex="0" class="location"> Location  ${trip.destination}</p>
+      <image tabindex="0" class="trip-images" src="${trip.image}" alt="${
+      trip.alt
+    }">
+      <p tabindex="0" class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson.toLocaleString()}</p>
+      <p tabindex="0" class="hotel"> Hotel Daily ${
+        trip.estimatedLodgingCostPerDay
+      }</p>
     </div>
     `;
   })
@@ -107,11 +105,11 @@ export const renderCost = (cost) => {
   } else {
     annualTotalSection.innerHTML = '';
     annualTotalSection.innerHTML += `
-  <p>Flight - $${cost.totalFlightPrice}</p>
-  <p>Hotel - $${cost.totalLodgingPrice}</p>
-  <p>Subtotal - $${cost.subTotal}</p>
-  <p>Agent Fee - $${cost.agentFee}</p>
-  <p>Total $${cost.total}</p>
+  <p tabindex="0  ">Flight - $${cost.totalFlightPrice.toLocaleString()}</p>
+  <p tabindex="0" >Hotel - $${cost.totalLodgingPrice.toLocaleString()}</p>
+  <p tabindex="0" >Subtotal - $${cost.subTotal.toLocaleString()}</p>
+  <p tabindex="0" >Agent Fee - $${cost.agentFee.toLocaleString()}</p>
+  <p tabindex="0" class="total">Total $${cost.total.toLocaleString()}</p>
   `
   } 
 }
@@ -130,10 +128,20 @@ export const showErrorMessage = (trip) => {
   }
 }
 
-export const clearErrorMessage = () => {
-  if (bookingError.innerText = "Your're booking has be submitted. It should appear in Upcoming Trips!") {
-     setTimeout(() => {
-       bookingError.innerHTML = ''
-     }, 3000);
+export const clearErrorMessage = (tripCost) => {
+  if (tripCost.total) {
+  if (bookingError.innerText ="You're booking is complete. It should appear in Upcoming Trips!" || tripCost.total) {
+
+      bookingError.innerHTML += `
+      <section tabindex="0" class="trip-cost">
+        <h3 tabindex="0" >Trip Cost</h3>
+        <p tabindex="0" > Flight - $${tripCost.totalFlightPrice.toLocaleString()}</p>
+        <p tabindex="0" >Lodging - $${tripCost.totalLodgingPrice.toLocaleString()}</p>
+        <p tabindex="0" >Subtotal - $${tripCost.subTotal.toLocaleString()}</p>
+        <p tabindex="0" >Agent Fee - $${tripCost.agentFee.toLocaleString()}</p>
+        <p tabindex="0" class="total">Total - $${tripCost.total.toLocaleString()}</p>
+      </section>
+      `;
+    }
   }
 }

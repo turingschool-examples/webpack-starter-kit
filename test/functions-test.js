@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-const {getAllDestinations, handleDateErrors, makeUpcomingTrip, getDestinationId, calculateTripCost} = require("../src/functions.js");
+const {getAllDestinations, handleDateErrors, makeUpcomingTrip, getDestinationId} = require("../src/functions.js");
 
 describe("Functions Test", () => {
   const destinations = [
