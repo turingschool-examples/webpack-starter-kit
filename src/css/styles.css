@@ -32,7 +32,10 @@ h1 {
   width: 275px;
   height: 25px;
   font-size: 16px;
+}
 
+.trip-type:hover {
+  cursor: pointer;
 }
 
 .trip-sections-container {
@@ -141,6 +144,18 @@ h2 {
   flex-direction: column;
 }
 
+.start-date-input:hover, .end-date-input {
+  cursor: pointer;
+}
+
+.travelers-input:hover {
+  cursor: pointer;
+}
+
+.destination:hover {
+  cursor: pointer;
+}
+
 .people-and-destination-container {
   display: flex;
   width: 400px;
@@ -190,6 +205,10 @@ h2 {
   font-weight: 500;
   font-size: 0.9em;
   letter-spacing: 1px;
+}
+
+.submit-button:hover {
+  cursor: pointer;
 }
 
 .booking-error {
