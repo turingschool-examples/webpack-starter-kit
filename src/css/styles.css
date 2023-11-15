@@ -1,3 +1,290 @@
+
+* {
+  font-family: 'M PLUS Rounded 1c', sans-serif
+}
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-color: #304c9b;
+}
+
+.welcome-name {
+  display: inline-block;
+  color: white;
+  font-weight: 500;
+  margin-left: 8%;
+  font-size: 1.2em;
+}
+
+h1 {
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: -2%;
+}
+
+.trip-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.trip-type {
+  width: 275px;
+  height: 25px;
+  font-size: 16px;
+}
+
+.trip-type:hover {
+  cursor: pointer;
+}
+
+.trip-sections-container {
+  display: flex;
+  justify-content: center;
+}
+
+.upcoming-trips-section, .pending-trips-section, .book-a-trip-section, .annual-total-section {
+  height: 560px;
+  width: 68.7em;
+  background-color: white;
+}
+
+.annual-total-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgrey;
+}
+
+.annual-total {
+  margin-top: 8%;
+  color: red;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+}
+
+.login-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 350px;
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.username-input-box, .password-input-box {
+  display: flex;
+  width: 220px;
+  height: 25px;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+}
+
+.sign-in-button {
+  margin-top: 35px;
+  background-color: green;
+  font-weight: 700;
+  color: white;
+  border-radius: 6px;
+  height: 30px;
+  border: 0;
+   letter-spacing: 1px;
+}
+
+.sign-in-button:hover {
+  cursor: pointer;
+}
+
+.login-error {
+  color: red;
+}
+
+.dates {
+  display: flex;
+}
+
+.inside-booking-container {
+  display: flex;
+  justify-content: center;
+}
+
+.book-a-trip {
+  margin-top: 6%;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  width: 900px;
+  text-align: center;
+}
+
+.start-date, .end-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.start-date-input:hover, .end-date-input {
+  cursor: pointer;
+}
+
+.travelers-input:hover {
+  cursor: pointer;
+}
+
+.destination:hover {
+  cursor: pointer;
+}
+
+.people-and-destination-container {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.number-of-people-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.number {
+  width: 12vw;
+}
+
+.destinations-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-images {
+  height: 100px;
+  width: 100px;
+}
+
+.past-trips-section {
+  display: flex;
+  flex-direction: column;
+  height: 560px;
+  width: 1098px;
+  background-color: white;
+  overflow-y: scroll 
+}
+
+.destination {
+  width: 15.5em;
+}
+
+.submit-button {
+  margin-top: 2.3%;
+  width: 10vw;
+  height: 4vh;
+  color: white;
+  background-color: green;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.booking-error {
+  text-align: center;
+  color: red;
+}
+
+.travelers-input {
+  width: 10vw;
+}
+
+.upcoming-trips {
+  margin-top: 8%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.upcoming-trips-section, .past-trips-section {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: lightgray;
+}
+
+.location {
+
+  margin-left: 0.6em;
+}
+
+.per-night {
+  display: flex;
+  font-size: 0.8em;
+}
+
+.hotel {
+  margin-right: 0.5em;
+}
+
+.flight-cost {
+  margin-left: 0.3em;
+}
+
+.trip-cost {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.5em;
+}
+
+.upcoming-trips-section {
+  display: flex;
+  overflow-y: scroll;
+}
+
+.trip-wrapper {
+  display: flex;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 25%;
+  margin: 1em 0 0 1.7em;
+  background-color: white;
+  border-radius: 1em;
+}
+
+.trip-cost {
+  color: black;
+}
+
+.total {
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
 }
