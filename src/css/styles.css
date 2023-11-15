@@ -58,11 +58,6 @@ h1 {
   color: red;
 }
 
-/* .annual-cost {
-  height: 75%;
-  outline: 2px solid black;
-} */
-
 .login-container {
   display: flex;
   justify-content: center;
@@ -141,14 +136,6 @@ h2 {
   text-align: center;
 }
 
-
-/* .dates-container {
-  display: flex;
-  outline: 2px solid red;
-  width: 400px;
-  justify-content: space-between;
-} */
-
 .start-date, .end-date {
   display: flex;
   flex-direction: column;
@@ -169,7 +156,6 @@ h2 {
   width: 12vw;
 }
 
-
 .destinations-container {
   display: flex;
   flex-direction: column;
@@ -180,19 +166,14 @@ h2 {
   width: 100px;
 }
 
-
-
 .past-trips-section {
   display: flex;
   flex-direction: column;
   height: 560px;
   width: 1098px;
   background-color: white;
-  overflow-y: scroll
- 
+  overflow-y: scroll 
 }
-
-
 
 .destination {
   width: 15.5em;
@@ -216,21 +197,9 @@ h2 {
   color: red;
 }
 
-/* .submit-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50vw;
-  border-radius: 8px;
-   width: 1098px;
-  align-items: center;
-} */
-
 .travelers-input {
   width: 10vw;
 }
-
-
 
 .upcoming-trips {
   margin-top: 8%;
@@ -240,9 +209,6 @@ h2 {
 
 }
 
-
-
-
 .upcoming-trips-section, .past-trips-section {
   display: flex;
   align-items: flex-start;
@@ -250,8 +216,6 @@ h2 {
   align-content: flex-start;
   background-color: lightgray;
 }
-
-
 
 .location {
 
@@ -301,17 +265,6 @@ h2 {
 .total {
   font-weight: 500;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .hidden {
   display: none;

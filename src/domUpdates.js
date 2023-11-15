@@ -1,4 +1,3 @@
-
 const upcomingTripsSection = document.querySelector(".upcoming-trips-section");
 const pendingTripsSection = document.querySelector(".pending-trips-section");
 const pastTripsSection = document.querySelector(".past-trips-section");
@@ -11,8 +10,6 @@ const destination = document.querySelector('.destination');
 const welcomeName = document.querySelector(".welcome-name");
 const bookingError = document.querySelector('.booking-error');
 const annualTotal = document.querySelector(".annual-cost");
-
-// const pastTrips = document.querySelector('.past-trips')
 
 export const signInUser = () => {
   pageContent.classList.remove("hidden");
@@ -59,7 +56,6 @@ export const showUpcomingTrips = () => {
   upcomingTripsSection.classList.remove("hidden");
 };
 
-
 export const showUserFirstName = (name) => {
   welcomeName.innerHTML += `Welcome ${name}`;
 };
@@ -81,7 +77,6 @@ export const renderUpcomingTrips = (theUsersTrips) => {
     }) 
   } 
 }
-
 
 export const renderPastTrips = (theUsersTrips) => {
 
@@ -148,6 +143,6 @@ export const clearErrorMessage = (tripCost) => {
         <p tabindex="0" class="total">Total - $${tripCost.total.toLocaleString()}</p>
       </section>
       `;
-  }
+    }
   }
 }

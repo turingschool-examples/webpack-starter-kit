@@ -18,14 +18,6 @@ export const handleDateErrors = (trip) => {
   }
 };
 
-// export const makeUpcomingTrip = (trip) => {
-//   let startDate = new Date(trip.startDate);
-//   let endDate = new Date(trip.endDate);
-//   let durationInMilliSeconds = endDate - startDate;
-//   let durationInDays = durationInMilliSeconds / (1000 * 60 * 60 * 24);
-//   return durationInDays;
-// };
-
 export const makeUpcomingTrip = (bookingInfo, newTrip, tripsData, destinations, user) => {
   let num = getDestinationId(bookingInfo, destinations, newTrip)
   let startDate = new Date(bookingInfo.startDate);
@@ -44,7 +36,6 @@ export const makeUpcomingTrip = (bookingInfo, newTrip, tripsData, destinations, 
   newTrip.status = "pending";
   newTrip.suggestedActivities = [];
 };
-
 
 export const getDestinationId = (bookingInfo, destinations) => {
   let thePlace = destinations.find(
