@@ -72,8 +72,7 @@ export const renderUpcomingTrips = (theUsersTrips) => {
       <image tabindex="1" class="trip-images" src="${trip.image}" alt="${trip.alt}">
       <p tabindex="1" class="flight-cost"> Flight Cost ${trip.estimatedFlightCostPerPerson}</p>
       <p tabindex="1" class="hotel"> Hotel ${trip.estimatedLodgingCostPerDay}<span class="per-night">per night</span></p>
-    </div>
-    `;
+    </div>;
     }) 
   } 
 }
@@ -98,7 +97,7 @@ export const renderPastTrips = (theUsersTrips) => {
 }
 
 export const renderCost = (cost) => {
-  console.log("COST", cost)
+
   if (typeof cost === 'string') {
     annualTotal.innerHTML += `
     <p>${cost}</p>
@@ -111,7 +110,7 @@ export const renderCost = (cost) => {
   <p tabindex="0" >Subtotal - $${cost.subTotal.toLocaleString()}</p>
   <p tabindex="0" >Agent Fee - $${cost.agentFee.toLocaleString()}</p>
   <p tabindex="0" class="total">Total $${cost.total.toLocaleString()}</p>
-  `;
+  `
   } 
 }
 
