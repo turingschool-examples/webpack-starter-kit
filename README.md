@@ -1,99 +1,74 @@
-# Webpack Starter Kit
+# Overlook Hotel
 
-## Clone This Repo
+## Abstract
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+Overlook Hotel is an app mimicking a hotel website. As a user, you will first see a login screen. Upon entering the proper credentials, you will see your dashboard showing your current bookings and the total amount spent on rooms. The user can search for more rooms to book based on date and optional room type. The users, rooms, and bookings all utilize GET requests to a local API, and a POST request to bookings when a user books a room.
+***
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+### Technologies Used:
+- JavaScript
+- HTML
+- CSS
+- WAVE/Lighthouse
+- Webpack
+- Mocha
+- Chai
+***
 
-Now try to commit something (just add a line in the README) and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+### Installation Instructions:
 
-## Setup
+To clone a copy of the project to a remote repository, follow these steps:
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo.
+1. Clone down a local copy of [the repository](https://github.com/kirkhauck/overlook-hotel).
+1. `cd` into the repository and run `npm install`.
+1. You can open the project in your preferred text editor.
+1. To host the page on your local server run first run `npm start`.
+***
 
-Then install the library dependencies. Run:
+### Logging into the App
 
-```bash
-npm install
-```
+When you first open the app, you will be presented with a login screen. To login, enter the following credentials:
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with the Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+- Username: customer20 (can replace the number to view another user's dashboard)
+- Password: overlook2021 (password for all users)
 
-## Where to Add Your Code
+### Preview of App:
+![](demo.gif)
+***
 
-### JavaScript
+### Context:
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
+Completed as part of the Turing School of Software Development 2211 FE Mod 2 curriculum
 
-**Create all of your feature code files in the `src` directory.**
+Approximate hours to completion: 16
+***
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+### Contributors:
+[Kirk Hauck](https://github.com/kirkhauck)
+***
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
+### Learning Goals:
 
-### HTML
+Use OOP to drive the design of the application and the code
+Work with an API to send and receive data
+Solidify the code review process
+Create a robust test suite that thoroughly tests all functionality of a client-side application
+***
 
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
+### Wins + Challenges:
 
-### Images
+**Win:**
 
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
+Created an app from the ground up with no provided instructions as to what classes or methods should be used.
 
-## How to View Your Code in Action
+**Win:**
 
-In the terminal, run:
+Successfully utilized GET and POST to use data from a local API.
 
-```bash
-npm start
-```
+**Challenge:**
 
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
+Using `event.preventDefault()` with a button to submit a form with required fields. This method would prevent the notification from popping up telling the user to fill out a field. Learned how to listen form a `submit` event instead, which worked with `event.preventDefault()` to prevent page reloading while still allowing notifications for required fields.
 
-```bash
-Project is running at http://localhost:8080/
-```
+**Challenge:**
 
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+Planning a project without guidance as to classes or what class methods should be used. At first, planning and implementing features was chaotic. After research and seeking advice from peers, a new method was adopted where all functionality relating to DOM manipulation would be kept in `scripts.js` and all methods interacting with objects and data would be implemented as class methods. Using this process, the project was more organized and it became clear when and how to use classes.

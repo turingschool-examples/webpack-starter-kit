@@ -1,3 +1,208 @@
+/* General Styling */
+
+.hidden {
+  display: none!important;
+}
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  margin: 20px;
+  background-color: #fff9ef;
+  box-shadow: 0 0 5px 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #29190f;
+}
+
+header {
+  margin: 0 30px;
+  padding: 30px 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 0;
+}
+
+h3 {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+h4 {
+  margin: 10px;
+}
+
+h5 {
+  margin: 0;
+}
+
+p {
+  margin: 0.2em 0
+}
+
+.room-description {
+  text-align: left;
+  padding: 0 25px;
+}
+
+form {
+  background-color: #ebd197;
+  margin: 20px 0;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 24px;
+}
+
+.login-form {
+  margin-top: 50px;
+  margin-bottom: 10%;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  height: 24px;
+  width: 170px;
+  margin-left: 1em;
+  border: 1px solid #4c2f1e;
+  font-size: 20px;
+  text-align: center;
+}
+
+.login-info {
+  margin: 0;
+  width: 300px;
+  text-align: left;
+}
+
+.login-error {
+  margin-top: 15px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+select {
+  cursor: pointer;
+  height: 30px;
+  width: 175px;
+  margin-left: 1em;
+  padding: 0 4px;
+  border: 1px solid #4c2f1e;
+  font-size: 16px;
+}
+
+section {
+  margin: 30px;
+  text-align: center;
+}
+
+.login-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-info-container {
+  margin: 20px;
+}
+
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+section.rooms {
+  padding: 40px 0;
+  border-top: 2px solid #29190f;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f9eac7;
+  border: 5px solid #ebd197;
+  width: 300px;
+}
+
+figcaption {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+figcaption > p {
+  text-align: left;
+  margin: 5px;
+}
+
+.apology-message {
+  font-size: 20px;
+  margin: 40px;
+}
+
+.booked {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 300;
+  background-color: #54331f;
+  color: #eee4d2;
+}
+
+
+/* Images */
+
+img {
+  width: 300px;
+}
+
+/* Buttons */
+
+button {
+  height: 32px;
+  width: 200px;
+  border: 2px solid #130c07;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #54331f;
+  color: #eee4d2;
+}
+
+button:hover {
+  background-color: #6a4127;
+}
+
+.book-room-button {
+  height: 50px;
+  width: 220px;
+  font-size: 24px;
+}
+
+figcaption > button {
+  margin-top: 16px;
 }
