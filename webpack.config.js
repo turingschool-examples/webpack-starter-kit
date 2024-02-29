@@ -16,10 +16,11 @@ module.exports = {
   "module": {
     "rules": [
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         use: [
             { loader: 'style-loader' },
-            { loader: 'css-loader' }
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' }
         ]
     },
       {
