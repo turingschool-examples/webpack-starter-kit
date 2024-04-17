@@ -1,4 +1,20 @@
-
+@mixin logoStripes($color) {
+  background: $color;
+  width: 100%;
+  height: 15px
+}
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  margin: 0
+}
+
+.stripe1 {
+  @include logoStripes(rgb(248, 241, 13))
+}
+
+.stripe2 {
+  @include logoStripes(orange)
+}
+
+.stripe3 {
+  @include logoStripes(rgb(255, 0, 0))
 }
