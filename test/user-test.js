@@ -19,6 +19,22 @@ describe('Show all customer bookings', function() {
   });
 });
 
+describe('Show total costs of bookings', function() {
+    it.skip('Should show the total amount a user has spent on bookings', function(){
+        const customer = customers[2];
+        const allRoomBookings = getAllCustomerRoomBookings(customer, bookings, rooms);
+        const totalSpent = getTotalCostForAllBookings(allRoomBookings);
+        expect(totalSpent).to.equal(920.58)
+    })
+    it.skip('Should show zero if a customer has no bookings', function() {
+        const customer = customer[3];
+        const allRoomBookings = getAllCustomerRoomBookings(customer, bookings, rooms);
+        const totalSpent = getTotalCostForAllBookings(allRoomBookings);
+        expect(totalSpent).to.equal(0)
+    })
+})
+
 export {
-    getAllCustomerRoomBookings
+    getAllCustomerRoomBookings,
+    getTotalCostForAllBookings
 }
