@@ -3,8 +3,26 @@
   width: 100%;
   height: 15px
 }
+
 body {
-  margin: 0
+  margin: 0;
+}
+
+.title-heading {
+  background-color: rgb(123, 243, 243);
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: red;
+  margin-top: 25px;
+  margin-left: 50px;
+  font-family: Monoton, sans-serif;
 }
 
 .stripe1 {
@@ -16,5 +34,61 @@ body {
 }
 
 .stripe3 {
-  @include logoStripes(rgb(255, 0, 0))
+  @include logoStripes(rgb(255, 0, 0));
+}
+
+.content  {
+  display: flex;
+  margin-top: 9.4px;
+}
+
+.nav-bar {
+  background-color: rgb(240, 226, 148);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 25%;
+  height: 100vh;
+}
+
+.main-section {
+  background-image: url("https://cdn.kiwicollection.com/media/property/PR119439/xl/119439-01-Pool_Sunset_Beach_Villa_Baglioni_Resort_Maldives%201-Baglioni%20Maldives.jpg?cb=1634851275");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.content-display {
+  background-color: rgba(123, 243, 243, 0.7);
+  border-radius: 25px;
+  width: 60%;
+  height: 600px;
+  margin-top: 150px;
+}
+
+.buttons {
+  background-color: rgb(123, 243, 243);
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  color: red;
+  margin-top: 60px;
+  width: 175px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.footer {
+  background-color: orange;
+  color: rgb(244, 124, 19);
+  text-align: center;
+  font-family: Monoton, sans-serif;
+}
+
+p {
+  margin-top: 0;
+  margin-left: 250px;
 }
