@@ -18,7 +18,15 @@ function getAllCustomerRoomBookings(customer, bookings, rooms) {
 }
 
 function getTotalCostForAllBookings(customerBookings) {
-   
+    if (customerBookings === 'You currently have no bookings') {
+        return 0
+    } else {
+    const totalSpent = customerBookings.reduce((total, booking) => {
+        total += booking.costPerNight;
+        return total;
+    }, 0)
+    return parseFloat(totalSpent.toFixed(2))
+}
 }
 
 export { getAllCustomerRoomBookings, getTotalCostForAllBookings };
