@@ -66,9 +66,10 @@ h1 {
   background-color: rgba(123, 243, 243, 0.7);
   border-radius: 25px;
   width: 60%;
-  height: 700px;
+  height: auto;
   overflow: auto;
   margin-top: 75px;
+  margin-bottom: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,4 +112,22 @@ p {
   text-align: center;
   margin-top: 15px;
   border-radius: 25px;
+}
+
+.total-spent {
+  font-family: Roboto, sans-serif;
+  background-color: rgb(123, 243, 243);
+  color: red;
+  width: 175px;
+  height: 100px;
+  margin-top: 50px;
+  border: 2px solid black;
+  border-radius: 25px;
+  text-align: center;
+  padding-top: 15px;
+
+}
+
+.hidden {
+  display: none;
 }

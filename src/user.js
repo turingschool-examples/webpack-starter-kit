@@ -1,7 +1,5 @@
 function getAllCustomerRoomBookings(customer, bookings, rooms) {
-  const customerBookings = bookings.filter(
-    (booking) => booking.userID === customer.id
-  );
+  const customerBookings = bookings.filter((booking) => booking.userID === customer.id);
   const roomsBooked = customerBookings.map((booking) => {
     const room = rooms.find((room) => room.number === booking.roomNumber);
     return {
