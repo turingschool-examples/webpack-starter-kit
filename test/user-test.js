@@ -7,13 +7,11 @@ import {getAllCustomerRoomBookings, getTotalCostForAllBookings} from '../src/use
 describe('Show all customer bookings', function() {
   it('should show all of a customers bookings, past and future', function() {
     const customer = customers[0];
-    // const allRooms = rooms
     const allBookings = getAllCustomerRoomBookings(customer, bookings, rooms);
     expect(allBookings).to.deep.equal([userBookings[0], userBookings[1]])
   })
   it('Should notify a customer if they have no bookings', function() {
     const customer = customers[3];
-    // const allRooms = rooms;
     const allBookings = getAllCustomerRoomBookings(customer, bookings, rooms);
     expect(allBookings).to.deep.equal('You currently have no bookings')
   });

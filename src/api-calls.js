@@ -7,11 +7,10 @@ const getAllBookings = fetch('http://localhost:3001/api/v1/bookings')
 .then(response => response.json());
 const promises = [getAllUsers, getAllRooms, getAllBookings];
 
-
+//<><>functions<><>
 function getAllData() {
     return Promise.all(promises)
     .then(data => {
-        // console.log('fuck', data)
         return data})
     .catch(error => console.log(error))
     }

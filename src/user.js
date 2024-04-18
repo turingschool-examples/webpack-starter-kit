@@ -15,7 +15,6 @@ function getAllCustomerRoomBookings(customer, bookings, rooms) {
   if (roomsBooked.length === 0) {
     return "You currently have no bookings";
   } else {
-    console.log("here", roomsBooked);
     return roomsBooked;
   }
 }

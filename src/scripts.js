@@ -14,12 +14,4 @@ import './css/styles.scss';
 import { getAllData } from './api-calls.js';
 import {load} from './dom-updates.js';
 load()
-// getAllData()
-// .then(apiData => {
-//     allData = apiData;
-//      console.log('all', allData)
-//     return allData
-   
-//     const user = getRandomUser(allData)  
-// })
-// console.log('yessir', allData)
+
