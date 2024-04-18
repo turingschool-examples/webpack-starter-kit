@@ -7,14 +7,14 @@ import mockCustomers from '../test/mockCustomers.js';
 
 
 describe('Customer Functionality', function () {
-  it('creates a customer and verifies properties', function() {
+  it('shoudl be able to create a customer', function() {
     const customer = createCustomer(1, 'Alice Johnson');
     expect(customer).to.include.all.keys('id', 'name');
     expect(customer.id).to.equal(1);
     expect(customer.name).to.equal('Alice Johnson');
   });
 
-  it('handles multiple customer objects independently', function() {
+  it('should be able to create a different customer', function() {
     const customers = [];
     customers[0] = createCustomer(customers.length++, 'Alice Johnson')
     customers[1] = createCustomer(customers.length++, 'Bob Smith')
