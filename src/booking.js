@@ -16,7 +16,18 @@ function getAvailableRooms(bookings, rooms, date) {
     }
 }
 
+function filterAvailableRoomsByType(availableBookings, type) {
+    const filteredBookings = availableBookings.filter((booking) => {
+        return booking.roomType.includes(type)
+    })
+    if (filteredBookings.length === 0) {
+        return 'We apologize, but unfortunately there are no rooms by that type available'
+    } else {
+    return filteredBookings
+    }
+}
 
 
 
-export {getAvailableRooms}
+
+export {getAvailableRooms, filterAvailableRoomsByType}
