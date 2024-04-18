@@ -92,3 +92,20 @@ export const customers = [
     name: "Rocio Schuster",
   },
 ];
+
+export const userBookings = [
+  {
+    title: "residential suite",
+    numBeds: 1,
+    bedSize: "queen",
+    dateBooked: "2022/04/22",
+    costPerNight: 358.4,
+  },
+  {
+    title: "single room",
+    numBeds: 2,
+    bedSize: "queen",
+    dateBooked: "2022/01/10",
+    costPerNight: 340.17,
+  },
+];

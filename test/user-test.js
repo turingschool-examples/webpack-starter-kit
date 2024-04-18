@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import {bookings, rooms, customers} from './mock-data';
+import {bookings, rooms, customers, userBookings} from './mock-data';
 import {getAllCustomerRoomBookings, getTotalCostForAllBookings} from '../src/user';
 
 describe('Show all customer bookings', function() {
@@ -9,7 +9,7 @@ describe('Show all customer bookings', function() {
     const customer = customers[0];
     // const allRooms = rooms
     const allBookings = getAllCustomerRoomBookings(customer, bookings, rooms);
-    expect(allBookings).to.deep.equal([rooms[0], rooms[4]])
+    expect(allBookings).to.deep.equal([userBookings[0], userBookings[1]])
   })
   it('Should notify a customer if they have no bookings', function() {
     const customer = customers[3];
