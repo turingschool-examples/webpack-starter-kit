@@ -9,3 +9,31 @@ import './images/turing-logo.png'
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+export function createCustomer(id, name) {
+    return {
+        id: id,
+        name: name
+    };
+}
+
+export function createHotelRoom(number, roomType, bidet, bedSize, numBeds, costPerNight) {
+        return {
+        number: number,
+        roomType: roomType,
+        bidet: bidet,
+        bedSize: bedSize,
+        numBeds: numBeds,
+        costPerNight: costPerNight
+    };
+}
+
+export function createBooking(id, userID, date, roomNumber) {
+    return {
+        id: id,
+        userID: userID,
+        date: date,
+        roomNumber: roomNumber
+    };
+
+}
