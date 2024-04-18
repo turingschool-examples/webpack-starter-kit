@@ -109,3 +109,18 @@ export const userBookings = [
     costPerNight: 340.17,
   },
 ];
+
+export const bookedRoomsForSadPath =[
+    {
+        id: "ccc",
+        userID: 3,
+        date: "2022/01/10",
+        roomNumber: 12,
+      },
+      {
+        id: "ddd",
+        userID: 3,
+        date: "2022/01/10",
+        roomNumber: 13,
+      }
+]
