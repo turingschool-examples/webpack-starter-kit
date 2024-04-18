@@ -11,6 +11,7 @@ function getAvailableRooms(bookings, rooms, date) {
     if (getRooms.length === 0) {
         return 'We apologize, but unfortunately there are no rooms for your selected date'
     } else {
+        console.log('get', getRooms)
     return getRooms
     }
 }

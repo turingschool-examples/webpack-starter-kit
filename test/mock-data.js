@@ -66,7 +66,7 @@ export const rooms = [
   },
   {
     number: 14,
-    roomType: "single room",
+    roomType: "suite",
     bidet: true,
     bedSize: "queen",
     numBeds: 2,
@@ -102,7 +102,7 @@ export const userBookings = [
     costPerNight: 358.4,
   },
   {
-    title: "single room",
+    title: "suite",
     numBeds: 2,
     bedSize: "queen",
     dateBooked: "2022/01/10",
