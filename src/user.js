@@ -1,15 +1,15 @@
 function getAllCustomerRoomBookings(customer, bookings, rooms) {
-  const customerBookings = bookings.filter(
-    (booking) => booking.userID === customer.id
-  );
-  const roomsBooked = customerBookings.reduce((bookedRooms, curBooking) => {
-    const allRooms = rooms.forEach((room) => {
-      if (curBooking.roomNumber === room.number) {
-        bookedRooms.push(room);
-      }
-    });
-    return bookedRooms;
-  }, []);
+  const customerBookings = bookings.filter((booking) => booking.userID === customer.id);
+  const roomsBooked = customerBookings.map((booking) => {
+    const room = rooms.find((room) => room.number === booking.roomNumber);
+    return {
+      title: room.roomType,
+      numBeds: room.numBeds,
+      bedSize: room.bedSize,
+      dateBooked: booking.date,
+      costPerNight: room.costPerNight,
+    };
+  });
   if (roomsBooked.length === 0) {
     return "You currently have no bookings";
   } else {
@@ -18,15 +18,15 @@ function getAllCustomerRoomBookings(customer, bookings, rooms) {
 }
 
 function getTotalCostForAllBookings(customerBookings) {
-    if (customerBookings === 'You currently have no bookings') {
-        return 0
-    } else {
+  if (customerBookings === "You currently have no bookings") {
+    return 0;
+  } else {
     const totalSpent = customerBookings.reduce((total, booking) => {
-        total += booking.costPerNight;
-        return total;
-    }, 0)
-    return parseFloat(totalSpent.toFixed(2))
-}
+      total += booking.costPerNight;
+      return total;
+    }, 0);
+    return parseFloat(totalSpent.toFixed(2));
+  }
 }
 
 export { getAllCustomerRoomBookings, getTotalCostForAllBookings };
