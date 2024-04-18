@@ -2,6 +2,7 @@ import {
   getAllCustomerRoomBookings,
   getTotalCostForAllBookings,
 } from "./user.js";
+import {getAvailableRooms, filterAvailableRoomsByType} from './booking.js'
 // import { allData } from './scripts.js';
 import { getAllData } from "./api-calls.js";
 
@@ -9,7 +10,8 @@ import { getAllData } from "./api-calls.js";
 const myBookingsButton = document.getElementById("my-bookings-button");
 const bookRoomButton = document.getElementById("book-a-room-button");
 const bookingDisplay = document.querySelector(".content-display");
-const totalSpentDisplay = document.querySelector('.total-spent')
+const totalSpentDisplay = document.querySelector('.total-spent');
+const submitButton = document.querySelector('.submit-button');
 
 //<><>data model<><>
 let allData;
@@ -17,16 +19,17 @@ let customer;
 
 //<><>event listeners<><>
 myBookingsButton.addEventListener("click", () => {
-//   let customer = getRandomUser(allData[0].customers);
   let bookings = allData[2].bookings;
   let rooms = allData[1].rooms;
   let userBookings = getAllCustomerRoomBookings(customer, bookings, rooms);
-  populateContentDisplay(userBookings);
+  populateContentDisplay(userBookings, createUserBookedRoomsCard);
   showElements([totalSpentDisplay])
   let totalSpentByCustomer = getTotalCostForAllBookings(userBookings);
   totalSpentDisplay.innerText = `You have spent a total of $${totalSpentByCustomer} on ${userBookings.length} rooms`;
   console.log('cust', customer)
 });
+
+
 
 //<><>event handlers<><>
 export const load = () => {
@@ -46,7 +49,7 @@ function getRandomUser(users) {
   return randomUser;
 }
 
-function createBookingCard(booking) {
+function createUserBookedRoomsCard(booking) {
   return `<div class="booking-card">
             <h3>${booking.title.toUpperCase()} - ${booking.bedSize.toUpperCase()}BED</h3>
             <article>Number of Beds: ${booking.numBeds}</article>
@@ -56,10 +59,11 @@ function createBookingCard(booking) {
     </div>`;
 }
 
-function populateContentDisplay(bookings) {
+
+function populateContentDisplay(bookings, cardsToBeCreated) {
   bookings.forEach((booking) => {
-    let book = createBookingCard(booking);
-    bookingDisplay.innerHTML += book;
+    let card = cardsToBeCreated(booking);
+    bookingDisplay.innerHTML += card;
   });
 }
 

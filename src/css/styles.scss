@@ -86,6 +86,13 @@ h1 {
   border-radius: 25px;
 }
 
+.submit-button {
+  background-color: rgb(244, 124, 19);
+  color:rgb(123, 243, 243);
+  border-radius: 10px;
+  width: 150px;
+}
+
 .footer {
   background-color: orange;
   color: rgb(244, 124, 19);
@@ -125,7 +132,22 @@ p {
   border-radius: 25px;
   text-align: center;
   padding-top: 15px;
+}
 
+.date-form {
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  margin-top: 60px;
+  background-color: rgb(123, 243, 243);
+  color: red;
+  height: 100px;
+  width: 90%;
+  border: 2px solid black;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .hidden {
