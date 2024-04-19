@@ -1,7 +1,11 @@
-function getAvailableRooms(bookings, rooms, date) {
-    const filteredRoomsByDate = bookings.filter((booking) => {
-        return date !== booking.date
-    })
+function getAvailableRooms(bookings, rooms, date) { 
+    date = date.split('-').join('/')
+    const filteredRoomsByDate = bookings.reduce((availableBookings, booking) => {
+        if (booking.date.toString() !== date) {
+            availableBookings.push(booking)
+        }
+        return availableBookings
+    }, [])
     const getRooms = filteredRoomsByDate.map((room) => {
         const foundRoom = rooms.find((eachRoom) => {
             return eachRoom.number === room.roomNumber
@@ -11,7 +15,6 @@ function getAvailableRooms(bookings, rooms, date) {
     if (getRooms.length === 0) {
         return 'We apologize, but unfortunately there are no rooms for your selected date'
     } else {
-        console.log('get', getRooms)
     return getRooms
     }
 }

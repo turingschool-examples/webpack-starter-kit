@@ -16,8 +16,19 @@ const submitButton = document.querySelector('.submit-button');
 //<><>data model<><>
 let allData;
 let customer;
+let bookingsByDate;
 
 //<><>event listeners<><>
+export const load = () => {
+    document.addEventListener("DOMContentLoaded", function () {
+      getAllData().then((apiData) => {
+        allData = apiData;
+        customer = getRandomUser(allData[0].customers);
+        console.log("all", allData);
+      });
+    });
+  };
+
 myBookingsButton.addEventListener("click", () => {
   let bookings = allData[2].bookings;
   let rooms = allData[1].rooms;
@@ -29,18 +40,38 @@ myBookingsButton.addEventListener("click", () => {
   console.log('cust', customer)
 });
 
-
+submitButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    bookingDisplay.innerHTML = ''
+    const dateInput = document.getElementById('date');
+    const date = dateInput.value.toString()
+    let bookings = allData[2].bookings;
+    let rooms = allData[1].rooms;
+    bookingsByDate = getAvailableRooms(bookings, rooms, date);
+    console.log('avail', bookingsByDate.length)
+    populateContentDisplay(bookingsByDate, createAvailableBookingsCard);
+})
 
 //<><>event handlers<><>
-export const load = () => {
-  document.addEventListener("DOMContentLoaded", function () {
-    getAllData().then((apiData) => {
-      allData = apiData;
-      customer = getRandomUser(allData[0].customers);
-      console.log("all", allData);
+function populateContentDisplay(bookings, cardsToBeCreated) {
+    bookings.forEach((booking) => {
+      let card = cardsToBeCreated(booking);
+      bookingDisplay.innerHTML += card;
     });
-  });
-};
+  }
+  
+  function showElements(elements) {
+      const showElement = elements.forEach((element) => {
+          element.classList.remove('hidden')
+      })
+  }
+  
+  function hideElements(elements) {
+      const hideElement = elements.forEach((element) => {
+          element.classList.add('hidden')
+      })
+  }
+  
 
 //<><>functions<><>
 function getRandomUser(users) {
@@ -59,22 +90,13 @@ function createUserBookedRoomsCard(booking) {
     </div>`;
 }
 
-
-function populateContentDisplay(bookings, cardsToBeCreated) {
-  bookings.forEach((booking) => {
-    let card = cardsToBeCreated(booking);
-    bookingDisplay.innerHTML += card;
-  });
+function createAvailableBookingsCard(booking) {
+    return `<div class="booking-card">
+            <h3>${booking.roomType.toUpperCase()}</h3>
+            <article>Number of Beds: ${booking.numBeds}</article>
+            <article>Bidet in Room: ${booking.bidet}</article>
+            <article>Cost Per Night: ${booking.costPerNight}</article>
+    </div>`
 }
 
-function showElements(elements) {
-    const showElement = elements.forEach((element) => {
-        element.classList.remove('hidden')
-    })
-}
 
-function hideElements(elements) {
-    const hideElement = elements.forEach((element) => {
-        element.classList.add('hidden')
-    })
-}
