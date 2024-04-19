@@ -84,13 +84,15 @@ h1 {
   width: 175px;
   height: 50px;
   border-radius: 25px;
+  cursor: pointer;
 }
 
-.submit-button {
+.submit-button, .filter-submit-button {
   background-color: rgb(244, 124, 19);
   color:rgb(123, 243, 243);
   border-radius: 10px;
   width: 150px;
+  cursor: pointer;
 }
 
 .footer {
@@ -134,7 +136,7 @@ p {
   padding-top: 15px;
 }
 
-.date-form {
+.date-form, .type-search-form {
   font-family: Roboto, sans-serif;
   font-weight: 600;
   margin-top: 60px;
@@ -150,6 +152,17 @@ p {
   justify-content: space-evenly;
 }
 
+.input-forms {
+  background-color: rgb(240, 226, 148);
+  color: red;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
+}
+
+.disabled-button {
+  cursor: not-allowed;
 }

@@ -26,10 +26,15 @@
       <button class="buttons" id="my-bookings-button">My Bookings</button>
       <button class="buttons" id="book-a-room-button">Book a Room</button>
       <article class="total-spent hidden"></article>
-      <form class="date-form">
+      <form class=" date-form hidden">
         <label for="date">Select a date:</label>
-        <input type="date" id="date" name="date">
-        <input class="submit-button" type="submit" value="Submit">
+        <input class="input-forms" type="date" id="date" name="date">
+        <input class="submit-button" type="submit" value="Submit" disabled>
+      </form>
+      <form class="type-search-form hidden">
+        <label for="date">Search By Room Type</label>
+        <input class="input-forms" type="text" id="room-type" name="room-type">
+        <input class="filter-submit-button" type="submit" value="Submit" disabled>
       </form>
     </nav>
     <main class="main-section">
