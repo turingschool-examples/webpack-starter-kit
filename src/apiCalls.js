@@ -29,10 +29,10 @@ function getUserByID(id){
         })
     return user
 };
-export function retrieveUser(id){
-    const userByID = getUserByID(id)
+export function fetchUser(id){
+    const user = getUserByID(id)
     function getInformation(){
-        return userByID
+        return user
     }
     return {getInformation}
 }
