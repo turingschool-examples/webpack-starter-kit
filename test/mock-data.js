@@ -95,20 +95,22 @@ export const customers = [
 
 export const userBookings = [
   {
-    title: "residential suite",
+    roomType: "residential suite",
     numBeds: 1,
     bedSize: "queen",
     dateBooked: "2022/04/22",
     costPerNight: 358.4,
-    id: 'aaa'
+    id: 'aaa',
+    roomNumber: 10
   },
   {
-    title: "suite",
+    roomType: "suite",
     numBeds: 2,
     bedSize: "queen",
     dateBooked: "2022/01/10",
     costPerNight: 340.17,
-    id: 'eee'
+    id: 'eee',
+    roomNumber: 14
   },
 ];
 

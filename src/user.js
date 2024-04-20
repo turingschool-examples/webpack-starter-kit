@@ -3,12 +3,13 @@ function getAllCustomerRoomBookings(customer, bookings, rooms) {
   const roomsBooked = customerBookings.map((booking) => {
     const room = rooms.find((room) => room.number === booking.roomNumber);
     return {
-      title: room.roomType,
+      roomType: room.roomType,
       numBeds: room.numBeds,
       bedSize: room.bedSize,
       dateBooked: booking.date,
       costPerNight: room.costPerNight,
-      id: booking.id
+      id: booking.id,
+      roomNumber: room.number
     };
   });
   if (roomsBooked.length === 0) {
