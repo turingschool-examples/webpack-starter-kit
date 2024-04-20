@@ -48,6 +48,64 @@ const rooms = [
       "costPerNight": 397.02
     }
 ]
+const rooms_1 = [
+    {
+      "number": 1,
+      "roomType": "residential suite",
+      "bidet": true,
+      "bedSize": "queen",
+      "numBeds": 1,
+      "costPerNight": 358.4
+    },
+    {
+      "number": 2,
+      "roomType": "suite",
+      "bidet": false,
+      "bedSize": "full",
+      "numBeds": 2,
+      "costPerNight": 477.38
+    },
+    {
+      "number": 5,
+      "roomType": "single room",
+      "bidet": true,
+      "bedSize": "queen",
+      "numBeds": 2,
+      "costPerNight": 340.17
+    },
+    {
+      "number": 6,
+      "roomType": "junior suite",
+      "bidet": true,
+      "bedSize": "queen",
+      "numBeds": 1,
+      "costPerNight": 397.02
+    }
+]
+const rooms_2 = [{
+    "number": 3,
+    "roomType": "single room",
+    "bidet": false,
+    "bedSize": "king",
+    "numBeds": 1,
+    "costPerNight": 491.14
+  },
+  {
+    "number": 4,
+    "roomType": "single room",
+    "bidet": false,
+    "bedSize": "queen",
+    "numBeds": 1,
+    "costPerNight": 429.44
+  },
+  {
+    "number": 5,
+    "roomType": "single room",
+    "bidet": true,
+    "bedSize": "queen",
+    "numBeds": 2,
+    "costPerNight": 340.17
+  }]
 const bookings = [
     {
       "id": "5fwrgu4i7k55hl6sz",
@@ -115,7 +173,7 @@ const bookings = [
     {
       "id": "5fwrgu4i7k55hl6td",
       "userID": 27,
-      "date": "2022/01/31",
+      "date": "2023/11/30",
       "roomNumber": 4,
   
     },
@@ -141,6 +199,7 @@ const bookings = [
   
     }
 ]
+
 const sampleUsers = [
     {
         "id": 1,
@@ -159,5 +218,7 @@ const sampleUsers = [
 export {
     rooms,
     bookings,
-    sampleUsers
+    sampleUsers,
+    rooms_1,
+    rooms_2
 }
