@@ -10,6 +10,7 @@ import { getAllData } from "./api-calls.js";
 const myBookingsButton = document.getElementById("my-bookings-button");
 const bookARoomButton = document.getElementById("book-a-room-button");
 const bookThisRoomButton = document.getElementById("book-room-button");
+const cancelBookingButton = document.getElementById("cancel-room-button");
 const dateInput = document.getElementById("date");
 const roomTypeInput = document.getElementById("room-type");
 
@@ -44,11 +45,12 @@ myBookingsButton.addEventListener("click", () => {
   let bookingCards = createUserBookedRoomsCard(customer.bookings);
   populateContentDisplay(bookingCards);
   showElements([totalSpentDisplay]);
-  hideElements([dateForm]);
+  hideElements([dateForm, filterByRoomTypeDisplay]);
   let totalSpentByCustomer = getTotalCostForAllBookings(customer.bookings);
   totalSpentDisplay.innerText = `You have spent a total of $${totalSpentByCustomer} on ${customer.bookings.length} rooms`;
   console.log("cust", customer);
 });
+
 bookARoomButton.addEventListener("click", () => {
   showElements([dateForm]);
   hideElements([totalSpentDisplay]);
@@ -97,11 +99,12 @@ bookingDisplay.addEventListener("click", (event) => {
     // console.log('cur', currentBooking)
     const bookingToDisplay = renderSingleBooking(currentBooking);
     bookingDisplay.innerHTML = bookingToDisplay;
-    showElements([bookThisRoomButton]);
+    showElements([cancelBookingButton]);
   } else if (event.target.classList.contains("available-booking-card")) {
     currentBooking = findBooking(event.target.id, bookingsByDate);
     const bookingToDisplay = renderSingleBooking(currentBooking);
     bookingDisplay.innerHTML = bookingToDisplay;
+    showElements([bookThisRoomButton]);
   }
 });
 //the event.target.id is accesses the index of the element clicked on in the array it cam from
