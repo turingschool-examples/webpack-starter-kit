@@ -8,7 +8,8 @@ import { getAllData } from "./api-calls.js";
 
 //<><>query selectors<><>
 const myBookingsButton = document.getElementById("my-bookings-button");
-const bookRoomButton = document.getElementById("book-a-room-button");
+const bookARoomButton = document.getElementById("book-a-room-button");
+const bookThisRoomButton = document.getElementById("book-room-button");
 const dateInput = document.getElementById("date");
 const roomTypeInput = document.getElementById("room-type");
 
@@ -24,10 +25,16 @@ let allData;
 let customer;
 let bookingsByDate;
 let currentBooking;
+const images = [
+  "https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg",
+  "https://www.rd.com/wp-content/uploads/2023/05/GettyImages-1445292736.jpg",
+  "https://www.travelandleisure.com/thmb/OiDnPGo3k9QLRT9__TPhFZcr7PU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/rosewood-carlyle-presidential-suite-LUXESUITE0122-0046808a88924e57922d78c7f1d9ca60.jpg",
+  "https://hoteldel.com/wp-content/uploads/2021/03/hotel-del-coronado-views-suite-K1TOS1-K1TOJ1-1600x1000-1.jpg",
+];
 
 //<><>event listeners<><>
 myBookingsButton.addEventListener("click", () => {
-    bookingDisplay.innerHTML = '';
+  bookingDisplay.innerHTML = "";
   let bookings = allData[2].bookings;
   let rooms = allData[1].rooms;
   //   let userBookings = getAllCustomerRoomBookings(customer, bookings, rooms);
@@ -42,11 +49,10 @@ myBookingsButton.addEventListener("click", () => {
   totalSpentDisplay.innerText = `You have spent a total of $${totalSpentByCustomer} on ${customer.bookings.length} rooms`;
   console.log("cust", customer);
 });
-
-bookRoomButton.addEventListener("click", () => {
+bookARoomButton.addEventListener("click", () => {
   showElements([dateForm]);
   hideElements([totalSpentDisplay]);
-  console.log('cur', currentBooking)
+  console.log("cur", currentBooking);
 });
 
 submitButton.addEventListener("click", function (event) {
@@ -61,7 +67,7 @@ submitButton.addEventListener("click", function (event) {
   let bookingCards = createAvailableBookingsCard(bookingsByDate);
   console.log("avail", bookingsByDate.length);
   populateContentDisplay(bookingCards);
-//   dateForm.reset();
+  //   dateForm.reset();
 });
 
 filterSearchButton.addEventListener("click", (event) => {
@@ -71,7 +77,7 @@ filterSearchButton.addEventListener("click", (event) => {
   const roomType = filteredType.value;
   let filteredBookings = filterAvailableRoomsByType(bookingsByDate, roomType);
   console.log("filter", filteredBookings);
-  bookingsByDate = filteredBookings
+  bookingsByDate = filteredBookings;
   let bookingCards = createAvailableBookingsCard(bookingsByDate);
   populateContentDisplay(bookingCards);
   filterByRoomTypeDisplay.reset();
@@ -91,8 +97,9 @@ bookingDisplay.addEventListener("click", (event) => {
     // console.log('cur', currentBooking)
     const bookingToDisplay = renderSingleBooking(currentBooking);
     bookingDisplay.innerHTML = bookingToDisplay;
+    showElements([bookThisRoomButton]);
   } else if (event.target.classList.contains("available-booking-card")) {
-    currentBooking = findBooking(event.target.id, bookingsByDate);    
+    currentBooking = findBooking(event.target.id, bookingsByDate);
     const bookingToDisplay = renderSingleBooking(currentBooking);
     bookingDisplay.innerHTML = bookingToDisplay;
   }
@@ -112,8 +119,12 @@ export const load = () => {
 };
 
 function populateContentDisplay(bookings) {
-  if (bookings === "We apologize, but unfortunately there are no rooms by that type available" ||
-    bookings === "We apologize, but unfortunately there are no rooms for your selected date") {
+  if (
+    bookings ===
+      "We apologize, but unfortunately there are no rooms by that type available" ||
+    bookings ===
+      "We apologize, but unfortunately there are no rooms for your selected date"
+  ) {
     bookingDisplay.innerHTML = `<h2>${bookings}</h2>`;
   } else {
     bookings.forEach((booking) => {
@@ -152,7 +163,7 @@ function createUserBookedRoomsCard(bookings) {
       booking.costPerNight
     } per night</article>
 </div>`;
-return card
+    return card;
   });
   return userBookingsCards;
 }
@@ -165,18 +176,19 @@ function createAvailableBookingsCard(bookings) {
             <article>Bed Size: ${booking.bedSize}</article>
             <article>Cost Per Night: ${booking.costPerNight}</article>
     </div>`;
-    return card
+    return card;
   });
   return availableBookingCards;
 }
 
 function renderSingleBooking(booking) {
-    console.log('thisbooking', booking)
+  console.log("thisbooking", booking);
   const singleBooking = `<div class="single-booking-display">
     <h2>${booking.roomType.toUpperCase()}</h2>
     <article>Number of Beds: ${booking.numBeds}</article>
             <article>Bed Size: ${booking.bedSize}</article>
             <article>Cost Per Night: ${booking.costPerNight}</article>
+            <img src="${generateRandomImage(images)}" alt="hotel room with bed">
     </div>`;
   return singleBooking;
 }
@@ -192,4 +204,10 @@ function disableButton(field, button) {
 function findBooking(target, bookings) {
   let booking = bookings[target];
   return booking;
+}
+
+function generateRandomImage(images) {
+  let randomIndex = Math.floor(Math.random() * images.length);
+  let randomImage = images[randomIndex];
+  return randomImage;
 }

@@ -62,7 +62,7 @@ h1 {
   justify-content: center;
 }
 
-.content-display {
+.bookings-display {
   background-color: rgba(123, 243, 243, 0.7);
   border-radius: 25px;
   width: 60%;
@@ -124,6 +124,22 @@ p {
   cursor: pointer;
 }
 
+.single-booking-display {
+  font-family: Roboto, sans-serif;
+  background-color: rgb(240, 226, 148);
+  border: 2px solid orange;
+  border-radius: 25px;
+  color: red;
+  height: 500px;
+  width: 400px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
 .total-spent {
   font-family: Roboto, sans-serif;
   background-color: rgb(123, 243, 243);
@@ -158,6 +174,14 @@ p {
   color: red;
   border-radius: 25px;
   cursor: pointer;
+}
+
+img {
+  height: 250px;
+  width: 250px;
+  margin-top: 35px;
+  border: 2px solid orange;
+  border-radius: 25px;
 }
 
 .hidden {
