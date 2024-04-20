@@ -42,6 +42,7 @@ describe('filterRoomsByType()',()=>{
     });
     it.skip('should handle the expected error if the user invokes this function with an invalid date selected',()=>{
         const result = filterRoomsByDate(bookings);
+        const newResult = filterRoomsByType(result)
         expect(result).to.equal('Please enter a current or future date.')
     });
     it.skip('should return back a message explaining no matches were found if this is the case',()=>{
