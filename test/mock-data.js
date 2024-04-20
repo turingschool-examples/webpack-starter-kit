@@ -100,6 +100,7 @@ export const userBookings = [
     bedSize: "queen",
     dateBooked: "2022/04/22",
     costPerNight: 358.4,
+    id: 'aaa'
   },
   {
     title: "suite",
@@ -107,6 +108,7 @@ export const userBookings = [
     bedSize: "queen",
     dateBooked: "2022/01/10",
     costPerNight: 340.17,
+    id: 'eee'
   },
 ];
 

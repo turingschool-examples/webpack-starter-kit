@@ -8,6 +8,7 @@ function getAllCustomerRoomBookings(customer, bookings, rooms) {
       bedSize: room.bedSize,
       dateBooked: booking.date,
       costPerNight: room.costPerNight,
+      id: booking.id
     };
   });
   if (roomsBooked.length === 0) {
