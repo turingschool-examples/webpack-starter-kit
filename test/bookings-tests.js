@@ -60,11 +60,11 @@ describe('userBookings()',()=>{
 });
 
 describe('getBookingCost()',()=>{
-  it.skip('should take in a room number and array of rooms return an object wit.skiph the room number and it.skips cost',()=>{
+  it.skip('should take in a room number and array of rooms return an object with the room number and its cost',()=>{
     const costIndex = getBookingCost(rooms, rooms[0]);
     expect(costIndex).to.deep.equal({room: 1, cost: 358.4});
   });
-  it.skip('should return a default object wit.skiph a cost of zero',()=>{
+  it.skip('should return a default object with a cost of zero',()=>{
     const costIndex = getBookingCost(rooms);
     const costIndex_1 = getBookingCost(rooms, 'No bookings found.');
     expect(costIndex).to.deep.equal({room: null, cost: 0.0});
@@ -78,7 +78,7 @@ describe('calculateTotalCost()',()=>{
     const totalCost = calculateTotalCost(result);
     expect(totalCost).to.equal(1207.94);
   });
-  it.skip('should return a default cost of 0.00 under various condit.skipions',()=>{
+  it.skip('should return a default cost of 0.00 under various conditions',()=>{
     const result = userBookings(sampleUsers[2].id, bookings);
     const totalCost = calculateTotalCost(result);
     const totalCost_1 = calculateTotalCost();
