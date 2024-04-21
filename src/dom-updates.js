@@ -264,5 +264,5 @@ function removeBooking(bookings, currentBooking) {
   const bookingToRemove = bookings.findIndex((booking) => {
     return booking.id === currentBooking.id;
   });
-  return bookingToRemove;
+  return bookingToRemove
 }
