@@ -32,7 +32,25 @@ function addBooking(bookingData) {
     .catch(error => console.log('this errror', error))
 }
 
+function cancelBooking(bookingId) {
+    return fetch(`http://localhost:3001/api/v1/bookings/${bookingId}`, {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json"
+          }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(error)
+        } else {
+            return response.json()
+        }
+    })
+    .catch(error => console.log('this errror', error))
+}
+
 export {
     getAllData,
-    addBooking
+    addBooking,
+    cancelBooking
 }

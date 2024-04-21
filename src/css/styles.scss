@@ -25,6 +25,13 @@ h1 {
   font-family: Monoton, sans-serif;
 }
 
+h2, h3 {
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  color: red;
+  text-align: center;
+}
+
 .stripe1 {
   @include logoStripes(rgb(248, 241, 13));
 }
@@ -81,6 +88,7 @@ h1 {
   font-weight: 600;
   color: red;
   margin-top: 60px;
+  margin-bottom: 20Px;
   width: 175px;
   height: 50px;
   border-radius: 25px;
