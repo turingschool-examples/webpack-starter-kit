@@ -25,7 +25,8 @@ h1 {
   font-family: Monoton, sans-serif;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-family: Roboto, sans-serif;
   font-weight: 600;
   color: red;
@@ -88,16 +89,17 @@ h2, h3 {
   font-weight: 600;
   color: red;
   margin-top: 60px;
-  margin-bottom: 20Px;
+  margin-bottom: 20px;
   width: 175px;
   height: 50px;
   border-radius: 25px;
   cursor: pointer;
 }
 
-.submit-button, .filter-submit-button {
+.submit-button,
+.filter-submit-button {
   background-color: rgb(244, 124, 19);
-  color:rgb(123, 243, 243);
+  color: rgb(123, 243, 243);
   border-radius: 10px;
   width: 150px;
   cursor: pointer;
@@ -115,7 +117,8 @@ p {
   margin-left: 250px;
 }
 
-.user-booked-card, .available-booking-card {
+.user-booked-card,
+.available-booking-card {
   font-family: Roboto, sans-serif;
   background-color: rgb(240, 226, 148);
   border: 2px solid orange;
@@ -161,7 +164,8 @@ p {
   padding-top: 15px;
 }
 
-.date-form, .type-search-form {
+.date-form,
+.type-search-form {
   font-family: Roboto, sans-serif;
   font-weight: 600;
   margin-top: 60px;

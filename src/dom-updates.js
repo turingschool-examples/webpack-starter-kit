@@ -3,7 +3,6 @@ import {
   getTotalCostForAllBookings,
 } from "./user.js";
 import { getAvailableRooms, filterAvailableRoomsByType } from "./booking.js";
-// import { allData } from './scripts.js';
 import { getAllData, addBooking, cancelBooking } from "./api-calls.js";
 
 //<><>query selectors<><>
@@ -13,9 +12,8 @@ const bookThisRoomButton = document.getElementById("book-room-button");
 const cancelBookingButton = document.getElementById("cancel-room-button");
 const dateInput = document.getElementById("date");
 const roomTypeInput = document.getElementById("room-type");
-const bookedText = document.getElementById('booked-text');
-const canceledText = document.getElementById('canceled-text');
-
+const bookedText = document.getElementById("booked-text");
+const canceledText = document.getElementById("canceled-text");
 const bookingDisplay = document.querySelector(".content-display");
 const totalSpentDisplay = document.querySelector(".total-spent");
 const submitButton = document.querySelector(".submit-button");
@@ -43,12 +41,17 @@ myBookingsButton.addEventListener("click", () => {
   let bookings = allData[2].bookings;
   let rooms = allData[1].rooms;
   customer.bookings = getAllCustomerRoomBookings(customer, bookings, rooms);
-  console.log("userbooks", customer.bookings);
-  //   populateContentDisplay(userBookings, createUserBookedRoomsCard);
   let bookingCards = createUserBookedRoomsCard(customer.bookings);
   populateContentDisplay(bookingCards);
   showElements([totalSpentDisplay]);
-  hideElements([dateForm, filterByRoomTypeDisplay, bookThisRoomButton, cancelBookingButton, bookedText, canceledText]);
+  hideElements([
+    dateForm,
+    filterByRoomTypeDisplay,
+    bookThisRoomButton,
+    cancelBookingButton,
+    bookedText,
+    canceledText,
+  ]);
   let totalSpentByCustomer = getTotalCostForAllBookings(customer.bookings);
   totalSpentDisplay.innerText = `You have spent a total of $${totalSpentByCustomer} on ${customer.bookings.length} rooms`;
   console.log("cust", customer);
@@ -68,13 +71,10 @@ submitButton.addEventListener("click", function (event) {
   let bookings = allData[2].bookings;
   let rooms = allData[1].rooms;
   bookingsByDate = getAvailableRooms(bookings, rooms, date);
-  console.log("filter2", typeof bookingsByDate);
   let bookingCards = createAvailableBookingsCard(bookingsByDate);
-//   let bookingCards = "We apologize, but unfortunately there are no rooms for your selected date";
-  console.log("avail", bookingsByDate);
+  //   let bookingCards = "We apologize, but unfortunately there are no rooms for your selected date";
   populateContentDisplay(bookingCards);
   dateForm.reset();
-  console.log('date', date)
 });
 
 filterSearchButton.addEventListener("click", (event) => {
@@ -83,11 +83,10 @@ filterSearchButton.addEventListener("click", (event) => {
   const filteredType = document.getElementById("room-type");
   const roomType = filteredType.value;
   filteredBookings = filterAvailableRoomsByType(bookingsByDate, roomType);
-  console.log("filter", filteredBookings);
   let bookingCards = createAvailableBookingsCard(filteredBookings);
-//   let bookingCards = 'We apologize, but unfortunately there are no rooms by that type available';
+  //   let bookingCards = 'We apologize, but unfortunately there are no rooms by that type available';
   populateContentDisplay(bookingCards);
-filterByRoomTypeDisplay.reset();
+  filterByRoomTypeDisplay.reset();
 });
 
 dateInput.addEventListener("input", () => {
@@ -101,63 +100,57 @@ roomTypeInput.addEventListener("input", () => {
 bookingDisplay.addEventListener("click", (event) => {
   if (event.target.classList.contains("user-booked-card")) {
     currentBooking = findBooking(event.target.id, customer.bookings);
-    console.log('cur', currentBooking.id)
     const bookingToDisplay = renderSingleBooking(currentBooking);
     bookingDisplay.innerHTML = bookingToDisplay;
-    bookThisRoomButton.innerText = 'Book Room';
+    bookThisRoomButton.innerText = "Book Room";
     showElements([cancelBookingButton]);
     hideElements([bookThisRoomButton]);
   } else if (event.target.classList.contains("available-booking-card")) {
     currentBooking = findBooking(event.target.id, bookingsByDate);
     const bookingToDisplay = renderSingleBooking(currentBooking);
     bookingDisplay.innerHTML = bookingToDisplay;
-    bookThisRoomButton.innerText = 'Book Room';
+    bookThisRoomButton.innerText = "Book Room";
     showElements([bookThisRoomButton]);
     hideElements([cancelBookingButton]);
-    console.log("cur", currentBooking);
   }
 });
 
-bookThisRoomButton.addEventListener('click', () => {
-    date = date.split('-').join('/');
-    let bookingToAdd = {
-        'userID': customer.id,
-        'date': date,
-        'roomNumber': currentBooking.number
-    };
-    addBooking(bookingToAdd)
-        .then(response => {
-            console.log(response);
-            const newBooking = response.newBooking;
-                allData[2].bookings.push(newBooking);
-                // bookThisRoomButton.innerText = 'Room Booked';
-        showElements([bookedText, cancelBookingButton]);
-        hideElements([bookThisRoomButton])
-            return getAllData();
-        })
-        .then(apiData => {
-            allData = apiData;
-            console.log('allagain', allData)
-        });
+bookThisRoomButton.addEventListener("click", () => {
+  date = date.split("-").join("/");
+  let bookingToAdd = {
+    userID: customer.id,
+    date: date,
+    roomNumber: currentBooking.number,
+  };
+  addBooking(bookingToAdd)
+    .then((response) => {
+      console.log(response);
+      const newBooking = response.newBooking;
+      allData[2].bookings.push(newBooking);
+      showElements([bookedText, cancelBookingButton]);
+      hideElements([bookThisRoomButton]);
+      return getAllData();
+    })
+    .then((apiData) => {
+      allData = apiData;
+      console.log("allagain", allData);
+    });
 });
 
-cancelBookingButton.addEventListener('click', () => {
-    console.log('id', currentBooking.id)
-    cancelBooking(currentBooking.id)
-    .then(response => {
-        console.log('resp', response);
-        let bookings = allData[2].bookings;
-        let bookingToRemove = removeBooking(bookings, currentBooking);
-        bookings.splice(bookingToRemove, 1);
-        showElements([canceledText, bookThisRoomButton]);
-        hideElements([cancelBookingButton]);
-        return getAllData();
+cancelBookingButton.addEventListener("click", () => {
+  cancelBooking(currentBooking.id)
+    .then((response) => {
+      let bookings = allData[2].bookings;
+      let bookingToRemove = removeBooking(bookings, currentBooking);
+      bookings.splice(bookingToRemove, 1);
+      showElements([canceledText]);
+      hideElements([cancelBookingButton]);
+      return getAllData();
     })
-    .then(apiData => {
-        allData = apiData;
-        console.log('allagain', allData)
+    .then((apiData) => {
+      allData = apiData;
     });
-})
+});
 
 //<><>event handlers<><>
 export const load = () => {
@@ -166,10 +159,9 @@ export const load = () => {
       allData = apiData;
       customer = getRandomUser(allData[0].customers);
       let bookings = allData[2].bookings;
-  let rooms = allData[1].rooms;
-  customer.bookings = getAllCustomerRoomBookings(customer, bookings, rooms);
-      console.log("all", allData);
-      console.log("allcust", customer.bookings);
+      let rooms = allData[1].rooms;
+      customer.bookings = getAllCustomerRoomBookings(customer, bookings, rooms);
+      console.log('all data', allData)
     });
   });
 };
@@ -202,6 +194,26 @@ function hideElements(elements) {
   });
   return hiddenElement;
 }
+
+function renderSingleBooking(booking) {
+    console.log("thisbooking", booking);
+    const singleBooking = `<div class="single-booking-display">
+      <h2>${booking.roomType.toUpperCase()}</h2>
+      <article>Number of Beds: ${booking.numBeds}</article>
+              <article>Bed Size: ${booking.bedSize}</article>
+              <article>Cost Per Night: ${booking.costPerNight}</article>
+              <img src="${generateRandomImage(images)}" alt="hotel room with bed">
+      </div>`;
+    return singleBooking;
+  }
+
+  function disableButton(field, button) {
+    if (field.value !== "") {
+      button.disabled = false;
+    } else {
+      button.disabled = true;
+    }
+  }
 
 //<><>functions<><>
 function getRandomUser(users) {
@@ -237,26 +249,6 @@ function createAvailableBookingsCard(bookings) {
   return availableBookingCards;
 }
 
-function renderSingleBooking(booking) {
-  console.log("thisbooking", booking);
-  const singleBooking = `<div class="single-booking-display">
-    <h2>${booking.roomType.toUpperCase()}</h2>
-    <article>Number of Beds: ${booking.numBeds}</article>
-            <article>Bed Size: ${booking.bedSize}</article>
-            <article>Cost Per Night: ${booking.costPerNight}</article>
-            <img src="${generateRandomImage(images)}" alt="hotel room with bed">
-    </div>`;
-  return singleBooking;
-}
-
-function disableButton(field, button) {
-  if (field.value !== "") {
-    button.disabled = false;
-  } else {
-    button.disabled = true;
-  }
-}
-
 function findBooking(target, bookings) {
   let booking = bookings[target];
   return booking;
@@ -269,8 +261,8 @@ function generateRandomImage(images) {
 }
 
 function removeBooking(bookings, currentBooking) {
-    const bookingToRemove = bookings.findIndex((booking) => {
-        return booking.id === currentBooking.id
-    })
-    return bookingToRemove
+  const bookingToRemove = bookings.findIndex((booking) => {
+    return booking.id === currentBooking.id;
+  });
+  return bookingToRemove;
 }

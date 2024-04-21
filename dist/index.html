@@ -1,63 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <title>Overlook Hotel</title>
-</head>
-<body>
-  <header class="title-heading">
-    <h1>Overlook Hotel</h1>
-    <div aria-label="Overlook logo, 3 colored stripes">
-      <div class="stripe1"></div>
-      <div class="stripe2"></div>
-      <div class="stripe3"></div>
-    </div>  
-  </header>
-  <section class="content">
-    <nav class="nav-bar">
-      <button class="buttons" id="my-bookings-button">My Bookings</button>
-      <button class="buttons" id="book-a-room-button">Book a Room</button>
-      <article class="total-spent hidden"></article>
-      <form class="date-form hidden">
-        <label for="date">Select a Date:</label>
-        <input class="input-forms" type="date" id="date" name="date">
-        <input class="submit-button" type="submit" value="Submit" disabled>
-      </form>
-      <form class="type-search-form hidden">
-        <label for="room-type">Search by Room Type</label>
-        <select class="input-forms" id="room-type" name="room-type">
-          <option value="" disabled selected hidden>Select a Type</option>
-          <option value="residential suite">Residential Suite</option>
-          <option value="junior suite">Junior Suite</option>
-          <option value="suite">Suite</option>
-          <option value="single room">Single Room</option>
-        </select>
-        <input class="filter-submit-button" type="submit" value="Search" disabled>
-      </form>
-    </nav>
-    <main class="main-section">
-      <section class="bookings-display">
-      <article class="content-display"></article>
-      <h3 class="hidden" id="booked-text">Your Room Has Been Booked</h3>
-      <h3 class="hidden" id="canceled-text">Your Room Has Been Canceled</h3>
-      <button class="buttons hidden" id="book-room-button">Book Room</button>
-      <button class="buttons hidden" id="cancel-room-button">Cancel Booking</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Overlook Hotel</title>
+  </head>
+  <body>
+    <header class="title-heading">
+      <h1>Overlook Hotel</h1>
+      <div aria-label="Overlook logo, 3 colored stripes">
+        <div class="stripe1"></div>
+        <div class="stripe2"></div>
+        <div class="stripe3"></div>
+      </div>
+    </header>
+    <section class="content">
+      <nav class="nav-bar">
+        <button class="buttons" id="my-bookings-button">My Bookings</button>
+        <button class="buttons" id="book-a-room-button">Book a Room</button>
+        <article class="total-spent hidden"></article>
+        <form class="date-form hidden">
+          <label for="date">Select a Date:</label>
+          <input class="input-forms" type="date" id="date" name="date" />
+          <input class="submit-button" type="submit" value="Submit" disabled />
+        </form>
+        <form class="type-search-form hidden">
+          <label for="room-type">Search by Room Type</label>
+          <select class="input-forms" id="room-type" name="room-type">
+            <option value="" disabled selected hidden>Select a Type</option>
+            <option value="residential suite">Residential Suite</option>
+            <option value="junior suite">Junior Suite</option>
+            <option value="suite">Suite</option>
+            <option value="single room">Single Room</option>
+          </select>
+          <input
+            class="filter-submit-button"
+            type="submit"
+            value="Search"
+            disabled
+          />
+        </form>
+      </nav>
+      <main class="main-section">
+        <section class="bookings-display">
+          <article class="content-display"></article>
+          <h3 class="hidden" id="booked-text">Your Room Has Been Booked</h3>
+          <h3 class="hidden" id="canceled-text">Your Room Has Been Canceled</h3>
+          <button class="buttons hidden" id="book-room-button">
+            Book Room
+          </button>
+          <button class="buttons hidden" id="cancel-room-button">
+            Cancel Booking
+          </button>
+        </section>
+      </main>
     </section>
-    </main>
-  </section>
-  <footer class="footer">
-    <p>©brandon j. doza designs</p>
-  </footer>
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
-
-</body>
+    <footer class="footer">
+      <p>©brandon j. doza designs</p>
+    </footer>
+    <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
+    <script src="bundle.js"></script>
+  </body>
 </html>
