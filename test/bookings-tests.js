@@ -1,6 +1,6 @@
 import chai from 'chai';
 import { bookings, rooms, sampleUsers } from './test-data';
-import { userBookings, getBookingCost } from '../src/bookings';
+import { userBookings, getBookingCost, calculateTotalCost } from '../src/bookings';
 
 const expect = chai.expect;
 
@@ -61,34 +61,33 @@ describe('userBookings()',()=>{
 });
 
 describe('getBookingCost()',()=>{
-  it('should take in a rooms array return an object with the room number and its cost',()=>{
-    const room = {room: 1}
-    const costIndex = getBookingCost(rooms, room);
-    expect(costIndex).to.deep.equal({room: 1, cost: 358.4});
+  it('should take in a rooms array and roomNumber return a cost',()=>{
+    const costIndex = getBookingCost(rooms, 1);
+    expect(costIndex).to.deep.equal(358.4);
   });
-  it('should return a default object with a cost of zero',()=>{
+  it('should return a default cost of zero',()=>{
     const costIndex = getBookingCost();
-    expect(costIndex).to.deep.equal({room: null, cost: 0.0});
+    expect(costIndex).to.deep.equal(0.0);
   });
   it('should return this default object if a string is passed in instead of an object.',()=>{
     const costIndex = getBookingCost('No bookings found.');
-    expect(costIndex).to.deep.equal({room: null, cost: 0.0});
+    expect(costIndex).to.deep.equal(0.0);
   })
 });
 
 describe('calculateTotalCost()',()=>{
-  it.skip('should take in an array of bookings and return their total cost',()=>{
+  it('should take in an array of bookings and return their total cost',()=>{
     const result = userBookings(sampleUsers[1].id, bookings);
-    const totalCost = calculateTotalCost(result);
+    const totalCost = calculateTotalCost(result, rooms);
     expect(totalCost).to.equal(1207.94);
   });
-  it.skip('should return a default cost of zero',()=>{
+  it('should return a default cost of zero',()=>{
   const totalCost_1 = calculateTotalCost();
   expect(totalCost_1).to.equal(0.0);
   })
-  it.skip('should return this default cost where the user has no bookings',()=>{
+  it('should return this default cost where the user has no bookings',()=>{
     const result = userBookings(sampleUsers[2].id, bookings);
-    const totalCost = calculateTotalCost(result);
+    const totalCost = calculateTotalCost(result, rooms);
     expect(totalCost).to.equal(0.0);
   });
 
