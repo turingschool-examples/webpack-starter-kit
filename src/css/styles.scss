@@ -1,4 +1,205 @@
+@mixin logoStripes($color) {
+  background: $color;
+  width: 100%;
+  height: 15px;
+}
 
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  margin: 0;
+}
+
+.title-heading {
+  background-color: rgb(123, 243, 243);
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: red;
+  margin-top: 25px;
+  margin-left: 50px;
+  font-family: Monoton, sans-serif;
+}
+
+h2,
+h3 {
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  color: red;
+  text-align: center;
+}
+
+.stripe1 {
+  @include logoStripes(rgb(248, 241, 13));
+}
+
+.stripe2 {
+  @include logoStripes(orange);
+}
+
+.stripe3 {
+  @include logoStripes(rgb(255, 0, 0));
+}
+
+.content {
+  display: flex;
+  margin-top: 9.4px;
+}
+
+.nav-bar {
+  background-color: rgb(240, 226, 148);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 25%;
+  height: 100vh;
+}
+
+.main-section {
+  background-image: url("https://cdn.kiwicollection.com/media/property/PR119439/xl/119439-01-Pool_Sunset_Beach_Villa_Baglioni_Resort_Maldives%201-Baglioni%20Maldives.jpg?cb=1634851275");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.bookings-display {
+  background-color: rgba(123, 243, 243, 0.7);
+  border-radius: 25px;
+  width: 60%;
+  height: auto;
+  overflow: auto;
+  margin-top: 75px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  background-color: rgb(123, 243, 243);
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  color: red;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  width: 175px;
+  height: 50px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.submit-button,
+.filter-submit-button {
+  background-color: rgb(244, 124, 19);
+  color: rgb(123, 243, 243);
+  border-radius: 10px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.footer {
+  background-color: orange;
+  color: rgb(244, 124, 19);
+  text-align: center;
+  font-family: Monoton, sans-serif;
+}
+
+p {
+  margin-top: 0;
+  margin-left: 250px;
+}
+
+.user-booked-card,
+.available-booking-card {
+  font-family: Roboto, sans-serif;
+  background-color: rgb(240, 226, 148);
+  border: 2px solid orange;
+  color: red;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.single-booking-display {
+  font-family: Roboto, sans-serif;
+  background-color: rgb(240, 226, 148);
+  border: 2px solid orange;
+  border-radius: 25px;
+  color: red;
+  height: 500px;
+  width: 400px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.total-spent {
+  font-family: Roboto, sans-serif;
+  background-color: rgb(123, 243, 243);
+  color: red;
+  width: 175px;
+  height: 100px;
+  margin-top: 50px;
+  border: 2px solid black;
+  border-radius: 25px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.date-form,
+.type-search-form {
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  margin-top: 60px;
+  background-color: rgb(123, 243, 243);
+  color: red;
+  height: 100px;
+  width: 90%;
+  border: 2px solid black;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.input-forms {
+  background-color: rgb(240, 226, 148);
+  color: red;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+img {
+  height: 250px;
+  width: 250px;
+  margin-top: 35px;
+  border: 2px solid orange;
+  border-radius: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+.disabled-button {
+  cursor: not-allowed;
 }
