@@ -66,10 +66,12 @@ describe('getBookingCost()',()=>{
   });
   it.skip('should return a default object with a cost of zero',()=>{
     const costIndex = getBookingCost(rooms);
-    const costIndex_1 = getBookingCost(rooms, 'No bookings found.');
-    expect(costIndex).to.deep.equal({room: null, cost: 0.0});
     expect(costIndex_1).to.deep.equal({room: null, cost: 0.0});
   });
+  it.skip('should return this default object if a string is passed in instead of an object.',()=>{
+    const costIndex_1 = getBookingCost(rooms, 'No bookings found.');
+    expect(costIndex).to.deep.equal({room: null, cost: 0.0});
+  })
 });
 
 describe('calculateTotalCost()',()=>{
@@ -78,11 +80,13 @@ describe('calculateTotalCost()',()=>{
     const totalCost = calculateTotalCost(result);
     expect(totalCost).to.equal(1207.94);
   });
-  it.skip('should return a default cost of 0.00 under various conditions',()=>{
+  it.skip('should return a default cost of zero')
+  const totalCost_1 = calculateTotalCost();
+  expect(totalCost_1).to.equal(0.0);
+  it.skip('should return this default cost where the user has no bookings',()=>{
     const result = userBookings(sampleUsers[2].id, bookings);
     const totalCost = calculateTotalCost(result);
-    const totalCost_1 = calculateTotalCost();
     expect(totalCost).to.equal(0.0);
-    expect(totalCost_1).to.equal(0.0);
   });
+
 });
