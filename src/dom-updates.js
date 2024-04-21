@@ -25,6 +25,7 @@ const filterByRoomTypeDisplay = document.querySelector(".type-search-form");
 let allData;
 let customer;
 let bookingsByDate;
+let filteredBookings;
 let currentBooking;
 const images = [
   "https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg",
@@ -66,8 +67,9 @@ submitButton.addEventListener("click", function (event) {
   let bookings = allData[2].bookings;
   let rooms = allData[1].rooms;
   bookingsByDate = getAvailableRooms(bookings, rooms, date);
+  console.log("filter2", typeof bookingsByDate);
   let bookingCards = createAvailableBookingsCard(bookingsByDate);
-  console.log("avail", bookingsByDate.length);
+  console.log("avail", bookingsByDate);
   populateContentDisplay(bookingCards);
   //   dateForm.reset();
 });
@@ -77,12 +79,11 @@ filterSearchButton.addEventListener("click", (event) => {
   bookingDisplay.innerHTML = "";
   const filteredType = document.getElementById("room-type");
   const roomType = filteredType.value;
-  let filteredBookings = filterAvailableRoomsByType(bookingsByDate, roomType);
+  filteredBookings = filterAvailableRoomsByType(bookingsByDate, roomType);
   console.log("filter", filteredBookings);
-  bookingsByDate = filteredBookings;
-  let bookingCards = createAvailableBookingsCard(bookingsByDate);
+  let bookingCards = createAvailableBookingsCard(filteredBookings);
   populateContentDisplay(bookingCards);
-  filterByRoomTypeDisplay.reset();
+  filterByRoomTypeDisplay.selectedIndex = -1;
 });
 
 dateInput.addEventListener("input", () => {

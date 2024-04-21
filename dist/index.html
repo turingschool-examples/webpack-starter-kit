@@ -32,8 +32,14 @@
         <input class="submit-button" type="submit" value="Submit" disabled>
       </form>
       <form class="type-search-form hidden">
-        <label for="date">Search by Room Type</label>
-        <input class="input-forms" type="text" id="room-type" name="room-type">
+        <label for="room-type">Search by Room Type</label>
+        <select class="input-forms" id="room-type" name="room-type">
+          <option value="" disabled selected hidden>Select a Type</option>
+          <option value="residential suite">Residential Suite</option>
+          <option value="junior suite">Junior Suite</option>
+          <option value="suite">Suite</option>
+          <option value="single room">Single Room</option>
+        </select>
         <input class="filter-submit-button" type="submit" value="Search" disabled>
       </form>
     </nav>
