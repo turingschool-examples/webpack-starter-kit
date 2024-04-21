@@ -4,7 +4,7 @@ import {
 } from "./user.js";
 import { getAvailableRooms, filterAvailableRoomsByType } from "./booking.js";
 // import { allData } from './scripts.js';
-import { getAllData } from "./api-calls.js";
+import { getAllData, addBooking } from "./api-calls.js";
 
 //<><>query selectors<><>
 const myBookingsButton = document.getElementById("my-bookings-button");
@@ -27,6 +27,7 @@ let customer;
 let bookingsByDate;
 let filteredBookings;
 let currentBooking;
+let date;
 const images = [
   "https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg",
   "https://www.rd.com/wp-content/uploads/2023/05/GettyImages-1445292736.jpg",
@@ -46,7 +47,7 @@ myBookingsButton.addEventListener("click", () => {
   let bookingCards = createUserBookedRoomsCard(customer.bookings);
   populateContentDisplay(bookingCards);
   showElements([totalSpentDisplay]);
-  hideElements([dateForm, filterByRoomTypeDisplay]);
+  hideElements([dateForm, filterByRoomTypeDisplay, bookThisRoomButton, cancelBookingButton]);
   let totalSpentByCustomer = getTotalCostForAllBookings(customer.bookings);
   totalSpentDisplay.innerText = `You have spent a total of $${totalSpentByCustomer} on ${customer.bookings.length} rooms`;
   console.log("cust", customer);
@@ -55,7 +56,7 @@ myBookingsButton.addEventListener("click", () => {
 bookARoomButton.addEventListener("click", () => {
   showElements([dateForm]);
   hideElements([totalSpentDisplay]);
-  console.log("cur", currentBooking);
+//   console.log("cur", currentBooking);
 });
 
 submitButton.addEventListener("click", function (event) {
@@ -63,7 +64,7 @@ submitButton.addEventListener("click", function (event) {
   bookingDisplay.innerHTML = "";
   showElements([filterByRoomTypeDisplay]);
   const dateInput = document.getElementById("date");
-  const date = dateInput.value.toString();
+  date = dateInput.value.toString();
   let bookings = allData[2].bookings;
   let rooms = allData[1].rooms;
   bookingsByDate = getAvailableRooms(bookings, rooms, date);
@@ -71,7 +72,8 @@ submitButton.addEventListener("click", function (event) {
   let bookingCards = createAvailableBookingsCard(bookingsByDate);
   console.log("avail", bookingsByDate);
   populateContentDisplay(bookingCards);
-  //   dateForm.reset();
+  dateForm.reset();
+  console.log('date', date)
 });
 
 filterSearchButton.addEventListener("click", (event) => {
@@ -97,17 +99,39 @@ roomTypeInput.addEventListener("input", () => {
 bookingDisplay.addEventListener("click", (event) => {
   if (event.target.classList.contains("user-booked-card")) {
     currentBooking = findBooking(event.target.id, customer.bookings);
-    // console.log('cur', currentBooking)
+    console.log('cur', currentBooking)
     const bookingToDisplay = renderSingleBooking(currentBooking);
     bookingDisplay.innerHTML = bookingToDisplay;
     showElements([cancelBookingButton]);
+    hideElements([bookThisRoomButton]);
   } else if (event.target.classList.contains("available-booking-card")) {
     currentBooking = findBooking(event.target.id, bookingsByDate);
     const bookingToDisplay = renderSingleBooking(currentBooking);
     bookingDisplay.innerHTML = bookingToDisplay;
     showElements([bookThisRoomButton]);
+    hideElements([cancelBookingButton]);
+    console.log("cur", currentBooking);
   }
 });
+
+bookThisRoomButton.addEventListener('click', () => {
+    date = date.split('-').join('/');
+    let bookingToAdd = {
+        'userID': customer.id,
+        'date': date,
+        'roomNumber': currentBooking.number
+    }
+    addBooking(bookingToAdd)
+    .then(response => {
+        console.log(response);
+        const newBooking = response.newBooking;
+        allData[2].bookings.push(newBooking);
+        return getAllData()
+})
+    .then(apiData => {
+        allData = apiData;
+    })    
+})
 //the event.target.id is accesses the index of the element clicked on in the array it cam from
 //how do I find it in the array?
 

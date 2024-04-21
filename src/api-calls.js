@@ -15,6 +15,24 @@ function getAllData() {
     .catch(error => console.log(error))
     }
 
+function addBooking(bookingData) {
+    return fetch('http://localhost:3001/api/v1/bookings', {
+        method: 'POST',
+        body: JSON.stringify(bookingData),
+        headers: { "Content-Type": "application/json"
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(error)
+        } else {
+            return response.json()
+        }
+    })
+    .catch(error => console.log('this errror', error))
+}
+
 export {
-    getAllData
+    getAllData,
+    addBooking
 }
