@@ -15,7 +15,7 @@ function getBookingCost(rooms, roomNumber){
         return cost
     } catch (error){
         if(error instanceof TypeError){
-            console.error('No cost to find, returning default of 0.0')
+            console.error(`${error.name}: ${error.message}`+'\n - Assuming no cost to find, returning default of 0.0')
         }
     }
     return 0.0
@@ -44,7 +44,8 @@ function calculateTotalCost(userBookings, rooms){
     }
     catch (error){
         if(error instanceof TypeError){
-            console.error('No cost to calculate, returning default of 0.0')
+            console.error(`${error.name}: ${error.message}`+'\n - Assuming no cost to calculate, returning default of 0.0')
+
         }
     }
     return 0.0
