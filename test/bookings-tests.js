@@ -61,8 +61,9 @@ describe('userBookings()',()=>{
 });
 
 describe('getBookingCost()',()=>{
-  it('should take in a room return an object with the room number and its cost',()=>{
-    const costIndex = getBookingCost(rooms[0]);
+  it('should take in a rooms array return an object with the room number and its cost',()=>{
+    const room = {room: 1}
+    const costIndex = getBookingCost(rooms, room);
     expect(costIndex).to.deep.equal({room: 1, cost: 358.4});
   });
   it('should return a default object with a cost of zero',()=>{
