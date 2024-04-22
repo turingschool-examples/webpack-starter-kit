@@ -25,7 +25,7 @@ describe('userBookings()',()=>{
       [{
         "id": "5fwrgu4i7k55hl6t8",
         "userID": 1,
-        "date": "2022/02/05",
+        "date": "2025/02/05",
         "roomNumber": 5,
     
       }]
@@ -34,21 +34,21 @@ describe('userBookings()',()=>{
       [{
         "id": "5fwrgu4i7k55hl6sz",
         "userID": 9,
-        "date": "2022/04/22",
+        "date": "2025/04/22",
         "roomNumber": 1,
     
       },
       {
         "id": "5fwrgu4i7k55hl6t5",
         "userID": 9,
-        "date": "2022/01/24",
+        "date": "2025/01/24",
         "roomNumber": 1,
     
       },
       {
         "id": "5fwrgu4i7k55hl6t9",
         "userID": 9,
-        "date": "2023/12/14",
+        "date": "2025/12/14",
         "roomNumber": 3,
     
       }]
