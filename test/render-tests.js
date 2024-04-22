@@ -1,8 +1,8 @@
 import chai from 'chai';
 const expect = chai.expect;
-import { mapRoomsFromBookings, renderRoomCards, renderUser, renderUserCard } from '../src/render';
-import { bookings, rooms_1, rooms, rooms_2, bookings_full, sampleUsers,roomRenders, bookingsForRender } from './test-data';
-import { userBookings, getBookingCost, calculateTotalCost } from '../src/bookings';
+import { mapRoomsFromBookings, renderRoomCards, renderUserCard } from '../src/render';
+import { bookings, rooms, rooms_2, sampleUsers,roomRenders, bookingsForRender } from './test-data';
+import { userBookings, calculateTotalCost } from '../src/bookings';
 
 describe('renderUserCard()',()=>{
     it('should take in a userBookings array and user and return a block of html as describe in the assertion',()=>{
