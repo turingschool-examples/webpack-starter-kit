@@ -4,13 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Overlook Hotel</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
-
+  <header class="overlook-title">
+  </header> 
+  <form class="login">
+    <input id="username" value="" placeholder="username" aria-placeholder="username input">
+    <input id = "password" value="" placeholder="password" aria-placeholder="password input">
+    <button id="login">login</button>
+    <warning class="hidden" aria-hidden="true">Username or Password Not Found!</warning>
+  </form>
+  <main class="homepage hidden">
+    <aside>
+      <ul class="user-profile">
+      </ul>
+      <ul class="nav-options">
+        <button id="user-profile">Profile</button>
+        <button id="search-rooms">Book a room!</button>
+      </ul>
+      <div class="search" 
+      aria-label="search-dropdowns"
+      aria-hidden="true">
+        <input id ="date-select" type="date">
+        <select id="room-type">
+          <option value="null">Select by Type</option>
+        </select>
+      </div>
+    </aside>
+    <article class="bookings">
+      <ul id="card-0" class="room-card">
+      </ul>
+    </article>
+  </main>
 </body>
 </html>
