@@ -243,6 +243,29 @@ const bookings_full = [
         "roomNumber": 6,
     
       }]
+const bookingsForRender =[
+  {
+    "id": "5fwrgu4i7k55hl6sz",
+    "userID": 9,
+    "date": "2025/04/22",
+    "roomNumber": 3,
+
+  },
+  {
+    "id": "5fwrgu4i7k55hl6t5",
+    "userID": 9,
+    "date": "2025/01/24",
+    "roomNumber": 4,
+
+  },
+  {
+    "id": "5fwrgu4i7k55hl6t6",
+    "userID": 13,
+    "date": "2025/01/10",
+    "roomNumber": 5,
+
+  }
+];
 const sampleUsers = [
     {
         "id": 1,
@@ -287,5 +310,6 @@ export {
     sampleUsers,
     rooms_1,
     rooms_2,
-    roomRenders
+    roomRenders,
+    bookingsForRender
 }
