@@ -28,7 +28,13 @@ function renderRoomCard(room, cardID){
 </ul>`
     return card
 };
-
+function mapRoomsFromBookings(bookings, rooms){
+    return bookings.map((booking)=>{
+        const result = rooms.find((room) => room.number === booking.roomNumber)
+        console.log('map',result)
+        return result
+    })
+}
 function costToString(cost){
     if(!cost){
         return '0.00$';
@@ -43,5 +49,6 @@ function costToString(cost){
 
 export{
     renderUserCard,
-    renderRoomCards
+    renderRoomCards,
+    mapRoomsFromBookings
 };

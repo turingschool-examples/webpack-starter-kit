@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
-import { renderRoomCards, renderUser, renderUserCard } from '../src/render';
-import { bookings, rooms_1, rooms, rooms_2, bookings_full, sampleUsers,roomRenders } from './test-data';
+import { mapRoomsFromBookings, renderRoomCards, renderUser, renderUserCard } from '../src/render';
+import { bookings, rooms_1, rooms, rooms_2, bookings_full, sampleUsers,roomRenders, bookingsForRender } from './test-data';
 import { userBookings, getBookingCost, calculateTotalCost } from '../src/bookings';
 
 describe('renderUserCard()',()=>{
@@ -31,3 +31,15 @@ describe('renderRoomCards()',()=>{
         expect(renderedCard).to.deep.equal(roomRenders)
     });
 });
+describe('mapFromBookings()',()=>{
+    let toRender
+    beforeEach(()=>{
+        toRender = mapRoomsFromBookings(bookingsForRender, rooms);
+    });
+    it('should return a map of rooms from a bookings array for rendering purposes',()=>{
+        expect(toRender).to.deep.equal(rooms_2);
+    });
+    it('should be renderable by the renderRoomCards() function',()=>{
+        expect(renderRoomCards(toRender)).to.deep.equal(roomRenders);
+    });
+})
