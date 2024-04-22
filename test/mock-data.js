@@ -1,9 +1,9 @@
-export const user = [
+ const users = [
     {id: 1, name: "Milo Anthony"},
     {id: 2, name: "Karen Kendricks"},
     {id: 3, name: "Karissa Sims"}
 ]
-export const rooms = [
+ const rooms = [
     {
         number: 1,
         roomType: "presidential",
@@ -28,25 +28,30 @@ export const rooms = [
         numBeds: 2,
         costPerNight: 452.86
     }
-]
-export const bookings = [
+];
+const bookings = [
     {
         id:"5fwrgu4i7k55hl6sz", 
         userID:1, 
         date:"2024/5/25", 
-        roomNumber:11
+        roomNumber:1
     },
     {
         id:"5fwrgu4i7k55hl6t6", 
         userID:1, 
-        date:"2024/4/25", 
-        roomNumber:8
+        date:"2024/9/25", 
+        roomNumber:2
     },
     {
         id:"5fwrgu4i7k55hl6t9", 
         userID:1, 
         date:"2024/4/20", 
-        roomNumber:12
+        roomNumber:3
     }
 ]
 
+module.exports = {
+    users,
+    rooms,
+    bookings
+}
