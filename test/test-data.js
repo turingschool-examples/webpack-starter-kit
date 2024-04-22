@@ -257,12 +257,35 @@ const sampleUsers = [
         "name": "Dell Rath"
       }
 ]
-
+const roomRenders = [
+`<ul id="card-0" class="room-card">
+    <li class="card-text">Room Number: 3</li>
+    <li class="card-text">single room.</li>
+    <li class="card-text">1 king bed(s).</li>
+    <li class="card-text">This room does not have a bidet.</li>
+    <li class="card-text">491.14$ per night.</li>
+</ul>`,
+`<ul id="card-1" class="room-card">
+    <li class="card-text">Room Number: 4</li>
+    <li class="card-text">single room.</li>
+    <li class="card-text">1 queen bed(s).</li>
+    <li class="card-text">This room does not have a bidet.</li>
+    <li class="card-text">429.44$ per night.</li>
+</ul>`,
+`<ul id="card-2" class="room-card">
+    <li class="card-text">Room Number: 5</li>
+    <li class="card-text">single room.</li>
+    <li class="card-text">2 queen bed(s).</li>
+    <li class="card-text">This room has a bidet.</li>
+    <li class="card-text">340.17$ per night.</li>
+</ul>`
+]
 export {
     rooms,
     bookings,
     bookings_full,
     sampleUsers,
     rooms_1,
-    rooms_2
+    rooms_2,
+    roomRenders
 }
