@@ -1,3 +1,4 @@
+import { expect } from "chai";
 import { apiCall, fetchUser} from "./apiCalls";
 import { calculateTotalCost, userBookings } from "./bookings";
 import { buttonRender, mapRoomsFromBookings, renderRoomCards, renderUserCard } from "./render";
@@ -17,8 +18,17 @@ const search = document.getElementById('search')
 const loginPage = document.getElementById('login-page')
 const homePage = document.getElementById('homepage')
 const bookingsRooms = document.getElementById('bookings-rooms')
-const availableRooms = bookingsRooms.classList.contains('available')
+
 //event listeners
+document.addEventListener("click", (event)=>{
+    const target = event.target.closest('.delete-booking');
+    const altTarget = event.target.closest('.book-booking');
+    if(target){
+      console.log('hello')
+    } else if (altTarget){
+        console.log('gwagewa')
+    }
+  });
 loginButton.addEventListener('click',()=>{
     login(usernameField.value, passwordField.value)
 });
@@ -41,10 +51,22 @@ search.addEventListener('change',()=>{
 
 //event handlers
 function login(username, password){
-    if(!username || !password){
+    let user;
+     if(!username.includes('customer') || !(password === "overlook2021")){
         showElements([loginWarning]);
     } else {
-        dataModel.customer = fetchUser(7);
+            try{
+            user= username.match(/(\d+)/)[0]
+            } catch (error){
+                if(error.message.includes("(reading '0')")){
+                    console.error('User did not input a number')
+                    showElements([loginWarning]);
+                    return;
+                } else {
+                    console.error(error)
+                };
+            }
+        dataModel.customer = fetchUser(user);
         hideElements([loginPage, loginWarning]);
         showElements([homePage]);
         setTimeout(()=>{
