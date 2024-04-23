@@ -18,7 +18,7 @@ const search = document.getElementById('search')
 const loginPage = document.getElementById('login-page')
 const homePage = document.getElementById('homepage')
 const bookingsRooms = document.getElementById('bookings-rooms')
-
+restrictDate()
 //event listeners
 document.addEventListener("click", (event)=>{
     const target = event.target.closest('.delete-booking');
@@ -109,7 +109,11 @@ function displayUser(){
         bookingsRooms.innerText = bookings
     }
 }
-
+function restrictDate(){
+    const currentDate = new Date()
+    const stringDate = currentDate.toLocaleDateString("en-GB").split('/').reverse().join('-');
+    dateSelect.min = stringDate
+}
 function hideElements(elementArray) {
     elementArray.forEach((element) => {
       element.classList.add("hidden");
