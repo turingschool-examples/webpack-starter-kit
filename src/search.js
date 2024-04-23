@@ -1,4 +1,5 @@
 function filterRoomsByDate(rooms, bookings, date = '0000/00/00'){
+    date = convertDate(date)
     if(!dateValidation(date) || !date){
         return 'Please enter a current or future date.'
     }
@@ -35,8 +36,11 @@ function filterRoomsByType(rooms, roomType = null){
         }
     }
 }
+function convertDate(date){
+    return date.split('-').join('/') 
+}
 function dateValidation(date){
-    let toCheck = date.split('-')
+    let toCheck = date.split('/')
     console.log(toCheck)
     const currentDate = new Date();
     const stringDate = currentDate.toLocaleDateString("en-GB");
