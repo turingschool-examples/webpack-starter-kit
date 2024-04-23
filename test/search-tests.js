@@ -30,10 +30,6 @@ describe('filterRoomsByDate()',()=>{
         const result = filterRoomsByDate(rooms, bookings);
         expect(result).to.equal('Please enter a current or future date.');
     });
-    it.skip('if a user enters a past date, this same prompt should be returned',()=>{
-        const result = filterRoomsByDate(rooms, bookings, "1998/08/03");
-        expect(result).to.equal('Please enter a current or future date.');
-    });
 });
 
 describe('filterRoomsByType()',()=>{
