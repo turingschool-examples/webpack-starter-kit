@@ -9,15 +9,16 @@
 <body>
   <header class="overlook-title">
   </header> 
-  <form class="login">
+  <div id="login-page" class="login">
     <input id="username" value="" placeholder="username" aria-placeholder="username input">
     <input id = "password" value="" placeholder="password" aria-placeholder="password input">
     <button id="login">login</button>
-    <warning class="hidden" aria-hidden="true">Username or Password Not Found!</warning>
-  </form>
-  <main class="homepage hidden">
+    <warning id="invalid-login" class="hidden" aria-hidden="true">Username or Password Not Found!</warning>
+  </div>
+  <main id="homepage" class="homepage hidden"
+  aria-hidden="true">
     <aside>
-      <ul class="user-profile">
+      <ul id ="user-card" class="user-card">
       </ul>
       <ul class="nav-options">
         <button id="user-profile">Profile</button>
@@ -37,5 +38,6 @@
       </ul>
     </article>
   </main>
+  <script src="bundle.js"></script>
 </body>
 </html>
