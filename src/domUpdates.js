@@ -1,6 +1,6 @@
 import { apiCall, fetchUser} from "./apiCalls";
 import { calculateTotalCost, userBookings } from "./bookings";
-import { mapRoomsFromBookings, renderUserCard } from "./render";
+import { mapRoomsFromBookings, renderRoomCards, renderUserCard } from "./render";
 import { dataModel, apiData } from "./scripts";
 
 const profileButton = document.getElementById('user-profile');
@@ -14,25 +14,14 @@ const dateSelect = document.getElementById('date-select');
 const roomDropdown = document.getElementById('room-type');
 const loginPage = document.getElementById('login-page')
 const homePage = document.getElementById('homepage')
+const bookingsRooms = document.getElementById('bookings-rooms')
 //event listeners
 loginButton.addEventListener('click',()=>{
     login(usernameField.value, passwordField.value)
 });
 
 profileButton.addEventListener('click',()=>{
-    const user = dataModel.customer.getInformation().information
-    console.log('hi')
-    const bookings = userBookings(
-        user.id,
-        apiData.getBookings()
-    );
-    const totalSpent = calculateTotalCost(
-        bookings,
-        apiData.getRooms()
-    );
-    console.log(totalSpent)
-    userProfile.innerHTML = renderUserCard(user.name,totalSpent)
-
+    displayUser()
 });
 //event handlers
 function login(username, password){
@@ -40,12 +29,29 @@ function login(username, password){
         showElements([loginWarning]);
     } else {
         dataModel.customer = fetchUser(7);
-        console.log(dataModel.customer.getInformation());
         hideElements([loginPage, loginWarning]);
         showElements([homePage]);
+        setTimeout(()=>{
+            displayUser()
+        },100)
     };
-   
 };
+
+function displayUser(){
+    const user = dataModel.customer.getInformation().information
+    const bookings = userBookings(user.id,apiData.getBookings());
+    const totalSpent = calculateTotalCost(bookings,apiData.getRooms());
+    userProfile.innerHTML = renderUserCard(user.name,totalSpent)
+    if(typeof bookings === 'object'){
+        const toRender = mapRoomsFromBookings(bookings, apiData.getRooms())
+        const roomCards = renderRoomCards(toRender)
+        roomCards.forEach(card => {
+            bookingsRooms.innerText+= card  
+        });
+    } else {
+        console.log('evil')
+    }
+}
 
 function hideElements(elementArray) {
     elementArray.forEach((element) => {
