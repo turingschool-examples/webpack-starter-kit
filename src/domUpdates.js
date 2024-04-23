@@ -46,7 +46,7 @@ function displayUser(){
         const toRender = mapRoomsFromBookings(bookings, apiData.getRooms())
         const roomCards = renderRoomCards(toRender)
         roomCards.forEach(card => {
-            bookingsRooms.innerText+= card  
+            bookingsRooms.innerHTML+= card  
         });
     } else {
         console.log('evil')
