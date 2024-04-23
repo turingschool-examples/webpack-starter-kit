@@ -2,7 +2,7 @@ import { apiCall, fetchUser} from "./apiCalls";
 import { calculateTotalCost, userBookings } from "./bookings";
 import { mapRoomsFromBookings, renderRoomCards, renderUserCard } from "./render";
 import { dataModel, apiData } from "./scripts";
-import { filterRoomsByDate } from "./search";
+import { filterRoomsByDate, filterRoomsByType } from "./search";
 
 const profileButton = document.getElementById('user-profile');
 const userProfile = document.getElementById('user-card')
@@ -17,18 +17,16 @@ const search = document.getElementById('search')
 const loginPage = document.getElementById('login-page')
 const homePage = document.getElementById('homepage')
 const bookingsRooms = document.getElementById('bookings-rooms')
-//event listeners
 
+//event listeners
 loginButton.addEventListener('click',()=>{
     login(usernameField.value, passwordField.value)
 });
 
 searchButton.addEventListener('click',()=>{
-
     hideElements([userProfile])
     showElements([search])
     displaySearch()
-    
 });
 
 profileButton.addEventListener('click',()=>{
@@ -46,7 +44,7 @@ function login(username, password){
     if(!username || !password){
         showElements([loginWarning]);
     } else {
-        dataModel.customer = fetchUser(8);
+        dataModel.customer = fetchUser(7);
         hideElements([loginPage, loginWarning]);
         showElements([homePage]);
         setTimeout(()=>{
@@ -56,14 +54,17 @@ function login(username, password){
 };
 function displaySearch(){
     bookingsRooms.innerHTML=''
-    const toRender = filterRoomsByDate(apiData.getRooms(),apiData.getBookings(),dateSelect.value)
-    console.log(toRender)
+    let toRender = filterRoomsByDate(apiData.getRooms(),apiData.getBookings(),dateSelect.value)
+    toRender = filterRoomsByType(toRender, roomDropdown.value)
     if(typeof toRender === 'object'){
         const roomCards = renderRoomCards(toRender)
         roomCards.forEach(card => {
             bookingsRooms.innerHTML+=card
         });
+    } else {
+        bookingsRooms.innerHTML = toRender
     }
+    
 }
 function displayUser(){
     bookingsRooms.innerHTML=''
