@@ -19,10 +19,8 @@ function filterRoomsByDate(rooms, bookings, date = '0000/00/00'){
     return results;
 };
 function filterRoomsByType(rooms, roomType = 'none'){
-    console.log(roomType)
     try{
         if(roomType === 'none'){
-            console.log('hi', rooms, roomType)
             return rooms
         }
         const result = rooms.filter((room)=> room.roomType === roomType)
