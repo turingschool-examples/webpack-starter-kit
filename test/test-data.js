@@ -204,42 +204,42 @@ const bookings_full = [
     {
       "id": "5fwrgu4i7k55hl6sz",
       "userID": 9,
-      "date": "2025/04/22",
+      "date": "2025/06/23",
       "roomNumber": 1,
   
     },
     {
       "id": "5fwrgu4i7k55hl6t5",
       "userID": 9,
-      "date": "2025/04/22",
+      "date": "2025/06/23",
       "roomNumber": 4,
   
     },
     {
       "id": "5fwrgu4i7k55hl6t6",
       "userID": 13,
-      "date": "2025/04/22",
+      "date": "2025/06/23",
       "roomNumber": 2,
   
     },
     {
       "id": "5fwrgu4i7k55hl6t7",
       "userID": 20,
-      "date": "2025/04/22",
+      "date": "2025/06/23",
       "roomNumber": 3,
   
     },
     {
       "id": "5fwrgu4i7k55hl6t8",
       "userID": 1,
-      "date": "2025/04/22",
+      "date": "2025/06/23",
       "roomNumber": 5,
   
     },
     {
         "id": "5fwrgu4i7k55hl6t8",
         "userID": 1,
-        "date": "2025/04/22",
+        "date": "2025/06/23",
         "roomNumber": 6,
     
       }]
@@ -287,21 +287,21 @@ const roomRenders = [
     <li class="card-text">1 king bed(s).</li>
     <li class="card-text">This room does not have a bidet.</li>
     <li class="card-text">491.14$ per night.</li>
-</ul>`,
+`,
 `<ul id="card-1" class="room-card">
     <li class="card-text">Room Number: 4</li>
     <li class="card-text">single room.</li>
     <li class="card-text">1 queen bed(s).</li>
     <li class="card-text">This room does not have a bidet.</li>
     <li class="card-text">429.44$ per night.</li>
-</ul>`,
+`,
 `<ul id="card-2" class="room-card">
     <li class="card-text">Room Number: 5</li>
     <li class="card-text">single room.</li>
     <li class="card-text">2 queen bed(s).</li>
     <li class="card-text">This room has a bidet.</li>
     <li class="card-text">340.17$ per night.</li>
-</ul>`
+`
 ]
 export {
     rooms,

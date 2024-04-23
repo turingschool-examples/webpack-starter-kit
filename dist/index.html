@@ -9,33 +9,39 @@
 <body>
   <header class="overlook-title">
   </header> 
-  <form class="login">
+  <div id="login-page" class="login">
     <input id="username" value="" placeholder="username" aria-placeholder="username input">
     <input id = "password" value="" placeholder="password" aria-placeholder="password input">
     <button id="login">login</button>
-    <warning class="hidden" aria-hidden="true">Username or Password Not Found!</warning>
-  </form>
-  <main class="homepage hidden">
+    <warning id="invalid-login" class="hidden" aria-hidden="true">Username or Password Not Found!</warning>
+  </div>
+  <main id="homepage" class="homepage hidden"
+  aria-hidden="true">
     <aside>
-      <ul class="user-profile">
+      <ul id ="user-card" class="user-card">
       </ul>
       <ul class="nav-options">
         <button id="user-profile">Profile</button>
         <button id="search-rooms">Book a room!</button>
       </ul>
-      <div class="search" 
+      <div id = "search" class="search hidden" 
       aria-label="search-dropdowns"
       aria-hidden="true">
         <input id ="date-select" type="date">
         <select id="room-type">
-          <option value="null">Select by Type</option>
+          <option value="none">Select by Type (None) </option>
+          <option value="single room">Single Room</option>
+          <option value="junior suite">Junior Suite</option>
+          <option value="suite">Suite</option>
+          <option value="residential suite">Residential Suite</option>
         </select>
       </div>
     </aside>
-    <article class="bookings">
+    <article id="bookings-rooms" class="bookings">
       <ul id="card-0" class="room-card">
       </ul>
     </article>
   </main>
+  <script src="bundle.js"></script>
 </body>
 </html>
