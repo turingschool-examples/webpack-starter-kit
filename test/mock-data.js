@@ -47,7 +47,26 @@ const bookings = [
         userID:1, 
         date:"2024/4/20", 
         roomNumber:3
+    },
+    {
+        id:"5fwrgu4i7k55hl6sa", 
+        userID:1, 
+        date:"2024/4/25", 
+        roomNumber:1
+    },
+    {
+        id:"5fwrgu4i7k55hl6t1", 
+        userID:2, 
+        date:"2024/4/25", 
+        roomNumber:2
+    },
+    {
+        id:"5fwrgu4i7k55hl6tp", 
+        userID:3, 
+        date:"2024/4/25", 
+        roomNumber:3
     }
+    
 ]
 
 module.exports = {
