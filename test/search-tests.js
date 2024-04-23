@@ -23,7 +23,7 @@ describe('filterRoomsByDate()',()=>{
         expect(result).to.deep.equal(rooms_1);
     });
     it('if a date yields no results, display a message that informs the user the hotel is full that day',()=>{
-        const result = filterRoomsByDate(rooms, bookings_full, '2025/04/22');
+        const result = filterRoomsByDate(rooms, bookings_full, '2025/06/23');
         expect(result).to.equal('Our apologies! No Rooms are availible on that date, please select a different one.');
     });
     it('if no date is given, it should return a prompt to select one',()=>{
