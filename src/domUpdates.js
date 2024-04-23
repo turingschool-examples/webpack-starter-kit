@@ -1,6 +1,6 @@
 import { apiCall, fetchUser} from "./apiCalls";
 import { calculateTotalCost, userBookings } from "./bookings";
-import { mapRoomsFromBookings, renderRoomCards, renderUserCard } from "./render";
+import { buttonRender, mapRoomsFromBookings, renderRoomCards, renderUserCard } from "./render";
 import { dataModel, apiData } from "./scripts";
 import { filterRoomsByDate, filterRoomsByType } from "./search";
 
@@ -17,7 +17,7 @@ const search = document.getElementById('search')
 const loginPage = document.getElementById('login-page')
 const homePage = document.getElementById('homepage')
 const bookingsRooms = document.getElementById('bookings-rooms')
-
+const availableRooms = bookingsRooms.classList.contains('available')
 //event listeners
 loginButton.addEventListener('click',()=>{
     login(usernameField.value, passwordField.value)
@@ -53,11 +53,13 @@ function login(username, password){
     };
 };
 function displaySearch(){
+    bookingsRooms.classList.add('available')
+    const availableRooms = bookingsRooms.classList.contains('available')
     bookingsRooms.innerHTML=''
     let toRender = filterRoomsByDate(apiData.getRooms(),apiData.getBookings(),dateSelect.value)
     toRender = filterRoomsByType(toRender, roomDropdown.value)
     if(typeof toRender === 'object'){
-        const roomCards = renderRoomCards(toRender)
+        const roomCards = renderRoomCards(toRender, availableRooms)
         roomCards.forEach(card => {
             bookingsRooms.innerHTML+=card
         });
@@ -67,6 +69,8 @@ function displaySearch(){
     
 }
 function displayUser(){
+    bookingsRooms.classList.remove('available')
+    const availableRooms = bookingsRooms.classList.contains('available')
     bookingsRooms.innerHTML=''
     const user = dataModel.customer.getInformation().information
     const bookings = userBookings(user.id,apiData.getBookings());
@@ -74,7 +78,8 @@ function displayUser(){
     userProfile.innerHTML = renderUserCard(user.name,totalSpent)
     if(typeof bookings === 'object'){
         const toRender = mapRoomsFromBookings(bookings, apiData.getRooms())
-        const roomCards = renderRoomCards(toRender)
+        const roomCards = renderRoomCards(toRender, availableRooms)
+       
         roomCards.forEach(card => {
             bookingsRooms.innerHTML+= card  
         });
