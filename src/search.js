@@ -18,9 +18,11 @@ function filterRoomsByDate(rooms, bookings, date = '0000/00/00'){
     };
     return results;
 };
-function filterRoomsByType(rooms, roomType = null){
+function filterRoomsByType(rooms, roomType = 'none'){
+    console.log(roomType)
     try{
-        if(roomType === null){
+        if(roomType === 'none'){
+            console.log('hi', rooms, roomType)
             return rooms
         }
         const result = rooms.filter((room)=> room.roomType === roomType)
@@ -41,7 +43,6 @@ function convertDate(date){
 }
 function dateValidation(date){
     let toCheck = date.split('/')
-    console.log(toCheck)
     const currentDate = new Date();
     const stringDate = currentDate.toLocaleDateString("en-GB");
     const arrayDate = stringDate.split('/').reverse()
