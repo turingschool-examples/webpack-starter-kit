@@ -38,7 +38,7 @@ function renderRoomCard(room, cardID, location){
 function mapRoomsFromBookings(bookings, rooms){
     return bookings.map((booking)=>{
         const result = rooms.find((room) => room.number === booking.roomNumber)
-        console.log('map',result)
+
         return result
     })
 }
@@ -49,25 +49,13 @@ function costToString(cost){
     const splitCost = cost.toString().split('.');
     if(splitCost[1].length < 2){
         splitCost[1]+= '0';
-    };
-    const formated = `${splitCost[0]}.${splitCost[1]}$`;
+    }
+    const formated = `${splitCost[0]}.${splitCost[1].substring(0,2)}$`;
     return formated;
 };
 
-function buttonRender(location, cards){
-    // console.log(
-    if(!location){
-        const newCards = cards.map((element, i) => {
-            const newCard = element+=`\n<button id=delete-${i} class="delete-booking">Delete Booking</button>` 
-            return newCard
-        });
-        return newCards
-    }
-    
-}
 export{
     renderUserCard,
     renderRoomCards,
     mapRoomsFromBookings,
-    buttonRender
 };
