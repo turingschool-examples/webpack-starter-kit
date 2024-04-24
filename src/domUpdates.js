@@ -3,7 +3,7 @@ import { apiCall, fetchUser} from "./apiCalls";
 import { calculateTotalCost, userBookings } from "./bookings";
 import { buttonRender, mapRoomsFromBookings, renderRoomCards, renderUserCard } from "./render";
 import { dataModel, apiData } from "./scripts";
-import { filterRoomsByDate, filterRoomsByType } from "./search";
+import { convertDate, filterRoomsByDate, filterRoomsByType } from "./search";
 
 const profileButton = document.getElementById('user-profile');
 const userProfile = document.getElementById('user-card')
@@ -22,17 +22,16 @@ restrictDate()
 
 //event listeners
 document.addEventListener("click", (event)=>{
-    const target = event.target.closest('.delete-booking');
-    const altTarget = event.target.closest('.book-booking');
+    const target = event.target.closest('.book-booking');
     if(target){
-        const bookingID = target.id.match(/(\d+)/)[0]
-        const toDelete = dataModel.trackedBookings[bookingID].id
-        dataModel.trackedBookings[bookingID] = {}
-        apiData.deleteBooking(toDelete)
-        displayUser()
-    } else if (altTarget){
-        const bookingID = altTarget.id.match(/(\d+)/)[0]
-        console.log(bookingID)
+        const user = dataModel.customer.getInformation().information
+        const roomID = target.id.match(/(\d+)/)[0]
+        const toBook = dataModel.trackedRooms[roomID]
+        console.log(user.id)
+        convertDate(dateSelect.value)
+        apiData.bookRoom(toBook,user.id,convertDate(dateSelect.value))
+        target.innerText = 'Booking Successful!'
+        target.classList.remove('book-booking')
     }
   });
 loginButton.addEventListener('click',()=>{
