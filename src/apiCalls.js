@@ -10,7 +10,6 @@ function partialCall(url, dataType){
                     });
                 });
             }else{
-                console.log(response);
                 throw new Error (`There was a problem retrieving ${dataType} data.`);
             };
         });
@@ -60,12 +59,6 @@ export function apiCall(){
     };
     function bookRoom(room, userID, date){
         postBooking(room, userID, date).then((data)=>allBookings.push(data.newBooking))
-    }
-    function deleteBooking(bookingID){
-    fetch(`http://localhost:3001/api/v1/bookings/${bookingID}`, {
-        method: "DELETE",
-        headers: {"Content-Type": "application/json"}
-        })
     }
     return {
         getRooms,

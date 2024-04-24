@@ -27,7 +27,7 @@ document.addEventListener("click", (event)=>{
         const user = dataModel.customer.getInformation().information
         const roomID = target.id.match(/(\d+)/)[0]
         const toBook = dataModel.trackedRooms[roomID]
-        console.log(user.id)
+  
         convertDate(dateSelect.value)
         apiData.bookRoom(toBook,user.id,convertDate(dateSelect.value))
         target.innerText = 'Booking Successful!'
@@ -90,7 +90,6 @@ function displaySearch(){
     let toRender = filterRoomsByDate(apiData.getRooms(),apiData.getBookings(),dateSelect.value)
     toRender = filterRoomsByType(toRender, roomDropdown.value)
     dataModel.trackedRooms = toRender
-    console.log(toRender)
     if(typeof toRender === 'object'){
         const roomCards = renderRoomCards(toRender, availableRooms)
         roomCards.forEach(card => {
@@ -113,7 +112,6 @@ function displayUser(){
     if(typeof bookings === 'object'){
         const toRender = mapRoomsFromBookings(bookings, apiData.getRooms())
         dataModel.trackedRooms = toRender
-        console.log(dataModel.trackedBookings,dataModel.trackedRooms)
         const roomCards = renderRoomCards(toRender, availableRooms, dataModel.trackedBookings)
        
         roomCards.forEach(card => {
