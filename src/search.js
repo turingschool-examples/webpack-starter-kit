@@ -40,4 +40,4 @@ function convertDate(date){
     return date.split('-').join('/') 
 }
 
-export{filterRoomsByDate, filterRoomsByType};
+export{filterRoomsByDate, filterRoomsByType, convertDate};
