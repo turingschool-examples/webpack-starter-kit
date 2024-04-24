@@ -10,7 +10,6 @@ function partialCall(url, dataType){
                     });
                 });
             }else{
-                console.log(response);
                 throw new Error (`There was a problem retrieving ${dataType} data.`);
             };
         });
@@ -36,22 +35,36 @@ export function fetchUser(id){
     }
     return {getInformation}
 }
+function postBooking(room, ID, date){
+    return fetch("http://localhost:3001/api/v1/bookings", {
+        method: "POST",
+        body: JSON.stringify(
+        {
+            "userID": ID,
+            "date": date,
+            "roomNumber": +room.number
+        }),
+        headers: {"Content-Type": "application/json"}
+        }).then((response) =>{
+        return response.json()})
+        }
 export function apiCall(){
     const allRooms = partialCall('http://localhost:3001/api/v1/rooms', 'rooms')
     const allBookings = partialCall('http://localhost:3001/api/v1/bookings', 'bookings')
-    function getUsers(){
-        return allUsers;
-    };
     function getRooms(){
         return allRooms;
     };
     function getBookings(){
         return allBookings;
     };
+    function bookRoom(room, userID, date){
+        postBooking(room, userID, date).then((data)=>allBookings.push(data.newBooking))
+    }
     return {
-        getUsers,
         getRooms,
         getBookings,
+        bookRoom,
+        deleteBooking,
     };
 };
 // export function getUser(customerID)

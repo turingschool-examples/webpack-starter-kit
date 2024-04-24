@@ -13,5 +13,9 @@ import './images/turing-logo.png'
 console.log('This is the JavaScript entry file - your code begins here.');
 export const apiData = apiCall()
 export const dataModel ={
-    user: {}
+    user: {},
+    trackedBookings: {}
 }
+/*
+{ "userID": 48, "date": "2019/09/23", "roomNumber": 4 }
+ */

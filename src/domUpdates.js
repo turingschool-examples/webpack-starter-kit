@@ -3,7 +3,7 @@ import { apiCall, fetchUser} from "./apiCalls";
 import { calculateTotalCost, userBookings } from "./bookings";
 import { buttonRender, mapRoomsFromBookings, renderRoomCards, renderUserCard } from "./render";
 import { dataModel, apiData } from "./scripts";
-import { filterRoomsByDate, filterRoomsByType } from "./search";
+import { convertDate, filterRoomsByDate, filterRoomsByType } from "./search";
 
 const profileButton = document.getElementById('user-profile');
 const userProfile = document.getElementById('user-card')
@@ -19,14 +19,19 @@ const loginPage = document.getElementById('login-page')
 const homePage = document.getElementById('homepage')
 const bookingsRooms = document.getElementById('bookings-rooms')
 restrictDate()
+
 //event listeners
 document.addEventListener("click", (event)=>{
-    const target = event.target.closest('.delete-booking');
-    const altTarget = event.target.closest('.book-booking');
+    const target = event.target.closest('.book-booking');
     if(target){
-      console.log('hello')
-    } else if (altTarget){
-        console.log('gwagewa')
+        const user = dataModel.customer.getInformation().information
+        const roomID = target.id.match(/(\d+)/)[0]
+        const toBook = dataModel.trackedRooms[roomID]
+  
+        convertDate(dateSelect.value)
+        apiData.bookRoom(toBook,user.id,convertDate(dateSelect.value))
+        target.innerText = 'Booking Successful!'
+        target.classList.remove('book-booking')
     }
   });
 loginButton.addEventListener('click',()=>{
@@ -70,8 +75,12 @@ function login(username, password){
         hideElements([loginPage, loginWarning]);
         showElements([homePage]);
         setTimeout(()=>{
-            displayUser()
-        },100)
+            try{
+                displayUser()
+            } catch {
+                throw new Error('Server Response Timeout: Login Failed')
+            }
+        },1000)
     };
 };
 function displaySearch(){
@@ -80,6 +89,7 @@ function displaySearch(){
     bookingsRooms.innerHTML=''
     let toRender = filterRoomsByDate(apiData.getRooms(),apiData.getBookings(),dateSelect.value)
     toRender = filterRoomsByType(toRender, roomDropdown.value)
+    dataModel.trackedRooms = toRender
     if(typeof toRender === 'object'){
         const roomCards = renderRoomCards(toRender, availableRooms)
         roomCards.forEach(card => {
@@ -96,11 +106,13 @@ function displayUser(){
     bookingsRooms.innerHTML=''
     const user = dataModel.customer.getInformation().information
     const bookings = userBookings(user.id,apiData.getBookings());
+    dataModel.trackedBookings = bookings
     const totalSpent = calculateTotalCost(bookings,apiData.getRooms());
     userProfile.innerHTML = renderUserCard(user.name,totalSpent)
     if(typeof bookings === 'object'){
         const toRender = mapRoomsFromBookings(bookings, apiData.getRooms())
-        const roomCards = renderRoomCards(toRender, availableRooms)
+        dataModel.trackedRooms = toRender
+        const roomCards = renderRoomCards(toRender, availableRooms, dataModel.trackedBookings)
        
         roomCards.forEach(card => {
             bookingsRooms.innerHTML+= card  
