@@ -112,7 +112,9 @@ function displayUser(){
     userProfile.innerHTML = renderUserCard(user.name,totalSpent)
     if(typeof bookings === 'object'){
         const toRender = mapRoomsFromBookings(bookings, apiData.getRooms())
-        const roomCards = renderRoomCards(toRender, availableRooms)
+        dataModel.trackedRooms = toRender
+        console.log(dataModel.trackedBookings,dataModel.trackedRooms)
+        const roomCards = renderRoomCards(toRender, availableRooms, dataModel.trackedBookings)
        
         roomCards.forEach(card => {
             bookingsRooms.innerHTML+= card  
