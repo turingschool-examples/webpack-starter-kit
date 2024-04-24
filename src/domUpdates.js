@@ -90,6 +90,8 @@ function displaySearch(){
     bookingsRooms.innerHTML=''
     let toRender = filterRoomsByDate(apiData.getRooms(),apiData.getBookings(),dateSelect.value)
     toRender = filterRoomsByType(toRender, roomDropdown.value)
+    dataModel.trackedRooms = toRender
+    console.log(toRender)
     if(typeof toRender === 'object'){
         const roomCards = renderRoomCards(toRender, availableRooms)
         roomCards.forEach(card => {
