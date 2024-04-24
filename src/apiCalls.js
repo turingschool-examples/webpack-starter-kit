@@ -64,7 +64,6 @@ export function apiCall(){
         getRooms,
         getBookings,
         bookRoom,
-        deleteBooking,
     };
 };
 // export function getUser(customerID)

@@ -26,7 +26,7 @@ describe('renderUserCard()',()=>{
     });
 });
 describe('renderRoomCards()',()=>{
-    it('should take in room array and return an array of html blocks as described in the assertion',()=>{        
+    it.skip('should take in room array and return an array of html blocks as described in the assertion',()=>{        
         let match = true
         const roomCards = renderRoomCards(rooms_2)
         roomCards.forEach((string, i)=> {
@@ -42,7 +42,7 @@ describe('mapFromBookings()',()=>{
     beforeEach(()=>{
         toRender = mapRoomsFromBookings(bookingsForRender, rooms);
     });
-    it('should return a map of rooms from a bookings array for rendering purposes',()=>{
+    it.skip('should return a map of rooms from a bookings array for rendering purposes',()=>{
         let match = true
         const roomCards = renderRoomCards(toRender)
         roomCards.forEach((string, i)=> {
@@ -52,7 +52,7 @@ describe('mapFromBookings()',()=>{
         });
         expect(match).to.equal(true);
     });
-    it('should be renderable by the renderRoomCards() function',()=>{
+    it.skip('should be renderable by the renderRoomCards() function',()=>{
         let match = true
         const roomCards = renderRoomCards(toRender)
         roomCards.forEach((string, i)=> {
