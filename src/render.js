@@ -13,10 +13,10 @@ function renderRoomCards(rooms, location){
 
 function renderRoomCard(room, cardID, location){
     let button;
-    if(!location){
-        button = `<button id=delete-${cardID} class="delete-booking">Delete Booking</button>` 
-    } else {
+    if(location){
         button = `<button id=book-${cardID} class="book-booking">Book Room</button>`
+    } else {
+        button = ' '
     }
     let hasBidet;
     if(room.bidet){
