@@ -19,14 +19,20 @@ const loginPage = document.getElementById('login-page')
 const homePage = document.getElementById('homepage')
 const bookingsRooms = document.getElementById('bookings-rooms')
 restrictDate()
+
 //event listeners
 document.addEventListener("click", (event)=>{
     const target = event.target.closest('.delete-booking');
     const altTarget = event.target.closest('.book-booking');
     if(target){
-      console.log('hello')
+        const bookingID = target.id.match(/(\d+)/)[0]
+        const toDelete = dataModel.trackedBookings[bookingID].id
+        dataModel.trackedBookings[bookingID] = {}
+        apiData.deleteBooking(toDelete)
+        displayUser()
     } else if (altTarget){
-        console.log('gwagewa')
+        const bookingID = altTarget.id.match(/(\d+)/)[0]
+        console.log(bookingID)
     }
   });
 loginButton.addEventListener('click',()=>{
@@ -70,8 +76,12 @@ function login(username, password){
         hideElements([loginPage, loginWarning]);
         showElements([homePage]);
         setTimeout(()=>{
-            displayUser()
-        },100)
+            try{
+                displayUser()
+            } catch {
+                throw new Error('Server Response Timeout: Login Failed')
+            }
+        },1000)
     };
 };
 function displaySearch(){
@@ -96,6 +106,7 @@ function displayUser(){
     bookingsRooms.innerHTML=''
     const user = dataModel.customer.getInformation().information
     const bookings = userBookings(user.id,apiData.getBookings());
+    dataModel.trackedBookings = bookings
     const totalSpent = calculateTotalCost(bookings,apiData.getRooms());
     userProfile.innerHTML = renderUserCard(user.name,totalSpent)
     if(typeof bookings === 'object'){
