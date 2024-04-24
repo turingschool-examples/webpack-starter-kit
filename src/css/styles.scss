@@ -1,8 +1,72 @@
-
+:root {
+  --primary-color: rgb(226, 217, 217);
+  --secondary-text: #22201f;
+  --backdrop: #d3aaa1;
+  --buttons: #968a9b;
+  --backdrop-aside: rgb(211, 191, 191);
+}
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background: var(--primary-color);
+  font-family: "Helvetica", sans-serif;
+  color: #1c2826;
+}
+html{
+  width: 100%;
+}
+.login-container{
+  width: auto;
+  height: 20ch;
+  display: flex;
+  justify-content: center;
+}
+.login{
+  align-self: center;
+  
+}
+.homepage{
+  display: flex;
+}
+ul{
+  list-style: none;
+}
+aside{
+  background: var(--backdrop-aside);
+  min-width: 20%;
+  max-width: 35%;
+  border-radius: 1ch;
+}
+.search{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.bookings{
+  width: auto;
+  border-radius: 1ch;
+  background: var(--backdrop);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+button{
+  border-radius: 5px;
+  background: var(--buttons);
+  color: var(--secondary-text)
 }
 
-.hidden {
+.bookings > ul{
+  background: var(--primary-color);
+  border-radius: 10px;
+  padding: 2ch;
+  margin: 2ch;
+  color: var(--secondary-text);
+}
+h1 {
+  width: auto;
+  text-align: center;
+}
+.hidden{
   display: none;
 }
