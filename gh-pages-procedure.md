@@ -49,7 +49,7 @@ Your `package.json` file should now look like this:
   ...
 }
 ```
-6. In the terminal, run `npm install -g --save-dev gh-pages`
+6. In the terminal, run `npm install --save-dev gh-pages`
 7. You should see these lines of JSON added to your `package.json` file:
   ```json
   "devDependencies": {
