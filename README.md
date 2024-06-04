@@ -84,3 +84,82 @@ _If you are finished with the functionality and testing of your project_, then y
 [GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
 
 If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+
+---
+## Installing Typescript (*Extension Only*)
+1. Install `typescript` and `ts-loader`:
+```
+npm i -D typescript ts-loader
+```
+
+2. Create a `tsconfig.json` file in the root directory
+```
+touch tsconfig.json
+```
+
+3. Add the following to the `tsconfig.json` file:
+```js
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
+    "moduleResolution": "node"
+  }
+}
+```
+
+4. In your webpack.config.js file, update it to be:
+```js
+const path = require('path');
+module.exports = {
+  "mode": "none",
+  "entry": "./src/scripts.ts",
+  "output": {
+    "path": __dirname + '/dist',
+    "filename": "bundle.js",
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist')
+    }
+  },
+  "devtool": "source-map",
+  // CSS and file (image) loaders
+  "module": {
+    "rules": [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/',
+              publicPath: 'images/'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+};
+```
+
+5. Update all `.js` files to be `.ts` including `scripts.ts`.
+
+6. From here, you should now get some TypeScript errors when running `npm start` that you can begin working through.
