@@ -4,11 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Travel Tracker</title>
 </head>
+<header>
+  <h1 class="welcome-message">
+    To Travel Is To Live!
+  </h1>
+</header>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
+  <main>
+    <section class="main-wrapper">
+      <section class="upcoming-trips-wrapper">
+        <h3 class="upcoming-trips-header">Upcoming Trips</h3>
+        <div class="upcoming-trips">   
+        </div>
+      </section>
+      <section class="pending-trips-wrapper">
+        <h3 class="pending-trips-header">Pending Trips</h3>
+        <div class="pending-trips">   
+        </div>
+      </section>
+      <section class="past-trips-wrapper">
+        <h3 class="past-trips-header">Past Trips</h3>
+        <div class="past-trips">  
+        </div>
+      </section>
+      <section class="book-a-trip-wrapper">
+        <h3 class="book-a-trip-header">Book A Trip!</h3>
+        <div class="book-a-trip">
+        </div>
+      </section>
+    </section>
+  </main> 
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
