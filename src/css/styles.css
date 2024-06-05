@@ -1,4 +1,27 @@
-
-body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0; 
 }
+
+.welcome-message { 
+    text-align: center;
+}
+
+.main-wrapper {
+    width: 100%
+}
+
+div {
+    border: 5px hotpink solid;
+    height: 150px;
+    width: auto; 
+}
+
+.upcoming-trips-header,
+.pending-trips-header,
+.past-trips-header,
+.book-a-trip-wrapper {
+    text-align: center;
+}
+
