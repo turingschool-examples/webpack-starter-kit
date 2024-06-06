@@ -4,10 +4,59 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Travel Tracker</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
+  <div class="body-wrapper">
+    <h1 class="travel-tracker-header" id="travel-tracker-text" alt="travel-tracker">Travel Tracker 🛩️🌏</h1>
+    <section class="login-section" id="loginSection">
+      <h2 class="sign-in" alt="signInText">Sign In</h2>
+      <form class="login-form" id="loginForm" alt="login-form">
+        <label for="text">Username:</label>
+        <input type="text" id="usernameInput" placeholder="Ex: Johnny50" aria-required="Enter a username">
+        <p id="username-error-message" class="error-message-username hidden">Username doesn't exist try again.</p>
+
+        <label for="text">Password:</label>
+        <input type="text" id="passwordInput" placeholder="Ex: Johnny" aria-required="Enter a password">
+        <p id="password-error-message" class="error-message-password hidden">Password failed try again.</p>
+        <input class="submitLogin" type="submit" value="submit">
+      </form>
+      <!-- <button class="login-button" id="loginButton">Login</button> -->
+    </section>
+    <section class="book-trip " id="bookTripSection">
+      <form id="bookingForm" alt="booking-form">
+        <div class="destination-choice">
+          <label for="selectionMenu">Destination:
+            <select class="selection" id="selectionMenu" placeholder="Select Destination" alt="destination-selection">
+              <option value="0">Select destination</option>
+            </select>
+          </label>
+          <label for="date">Date:</label>
+          <input type="date" min="06-6-2024">
+          <label for="numberOfGuest">Total Guest:</label>
+          <input type="number" min="1" max="15">
+
+        </div>
+
+
+      </form>
+
+
+    </section>
+    <section class="display-user-info" id="user-dsiplay" alt="user-section">
+      <h3 class="current-display" id="currentDisplay">Pending Travel</h3>
+      <div class="trip-display">
+
+      </div>
+
+
+    </section>
+
+
+
+
+
+  </div>
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>

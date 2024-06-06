@@ -1,4 +1,101 @@
 
 body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-image: url('../images/beautiful.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+}
+
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+}
+
+main {
+  display: grid;
+}
+
+h1 {
+  font-size: 100px;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  text-align: center;
+  z-index: 1000; 
+  animation: slideInFromLeft 1.5s ease-in-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(25);
+  }
+}
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.login-section, .display-user-info,.book-trip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2pt solid black;
+  width: fit-content; 
+  max-width: 1600px; 
+  margin-bottom: 20px; 
+  background-color: rgba(211, 211, 211, .55);
+  color: black;
+  font-size: 24px;
+}
+
+.login-section {
+  animation: slideInFromTop 1.5s ease-in-out forwards;
+}
+.book-trip {
+  animation: slideInFromLeft 1.5s ease-in-out forwards;
+}
+.display-user-info {
+  animation: slideInFromBottom 1.5s ease-in-out backwards;
+}
+
+
+.submitLogin {
+  margin: 10px 0 10px 270px;
+  height: 35px;
+  width: fit-content
+}
+
+p {
+  color: darkred;
+}
+
+.hidden {
+  display: none;
 }
