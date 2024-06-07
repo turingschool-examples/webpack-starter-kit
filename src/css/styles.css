@@ -100,14 +100,12 @@ h1 {
   background-color: rgba(211, 211, 211, .55);
   color: black;
   font-size: 24px;
-}
-
-.login-section {
   animation: slideInFromTop 1.5s ease-in-out forwards;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
+
 .book-trip {
   animation: slideInFromLeft 1.5s ease-in-out forwards;
   animation-duration: 2s;
