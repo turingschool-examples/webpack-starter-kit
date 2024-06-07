@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <title>Travel Tracker</title>
 </head>
 <body>
+  <h1 class="travel-tracker-header" id="travel-tracker-text" alt="travel-tracker">Travel Tracker  🛩️  🌏</h1>
   <div class="body-wrapper">
-    <h1 class="travel-tracker-header" id="travel-tracker-text" alt="travel-tracker">Travel Tracker 🛩️🌏</h1>
     <section class="login-section" id="loginSection">
       <h2 class="sign-in" alt="signInText">Sign In</h2>
       <form class="login-form" id="loginForm" alt="login-form">
@@ -21,29 +24,34 @@
         <p id="password-error-message" class="error-message-password hidden">Password failed try again.</p>
         <input class="submitLogin" type="submit" value="submit">
       </form>
-      <!-- <button class="login-button" id="loginButton">Login</button> -->
     </section>
-    <section class="book-trip " id="bookTripSection">
+    <section class="user-total hidden" id="user-totals" alt="usersTotalCost">
+      <p class="total-text " id="textForTotal" alt="usersTotal">Users trip costs for the year: </p>
+      <p class="total-text-cost " id="textTotalCost" alt="totalCost">$ </p>
+    </section>
+    <section class="book-trip hidden" id="bookTripSection">
       <form id="bookingForm" alt="booking-form">
         <div class="destination-choice">
           <label for="selectionMenu">Destination:
             <select class="selection" id="selectionMenu" placeholder="Select Destination" alt="destination-selection">
               <option value="0">Select destination</option>
+              <option value="1">Select destination</option>
+              <option value="2">Select destination</option>
+              <option value="3">Select destination</option>
             </select>
           </label>
           <label for="date">Date:</label>
-          <input type="date" min="06-6-2024">
+            <input type="date" min="06-6-2024">
           <label for="numberOfGuest">Total Guest:</label>
-          <input type="number" min="1" max="15">
-
+            <input type="number" min="1" max="15" placeholder="1-15 Guest">
+          <label for="duration">Duration:</label>
+            <input type="number" min="1" max="31" placeholder="1-31 Days">
         </div>
-
-
+          <input class="estimateButton" type="button" value="Get Estimate">
+          <input class="confirmButton" type="button" value="Confirm Booking">
       </form>
-
-
     </section>
-    <section class="display-user-info" id="user-dsiplay" alt="user-section">
+    <section class="display-user-info hidden" id="user-dsiplay" alt="user-section">
       <h3 class="current-display" id="currentDisplay">Pending Travel</h3>
       <div class="trip-display">
 

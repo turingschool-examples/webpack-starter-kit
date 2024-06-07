@@ -1,7 +1,7 @@
 
 body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-  background-image: url('../images/beautiful.jpg');
+  background-image: url('../images/pexels-gashifrheza-1486121.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
@@ -10,8 +10,10 @@ body {
 }
 
 * {
-  font-family: "Raleway", sans-serif;
-  font-weight: 300;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 50;
+  font-style: normal;
 }
 
 .body-wrapper {
@@ -35,41 +37,66 @@ h1 {
   text-align: center;
   z-index: 1000; 
   animation: slideInFromLeft 1.5s ease-in-out forwards;
+  letter-spacing: 2px;
+  margin: 5px;
+  opacity: 0;
 }
 
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 @keyframes slideInFromTop {
   0% {
     transform: translateY(-100%);
+    opacity: 0;
   }
   100% {
     transform: translateY(25);
+    opacity: 1;
   }
 }
 @keyframes slideInFromBottom {
   0% {
     transform: translateY(100%);
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
-.login-section, .display-user-info,.book-trip {
+.display-user-info,
+.book-trip,
+.user-total  {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2pt solid black;
   width: fit-content; 
+  border-radius: 1.5rem;
+  backdrop-filter: blur(5px);
   max-width: 1600px; 
-  margin-bottom: 20px; 
+  margin-top: 5px;
+  background-color: rgba(211, 211, 211, .55);
+  color: black;
+  font-size: 24px;
+}
+
+.login-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(5px);
+  width: 15%; 
+  max-width: 1600px; 
   background-color: rgba(211, 211, 211, .55);
   color: black;
   font-size: 24px;
@@ -77,23 +104,57 @@ h1 {
 
 .login-section {
   animation: slideInFromTop 1.5s ease-in-out forwards;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 .book-trip {
   animation: slideInFromLeft 1.5s ease-in-out forwards;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
-.display-user-info {
+.display-user-info,
+.user-total {
   animation: slideInFromBottom 1.5s ease-in-out backwards;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
-
-.submitLogin {
-  margin: 10px 0 10px 270px;
-  height: 35px;
-  width: fit-content
+.login-form label,
+.login-form input[type="text"],
+.login-form input[type="submit"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-p {
-  color: darkred;
+#bookingForm label,
+#bookingForm input[type='number'],
+#bookingForm input[type='date'],
+#bookingForm input[type="button"] {
+  display: block;
+  width: 80%;
+  margin: 0 0 10px 30px;
+  text-align: center;
+}
+
+.submitLogin, 
+.confirmButton, 
+.estimateButton {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.error-message-username,
+.error-message-password {
+  color: red;
 }
 
 .hidden {
