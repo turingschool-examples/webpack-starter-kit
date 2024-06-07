@@ -84,10 +84,10 @@ describe('Get User Trips', function () {
           { date: "2023/06/25", destinationID: 9, duration: 7, id: 4, status: "approved", suggestedActivities: ["beach"], travelers: 3, userID: 4 },
           { date: "2023/08/05", destinationID: 8, duration: 6, id: 5, status: "pending", suggestedActivities: ["diving"], travelers: 1, userID: 4 }
         ]
-      };
-      const totalBill = getUserExpenditures(4, tripsForTest, destinations, 2023);
-      expect(totalBill).to.equal(5445); // Adjust the expected value based on your data for the year 2023
-    });
+      }
+      const totalBill = getUserExpenditures(4, tripsForTest, destinations, 2023)
+      expect(totalBill).to.equal(5445)
+    })
 
     it('should handle user with no trips in the target year', () => {
       const noTripsThisYear = getUserExpenditures(4, trips, destinations, 2021)
