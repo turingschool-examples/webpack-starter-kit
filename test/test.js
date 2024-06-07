@@ -44,46 +44,47 @@ describe('Get User Trips', function () {
 
   describe('Get User Expenditures', function () {
     it('should return total money spent on all approved trips in the target year, plus 10%, based on UserID', () => {
-        const totalBill = getUserExpenditures(4, trips, destinations, 2023);
-        expect(totalBill).to.equal(0); // Adjust the expected value based on your data for the year 2023
+      const totalBill = getUserExpenditures(4, trips, destinations, 2023)
+      expect(totalBill).to.equal(0)
     });
 
     it('should handle user with only pending trips', () => {
-        const noTripForYou = getUserExpenditures(2, trips, destinations, 2023);
-        expect(noTripForYou).to.equal('All your trips are pending approval.');
+      const noTripForYou = getUserExpenditures(2, trips, destinations, 2023)
+      expect(noTripForYou).to.equal('All your trips are pending approval.')
     });
 
     it('should handle trips with undefined status', () => {
-        const undefinedStatusTrip = {
-            date: "2023/01/20",
-            destinationID: 22,
-            duration: 5,
-            id: 2,
-            status: undefined,
-            suggestedActivities: ["skiing"],
-            travelers: 2,
-            userID: 2
-        };
-        const totalBill = getUserExpenditures(2, { trips: [undefinedStatusTrip] }, destinations, 2023);
-        expect(totalBill).to.equal('All your trips are pending approval.');
-    });
+      const undefinedStatusTrip = {
+        date: "2023/01/20",
+        destinationID: 22,
+        duration: 5,
+        id: 2,
+        status: undefined,
+        suggestedActivities: ["skiing"],
+        travelers: 2,
+        userID: 2
+      }
+      const totalBill = getUserExpenditures(2, { trips: [undefinedStatusTrip] }, destinations, 2023)
+      expect(totalBill).to.equal('All your trips are pending approval.')
+    })
 
     it('should calculate expenditures consistently for multiple users', () => {
-        const user1Expenditures = getUserExpenditures(4, trips, destinations, 2023);
-        const user2Expenditures = getUserExpenditures(2, trips, destinations, 2023);
-        expect(user1Expenditures).to.equal(0); // Adjust the expected value based on your data for the year 2023
-        expect(user2Expenditures).to.equal('All your trips are pending approval.');
+      const user1Expenditures = getUserExpenditures(4, trips, destinations, 2023)
+      const user2Expenditures = getUserExpenditures(2, trips, destinations, 2023)
+      expect(user1Expenditures).to.equal(0)
+      expect(user2Expenditures).to.equal('All your trips are pending approval.')
     });
 
     it('should return total money spent on all approved trips in the target year, plus 10%, for a different user', () => {
-        const totalBill = getUserExpenditures(4, trips, destinations, 2022);
-        expect(totalBill).to.equal(1738); // Adjust the expected value based on your data for the year 2022
+      const totalBill = getUserExpenditures(4, trips, destinations, 2022)
+      expect(totalBill).to.equal(1738)
     });
 
     it('should handle user with no trips in the target year', () => {
-        const noTripsThisYear = getUserExpenditures(4, trips, destinations, 2021);
-        expect(noTripsThisYear).to.equal(0); // Assuming there are no trips for user 4 in 2021
-    });
-});
+      const noTripsThisYear = getUserExpenditures(4, trips, destinations, 2021)
+      expect(noTripsThisYear).to.equal(0)
+    })
+  })
+})
 
 
