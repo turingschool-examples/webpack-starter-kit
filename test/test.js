@@ -76,8 +76,17 @@ describe('Get User Trips', function () {
     });
 
     it('should return total money spent on all approved trips in the target year, plus 10%, for a different user', () => {
-      const totalBill = getUserExpenditures(4, trips, destinations, 2022)
-      expect(totalBill).to.equal(1738)
+      const tripsForTest = {
+        trips: [
+          { date: "2022/09/16", destinationID: 2, duration: 8, id: 1, status: "approved", suggestedActivities: [], travelers: 1, userID: 4 },
+          { date: "2023/01/20", destinationID: 22, duration: 5, id: 2, status: "pending", suggestedActivities: ["skiing"], travelers: 2, userID: 4 },
+          { date: "2023/03/15", destinationID: 14, duration: 10, id: 3, status: "approved", suggestedActivities: ["hiking", "sightseeing"], travelers: 4, userID: 4 },
+          { date: "2023/06/25", destinationID: 9, duration: 7, id: 4, status: "approved", suggestedActivities: ["beach"], travelers: 3, userID: 4 },
+          { date: "2023/08/05", destinationID: 8, duration: 6, id: 5, status: "pending", suggestedActivities: ["diving"], travelers: 1, userID: 4 }
+        ]
+      };
+      const totalBill = getUserExpenditures(4, tripsForTest, destinations, 2023);
+      expect(totalBill).to.equal(5445); // Adjust the expected value based on your data for the year 2023
     });
 
     it('should handle user with no trips in the target year', () => {
