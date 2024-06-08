@@ -1,5 +1,5 @@
 import { fetchData } from './api.js'
-import { getUserTrips, getUserExpenditures } from './index.js'
+import { getUserTrips, getUserExpenditures, getDestinationName } from './index.js'
 
 const travelInfo = document.getElementById('travel-info')
 const userDataButton = document.getElementById('get-user-data-button')
@@ -29,7 +29,7 @@ function displayUserData() {
             displayTravelerData(travelerData)
 
             const tripData = getUserTrips(userID, trips, destinations)
-            displayTripData(tripData)
+            displayTripData(tripData, destinations)
 
             const expenditures = getUserExpenditures(userID, trips, destinations,)
             displayExpenditureData(expenditures)
@@ -50,7 +50,7 @@ const displayTravelerData = (data) => {
     }
 }
 
-const displayTripData = (data) => {
+const displayTripData = (data, destinations) => {
 
     if (typeof data === 'string') {
         tripDetails.innerHTML = `<p>${data}</p>`
@@ -62,7 +62,7 @@ const displayTripData = (data) => {
             tripHTML += `
                 <div class="grid-item">
                     <p>Date: ${trip.date}</p>
-                    <p>Destination ID: ${trip.destinationID}</p>
+                    <p>Destination: ${getDestinationName(trip.destinationID, destinations)}</p>
                     <p>Duration: ${trip.duration} days</p>
                     <p>Travelers: ${trip.travelers}</p>
                 </div>
@@ -77,7 +77,7 @@ const displayTripData = (data) => {
                 tripHTML += `
                     <div class="grid-item">
                         <p>Date: ${trip.date}</p>
-                        <p>Destination ID: ${trip.destinationID}</p>
+                        <p>Destination: ${getDestinationName(trip.destinationID, destinations)}</p>
                         <p>Duration: ${trip.duration} days</p>
                         <p>Travelers: ${trip.travelers}</p>
                     </div>

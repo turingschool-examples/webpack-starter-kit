@@ -46,7 +46,14 @@ const getUserExpenditures = (userID, trips, destinations) => {
     return expendituresByYear;
 }
 
+const getDestinationName = (id, destinations) => {
+    if (!id) {
+        return 'No destination found';
+    }
+    const destination = destinations.destinations.find(destination => id === destination.id);
+    return destination ? destination.destination: 'Unknown destination'
+}
 
-export { getUserTrips, getUserExpenditures }
+export { getUserTrips, getUserExpenditures, getDestinationName }
 
 
