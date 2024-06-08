@@ -11,31 +11,31 @@
 <body>
   <section id="parent-wrapper">
     <h1> Welcome to Travel Tracker! </h1>
-  <div class="container">
-    <section class="input-group">
-      <label for="userID">Enter User ID:</label>
-      <input type="number" id="userID" name="userID" required>
-      <button id="get-user-data-button">Get User Data</button>
+    <div class="container">
+      <section class="input-group">
+        <label for="userID">Enter User ID:</label>
+        <input type="number" id="userID" name="userID" required>
+        <button id="get-user-data-button">Get User Data</button>
+      </section>
+      <section class="data-display" id="travelerData">
+        <h2 id="travel-info"> Here's Your Trip Info </h2>
+        <div id="travelerDetails"></div>
+      </section>
+      <div id="tripDetails" class="grid-container">
+        <section class="data-display" id="tripData"></section>
+      </div>
+      <div id="expenditureDetails" class="grid-container">
+        <section class="data-display" id="expenditureData">
+          <h2>Ledger</h2>
+        </section>
+      </div>
+    </div>
+    <section class="destinations">
+      <section class="data-display" id="destinationData">
+        <h2>Destinations We Offer</h2>
+        <div id="destinationDetails" class="grid-container"></div>
+      </section>
     </section>
-    <h2 id="travel-info"> Here's Your Trip Info: </h2>
-    <section class="data-display" id="travelerData">
-      <h2>Traveler Data</h2>
-      <div id="travelerDetails"></div>
-    </section>
-    <section class="data-display" id="tripData">
-      <h2>Trip Data</h2>
-      <div id="tripDetails"></div>
-    </section>
-    <section class="data-display" id="expenditureData">
-      <h2>Expenditure Data</h2>
-      <div id="expenditureDetails"></div>
-    </section>
-    <section class="data-display" id="destinationData">
-      <h2>Destination Data</h2>
-      <div id="destinationDetails"></div>
-    </section>
-  </div>
-  <script src="bundle.js"></script>
+    <script src="bundle.js"></script>
 </body>
-
 </html>

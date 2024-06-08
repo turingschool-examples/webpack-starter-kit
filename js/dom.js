@@ -31,7 +31,7 @@ function displayUserData() {
             const tripData = getUserTrips(userID, trips, destinations)
             displayTripData(tripData)
 
-            const expenditures = getUserExpenditures(userID, trips, destinations, new Date().getFullYear())
+            const expenditures = getUserExpenditures(userID, trips, destinations,)
             displayExpenditureData(expenditures)
 
             displayDestinationData(destinations.destinations)
@@ -42,9 +42,8 @@ function displayUserData() {
 const displayTravelerData = (data) => {
     if (data) {
         travelerDetails.innerHTML = `
-        <p>ID: ${data.id}</p>
             <p>Name: ${data.name}</p>
-            <p>Traveler Type: ${data.travelerType}</p>
+            <p>Your Travel Penchant: ${data.travelerType}</p>
         `
     } else {
         travelerDetails.innerHTML = `${data.error}`
@@ -52,54 +51,66 @@ const displayTravelerData = (data) => {
 }
 
 const displayTripData = (data) => {
+
     if (typeof data === 'string') {
         tripDetails.innerHTML = `<p>${data}</p>`
     } else {
         const { approvedTrips, pendingTrips } = data
-        let tripHTML = `<h3>Approved Trips:</h3>`
+        let tripHTML = '<h3>Approved Trips:</h3>'
+
         approvedTrips.forEach(trip => {
             tripHTML += `
-             <p>Trip ID: ${trip.id}</p>
-                <p>Date: ${trip.date}</p>
-                <p>Destination ID: ${trip.destinationID}</p>
-                <p>Duration: ${trip.duration} days</p>
-                <p>Travelers: ${trip.travelers}</p>
-                <hr>
+                <div class="grid-item">
+                    <p>Date: ${trip.date}</p>
+                    <p>Destination ID: ${trip.destinationID}</p>
+                    <p>Duration: ${trip.duration} days</p>
+                    <p>Travelers: ${trip.travelers}</p>
+                </div>
             `
         })
-        tripHTML += '<h3>Pending Trips:</h3>'
-        pendingTrips.forEach(trip => {
-            tripHTML = + `
-             <p>Date: ${trip.date}</p>
-                <p>Destination ID: ${trip.destinationID}</p>
-                <p>Duration: ${trip.duration} days</p>
-                <p>Travelers: ${trip.travelers}</p>
-                <hr>
-            `
-        })
-        tripDetails.innerHTML = tripHTML
+
+        tripHTML += '<h3 class="grid-item full-width">Pending Trips:'
+        if (!pendingTrips.length) {
+            tripHTML += '<p>No pending trips at this time.</p></h3>'
+        } else {
+            pendingTrips.forEach(trip => {
+                tripHTML += `
+                    <div class="grid-item">
+                        <p>Date: ${trip.date}</p>
+                        <p>Destination ID: ${trip.destinationID}</p>
+                        <p>Duration: ${trip.duration} days</p>
+                        <p>Travelers: ${trip.travelers}</p>
+                    </div>
+                `
+            })
+        }
+
+        tripDetails.innerHTML = tripHTML;
     }
 }
+
 
 const displayExpenditureData = (expenditures) => {
     if (typeof expenditures === 'string') {
-        expenditureDetails.innerHTML = `<p>${expenditures}</p>`
+        expenditureDetails.innerHTML = `<p>${expenditures}</p>`;
     } else {
-        expenditureDetails.innerHTML = `
-    <p>Total Expenditures for this year: $${expenditures.toFixed(2)}</p>
-    `
+        let expenditureHTML = '<h3>Expenditures by Year:</h3>';
+        for (const [year, amount] of Object.entries(expenditures)) {
+            expenditureHTML += `<p>${year}: $${amount.toFixed(2)}</p>`;
+        }
+        expenditureDetails.innerHTML = expenditureHTML;
     }
 }
 
+
 const displayDestinationData = (destinations) => {
     destinationDetails.innerHTML = destinations.map(destination => `
-          <div>
+          <div class="grid-item">
             <p>Destination: ${destination.destination}</p>
             <p>Estimated Lodging Cost Per Day: $${destination.estimatedLodgingCostPerDay}</p>
             <p>Estimated Flight Cost Per Person: $${destination.estimatedFlightCostPerPerson}</p>
             <img src="${destination.image}" alt="${destination.destination}" width="200">
         </div>
-        <hr>
         `).join('')
 }
 

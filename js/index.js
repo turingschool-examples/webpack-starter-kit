@@ -17,31 +17,35 @@ const getUserTrips = (userID, trips) => {
     return { approvedTrips, pendingTrips }
 }
 
-const getUserExpenditures = (userID, trips, destinations, targetYear) => {
+const getUserExpenditures = (userID, trips, destinations) => {
     const userTrips = getUserTrips(userID, trips);
     if (typeof userTrips === 'string') {
         return userTrips;
     }
-    const { approvedTrips } = userTrips
+    const { approvedTrips } = userTrips;
     if (!approvedTrips.length) {
         return 'All your trips are pending approval.';
     }
 
-    let totalExpenditures = 0
+    const expendituresByYear = {};
+
     approvedTrips.forEach(trip => {
-        const tripYear = new Date(trip.date).getFullYear()
-        if (tripYear === targetYear) {
-            const destination = destinations.destinations.find(place => place.id === trip.destinationID);
-            if (destination) {
-                const tripCost = (destination.estimatedLodgingCostPerDay * trip.duration +
-                    destination.estimatedFlightCostPerPerson) * trip.travelers;
-                totalExpenditures += tripCost
+        const tripYear = new Date(trip.date).getFullYear();
+        const destination = destinations.destinations.find(place => place.id === trip.destinationID);
+        if (destination) {
+            const tripCost = (destination.estimatedLodgingCostPerDay * trip.duration +
+                destination.estimatedFlightCostPerPerson) * trip.travelers;
+            const totalTripCost = tripCost + tripCost * 0.1;
+            if (!expendituresByYear[tripYear]) {
+                expendituresByYear[tripYear] = 0;
             }
+            expendituresByYear[tripYear] += totalTripCost;
         }
-    })
-    totalExpenditures += totalExpenditures * 0.1
-    return totalExpenditures
+    });
+
+    return expendituresByYear;
 }
+
 
 export { getUserTrips, getUserExpenditures }
 
