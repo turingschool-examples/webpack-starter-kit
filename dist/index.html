@@ -11,6 +11,7 @@
 </head>
 <body>
   <h1 class="travel-tracker-header" id="travel-tracker-text" alt="travel-tracker">Travel Tracker  🛩️  🌏</h1>
+  <h2 class="welcome-traveler hidden" id="travelerWelcome" alt="welcomeTravelerMessage">Welcome Back, Traveler</h2>
   <div class="body-wrapper">
     <section class="login-section" id="loginSection">
       <h2 class="sign-in" alt="signInText">Sign In</h2>
@@ -20,7 +21,7 @@
         <p id="username-error-message" class="error-message-username hidden">Username doesn't exist try again.</p>
 
         <label for="text">Password:</label>
-        <input type="text" id="passwordInput" placeholder="Ex: Johnny" aria-required="Enter a password">
+        <input type="password" id="passwordInput" placeholder="Ex: Johnny" aria-required="Enter a password">
         <p id="password-error-message" class="error-message-password hidden">Password failed try again.</p>
         <input class="submitLogin" type="submit" value="submit">
       </form>
@@ -52,7 +53,7 @@
       </form>
     </section>
     <section class="display-user-info hidden" id="user-dsiplay" alt="user-section">
-      <h3 class="current-display" id="currentDisplay">Pending Travel</h3>
+      <h3 class="current-display" id="currentDisplay">Past trips</h3>
       <div class="trip-display">
 
       </div>
