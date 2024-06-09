@@ -9,6 +9,8 @@ const loginSection = document.querySelector('.login-section');
 const userTotal = document.querySelector('.user-total');
 const bookNewTrip = document.querySelector('.book-trip');
 const tripDisplay = document.querySelector('.display-user-info');
+const buttonSection = document.querySelector('.buttonSection');
+const bookTrip = document.querySelector('.newTrips')
 
 const usernameInput = document.getElementById('usernameInput');
 const passwordInput = document.getElementById('passwordInput');
@@ -23,6 +25,12 @@ loginButton.addEventListener('click', (e) => {
     e.preventDefault();
     loginTraveler(usernameInput.value, passwordInput.value);
 });
+
+bookTrip.addEventListener('click', (e)=> {
+    e.preventDefault()
+    bookNewTrip.classList.remove('hidden');
+    
+})
 
 export const fetchingAllData = () => {
     Promise.all([
@@ -58,12 +66,29 @@ export const loginTraveler = (username, password) => {
     }
 }
 
-export const updateTravelerData = () => {
+export const travelerPastTrips = (trips) => {
+    trips.forEach(trip => {
+        const destinations = allDestinationsData.find(destination => destination.id === trip.destinationID)
+        let travelpics;
+        if (destinations){
+            travelpics = destinations.image
+        }
+        tripDisplay.innerHTML =`<section class="display-user-info hidden" id="user-dsiplay" alt="user-section">
+        <h3 class="current-display" id="currentDisplay">Past Trips</h3>
+        <div class="trip-display">
+        <img src="${travelpics}" class="location-pic" alt="destination-pic">
+        <p class="pasTripDate">Date: ${trip.date}</p>
+        <p class="pastTripDuration">Duration: ${trip.duration}"</p>
+        <p class="pastTripStatus">Status: ${trip.status}
+        </div>
+        </section>`
+    })
 
 }
 
 
 export const updatedWelcomeMessage = (person) => {
+    buttonSection.classList.remove('hidden')
     tripDisplay.classList.remove('hidden')
     userTotal.classList.remove('hidden')
     loginSection.classList.add('hidden')
