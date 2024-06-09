@@ -1,4 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  margin: 25px;
+  box-shadow: 0 0 14px -1px rgba(145, 145, 145, 0.75);
+}
+
+.text {
+  font-weight: 300;
+  opacity: 0.9;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.wrapper h2 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.content-left {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), 
+  url('../images/Travel Photo - Road in Mountains.jpg') center/cover no-repeat;
+  min-height: 100vh;
+  padding: 30px;
+  color: #fff;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  outline: 2px solid rgba(255, 255, 255 , 0.7);
+  outline-offset: -20px;
+}
+
+.content-left h1 {
+  font-size: 60px;
+  text-shadow: 5px, 10px, 5px rgba(0, 0, 0, 0.7);
+  margin-bottom: 12px;
+}
+
+.content-right-top, .content-right-middle, .content-right-bottom {
+  display: grid;
+}
+
+.content-right-top .content-img {
+  background: url('../images/Travel Photo - Alt Rocky Beach.jpg') center/cover no-repeat;
+  height: 400px;
+}
+.content-right-middle .content-img {
+  background: url('../images/Travel Photo - City on Rocky Coast.jpg') center/cover no-repeat;
+  height: 400px;
+}
+.content-right-bottom .content-img {
+  background: url('../images/Travel Photo - Beach with Palm Trees.jpg') center/cover no-repeat;
+  height: 400px;
+}
+.content-text {
+  color: #555c66;
+  background-color: #fff;
+  padding: 30px;
+  display: grid;
+  place-content: center;
+  place-items: start;
+}
+.content-text h2 {
+  margin-bottom: 12px;
+}
+.content-text a {
+  margin-top: 20px;
+  background-color: #1eddfb;
+  color: #fff;
+  text-decoration: none;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 40px 0 20px;
+  position: relative;
+  transition: background-color 0.3s ease-in-out;
+}
+.content-text a:hover {
+  background-color: #30b556;
+}
+.content-text a::after {
+  position: absolute;
+  content: "";
+  right: 0;
+  border-left: 5px solid transparent;
+  border-right: 20px solid #fff;
+  border-bottom: 20px solid transparent;
+  border-top: 40px solid transparent;
+}
+@media screen and (min-width: 768px){
+  .wrapper {
+    margin: 40px;
+  }
+  .content-right-top, .content-right-middle, .content-right-bottom {
+    grid-template-columns: repeat(2, 1fr)
+  }
+  .content-right-middle .content-img {
+    order: 1;
+  }
+  .content-right-middle .content-text {
+    order: 2;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
