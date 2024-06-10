@@ -18,7 +18,7 @@ export const fetchSingleTravelerData = (id) => {
             }
             return response.json();
         })
-       .then(data => data.traveler)
+       .then(data => data)
        .catch(error => handleError(error));
 };
 
@@ -30,7 +30,7 @@ export const fetchTripsData = () => {
             }
             return response.json();
         })
-       .then(data => console.log(data.trips))
+       .then(data => data.trips)
        .catch(error => handleError(error));
 };
 

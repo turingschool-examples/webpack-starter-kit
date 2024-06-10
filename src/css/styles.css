@@ -88,21 +88,26 @@ h1 {
 }
 
 .display-user-info {
+  position: absolute;
+  right: 25%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   width: fit-content; 
   border-radius: 1.5rem;
   backdrop-filter: blur(5px);
   max-width: 1600px; 
-  margin-top: 5px;
+  margin-top: 275px;
   background-color: rgba(211, 211, 211, .55);
   color: black;
-  font-size: 24px;
+  font-size: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: start;
 }
 .user-total {
   position: absolute;
-  right: 0;
+  right: 3%;
   top: 25%;
   transform: translateY(-50%);
   align-items: center;
@@ -113,25 +118,27 @@ h1 {
   margin-top: 5px;
   background-color: rgba(211, 211, 211, .55);
   color: black;
-  font-size: 24px;
+  font-size: 30px;
   margin: 0 50px 0 0;
 }
 .book-trip {
+  position: absolute;
   justify-content: center;
   width: fit-content; 
+  left: 15%;
+  top: 35%;
   border-radius: 1.5rem;
   backdrop-filter: blur(5px);
   max-width: 1600px; 
   margin-top: 5px;
   background-color: rgba(211, 211, 211, .55);
   color: black;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .buttonSection {
-  position: absolute; 
-  left: 0; 
-  top: 20%; 
+  position: absolute;
+  top: 22%;
   transform: translateY(-50%);
   width: fit-content; 
   border-radius: 1.5rem;
@@ -216,7 +223,7 @@ h1 {
   width: 60%;
   margin: 0 0 10px 130px;
   text-align: center;
-  font-size: 25px;
+  font-size: 22px;
 }
 #bookingForm input[type="button"] {
   width: 50%;
@@ -239,6 +246,60 @@ h1 {
 .error-message-password {
   color: red;
 }
+
+.trip-display {
+  display: block;
+  gap: 20px; 
+  width: fit-content;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: rgba(211, 211, 211, .55);
+}
+
+/* .trip-display {
+  max-width: 29%;
+  box-sizing: border-box;
+  padding: 15px;
+  background-color: #f5f5f5; 
+  border-radius: 8px; 
+  overflow: hidden; 
+} */
+
+.location-pic {
+  width: 160px; 
+  height: 200px; 
+}
+
+.trip-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  width: fit-content;
+}
+
+.trip-details {
+  display: block;
+  flex-direction: row; 
+  gap: 5px; 
+  width: fit-content;
+  font-size: 22px;
+} 
+
+.pastTripDate,
+.pastTripDuration,
+.pastTripStatus,
+.totalTravelers {
+  margin: 0; 
+  padding: 5px 0; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+
 
 .hidden {
   display: none;
