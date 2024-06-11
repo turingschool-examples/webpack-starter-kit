@@ -1,16 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Travel Tracker</title>
 </head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
 
+<body>
+  <section id="parent-wrapper">
+    <h1> Welcome to Travel Tracker! </h1>
+    <div class="container">
+      <section class="input-group">
+        <label for="userID">Enter Username:</label>
+        <input type="text" id="userID" name="userID" required>
+        <label for="user-password"> Enter Password:</label>
+        <input type="text" id="user-password" name="user-password" required>
+        <button id="get-user-data-button">Get My Trip Info!</button>
+        <p class="error-message"></p>
+      </section>
+      <div id="travelerDetails" class="traveler-details"></div>
+      <div id="expenditureDetails">
+        <section class="data-display" id="expenditureData"></section>
+      </div>
+      <section class="user-info hidden" id="travelerData"></section>
+      <div id="tripDetails" class="grid-container">
+        <section class="data-display" id="tripData"></section>
+      </div>
+  </section>
+  <section class="destinations hidden">
+    <section class="data-display" id="destinationData">
+      <h2>Destinations We Offer</h2>
+      <div id="destinationDetails" class="grid-container"></div>
+    </section>
+  </section>
+  </div>
+  <section class="forms-section hidden">
+    <form id="tripForm" class="forms">
+      <h3>Book A Trip</h3>
+      <p id="selectedDestination"></p>
+      <label for="tripUserID">Enter ID:</label>
+      <input type="number" id="tripUserID" name="tripUserID" required>
+      <label for="travelers">Number of Travelers:</label>
+      <input type="number" id="travelers" name="travelers" required>
+      <label for="date">Date (YYYY/MM/DD):</label>
+      <input type="text" id="date" name="date" required>
+      <label for="duration">Duration (days):</label>
+      <input type="number" id="duration" name="duration" required>
+      <select id="destinationDropdown">
+        <option value="" disabled selected>Where Do You Want To Go?</option>
+      </select>
+      <button type="submit" class="estimate-button">See Estimate</button>
+      <div id="estimateResult">
+      </div>
+      </form>
+    <button type="button" id="bookTripButton" class="hidden">Book This Trip!</button>
+  </section>
+  </section>
+  <script src="bundle.js"></script>
 </body>
+
 </html>
+<!-- <form id="destinationForm" class="forms">
+        <h3>Enter Your Own Destination!</h3>
+        <label for="userID">Enter ID:</label>
+        <input type="number" id="userID" name="userID" required>
+        <label for="destination">Destination:</label> 
+        <input type="text" id="userDestination" name="userDestination" required>
+        <label for="estimated-lodging">Lodging Cost Per Day:</label>
+        <input type="number" id="userLodgingCost" name="userLodgingCost" required>
+        <label for="flight-cost">Flight Cost Per Traveler</label>
+        <input type="number" id="userFlightCost" name="userFlightCost" required>
+        <label for="user-image">Got a Pic? Enter a Link:</label>
+        <input type="text" id="userImage" name="userImage" required>
+        <label for="user-alt-text">Describe This Picture, Please:</label>
+        <input type="text" id="userAltText" name="userAltText" required>
+      </form> -->

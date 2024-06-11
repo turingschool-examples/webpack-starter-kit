@@ -1,4 +1,118 @@
-
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+h4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border-radius: 10px;
+  cursor: pointer;
+  padding:.3rem;
+  margin:.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50rem;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+.grid-cell-wrapper {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2x solid blue;
+}
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: .3rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: .5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.data-display {
+  margin-top: 1.5rem;
+}
+
+.data-display h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.data-display p {
+  margin: .3rem 0;
+  border: 2x solid blue;
+}
+
+.year-column {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 2px solid orange;
+}
+
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100vw;
+  border: 2px solid green;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 0 .75rem rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.traveler-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid blue;
+}
+
+.forms-section {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid purple;
+  margin-bottom: 2rem;
+}
+
+.forms {
+  display:flex;
+  flex-direction: column;
+}
+
+
+.hidden {
+  display: none;
 }
