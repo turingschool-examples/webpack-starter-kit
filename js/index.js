@@ -48,8 +48,7 @@ const getUserExpenditures = (tripsByYear, destinations) => {
 function calculateEstimate(trip, destination) {
     const tripCost = (destination.estimatedLodgingCostPerDay * trip.duration +
         destination.estimatedFlightCostPerPerson) * trip.travelers;
-    const totalTripCost = tripCost + tripCost * 0.1;
-    return totalTripCost;
+    return tripCost * 1.1
 }
 
 const getDestinationName = (id, destinations) => {

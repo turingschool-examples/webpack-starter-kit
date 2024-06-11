@@ -19,7 +19,6 @@
         <input type="text" id="user-password" name="user-password" required>
         <button id="get-user-data-button">Get My Trip Info!</button>
         <p class="error-message"></p>
-
       </section>
       <div id="travelerDetails" class="traveler-details"></div>
       <div id="expenditureDetails">
@@ -41,8 +40,8 @@
     <form id="tripForm" class="forms">
       <h3>Book A Trip</h3>
       <p id="selectedDestination"></p>
-      <label for="userID">Enter ID:</label>
-      <input type="number" id="userID" name="userID" required>
+      <label for="tripUserID">Enter ID:</label>
+      <input type="number" id="tripUserID" name="tripUserID" required>
       <label for="travelers">Number of Travelers:</label>
       <input type="number" id="travelers" name="travelers" required>
       <label for="date">Date (YYYY/MM/DD):</label>
@@ -52,28 +51,29 @@
       <select id="destinationDropdown">
         <option value="" disabled selected>Where Do You Want To Go?</option>
       </select>
-      <button type="submit" class="post-trip-button">See Estimate</button>
-      <div id="estimateResult"></div>
-      <button type="button" id="bookTripButton" class="hidden">Book This Trip!</button>
-    </form>
-    <!-- <form id="destinationForm" class="forms">
-      <h3>Enter Your Own Destination!</h3>
-      <label for="userID">Enter ID:</label>
-      <input type="number" id="userID" name="userID" required>
-      <label for="destination">Destination:</label> 
-      <input type="text" id="userDestination" name="userDestination" required>
-      <label for="estimated-lodging">Lodging Cost Per Day:</label>
-      <input type="number" id="userLodgingCost" name="userLodgingCost" required>
-      <label for="flight-cost">Flight Cost Per Traveler</label>
-      <input type="number" id="userFlightCost" name="userFlightCost" required>
-      <label for="user-image">Got a Pic? Enter a Link:</label>
-      <input type="text" id="userImage" name="userImage" required>
-      <label for="user-alt-text">Describe This Picture, Please:</label>
-      <input type="text" id="userAltText" name="userAltText" required>
-    </form> -->
+      <button type="submit" class="estimate-button">See Estimate</button>
+      <div id="estimateResult">
+      </div>
+      </form>
+    <button type="button" id="bookTripButton" class="hidden">Book This Trip!</button>
   </section>
   </section>
   <script src="bundle.js"></script>
 </body>
 
 </html>
+<!-- <form id="destinationForm" class="forms">
+        <h3>Enter Your Own Destination!</h3>
+        <label for="userID">Enter ID:</label>
+        <input type="number" id="userID" name="userID" required>
+        <label for="destination">Destination:</label> 
+        <input type="text" id="userDestination" name="userDestination" required>
+        <label for="estimated-lodging">Lodging Cost Per Day:</label>
+        <input type="number" id="userLodgingCost" name="userLodgingCost" required>
+        <label for="flight-cost">Flight Cost Per Traveler</label>
+        <input type="number" id="userFlightCost" name="userFlightCost" required>
+        <label for="user-image">Got a Pic? Enter a Link:</label>
+        <input type="text" id="userImage" name="userImage" required>
+        <label for="user-alt-text">Describe This Picture, Please:</label>
+        <input type="text" id="userAltText" name="userAltText" required>
+      </form> -->

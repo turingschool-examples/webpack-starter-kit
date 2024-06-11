@@ -17,6 +17,8 @@ h4 {
 button {
   border-radius: 10px;
   cursor: pointer;
+  padding:.3rem;
+  margin:.5rem;
 }
 
 .container {
@@ -102,12 +104,15 @@ button {
   justify-content: space-around;
   align-items: center;
   border: 2px solid purple;
+  margin-bottom: 2rem;
 }
 
 .forms {
   display:flex;
   flex-direction: column;
 }
+
+
 .hidden {
   display: none;
 }

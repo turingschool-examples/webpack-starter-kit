@@ -12,29 +12,61 @@ const inputGroup = document.querySelector('.input-group')
 const formsSection = document.querySelector('.forms-section')
 const tripForm = document.getElementById('tripForm')
 const bookTripButton = document.getElementById('bookTripButton')
-const pendingTrips =document.getElementById('pendingTrips')
+const pendingTrips = document.getElementById('pendingTrips')
 const destinationsSection = document.querySelector('.destinations')
 const selectedDestination = document.getElementById('selectedDestination')
+let estimateResult = document.getElementById('estimateResult')
 
+document.addEventListener('DOMContentLoaded', function () {
+})
 userDataButton.addEventListener('click', displayUserData)
-tripForm.addEventListener('submit', seeEstimate)
-
+    
 bookTripButton.addEventListener('click', function (e) {
-    e.preventDefault();
-    const formData = new FormData(tripForm);;;
-    const tripDetails = {
-        userId: parseInt(formData.get('userID')),
+    e.preventDefault()
+    const formData = new FormData(tripForm);
+    const tripObj = {
+        userId: parseInt(formData.get('tripUserID')),
         destinationId: parseInt(dropdown.value, 10),
         travelers: parseInt(formData.get('travelers'), 10),
         date: formData.get('date'),
         duration: parseInt(formData.get('duration'), 10),
         status: 'pending'
-    };
+    }
+
+    postTrip('http://localhost:3001/api/v1/trips', tripObj)
+    .then(() => {
+        loadData()
+        .then(([_, trips, destinations]) => {
+            const userID = tripObj.userId
+            const tripData = getUserTrips(userID, trips)
+            console.log('tripData', tripData)
+            displayTripData(tripData, destinations)
+        })
+        .catch(error => console.error('Error loading new trip:', error))
+    })
+    .catch(error => console.error('Error posting trip:', error))
+    show(tripDetails)
+})
+
+
+tripForm.addEventListener('submit', function (e) {
+    e.preventDefault()
+    const formData = new FormData(tripForm)
+    const userId = formData.get('tripUserID')
+    console.log('userId', userId)
+    const tripDetails = {
+        userId,
+        destinationId: parseInt(dropdown.value, 10),
+        travelers: parseInt(formData.get('travelers'), 10),
+        date: formData.get('date'),
+        duration: parseInt(formData.get('duration'), 10),
+        status: 'pending'
+    }
 
     console.log('Form Data:', tripDetails)
 
-    postTrip('http://localhost:3001/api/v1/trips', tripDetails);
-});
+    seeEstimate(tripDetails)
+})
 
 
 const loadData = () => {
@@ -58,7 +90,7 @@ function displayUserData() {
         }, 1000)
         return;
     }
-     userID = parseInt(userID.replace('traveler', ''))
+    userID = parseInt(userID.replace('traveler', ''))
 
     loadData()
         .then(([travelers, trips, destinations]) => {
@@ -162,10 +194,23 @@ const displayDestinationData = (destinations) => {
         `).join('')
 }
 
-const seeEstimate = (trip, destination) => {
-    const estimate = caluclateEstimate(trip, destination)
-    document.getElementById('estimateResult').innerText = `Estimated Cost: $${estimate}`;
+const seeEstimate = (trip) => {
+    hide(tripDetails)
+    show(estimateResult)
     show(bookTripButton)
+    fetchData('http://localhost:3001/api/v1/destinations/')
+    .then(destinations => {
+        const userDestination = destinations.destinations.find(place => place.id === trip.destinationId)
+        if(userDestination) {
+            const estimate = calculateEstimate(trip, userDestination)
+            estimateResult.innerText = `Estimated Cost: $${estimate.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+        } else {
+            estimateResult.innerText = 'Destination not found.'
+        }
+    })
+    .catch(error => {
+        console.error('Could not fetch your destination because:', error)
+    })
 }
 
 const hide = (element) => {
@@ -185,5 +230,4 @@ export {
     seeEstimate,
     hide,
     show,
-
 }
