@@ -14,36 +14,42 @@ const getUserTrips = (userID, trips) => {
     if (!approvedTrips.length && pendingTrips.length) {
         return 'All your trips are pending approval.'
     }
-    return { approvedTrips, pendingTrips }
+
+    const tripsByYear = approvedTrips.reduce((obj, trip) => {
+        const tripYear = new Date(trip.date).getFullYear()
+        if (!obj[tripYear]) {
+            obj[tripYear] = []
+        }
+        obj[tripYear].push(trip)
+        return obj
+    }, {})
+    return { tripsByYear, pendingTrips }
 }
 
-const getUserExpenditures = (userID, trips, destinations) => {
-    const userTrips = getUserTrips(userID, trips);
-    if (typeof userTrips === 'string') {
-        return userTrips;
-    }
-    const { approvedTrips } = userTrips;
-    if (!approvedTrips.length) {
-        return 'All your trips are pending approval.';
-    }
-
+const getUserExpenditures = (tripsByYear, destinations) => {
     const expendituresByYear = {};
 
-    approvedTrips.forEach(trip => {
-        const tripYear = new Date(trip.date).getFullYear();
-        const destination = destinations.destinations.find(place => place.id === trip.destinationID);
-        if (destination) {
-            const tripCost = (destination.estimatedLodgingCostPerDay * trip.duration +
-                destination.estimatedFlightCostPerPerson) * trip.travelers;
-            const totalTripCost = tripCost + tripCost * 0.1;
-            if (!expendituresByYear[tripYear]) {
-                expendituresByYear[tripYear] = 0;
+    for (const [year, trips] of Object.entries(tripsByYear)) {
+        expendituresByYear[year] = trips.reduce((total, trip) => {
+            const destination = destinations.destinations.find(place => place.id === trip.destinationID)
+            if (destination) {
+                const tripCost = (destination.estimatedLodgingCostPerDay * trip.duration +
+                    destination.estimatedFlightCostPerPerson) * trip.travelers
+                const totalTripCost = tripCost + tripCost * 0.1
+                total += totalTripCost
             }
-            expendituresByYear[tripYear] += totalTripCost;
-        }
-    });
+            return total
+        }, 0)
+    }
 
     return expendituresByYear;
+}
+
+function calculateEstimate(trip, destination) {
+    const tripCost = (destination.estimatedLodgingCostPerDay * trip.duration +
+        destination.estimatedFlightCostPerPerson) * trip.travelers;
+    const totalTripCost = tripCost + tripCost * 0.1;
+    return totalTripCost;
 }
 
 const getDestinationName = (id, destinations) => {
@@ -51,9 +57,9 @@ const getDestinationName = (id, destinations) => {
         return 'No destination found';
     }
     const destination = destinations.destinations.find(destination => id === destination.id);
-    return destination ? destination.destination: 'Unknown destination'
+    return destination ? destination.destination : 'Unknown destination'
 }
 
-export { getUserTrips, getUserExpenditures, getDestinationName }
+export { getUserTrips, getUserExpenditures, getDestinationName, calculateEstimate }
 
 

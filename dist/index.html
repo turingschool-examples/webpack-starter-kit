@@ -13,29 +13,67 @@
     <h1> Welcome to Travel Tracker! </h1>
     <div class="container">
       <section class="input-group">
-        <label for="userID">Enter User ID:</label>
-        <input type="number" id="userID" name="userID" required>
-        <button id="get-user-data-button">Get User Data</button>
+        <label for="userID">Enter Username:</label>
+        <input type="text" id="userID" name="userID" required>
+        <label for="user-password"> Enter Password:</label>
+        <input type="text" id="user-password" name="user-password" required>
+        <button id="get-user-data-button">Get My Trip Info!</button>
+        <p class="error-message"></p>
+
       </section>
-      <section class="data-display" id="travelerData">
-        <h2 id="travel-info"> Here's Your Trip Info </h2>
-        <div id="travelerDetails"></div>
-      </section>
+      <div id="travelerDetails" class="traveler-details"></div>
+      <div id="expenditureDetails">
+        <section class="data-display" id="expenditureData"></section>
+      </div>
+      <section class="user-info hidden" id="travelerData"></section>
       <div id="tripDetails" class="grid-container">
         <section class="data-display" id="tripData"></section>
       </div>
-      <div id="expenditureDetails" class="grid-container">
-        <section class="data-display" id="expenditureData">
-          <h2>Ledger</h2>
-        </section>
-      </div>
-    </div>
-    <section class="destinations">
-      <section class="data-display" id="destinationData">
-        <h2>Destinations We Offer</h2>
-        <div id="destinationDetails" class="grid-container"></div>
-      </section>
+  </section>
+  <section class="destinations hidden">
+    <section class="data-display" id="destinationData">
+      <h2>Destinations We Offer</h2>
+      <div id="destinationDetails" class="grid-container"></div>
     </section>
-    <script src="bundle.js"></script>
+  </section>
+  </div>
+  <section class="forms-section hidden">
+    <form id="tripForm" class="forms">
+      <h3>Book A Trip</h3>
+      <p id="selectedDestination"></p>
+      <label for="userID">Enter ID:</label>
+      <input type="number" id="userID" name="userID" required>
+      <label for="travelers">Number of Travelers:</label>
+      <input type="number" id="travelers" name="travelers" required>
+      <label for="date">Date (YYYY/MM/DD):</label>
+      <input type="text" id="date" name="date" required>
+      <label for="duration">Duration (days):</label>
+      <input type="number" id="duration" name="duration" required>
+      <select id="destinationDropdown">
+        <option value="" disabled selected>Where Do You Want To Go?</option>
+      </select>
+      <button type="submit" class="post-trip-button">See Estimate</button>
+      <div id="estimateResult"></div>
+      <button type="button" id="bookTripButton" class="hidden">Book This Trip!</button>
+    </form>
+    <!-- <form id="destinationForm" class="forms">
+      <h3>Enter Your Own Destination!</h3>
+      <label for="userID">Enter ID:</label>
+      <input type="number" id="userID" name="userID" required>
+      <label for="destination">Destination:</label> 
+      <input type="text" id="userDestination" name="userDestination" required>
+      <label for="estimated-lodging">Lodging Cost Per Day:</label>
+      <input type="number" id="userLodgingCost" name="userLodgingCost" required>
+      <label for="flight-cost">Flight Cost Per Traveler</label>
+      <input type="number" id="userFlightCost" name="userFlightCost" required>
+      <label for="user-image">Got a Pic? Enter a Link:</label>
+      <input type="text" id="userImage" name="userImage" required>
+      <label for="user-alt-text">Describe This Picture, Please:</label>
+      <input type="text" id="userAltText" name="userAltText" required>
+    </form> -->
+  </section>
+  </section>
+  <script src="bundle.js"></script>
 </body>
+
 </html>
