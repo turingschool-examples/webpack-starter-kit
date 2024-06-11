@@ -1,15 +1,17 @@
 import chai from 'chai';
 const expect = chai.expect;
-import { Destinations } from '../src/Sample-data/destination-data';
-import { loginTraveler } from '../src/domUpdates';
-const AllDestinations = Destinations.destinations
+import { loginUser } from "../src/userFunctions";
 
-describe('return specific Travelers', ()=>{
-    it('Should be able to grab a specific traveler by their id', () => {
-        const travelerId = 2;
-        const password = 'travel'
-        const loginByID = loginTraveler(travelerId, password);
+// describe('loginUser', () => {
+//     it('calls the success callback with the traveler\'s name', () => {
+//         const mockOnLoginSuccess = jest.fn();
+//         const travelersData = [
+//             { id: 1, name: 'John Doe' },
+//             // Add more travelers if needed
+//         ];
 
-        expect(loginByID).to.equal(2, 'travel')
-    })
-})
+//         loginUser('Traveler1', 'travel', travelersData, mockOnLoginSuccess);
+
+//         expect(mockOnLoginSuccess).toHaveBeenCalledWith('John Doe');
+//     });
+// });

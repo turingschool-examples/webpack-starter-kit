@@ -2,17 +2,16 @@ import {  travelersData, updatedWelcomeMessage, displayTrips, allDestinationsDat
 const userNameError = document.querySelector('.error-message-username');
 const passwordError = document.querySelector('.error-message-password');
 const tripDisplay = document.querySelector('.display-user-info');
-const loginButton = document.getElementById('submitLogin');
+
 let travelersLoggedIn = []
 let travelerId;
 
 export const loginTraveler = (username, password) => {
-    // if( password.value === 'travel'  &&  username.value.length >= 8){
-    //     loginButton.disabled = false
-    // }
-    if( password !== 'travel'){
-        passwordError.classList.remove('hidden')
-    } 
+    if( password === 'travel' && username.length > 8){
+        document.querySelector('.submitLogin').disabled = true;
+    }  else {
+        document.querySelector('.submitLogin').disabled = false;
+    }
      username = usernameInput.value.trim();
 
     if (username.startsWith("Traveler") && password === "travel") {
@@ -21,14 +20,14 @@ export const loginTraveler = (username, password) => {
          travelersLoggedIn = travelersData.find(traveler => traveler.id === travelerId);
         
     if (travelersLoggedIn) {
-        userNameError.classList.add('hidden');
-        passwordError.classList.add('hidden');
+        userNameError.classList.remove('hidden');
+        passwordError.classList.remove('hidden')
         updatedWelcomeMessage(travelersLoggedIn)
     } else {
-        userNameError.classList.remove('hidden');
-        passwordError.classList.remove('hidden');
+        userNameError.classList.add('hidden');
+        passwordError.classList.add('hidden');
     }
-    }
+}
 }
 export const travelerTrips = (trips, status = 'pending', yearsAgo = 0) => {
     tripDisplay.innerHTML = ''; 
@@ -48,7 +47,7 @@ export const travelerTrips = (trips, status = 'pending', yearsAgo = 0) => {
     return filteredTrips;
 }
 
-export const postNewTrip = async () => {
+export const postNewTrip =  async() => {
     const destinationValue = document.getElementById('selectionMenu').value;
     const dateValue = document.querySelector('.dateStart').value;
     const guestCount = document.querySelector('.travelerTotal').value;
@@ -73,45 +72,44 @@ const newDestination = allDestinationsData.find(location => location.destination
         suggestedActivities: suggestActiviites
     };
 
+
     fetch('http://localhost:3001/api/v1/trips', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(bookingData),
-    })
-   .then(response => response.json())
-   .then(data => data)
-   .catch((error) => {
-        console.error('Error:', error);
-    });
-
-    return bookingData;
+    }).then(response => response.json()).then(data => console.log('DATA OF POST', data)).catch(error =>
+    console.error('Error:', error))
 }
-export const fetchUpdatedTripsData = async () => {
-    try {
-        const response = await fetch('http://localhost:3001/api/v1/trips', {
+
+export const fetchUpdatedTripsData =  async () => {
+        fetch('http://localhost:3001/api/v1/trips', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch updated trips');
-        }
-
-        const data = await response.json();
-        return data.trips; 
-    } catch (error) {
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch updated trips');
+            }
+            return response.json()
+        })
+        .then(data => {
+            const updated = travelerTrips(data.trips, 'pending', 1, 0)
+            displayTrips(updated)
+        })
+        .catch((error) => {
         console.error('Error fetching updated trips:', error);
         return []; 
+    })
     }
-};
+
+
 
 export const calculateTripCost = () => {
     const destinationValue = document.getElementById('selectionMenu').value;
-    const dateValue = document.querySelector('.dateStart').value;
     const guestCount = document.querySelector('.travelerTotal').value;
     const durationDays = document.querySelector('.durationTotal').value;
 
@@ -122,7 +120,7 @@ export const calculateTripCost = () => {
     const totalRoundTrip = costOfFlight + costOfLodging;
     const agentsFeeForTrip = (totalRoundTrip * 1.1);
     tripDisplay.classList.remove('hidden')
-    tripDisplay.innerHTML = `Your total estimated cost for the trip is $${agentsFeeForTrip}`
+    tripDisplay.innerHTML = `Your total estimated cost for the trip is $${agentsFeeForTrip.toFixed(2)}`
     setTimeout(() => {
         tripDisplay.classList.add('hidden');
         tripDisplay.innerHTML = '';
@@ -138,14 +136,15 @@ export const totalTripCost = () => {
     
         const recentTrips = allTripsData.filter(trip => {
                 const tripDate = new Date(`${trip.date.split('/')[0]}/${trip.date.split('/')[1]}/${trip.date.split('/')[2]}`); 
-            return tripDate >= threeYearsAgo && trip.userID === travelerId;
+            return tripDate >= threeYearsAgo && trip.userID === travelerId && trip.status === 'approved';
         });
         const totalCost = recentTrips.reduce((acc, trip) => {
         
         const matchingDestination = allDestinationsData.find(destination => destination.id === trip.destinationID); // Assuming trip.destinationID is the correct field
         if (matchingDestination) {
             
-            acc += matchingDestination.estimatedFlightCostPerPerson + matchingDestination.estimatedLodgingCostPerDay;
+            const tripCosts = (matchingDestination.estimatedFlightCostPerPerson + matchingDestination.estimatedLodgingCostPerDay * trip.duration);
+        acc += tripCosts
         }
         return acc;
     }, 0);

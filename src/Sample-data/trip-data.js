@@ -84,7 +84,7 @@ export const Trips = [
       userID: 9,
       destinationID: 9,
       travelers: 4,
-      date: '2025/02/20',
+      date: '2022/02/20',
       duration: 5,
       status: 'approved',
       suggestedActivities: ['beach day', 'water sports', 'nightlife']

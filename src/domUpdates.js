@@ -2,7 +2,7 @@ import { fetchSingleTravelerData, fetchTravelersData, fetchTripsData, fetchDesti
 import { loginTraveler, travelerTrips, postNewTrip, fetchUpdatedTripsData, calculateTripCost, totalTripCost } from "./userFunctions";
 
 const userMessage = document.querySelector('.welcome-traveler');
-const loginButton = document.getElementById('submitLogin');
+const loginButton = document.querySelector('.submitLogin');
 const loginSection = document.querySelector('.login-section');
 const userTotal = document.querySelector('.user-total');
 const bookNewTrip = document.querySelector('.book-trip');
@@ -13,16 +13,10 @@ const pastTripsButton = document.querySelector('.pastTrips');
 const pendingTripsButton = document.querySelector('.pendingTrips');
 const upcomingTripsButton = document.querySelector('.upcomingTrips')
 const totalCostText = document.querySelector('.total-text');
-const totalCostAmount = document.querySelector('.total-text-cost');
 const selectionForForm = document.querySelector('.selection');
 const newTripBookedButton = document.querySelector('.confirmButton');
 const getEstimateButton = document.querySelector('.estimateButton');
-const travelerTotalInput = document.querySelector('.travelerTotal')
-const durationTotalInput = document.querySelector('.durationTotal');
-const dateInput = document.querySelector('.dateStart');
 
-const usernameInput = document.getElementById('usernameInput');
-const passwordInput = document.getElementById('passwordInput');
 
 let travelersData = []
 let allTripsData = []
@@ -55,13 +49,13 @@ pastTripsButton.addEventListener('click', (e) => {
     displayTrips(pastTrips)
 })
 
-pendingTripsButton.addEventListener('click', (e) =>{
+pendingTripsButton.addEventListener('click', async(e) =>{
     e.preventDefault();
     bookNewTrip.classList.add('hidden');
     tripDisplay.classList.remove('hidden')
     const pastTrips = travelerTrips(allTripsData, 'pending', 1, 0);
-    tripDisplay.innerHTML = `<h3>${firstName}'s pending trips for the last year</h3>`
-    displayTrips(pastTrips)
+    tripDisplay.innerHTML = `<h3>${firstName}'s pending trips</h3>`
+    await displayTrips(pastTrips)
 })
 
 upcomingTripsButton.addEventListener('click', (e) => {
@@ -71,22 +65,20 @@ upcomingTripsButton.addEventListener('click', (e) => {
     tripDisplay.innerHTML = `<h3>${firstName}'s upcoming trips are waiting for agent approval</h3>`
 })
 
-newTripBookedButton.addEventListener('click', async (e) => {
+newTripBookedButton.addEventListener('click',  async (e) => {
     e.preventDefault();
-    try {
-        
-        await postNewTrip(); 
-        const updatedTrips = await fetchUpdatedTripsData();
-
-        const filteredTrips = travelerTrips(updatedTrips, 'pending', 1); 
-        displayTrips(filteredTrips);
-
-        bookNewTrip.classList.add('hidden');
-        tripDisplay.classList.remove('hidden');
-        tripDisplay.innerHTML = `<h3>${firstName}'s pending trips for the last year</h3>`
-    } catch (error) {
-        console.error('Error updating trips:', error);
-    }
+    postNewTrip();
+    tripDisplay.innerHTML = `<h3>${firstName}'s pending trips</h3>`
+    await fetchUpdatedTripsData()
+    tripDisplay.classList.remove('hidden')
+    
+    
+    bookNewTrip.classList.add('hidden');
+    document.getElementById('selectionMenu').value = '';
+    document.querySelector('.dateStart').value = '';
+    document.querySelector('.travelerTotal').value = '';
+    document.querySelector('.durationTotal').value = '';
+    
 });
 
 getEstimateButton.addEventListener('click', (e) => {
@@ -94,16 +86,20 @@ getEstimateButton.addEventListener('click', (e) => {
     calculateTripCost()
 })
 
-export const fetchingAllData = () => {
-    Promise.all([
-        fetchTravelersData(), 
-        fetchTripsData(),
-        fetchDestinationData(),
-    ]).then(([travelersDataResponse, tripsData, destinationsData]) => {
-       travelersData = travelersDataResponse
-       allTripsData = tripsData
-       allDestinationsData = destinationsData
-    }).catch(err => ('Could not properly fetch Traveler information', err))
+export const fetchingAllData = async() => {
+    try {
+        const [travelersDataResponse, tripsData, destinationsData] = await Promise.all([
+            fetchTravelersData(), 
+            fetchTripsData(),
+            fetchDestinationData(),
+        ]);
+        travelersData = travelersDataResponse;
+        allTripsData = tripsData;
+        allDestinationsData = destinationsData;
+    } catch (err) {
+        console.error('Could not properly fetch Traveler information', err);
+        throw err; // Rethrow the error to handle it upstream
+    }
 }
 
    export const displayTrips = async(trips) => {
