@@ -12,13 +12,31 @@ const inputGroup = document.querySelector('.input-group')
 const formsSection = document.querySelector('.forms-section')
 const tripForm = document.getElementById('tripForm')
 const bookTripButton = document.getElementById('bookTripButton')
-const pendingTrips = document.getElementById('pendingTrips')
 const destinationsSection = document.querySelector('.destinations')
-const selectedDestination = document.getElementById('selectedDestination')
+const myTripsNav = document.getElementById('myTripsNav')
+const bookTripNav = document.getElementById('bookTripNav')
+const destinationsNav = document.getElementById('destinationsNav')
 let estimateResult = document.getElementById('estimateResult')
 
-document.addEventListener('DOMContentLoaded', function () {
+myTripsNav.addEventListener('click', () => {
+    show(tripDetails)
+    hide(formsSection)
+    hide(destinationsSection)
 })
+
+bookTripNav.addEventListener('click', () => {
+    show(bookTripNav)
+    hide(tripDetails)
+    hide(destinationsSection)
+})
+
+destinationsNav.addEventListener('click', () => {
+    show(destinationsSection)
+    show(formsSection)
+    hide(tripDetails)
+})
+
+document.addEventListener('DOMContentLoaded', function () {})
 userDataButton.addEventListener('click', displayUserData)
     
 bookTripButton.addEventListener('click', function (e) {
@@ -39,13 +57,13 @@ bookTripButton.addEventListener('click', function (e) {
         .then(([_, trips, destinations]) => {
             const userID = tripObj.userId
             const tripData = getUserTrips(userID, trips)
-            console.log('tripData', tripData)
             displayTripData(tripData, destinations)
         })
         .catch(error => console.error('Error loading new trip:', error))
     })
     .catch(error => console.error('Error posting trip:', error))
     show(tripDetails)
+    hide(destinationsSection)
 })
 
 
@@ -53,7 +71,6 @@ tripForm.addEventListener('submit', function (e) {
     e.preventDefault()
     const formData = new FormData(tripForm)
     const userId = formData.get('tripUserID')
-    console.log('userId', userId)
     const tripDetails = {
         userId,
         destinationId: parseInt(dropdown.value, 10),
@@ -62,8 +79,6 @@ tripForm.addEventListener('submit', function (e) {
         duration: parseInt(formData.get('duration'), 10),
         status: 'pending'
     }
-
-    console.log('Form Data:', tripDetails)
 
     seeEstimate(tripDetails)
 })

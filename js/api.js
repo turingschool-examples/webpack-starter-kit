@@ -34,8 +34,6 @@ function postTrip(url, { userId, destinationId, travelers, date, duration, statu
         })
     }
 
-    console.log('Posting trip to:', url);
-    console.log('Request body:', postTripRequest.body);
     return fetch(url, postTripRequest)
         .then(response => {
             if (!response.ok) {
@@ -63,8 +61,7 @@ function postDestination(url, { destination, estimatedLodgingCostPerDay, estimat
             alt: alt
         })
     }
-    console.log('Posting destination to:', url)
-    console.log('Request body:', destinationPostRequest.body)
+
     .then(response => {
         if(!response.ok) {
             throw new Error('There was a problem posting your data.')

@@ -1,10 +1,12 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: rgba(237, 231, 231, 0.889);
 }
 
 h1 {
   display: flex;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 h4 {
@@ -19,8 +21,30 @@ button {
   cursor: pointer;
   padding:.3rem;
   margin:.5rem;
+  background-color: aliceblue;
 }
 
+nav {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #f8f9fa96;
+  padding: 10px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li {
+  cursor: pointer;
+}
+
+.parent-wrapper {
+  background-color: rgba(242, 152, 18, 0.685);
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -28,14 +52,15 @@ button {
   max-width: 50rem;
   margin: auto;
   padding: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .grid-cell-wrapper {
   display:flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 2x solid blue;
 }
+
 .input-group {
   margin-bottom: 1.5rem;
 }
@@ -64,14 +89,18 @@ button {
 
 .data-display p {
   margin: .3rem 0;
-  border: 2x solid blue;
 }
 
+.destinations {
+  display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: .5rem;
+      width:90vw;
+}
 .year-column {
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 2px solid orange;
 }
 
 
@@ -80,7 +109,6 @@ button {
   justify-content: center;
   gap: 1rem;
   width: 100vw;
-  border: 2px solid green;
 }
 
 .grid-item {
@@ -88,7 +116,7 @@ button {
   padding: 1rem;
   border-radius: .5rem;
   box-shadow: 0 0 .75rem rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #ffffff95;
 }
 
 .traveler-data {
@@ -103,8 +131,9 @@ button {
   flex-direction:row;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid purple;
-  margin-bottom: 2rem;
+  
+  margin: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .forms {
