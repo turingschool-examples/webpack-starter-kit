@@ -1,6 +1,6 @@
 import { fetchSingleTravelerData, fetchTravelersData, fetchTripsData, fetchDestinationData } from "./fetchCalls";
-import { loginTraveler, travelerTrips, postNewTrip, fetchUpdatedTripsData, calculateTripCost, totalTripCost } from "./userFunctions";
-
+import { loginTraveler, travelerTrips, postNewTrip, fetchUpdatedTripsData,  totalTripCost } from "./userFunctions";
+import { calculateTripCost } from "./calculation.js";
 const userMessage = document.querySelector('.welcome-traveler');
 const loginButton = document.querySelector('.submitLogin');
 const loginSection = document.querySelector('.login-section');
@@ -16,7 +16,9 @@ const totalCostText = document.querySelector('.total-text');
 const selectionForForm = document.querySelector('.selection');
 const newTripBookedButton = document.querySelector('.confirmButton');
 const getEstimateButton = document.querySelector('.estimateButton');
-
+const destinationValue = document.getElementById('selectionMenu');
+const guestCount = document.querySelector('.travelerTotal');
+const durationDays = document.querySelector('.durationTotal');
 
 let travelersData = []
 let allTripsData = []
@@ -68,8 +70,8 @@ upcomingTripsButton.addEventListener('click', (e) => {
 newTripBookedButton.addEventListener('click',  async (e) => {
     e.preventDefault();
     postNewTrip();
-    tripDisplay.innerHTML = `<h3>${firstName}'s pending trips</h3>`
     await fetchUpdatedTripsData()
+    tripDisplay.innerHTML = `<h3>${firstName}'s pending trips</h3>`
     tripDisplay.classList.remove('hidden')
     
     
@@ -83,7 +85,13 @@ newTripBookedButton.addEventListener('click',  async (e) => {
 
 getEstimateButton.addEventListener('click', (e) => {
     e.preventDefault();
-    calculateTripCost()
+    const estimate = calculateTripCost(destinationValue.value, guestCount.value, durationDays.value, allDestinationsData)
+    tripDisplay.classList.remove('hidden')
+    tripDisplay.innerHTML = `Your total estimated cost for the trip is $${estimate}`
+    setTimeout(() => {
+        tripDisplay.classList.add('hidden');
+        tripDisplay.innerHTML = '';
+    }, 5000); 
 })
 
 export const fetchingAllData = async() => {
@@ -98,7 +106,7 @@ export const fetchingAllData = async() => {
         allDestinationsData = destinationsData;
     } catch (err) {
         console.error('Could not properly fetch Traveler information', err);
-        throw err; // Rethrow the error to handle it upstream
+        throw err; 
     }
 }
 
@@ -132,7 +140,7 @@ export const fetchingAllData = async() => {
 export const getAllLocations = () => {
     let allDestinations = [];
     allDestinationsData.forEach(dest => {
-        allDestinations.push(`<option>${dest.destination}</option>`)
+        allDestinations.push(`<option value="${dest.destination}">${dest.destination}</option>`)
     })
     allDestinations.sort()
     selectionForForm.innerHTML = `${allDestinations}`
@@ -156,5 +164,4 @@ export {
     travelersData,
     allTripsData,
     allDestinationsData 
-
 }

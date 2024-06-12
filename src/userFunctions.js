@@ -48,10 +48,32 @@ export const travelerTrips = (trips, status = 'pending', yearsAgo = 0) => {
 }
 
 export const postNewTrip =  async() => {
+    const newTripBookedButton = document.querySelector('.confirmButton');
     const destinationValue = document.getElementById('selectionMenu').value;
     const dateValue = document.querySelector('.dateStart').value;
     const guestCount = document.querySelector('.travelerTotal').value;
     const durationDays = document.querySelector('.durationTotal').value;
+
+    newTripBookedButton.disabled = true
+    if (!destinationValue) {
+        alert('Please select a destination.');
+        newTripBookedButton.disabled = false
+    }
+
+    if (!dateValue) {
+        alert('Please enter a start date.');
+        newTripBookedButton.disabled = false
+    }
+
+    if (!guestCount.match(/^\d+$/)) {
+        alert('Please enter a valid number for the guest count.');
+        newTripBookedButton.disabled = false
+    }
+
+    if (!durationDays.match(/^\d+$/)) {
+        alert('Please enter a valid number for the duration.');
+        newTripBookedButton.disabled = false
+    }
 
 const newDestination = allDestinationsData.find(location => location.destination === destinationValue)
     const locationId = newDestination.id
@@ -99,33 +121,13 @@ export const fetchUpdatedTripsData =  async () => {
         .then(data => {
             const updated = travelerTrips(data.trips, 'pending', 1, 0)
             displayTrips(updated)
+            
         })
         .catch((error) => {
         console.error('Error fetching updated trips:', error);
         return []; 
     })
     }
-
-
-
-export const calculateTripCost = () => {
-    const destinationValue = document.getElementById('selectionMenu').value;
-    const guestCount = document.querySelector('.travelerTotal').value;
-    const durationDays = document.querySelector('.durationTotal').value;
-
-    const costPerDestination = allDestinationsData.find(location => location.destination === destinationValue);
-
-    const costOfFlight = costPerDestination.estimatedFlightCostPerPerson * guestCount
-    const costOfLodging = costPerDestination.estimatedLodgingCostPerDay * durationDays
-    const totalRoundTrip = costOfFlight + costOfLodging;
-    const agentsFeeForTrip = (totalRoundTrip * 1.1);
-    tripDisplay.classList.remove('hidden')
-    tripDisplay.innerHTML = `Your total estimated cost for the trip is $${agentsFeeForTrip.toFixed(2)}`
-    setTimeout(() => {
-        tripDisplay.classList.add('hidden');
-        tripDisplay.innerHTML = '';
-    }, 5000); 
-}
 
 export const totalTripCost = () => {
     const totalCostAmount = document.querySelector('.total-text-cost');

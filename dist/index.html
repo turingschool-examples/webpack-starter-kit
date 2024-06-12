@@ -17,11 +17,11 @@
       <h2 class="sign-in" alt="signInText">Sign In</h2>
       <form class="login-form" id="loginForm" alt="login-form">
         <label for="text">Username:</label>
-        <input type="text" id="usernameInput" placeholder="Ex: Johnny50" aria-required="Enter a username">
+        <input type="text" id="usernameInput" placeholder="Ex: Johnny50" required="Enter a username">
         <p id="username-error-message" class="error-message-username hidden">Username doesn't exist try again.</p>
 
         <label for="text">Password:</label>
-        <input type="password" id="passwordInput" placeholder="Ex: Johnny" aria-required="Enter a password">
+        <input type="password" id="passwordInput" placeholder="Ex: Johnny" required="Enter a password">
         <p id="password-error-message" class="error-message-password hidden">Password failed try again.</p>
         <input class="submitLogin" type="submit" value="submit">
       </form>
@@ -43,7 +43,6 @@
         <div class="destination-choice">
           <label for="selectionMenu">Destination:
             <select class="selection" id="selectionMenu" placeholder="Select Destination" alt="destination-selection">
-             
             </select>
           </label>
           <label for="date">Date:</label>

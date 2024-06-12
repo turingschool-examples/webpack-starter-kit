@@ -1,4 +1,4 @@
-export const Destinations = [
+const Destinations =[
     {
       "id": 1,
       "destination": "Wakanda",
@@ -78,5 +78,7 @@ export const Destinations = [
       "estimatedFlightCostPerPerson": 500,
       "image": "kunlun.jpg",
       "alt": "K'un-Lun Mountains"
-    }
+    },
   ]
+
+  export default Destinations
