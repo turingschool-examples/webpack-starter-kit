@@ -129,32 +129,6 @@ export const fetchUpdatedTripsData =  async () => {
         return filteredTrips;
     }
 
-// export const totalTripCost = () => {
-//     const totalCostAmount = document.querySelector('.total-text-cost');
-    
-//         const threeYearsAgo = new Date();
-//         threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
-
-    
-//         const recentTrips = allTripsData.filter(trip => {
-//                 const tripDate = new Date(`${trip.date.split('/')[0]}/${trip.date.split('/')[1]}/${trip.date.split('/')[2]}`); 
-//             return tripDate >= threeYearsAgo && trip.userID === travelerId && trip.status === 'approved';
-//         });
-//         const totalCost = recentTrips.reduce((acc, trip) => {
-        
-//         const matchingDestination = allDestinationsData.find(destination => destination.id === trip.destinationID); // Assuming trip.destinationID is the correct field
-//         if (matchingDestination) {
-            
-//             const tripCosts = (matchingDestination.estimatedFlightCostPerPerson + matchingDestination.estimatedLodgingCostPerDay * trip.duration);
-//         acc += tripCosts
-//         }
-//         return acc;
-//     }, 0);
-
-//     totalCostAmount.innerHTML = `$${totalCost.toFixed(2)}`;
-// }
-
-
 export const totalTravelerSpentAmount = () => {
     const totalCostAmount = document.querySelector('.total-text-cost');
     const totalCost = calculateTotalTripCost(allTripsData, allDestinationsData, travelerId);

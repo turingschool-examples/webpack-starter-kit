@@ -3,7 +3,6 @@ const expect = chai.expect;
 import { calculateTripCost, calculateTotalTripCost} from '../src/testedFunctions.js';
 import Destinations from '../src/Sample-data/destination-data.js'; 
 import  Trips from '../src/Sample-data/trip-data.js';
-import  Travelers  from '../src/Sample-data/traveler-data.js';
 describe('calculateTripCost', () => {
     it('correctly calculates the trip cost', () => {
         const destinationValue = "Wakanda";
@@ -16,12 +15,11 @@ describe('calculateTripCost', () => {
         expect(result).to.equal(expectedCost.toFixed(2));
     });
     it('calculates the cost based on estimated flight cost per person', () => {
-        const destinationValue = "Wakanda"; // Ensure this matches one of the destinations in your Destinations array
+        const destinationValue = "Wakanda"; 
         const guestCount = 2;
         const durationDays = 0;
 
-        // No need to manually define costPerDestination anymore
-        const expectedCost = (1000 * guestCount) * 1.1; // Using 1000 as an example cost per person for Wakanda
+        const expectedCost = (1000 * guestCount) * 1.1; 
 
         const result = calculateTripCost(destinationValue, guestCount, durationDays, Destinations);
 
@@ -58,20 +56,11 @@ describe('calculateTotalTripCost', () => {
 });
 describe('calculateTotalTripCost', () => {
     it('should correctly calculate the total cost for approved trips within the last three years', () => {
-        // Predefined inputs
+        
         const userId = 1; 
 
         const expectedResult = '6050.00'
-        
-
-        // Call the function with the filtered trips and destinations data
         const result = calculateTotalTripCost(Trips, Destinations, userId);
-
-        // Define an expected outcome based on the logic within the function
-        // Note: This step is optional and depends on having a clear understanding of the function's logic
-        // For simplicity, we're assuming the function correctly implements the intended logic
-
-        // Assert that the calculated total cost matches the expected value
         expect(result).to.equal(expectedResult);
     });
 });
