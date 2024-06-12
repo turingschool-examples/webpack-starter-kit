@@ -4,10 +4,69 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <title>Travel Tracker</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
+  <h1 class="travel-tracker-header" id="travel-tracker-text" alt="travel-tracker">Travel Tracker  🛩️  🌏</h1>
+  <h2 class="welcome-traveler hidden" id="travelerWelcome" alt="welcomeTravelerMessage">Welcome Back, Traveler</h2>
+  <div class="body-wrapper">
+    <section class="login-section" id="loginSection">
+      <h2 class="sign-in" alt="signInText">Sign In</h2>
+      <form class="login-form" id="loginForm" alt="login-form">
+        <label for="text">Username:</label>
+        <input type="text" id="usernameInput" placeholder="Ex: Johnny50" required="Enter a username">
+        <p id="username-error-message" class="error-message-username hidden">Username doesn't exist try again.</p>
+
+        <label for="text">Password:</label>
+        <input type="password" id="passwordInput" placeholder="Ex: Johnny" required="Enter a password">
+        <p id="password-error-message" class="error-message-password hidden">Password failed try again.</p>
+        <input class="submitLogin" type="submit" value="submit">
+      </form>
+    </section>
+    <section class="buttonSection hidden">
+      <div>
+      <button class="pastTrips" id="past-trips" alt="pastTripsButton">Past Trips</button>
+      <button class="pendingTrips" id="pending-trips" alt="pendingTripsButton">Pending Trips</button>
+      <button class="upcomingTrips" id="upcoming-trips" alt="upcomingTripsButton">Upcoming Trips</button>
+      <button class="newTrips" id="new-trips" alt="bookNewTripButton">Book New Trip</button>
+    </div>
+    </section>
+    <section class="user-total hidden" id="user-totals" alt="usersTotalCost">
+      <p class="total-text " id="textForTotal" alt="usersTotal">Users trip costs for the year: </p>
+      <p class="total-text-cost " id="textTotalCost" alt="totalCost">$ </p>
+    </section>
+    <section class="book-trip hidden" id="bookTripSection">
+      <form id="bookingForm" alt="booking-form">
+        <div class="destination-choice">
+          <label for="selectionMenu">Destination:
+            <select class="selection" id="selectionMenu" placeholder="Select Destination" alt="destination-selection">
+            </select>
+          </label>
+          <label for="date">Date:</label>
+            <input class="dateStart" type="date" min="06-6-2024">
+          <label for="numberOfGuest">Total Guest:</label>
+            <input class='travelerTotal' type="number" min="1" max="30" placeholder="1-30 Guest">
+          <label for="duration">Duration:</label>
+            <input class='durationTotal'type="number" min="1" max="31" placeholder="1-31 Days">
+        </div>
+          <input class="estimateButton" type="button" value="Get Estimate">
+          <input class="confirmButton" type="button" value="Confirm Booking">
+      </form>
+    </section>
+    <section class="display-user-info hidden" id="user-dsiplay" alt="user-section">
+      <h3 class="current-display" id="currentDisplay">Travelers Trips for the past 3 years</h3>
+      <div class="textWrapper ">
+      </div>
+    </section>
+
+
+
+
+
+  </div>
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
