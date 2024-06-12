@@ -96,7 +96,6 @@ h1 {
   width: fit-content; 
   border-radius: 1.5rem;
   backdrop-filter: blur(5px);
-  max-width: 1600px; 
   margin-top: 275px;
   background-color: rgba(211, 211, 211, .55);
   color: black;
@@ -104,6 +103,9 @@ h1 {
   padding: 20px;
   box-sizing: border-box;
   text-align: start;
+  h3 {
+    margin: 0 15px 0 0;
+  }
 }
 .user-total {
   position: absolute;

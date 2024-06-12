@@ -1,10 +1,10 @@
-export const Trips = [
+const Trips = [
     {
       id: 1,
       userID: 1,
       destinationID: 1,
       travelers: 2,
-      date: '2024/06/15',
+      date: '2021/06/15',
       duration: 7,
       status: 'approved',
       suggestedActivities: ['snorkeling', 'hiking', 'city tour']
@@ -98,5 +98,27 @@ export const Trips = [
       duration: 10,
       status: 'pending',
       suggestedActivities: ['spa day', 'yoga retreat', 'meditation']
+    },
+    {
+      id: 11,
+      userID: 1,
+      destinationID: 1,
+      travelers: 2,
+      date: '2021/04/01', 
+      duration: 7,
+      status: 'approved',
+      suggestedActivities: ['hiking', 'city tour']
+    },
+    {
+      id: 12,
+      userID: 1,
+      destinationID: 2,
+      travelers: 1,
+      date: '2021/05/15', 
+      duration: 10,
+      status: 'approved',
+      suggestedActivities: ['museum visit', 'beach day']
     }
   ];
+
+  export default Trips

@@ -1,4 +1,4 @@
-export const Travelers = [
+ const Travelers = [
     {
       "id": 1,
       "name": "Peter Parker",
@@ -50,3 +50,5 @@ export const Travelers = [
       "travelerType": "spiritual seeker"
     }
   ]
+
+  export default Travelers
