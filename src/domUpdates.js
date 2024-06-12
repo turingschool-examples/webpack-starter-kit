@@ -48,16 +48,16 @@ pastTripsButton.addEventListener('click', (e) => {
     tripDisplay.classList.remove('hidden')
     const pastTrips = travelerTrips(allTripsData, 'approved', 3);
     tripDisplay.innerHTML = `<h3>${firstName}'s Trips for the past three years</h3>`
-    displayTrips(pastTrips)
+    displayTrips(pastTrips, `${firstName}'s past trips`)
 })
 
 pendingTripsButton.addEventListener('click', async(e) =>{
     e.preventDefault();
     bookNewTrip.classList.add('hidden');
-    tripDisplay.classList.remove('hidden')
+    tripDisplay.classList.remove('hidden');
+    await fetchUpdatedTripsData()
     const pastTrips = travelerTrips(allTripsData, 'pending', 1, 0);
-    tripDisplay.innerHTML = `<h3>${firstName}'s pending trips</h3>`
-    await displayTrips(pastTrips)
+    displayTrips(pastTrips)
 })
 
 upcomingTripsButton.addEventListener('click', (e) => {
@@ -113,13 +113,15 @@ export const fetchingAllData = async() => {
    export const displayTrips = async(trips) => {
     tripDisplay.innerHTML += '<div class="trip-container"></div>'
     if (trips.length > 0) {
+        let status;
+        tripDisplay.innerHTML += `<h3>${firstName}'s pending trips</h3><br/> `
         trips.forEach(trip => {
             const destinations = allDestinationsData.find(destination => destination.id === trip.destinationID);
             let travelpics;
             if (destinations) {
                 travelpics = destinations.image;
             }
-        
+        status = trip.status
         tripDisplay.innerHTML += `
         <div class="trip-display">
         <img src="${travelpics}" class="location-pic" alt="destination-pic">

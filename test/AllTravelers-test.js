@@ -8,7 +8,7 @@ describe('calculateTripCost', () => {
         const destinationValue = "Wakanda";
         const guestCount = 2;
         const durationDays = 7;
-        const expectedCost = 5700.00 // 14100
+        const expectedCost = 5700.00 
 
         const result = calculateTripCost(destinationValue, guestCount, durationDays, Destinations)
 

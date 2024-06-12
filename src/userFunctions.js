@@ -75,7 +75,7 @@ export const postNewTrip =  async() => {
         newTripBookedButton.disabled = false
     }
 
-const newDestination = allDestinationsData.find(location => location.destination === destinationValue)
+    const newDestination = allDestinationsData.find(location => location.destination === destinationValue)
     const locationId = newDestination.id
 
     const usersDate = dateValue.split("-").join("/")
@@ -101,7 +101,7 @@ const newDestination = allDestinationsData.find(location => location.destination
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(bookingData),
-    }).then(response => response.json()).then(data => console.log('DATA OF POST', data)).catch(error =>
+    }).then(response => response.json()).then(data => data).catch(error =>
     console.error('Error:', error))
 }
 

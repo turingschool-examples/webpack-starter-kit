@@ -16,22 +16,22 @@
     <section class="login-section" id="loginSection">
       <h2 class="sign-in" alt="signInText">Sign In</h2>
       <form class="login-form" id="loginForm" alt="login-form">
-        <label for="text">Username:</label>
-        <input type="text" id="usernameInput" placeholder="Ex: Johnny50" required="Enter a username">
+        <label for="usernameInput">Username:</label>
+        <input type="text" id="usernameInput" placeholder="Ex: Johnny50" required>
         <p id="username-error-message" class="error-message-username hidden">Username doesn't exist try again.</p>
 
-        <label for="text">Password:</label>
-        <input type="password" id="passwordInput" placeholder="Ex: Johnny" required="Enter a password">
+        <label for="passwordInput">Password:</label>
+        <input type="password" id="passwordInput" placeholder="Ex: Johnny" required>
         <p id="password-error-message" class="error-message-password hidden">Password failed try again.</p>
         <input class="submitLogin" type="submit" value="submit">
       </form>
     </section>
     <section class="buttonSection hidden">
       <div>
-      <button class="pastTrips" id="past-trips" alt="pastTripsButton">Past Trips</button>
-      <button class="pendingTrips" id="pending-trips" alt="pendingTripsButton">Pending Trips</button>
-      <button class="upcomingTrips" id="upcoming-trips" alt="upcomingTripsButton">Upcoming Trips</button>
-      <button class="newTrips" id="new-trips" alt="bookNewTripButton">Book New Trip</button>
+      <button class="pastTrips" id="past-trips"role="button" aria-label="Past Trips">Past Trips</button>
+      <button class="pendingTrips" id="pending-trips"role="button" aria-label="Pending Trips">Pending Trips</button>
+      <button class="upcomingTrips" id="upcoming-trips"role="button" aria-label="Upcoming Trips">Upcoming Trips</button>
+      <button class="newTrips" id="new-trips" role="button" aria-label="Book a New Trip">Book New Trip</button>
     </div>
     </section>
     <section class="user-total hidden" id="user-totals" alt="usersTotalCost">
@@ -41,16 +41,15 @@
     <section class="book-trip hidden" id="bookTripSection">
       <form id="bookingForm" alt="booking-form">
         <div class="destination-choice">
-          <label for="selectionMenu">Destination:
+          <label for="selectionMenu">Destination:</label>
             <select class="selection" id="selectionMenu" placeholder="Select Destination" alt="destination-selection">
             </select>
-          </label>
-          <label for="date">Date:</label>
-            <input class="dateStart" type="date" min="06-6-2024">
+          <label for="Date">Date:</label>
+            <input class="dateStart" id="Date"type="date" min="06-6-2024">
           <label for="numberOfGuest">Total Guest:</label>
-            <input class='travelerTotal' type="number" min="1" max="30" placeholder="1-30 Guest">
+            <input class='travelerTotal' id="numberOfGuest" type="number" min="1" max="30" placeholder="1-30 Guest">
           <label for="duration">Duration:</label>
-            <input class='durationTotal'type="number" min="1" max="31" placeholder="1-31 Days">
+            <input class='durationTotal'id="duration" type="number" min="1" max="31" placeholder="1-31 Days">
         </div>
           <input class="estimateButton" type="button" value="Get Estimate">
           <input class="confirmButton" type="button" value="Confirm Booking">
