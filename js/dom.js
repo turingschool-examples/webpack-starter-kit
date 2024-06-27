@@ -25,7 +25,7 @@ myTripsNav.addEventListener('click', () => {
 })
 
 bookTripNav.addEventListener('click', () => {
-    show(bookTripNav)
+    show(formsSection)
     hide(tripDetails)
     hide(destinationsSection)
 })
