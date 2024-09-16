@@ -1,11 +1,28 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
+// import live here
 import './css/styles.css';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
+// query selectors go here
 
-console.log('This is the JavaScript entry file - your code begins here.');
+// global variables used for data model here
+let travelersRepo 
+let currentTraveler
+
+//functions here
+function apiCalls () {
+    getApiData()
+    loadHandler()
+}
+
+function getApiData() {
+    let getAllTravelers = fetch('http://localhost:3001/api/v1/travelers	')
+}
+
+
+function loadHandler() {
+    console.log("this loaded")
+}
+
+//event listeners here
+window.addEventListener("load", apiCalls())
